@@ -34,8 +34,14 @@ public class Logs {
 
 	public static void methods(Class<?> clazz) {
 		for (Method method : clazz.getDeclaredMethods()) {
-			log.info("method: [{}] s={}", method.getName(), method.isSynthetic());
+			log.info("declare method: [{}] s={}", method.getName(), method.isSynthetic());
 		}
+
+		/*
+		for (Method method : clazz.getMethods()) {
+			log.info("method: [{}] s={}, b={}", method.getName(), method.isSynthetic(), method.isBridge());
+		}
+		 */
 	}
 
 }
