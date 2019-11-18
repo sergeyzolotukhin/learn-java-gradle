@@ -1,15 +1,15 @@
-package ua.in.sz.pattern.tostring;
+package ua.in.sz.pattern.tostring.keys;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import ua.in.sz.pattern.tostring.CompositeKey;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class ToStringBuilderCompositeKey implements CompositeKey {
-	Map<String, Object> fields = new HashMap<>();
-	Map<String, Object> params = new HashMap<>();
+	private Map<String, Object> fields = new HashMap<>();
+	private Map<String, Object> params;
 
 	@Override
 	public void addField(String name, Object value) {
