@@ -1,6 +1,7 @@
 package ua.in.sz.pattern.tostring.keys;
 
 
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 import ua.in.sz.pattern.tostring.CompositeKey;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@ToString
 public abstract class AbstractCompositeKey implements CompositeKey {
 	Map<String, Object> fields = new HashMap<>();
 	Map<String, Object> params = new HashMap<>();
