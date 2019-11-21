@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.jcommand;
+package ua.in.sz.pattern.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyAspect {
 
-	@Before("execution(* ua.in.sz.pattern.jcommand.*Service.*(..))")
+	@Before("execution(* ua.in.sz.pattern.aspect.*Service.*(..))")
 	public void before(JoinPoint joinpoint) {
 		log.info("Before: {}", joinpoint.toShortString());
 	}

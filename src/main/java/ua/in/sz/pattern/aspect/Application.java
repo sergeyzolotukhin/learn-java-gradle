@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.jcommand;
+package ua.in.sz.pattern.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
