@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyAspect {
 
-	@Before("execution(* ua.in.sz.pattern.aspect.*Service.*(..))")
+	@Before("execution(* ua.in.sz.pattern.aspect.service.*Service.*(..))")
 	public void before(JoinPoint joinpoint) {
 		log.info("Before: {}", joinpoint.toShortString());
 	}

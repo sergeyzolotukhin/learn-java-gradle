@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.aspect;
+package ua.in.sz.pattern.aspect.service;
 
 public interface AccountService {
 	void execute();
