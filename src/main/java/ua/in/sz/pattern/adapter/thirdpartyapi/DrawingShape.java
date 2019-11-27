@@ -5,7 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 @Slf4j
 @Builder
@@ -14,7 +15,7 @@ public class DrawingShape {
 	private List<GeometricShape> shapes = new ArrayList<>();
 
 	public void draw() {
-		String result = shapes.stream().map(GeometricShape::draw).collect(Collectors.joining(","));
+		String result = shapes.stream().map(GeometricShape::draw).collect(joining(","));
 
 		log.info("drawing: {}", result);
 	}
