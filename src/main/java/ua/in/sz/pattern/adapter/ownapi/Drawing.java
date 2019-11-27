@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Builder
@@ -13,10 +14,8 @@ public class Drawing {
 	private List<Shape> shapes = new ArrayList<>();
 
 	public void render() {
-		log.info("start drawing");
+		String result = shapes.stream().map(Shape::render).collect(Collectors.joining(","));
 
-		shapes.forEach(Shape::render);
-
-		log.info("end drawing");
+		log.info("drawing: {}", result);
 	}
 }

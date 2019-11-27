@@ -11,7 +11,7 @@ public class ShapeAdapter implements Shape {
 	private final GeometricShape delegate;
 
 	@Override
-	public void render() {
-		delegate.draw();
+	public String render() {
+		return delegate.draw();
 	}
 }

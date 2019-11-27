@@ -5,6 +5,11 @@ import ua.in.sz.pattern.adapter.ownapi.Shape;
 import ua.in.sz.pattern.adapter.thirdpartyapi.GeometricShape;
 
 import java.util.Optional;
+import java.util.stream.Stream;
+
+import static java.util.Optional.ofNullable;
+import static java.util.stream.Collectors.joining;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 @Slf4j
 public class CommonShapeAdapter implements Shape, GeometricShape {
@@ -20,17 +25,22 @@ public class CommonShapeAdapter implements Shape, GeometricShape {
 	}
 
 	@Override
-	public void render() {
-		doDraw();
+	public String render() {
+		return doDraw();
 	}
 
 	@Override
-	public void draw() {
-		doDraw();
+	public String draw() {
+		return doDraw();
 	}
 
-	private void doDraw() {
-		Optional.ofNullable(shapeDelegate).ifPresent(Shape::render);
-		Optional.ofNullable(geometryShapeDelegate).ifPresent(GeometricShape::draw);
+	private String doDraw() {
+		return Stream.of(
+				ofNullable(shapeDelegate).map(Shape::render),
+				ofNullable(geometryShapeDelegate).map(GeometricShape::draw)
+		)
+				.filter(Optional::isPresent)
+				.map(e -> e.orElse(EMPTY))
+				.collect(joining(","));
 	}
 }
