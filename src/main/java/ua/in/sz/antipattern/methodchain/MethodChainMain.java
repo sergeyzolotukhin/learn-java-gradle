@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.nullchain;
+package ua.in.sz.antipattern.methodchain;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +15,7 @@ import static java.util.Objects.requireNonNull;
  * 		Only talk to your immediate friends.
  */
 @Slf4j
-public class NullChainMain {
+public class MethodChainMain {
 	public static void main(String[] args) {
 		A first = new A();
 //		A first = null;
