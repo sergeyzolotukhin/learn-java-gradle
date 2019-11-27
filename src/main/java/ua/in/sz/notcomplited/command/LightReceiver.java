@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.command;
+package ua.in.sz.notcomplited.command;
 
 import lombok.extern.slf4j.Slf4j;
 

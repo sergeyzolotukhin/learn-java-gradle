@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.command;
+package ua.in.sz.notcomplited.command;
 
 class SwitchInvoker {
     void execute(Command command) {

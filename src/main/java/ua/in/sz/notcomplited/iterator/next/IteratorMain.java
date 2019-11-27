@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.iterator.next;
+package ua.in.sz.notcomplited.iterator.next;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.command;
+package ua.in.sz.notcomplited.command;
 
 public interface Command {
     void execute();

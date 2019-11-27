@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.command;
+package ua.in.sz.notcomplited.command;
 
 public class Client {
     public static void main(String[] args) {

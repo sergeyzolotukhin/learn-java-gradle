@@ -1,17 +1,17 @@
-package ua.in.sz.pattern.command;
+package ua.in.sz.notcomplited.command;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class TurnOffLightCommand implements Command {
+public class TurnOnLightCommand implements Command {
     private final LightReceiver light;
 
-    TurnOffLightCommand(LightReceiver light) {
+    TurnOnLightCommand(LightReceiver light) {
         this.light = light;
     }
 
     @Override
     public void execute() {
-       light.turnOff();
+       light.turnOn();
     }
 }

@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.reflections;
+package ua.in.sz.notcomplited.reflections;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
