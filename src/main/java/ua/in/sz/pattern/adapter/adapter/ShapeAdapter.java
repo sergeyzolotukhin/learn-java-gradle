@@ -7,7 +7,7 @@ import ua.in.sz.pattern.adapter.thirdpartyapi.GeometricShape;
 
 @Slf4j
 @RequiredArgsConstructor
-public class DelegateShapeAdapter implements Shape {
+public class ShapeAdapter implements Shape {
 	private final GeometricShape delegate;
 
 	@Override
