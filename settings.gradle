@@ -1,2 +1,4 @@
-rootProject.name = 'command'
+//rootProject.name = 'ua.in.sz.multi'
 
+include 'spring-dev-tools'
+include 'pattern'

@@ -1,35 +1,22 @@
-plugins {
-    id 'java'
+subprojects { subproject ->
+    subproject.apply plugin: 'java'
 }
 
-group 'ua.in.sz.pattern'
-version '1.0-SNAPSHOT'
+subprojects {
+    repositories {
+        jcenter()
+    }
 
-sourceCompatibility = 1.8
+    dependencies {
+        implementation 'com.google.guava:guava:28.0-jre'
 
-repositories {
-    mavenCentral()
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter:2.1.6.RELEASE'
-    implementation 'org.springframework.boot:spring-boot-starter-aop:2.1.6.RELEASE'
-//    implementation 'org.springframework:spring-expression:5.1.8.RELEASE'
 
-    // common utils
-    compile 'com.google.guava:guava:28.0-jre'
-    compile 'org.apache.commons:commons-text:1.7'
-    compile 'org.apache.commons:commons-lang3:3.9'
-    compile 'org.apache.commons:commons-collections4:4.4'
-    compile 'commons-io:commons-io:2.6'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
-
-    // testing
-    testCompile 'org.junit.jupiter:junit-jupiter:5.5.1'
-}
