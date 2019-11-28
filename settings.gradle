@@ -1,4 +1,4 @@
-//rootProject.name = 'ua.in.sz.multi'
-
 include 'spring-dev-tools'
+include 'sping-shell'
+
 include 'pattern'

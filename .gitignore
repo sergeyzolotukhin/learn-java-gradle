@@ -29,3 +29,6 @@ build/
 .idea/
 out/
 
+### application
+.bin/
+
