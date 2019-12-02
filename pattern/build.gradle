@@ -14,7 +14,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter:2.1.6.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-aop:2.1.6.RELEASE'
-//    implementation 'org.springframework:spring-expression:5.1.8.RELEASE'
+    implementation 'javax.cache:cache-api:1.1.1'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
