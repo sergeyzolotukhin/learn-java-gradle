@@ -47,9 +47,6 @@ public class Application {
 		LocalDateTime from = process.getDueDate().atStartOfDay();
 		LocalDateTime to = from.plusDays(1);
 
-//		Period period = Period.between(from.toLocalDate(), to.toLocalDate());
-//		Duration duration = Duration.between(from, to);
-
 		LocalDateTime now = LocalDateTime.now(clock);
 
 		return (now.isEqual(from) || now.isAfter(from))
