@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +24,15 @@ public class Application {
 		processes.add(new Process(LocalDate.of(2019, 12, 3)));
 		processes.add(new Process(LocalDate.of(2019, 12, 15)));
 
-		LocalDate current = LocalDate.of(2019, 11, 10);
+		LocalDateTime current = LocalDate.of(2019, 11, 10).atStartOfDay();
 
-		for (int i = 0; i < 60; i++) {
-			current = current.plusDays(1);
+		for (int i = 0; i < 31*2*24; i++) {
+			current = current.plus(4, ChronoUnit.HOURS);
 
-			clock = Clock.fixed(current.atStartOfDay().toInstant(ZoneOffset.UTC), ZoneId.systemDefault());
+			clock = Clock.fixed(current.toInstant(ZoneOffset.UTC), ZoneId.systemDefault());
 
-			final LocalDate c = current;
-			log.info("Current: {}", c);
+			final LocalDateTime c = current;
+//			log.info("Current: {}", c);
 			processes.stream()
 					.filter(Application::isDueDateNow)
 					.forEach(p -> log.info("Process current {} due date: {}", c, p.getDueDate()));
