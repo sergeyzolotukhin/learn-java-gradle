@@ -3,6 +3,7 @@ package ua.in.sz.notcomplited.streams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,5 +35,12 @@ class ApplicationTest {
 		Map<Boolean, List<Dto>> partitions = Stream.of(dtos).collect(Collectors.partitioningBy(i -> i.getCode() <= 2));
 
 		partitions.forEach((key, value) -> System.out.println(String.format("%s=%s", key, value.size())));
+	}
+
+	@Test
+	void summarizingInt() {
+		IntSummaryStatistics sum = Stream.of(dtos).collect(Collectors.summarizingInt(Dto::getCode));
+
+		System.out.println("Sum:" + sum);
 	}
 }
