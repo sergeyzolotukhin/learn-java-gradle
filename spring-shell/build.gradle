@@ -29,7 +29,7 @@ bootJar {
 distributions {
     //noinspection GroovyAssignabilityCheck
     main {
-        baseName = 'tool'
+        distributionBaseName = 'tool'
         contents {
             from bootJar
             into "../../../.bin"
