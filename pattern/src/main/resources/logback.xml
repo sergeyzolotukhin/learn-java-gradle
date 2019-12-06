@@ -1,4 +1,7 @@
 <configuration>
+
+    <conversionRule conversionWord="highlightex" converterClass="ua.in.sz.logging.logs.AddTaskConverter" />
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 <!--        <filter class="ua.in.sz.logging.logs.MdcFilter">
             <feature>HBM-00001</feature>
@@ -6,7 +9,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>-->
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %highlightex(%msg){add tasks} %n</pattern>
         </encoder>
     </appender>
 
