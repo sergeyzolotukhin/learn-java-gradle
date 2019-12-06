@@ -1,8 +1,8 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <filter class="ua.in.sz.logging.MdcFilter">
-            <feature>HBM-00002</feature>
-            <onMatch>ACCEPT</onMatch>
+        <filter class="ua.in.sz.logging.logs.MdcFilter">
+            <feature>HBM-00001</feature>
+            <onMatch>NEUTRAL</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
@@ -11,6 +11,8 @@
     </appender>
 
     <logger name="org.quartz" level="warn" />
+    <logger name="ua.in.sz.logging.tasks.DebugDecorator" level="warn" />
+<!--    <logger name="ua.in.sz.logging.tasks.SecurityDecorator" level="warn" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

@@ -1,10 +1,8 @@
-package ua.in.sz.logging;
+package ua.in.sz.logging.logs;
 
 import org.slf4j.MDC;
 
 import java.util.Map;
-import java.util.Optional;
-import java.util.function.Consumer;
 
 @SuppressWarnings("UnusedReturnValue")
 public class Mdc {

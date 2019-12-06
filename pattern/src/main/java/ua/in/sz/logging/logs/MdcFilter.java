@@ -1,4 +1,4 @@
-package ua.in.sz.logging;
+package ua.in.sz.logging.logs;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.AbstractMatcherFilter;

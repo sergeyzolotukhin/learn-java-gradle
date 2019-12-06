@@ -1,6 +1,9 @@
 package ua.in.sz.logging;
 
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.logging.logs.Mdc;
+import ua.in.sz.logging.tasks.DebugDecorator;
+import ua.in.sz.logging.tasks.SecurityDecorator;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,8 +18,16 @@ public class Application {
 
 		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-		for (int i = 0; i < 10; i++) {
-			executor.submit(Mdc.wrap(() -> log.info("Execute task")));
+		for (int i = 0; i < 3; i++) {
+			executor.submit(
+					Mdc.wrap(
+							DebugDecorator.decorate(
+									() -> log.info("Execute task"))));
+
+			executor.submit(
+					Mdc.wrap(
+							SecurityDecorator.decorate(
+									() -> log.info("Execute task"))));
 		}
 
 		Mdc.remove().feature();
@@ -25,8 +36,10 @@ public class Application {
 
 		Mdc.put().feature("HBM-00002");
 
-		for (int i = 0; i < 10; i++) {
-			executor.submit(Mdc.wrap(() -> log.info("Execute task")));
+		for (int i = 0; i < 3; i++) {
+			executor.submit(Mdc.wrap(
+					SecurityDecorator.decorate(
+							() -> log.info("Execute task"))));
 		}
 
 		executor.shutdown();
