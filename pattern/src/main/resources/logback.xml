@@ -1,5 +1,10 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ua.in.sz.logging.MdcFilter">
+            <feature>HBM-00002</feature>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level |%-9.9X{feature}| %logger{36} - %msg%n</pattern>
         </encoder>
