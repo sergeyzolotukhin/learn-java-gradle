@@ -1,4 +1,4 @@
-package ua.in.sz.logging;
+package ua.in.sz.loadproperty;
 
 import lombok.extern.slf4j.Slf4j;
 
