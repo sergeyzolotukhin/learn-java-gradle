@@ -1,8 +1,8 @@
 <configuration>
-    <conversionRule conversionWord="highlightex" converterClass="ua.in.sz.logging.logs.AddTaskConverter" />
+    <conversionRule conversionWord="highlightex" converterClass="ua.in.sz.notcomplited.logging.logs.AddTaskConverter" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-<!--        <filter class="ua.in.sz.logging.logs.MdcFilter">
+<!--        <filter class="ua.in.sz.notcomplited.logging.logs.MdcFilter">
             <feature>HBM-00001</feature>
             <onMatch>NEUTRAL</onMatch>
             <onMismatch>DENY</onMismatch>

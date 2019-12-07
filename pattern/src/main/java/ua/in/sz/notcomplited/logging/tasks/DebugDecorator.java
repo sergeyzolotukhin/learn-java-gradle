@@ -1,4 +1,4 @@
-package ua.in.sz.logging.tasks;
+package ua.in.sz.notcomplited.logging.tasks;
 
 import lombok.extern.slf4j.Slf4j;
 

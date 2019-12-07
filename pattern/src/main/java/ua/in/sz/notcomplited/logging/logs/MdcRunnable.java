@@ -1,4 +1,4 @@
-package ua.in.sz.logging.logs;
+package ua.in.sz.notcomplited.logging.logs;
 
 import org.slf4j.MDC;
 

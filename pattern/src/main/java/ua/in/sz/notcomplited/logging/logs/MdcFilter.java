@@ -1,4 +1,4 @@
-package ua.in.sz.logging.logs;
+package ua.in.sz.notcomplited.logging.logs;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.AbstractMatcherFilter;

@@ -1,4 +1,4 @@
-package ua.in.sz.logging.logs;
+package ua.in.sz.notcomplited.logging.logs;
 
 import com.google.common.util.concurrent.ForwardingExecutorService;
 import lombok.RequiredArgsConstructor;
