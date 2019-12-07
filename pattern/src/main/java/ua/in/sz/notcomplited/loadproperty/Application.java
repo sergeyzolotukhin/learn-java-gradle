@@ -1,4 +1,4 @@
-package ua.in.sz.loadproperty;
+package ua.in.sz.notcomplited.loadproperty;
 
 import lombok.extern.slf4j.Slf4j;
 
