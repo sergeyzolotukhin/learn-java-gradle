@@ -12,8 +12,11 @@
         </encoder>
     </appender>
 
-    <include file="pattern/src/main/resources/logback-security.xml"/>
-    <include file="pattern/src/main/resources/logback-debug.xml"/>
+    <include optional="true" resource="logback-security.xml"/>
+    <include resource="logback-debug.xml"/>
+
+<!--    <include file="pattern/src/main/resources/logback-security.xml"/>-->
+<!--    <include file="pattern/src/main/resources/logback-debug.xml"/>-->
 
     <logger name="org.quartz" level="warn" />
 
