@@ -1,5 +1,4 @@
 <configuration>
-
     <conversionRule conversionWord="highlightex" converterClass="ua.in.sz.logging.logs.AddTaskConverter" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -13,9 +12,10 @@
         </encoder>
     </appender>
 
+    <include file="pattern/src/main/resources/logback-security.xml"/>
+    <include file="pattern/src/main/resources/logback-debug.xml"/>
+
     <logger name="org.quartz" level="warn" />
-<!--    <logger name="ua.in.sz.logging.tasks.DebugDecorator" level="warn" />-->
-<!--    <logger name="ua.in.sz.logging.tasks.SecurityDecorator" level="warn" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

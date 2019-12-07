@@ -1,0 +1,3 @@
+<included>
+    <logger name="ua.in.sz.logging.tasks.SecurityDecorator" level="warn"/>
+</included>
