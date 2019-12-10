@@ -25,6 +25,12 @@ configurations {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
 
+    // runtime
+    runtime files('config')
+
+    // common utils
+    implementation 'commons-io:commons-io:2.6'
+
     // development
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'

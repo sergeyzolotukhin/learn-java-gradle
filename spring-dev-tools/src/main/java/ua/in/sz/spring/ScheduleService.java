@@ -1,14 +1,26 @@
 package ua.in.sz.spring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Slf4j
 @Service
 public class ScheduleService {
-//	@Scheduled(fixedRate = 1000)
-	public void schedule() {
-		log.info("Executed");
+
+	@Value("classpath:inventory.txt")
+	private Resource resource;
+
+	@Scheduled(fixedRate = 1000)
+	public void schedule() throws IOException {
+		String text = IOUtils.toString(resource.getInputStream(), UTF_8.name());
+		log.info("Executed: [{}]", text);
 	}
 }
