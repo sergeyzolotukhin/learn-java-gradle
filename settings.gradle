@@ -2,5 +2,6 @@
 //include 'spring-shell'
 //include 'spring-quartz'
 //include 'spring-aspect'
+include 'spring-xml'
 
-include 'pattern'
+//include 'pattern'
