@@ -26,7 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
 
     // runtime
-    runtime files('config')
+    runtimeOnly files('config')
 
     // common utils
     implementation 'commons-io:commons-io:2.6'
