@@ -1,5 +1,6 @@
 //include 'spring-dev-tools'
 //include 'spring-shell'
 //include 'spring-quartz'
+include 'spring-aspect'
 
-include 'pattern'
+//include 'pattern'
