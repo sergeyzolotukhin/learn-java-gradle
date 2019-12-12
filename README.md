@@ -23,3 +23,7 @@ How to backup and share database state with CI?
     https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/xsd-config.html
     https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/extensible-xml.html
     
+#### Method references 
+
+    https://dzone.com/articles/java-lambda-method-reference
+    
