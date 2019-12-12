@@ -1,4 +1,4 @@
-package ua.in.sz.notcomplited.methodreferences;
+package ua.in.sz.javacore.methodreferences;
 
 import com.google.common.collect.ImmutableList;
 import lombok.Builder;
