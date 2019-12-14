@@ -29,9 +29,10 @@ public class Application {
 
 	@Builder
 	@Getter
-	@ToString
+	@ToString(onlyExplicitlyIncluded = true)
 	private static class Dto {
 		private String name;
+		@ToString.Include
 		private String code;
 	}
 }
