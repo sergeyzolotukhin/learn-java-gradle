@@ -20,8 +20,7 @@ public class Application {
 		);
 
 		String result = list.stream()
-				.sorted(Comparator.comparing(Dto::getName)
-						.thenComparing(Dto::getCode))
+				.sorted(Comparator.comparing(Dto::getName).thenComparing(Dto::getCode))
 				.map(Dto::toString)
 				.collect(Collectors.joining(", "));
 
