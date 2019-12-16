@@ -1,4 +1,4 @@
-package ua.in.sz.notcomplited.clock;
+package ua.in.sz.javacore.clock;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

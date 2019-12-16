@@ -12,11 +12,13 @@ repositories {
 }
 
 dependencies {
+
     implementation 'javax.cache:cache-api:1.1.1'
     implementation 'org.quartz-scheduler:quartz:2.3.2'
 
     // experimental
     implementation 'commons-chain:commons-chain:1.2'
+    implementation 'org.eclipse.collections:eclipse-collections:10.1.0'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
