@@ -3,5 +3,6 @@
 //include 'spring-quartz'
 //include 'spring-aspect'
 //include 'spring-xml'
+include 'spring-hibernate-search'
 
 include 'pattern'
