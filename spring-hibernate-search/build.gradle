@@ -18,8 +18,7 @@ apply plugin: "io.spring.dependency-management"
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'joda-time:joda-time:2.10.5'
-    implementation 'joda-time:joda-time-hibernate:1.4'
+    implementation 'com.h2database:h2:1.4.200'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'

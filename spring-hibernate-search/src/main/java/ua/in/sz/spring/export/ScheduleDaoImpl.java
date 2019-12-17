@@ -1,11 +1,15 @@
-package ua.in.sz.spring.filter;
+package ua.in.sz.spring.export;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import ua.in.sz.spring.filter.Filter;
+import ua.in.sz.spring.filter.FilterDao;
 
 import java.util.List;
 
-public class FilterDaoImpl implements FilterDao {
+@Repository
+public class ScheduleDaoImpl implements FilterDao {
 
     private SessionFactory sessionFactory;
 
