@@ -1,12 +1,12 @@
 package ua.in.sz.spring.filter;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 
 public interface Filter<E, D> {
 
-    Criteria searchCriteria(Session session);
+    CriteriaQuery<D> searchQuery(CriteriaBuilder session);
 
-    Criteria countCriteria(Session session);
+    CriteriaQuery<Long> countQuery(CriteriaBuilder session);
 
 }
