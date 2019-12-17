@@ -16,11 +16,11 @@ public class FilterDaoImpl implements FilterDao {
     @Override
     @SuppressWarnings("unchecked")
     public <E, D> List<D> search(Filter<E, D> filter) {
-        return filter.getSearchCriteria(getSession()).list();
+        return filter.searchCriteria(getSession()).list();
     }
 
     @Override
     public <E, D> Long count(Filter<E, D> filter) {
-        return (Long) filter.getCountCriteria(getSession()).uniqueResult();
+        return (Long) filter.countCriteria(getSession()).uniqueResult();
     }
 }

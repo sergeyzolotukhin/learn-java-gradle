@@ -13,15 +13,16 @@ import org.hibernate.transform.Transformers;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class Filter<E, D> {
 
     protected Conjunction and = Restrictions.conjunction();
     protected Disjunction or = Restrictions.disjunction();
 
-    private List<Order> orderByList = new LinkedList<>();
+    private List<Order> order = new LinkedList<>();
 
-    private int page = 1;
+    private int offset = 1;
     private int pageSize = 1;
 
     public abstract Class<E> entityClass();
@@ -32,36 +33,38 @@ public abstract class Filter<E, D> {
 
     protected abstract void aliases(Criteria criteria);
 
-    public abstract Criterion getCriterion();
+    public abstract Criterion criterion();
 
-    public List<Order> getOrderByList() {
-        return orderByList;
+    public List<Order> order() {
+        return order;
     }
 
-    public final Criteria getSearchCriteria(Session session) {
+    public final Criteria searchCriteria(Session session) {
         Criteria c = session.createCriteria(entityClass());
         aliases(c);
-        Criteria readyCriteria = buildCriteria(
+
+        Criteria criteria = buildCriteria(
                 c,
-                getCriterion(),
-                getOrderByList(),
-                getOffset(),
-                getPageSize());
-        Projection projection = projection();
-        if (projection != null) {
-            readyCriteria.setProjection(projection);
-        }
-        readyCriteria.setResultTransformer(Transformers.aliasToBean(dtoClass()));
+                criterion(),
+                order(),
+                offset(), limit());
 
-        return readyCriteria;
+        Optional.ofNullable(projection()).ifPresent(criteria::setProjection);
+
+        criteria.setResultTransformer(Transformers.aliasToBean(dtoClass()));
+
+        return criteria;
 
     }
 
-    public final Criteria getCountCriteria(Session session) {
+    public final Criteria countCriteria(Session session) {
         Criteria c = session.createCriteria(entityClass());
         aliases(c);
+
         c.setProjection(Projections.countDistinct("id"));
-        buildCriteria(c, getCriterion(), null, null, null);
+
+        buildCriteria(c, criterion(), null, null, null);
+
         return c;
     }
 
@@ -78,19 +81,19 @@ public abstract class Filter<E, D> {
         or.add(criterion);
     }
 
+    public int offset() {
+        return limit() * (getOffset() - 1);
+    }
+
     public int getOffset() {
-        return getPageSize() * (getPage() - 1);
+        return offset;
     }
 
-    public int getPage() {
-        return page;
+    public void setOffset(int offset) {
+        this.offset = Math.max(offset, 1);
     }
 
-    public void setPage(int page) {
-        this.page = Math.max(page, 1);
-    }
-
-    public int getPageSize() {
+    public int limit() {
         return pageSize;
     }
 
