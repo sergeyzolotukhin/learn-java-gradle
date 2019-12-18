@@ -11,21 +11,17 @@ public abstract class AbstractFilterDao implements FilterDao {
 
     protected Logger log = LoggerFactory.getLogger(getClass());
 
-    private final EntityManager entityManager;
-
-    public AbstractFilterDao(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    public abstract EntityManager getEntityManager();
 
     @Override
     public <E, D> Stream<D> search(Filter<E, D> filter) {
-        CriteriaQuery<D> query = filter.searchQuery(entityManager.getCriteriaBuilder());
-        return entityManager.createQuery(query).getResultStream();
+        CriteriaQuery<D> query = filter.searchQuery(getEntityManager().getCriteriaBuilder());
+        return getEntityManager().createQuery(query).getResultStream();
     }
 
     @Override
     public <E, D> Long count(Filter<E, D> filter) {
-        CriteriaQuery<Long> query = filter.countQuery(entityManager.getCriteriaBuilder());
-        return entityManager.createQuery(query).getSingleResult();
+        CriteriaQuery<Long> query = filter.countQuery(getEntityManager().getCriteriaBuilder());
+        return getEntityManager().createQuery(query).getSingleResult();
     }
 }

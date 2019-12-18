@@ -10,8 +10,16 @@ import javax.persistence.EntityManager;
 @Slf4j
 @Repository
 public class ScheduleFilterDaoImpl extends AbstractFilterDao implements ScheduleFilterDao {
+
+	private final EntityManager entityManager;
+
 	@Autowired
 	public ScheduleFilterDaoImpl(EntityManager entityManager) {
-		super(entityManager);
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 }
