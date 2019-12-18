@@ -5,11 +5,12 @@ import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.persistence.criteria.Selection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,30 +28,42 @@ public abstract class AbstractFilter<E, D> implements Filter<E, D> {
 
 	public abstract Class<D> dtoClass();
 
-	protected abstract Projection projection();
+	protected abstract List<Selection<?>> selection(Root<E> from);
 
-	protected abstract void aliases(Criteria criteria);
+	@Override
+	public CriteriaQuery<D> searchQuery(CriteriaBuilder cb) {
+		CriteriaQuery<D> cq = cb.createQuery(dtoClass());
 
-	public abstract Criterion criterion();
+		Root<E> from = cq.from(entityClass());
+		cq.select(cb.construct(dtoClass(), selection(from).toArray(new Selection<?>[0])));
 
-	public List<Order> order() {
-		return order;
+		return cq;
 	}
 
 	@Override
 	public final CriteriaQuery<Long> countQuery(CriteriaBuilder cb) {
 		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
-        return cq.select(cb.count(cq.from(entityClass())));
+		return cq.select(cb.count(cq.from(entityClass())));
 	}
 
 	// ================================================================================================================
 	//
 	// ================================================================================================================
 
+	protected void aliases(Criteria searchCriteria) {
+	}
+
+	public Criterion criterion() {
+		return and.add(or);
+	}
+
+	public List<Order> order() {
+		return order;
+	}
+
 	public void and(Criterion criterion) {
 		and.add(criterion);
 	}
-
 
 	public void or(Criterion criterion) {
 		or.add(criterion);

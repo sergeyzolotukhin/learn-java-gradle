@@ -1,14 +1,9 @@
 package ua.in.sz.spring.export;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Projection;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import static org.hibernate.criterion.Projections.projectionList;
+import javax.persistence.criteria.Selection;
+import java.util.Collections;
+import java.util.List;
 
 public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, ScheduleExportDto> {
 
@@ -22,28 +17,9 @@ public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, Schedul
 		return ScheduleExportDto.class;
 	}
 
-	@Override
-	protected Projection projection() {
-		return projectionList();
-	}
-
-	@Override
-	protected void aliases(Criteria searchCriteria) {
-
-	}
-
-	public Criterion criterion() {
-		return and.add(or);
-	}
-
-	@Override
-	public CriteriaQuery<ScheduleExportDto> searchQuery(CriteriaBuilder cb) {
-		CriteriaQuery<ScheduleExportDto> cq = cb.createQuery(dtoClass());
-
-		Root<ScheduleEntity> from = cq.from(entityClass());
-		cq.select(cb.construct(ScheduleExportDto.class,
-				from.get(ScheduleEntity.Fields.name)));
-
-		return cq;
+	protected List<Selection<?>> selection(Root<ScheduleEntity> from) {
+		return Collections.singletonList(
+				from.get(ScheduleEntity.Fields.name)
+		);
 	}
 }
