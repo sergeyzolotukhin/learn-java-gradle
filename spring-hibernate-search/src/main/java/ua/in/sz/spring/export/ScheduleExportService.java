@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+import ua.in.sz.spring.common.FilterDao;
 
 import javax.transaction.Transactional;
 import java.util.List;

@@ -1,21 +1,19 @@
-package ua.in.sz.spring.export;
+package ua.in.sz.spring.common;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.stream.Stream;
 
-@Slf4j
-@Repository
-public class ScheduleDaoImpl implements FilterDao {
+public abstract class AbstractFilterDao implements FilterDao {
+
+    protected Logger log = LoggerFactory.getLogger(getClass());
 
     private final EntityManager entityManager;
 
-    @Autowired
-    public ScheduleDaoImpl(EntityManager entityManager) {
+    public AbstractFilterDao(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

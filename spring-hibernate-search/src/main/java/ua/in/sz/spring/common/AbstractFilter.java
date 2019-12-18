@@ -1,4 +1,4 @@
-package ua.in.sz.spring.export;
+package ua.in.sz.spring.common;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

@@ -1,5 +1,7 @@
 package ua.in.sz.spring.export;
 
+import ua.in.sz.spring.common.AbstractFilter;
+
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
 
