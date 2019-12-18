@@ -38,11 +38,11 @@ public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, Schedul
 
 	@Override
 	public CriteriaQuery<ScheduleExportDto> searchQuery(CriteriaBuilder cb) {
-			CriteriaQuery<ScheduleExportDto> cq = cb.createQuery(dtoClass());
+		CriteriaQuery<ScheduleExportDto> cq = cb.createQuery(dtoClass());
 
-			Root<ScheduleEntity> from = cq.from(entityClass());
-			cq.select(from.get("name"));
+		Root<ScheduleEntity> from = cq.from(entityClass());
+		cq.select(cb.construct(ScheduleExportDto.class, from.get("name")));
 
-			return cq;
+		return cq;
 	}
 }

@@ -1,10 +1,10 @@
 package ua.in.sz.spring.export;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@Setter
+@RequiredArgsConstructor
 public class ScheduleExportDto {
-	private String name;
+	private final String name;
 }

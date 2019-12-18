@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -28,6 +29,8 @@ public class ScheduleExportService implements CommandLineRunner {
 		log.info("Count: {}", count);
 
 		Stream<ScheduleExportDto> result = filterDao.search(filter);
-		log.info("Result: [{}]", result.map(ScheduleExportDto::getName).collect(Collectors.joining(", ")));
+
+		List<ScheduleExportDto> collect = result.collect(Collectors.toList());
+		log.info("Result: [{}]", collect.stream().map(ScheduleExportDto::getName).collect(Collectors.joining(", ")));
 	}
 }
