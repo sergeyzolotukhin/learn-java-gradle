@@ -1,4 +1,4 @@
-package ua.in.sz.spring.export;
+package ua.in.sz.spring.export.entities;
 
 import lombok.Getter;
 import lombok.Setter;

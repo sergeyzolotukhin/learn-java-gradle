@@ -1,6 +1,7 @@
-package ua.in.sz.spring.export;
+package ua.in.sz.spring.export.service;
 
 import ua.in.sz.spring.common.AbstractFilter;
+import ua.in.sz.spring.export.entities.ScheduleEntity;
 
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
