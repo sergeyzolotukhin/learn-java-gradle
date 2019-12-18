@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import ua.in.sz.spring.export.dao.ScheduleFilterDao;
+import ua.in.sz.spring.export.entities.ScheduleEntity;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -25,6 +26,10 @@ public class ScheduleExportService implements CommandLineRunner {
 	@Transactional
 	public void run(String... args) {
 		ScheduleExportFilter filter = new ScheduleExportFilter();
+
+		for (int i = 0; i < 100_000; i++) {
+			scheduleFilterDao.save(ScheduleEntity.builder().name(getClass().getCanonicalName() + " " + i).build());
+		}
 
 		long count = scheduleFilterDao.count(filter);
 		log.info("Count: {}", count);

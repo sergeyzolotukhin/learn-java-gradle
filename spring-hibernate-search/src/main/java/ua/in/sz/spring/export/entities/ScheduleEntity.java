@@ -1,6 +1,9 @@
 package ua.in.sz.spring.export.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 
@@ -10,11 +13,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "SCHEDULE")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldNameConstants
+@Entity
+@Table(name = "SCHEDULE")
 public class ScheduleEntity {
 	@Id
 	@GeneratedValue
