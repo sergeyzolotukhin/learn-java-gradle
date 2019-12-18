@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,6 +20,7 @@ public class ScheduleExportService implements CommandLineRunner {
 	}
 
 	@Override
+	@Transactional
 	public void run(String... args) {
 		ScheduleExportFilter filter = new ScheduleExportFilter();
 
