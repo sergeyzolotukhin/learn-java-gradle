@@ -41,8 +41,7 @@ public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, Schedul
 		CriteriaQuery<ScheduleExportDto> cq = cb.createQuery(dtoClass());
 
 		Root<ScheduleEntity> from = cq.from(entityClass());
-		cq.select(cb.construct(ScheduleExportDto.class, from.get("name")));
-//		cq.select(cb.construct(ScheduleExportDto.class, from.get(ScheduleEntity_.name)));
+		cq.select(cb.construct(ScheduleExportDto.class, from.get(ScheduleEntity.Fields.name)));
 
 		return cq;
 	}
