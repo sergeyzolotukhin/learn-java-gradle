@@ -2,8 +2,6 @@ package ua.in.sz.spring.export;
 
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
-import java.util.Collections;
-import java.util.List;
 
 public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, ScheduleExportDto> {
 
@@ -17,9 +15,10 @@ public class ScheduleExportFilter extends AbstractFilter<ScheduleEntity, Schedul
 		return ScheduleExportDto.class;
 	}
 
-	protected List<Selection<?>> selection(Root<ScheduleEntity> from) {
-		return Collections.singletonList(
+	@Override
+	protected Selection<?>[] selection(Root<ScheduleEntity> from) {
+		return new Selection<?>[]{
 				from.get(ScheduleEntity.Fields.name)
-		);
+		};
 	}
 }
