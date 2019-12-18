@@ -28,6 +28,6 @@ public class ScheduleExportService implements CommandLineRunner {
 		log.info("Count: {}", count);
 
 		Stream<ScheduleExportDto> result = filterDao.search(filter);
-		log.info("Result: {}", result.map(ScheduleExportDto::getName).collect(Collectors.joining(", ")));
+		log.info("Result: [{}]", result.map(ScheduleExportDto::getName).collect(Collectors.joining(", ")));
 	}
 }
