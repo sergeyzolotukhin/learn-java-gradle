@@ -3,8 +3,6 @@ package ua.in.sz.spring.export;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ua.in.sz.spring.filter.Filter;
-import ua.in.sz.spring.filter.FilterDao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;

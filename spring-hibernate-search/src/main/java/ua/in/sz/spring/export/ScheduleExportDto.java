@@ -1,5 +1,10 @@
 package ua.in.sz.spring.export;
 
-public class ScheduleExportDto {
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+public class ScheduleExportDto {
+	private String name;
 }

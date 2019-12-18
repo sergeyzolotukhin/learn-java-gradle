@@ -1,4 +1,6 @@
-package ua.in.sz.spring.filter;
+package ua.in.sz.spring.export;
+
+import ua.in.sz.spring.export.Filter;
 
 import java.util.stream.Stream;
 

@@ -1,4 +1,4 @@
-package ua.in.sz.spring.filter;
+package ua.in.sz.spring.export;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Conjunction;
@@ -10,7 +10,6 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,36 +38,9 @@ public abstract class AbstractFilter<E, D> implements Filter<E, D> {
 	}
 
 	@Override
-	public final CriteriaQuery<D> searchQuery(CriteriaBuilder session) {
-		CriteriaQuery<D> c = session.createQuery(dtoClass());
-//		aliases(c);
-
-/*        CriteriaQuery criteria = buildCriteria(
-				c,
-				criterion(),
-				order(),
-				offset(), limit());*/
-
-//		Optional.ofNullable(projection()).ifPresent(criteria::setProjection);
-
-//		criteria.setResultTransformer(Transformers.aliasToBean(dtoClass()));
-
-		return c;
-
-	}
-
-	@Override
-	public final CriteriaQuery<Long> countQuery(CriteriaBuilder session) {
-		CriteriaQuery<Long> c = session.createQuery(Long.class);
-//		aliases(c);
-
-//		c.setProjection(Projections.countDistinct("id"));
-
-//		buildCriteria(c, criterion(), null, null, null);
-
-        Root<E> book = c.from(entityClass());
-
-		return c;
+	public final CriteriaQuery<Long> countQuery(CriteriaBuilder cb) {
+		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        return cq.select(cb.count(cq.from(entityClass())));
 	}
 
 	// ================================================================================================================
