@@ -32,4 +32,10 @@ public class ScheduleFilterDaoImpl extends AbstractFilterDao implements Schedule
 	public void save(ScheduleEntity scheduleEntity) {
 		entityManager.persist(scheduleEntity);
 	}
+
+	@Override
+	@Transactional(REQUIRES_NEW)
+	public ScheduleEntity find(Long id) {
+		return entityManager.find(ScheduleEntity.class, id);
+	}
 }

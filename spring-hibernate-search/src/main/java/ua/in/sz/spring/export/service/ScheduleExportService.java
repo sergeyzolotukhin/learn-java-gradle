@@ -8,6 +8,7 @@ import ua.in.sz.spring.export.dao.ScheduleFilterDao;
 import ua.in.sz.spring.export.entities.ScheduleEntity;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -36,7 +37,19 @@ public class ScheduleExportService implements CommandLineRunner {
 
 		Stream<ScheduleExportDto> result = scheduleFilterDao.search(filter);
 
-		List<ScheduleExportDto> collect = result.collect(Collectors.toList());
-		log.info("Result: [{}]", collect.stream().map(ScheduleExportDto::getName).collect(Collectors.joining(", ")));
+		log.info("Result: [{}]", toNames(result));
+
+		List<String> names = new ArrayList<>();
+		for (int i = 0; i < 100_000; i++) {
+			ScheduleEntity scheduleEntity = scheduleFilterDao.find(1L);
+			names.add(scheduleEntity.getName());
+		}
+
+		log.info("Result 2: [{}]", names.stream().limit(10).collect(Collectors.joining(", ")));
+		log.info("end");
+	}
+
+	private String toNames(Stream<ScheduleExportDto> result) {
+		return result.map(ScheduleExportDto::getName).limit(10).collect(Collectors.joining(", "));
 	}
 }
