@@ -15,7 +15,7 @@ public class Application {
 
 		LoadingCache<String, char[]> cache = CacheBuilder.newBuilder()
 				.maximumSize(100)
-				.weakValues()
+				.softValues()
 				.recordStats()
 				.recordStats()
 				.build(loader);
