@@ -3,15 +3,17 @@ package ua.in.sz.guavacache;
 import com.google.common.cache.CacheLoader;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
+
 @Slf4j
-public class SlowCacheLoader extends CacheLoader<String, String> {
+public class SlowCacheLoader extends CacheLoader<String, char[]> {
 	@Override
-	public String load(String key) throws Exception {
-		log.info("Loading ... ");
+	public char[] load(String key) {
+		log.trace("Loading ... ");
 
-		Thread.sleep(2_000);
+		char[] value = new char[100 * 1024 * 1024];
 
-		String value = String.format("%s=%s", key, "value");
+		Arrays.fill(value, 'A');
 
 		log.info("Loaded");
 

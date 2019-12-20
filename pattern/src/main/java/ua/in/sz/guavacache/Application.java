@@ -10,27 +10,31 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 public class Application {
-	public static void main(String[] args) throws ExecutionException, InterruptedException {
-		CacheLoader<String, String> loader = new SlowCacheLoader();
+	public static void main(String[] args) throws ExecutionException {
+		CacheLoader<String, char[]> loader = new SlowCacheLoader();
 
-		LoadingCache<String, String> cache = CacheBuilder.newBuilder()
+		LoadingCache<String, char[]> cache = CacheBuilder.newBuilder()
 				.maximumSize(100)
-//				.expireAfterAccess(Duration.ofMillis(1000))
+				.weakValues()
+				.recordStats()
 				.recordStats()
 				.build(loader);
 
 		StopWatch sw = StopWatch.createStarted();
 
-		for (int i = 0; i < 4; i++) {
-			log.info("Getting ...");
-			String val1 = cache.get("1");
-			log.info("Got");
+		int[] keys = {1, 1, 2, 2, 3, 4, 5, 6, 1, 1};
+		for (int i : keys) {
+			String key = String.valueOf(i);
 
-//			Thread.sleep(500);
+			log.info("Getting ... [{}]", key);
+			char[] val1 = cache.get(key);
+			log.info("Got {}", val1.length);
 		}
 
 		sw.stop();
 
-		log.info("Stats: {}, time: {}", cache.stats().toString(), sw);
+		cache.invalidateAll();
+
+		log.info("Stats: {}, execution time: {}", cache.stats().toString(), sw);
 	}
 }
