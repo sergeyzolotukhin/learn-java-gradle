@@ -8,6 +8,8 @@
         http://www.mycompany.com/schema/myns http://www.mycompany.com/schema/myns/myns.xsd">
 
     <myns:dateformat id="defaultDateFormat" pattern="yyyy-MM-dd HH:mm" lenient="true"/>
-    <bean class="ua.in.sz.spring.ScheduleService" init-method="schedule"/>
+    <bean class="ua.in.sz.spring.ScheduleService" init-method="schedule">
+        <property name="simpleDateFormat" ref="defaultDateFormat"/>
+    </bean>
 
 </beans>

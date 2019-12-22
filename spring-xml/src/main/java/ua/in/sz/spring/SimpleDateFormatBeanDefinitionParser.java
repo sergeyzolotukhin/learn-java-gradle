@@ -17,7 +17,7 @@ public class SimpleDateFormatBeanDefinitionParser extends AbstractSingleBeanDefi
 
 	protected void doParse(Element element, BeanDefinitionBuilder bean) {
 		String pattern = element.getAttribute("pattern");
-//		bean.addConstructorArg(pattern);
+		bean.addConstructorArgValue(pattern);
 
 		String lenient = element.getAttribute("lenient");
 		if (StringUtils.hasText(lenient)) {
