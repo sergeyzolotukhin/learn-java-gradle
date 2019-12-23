@@ -12,6 +12,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * https://www.baeldung.com/junit-5-extensions
+ */
 @Slf4j
 public class H2CreateExtension implements BeforeAllCallback, AfterAllCallback, ParameterResolver {
 
