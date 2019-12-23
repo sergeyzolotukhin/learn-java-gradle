@@ -59,5 +59,6 @@ public class Application {
 		log.info("Statistic: {}", prof.getTop(3));
 
 		// http://www.h2database.com/html/performance.html
+		// https://github.com/zapodot/embedded-db-junit
 	}
 }
