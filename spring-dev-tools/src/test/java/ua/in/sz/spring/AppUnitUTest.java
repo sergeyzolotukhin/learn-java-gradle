@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @Slf4j
 @ExtendWith(MockitoExtension.class)
-public class AppUnitTest {
+public class AppUnitUTest {
 
 	@Test
 	public void test() {
