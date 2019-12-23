@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.MockSettings;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -28,6 +29,7 @@ class ApplicationTest {
 
 	@MockBean
 	private ScheduleValueService scheduleValueService;
+
 	@Autowired
 	private ScheduleService scheduleService;
 
@@ -38,6 +40,7 @@ class ApplicationTest {
 
 	@Test
 	public void contextLoads() {
+		scheduleService.schedule();
 		scheduleService.schedule();
 	}
 }
