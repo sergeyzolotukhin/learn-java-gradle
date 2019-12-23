@@ -35,5 +35,7 @@ dependencies {
 //    implementation 'org.codehaus.groovy:groovy-all:2.5.8'
 
     // testing
+    testCompileOnly 'org.projectlombok:lombok:1.18.8'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
 }

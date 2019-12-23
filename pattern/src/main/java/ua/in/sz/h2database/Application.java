@@ -12,7 +12,7 @@ import java.sql.Statement;
 @Slf4j
 public class Application {
 	@SneakyThrows
-	public static void main(String[] args) {
+	public static void main(Connection con) {
 
 		Profiler prof = new Profiler();
 		prof.startCollecting();
@@ -20,9 +20,9 @@ public class Application {
 		log.info("connection 1");
 
 //		Connection con = DriverManager.getConnection("jdbc:h2:mem:database-1;TRACE_LEVEL_SYSTEM_OUT=3");
-		Connection con = DriverManager.getConnection("jdbc:h2:mem:database-1");
+//		Connection con = DriverManager.getConnection("jdbc:h2:mem:database-1");
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 2; i++) {
 			Statement stm = con.createStatement();
 			ResultSet rs = stm.executeQuery("SELECT 1+1");
 
@@ -33,15 +33,15 @@ public class Application {
 			rs.close();
 			stm.close();
 		}
-		con.close();
+//		con.close();
 
 		log.info("connection 2");
 
 //		Connection con2 = DriverManager.getConnection("jdbc:h2:mem:database-2;TRACE_LEVEL_SYSTEM_OUT=3");
-		Connection con2 = DriverManager.getConnection("jdbc:h2:mem:database-2");
+//		Connection con2 = DriverManager.getConnection("jdbc:h2:mem:database-2");
 
-		for (int i = 0; i < 100; i++) {
-			Statement stm2 = con2.createStatement();
+		for (int i = 0; i < 2; i++) {
+			Statement stm2 = con.createStatement();
 			ResultSet rs2 = stm2.executeQuery("SELECT 1+1");
 
 			if (rs2.next()) {
@@ -51,12 +51,12 @@ public class Application {
 			rs2.close();
 			stm2.close();
 		}
-		con2.close();
+//		con.close();
 
 		log.info("end");
 
 		prof.stopCollecting();
-		log.info("Statistic: {}", prof.getTop(3));
+		log.trace("Statistic: {}", prof.getTop(3));
 
 		// http://www.h2database.com/html/performance.html
 		// https://github.com/zapodot/embedded-db-junit
