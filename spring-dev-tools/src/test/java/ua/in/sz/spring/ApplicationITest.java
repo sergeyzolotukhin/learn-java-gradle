@@ -17,7 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Slf4j
 @ExtendWith(SpringExtension.class)
 //@SpringBootTest
-class ApplicationTest {
+class ApplicationITest {
 
 	@TestConfiguration
 	static class ScheduleTextConfig {
