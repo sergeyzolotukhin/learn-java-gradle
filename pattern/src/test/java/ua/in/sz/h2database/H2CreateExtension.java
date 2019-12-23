@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 /**
  * https://www.baeldung.com/junit-5-extensions
+ * https://blog.codefx.org/design/architecture/junit-5-extension-model/
  */
 @Slf4j
 public class H2CreateExtension implements BeforeAllCallback, AfterAllCallback, ParameterResolver {
