@@ -1,5 +1,6 @@
 package ua.in.sz.spring;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,13 @@ public class ScheduleService {
 	@Autowired
 	private ScheduleValueService scheduleValueService;
 
+	@SneakyThrows
 	@Scheduled(fixedRate = 1000)
-	public void schedule() throws IOException {
+	public void schedule() {
 		String text = IOUtils.toString(resource.getInputStream(), UTF_8.name());
 		String result = scheduleValueService.execute();
 		log.info("Executed: [{}], [{}]", text, result);
+
+		log.warn("End");
 	}
 }
