@@ -28,3 +28,6 @@ How to backup and share database state with CI?
     https://dzone.com/articles/java-lambda-method-reference
     
 #### "Prefer extension points over features" @ 
+
+    https://dzone.com/refcardz/drools?chapter=3
+    
