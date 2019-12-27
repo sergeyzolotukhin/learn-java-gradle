@@ -13,6 +13,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * Testcontainers
+ *
  * https://www.baeldung.com/junit-5-extensions
  * https://blog.codefx.org/design/architecture/junit-5-extension-model/
  */
@@ -48,7 +50,7 @@ public class H2CreateExtension implements BeforeAllCallback, AfterAllCallback, P
 	public void beforeAll(ExtensionContext context) throws SQLException {
 		Connection connect = context.getStore(H2_NAMESPACE).get(CONNECT, Connection.class);
 		if (connect == null) {
-			connect = DriverManager.getConnection("jdbc:h2:mem:");
+			connect = DriverManager.getConnection("jdbc:h2:mem:;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=3");
 			context.getStore(H2_NAMESPACE).put(CONNECT, connect);
 
 			log.info("Connection created");
