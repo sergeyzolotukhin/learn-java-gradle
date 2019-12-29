@@ -10,14 +10,14 @@ import java.util.List;
 @Builder
 public class HiddenNeuron implements Neuron {
 	@Builder.Default
-	private List<Neuron> neurons = new ArrayList<>();
+	private List<Synapse> synapses = new ArrayList<>();
 
 	@Override
 	public Float get() {
 		float result = 0;
 
-		for (Neuron neuron : neurons) {
-			result += neuron.get();
+		for (Synapse synapse : synapses) {
+			result += synapse.get();
 		}
 
 		return result;
