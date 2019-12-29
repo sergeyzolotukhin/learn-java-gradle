@@ -23,6 +23,7 @@
  *
  * 	URLs новые:
  * 		https://habr.com/ru/post/313216/
+ * 	http://synset.com/ai/ru/nn/NeuralNet_01_Intro.html
  *
  */
 package ua.in.sz.neuralnetworks;
