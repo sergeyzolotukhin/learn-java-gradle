@@ -7,5 +7,22 @@
  * 		выходной
  * 		нейрон смещения
  * 		контекстный нейрон
+ *
+ * 	Ошибка — это процентная величина, отражающая расхождение между ожидаемым и полученным ответами
+ * 		Mean Squared Error (далее MSE),
+ * 		Root MSE
+ * 		Arctan
+ *
+ * 	Существует несколько методов обучения
+ * 		Метод обратного распространения (Backpropagation)
+ * 		Метод упругого распространения (Resilient propagation или Rprop)
+ * 		Генетический Алгоритм (Genetic Algorithm)
+ *
+ * 	URLs Прочитанные:
+ * 		https://habr.com/ru/post/312450/
+ *
+ * 	URLs новые:
+ * 		https://habr.com/ru/post/313216/
+ *
  */
 package ua.in.sz.neuralnetworks;
