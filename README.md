@@ -31,3 +31,9 @@ How to backup and share database state with CI?
 
     https://dzone.com/refcardz/drools?chapter=3
     
+#### Docker persistence
+
+    volume plugin. StorageOS 
+    Host volumes, 
+    Shared volumes or file systems. named volumes, NFS as the shared filesystem, Manta Objects, or other object storage
+    
