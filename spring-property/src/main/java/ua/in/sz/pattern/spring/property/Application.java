@@ -27,5 +27,6 @@ public class Application implements CommandLineRunner {
     public void run(String... args) {
         log.info("Execute: [{}]", env.getProperty("pattern.text"));
         log.info("Execute build in: [{}]", env.getProperty("pattern.build.in.text"));
+        log.info("Execute profile in: [{}]", env.getProperty("pattern.profile.dev.text"));
     }
 }
