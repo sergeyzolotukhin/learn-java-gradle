@@ -16,11 +16,10 @@ plugins {
 apply plugin: "io.spring.dependency-management"
 
 dependencies {
-//    implementation 'org.apache.camel:camel-spring-boot-starter:2.24.3'
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.0.0'
+    implementation 'org.apache.camel.springboot:camel-ftp-starter:3.0.0'
 
-//    implementation 'javax.activation:javax.activation-api:1.2.0'
-//    implementation 'com.sun.activation:javax.activation:1.2.0'
+    implementation 'org.apache.ftpserver:ftpserver-core:1.1.1'
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.10'
