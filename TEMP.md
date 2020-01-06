@@ -1,0 +1,1 @@
+K:\projects\_patterns\spring-property

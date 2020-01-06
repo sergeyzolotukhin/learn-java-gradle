@@ -4,6 +4,7 @@
 //include 'spring-aspect'
 //include 'spring-xml'
 //include 'spring-hibernate-search'
-include 'spring-property'
+//include 'spring-property'
+include 'spring-camel'
 
 //include 'pattern'
