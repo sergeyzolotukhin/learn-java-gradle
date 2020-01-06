@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class FtpInboundRoute extends RouteBuilder {
 	@Override
 	public void configure() {
-		from("{{ftp.server}}")
+		from("{{ftp.client}}")
 				.throttle(1)
 				.to("log:" + getClass().getName());
 	}
