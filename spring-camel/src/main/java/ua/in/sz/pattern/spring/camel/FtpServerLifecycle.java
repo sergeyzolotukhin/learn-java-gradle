@@ -2,7 +2,6 @@ package ua.in.sz.pattern.spring.camel;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.ListUtils;
 import org.apache.ftpserver.FtpServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -16,6 +15,7 @@ import java.util.List;
 public class FtpServerLifecycle implements ApplicationListener<ApplicationReadyEvent> {
 
 	@Autowired
+	@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 	private List<FtpServer> ftpServers;
 
 	@Override
