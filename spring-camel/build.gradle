@@ -21,6 +21,10 @@ dependencies {
 
     implementation 'org.apache.ftpserver:ftpserver-core:1.1.1'
 
+    // common utils
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+
     // development
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
