@@ -1,4 +1,5 @@
--> 1. Create more one FTP use xml
+-> 1. Create custom camel component
+
 =======================================================================================================================
 1. Create more one FTP server (use BeanDefinition)
 2. Create more one camel route (use BeanDefinition) 
