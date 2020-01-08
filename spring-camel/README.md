@@ -4,6 +4,7 @@
 Possible options:
 1. BeanDefinition create more one route
 2. Recreate route each times
+3. Create custom Camel FTP component 
 
 Proffered approaches:
 1. 
@@ -22,6 +23,10 @@ Open questions:
 #### Dynamic FTP Client using Apache Camel and Spring
 
     https://blog.jayway.com/2010/08/12/dynamic-ftp-client-using-apache-camel-and-spring/
+
+#### Camel custom component
+    
+    https://camel.apache.org/manual/latest/writing-components.html
 
 #### Camel Producer template
     
