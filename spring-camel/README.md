@@ -1,3 +1,19 @@
+1. Create more one FTP server (use BeanDefinition)
+2. Create more one camel route (use BeanDefinition) 
+
+Possible options:
+1. BeanDefinition create more one route
+2. Recreate route each times
+
+Proffered approaches:
+1. 
+
+Open questions:
+1. What is producer template?
+2. What is adviceWith?
+ 
+=======================================================================================================================
+
 #### Embedded FTP server
     
     http://mockftpserver.sourceforge.net/
