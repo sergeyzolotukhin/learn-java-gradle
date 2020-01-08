@@ -1,4 +1,4 @@
-1. Create custom camel component
+-> 1. BeanDefinition create more one route
 
 =======================================================================================================================
 1. Create more one FTP server (use BeanDefinition)
@@ -7,7 +7,7 @@
 Possible options:
 1. BeanDefinition create more one route 
 2. Recreate route each times
-3. Create custom Camel FTP component (-cons: a lot of code, big cohesion to camel)
+- 3. Create custom Camel FTP component (-cons: a lot of code, big cohesion to camel)
 
 Proffered approaches:
 1. I want have one route with many source FTP
