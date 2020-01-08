@@ -1,15 +1,23 @@
 package ua.in.sz.pattern.spring.camel;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
 @Slf4j
-@Component
+@Setter
 public class FtpInboundRoute extends RouteBuilder {
+	private int port;
+
+	@Value("${ftp.client}")
+	private String configUri;
+
 	@Override
 	public void configure() {
-		from("{{ftp.client}}")
+		String uri = String.format(configUri, 21 + port);
+
+		from(uri)
 				.throttle(1)
 				.to("log:" + getClass().getName());
 	}
