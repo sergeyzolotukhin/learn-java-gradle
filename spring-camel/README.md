@@ -1,4 +1,4 @@
--> 1. Create custom camel component
+1. Create custom camel component
 
 =======================================================================================================================
 1. Create more one FTP server (use BeanDefinition)
