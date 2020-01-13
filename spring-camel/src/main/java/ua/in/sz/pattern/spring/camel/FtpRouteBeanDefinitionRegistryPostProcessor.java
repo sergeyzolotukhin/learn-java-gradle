@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class FtpRouteBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 	@Override
 	public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 2; i++) {
 			GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
 
 			beanDefinition.setBeanClass(FtpInboundRoute.class);

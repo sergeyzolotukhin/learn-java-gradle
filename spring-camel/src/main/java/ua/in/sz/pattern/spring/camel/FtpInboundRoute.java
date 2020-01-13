@@ -17,6 +17,8 @@ public class FtpInboundRoute extends RouteBuilder {
 	public void configure() {
 		String uri = String.format(configUri, 21 + port);
 
+		uri += String.format("&localWorkDirectory=target/ftp-work-%d", port);
+
 		from(uri)
 				.throttle(1)
 				.to("log:" + getClass().getName());
