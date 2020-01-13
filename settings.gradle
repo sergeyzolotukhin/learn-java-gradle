@@ -5,7 +5,7 @@
 //include 'spring-xml'
 //include 'spring-hibernate-search'
 //include 'spring-property'
-//include 'spring-camel'
-include 'spring-swagger'
+include 'spring-camel'
+//include 'spring-swagger'
 
 //include 'pattern'

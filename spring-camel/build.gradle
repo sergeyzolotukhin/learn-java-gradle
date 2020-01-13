@@ -19,6 +19,9 @@ dependencies {
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.0.0'
     implementation 'org.apache.camel.springboot:camel-ftp-starter:3.0.0'
 
+    implementation 'org.apache.camel.springboot:camel-quartz-starter:3.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
+
     implementation 'org.apache.ftpserver:ftpserver-core:1.1.1'
 
     // common utils
