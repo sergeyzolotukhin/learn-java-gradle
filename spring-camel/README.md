@@ -29,4 +29,11 @@
     https://stackoverflow.com/questions/15248776/dynamic-change-endpoint-camel
     https://wiki.eclipse.org/Camel_Route:_Dynamic_Endpoint_using_PropertyPlaceholder
     
+#### Execute endpoint at single NODE
+
+    https://camel.apache.org/components/2.x/ftp-component.html
+    https://camel.apache.org/components/2.x/quartz2-component.html
+    https://stackoverflow.com/questions/12957019/quartz-jobs-disallow-concurrent-execution-group-wide
+    https://stackoverflow.com/questions/2676295/quartz-preventing-concurrent-instances-of-a-job-in-jobs-xml
     
+    org.quartz.DisallowConcurrentExecution            
