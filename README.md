@@ -40,10 +40,10 @@ How to backup and share database state with CI?
 #### Maven profiler
 
     https://github.com/jcgay/maven-profiler#installation
+    https://github.com/takari/maven-profiler
+    https://medium.com/@alex_collins/10x-faster-maven-builds-at-intuit-5b7bb60c65e6
     
 #### Maven
 
     https://maven.apache.org/guides/introduction/introduction-to-profiles.html
-    https://github.com/takari/maven-profiler
-    https://medium.com/@alex_collins/10x-faster-maven-builds-at-intuit-5b7bb60c65e6
     
