@@ -37,3 +37,13 @@ How to backup and share database state with CI?
     Host volumes, 
     Shared volumes or file systems. named volumes, NFS as the shared filesystem, Manta Objects, or other object storage
     
+#### Maven profiler
+
+    https://github.com/jcgay/maven-profiler#installation
+    
+#### Maven
+
+    https://maven.apache.org/guides/introduction/introduction-to-profiles.html
+    https://github.com/takari/maven-profiler
+    https://medium.com/@alex_collins/10x-faster-maven-builds-at-intuit-5b7bb60c65e6
+    
