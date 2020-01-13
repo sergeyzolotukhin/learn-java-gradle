@@ -36,4 +36,5 @@
     https://stackoverflow.com/questions/12957019/quartz-jobs-disallow-concurrent-execution-group-wide
     https://stackoverflow.com/questions/2676295/quartz-preventing-concurrent-instances-of-a-job-in-jobs-xml
     
+    https://jayvilalta.com/blog/2014/06/04/understanding-the-disallowconcurrentexecution-job-attribute/
     org.quartz.DisallowConcurrentExecution            
