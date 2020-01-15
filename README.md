@@ -64,3 +64,5 @@ How to backup and share database state with CI?
 #### Windows service 
 
     https://commons.apache.org/proper/commons-daemon/    
+    https://medium.com/@adam_carroll/java-packager-with-jdk11-31b3d620f4a8
+    
