@@ -51,4 +51,10 @@ How to backup and share database state with CI?
     
     djvudump.exe -o book-1.metoinfo book-1.djvu
     djvmcvt.exe -i book-1.djvu book-1 book-1.djvu
-    ddjvu -format=tiff book-1.djvu book-1.tiff
+    ddjvu -format=tiff -page=1 book-1.djvu book-1.tiff
+    https://sourceforge.net/projects/djvu/files/DjVuLibre/3.5.27/djvulibre-3.5.27.tar.gz/download?use_mirror=netcologne
+    
+#### Vagrant 
+
+    https://dotsandbrackets.com/vagrant-windows-ru/
+    
