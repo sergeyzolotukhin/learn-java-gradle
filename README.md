@@ -47,3 +47,8 @@ How to backup and share database state with CI?
 
     https://maven.apache.org/guides/introduction/introduction-to-profiles.html
     
+#### DJVU
+    
+    djvudump.exe -o book-1.metoinfo book-1.djvu
+    djvmcvt.exe -i book-1.djvu book-1 book-1.djvu
+    ddjvu -format=tiff book-1.djvu book-1.tiff
