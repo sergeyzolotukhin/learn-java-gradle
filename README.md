@@ -58,6 +58,8 @@ How to backup and share database state with CI?
 
     https://dotsandbrackets.com/vagrant-windows-ru/
     https://dev.to/jeikabu/reusable-windows-vms-with-vagrant-2h5c
+    https://medium.com/@gajbhiyedeepanshu/building-custom-vagrant-box-e6a846b6baca
+    https://softwaretester.info/create-private-vagrant-box-repository/
     
 #### Windows service 
 
