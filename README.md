@@ -74,6 +74,8 @@ How to backup and share database state with CI?
     
     https://dzone.com/articles/7-log-management-tools-java
     http://www.dissmeyer.com/2017/11/11/installing-logstash-on-windows/
+    https://www.elastic.co/guide/en/logstash/current/running-logstash-windows.html
+    
     
     
 
