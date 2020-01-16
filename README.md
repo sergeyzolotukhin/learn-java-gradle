@@ -69,6 +69,11 @@ How to backup and share database state with CI?
 #### Audit trail 
 
     audit4j
+    Logstash
+    Filebeat
+    
+    https://dzone.com/articles/7-log-management-tools-java
+    
     
 
     
