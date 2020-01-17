@@ -2,10 +2,10 @@
 //include 'spring-shell'
 //include 'spring-quartz'
 //include 'spring-aspect'
-//include 'spring-xml'
+include 'spring-xml'
 //include 'spring-hibernate-search'
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
 
-include 'pattern'
+//include 'pattern'
