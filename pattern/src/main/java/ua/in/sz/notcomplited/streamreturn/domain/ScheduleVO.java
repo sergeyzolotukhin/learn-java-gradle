@@ -1,4 +1,4 @@
-package ua.in.sz.notcomplited.streamreturn;
+package ua.in.sz.notcomplited.streamreturn.domain;
 
 import lombok.Builder;
 import lombok.Getter;
