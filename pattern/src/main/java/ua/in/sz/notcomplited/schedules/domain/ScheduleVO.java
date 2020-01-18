@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -20,5 +21,10 @@ public class ScheduleVO {
 	private Resolution resolution;
 
 	@ToString.Exclude
-	private List<ScheduleValueVO<?>> values;
+	@Builder.Default
+	private List<ScheduleValueVO<?>> values = new ArrayList<>();
+
+	public void addValues(List<ScheduleValueVO<?>> values) {
+		this.values.addAll(values);
+	}
 }

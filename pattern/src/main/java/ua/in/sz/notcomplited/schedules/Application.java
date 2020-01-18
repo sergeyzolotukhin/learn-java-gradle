@@ -5,14 +5,11 @@ import org.joda.time.DateTime;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleVO;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleValueVO;
 import ua.in.sz.notcomplited.schedules.util.Dates;
-import ua.in.sz.notcomplited.schedules.util.ScheduleVOFactory;
-import ua.in.sz.notcomplited.schedules.util.ScheduleValueVOFactory;
+import ua.in.sz.notcomplited.schedules.factory.ScheduleVOFactory;
+import ua.in.sz.notcomplited.schedules.factory.ScheduleValueVOFactory;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
 import static ua.in.sz.notcomplited.schedules.domain.Resolution.P1D;
 import static ua.in.sz.notcomplited.schedules.domain.Resolution.PT15M;
 import static ua.in.sz.notcomplited.schedules.domain.Resolution.PT1H;
@@ -29,7 +26,8 @@ public class Application {
 		List<ScheduleValueVO<?>> numberValues = ScheduleValueVOFactory.generate(schedule, 1, 2, 3, 5, null);
 		List<ScheduleValueVO<?>> stringValues = ScheduleValueVOFactory.generate(schedule, "One", null, "Two", "Three");
 
-		schedule.setValues(Stream.concat(numberValues.stream(), stringValues.stream()).collect(toList()));
+		schedule.addValues(numberValues);
+		schedule.addValues(stringValues);
 
 		log.info("Schedule: {}", schedule);
 		log.info("Schedule values [count={}] :", schedule.getValues().size());

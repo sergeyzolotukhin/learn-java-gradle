@@ -1,4 +1,4 @@
-package ua.in.sz.notcomplited.schedules.util;
+package ua.in.sz.notcomplited.schedules.factory;
 
 import lombok.experimental.UtilityClass;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleVO;

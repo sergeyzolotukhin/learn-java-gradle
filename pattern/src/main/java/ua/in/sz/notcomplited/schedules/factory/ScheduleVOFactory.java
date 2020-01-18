@@ -1,10 +1,11 @@
-package ua.in.sz.notcomplited.schedules.util;
+package ua.in.sz.notcomplited.schedules.factory;
 
 import lombok.experimental.UtilityClass;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleVO;
+import ua.in.sz.notcomplited.schedules.util.Dates;
 
 import java.util.List;
 import java.util.stream.Stream;
