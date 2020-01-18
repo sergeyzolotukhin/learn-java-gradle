@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleVO;
 import ua.in.sz.notcomplited.schedules.domain.ScheduleValueVO;
+import ua.in.sz.notcomplited.schedules.builder.ScheduleValueVOListBuilder;
 import ua.in.sz.notcomplited.schedules.util.Dates;
 import ua.in.sz.notcomplited.schedules.factory.ScheduleVOFactory;
-import ua.in.sz.notcomplited.schedules.factory.ScheduleValueVOFactory;
 
 import java.util.List;
 
@@ -23,11 +23,13 @@ public class Application {
 
 		ScheduleVO schedule = ScheduleVOFactory.create(start, P1D);
 
-		List<ScheduleValueVO<?>> numberValues = ScheduleValueVOFactory.generate(schedule, 1, 2, 3, 5, null);
-		List<ScheduleValueVO<?>> stringValues = ScheduleValueVOFactory.generate(schedule, "One", null, "Two", "Three");
+		List<ScheduleValueVO<?>> values = ScheduleValueVOListBuilder.builder()
+				.schedule(schedule)
+				.values(1, 2, 3, 5, null)
+				.values("One", null, "Two", "Three")
+				.build();
 
-		schedule.addValues(numberValues);
-		schedule.addValues(stringValues);
+		schedule.setValues(values);
 
 		log.info("Schedule: {}", schedule);
 		log.info("Schedule values [count={}] :", schedule.getValues().size());
