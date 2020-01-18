@@ -7,6 +7,7 @@ import ua.in.sz.notcomplited.schedules.domain.ScheduleValueVO;
 import ua.in.sz.notcomplited.schedules.builder.ScheduleValueVOListBuilder;
 import ua.in.sz.notcomplited.schedules.util.Dates;
 import ua.in.sz.notcomplited.schedules.factory.ScheduleVOFactory;
+import ua.in.sz.notcomplited.schedules.logging.Logs;
 
 import java.util.List;
 
@@ -38,5 +39,7 @@ public class Application {
 
 		log.info("Schedule [count={}]:", schedules.size());
 		schedules.forEach(s -> log.info("\t{}", s));
+
+		Logs.log(log, schedule);
 	}
 }
