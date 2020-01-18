@@ -1,7 +1,8 @@
-package ua.in.sz.notcomplited.streamreturn.util;
+package ua.in.sz.notcomplited.schedules.util;
 
 import lombok.experimental.UtilityClass;
 import org.joda.time.DateTime;
+import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -11,5 +12,17 @@ public final class Dates {
 
 	public static DateTime dateTime(String string) {
 		return DateTime.parse(string, DATE_TIME_FORMATTER);
+	}
+
+	public static long periods(DateTime start, DateTime end, Period period) {
+		long count = 0;
+
+		DateTime d = start;
+		while (d.isBefore(end)) {
+			count++;
+			d = d.plus(period);
+		}
+
+		return count;
 	}
 }

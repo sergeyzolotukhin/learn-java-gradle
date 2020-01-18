@@ -1,6 +1,5 @@
-package ua.in.sz.notcomplited.streamreturn.domain;
+package ua.in.sz.notcomplited.schedules.domain;
 
-import org.joda.time.Duration;
 import org.joda.time.Period;
 
 public enum Resolution {
