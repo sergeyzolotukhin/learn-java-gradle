@@ -25,8 +25,7 @@ public class Application {
 
 		List<ScheduleValueVO<?>> values = ScheduleValueVOListBuilder.builder()
 				.schedule(schedule)
-				.values(1, 2, 3, 5, null)
-				.values("One", null, "Two", "Three")
+				.values(1, 2, 3, 5, null, "One", true, "Two", "Three")
 				.build();
 
 		schedule.setValues(values);
