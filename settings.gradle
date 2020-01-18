@@ -8,4 +8,6 @@
 //include 'spring-camel'
 //include 'spring-swagger'
 
-include 'pattern'
+//include 'pattern'
+
+include 'activiti-learn'

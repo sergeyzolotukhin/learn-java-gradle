@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.in.szolotukhin'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.flowable:flowable-engine:6.4.1'
+
+    compile 'com.h2database:h2:1.4.199'
+    compile 'org.projectlombok:lombok:1.18.8'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'postgresql:postgresql:9.1-901-1.jdbc4'
+    compile files('libs/ojdbc8-12.2.0.1.0.jar')
+
+    compile 'joda-time:joda-time:2.1'
+    compile 'org.jadira.usertype:usertype.core:7.0.0.CR1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    testCompile 'junit:junit:4.12'
+}

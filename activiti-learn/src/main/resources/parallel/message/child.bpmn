@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_0ricbi1"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="http://flowable.org/examples">
+    
+    <message id="message-1" name="instantiationMessage"/>
+
+    <process id="message-child-process" isExecutable="true" flowable:exclusive="true">
+        <extensionElements>
+            <flowable:executionListener event="start" class="ua.in.szolotukhin.flowable.common.LogExecutionListener" />
+            <flowable:executionListener event="end" class="ua.in.szolotukhin.flowable.common.LogExecutionListener" />
+        </extensionElements>
+
+        <startEvent id="child-start-event-1" flowable:async="true">
+            <messageEventDefinition id="MessageEventDefinition_1" messageRef="message-1"/>
+        </startEvent>
+
+        <sequenceFlow id="child-flow-1" sourceRef="child-start-event-1" targetRef="child-async-1"/>
+        <serviceTask id="child-async-1"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+        />
+        
+        <sequenceFlow id="child-flow-2" sourceRef="child-async-1" targetRef="child-end-event-1"/>
+        <endEvent id="child-end-event-1"/>
+    </process>
+
+</definitions>

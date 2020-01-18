@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  id="Definitions_0ricbi1" xmlns:flowable="http://flowable.org/bpmn"
+                  targetNamespace="http://flowable.org/examples">
+    <process id="eventwait" name="Process with Event Wait" isExecutable="true">
+        <startEvent id="start-event">
+            <outgoing>flow1</outgoing>
+        </startEvent>
+        <sequenceFlow id="flow1" name="to Before Event Wait" sourceRef="start-event" targetRef="before-event">
+            <documentation>
+                Flow to 'Before Event Wait'(scriptTask before event wait)
+            </documentation>
+            <extensionElements>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressStatusString', 'Started')}"/>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressPercentComplete', 0)}"/>
+            </extensionElements>
+        </sequenceFlow>
+        <endEvent id="end-event">
+            <incoming>flow4</incoming>
+        </endEvent>
+        <sequenceFlow id="flow4" name="to End Event" sourceRef="after-event" targetRef="end-event">
+            <documentation>
+                Flow to 'End Event'
+            </documentation>
+            <extensionElements>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressStatusString', 'Finished')}"/>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressPercentComplete', 1)}"/>
+            </extensionElements>
+        </sequenceFlow>
+        <scriptTask id="before-event" name="Before Event Wait" scriptFormat="javascript">
+            <incoming>flow1</incoming>
+            <outgoing>flow2</outgoing>
+            <script>
+                execution.setVariable("beforeWait", true);
+            </script>
+        </scriptTask>
+        <scriptTask id="after-event" name="After Event Wait" scriptFormat="javascript">
+            <incoming>flow3</incoming>
+            <outgoing>flow4</outgoing>
+            <script>
+                execution.setVariable("afterWait", true);
+            </script>
+        </scriptTask>
+        <sequenceFlow id="flow2" name="to Event Wait" sourceRef="before-event" targetRef="event-wait">
+            <documentation>
+                Flow to 'Event Wait'(intermediateCatchEvent)
+            </documentation>
+            <extensionElements>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressStatusString', 'Before Event Wait')}"/>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressPercentComplete', 0.33)}"/>
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow id="flow3" name="to After Event Wait" sourceRef="event-wait" targetRef="after-event">
+            <documentation>
+                Flow to 'After Event Wait' scriptTask
+            </documentation>
+            <extensionElements>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressStatusString', 'After Event Wait')}"/>
+                <flowable:executionListener event="take"
+                                            expression="${execution.setVariable('ProgressPercentComplete', 0.66)}"/>
+            </extensionElements>
+        </sequenceFlow>
+        <intermediateCatchEvent id="event-wait" name="Event Wait">
+            <incoming>flow2</incoming>
+            <outgoing>flow3</outgoing>
+            <messageEventDefinition messageRef="Message_05c2254"/>
+        </intermediateCatchEvent>
+
+
+        <!--Exception Handling-->
+        <subProcess id="exception_handling_subprocess" name="Exception Handler" triggeredByEvent="true">
+            <documentation>
+                Exception Handling - Embedded event subprocess triggered using an Error Start Event
+            </documentation>
+            <startEvent id="exception_handling_start" name="Error Event" isInterrupting="true">
+                <errorEventDefinition errorRef="javaException"/>
+            </startEvent>
+            <serviceTask id="handle_exception" name="Handle Exception" flowable:delegateExpression="${HandleDerivationExceptionAction}"/>
+            <endEvent id="exception_handling_end" name="Exception Handling End Event">
+                <terminateEventDefinition flowable:terminateAll="true"/>
+            </endEvent>
+            <sequenceFlow id="exception_flow2" name="to Exception Handling End Event" sourceRef="handle_exception" targetRef="exception_handling_end">
+                <documentation>
+                    Flow to 'Exception Handling End Event'
+                </documentation>
+            </sequenceFlow>
+            <sequenceFlow id="exception_flow1" name="to Handle Exception" sourceRef="exception_handling_start" targetRef="handle_exception">
+                <documentation>
+                    Flow to 'Handle Exception' serviceTask
+                </documentation>
+            </sequenceFlow>
+        </subProcess>
+        <!--Exception Handling-->
+    </process>
+    <message id="Message_05c2254" name="messageEvent"/>
+</definitions>

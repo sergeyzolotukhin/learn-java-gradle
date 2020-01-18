@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ua.in.szolotukhin.flowable.common.TxFilter" />
+        <encoder>
+<!--
+http://logback.qos.ch/manual/layouts.html
+The conversion pattern of PatternLayout is closely related to the conversion pattern of the printf() function in the C programming language.
+A conversion pattern is composed of literal text and format control expressions called conversion specifiers.
+-->
+            <pattern>%d{HH:mm:ss.SSS} [%-30.30thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/application.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--  Job execution trace  -->
+<!--    <logger name="org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable" level="debug"/>-->
+<!--    <logger name="org.flowable.job.service.impl.asyncexecutor.JobAddedTransactionListener" level="trace"/>-->
+<!--    <logger name="org.flowable.common.engine.impl.db.DbSqlSession" level="debug"/>-->
+
+<!--  Other  -->
+    <logger name="org.flowable" level="warn"/>
+    <logger name="org.apache.ibatis" level="info"/>
+
+    <logger name="org.apache.ibatis.transaction.jdbc.JdbcTransaction" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
+<!--    <logger name="org.flowable.engine.impl.interceptor.LoggingExecutionTreeCommandInvoker" level="info"/>-->
+<!--    <logger name="org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable" level="warn"/>-->
+<!--    <logger name="org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration" level="warn"/>-->
+<!--    <logger name="org.flowable.common.engine.impl.interceptor.LogInterceptor" level="debug"/>-->
+<!--    <logger name="org.flowable.engine.impl.interceptor.CommandInvoker" level="debug"/>-->
+<!--    <logger name="org.flowable.engine.impl.agenda" level="debug"/>-->
+<!--    <logger name="org.flowable.engine.impl.agenda.ContinueProcessOperation" level="debug"/>-->
+<!--    <logger name="org.flowable.common.engine.impl.interceptor.LogInterceptor" level="debug"/>-->
+<!--    <logger name="org.flowable.engine.impl.db" level="warn"/>-->
+<!--    <logger name="org.flowable.job.service.impl.db" level="debug"/>-->
+<!--    <logger name="org.flowable.engine.impl.ProcessEngineImpl" level="warn"/>-->
+
+    <!-- Configure so that it outputs to both console and log file -->
+    <root level="DEBUG">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

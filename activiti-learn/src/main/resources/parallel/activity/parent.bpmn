@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_0ricbi1"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="http://flowable.org/examples">
+
+    <process id="parallel-call-activity-parent">
+        <extensionElements>
+            <flowable:executionListener event="start" class="ua.in.szolotukhin.flowable.common.LogExecutionListener" />
+            <flowable:executionListener event="end" class="ua.in.szolotukhin.flowable.common.LogExecutionListener" />
+        </extensionElements>
+
+        <startEvent id="start-event"/>
+
+        <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="sync-1"/>
+        <serviceTask id="sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.SyncServiceTask"/>
+
+        <sequenceFlow id="flow-2" sourceRef="sync-1" targetRef="parallel-gateway-1"/>
+        <parallelGateway id="parallel-gateway-1" flowable:async="true" flowable:exclusive="false"/>
+        <sequenceFlow id="flow-3" sourceRef="parallel-gateway-1" targetRef="async-1"/>
+        <sequenceFlow id="flow-4" sourceRef="parallel-gateway-1" targetRef="call-activity"/>
+
+
+        <serviceTask id="async-1"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+                     flowable:async="true" flowable:exclusive="false"/>
+
+        <callActivity id="call-activity" calledElement="parallel-call-activity"
+                      flowable:async="true" flowable:exclusive="true"/>
+
+
+        <sequenceFlow id="flow-5" sourceRef="async-1" targetRef="sync-2"/>
+        <serviceTask id="sync-2" flowable:class="ua.in.szolotukhin.flowable.common.tasks.SyncServiceTask"/>
+        <sequenceFlow id="flow-20" sourceRef="sync-2" targetRef="end-event"/>
+
+        <endEvent id="end-event"/>
+    </process>
+</definitions>

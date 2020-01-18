@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_0ricbi1"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="http://flowable.org/examples">
+
+    <signal id="subprocess-child-bound-signal" name="subprocess-child-bound-signal" />
+
+    <process id="bound-event-parent">
+        <startEvent id="start-event"/>
+        <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="p-sync-1"/>
+
+        <serviceTask id="p-sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"/>
+
+        <sequenceFlow id="flow-2" sourceRef="p-sync-1" targetRef="signal-1"/>
+        <intermediateThrowEvent id="signal-1" name="Signal-1">
+            <signalEventDefinition signalRef="subprocess-child-bound-signal"/>
+        </intermediateThrowEvent>
+
+        <sequenceFlow id="flow-3" sourceRef="signal-1" targetRef="p-sync-3"/>
+        <serviceTask id="p-sync-3" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"/>
+
+        <sequenceFlow id="flow-4" sourceRef="p-sync-3" targetRef="end-event"/>
+        <endEvent id="end-event"/>
+
+        <subProcess triggeredByEvent="true">
+            <startEvent id="sp-start-event">
+                <signalEventDefinition signalRef="subprocess-child-bound-signal"/>
+            </startEvent>
+            <sequenceFlow id="sp-flow-1" sourceRef="sp-start-event" targetRef="sp-sync-1"/>
+
+            <serviceTask id="sp-sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"/>
+
+            <sequenceFlow id="sp-flow-2" sourceRef="sp-sync-1" targetRef="sp-end-event"/>
+            <endEvent id="sp-end-event"/>
+        </subProcess>
+    </process>
+</definitions>

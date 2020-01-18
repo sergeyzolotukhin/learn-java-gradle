@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_0ricbi1"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="http://flowable.org/examples">
+
+    <process id="async-wait">
+        <startEvent id="start-event">
+            <outgoing>flow1</outgoing>
+        </startEvent>
+
+<!--      Sync  -->
+
+        <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="sync-1">
+        </sequenceFlow>
+
+        <serviceTask id="sync-1"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.SyncServiceTask"
+                     flowable:async="false" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-2" sourceRef="sync-1" targetRef="sync-2">
+        </sequenceFlow>
+
+        <serviceTask id="sync-2"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.SyncServiceTask"
+                     flowable:async="false" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-3" sourceRef="sync-2" targetRef="async-1">
+        </sequenceFlow>
+
+<!--     Async   -->
+
+        <serviceTask id="async-1"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+                     flowable:async="true" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-3-1" sourceRef="async-1" targetRef="async-2">
+        </sequenceFlow>
+
+        <serviceTask id="async-2"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+                     flowable:async="true" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-4" sourceRef="async-2" targetRef="async-3">
+        </sequenceFlow>
+
+        <serviceTask id="async-3"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+                     flowable:async="true" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-5" sourceRef="async-3" targetRef="async-4">
+        </sequenceFlow>
+
+        <serviceTask id="async-4"
+                     flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
+                     flowable:async="true" flowable:exclusive="false">
+        </serviceTask>
+
+        <sequenceFlow id="flow-6" sourceRef="async-4" targetRef="end-event">
+        </sequenceFlow>
+
+        <endEvent id="end-event">
+        </endEvent>
+    </process>
+</definitions>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_0ricbi1"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="http://flowable.org/examples">
+
+    <signal id="subprocess-child-signal" name="subprocess-child-signal" />
+
+    <process id="signal-event-child" >
+        <startEvent id="start-event">
+            <signalEventDefinition signalRef="subprocess-child-signal"/>
+        </startEvent>
+        <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="c-sync-1"/>
+
+        <serviceTask id="c-sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncChildServiceTask"/>
+
+        <sequenceFlow id="flow-2" sourceRef="c-sync-1" targetRef="end-event"/>
+        <endEvent id="end-event"/>
+    </process>
+</definitions>

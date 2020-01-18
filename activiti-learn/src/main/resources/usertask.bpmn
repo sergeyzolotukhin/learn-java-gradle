@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             id="Definitions_0ricbi1" xmlns:flowable="http://flowable.org/bpmn"
+             targetNamespace="http://flowable.org/examples">
+  <process id="usertaskprocess" name="Process with User Task" isExecutable="true">
+    <startEvent id="start-event" name="Start Event">
+      <outgoing>flow1</outgoing>
+    </startEvent>
+    <endEvent id="end-event" name="End Event">
+      <incoming>flow6</incoming>
+      <incoming>flow7</incoming>
+    </endEvent>
+    <sequenceFlow id="flow1" name="to Before User Task" sourceRef="start-event" targetRef="script-task-before">
+      <documentation>
+        Flow to 'Before User Task'(scriptTask before creating userTask)
+      </documentation>
+      <extensionElements>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressStatusString', 'Started')}"/>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressPercentComplete', 0)}"/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="flow2" name="to User Task" sourceRef="script-task-before" targetRef="user-task">
+      <documentation>
+        Flow to 'User Task'(userTask)
+      </documentation>
+      <extensionElements>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressStatusString', 'Before User Task')}"/>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressPercentComplete', 0.33)}"/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="flow3" name="to Exclusive Gateway" sourceRef="user-task" targetRef="exclusive-gateway">
+      <documentation>
+        Flow to exclusiveGateway 'Exclusive Gateway'
+      </documentation>
+      <extensionElements>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressStatusString', 'After User Task')}"/>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressPercentComplete', 0.66)}"/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="to End Event" sourceRef="script-task-after1" targetRef="end-event">
+      <documentation>
+        Flow to 'End Event'
+      </documentation>
+      <extensionElements>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressStatusString', 'Finished')}"/>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressPercentComplete', 1)}"/>
+      </extensionElements>
+    </sequenceFlow>
+    <scriptTask id="script-task-before" name="Before User Task" scriptFormat="javascript">
+      <incoming>flow1</incoming>
+      <outgoing>flow2</outgoing>
+      <script>
+        execution.setVariable("beforeUserTask", true);
+      </script>
+    </scriptTask>
+    <scriptTask id="script-task-after1" name="After User Task 1" scriptFormat="javascript">
+      <incoming>flow4</incoming>
+      <outgoing>flow6</outgoing>
+      <script>
+        execution.setVariable("afterUserTask", true);
+      </script>
+    </scriptTask>
+    <userTask id="user-task" name="User Task" flowable:formKey="formResult" flowable:candidateGroups="">
+      <extensionElements>
+        <!--<flowable:formProperty id="userTaskResult" name="Please choose option:" type="enum" required="true"-->
+        <!--readable="true" writable="true"-->
+        <!--value="option1" variable="userTaskResult">-->
+        <!--<flowable:value id="option1" name="Option 1"/>-->
+        <!--<flowable:value id="option2" name="Option 2"/>-->
+        <!--</flowable:formProperty>-->
+
+        <flowable:formProperty id="userTaskResult" name="Please choose option(document direction):" type="customEnum:com.etse.entsoe.dao.bean.enums.DocumentDirection" required="true"
+                               readable="true" writable="true"
+                               value="com.etse.entsoe.dao.bean.enums.DocumentDirection.INBOUND" variable="userTaskResult">
+          <flowable:value id="INBOUND" name="Inbound"/>
+          <flowable:value id="OUTBOUND" name="Outbound"/>
+        </flowable:formProperty>
+
+        <!--<camunda:formData>-->
+        <!--<camunda:formField id="userTaskResult" label="Please choose option:" type="enum"-->
+        <!--defaultValue="option1">-->
+        <!--<camunda:properties>-->
+        <!--<camunda:property id="type" value="enum"/>-->
+        <!--</camunda:properties>-->
+        <!--<camunda:validation>-->
+        <!--<camunda:constraint name="required"/>-->
+        <!--<camunda:constraint name="maxlength" config="25"/>-->
+        <!--</camunda:validation>-->
+        <!--<camunda:value id="option1" name="Option 1"/>-->
+        <!--<camunda:value id="option2" name="Option 2"/>-->
+        <!--</camunda:formField>-->
+        <!--</camunda:formData>-->
+      </extensionElements>
+      <incoming>flow2</incoming>
+      <outgoing>flow3</outgoing>
+    </userTask>
+    <exclusiveGateway id="exclusive-gateway" name="Exclusive Gateway">
+      <incoming>flow3</incoming>
+      <outgoing>flow4</outgoing>
+      <outgoing>flow5</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="flow4" name="to After User Task 1" sourceRef="exclusive-gateway" targetRef="script-task-after1">
+      <documentation>
+        Conditional flow to 'After User Task 1'(scriptTask after userTask, when user selects 'INBOUND')
+      </documentation>
+      <conditionExpression xsi:type="tFormalExpression">${userTaskResult == 'INBOUND'}
+      </conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow5" name="to After User Task 2" sourceRef="exclusive-gateway" targetRef="script-task-after2">
+      <documentation>
+        Conditional flow to 'After User Task 2'(scriptTask after userTask, when user selects 'OUTBOUND')
+      </documentation>
+      <conditionExpression xsi:type="tFormalExpression">${userTaskResult == 'OUTBOUND'}
+      </conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow7" name="to End Event" sourceRef="script-task-after2" targetRef="end-event">
+      <documentation>
+        Flow to 'End Event'
+      </documentation>
+      <extensionElements>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressStatusString', 'Finished')}"/>
+        <flowable:executionListener event="take" expression="${execution.setVariable('ProgressPercentComplete', 1)}"/>
+      </extensionElements>
+    </sequenceFlow>
+    <scriptTask id="script-task-after2" name="After User Task 2" scriptFormat="javascript">
+      <incoming>flow5</incoming>
+      <outgoing>flow7</outgoing>
+      <script>
+        execution.setVariable("afterUserTask", false);
+      </script>
+    </scriptTask>
+  </process>
+</definitions>
