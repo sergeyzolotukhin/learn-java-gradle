@@ -35,7 +35,7 @@ dependencies {
 }
 
 jar {
-//    archiveFileName = 'tool.jar'
+    archiveFileName = 'tool.jar'
     manifest {
         attributes(
                 'Main-Class': 'ua.in.szolotukhin.jcurses.Application',
