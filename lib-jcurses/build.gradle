@@ -35,13 +35,18 @@ dependencies {
 }
 
 jar {
-    archiveFileName = 'tool.jar'
+//    archiveFileName = 'tool.jar'
     manifest {
         attributes(
                 'Main-Class': 'ua.in.szolotukhin.jcurses.Application',
                 'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' ')
         )
     }
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 distributions {
