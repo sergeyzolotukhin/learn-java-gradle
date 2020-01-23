@@ -1,0 +1,9 @@
+{
+  "type": "SchedulesRowDataProvider",
+  "filter": {
+    "scheduleTypes": [
+      "RTBM"
+    ],
+    "activeVersion": true
+  }
+}
