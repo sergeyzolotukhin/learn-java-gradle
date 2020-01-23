@@ -1,12 +1,9 @@
 package ua.in.szolotukhin.jackson.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +26,6 @@ public class SchedulesFilter {
 		log.info("default constructor");
 	}
 
-	@JsonCreator
 	public static SchedulesFilter createSchedulesFilter() {
 		log.info("factory method invoked");
 
