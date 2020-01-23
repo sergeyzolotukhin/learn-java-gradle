@@ -5,5 +5,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-public class RowDataProvider {
+public abstract class AbstractRowDataProvider {
 }

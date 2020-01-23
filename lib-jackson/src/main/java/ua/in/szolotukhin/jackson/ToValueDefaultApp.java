@@ -3,7 +3,7 @@ package ua.in.szolotukhin.jackson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.szolotukhin.jackson.json.MapperFactory;
-import ua.in.szolotukhin.jackson.model.RowDataProvider;
+import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +20,7 @@ public class ToValueDefaultApp {
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));
 
-		RowDataProvider provider = mapper.readValue(json, RowDataProvider.class);
+		AbstractRowDataProvider provider = mapper.readValue(json, AbstractRowDataProvider.class);
 
 		log.info("{}", provider);
 	}

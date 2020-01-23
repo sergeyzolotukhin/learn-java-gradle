@@ -3,7 +3,6 @@ package ua.in.szolotukhin.jackson.json;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import ua.in.szolotukhin.jackson.model.NoopRowDataProvider;
-import ua.in.szolotukhin.jackson.model.RowDataProvider;
 import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
 
 public final class MapperFactory {
