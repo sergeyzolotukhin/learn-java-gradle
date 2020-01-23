@@ -2,6 +2,7 @@ package ua.in.szolotukhin.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.szolotukhin.jackson.json.MapperFactory;
 import ua.in.szolotukhin.jackson.model.SchedulesFilter;
 import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
 
