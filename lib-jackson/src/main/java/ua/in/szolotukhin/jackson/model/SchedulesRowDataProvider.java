@@ -17,6 +17,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo( use = JsonTypeInfo.Id.NAME, property = "type")
-public class SchedulesRowDataProvider {
+public class SchedulesRowDataProvider extends RowDataProvider {
 	private SchedulesFilter filter;
 }

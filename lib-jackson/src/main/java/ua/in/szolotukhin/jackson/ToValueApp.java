@@ -2,7 +2,7 @@ package ua.in.szolotukhin.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
+import ua.in.szolotukhin.jackson.model.RowDataProvider;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,12 +14,11 @@ public class ToValueApp {
 	public static final String BASE_PATH = "lib-jackson/src/main/resources";
 
 	public static void main(String[] args) throws IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.writerWithDefaultPrettyPrinter();
+		ObjectMapper mapper = MapperFactory.createMapper();
 
 		String json = Files.readString(Paths.get(BASE_PATH, "provider.json"));
 
-		SchedulesRowDataProvider provider = mapper.readValue(json, SchedulesRowDataProvider.class);
+		RowDataProvider provider = mapper.readValue(json, RowDataProvider.class);
 
 		log.info("{}", provider);
 	}

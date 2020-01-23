@@ -1,5 +1,5 @@
 {
-  "type": "SchedulesRowDataProvider",
+  "type": "schedules_intervals",
   "filter": {
     "scheduleTypes": [
       "RTBM"

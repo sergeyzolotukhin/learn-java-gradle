@@ -13,8 +13,7 @@ import static java.util.Collections.singletonList;
 public class ToJsonApp {
 
 	public static void main(String[] args) throws IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.writerWithDefaultPrettyPrinter();
+		ObjectMapper mapper = MapperFactory.createMapper();
 
 		SchedulesFilter filter = SchedulesFilter.builder()
 				.scheduleTypes(singletonList("RTBM"))
