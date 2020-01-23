@@ -30,15 +30,12 @@ public class SchedulesFilter {
 	}
 
 	@JsonCreator
-	public static SchedulesFilter createSchedulesFilter(
-			@JsonProperty("activeVersion") Boolean activeVersion,
-			@JsonProperty("scheduleTypes") List<String> scheduleTypes
-	) {
+	public static SchedulesFilter createSchedulesFilter() {
 		log.info("factory method invoked");
 
 		SchedulesFilter employee = new SchedulesFilter();
-		employee.scheduleTypes = scheduleTypes;
-		employee.activeVersion = activeVersion;
+		employee.activeVersion = true;
+
 		return employee;
 	}
 }
