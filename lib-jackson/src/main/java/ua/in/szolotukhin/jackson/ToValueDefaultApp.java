@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.szolotukhin.jackson.json.MapperFactory;
 import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
+import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 @Slf4j
 public class ToValueDefaultApp {
@@ -20,8 +22,9 @@ public class ToValueDefaultApp {
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));
 
-		AbstractRowDataProvider provider = mapper.readValue(json, AbstractRowDataProvider.class);
+		SchedulesRowDataProvider provider = (SchedulesRowDataProvider) mapper.readValue(json, AbstractRowDataProvider.class);
 
+		Objects.requireNonNull(provider.getFilter().getActiveVersion(), "Active version should be not null");
 		log.info("{}", provider);
 	}
 }
