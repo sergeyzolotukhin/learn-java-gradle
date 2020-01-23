@@ -13,14 +13,8 @@ repositories {
 
 dependencies {
     // experimental
-    implementation 'joda-time:joda-time:2.10.5'
-    implementation 'javax.cache:cache-api:1.1.1'
     implementation 'org.quartz-scheduler:quartz:2.3.2'
-    implementation 'com.h2database:h2:1.4.200'
-    implementation 'commons-chain:commons-chain:1.2'
-    implementation 'org.eclipse.collections:eclipse-collections:10.1.0'
-    implementation 'org.drools:drools-core:7.30.0.Final'
-    implementation 'org.drools:drools-compiler:7.30.0.Final'
+//    implementation 'com.h2database:h2:1.4.200'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
