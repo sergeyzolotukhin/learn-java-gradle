@@ -6,7 +6,9 @@ import jcurses.layout.DefaultLayoutManager;
 import jcurses.widgets.WidgetsConstants;
 import jcurses.widgets.component.menu.MenuList;
 import jcurses.widgets.component.menu.PopUpMenu;
+import jcurses.widgets.window.Message;
 import jcurses.widgets.window.Window;
+import jcurses.widgets.window.WindowManager;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -39,9 +41,17 @@ public class Application {
 		menu.addListener(new ItemListener() {
 			@Override
 			public void stateChanged(ItemEvent event) {
-				PopUpMenu popUpMenu = new PopUpMenu(0, 0, "Event");
-				popUpMenu.add("Item selected " + event.getType() + " " + event.getItem());
-				popUpMenu.show();
+				if(event.getId() == 0) {
+					Message message = new Message("Message", "Pressed command " + event.getItem(), "OK");
+					message.show();
+				} else if (event.getId() == 1) {
+					PopUpMenu popUpMenu = new PopUpMenu(60, 30, "Event");
+					popUpMenu.add("Item selected " + event.getId() + " " + event.getItem());
+					popUpMenu.show();
+				} else {
+					window.close();
+					System.exit(0);
+				}
 			}
 		});
 
