@@ -1,8 +1,10 @@
 package ua.in.szolotukhin.jcurses;
 
-import jcurses.widgets.DefaultLayoutManager;
+import jcurses.event.ItemEvent;
+import jcurses.event.ItemListener;
+import jcurses.layout.DefaultLayoutManager;
 import jcurses.widgets.MenuList;
-import jcurses.widgets.TextArea;
+import jcurses.widgets.PopUpMenu;
 import jcurses.widgets.WidgetsConstants;
 import jcurses.widgets.Window;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +36,14 @@ public class Application {
 		menu.add("Command 1");
 		menu.add("Command 2");
 		menu.add("Command 3");
+		menu.addListener(new ItemListener() {
+			@Override
+			public void stateChanged(ItemEvent event) {
+				PopUpMenu popUpMenu = new PopUpMenu(0, 0, "Event");
+				popUpMenu.add("Item selected " + event.getType() + " " + event.getItem());
+				popUpMenu.show();
+			}
+		});
 
 		mgr.addWidget(menu, 0, 1, 50, 20,
 				WidgetsConstants.ALIGNMENT_LEFT, WidgetsConstants.ALIGNMENT_TOP);
