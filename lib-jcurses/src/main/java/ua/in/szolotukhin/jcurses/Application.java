@@ -3,10 +3,10 @@ package ua.in.szolotukhin.jcurses;
 import jcurses.event.ItemEvent;
 import jcurses.event.ItemListener;
 import jcurses.layout.DefaultLayoutManager;
-import jcurses.widgets.MenuList;
-import jcurses.widgets.PopUpMenu;
 import jcurses.widgets.WidgetsConstants;
-import jcurses.widgets.Window;
+import jcurses.widgets.component.menu.MenuList;
+import jcurses.widgets.component.menu.PopUpMenu;
+import jcurses.widgets.window.Window;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
