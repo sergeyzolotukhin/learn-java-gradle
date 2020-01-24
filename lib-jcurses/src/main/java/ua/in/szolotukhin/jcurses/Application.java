@@ -26,7 +26,7 @@ public class Application {
 		Window window2 = new Window( 5, 5, screenWidth - 10, screenHeight - 10, true, "Standing data");
 		window2.getRootPanel().setPanelColors(new CharColor(CharColor.BLUE, CharColor.YELLOW));
 		window2.setBorderColors(new CharColor(CharColor.BLUE, CharColor.RED));
-		window2.setBorderColors(new CharColor(CharColor.GREEN, CharColor.MAGENTA));
+		window2.setTitleColors(new CharColor(CharColor.GREEN, CharColor.MAGENTA));
 		window2.show();
 
 		Thread.sleep(5_000);
