@@ -12,39 +12,37 @@ public class Application {
 	public static void main(String[] args) throws InterruptedException {
 		log.info("lib path: [{}]", System.getProperty("java.library.path"));
 
-		Window w = new Window(100, 50, true, "Hai hai!");
-		TextArea textArea = new TextArea();
+		Window window = new Window(100, 50, true, "Hai hai!");
 
 		DefaultLayoutManager mgr = new DefaultLayoutManager();
-		mgr.bindToContainer(w.getRootPanel());
+		mgr.bindToContainer(window.getRootPanel());
 
-
-		MenuList menu = new MenuList();
-		menu.add("Command 1");
-		menu.add("Command 2");
-		menu.add("Command 3");
-		menu.select(1);
-
-		mgr.addWidget(textArea, 2, 2, 50, 20,
-				WidgetsConstants.ALIGNMENT_CENTER, WidgetsConstants.ALIGNMENT_CENTER);
-
-		mgr.addWidget(menu, 0, 0, 50, 20,
-				WidgetsConstants.ALIGNMENT_LEFT, WidgetsConstants.ALIGNMENT_RIGHT);
-
+		/*TextArea textArea = new TextArea();
 		String text = "The runtime configuration has been deprecated for resolution. \n";
 
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 100; i++) {
 			sb.append(text);
 		}
-
 		textArea.setText(sb.toString());
 
-		w.show();
+		mgr.addWidget(textArea, 2, 2, 50, 20,
+				WidgetsConstants.ALIGNMENT_CENTER, WidgetsConstants.ALIGNMENT_CENTER);
+*/
+
+		MenuList menu = new MenuList();
+		menu.add("Command 1");
+		menu.add("Command 2");
+		menu.add("Command 3");
+
+		mgr.addWidget(menu, 0, 1, 50, 20,
+				WidgetsConstants.ALIGNMENT_LEFT, WidgetsConstants.ALIGNMENT_TOP);
+
+		window.show();
 
 		Thread.currentThread();
 		Thread.sleep(30000);
 
-		w.close();
+		window.close();
 	}
 }
