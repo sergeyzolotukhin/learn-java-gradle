@@ -3,6 +3,8 @@ package ua.in.szolotukhin.jcurses;
 import jcurses.event.item.ItemEvent;
 import jcurses.event.item.ItemListener;
 import jcurses.layout.DefaultLayoutManager;
+import jcurses.system.CharColor;
+import jcurses.system.Toolkit;
 import jcurses.widgets.WidgetsConstants;
 import jcurses.widgets.component.menu.MenuList;
 import jcurses.widgets.component.menu.PopUpMenu;
@@ -13,8 +15,32 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Application {
 	public static void main(String[] args) throws InterruptedException {
-		log.info("lib path: [{}]", System.getProperty("java.library.path"));
+		final int screenWidth = Toolkit.getScreenWidth();
+		final int screenHeight = Toolkit.getScreenHeight();
 
+		Window window = new Window(screenWidth, screenHeight, true, "Schedule manager");
+		window.show();
+
+		Thread.sleep(5_000);
+
+		Window window2 = new Window( 5, 5, screenWidth - 10, screenHeight - 10, true, "Standing data");
+		window2.getRootPanel().setPanelColors(new CharColor(CharColor.BLUE, CharColor.YELLOW));
+		window2.setBorderColors(new CharColor(CharColor.BLUE, CharColor.RED));
+		window2.setBorderColors(new CharColor(CharColor.GREEN, CharColor.MAGENTA));
+		window2.show();
+
+		Thread.sleep(5_000);
+
+		window2.close();
+
+		Thread.sleep(5_000);
+
+		window.close();
+
+		Thread.sleep(5_000);
+	}
+
+	private static void tutorialOne() throws InterruptedException {
 		Window window = new Window(100, 50, true, "Hai hai!");
 
 		DefaultLayoutManager mgr = new DefaultLayoutManager();
