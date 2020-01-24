@@ -1,8 +1,6 @@
 package ua.in.szolotukhin.jcurses;
 
-import jcurses.system.CharColor;
 import jcurses.widgets.DefaultLayoutManager;
-import jcurses.widgets.Label;
 import jcurses.widgets.TextArea;
 import jcurses.widgets.WidgetsConstants;
 import jcurses.widgets.Window;
