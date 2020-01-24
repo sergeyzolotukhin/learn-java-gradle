@@ -1,14 +1,13 @@
 package ua.in.szolotukhin.jcurses;
 
-import jcurses.event.ItemEvent;
-import jcurses.event.ItemListener;
+import jcurses.event.item.ItemEvent;
+import jcurses.event.item.ItemListener;
 import jcurses.layout.DefaultLayoutManager;
 import jcurses.widgets.WidgetsConstants;
 import jcurses.widgets.component.menu.MenuList;
 import jcurses.widgets.component.menu.PopUpMenu;
 import jcurses.widgets.window.Message;
 import jcurses.widgets.window.Window;
-import jcurses.widgets.window.WindowManager;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
