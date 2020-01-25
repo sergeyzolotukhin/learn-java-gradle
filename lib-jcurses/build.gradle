@@ -45,10 +45,10 @@ jar {
     }
 }
 
-java {
-    withSourcesJar()
-    withJavadocJar()
-}
+//java {
+//    withSourcesJar()
+//    withJavadocJar()
+//}
 
 distributions {
     //noinspection GroovyAssignabilityCheck

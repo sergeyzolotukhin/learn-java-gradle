@@ -8,11 +8,11 @@
 //include 'spring-camel'
 //include 'spring-swagger'
 
-//include 'pattern'
+include 'pattern'
 
 //include 'activiti-learn'
 
-include 'lib-jcurses'
+//include 'lib-jcurses'
 //include 'lib-jackson'
 //include 'lib-quartz'
 
