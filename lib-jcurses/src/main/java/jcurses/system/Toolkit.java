@@ -1,17 +1,18 @@
 package jcurses.system;
 
 import jcurses.util.Rectangle;
+import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.awt.*;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Hashtable;
-import java.awt.Point;
+import java.util.List;
+import java.util.Objects;
+
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * This class is the 'work factory' of the jcurses library. It contains
@@ -19,6 +20,7 @@ import java.awt.Point;
  * to platform dependend libraries. An developer must not usually call methods of this
  * class, these are used implementing widgets and in jcurses core.
  */
+@Slf4j
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class Toolkit {
 
@@ -99,10 +101,21 @@ public class Toolkit {
 	}
 
 	private static String getLibraryPath() {
-		Path path = Paths.get(".", "libjcurses64.dll");
-		System.out.println("PATH:" + path.toAbsolutePath());
+		String result = "";
 
-		return path.toAbsolutePath().toString();
+		URL resource = Toolkit.class.getResource("/libjcurses64.dll");
+		if (Objects.nonNull(resource)) {
+			result = resource.getPath();
+		}
+
+		if (isBlank(result)) {
+			Path path = Paths.get(".", "libjcurses64.dll");
+			result = path.toAbsolutePath().toString();
+		}
+
+		log.info("Library path: [{}]", result);
+
+		return result;
 	}
 
 	private static void fillColorPairs() {

@@ -12,7 +12,6 @@ import jcurses.system.Toolkit;
 import jcurses.util.Rectangle;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -28,17 +27,18 @@ import java.util.Vector;
  */
 public class Window {
 
+	private String title;
+	private boolean border;
+	private boolean visible = false;
+
+	// internal properties
+
 	private Panel _root = null;
 
 	private Vector _focusableChilds = null;
 	private int _currentIndex = -1;
 
-	private boolean _visible = false;
-
 	private Rectangle _rect;
-
-	private boolean _border;
-	private String _title;
 
 	private boolean _hasShadow = true;
 
@@ -58,8 +58,8 @@ public class Window {
 	 * @param border true, if the window has a border, false in other case
 	 */
 	public Window(int x, int y, int width, int height, boolean border, String title) {
-		_border = border;
-		_title = title;
+		this.border = border;
+		this.title = title;
 		_rect = new Rectangle(width, height);
 		_rect.setLocation(x, y);
 
@@ -78,7 +78,19 @@ public class Window {
 	}
 
 	public Window(int width, int height, boolean border, String title) {
-		this((Toolkit.getScreenWidth() - width) / 2, (Toolkit.getScreenHeight() - height) / 2, width, height, border, title);
+		this((Toolkit.getScreenWidth() - width) / 2,
+				(Toolkit.getScreenHeight() - height) / 2,
+				width, height,
+				border, title);
+	}
+
+	public Window(int width, int height) {
+		this(
+				(Toolkit.getScreenWidth() - width) / 2,
+				(Toolkit.getScreenHeight() - height) / 2,
+				width, height,
+				true, ""
+		);
 	}
 
 
@@ -92,10 +104,10 @@ public class Window {
 		int width = _rect.getWidth();
 		int height = _rect.getHeight();
 
-		int x1 = _border ? x + 1 : x;
-		int y1 = _border ? y + 1 : y;
-		int w = _border ? width - 2 : width;
-		int h = _border ? height - 2 : height;
+		int x1 = border ? x + 1 : x;
+		int y1 = border ? y + 1 : y;
+		int w = border ? width - 2 : width;
+		int h = border ? height - 2 : height;
 
 		_root.setSize(new Rectangle(w, h));
 		_root.setX(x1);
@@ -114,16 +126,16 @@ public class Window {
 		Window oldTop = WindowManager.getTopWindow();
 		if (value) {
 			pack();
-			_visible = value;
+			visible = value;
 			WindowManager.makeWindowVisible(this, oldTop);
 		} else {
-			_visible = value;
+			visible = value;
 			WindowManager.makeWindowInvisible(this, oldTop);
 		}
 	}
 
 	public boolean isVisible() {
-		return _visible;
+		return visible;
 	}
 
 	public void paint() {
@@ -502,7 +514,7 @@ public class Window {
 
 
 	private void drawThingsIfNeeded() {
-		if (_border) {
+		if (border) {
 			Toolkit.drawBorder(_rect, getBorderColors());
 		}
 
@@ -522,9 +534,9 @@ public class Window {
 
 
 	private void paintTitle() {
-		if (_title != null) {
+		if (title != null) {
 			CharColor color = getTitleColors();
-			Toolkit.printString(_title, _rect.getX() + (_rect.getWidth() - _title.length()) / 2, _rect.getY(), color);
+			Toolkit.printString(title, _rect.getX() + (_rect.getWidth() - title.length()) / 2, _rect.getY(), color);
 		}
 	}
 
