@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
 //    compile name: 'jcurses'
-    compile 'ua.in.szolotukhin.jcurses:jcurses:0.0.1'
+//    compile 'ua.in.szolotukhin.jcurses:jcurses:0.0.1'
 
     // common utils
     compile 'com.google.guava:guava:28.0-jre'
