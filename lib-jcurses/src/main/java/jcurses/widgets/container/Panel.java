@@ -18,10 +18,10 @@ public class Panel extends WidgetContainer {
 	public static final int ALIGNMENT_RIGHT = 1;
 	public static final int ALIGNMENT_CENTER = 2;
 
-	private CharColor _colors = getDefaultPanelColors();
-	private static CharColor __defaultPanelColors = new CharColor(CharColor.WHITE, CharColor.WHITE);
+	private Rectangle preferredSize;
 
-	private Rectangle _prefSize = null;
+	private CharColor _colors = getDefaultPanelColors();
+	private static CharColor defaultPanelColors = new CharColor(CharColor.WHITE, CharColor.WHITE);
 
 	public Panel() {
 		this(-1, -1);
@@ -38,19 +38,21 @@ public class Panel extends WidgetContainer {
 	 *               or on the window width, if this is a root panel.
 	 */
 	public Panel(int width, int height) {
-		_prefSize = new Rectangle(width, height);
+		preferredSize = new Rectangle(width, height);
 	}
 
 	public Rectangle getPreferredSize() {
-		return _prefSize;
+		return preferredSize;
 	}
 
+	@Override
 	protected void paintSelf() {
 		Rectangle size = getSize();
 		size.setLocation(getAbsoluteX(), getAbsoluteY());
 		Toolkit.drawRectangle(size, getPanelColors());
 	}
 
+	@Override
 	protected void repaintSelf() {
 		paintSelf();
 	}
@@ -73,7 +75,7 @@ public class Panel extends WidgetContainer {
 
 
 	protected CharColor getDefaultPanelColors() {
-		return __defaultPanelColors;
+		return defaultPanelColors;
 	}
 
 

@@ -1,6 +1,7 @@
 package ua.in.szolotukhin.jcurses;
 
 import jcurses.system.Toolkit;
+import jcurses.widgets.container.Panel;
 import jcurses.widgets.window.Window;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,6 +13,8 @@ public class Application {
 
 		Window window = new Window(screenWidth, screenHeight);
 		window.show();
+
+		Panel rootPanel = window.getRootPanel();
 
 		Thread.sleep(5_000);
 

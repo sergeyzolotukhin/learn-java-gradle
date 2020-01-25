@@ -44,14 +44,14 @@ public class Window {
 	private Hashtable _shortCutsTable = new Hashtable();
 	boolean _closed = false;
 
-	private static InputChar __defaultClosingChar = new InputChar(27);//escape character
-	private InputChar _closingChar = getDefaultClosingChar();
-	private static CharColor __defaultTitleColors = new CharColor(CharColor.WHITE, CharColor.RED);
-	private CharColor _titleColors = getDefaultTitleColors();
+	private static CharColor defaultTitleColor = new CharColor(CharColor.WHITE, CharColor.RED);
+	private CharColor titleColor = getDefaultTitleColors();
 	private static CharColor __defaultBorderColors = new CharColor(CharColor.WHITE, CharColor.BLACK);
 	private CharColor _borderColors = getDefaultBorderColors();
 	private static CharColor __shadowColors = new CharColor(CharColor.BLACK, CharColor.BLACK);
 
+	private static InputChar __defaultClosingChar = new InputChar(27);//escape character
+	private InputChar _closingChar = getDefaultClosingChar();
 	private static InputChar __defaultFocusChangeChar = new InputChar('\t');//tab character
 	private InputChar _focusChangeChar = getDefaultFocusChangeChar();
 	private static InputChar __upChar = new InputChar(InputChar.KEY_UP);
@@ -487,7 +487,7 @@ public class Window {
 
 	private void paintTitle() {
 		if (title != null) {
-			CharColor color = getTitleColors();
+			CharColor color = getTitleColor();
 			Toolkit.printString(title, rectangle.getX() + (rectangle.getWidth() - title.length()) / 2, rectangle.getY(), color);
 		}
 	}
@@ -505,15 +505,15 @@ public class Window {
 	}
 
 	public CharColor getDefaultTitleColors() {
-		return __defaultTitleColors;
+		return defaultTitleColor;
 	}
 
-	public CharColor getTitleColors() {
-		return _titleColors;
+	public CharColor getTitleColor() {
+		return titleColor;
 	}
 
-	public void setTitleColors(CharColor colors) {
-		_titleColors = colors;
+	public void setTitleColor(CharColor colors) {
+		titleColor = colors;
 	}
 
 	public void setShadow(boolean value) {
