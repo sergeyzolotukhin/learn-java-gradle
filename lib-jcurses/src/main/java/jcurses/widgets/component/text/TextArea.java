@@ -1,6 +1,7 @@
 package jcurses.widgets.component.text;
 
 import jcurses.system.CharColor;
+import jcurses.system.DrawUtils;
 import jcurses.system.Toolkit;
 import jcurses.util.Rectangle;
 import jcurses.scroll.IScrollable;
@@ -102,7 +103,7 @@ public class TextArea extends TextComponent implements IScrollable {
 
 	protected void doPaint() {
 		super.doPaint();
-		Toolkit.drawBorder(getBorderRectangle(), getBorderColors());
+		DrawUtils.drawBorder(getBorderRectangle(), getBorderColors());
 		drawAdditionalThings();
 
 	}

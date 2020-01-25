@@ -1,6 +1,7 @@
 package jcurses.widgets.window;
 
 
+import jcurses.system.DrawUtils;
 import jcurses.widgets.Widget;
 import jcurses.widgets.container.Panel;
 import jcurses.event.window.WindowEvent;
@@ -27,10 +28,16 @@ import java.util.Vector;
  */
 @SuppressWarnings("rawtypes")
 public class Window {
+	private static final CharColor DEFAULT_TITLE_COLOR = new CharColor(CharColor.BLUE, CharColor.RED);
+	private static final CharColor DEFAULT_BORDER_COLOR = new CharColor(CharColor.BLUE, CharColor.WHITE);
 
 	private String title;
-	private boolean border;
 	private boolean visible = false;
+	// styling
+	private boolean border;
+	private CharColor titleColor = getDefaultTitleColors();
+	private CharColor borderColor = getDefaultBorderColors();
+	private static CharColor shadowColor = new CharColor(CharColor.BLACK, CharColor.BLACK);
 
 	private Rectangle rectangle;
 	private Panel rootPanel;
@@ -43,12 +50,6 @@ public class Window {
 	private Vector _shortCutsList = new Vector();
 	private Hashtable _shortCutsTable = new Hashtable();
 	boolean _closed = false;
-
-	private static CharColor defaultTitleColor = new CharColor(CharColor.WHITE, CharColor.RED);
-	private CharColor titleColor = getDefaultTitleColors();
-	private static CharColor __defaultBorderColors = new CharColor(CharColor.WHITE, CharColor.BLACK);
-	private CharColor _borderColors = getDefaultBorderColors();
-	private static CharColor __shadowColors = new CharColor(CharColor.BLACK, CharColor.BLACK);
 
 	private static InputChar __defaultClosingChar = new InputChar(27);//escape character
 	private InputChar _closingChar = getDefaultClosingChar();
@@ -466,46 +467,20 @@ public class Window {
 		rootPanel.setWindow(this);
 	}
 
-	private void drawThingsIfNeeded() {
-		if (border) {
-			Toolkit.drawBorder(rectangle, getBorderColors());
-		}
-
-		paintTitle();
-
-		if (hasShadow()) {
-			Toolkit.drawRectangle(rectangle.getX() + rectangle.getWidth(),
-					rectangle.getY() + 1,
-					1,
-					rectangle.getHeight(), getShadowColors());
-			Toolkit.drawRectangle(rectangle.getX() + 1,
-					rectangle.getY() + rectangle.getHeight(),
-					rectangle.getWidth(),
-					1, getShadowColors());
-		}
-	}
-
-	private void paintTitle() {
-		if (title != null) {
-			CharColor color = getTitleColor();
-			Toolkit.printString(title, rectangle.getX() + (rectangle.getWidth() - title.length()) / 2, rectangle.getY(), color);
-		}
-	}
-
 	public CharColor getDefaultBorderColors() {
-		return __defaultBorderColors;
+		return DEFAULT_BORDER_COLOR;
 	}
 
 	public CharColor getBorderColors() {
-		return _borderColors;
+		return borderColor;
 	}
 
 	public void setBorderColors(CharColor colors) {
-		_borderColors = colors;
+		borderColor = colors;
 	}
 
 	public CharColor getDefaultTitleColors() {
-		return defaultTitleColor;
+		return DEFAULT_TITLE_COLOR;
 	}
 
 	public CharColor getTitleColor() {
@@ -525,7 +500,7 @@ public class Window {
 	}
 
 	private CharColor getShadowColors() {
-		return __shadowColors;
+		return shadowColor;
 	}
 
 	private WindowListenerManager _listenerManager = new WindowListenerManager();
@@ -568,6 +543,37 @@ public class Window {
 	// ================================================================================================================
 	// private methods
 	// ================================================================================================================
+
+	private void paintTitle() {
+		if (title != null) {
+			CharColor color = getTitleColor();
+
+			int x = rectangle.getX() + (rectangle.getWidth() - title.length()) / 2;
+			int y = rectangle.getY();
+
+			Toolkit.printString(title, x, y, color);
+		}
+	}
+
+	private void drawThingsIfNeeded() {
+		if (border) {
+			DrawUtils.drawBorder(rectangle, getBorderColors());
+		}
+
+		paintTitle();
+
+		if (hasShadow()) {
+			Toolkit.drawRectangle(rectangle.getX() + rectangle.getWidth(),
+					rectangle.getY() + 1,
+					1,
+					rectangle.getHeight(), getShadowColors());
+			Toolkit.drawRectangle(rectangle.getX() + 1,
+					rectangle.getY() + rectangle.getHeight(),
+					rectangle.getWidth(),
+					1, getShadowColors());
+		}
+	}
+
 
 	private void configureRootPanel() {
 		if (rootPanel == null) {

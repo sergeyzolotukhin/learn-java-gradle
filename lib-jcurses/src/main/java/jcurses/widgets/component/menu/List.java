@@ -9,6 +9,7 @@ import jcurses.event.item.ItemListener;
 import jcurses.event.item.ItemEvent;
 
 import jcurses.system.CharColor;
+import jcurses.system.DrawUtils;
 import jcurses.system.InputChar;
 import jcurses.system.Toolkit;
 
@@ -679,7 +680,7 @@ public class List extends Widget implements IScrollable {
 	protected void doPaint() {
 		Rectangle rect = (Rectangle) getSize().clone();
 		rect.setLocation(getAbsoluteX(), getAbsoluteY());
-		Toolkit.drawBorder(rect, getColors());
+		DrawUtils.drawBorder(rect, getColors());
 		drawTitle();
 		_scrollbars.paint();
 		drawRectangle();

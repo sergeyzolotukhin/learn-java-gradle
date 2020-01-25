@@ -11,6 +11,7 @@ import jcurses.util.Rectangle;
  * serves as root for the widget hierarchy.
  */
 public class Panel extends WidgetContainer {
+	private static final CharColor DEFAULT_PANEL_COLOR = new CharColor(CharColor.BLUE, CharColor.WHITE);
 
 	public static final int ALIGNMENT_TOP = 0;
 	public static final int ALIGNMENT_BOTTOM = 1;
@@ -20,8 +21,7 @@ public class Panel extends WidgetContainer {
 
 	private Rectangle preferredSize;
 
-	private CharColor _colors = getDefaultPanelColors();
-	private static CharColor defaultPanelColors = new CharColor(CharColor.WHITE, CharColor.WHITE);
+	private CharColor color = getDefaultPanelColors();
 
 	public Panel() {
 		this(-1, -1);
@@ -62,7 +62,7 @@ public class Panel extends WidgetContainer {
 	 * @return panel colors
 	 */
 	public CharColor getPanelColors() {
-		return _colors;
+		return color;
 	}
 
 	/**
@@ -70,12 +70,12 @@ public class Panel extends WidgetContainer {
 	 * @param colors new panel colors
 	 */
 	public void setPanelColors(CharColor colors) {
-		_colors = colors;
+		color = colors;
 	}
 
 
 	protected CharColor getDefaultPanelColors() {
-		return defaultPanelColors;
+		return DEFAULT_PANEL_COLOR;
 	}
 
 

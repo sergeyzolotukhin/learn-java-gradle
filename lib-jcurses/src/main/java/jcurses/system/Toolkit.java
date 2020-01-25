@@ -368,9 +368,7 @@ public class Toolkit {
 		}
 	}
 
-
 	private static native void drawVerticalLine(int startX, int startY, int endX, short colorPairNumber, long attr);
-
 
 	private static Point getCornerCenterPoint(int startX, int startY, int endX, int endY, short alignment) {
 		int x = 0;
@@ -416,7 +414,7 @@ public class Toolkit {
 	 * @param endY      the y coordinate of the end point
 	 * @param alignment this parameter states, whether the line, that connects the start point with end point, lies <bold>UNDER</bold>
 	 *                  the corner point (alignment == 0 ) or <bold>OVER</bold> (alignment == 1), or the corner char, if the corner has no sides, it.
-	 * @color the color attributes for of the corner
+	 * @param color the color attributes for of the corner
 	 */
 	public static void drawCorner(int startX, int startY, int endX, int endY, CharColor color, short alignment) {
 		Rectangle clipRect = getCurrentClipRectangle();
@@ -463,15 +461,7 @@ public class Toolkit {
 
 	private static native void drawCorner(int startX, int startY, int endX, int endY, short colorPairNumber, long attr, short alignment);
 
-	/**
-	 * The method draws a border ( empty rectangle )
-	 *
-	 * @param rect  bounds of the border to be painted
-	 * @param color color attributes of the border
-	 */
-	public static void drawBorder(Rectangle rect, CharColor color) {
-		drawBorder((int) rect.getX(), (int) rect.getY(), (int) rect.getWidth(), (int) rect.getHeight(), color);
-	}
+
 
 	/**
 	 * The method draws a border on the screen.

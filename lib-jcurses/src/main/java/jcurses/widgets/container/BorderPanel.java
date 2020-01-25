@@ -1,6 +1,7 @@
 package jcurses.widgets.container;
 
 import jcurses.system.CharColor;
+import jcurses.system.DrawUtils;
 import jcurses.system.Toolkit;
 import jcurses.util.Rectangle;
 
@@ -21,12 +22,12 @@ public class BorderPanel extends Panel {
 
 	protected void paintSelf() {
 		super.paintSelf();
-		Toolkit.drawBorder(getRectangle(), getBorderColors());
+		DrawUtils.drawBorder(getRectangle(), getBorderColors());
 	}
 
 	protected void repaintSelf() {
 		super.repaintSelf();
-		Toolkit.drawBorder(getRectangle(), getBorderColors());
+		DrawUtils.drawBorder(getRectangle(), getBorderColors());
 	}
 
 	public CharColor getBorderColors() {
