@@ -25,28 +25,43 @@ import java.util.Vector;
  * window. If an window are created, it gets automatically to the top of the stack
  * and leaves the until an other window is created or explicitly brought to the top.
  */
+@SuppressWarnings("rawtypes")
 public class Window {
 
 	private String title;
 	private boolean border;
 	private boolean visible = false;
 
-	// internal properties
+	private Rectangle rectangle;
+	private Panel rootPanel;
 
-	private Panel _root = null;
+	// internal properties
 
 	private Vector _focusableChilds = null;
 	private int _currentIndex = -1;
-
-	private Rectangle _rect;
-
 	private boolean _hasShadow = true;
-
 	private Vector _shortCutsList = new Vector();
 	private Hashtable _shortCutsTable = new Hashtable();
-
 	boolean _closed = false;
 
+	private static InputChar __defaultClosingChar = new InputChar(27);//escape character
+	private InputChar _closingChar = getDefaultClosingChar();
+	private static CharColor __defaultTitleColors = new CharColor(CharColor.WHITE, CharColor.RED);
+	private CharColor _titleColors = getDefaultTitleColors();
+	private static CharColor __defaultBorderColors = new CharColor(CharColor.WHITE, CharColor.BLACK);
+	private CharColor _borderColors = getDefaultBorderColors();
+	private static CharColor __shadowColors = new CharColor(CharColor.BLACK, CharColor.BLACK);
+
+	private static InputChar __defaultFocusChangeChar = new InputChar('\t');//tab character
+	private InputChar _focusChangeChar = getDefaultFocusChangeChar();
+	private static InputChar __upChar = new InputChar(InputChar.KEY_UP);
+	private static InputChar __downChar = new InputChar(InputChar.KEY_DOWN);
+	private static InputChar __leftChar = new InputChar(InputChar.KEY_LEFT);
+	private static InputChar __rightChar = new InputChar(InputChar.KEY_RIGHT);
+
+	// ================================================================================================================
+	// constructors
+	// ================================================================================================================
 
 	/**
 	 * The constructor
@@ -60,19 +75,19 @@ public class Window {
 	public Window(int x, int y, int width, int height, boolean border, String title) {
 		this.border = border;
 		this.title = title;
-		_rect = new Rectangle(width, height);
-		_rect.setLocation(x, y);
+		rectangle = new Rectangle(width, height);
+		rectangle.setLocation(x, y);
 
 		int x1 = border ? x + 1 : x;
 		int y1 = border ? y + 1 : y;
 		int w = border ? width - 2 : width;
 		int h = border ? height - 2 : height;
 
-		_root = new Panel(w, h);
-		_root.setSize(new Rectangle(w, h));
-		_root.setX(x1);
-		_root.setY(y1);
-		_root.setWindow(this);
+		rootPanel = new Panel(w, h);
+		rootPanel.setSize(new Rectangle(w, h));
+		rootPanel.setX(x1);
+		rootPanel.setY(y1);
+		rootPanel.setWindow(this);
 
 		WindowManager.createWindow(this);
 	}
@@ -93,26 +108,9 @@ public class Window {
 		);
 	}
 
-
-	private void configureRootPanel() {
-		if (_root == null) {
-			_root = new Panel();
-		}
-
-		int x = _rect.getX();
-		int y = _rect.getY();
-		int width = _rect.getWidth();
-		int height = _rect.getHeight();
-
-		int x1 = border ? x + 1 : x;
-		int y1 = border ? y + 1 : y;
-		int w = border ? width - 2 : width;
-		int h = border ? height - 2 : height;
-
-		_root.setSize(new Rectangle(w, h));
-		_root.setX(x1);
-		_root.setY(y1);
-	}
+	// ================================================================================================================
+	// public API
+	// ================================================================================================================
 
 	public void show() {
 		setVisible(true);
@@ -138,28 +136,30 @@ public class Window {
 		return visible;
 	}
 
-	public void paint() {
-		drawThingsIfNeeded();
-		_root.paint();
-	}
-
-	public void repaint() {
-		drawThingsIfNeeded();
-		_root.repaint();
-	}
-
-	public Rectangle getRectangle() {
-		return _rect;
-	}
-
 	/**
-	 * The method closed the window, that is removes it from window stack an
-	 * evantually from screen, if it was visible.
+	 * The method closed the window, that is removes it from window stack an eventually from screen, if it was visible.
 	 */
 	public void close() {
 		WindowManager.removeWindow(this);
 	}
 
+	// ================================================================================================================
+	//
+	// ================================================================================================================
+
+	public void paint() {
+		drawThingsIfNeeded();
+		rootPanel.paint();
+	}
+
+	public void repaint() {
+		drawThingsIfNeeded();
+		rootPanel.repaint();
+	}
+
+	public Rectangle getRectangle() {
+		return rectangle;
+	}
 
 	/**
 	 * The method moves the window to the top of the stack
@@ -168,17 +168,9 @@ public class Window {
 		WindowManager.moveToTop(this);
 	}
 
-	/**
-	 * Folgende Methoden bestimmen das zeichen das benutzt wird, um das Fenster zu schlie�en
-	 */
-	private static InputChar __defaultClosingChar = new InputChar(27);//escape character
-	private InputChar _closingChar = getDefaultClosingChar();
-
-
 	private InputChar getDefaultClosingChar() {
 		return __defaultClosingChar;
 	}
-
 
 	/**
 	 * The method returns the character to close window.
@@ -190,7 +182,6 @@ public class Window {
 		return _closingChar;
 	}
 
-
 	/**
 	 * The method defines a new window's closing character. Default is escape.
 	 *
@@ -199,11 +190,6 @@ public class Window {
 	public void setClosingChar(InputChar character) {
 		_closingChar = character;
 	}
-
-
-	private static InputChar __defaultFocusChangeChar = new InputChar('\t');//tab character
-	private InputChar _focusChangeChar = getDefaultFocusChangeChar();
-
 
 	private InputChar getDefaultFocusChangeChar() {
 		return __defaultFocusChangeChar;
@@ -219,7 +205,6 @@ public class Window {
 		return _focusChangeChar;
 	}
 
-
 	/**
 	 * The method defined the charater used to navigate (change the focus) between widgets
 	 * within the window. Default is 'tab'
@@ -230,28 +215,13 @@ public class Window {
 		_focusChangeChar = character;
 	}
 
-	/**
-	 * Behandlung der Eingabe.
-	 * Vier m�gliche F�lle:
-	 * 1. Fenster schliessen.
-	 * 2. Zum n�chsten Widget springen.
-	 * 3. Shortcut bearbeiten.
-	 * 3. Eingabe vom aktuell Fokus habenden Kind bearbeiten lassen.
-	 */
 	private boolean isShortCut(InputChar inp) {
 		return (_shortCutsList.indexOf(inp) != -1);
 	}
 
-
 	private Widget getWidgetByShortCut(InputChar inp) {
 		return (Widget) _shortCutsTable.get(inp);
 	}
-
-
-	private static InputChar __upChar = new InputChar(InputChar.KEY_UP);
-	private static InputChar __downChar = new InputChar(InputChar.KEY_DOWN);
-	private static InputChar __leftChar = new InputChar(InputChar.KEY_LEFT);
-	private static InputChar __rightChar = new InputChar(InputChar.KEY_RIGHT);
 
 	/**
 	 * The method tries to close the window, after the user has typed 'escape'
@@ -260,7 +230,6 @@ public class Window {
 	 * can be closed bei listeners. Did'nt listeners close the window, in leaves open.
 	 * Has the window no listeners, than the method closes it.
 	 */
-
 	public boolean tryToClose() {
 		if (_listenerManager.countListeners() > 0) {
 			_listenerManager.handleEvent(new WindowEvent(this, WindowEvent.CLOSING));
@@ -271,15 +240,12 @@ public class Window {
 		}
 	}
 
-
 	/**
 	 * @return true, if the window is already closed, false in othe case.
 	 */
-
 	public boolean isClosed() {
 		return _closed;
 	}
-
 
 	/**
 	 * The method is called by the libray to handle an input character, if the window has the focus.
@@ -336,16 +302,13 @@ public class Window {
 		}
 	}
 
-
 	/**
 	 * The method is called by <code>handleInput</code>, if no widget has handled
 	 * the input. Derived classes can override the method to define additional shortcuts.
 	 */
-
 	protected void onChar(InputChar inp) {
 		//default nothing
 	}
-
 
 	private void changeFocus() {
 		if (_currentIndex != -1) {
@@ -358,13 +321,11 @@ public class Window {
 		}
 	}
 
-
 	private void changeFocus(int direction) {
 		if (_currentIndex != -1) {
 			changeFocus(getNextWidget(direction));
 		}
 	}
-
 
 	private Widget getNextWidget(int direction) {
 		Widget result = getCurrentWidget();
@@ -402,7 +363,6 @@ public class Window {
 
 	}
 
-
 	public void changeFocus(Widget widget) {
 		int newIndex = _focusableChilds.indexOf(widget);
 		if (newIndex != -1) {
@@ -418,7 +378,6 @@ public class Window {
 
 		}
 	}
-
 
 	private Widget getCurrentWidget() {
 		if (_currentIndex != -1) {
@@ -436,12 +395,11 @@ public class Window {
 		return false;
 	}
 
-
 	private void loadShortcuts() {
 		_shortCutsList.clear();
 		_shortCutsTable.clear();
 
-		Vector list = _root.getListOfWidgetsWithShortCuts();
+		Vector list = rootPanel.getListOfWidgetsWithShortCuts();
 		for (int i = 0; i < list.size(); i++) {
 			Widget widget = (Widget) list.elementAt(i);
 			Vector shortCuts = widget.getShortCutsList();
@@ -454,7 +412,7 @@ public class Window {
 	}
 
 	private void loadFocusableChilds() {
-		_focusableChilds = _root.getListOfFocusables();
+		_focusableChilds = rootPanel.getListOfFocusables();
 		if (_focusableChilds.size() == 0) {
 			_currentIndex = -1;
 		} else {
@@ -463,7 +421,6 @@ public class Window {
 			((Widget) _focusableChilds.elementAt(0)).setFocus(true);
 		}
 	}
-
 
 	/**
 	 * The method computes new window's layout.
@@ -474,97 +431,78 @@ public class Window {
 	public void pack() {
 		cutIfNeeded();
 		configureRootPanel();
-		_root.pack();
+		rootPanel.pack();
 		loadFocusableChilds();
 		loadShortcuts();
 	}
 
 
 	private void cutIfNeeded() {
-		int maxWidth = Toolkit.getScreenWidth() - _rect.getX() - (_hasShadow ? 1 : 0);
-		int maxHeight = Toolkit.getScreenHeight() - _rect.getY() - (_hasShadow ? 1 : 0);
+		int maxWidth = Toolkit.getScreenWidth() - rectangle.getX() - (_hasShadow ? 1 : 0);
+		int maxHeight = Toolkit.getScreenHeight() - rectangle.getY() - (_hasShadow ? 1 : 0);
 
-		if (_rect.getWidth() > maxWidth) {
-			_rect.setWidth(maxWidth);
+		if (rectangle.getWidth() > maxWidth) {
+			rectangle.setWidth(maxWidth);
 		}
 
-		if (_rect.getHeight() > maxHeight) {
-			_rect.setHeight(maxHeight);
+		if (rectangle.getHeight() > maxHeight) {
+			rectangle.setHeight(maxHeight);
 		}
 	}
-
 
 	/**
 	 * @return the root panel of the window
 	 */
 	public Panel getRootPanel() {
-		//Ein kommentar
-		return _root;
+		return rootPanel;
 	}
-
 
 	/**
 	 * Sets the root panel of the window. This is the top most widget container in the
 	 * window's widget hierarchy. It occupies the entire window out of the border (if exists ).
 	 */
 	public void setRootPanel(Panel root) {
-		_root = root;
-		_root.setWindow(this);
+		rootPanel = root;
+		rootPanel.setWindow(this);
 	}
-
 
 	private void drawThingsIfNeeded() {
 		if (border) {
-			Toolkit.drawBorder(_rect, getBorderColors());
+			Toolkit.drawBorder(rectangle, getBorderColors());
 		}
 
 		paintTitle();
 
 		if (hasShadow()) {
-			Toolkit.drawRectangle(_rect.getX() + _rect.getWidth(),
-					_rect.getY() + 1,
+			Toolkit.drawRectangle(rectangle.getX() + rectangle.getWidth(),
+					rectangle.getY() + 1,
 					1,
-					_rect.getHeight(), getShadowColors());
-			Toolkit.drawRectangle(_rect.getX() + 1,
-					_rect.getY() + _rect.getHeight(),
-					_rect.getWidth(),
+					rectangle.getHeight(), getShadowColors());
+			Toolkit.drawRectangle(rectangle.getX() + 1,
+					rectangle.getY() + rectangle.getHeight(),
+					rectangle.getWidth(),
 					1, getShadowColors());
 		}
 	}
 
-
 	private void paintTitle() {
 		if (title != null) {
 			CharColor color = getTitleColors();
-			Toolkit.printString(title, _rect.getX() + (_rect.getWidth() - title.length()) / 2, _rect.getY(), color);
+			Toolkit.printString(title, rectangle.getX() + (rectangle.getWidth() - title.length()) / 2, rectangle.getY(), color);
 		}
 	}
-
-
-	private static CharColor __defaultBorderColors = new CharColor(CharColor.WHITE, CharColor.BLACK);
-	private CharColor _borderColors = getDefaultBorderColors();
 
 	public CharColor getDefaultBorderColors() {
 		return __defaultBorderColors;
 	}
 
-
 	public CharColor getBorderColors() {
 		return _borderColors;
 	}
 
-
 	public void setBorderColors(CharColor colors) {
 		_borderColors = colors;
 	}
-
-	/**
-	 * Normaler title
-	 */
-
-
-	private static CharColor __defaultTitleColors = new CharColor(CharColor.WHITE, CharColor.RED);
-	private CharColor _titleColors = getDefaultTitleColors();
 
 	public CharColor getDefaultTitleColors() {
 		return __defaultTitleColors;
@@ -573,7 +511,6 @@ public class Window {
 	public CharColor getTitleColors() {
 		return _titleColors;
 	}
-
 
 	public void setTitleColors(CharColor colors) {
 		_titleColors = colors;
@@ -587,15 +524,9 @@ public class Window {
 		return _hasShadow;
 	}
 
-
-	private static CharColor __shadowColors = new CharColor(CharColor.BLACK, CharColor.BLACK);
-
 	private CharColor getShadowColors() {
 		return __shadowColors;
 	}
-
-
-	//Listener-Zeugs
 
 	private WindowListenerManager _listenerManager = new WindowListenerManager();
 
@@ -607,14 +538,12 @@ public class Window {
 		_listenerManager.removeListener(listener);
 	}
 
-
 	/**
 	 * The method is called, if the window gets focus.
 	 */
 	public void activate() {
 		_listenerManager.handleEvent(new WindowEvent(this, WindowEvent.ACTIVATED));
 	}
-
 
 	/**
 	 * The method is called, if the window loses focus.
@@ -631,9 +560,32 @@ public class Window {
 		_listenerManager.handleEvent(new WindowEvent(this, WindowEvent.CLOSED));
 	}
 
-
 	protected void resize(int width, int height) {
-		_rect.setWidth(width);
-		_rect.setHeight(height);
+		rectangle.setWidth(width);
+		rectangle.setHeight(height);
+	}
+
+	// ================================================================================================================
+	// private methods
+	// ================================================================================================================
+
+	private void configureRootPanel() {
+		if (rootPanel == null) {
+			rootPanel = new Panel();
+		}
+
+		int x = rectangle.getX();
+		int y = rectangle.getY();
+		int width = rectangle.getWidth();
+		int height = rectangle.getHeight();
+
+		int x1 = border ? x + 1 : x;
+		int y1 = border ? y + 1 : y;
+		int w = border ? width - 2 : width;
+		int h = border ? height - 2 : height;
+
+		rootPanel.setSize(new Rectangle(w, h));
+		rootPanel.setX(x1);
+		rootPanel.setY(y1);
 	}
 }
