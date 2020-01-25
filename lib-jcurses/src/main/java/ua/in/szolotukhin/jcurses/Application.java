@@ -14,5 +14,7 @@ public class Application {
 		window.show();
 
 		Thread.sleep(5_000);
+
+		window.close();
 	}
 }
