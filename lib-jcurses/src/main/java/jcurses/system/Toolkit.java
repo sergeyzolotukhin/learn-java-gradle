@@ -86,9 +86,11 @@ public class Toolkit {
 
 	private static Rectangle getCurrentClipRectangle() {
 		ArrayList clips = (ArrayList) __clips.get(Thread.currentThread());
+
 		if ((clips == null) || (clips.size() == 0)) {
 			return null;
 		}
+
 		Rectangle result = (Rectangle) clips.get(0);
 		for (int i = 1; i < clips.size(); i++) {
 			Rectangle temp = (Rectangle) clips.get(i);
@@ -531,6 +533,7 @@ public class Toolkit {
 
 	private static void printStringWithoutClipping(String text, Rectangle rect, CharColor color) {
 		byte[] bytes = null;
+
 		if (__encoding == null) {
 			bytes = text.getBytes();
 		} else {
@@ -542,8 +545,10 @@ public class Toolkit {
 			}
 
 		}
-		printString(bytes, rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight(), getColorPairNumber(color),
-				__attributes[color.getColorAttribute()]);
+
+		printString(bytes, rect.getX(), rect.getY(),
+				rect.getWidth(), rect.getHeight(),
+				getColorPairNumber(color), __attributes[color.getColorAttribute()]);
 	}
 
 
