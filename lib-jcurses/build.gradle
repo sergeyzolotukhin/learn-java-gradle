@@ -17,7 +17,8 @@ repositories {
 }
 
 dependencies {
-    compile files('src/cmd')
+//    compile files('src/cmd')
+    compile 'org.fusesource.jansi:jansi:1.18'
 
     // common utils
     compile 'com.google.guava:guava:28.0-jre'
