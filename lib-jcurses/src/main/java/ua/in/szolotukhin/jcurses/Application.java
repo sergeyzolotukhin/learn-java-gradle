@@ -15,9 +15,8 @@ import static org.fusesource.jansi.Ansi.ansi;
 
 @Slf4j
 public class Application {
-	public static void main(String[] args) throws InterruptedException {
-//		jansiWindow();
-		plainWindow();
+	public static void main(String[] args) {
+		jansiWindow();
 	}
 
 	private static boolean isRunningFromIdea() {
@@ -39,21 +38,6 @@ public class Application {
 		System.out.println(hello);
 
 		AnsiConsole.systemUninstall();
-	}
-
-	private static final String FG_RED = "\u001B[31m";
-
-	private static final String LU = "\u2554";
-	private static final String V = "\u2550";
-	private static final String RU = "\u2557";
-	private static final String H = "\u2551";
-	private static final String LD = "\u255A";
-	private static final String RD = "\u2518";
-
-	private static void plainWindow() {
-		System.out.println(FG_RED + LU + V + RU);
-		System.out.println(H + " " + H);
-		System.out.println(LD + V + RD);
 	}
 
 	private static void showWindow() throws InterruptedException {
