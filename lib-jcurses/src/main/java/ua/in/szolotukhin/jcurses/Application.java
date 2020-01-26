@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
+import java.lang.management.ManagementFactory;
+
 import static org.fusesource.jansi.Ansi.Color.GREEN;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.ansi;
@@ -14,13 +16,21 @@ import static org.fusesource.jansi.Ansi.ansi;
 @Slf4j
 public class Application {
 	public static void main(String[] args) throws InterruptedException {
-
 		jansiWindow();
+//		plainWindow();
+	}
+
+	private static boolean isRunningFromIdea() {
+		return ManagementFactory.getRuntimeMXBean().getInputArguments()
+				.stream()
+				.filter(a -> a.startsWith("-javaagent:"))
+				.anyMatch(a -> a.contains("idea_rt"));
 	}
 
 	private static void jansiWindow() {
-		// IDE console enable
-		//		System.setProperty("jansi.passthrough", "true");
+		if (isRunningFromIdea()) {
+			System.setProperty("jansi.passthrough", "true");
+		}
 
 		AnsiConsole.systemInstall();
 
@@ -37,7 +47,7 @@ public class Application {
 	private static final String RU = "\u2557";
 	private static final String H = "\u2551";
 	private static final String LD = "\u255A";
-	private static final String RD = "\u255D";
+	private static final String RD = "\u2518";
 
 	private static void plainWindow() {
 		System.out.println(FG_RED + LU + V + RU);
