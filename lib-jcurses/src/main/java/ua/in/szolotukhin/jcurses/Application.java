@@ -16,8 +16,8 @@ import static org.fusesource.jansi.Ansi.ansi;
 @Slf4j
 public class Application {
 	public static void main(String[] args) throws InterruptedException {
-		jansiWindow();
-//		plainWindow();
+//		jansiWindow();
+		plainWindow();
 	}
 
 	private static boolean isRunningFromIdea() {
@@ -29,6 +29,7 @@ public class Application {
 
 	private static void jansiWindow() {
 		if (isRunningFromIdea()) {
+			log.info("Running from IDEA");
 			System.setProperty("jansi.passthrough", "true");
 		}
 
