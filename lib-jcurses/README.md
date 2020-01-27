@@ -4,6 +4,9 @@ https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequen
 https://habr.com/ru/post/445278/
 https://github.com/jline/jline3/wiki
 
+http://www.pitman.co.za/projects/charva/index.html
+https://github.com/mabe02/lanterna
+https://jexer.sourceforge.io/
 
 
 TERMINAL_EMULATOR
