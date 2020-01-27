@@ -4,13 +4,15 @@ import jcurses.system.Toolkit;
 import jcurses.widgets.container.Panel;
 import jcurses.widgets.window.Window;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import java.lang.management.ManagementFactory;
 
-import static org.fusesource.jansi.Ansi.Color.GREEN;
-import static org.fusesource.jansi.Ansi.Color.RED;
+import static org.fusesource.jansi.Ansi.Color.BLUE;
+import static org.fusesource.jansi.Ansi.Color.WHITE;
+import static org.fusesource.jansi.Ansi.Color.YELLOW;
 import static org.fusesource.jansi.Ansi.ansi;
 
 @Slf4j
@@ -33,9 +35,18 @@ public class Application {
 		}
 
 		AnsiConsole.systemInstall();
+		Ansi hello = ansi().eraseScreen()
+				.cursor(0, 0)
+				.bg(BLUE)
+				.fg(WHITE).a("\u2554").a(StringUtils.repeat("\u2550",78)).a("\u2557").cursorDownLine()
+				.fg(WHITE).a("\u2551").fg(YELLOW).a("Hello").a(" World").cursorDownLine()
+				.fg(WHITE).a("\u2551")
+				.fg(YELLOW).a("Hello").a(" World")
+				.cursorDownLine()
+				.reset()
+				;
 
-		Ansi hello = ansi().eraseScreen().fg(RED).a("Hello").fg(GREEN).a(" World").reset();
-		System.out.println(hello);
+		System.out.print(hello);
 
 		AnsiConsole.systemUninstall();
 	}
