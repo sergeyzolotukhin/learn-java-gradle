@@ -3,8 +3,10 @@ package ua.in.szolotukhin.jcurses;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.fusesource.jansi.AnsiConsole;
-
-import java.lang.management.ManagementFactory;
+import org.jline.reader.LineReader;
+import org.jline.reader.LineReaderBuilder;
+import org.jline.terminal.Terminal;
+import org.jline.terminal.TerminalBuilder;
 
 @Slf4j
 public class Application {
@@ -12,25 +14,27 @@ public class Application {
 		jansiWindow();
 	}
 
-	private static boolean isRunningFromIdea() {
-		return ManagementFactory.getRuntimeMXBean().getInputArguments()
-				.stream()
-				.filter(a -> a.startsWith("-javaagent:"))
-				.anyMatch(a -> a.contains("idea_rt"));
-	}
-
 	@SneakyThrows
 	private static void jansiWindow() {
-//		if (isRunningFromIdea()) {
-//			log.info("Running from IDEA");
-//			System.setProperty("jansi.passthrough", "true");
-//		}
-
 		AnsiConsole.systemInstall();
 
-		Window window = new Window();
+		Terminal terminal = TerminalBuilder.terminal();;
+
+		Window window = new Window(terminal);
 
 		window.show();
+
+		LineReader lineReader = LineReaderBuilder.builder()
+				.terminal(terminal)
+				.option(LineReader.Option.ERASE_LINE_ON_FINISH, true)
+				.build();
+
+		while (true) {
+			String line = lineReader.readLine("do>");
+			if ("exit".equalsIgnoreCase(line)) {
+				break;
+			}
+		}
 
 		AnsiConsole.systemUninstall();
 	}

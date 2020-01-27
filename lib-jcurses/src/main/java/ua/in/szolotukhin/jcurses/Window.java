@@ -11,15 +11,11 @@ import static org.fusesource.jansi.Ansi.Color.WHITE;
 import static org.fusesource.jansi.Ansi.ansi;
 
 public class Window {
-	private final Terminal terminal;
-
 	private int width;
 	private int height;
 
 	@SneakyThrows
-	public Window() {
-		terminal = TerminalBuilder.terminal();
-
+	public Window(Terminal terminal) {
 		width = terminal.getWidth();
 		height = terminal.getHeight();
 	}
@@ -32,9 +28,9 @@ public class Window {
 
 		hello.fg(WHITE).a("\u2554").a(StringUtils.repeat("\u2550", width - 2)).a("\u2557").cursorDownLine();
 		for (int i = 0; i < (height - 3); i++) {
-			hello.fg(WHITE).a("\u2551").a(StringUtils.repeat(" ", width - 2)).a("\u2551").cursorDownLine();
+			hello.fg(WHITE).a("\u2551").cursorToColumn(width).a("\u2551").cursorDownLine();
 		}
-		hello.fg(WHITE).a("\u2551").a(StringUtils.repeat("\u2550", width - 2)).a("\u255D").cursorDownLine();
+		hello.fg(WHITE).a("\u255A").a(StringUtils.repeat("\u2550", width - 2)).a("\u255D").cursorDownLine();
 
 		hello.reset();
 
