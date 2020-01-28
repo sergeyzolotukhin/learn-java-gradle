@@ -4,13 +4,20 @@ import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.fusesource.jansi.Ansi;
 import org.jline.terminal.Terminal;
-import org.jline.terminal.TerminalBuilder;
 
 import static org.fusesource.jansi.Ansi.Color.BLUE;
 import static org.fusesource.jansi.Ansi.Color.WHITE;
 import static org.fusesource.jansi.Ansi.ansi;
 
 public class Window {
+	public static final String UL_CORNER = "\u2554";
+	public static final String UR_CORNER = "\u2557";
+	public static final String DL_CORNER = "\u255A";
+	public static final String DR_CORNER = "\u255D";
+
+	public static final String H_LINE = "\u2550";
+	public static final String V_LINE = "\u2551";
+
 	private int width;
 	private int height;
 
@@ -26,11 +33,11 @@ public class Window {
 
 		hello.bg(BLUE);
 
-		hello.fg(WHITE).a("\u2554").a(StringUtils.repeat("\u2550", width - 2)).a("\u2557").cursorDownLine();
+		hello.fg(WHITE).a(UL_CORNER).a(StringUtils.repeat(H_LINE, width - 2)).a(UR_CORNER).cursorDownLine();
 		for (int i = 0; i < (height - 3); i++) {
-			hello.fg(WHITE).a("\u2551").cursorToColumn(width).a("\u2551").cursorDownLine();
+			hello.fg(WHITE).a(V_LINE).cursorToColumn(width).a(V_LINE).cursorDownLine();
 		}
-		hello.fg(WHITE).a("\u255A").a(StringUtils.repeat("\u2550", width - 2)).a("\u255D").cursorDownLine();
+		hello.fg(WHITE).a(DL_CORNER).a(StringUtils.repeat(H_LINE, width - 2)).a(DR_CORNER).cursorDownLine();
 
 		hello.reset();
 
