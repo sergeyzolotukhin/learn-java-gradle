@@ -12,7 +12,7 @@
 
 //include 'activiti-learn'
 
-include 'lib-jcurses'
+//include 'lib-jcurses'
 //include 'lib-jackson'
-//include 'lib-quartz'
+include 'lib-quartz'
 

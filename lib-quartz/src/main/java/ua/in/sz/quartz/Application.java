@@ -1,6 +1,8 @@
 package ua.in.sz.quartz;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
@@ -12,6 +14,8 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 public class Application {
@@ -43,10 +47,18 @@ public class Application {
 		log.info("End");
 	}
 
+	@DisallowConcurrentExecution
 	public static class MyJob implements Job {
+		private final static AtomicInteger counter = new AtomicInteger();
+
 		@Override
+		@SneakyThrows
 		public void execute(JobExecutionContext context) {
-			log.info("Execute");
+			log.info("Start: {}", counter.incrementAndGet());
+
+			Thread.sleep(4_000);
+
+			log.info("End: {}", counter.decrementAndGet());
 		}
 	}
 }
