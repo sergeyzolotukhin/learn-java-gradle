@@ -14,6 +14,10 @@ public class MainPanel extends JPanel {
 	public void paint(Graphics g) {
 		g2d = (Graphics2D) g;
 
+		doPaint();
+	}
+
+	private void doPaint() {
 		Rect rectA = Rect.of(0, 0, 100, 100);
 		Rect rectB = Rect.of(10, 10, 100, 100);
 		Rect rectC = rectA.intersection(rectB);
