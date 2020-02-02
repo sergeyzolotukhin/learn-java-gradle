@@ -84,6 +84,8 @@ How to backup and share database state with CI?
     org.springframework.core.io.support.SpringFactoriesLoader
     Load-time weaving with AspectJ in the Spring Framework
     
+#### Hibernate
     
+    https://dzone.com/articles/hibernate-5-java-configuration-example    
 
     
