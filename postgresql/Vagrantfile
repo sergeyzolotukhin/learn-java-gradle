@@ -13,11 +13,11 @@ Vagrant.configure("2") do |config|
         end
     end
 
-    config.vm.define "pd-slave" do |s|
-        s.vm.box = "ubuntu/bionic64"
-        s.vm.provision :shell, path: "database_provision.sh"
+    config.vm.define "pd-slave" do |d|
+        d.vm.box = "ubuntu/bionic64"
+        d.vm.provision :shell, path: "database_provision.sh"
         d.vm.network "public_network", ip: "192.168.0.31"
-        s.vm.provider "virtualbox" do |vb|
+        d.vm.provider "virtualbox" do |vb|
             vb.name = "pg-slave"
             vb.gui = true
             vb.memory = "1024"
