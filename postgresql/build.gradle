@@ -1,0 +1,5 @@
+group 'ua.in.sz.pattern'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+

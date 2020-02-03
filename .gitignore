@@ -37,3 +37,6 @@ out/
 venv/
 venv1/
 
+#### vagrant
+postgresql/.vagrant/
+
