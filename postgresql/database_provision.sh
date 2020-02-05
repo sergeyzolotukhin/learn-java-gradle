@@ -3,6 +3,7 @@ sudo apt-get update
 sudo apt-get remove postgresql postgresql-contrib
 sudo apt-get install -y postgresql postgresql-contrib
 sudo apt-get install -y mc
+sudo apt install virtualbox-guest-dkms
 
 # fix permissions
 echo "-------------------- fixing listen_addresses on postgresql.conf"
