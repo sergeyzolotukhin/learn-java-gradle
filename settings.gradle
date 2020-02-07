@@ -17,6 +17,7 @@
 //include 'lib-jcurses'
 //include 'lib-jackson'
 //include 'lib-quartz'
+include 'lib-viber'
 //include 'activiti-learn'
 
 // ====================================================================================================================
@@ -28,5 +29,5 @@
 // other
 // ====================================================================================================================
 //include 'pattern'
-include 'java-swing'
+//include 'java-swing'
 
