@@ -7,3 +7,5 @@ Kafka
 RabbitMQ
 AWS 
 React
+
+Test email notification
