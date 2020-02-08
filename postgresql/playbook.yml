@@ -1,0 +1,19 @@
+---
+- hosts: all
+  name: Simple nginx example Vagrant Ansible Local
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+      loop: [ 'nginx' ]
+
+    - name: Insert Index Page
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+
+    - name: Start NGiNX
+      service:
+        name: nginx
+        state: started
