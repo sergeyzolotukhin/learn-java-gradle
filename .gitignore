@@ -40,3 +40,5 @@ venv1/
 #### vagrant
 postgresql/.vagrant/
 
+#### Security
+*.ppk
