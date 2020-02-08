@@ -6,7 +6,7 @@
   tasks:
     - name: Install nginx
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
-      loop: [ 'nginx' ]
+      loop: [ 'nginx', 'mc' ]
 
     - name: Insert Index Page
       template:
