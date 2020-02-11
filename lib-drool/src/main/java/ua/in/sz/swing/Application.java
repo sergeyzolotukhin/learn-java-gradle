@@ -18,7 +18,9 @@ public class Application {
 		Message message = new Message();
 		message.setMessage("Hello World");
 		message.setStatus(Message.HELLO);
+
 		kSession.insert(message);
+
 		kSession.fireAllRules();
 
 		log.info("end drool");
