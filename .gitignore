@@ -42,3 +42,7 @@ postgresql/.vagrant/
 
 #### Security
 *.ppk
+
+#### Drool IDEA tools
+
+lib-drool/lib/

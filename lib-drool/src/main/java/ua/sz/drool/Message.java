@@ -1,4 +1,4 @@
-package ua.in.sz.swing;
+package ua.sz.drool;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

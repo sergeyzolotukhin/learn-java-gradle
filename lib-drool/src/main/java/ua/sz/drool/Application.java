@@ -1,4 +1,4 @@
-package ua.in.sz.swing;
+package ua.sz.drool;
 
 import lombok.extern.slf4j.Slf4j;
 import org.kie.api.KieServices;
