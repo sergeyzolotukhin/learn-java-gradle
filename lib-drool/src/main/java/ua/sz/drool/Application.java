@@ -15,11 +15,11 @@ public class Application {
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		KieSession kSession = kContainer.newKieSession("ksession-rules");
 
-		Message message = new Message();
-		message.setMessage("Hello World");
-		message.setStatus(Message.HELLO);
-
-		kSession.insert(message);
+		kSession.insert(
+				Message.builder()
+						.message("HW")
+						.status(Message.HELLO)
+						.build());
 
 		kSession.fireAllRules();
 
