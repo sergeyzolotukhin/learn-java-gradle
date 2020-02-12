@@ -14,6 +14,7 @@ public class Application {
 		KieServices ks = KieServices.Factory.get();
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		KieSession kSession = kContainer.newKieSession("ksession-rules");
+		kSession.setGlobal("log", log);
 
 		kSession.insert(
 				Message.builder()

@@ -2,13 +2,17 @@ package ua.sz.drool
 
 import ua.sz.drool.Message;
 
+global org.slf4j.Logger log;
+
 rule "Hello World"
     when
         m : Message( status == Message.HELLO, myMessage : message )
     then
-        System.out.println( myMessage );
+        log.info("Hello message {}", myMessage );
+
         m.setMessage( "GB" );
         m.setStatus( Message.GOODBYE );
+
         update( m );
 end
 
@@ -16,5 +20,5 @@ rule "GoodBye"
     when
         Message( status == Message.GOODBYE, myMessage : message )
     then
-        System.out.println( myMessage );
+        log.info("Goodbye message {}", myMessage );
 end
