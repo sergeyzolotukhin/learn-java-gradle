@@ -5,6 +5,8 @@
         </encoder>
     </appender>
 
+<!--    <logger name="org.drools" level="TRACE" />-->
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
