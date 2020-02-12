@@ -6,6 +6,7 @@
     </appender>
 
 <!--    <logger name="org.drools" level="TRACE" />-->
+<!--    <logger name="org.kie" level="DEBUG" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
