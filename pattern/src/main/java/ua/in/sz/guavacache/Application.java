@@ -17,7 +17,6 @@ public class Application {
 				.maximumSize(100)
 				.softValues()
 				.recordStats()
-				.recordStats()
 				.build(loader);
 
 		StopWatch sw = StopWatch.createStarted();
