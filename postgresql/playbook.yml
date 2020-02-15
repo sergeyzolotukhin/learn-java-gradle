@@ -8,6 +8,10 @@
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
       loop: [ 'nginx', 'mc' ]
 
+    - name: Set timezone to Asia/Tokyo
+      timezone:
+        name: Europe/Kiev
+
     - name: Insert Index Page
       template:
         src: index.html
