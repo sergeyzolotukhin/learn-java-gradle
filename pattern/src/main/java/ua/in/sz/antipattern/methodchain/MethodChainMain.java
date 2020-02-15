@@ -44,7 +44,7 @@ public class MethodChainMain {
 		}
 	}
 
-	interface I {
+	public interface I {
 		default I next() {
 			return null;
 		}
