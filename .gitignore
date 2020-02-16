@@ -41,7 +41,7 @@ venv1/
 postgresql/.vagrant/
 
 #### Security
-*.ppk
+#*.ppk
 
 #### Drool IDEA tools
 
