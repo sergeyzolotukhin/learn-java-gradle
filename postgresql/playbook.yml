@@ -20,7 +20,7 @@
 
     - name: Ensure database is created
       become_user: postgres
-      postgresql_db: name='db_name'
+      postgresql_db: name='vagrant'
         encoding='UTF-8'
         lc_collate='en_US.UTF-8'
         lc_ctype='en_US.UTF-8'
@@ -29,8 +29,18 @@
 
     - name: Ensure user has access to the database
       become_user: postgres
-      postgresql_user: db='db_name'
-        name='db_user'
-        password='db_password'
+      postgresql_user: db='vagrant'
+        name='vagrant'
+        password='vagrant'
         priv=ALL
         state=present
+
+    - name: Grant all users access to all databases from any hosts using md5 authentication.
+      postgresql_pg_hba:
+        dest: /etc/postgresql/10/main/pg_hba.conf
+        contype: host
+        users: all
+        source: 0.0.0.0/0
+        databases: all
+        method: md5
+        create: true
