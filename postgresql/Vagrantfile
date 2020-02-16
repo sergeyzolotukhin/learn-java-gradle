@@ -2,30 +2,6 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.define "pd-master" do |d|
-        d.vm.box = "ubuntu/bionic64"
-        d.vm.provision :shell, path: "database_provision.sh"
-        d.vm.network "public_network", ip: "192.168.0.30"
-        d.vm.provider "virtualbox" do |v|
-            v.name = "pg-master"
-            v.gui = true
-            v.memory = "1024"
-            v.customize ["modifyvm", :id, "--vram", "128"]
-        end
-    end
-
-    config.vm.define "pd-slave" do |d|
-        d.vm.box = "ubuntu/bionic64"
-        d.vm.provision :shell, path: "database_provision.sh"
-        d.vm.network "public_network", ip: "192.168.0.31"
-        d.vm.provider "virtualbox" do |v|
-            v.name = "pg-slave"
-            v.gui = true
-            v.memory = "1024"
-            v.customize ["modifyvm", :id, "--vram", "128"]
-        end
-    end
-
     config.vm.define "pd-master-1" do |d|
         d.vm.box = "ubuntu/bionic64"
         d.vm.network "public_network", ip: "192.168.0.32"
