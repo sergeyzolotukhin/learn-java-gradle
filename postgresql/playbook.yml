@@ -10,7 +10,7 @@
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
       loop: [ 'bash', 'openssl', 'libssl-dev', 'libssl-doc', 'postgresql', 'postgresql-contrib', 'libpq-dev', 'python3-psycopg2', 'mc' ]
 
-    - name: Set timezone to Asia/Tokyo
+    - name: Set timezone to Europe/Kiev
       timezone:
         name: Europe/Kiev
 
