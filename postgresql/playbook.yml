@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Simple nginx example Vagrant Ansible Local
+  name: Dev PostgreSQL Vagrant Ansible Local
   become: yes
 
   tasks:
@@ -44,6 +44,8 @@
         databases: all
         method: md5
         create: true
+      notify:
+        - restart postgresql
 
     - name: postgresql should listen on all ports
       lineinfile:
