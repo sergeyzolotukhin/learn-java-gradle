@@ -44,3 +44,15 @@
         databases: all
         method: md5
         create: true
+
+    - name: postgresql should listen on all ports
+      lineinfile:
+        dest=/etc/postgresql/10/main/postgresql.conf
+        regexp="^listen_addresses"
+        line="listen_addresses = '*'" state=present
+      notify:
+        - restart postgresql
+
+  handlers:
+    - name: restart postgresql
+      service: name=postgresql state=restarted
