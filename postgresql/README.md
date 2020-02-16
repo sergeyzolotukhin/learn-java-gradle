@@ -15,3 +15,8 @@
     
     Use static private key at vagrant
     How to enable login/password auth at linux
+    
+#### Postgresql setup
+
+    https://blog.apcelent.com/using-ansible-to-set-up-postgresql.html
+    
