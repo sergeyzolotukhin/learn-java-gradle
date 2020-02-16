@@ -6,21 +6,31 @@
   tasks:
     - name: Install nginx
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
-      loop: [ 'nginx', 'mc' ]
+      loop: [ 'bash', 'openssl', 'libssl-dev', 'libssl-doc', 'postgresql', 'postgresql-contrib', 'libpq-dev', 'python-psycopg2', 'mc' ]
 
     - name: Set timezone to Asia/Tokyo
       timezone:
         name: Europe/Kiev
 
-    - name: Insert Index Page
-      template:
-        src: index.html
-        dest: /var/www/html/index.html
-
-    - name: Start NGiNX
-      service:
-        name: nginx
-        state: started
+    - name: Ensure the PostgreSQL service is running
+      service: name=postgresql state=started enabled=yes
 
     - name: Deploy SSH Key
       authorized_key: user=vagrant key="{{ lookup('file', '/vagrant/pd-master-1.pub') }}" state=present
+
+    - name: Ensure database is created
+      become_user: postgres
+      postgresql_db: name='db_name'
+        encoding='UTF-8'
+        lc_collate='en_US.UTF-8'
+        lc_ctype='en_US.UTF-8'
+        template='template0'
+        state=present
+
+    - name: Ensure user has access to the database
+      become_user: postgres
+      postgresql_user: db='db_name'
+        name='db_user'
+        password='db_password'
+        priv=ALL
+        state=present
