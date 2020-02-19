@@ -11,6 +11,10 @@
         </encoder>
     </appender>
 
+    <!-- Spring transaction -->
+
+    <logger name="org.springframework.transaction" level="TRACE"/>
+
     <!--  Third party libraries  -->
 
     <logger name="com.zaxxer.hikari" level="WARN"/>
