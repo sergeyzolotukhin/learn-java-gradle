@@ -1,5 +1,6 @@
 package ua.in.sz.jdbc;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -19,38 +20,51 @@ public class Application {
 		try {
 			log.info("Connecting to database");
 
-			InputStream is = Application.class.getClassLoader().getResourceAsStream("application.properties");
-			Objects.requireNonNull(is, "Properties file not found");
+			Connection connection = connectionToDatabase();
 
-			Properties prop = new Properties();
-			prop.load(is);
+			queryEmploerName(connection);
 
-			String jdbcUrl = prop.getProperty("jdbc.url");
-			String username = prop.getProperty("jdbc.username");
-			String password = prop.getProperty("jdbc.password");
-
-			Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
-
-			log.info("Executing statements");
-
-			Statement statement = connection.createStatement();
-
-			ResultSet resultSet = statement.executeQuery("SELECT employee_name FROM employee");
-			while (resultSet.next()) {
-				String name = resultSet.getString("employee_name");
-
-				log.info("Employer name: [{}]", name);
-			}
-
-			log.info("Executed statements");
-
-			resultSet.close();
-			statement.close();
 			connection.close();
 
 			log.info("Disconnecting to database");
-		} catch (SQLException | IOException e) {
+		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
+	}
+
+	@SneakyThrows
+	private static Connection connectionToDatabase() {
+		InputStream is = Application.class.getClassLoader().getResourceAsStream("application.properties");
+		Objects.requireNonNull(is, "Properties file not found");
+
+		Properties prop = new Properties();
+		prop.load(is);
+
+		is.close();
+
+		String jdbcUrl = prop.getProperty("jdbc.url");
+		String username = prop.getProperty("jdbc.username");
+		String password = prop.getProperty("jdbc.password");
+
+		return DriverManager.getConnection(jdbcUrl, username, password);
+	}
+
+	@SneakyThrows
+	private static void queryEmploerName(Connection connection) {
+		log.info("Querying employer name");
+
+		Statement statement = connection.createStatement();
+
+		ResultSet resultSet = statement.executeQuery("SELECT employee_name FROM employee");
+		while (resultSet.next()) {
+			String name = resultSet.getString("employee_name");
+
+			log.info("Employer name: [{}]", name);
+		}
+
+		log.info("Queried employer name");
+
+		resultSet.close();
+		statement.close();
 	}
 }
