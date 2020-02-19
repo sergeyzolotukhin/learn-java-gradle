@@ -10,6 +10,7 @@
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
+include 'spring-transactional'
 
 // ====================================================================================================================
 // Libraries
