@@ -11,9 +11,9 @@
         </encoder>
     </appender>
 
-    <logger name="ua.in.sz.spring" level="INFO"/>
+<!--    <logger name="ua.in.sz.spring" level="INFO"/>-->
 
-    <root level="WARN">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
