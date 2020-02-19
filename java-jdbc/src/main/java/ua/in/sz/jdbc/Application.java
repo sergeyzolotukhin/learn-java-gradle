@@ -23,7 +23,10 @@ public class Application {
 			log.info("Connecting to database");
 
 			connection = connectionToDatabase();
-			connection.setAutoCommit(false);
+			deleteEmployerName(connection);
+			connection.close();
+
+			connection = connectionToDatabase();
 			insertEmployerName(connection);
 			connection.close();
 
@@ -41,6 +44,7 @@ public class Application {
 	private static void insertEmployerName(Connection connection) {
 		log.info("Inserting employer");
 
+		connection.setAutoCommit(false);
 		UUID uuid = UUID.randomUUID();
 
 		PreparedStatement statement = connection.prepareStatement(
@@ -52,8 +56,24 @@ public class Application {
 		statement.execute();
 
 		statement.close();
+		connection.commit();
 
 		log.info("Inserted employer");
+	}
+
+	@SneakyThrows
+	private static void deleteEmployerName(Connection connection) {
+		log.info("Deleting employer");
+
+		connection.setAutoCommit(false);
+
+		Statement statement = connection.createStatement();
+		statement.executeUpdate("delete from EMPLOYEE");
+		statement.close();
+
+		connection.commit();
+
+		log.info("Deleted employer");
 	}
 
 	@SneakyThrows
