@@ -17,15 +17,18 @@ import java.util.UUID;
 public class Application {
 
 	public static void main(String[] args) {
+		Connection connection;
+
 		try {
 			log.info("Connecting to database");
 
-			Connection connection = connectionToDatabase();
-
+			connection = connectionToDatabase();
+			connection.setAutoCommit(false);
 			insertEmployerName(connection);
+			connection.close();
 
+			connection = connectionToDatabase();
 			queryEmployerName(connection);
-
 			connection.close();
 
 			log.info("Disconnecting to database");
