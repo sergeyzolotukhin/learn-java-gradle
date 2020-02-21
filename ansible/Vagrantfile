@@ -12,8 +12,8 @@ Vagrant.configure("2") do |config|
 #  config.ssh.private_key_path = File.expand_path('~/.vagrant.d/insecure_private_key')
 
   hosts.each do |h|
-    hostname = h[0]
     ip = h[0]
+    hostname = h[1]
 
     config.vm.define hostname do |d|
       d.vm.hostname = "%s.szolotukhin.in.ua" % hostname
