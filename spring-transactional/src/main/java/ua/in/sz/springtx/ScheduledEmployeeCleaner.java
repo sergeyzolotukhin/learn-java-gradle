@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -30,10 +32,13 @@ public class ScheduledEmployeeCleaner implements CommandLineRunner, Runnable {
 		try {
 			log.info("Cleaning employers");
 
+			boolean autoCommit = template.getDataSource().getConnection().getAutoCommit();
+			log.info("Auto commit = {}", autoCommit);
+
 			template.update("delete from employee");
 
 			log.info("Cleaned employers");
-		} catch (DataAccessException e) {
+		} catch (DataAccessException | SQLException e) {
 			log.error(e.getMessage(), e);
 		}
 	}
