@@ -10,7 +10,7 @@
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
-include 'spring-transactional'
+//include 'spring-transactional'
 
 // ====================================================================================================================
 // Libraries
@@ -33,5 +33,5 @@ include 'ansible'
 // ====================================================================================================================
 include 'pattern'
 //include 'java-swing'
-include 'java-jdbc'
+//include 'java-jdbc'
 
