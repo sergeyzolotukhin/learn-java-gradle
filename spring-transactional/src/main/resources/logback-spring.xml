@@ -17,12 +17,14 @@
 
     <!--  Third party libraries  -->
 
+<!--
     <logger name="jdbc.connection" level="WARN"/>
     <logger name="jdbc.audit" level="WARN"/>
     <logger name="jdbc.resultset" level="WARN"/>
     <logger name="jdbc.resultsettable" level="WARN"/>
     <logger name="jdbc.sqltiming" level="WARN"/>
     <logger name="jdbc.sqlonly" level="WARN"/>
+-->
 
     <logger name="com.zaxxer.hikari" level="WARN"/>
 
