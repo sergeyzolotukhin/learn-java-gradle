@@ -12,6 +12,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.postgresql:postgresql:42.2.10'
+    implementation 'com.integralblue:log4jdbc-spring-boot-starter:2.0.0'
+//    implementation 'com.googlecode.log4jdbc:log4jdbc:1.2'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
