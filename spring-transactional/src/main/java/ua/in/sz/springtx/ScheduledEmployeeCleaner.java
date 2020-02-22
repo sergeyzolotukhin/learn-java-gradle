@@ -9,7 +9,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 @Slf4j
@@ -32,8 +34,11 @@ public class ScheduledEmployeeCleaner implements CommandLineRunner, Runnable {
 		try {
 			log.info("Cleaning employers");
 
-			boolean autoCommit = template.getDataSource().getConnection().getAutoCommit();
-			log.info("Auto commit = {}", autoCommit);
+			Connection connection = template.getDataSource().getConnection();
+			boolean autoCommit = connection.getAutoCommit();
+			connection.close();
+
+			Assert.isTrue(!autoCommit, "Auto commit should is disabled");
 
 			template.update("delete from employee");
 
