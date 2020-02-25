@@ -11,6 +11,7 @@
 //include 'spring-camel'
 //include 'spring-swagger'
 //include 'spring-transactional'
+include 'spring-bean-validation'
 
 // ====================================================================================================================
 // Libraries
@@ -21,7 +22,7 @@
 //include 'lib-viber'
 //include 'lib-drool'
 //include 'activiti-learn'
-include 'lib-bean-validation'
+//include 'lib-bean-validation'
 
 // ====================================================================================================================
 // infrastructure
