@@ -21,6 +21,7 @@
 //include 'lib-viber'
 //include 'lib-drool'
 //include 'activiti-learn'
+include 'lib-bean-validation'
 
 // ====================================================================================================================
 // infrastructure
