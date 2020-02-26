@@ -15,15 +15,21 @@ public class TracedPredicate<T> implements Predicate<T> {
 
 	@Override
 	public boolean test(T t) {
-		boolean match = predicate.test(t);
-
-		if (match) {
-			log.debug("Predicate '{}' is match at [{}]", predicate, t);
+		if (predicate.test(t)) {
+			logMatched(predicate, t);
+			return true;
 		} else {
-			log.trace("Predicate '{}' is not match at [{}]", predicate, t);
+			logNotMatched(predicate, t);
+			return false;
 		}
+	}
 
-		return match;
+	private void logNotMatched(NamedPredicate<T> predicate, T t) {
+		log.trace("Predicate '{}' is not match at [{}]", predicate, t);
+	}
+
+	protected void logMatched(NamedPredicate<T> predicate, T t) {
+		log.debug("Predicate '{}' is match at [{}]", predicate, t);
 	}
 
 	@Override
