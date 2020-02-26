@@ -8,8 +8,7 @@ import java.util.function.Predicate;
 
 import static ua.in.sz.swing.JavaPredicates.evenHeight;
 import static ua.in.sz.swing.JavaPredicates.evenWidth;
-import static ua.in.sz.swing.JavaPredicates.log;
-import static ua.in.sz.swing.JavaPredicates.named;
+import static ua.in.sz.swing.JavaPredicates.traced;
 
 
 @Slf4j
@@ -22,13 +21,12 @@ public class Application {
 				Rect.builder().width(4).height(2).build()
 		);
 
-		NamedPredicate<Rect> predicate = named(evenWidth().and(evenHeight()), "width and height is even");
+		Predicate<Rect> predicate = traced(evenWidth().and(evenHeight()),"width and height is even", log);
+
 		log.info("rect filter by {}", predicate);
 
-		Predicate<Rect> loggedPredicate = log(log, predicate);
-
 		rects.stream()
-				.filter(loggedPredicate)
+				.filter(predicate)
 				.forEach(r -> log.info("Rect: {}", r));
 	}
 }

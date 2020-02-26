@@ -2,7 +2,6 @@ package ua.in.sz.swing;
 
 import lombok.experimental.UtilityClass;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ua.in.sz.swing.model.Rect;
 
 import java.util.function.Predicate;
@@ -17,36 +16,23 @@ public class JavaPredicates {
 		return rect -> rect.getHeight() % 2 == 0;
 	}
 
-	public static <T> Predicate<T> log(Logger log, NamedPredicate<T> predicate) {
-		return t -> {
-			boolean match = predicate.test(t);
-
-			if (match) {
-				log.debug("Predicate '{}' is match at [{}]", predicate, t);
-			} else {
-				log.trace("Predicate '{}' is not match at [{}]", predicate, t);
-			}
-
-			return match;
-		};
+	public static <T> Predicate<T> traced(Logger log, String name, Predicate<T> predicate) {
+		return traced(log, named(name, predicate));
 	}
 
-	public static <T> NamedPredicate<T> named(Predicate<T> predicate, String name) {
-		return new NamedPredicate<T>() {
-			@Override
-			public boolean test(T t) {
-				return predicate.test(t);
-			}
+	public static <T> Predicate<T> traced(Predicate<T> predicate, Logger log, String name) {
+		return traced(log, named(name, predicate));
+	}
 
-			@Override
-			public String name() {
-				return name;
-			}
+	public static <T> Predicate<T> traced(Predicate<T> predicate, String name, Logger log) {
+		return traced(log, named(name, predicate));
+	}
 
-			@Override
-			public String toString() {
-				return name();
-			}
-		};
+	public static <T> TracedPredicate<T> traced(Logger log, NamedPredicate<T> predicate) {
+		return new TracedPredicate<>(predicate, log);
+	}
+
+	public static <T> NamedPredicate<T> named(String name, Predicate<T> predicate) {
+		return new NamedPredicate<>(predicate, name);
 	}
 }
