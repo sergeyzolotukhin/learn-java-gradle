@@ -22,11 +22,11 @@ public class Application {
 				Rect.builder().width(4).height(2).build()
 		);
 
-		NamedPredicate<Rect> predicate = named(evenWidth().and(evenHeight()), "width and height is even");
-		log.info("rects filter by {}", predicate);
+		NamedPredicate<Rect> evenWidthAndHeight = named(evenWidth().and(evenHeight()), "width and height is even");
+		log.info("rects filter by {}", evenWidthAndHeight);
 
 		rects.stream()
-				.filter(traced(predicate, log))
+				.filter(traced(evenWidthAndHeight, log))
 				.forEach(r -> log.info("Rect: {}", r));
 	}
 }
