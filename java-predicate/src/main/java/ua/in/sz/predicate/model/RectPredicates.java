@@ -1,7 +1,6 @@
-package ua.in.sz.predicate;
+package ua.in.sz.predicate.model;
 
 import lombok.experimental.UtilityClass;
-import ua.in.sz.predicate.model.Rect;
 
 import java.util.function.Predicate;
 

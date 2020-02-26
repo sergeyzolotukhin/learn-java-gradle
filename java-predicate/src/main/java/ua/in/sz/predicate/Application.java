@@ -6,8 +6,8 @@ import ua.in.sz.predicate.model.Rect;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static ua.in.sz.predicate.RectPredicates.evenHeight;
-import static ua.in.sz.predicate.RectPredicates.evenWidth;
+import static ua.in.sz.predicate.model.RectPredicates.evenHeight;
+import static ua.in.sz.predicate.model.RectPredicates.evenWidth;
 import static ua.in.sz.predicate.log.TracedPredicate.traced;
 
 
@@ -21,7 +21,7 @@ public class Application {
 				Rect.builder().width(4).height(2).build()
 		);
 
-		Predicate<Rect> predicate = traced(evenWidth().and(evenHeight()),"width and height is even", log);
+		Predicate<Rect> predicate = traced(evenWidth().and(evenHeight()), "width and height is even", log);
 
 		log.info("rect filter by {}", predicate);
 
