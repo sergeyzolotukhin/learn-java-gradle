@@ -24,9 +24,9 @@ public class JavaPredicates {
 			boolean match = predicate.test(rect);
 
 			if (match) {
-				log.debug("Predicate '{}' is match at {}", predicate, rect);
+				log.debug("Predicate '{}' is match at [{}]", predicate, rect);
 			} else {
-				log.trace("Predicate '{}' is not match at {}", predicate, rect);
+				log.trace("Predicate '{}' is not match at [{}]", predicate, rect);
 			}
 
 			return match;
@@ -42,7 +42,7 @@ public class JavaPredicates {
 
 			@Override
 			public String name() {
-				return String.format("predicate '%s'", name);
+				return name;
 			}
 
 			@Override
