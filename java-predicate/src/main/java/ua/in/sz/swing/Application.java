@@ -25,7 +25,7 @@ public class Application {
 		NamedPredicate<Rect> predicate = named(evenWidth().and(evenHeight()), "width and height is even");
 		log.info("rect filter by {}", predicate);
 
-		Predicate<Rect> loggedPredicate = log(predicate, Application.class);
+		Predicate<Rect> loggedPredicate = log(log, predicate);
 
 		rects.stream()
 				.filter(loggedPredicate)

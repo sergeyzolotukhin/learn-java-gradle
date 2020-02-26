@@ -17,16 +17,14 @@ public class JavaPredicates {
 		return rect -> rect.getHeight() % 2 == 0;
 	}
 
-	public static <T> Predicate<T> log(NamedPredicate<T> predicate, Class clazz) {
-		Logger log = LoggerFactory.getLogger(clazz.getName());
-
-		return rect -> {
-			boolean match = predicate.test(rect);
+	public static <T> Predicate<T> log(Logger log, NamedPredicate<T> predicate) {
+		return t -> {
+			boolean match = predicate.test(t);
 
 			if (match) {
-				log.debug("Predicate '{}' is match at [{}]", predicate, rect);
+				log.debug("Predicate '{}' is match at [{}]", predicate, t);
 			} else {
-				log.trace("Predicate '{}' is not match at [{}]", predicate, rect);
+				log.trace("Predicate '{}' is not match at [{}]", predicate, t);
 			}
 
 			return match;
@@ -36,8 +34,8 @@ public class JavaPredicates {
 	public static <T> NamedPredicate<T> named(Predicate<T> predicate, String name) {
 		return new NamedPredicate<T>() {
 			@Override
-			public boolean test(T rect) {
-				return predicate.test(rect);
+			public boolean test(T t) {
+				return predicate.test(t);
 			}
 
 			@Override
