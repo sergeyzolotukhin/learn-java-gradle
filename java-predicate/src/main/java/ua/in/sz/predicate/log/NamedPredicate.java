@@ -1,4 +1,4 @@
-package ua.in.sz.predicate;
+package ua.in.sz.predicate.log;
 
 import java.util.function.Predicate;
 

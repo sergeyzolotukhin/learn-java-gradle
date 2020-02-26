@@ -1,6 +1,7 @@
-package ua.in.sz.predicate;
+package ua.in.sz.predicate.log;
 
 import org.slf4j.Logger;
+import ua.in.sz.predicate.log.NamedPredicate;
 
 import java.util.function.Predicate;
 

@@ -1,20 +1,11 @@
-package ua.in.sz.predicate;
+package ua.in.sz.predicate.log;
 
 import lombok.experimental.UtilityClass;
 import org.slf4j.Logger;
-import ua.in.sz.predicate.model.Rect;
 
 import java.util.function.Predicate;
 
-@UtilityClass
-public class JavaPredicates {
-	public static Predicate<Rect> evenWidth() {
-		return rect -> rect.getWidth() % 2 == 0;
-	}
-
-	public static Predicate<Rect> evenHeight() {
-		return rect -> rect.getHeight() % 2 == 0;
-	}
+public class LogPredicates {
 
 	public static <T> Predicate<T> traced(Logger log, String name, Predicate<T> predicate) {
 		return traced(log, named(name, predicate));

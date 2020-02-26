@@ -6,9 +6,9 @@ import ua.in.sz.predicate.model.Rect;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static ua.in.sz.predicate.JavaPredicates.evenHeight;
-import static ua.in.sz.predicate.JavaPredicates.evenWidth;
-import static ua.in.sz.predicate.JavaPredicates.traced;
+import static ua.in.sz.predicate.RectPredicates.evenHeight;
+import static ua.in.sz.predicate.RectPredicates.evenWidth;
+import static ua.in.sz.predicate.log.LogPredicates.traced;
 
 
 @Slf4j
