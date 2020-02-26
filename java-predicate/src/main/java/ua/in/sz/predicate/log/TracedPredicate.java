@@ -31,7 +31,7 @@ public class TracedPredicate<T> implements Predicate<T> {
 		return predicate.toString();
 	}
 
-	public static <T> Predicate<T> traced(Predicate<T> predicate, String name, Logger log) {
-		return new TracedPredicate<>(new NamedPredicate<>(predicate, name), log);
+	public static <T> Predicate<T> traced(NamedPredicate<T> predicate, Logger log) {
+		return new TracedPredicate<>(predicate, log);
 	}
 }

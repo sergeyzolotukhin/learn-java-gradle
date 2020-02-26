@@ -21,4 +21,8 @@ public class NamedPredicate<T> implements Predicate<T> {
 	public String toString() {
 		return name;
 	}
+
+	public static <T> NamedPredicate<T> named(Predicate<T> predicate, String name) {
+		return new NamedPredicate<>(predicate, name);
+	}
 }
