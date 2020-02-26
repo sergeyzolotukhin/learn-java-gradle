@@ -1,7 +1,7 @@
 package ua.in.sz.swing;
 
-import com.google.common.base.Predicates;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.swing.JavaPredicates.NamedPredicate;
 import ua.in.sz.swing.model.Rect;
 
 import java.util.List;
@@ -9,6 +9,8 @@ import java.util.function.Predicate;
 
 import static ua.in.sz.swing.JavaPredicates.evenHeight;
 import static ua.in.sz.swing.JavaPredicates.evenWidth;
+import static ua.in.sz.swing.JavaPredicates.log;
+import static ua.in.sz.swing.JavaPredicates.named;
 
 
 @Slf4j
@@ -21,20 +23,13 @@ public class Application {
 				Rect.builder().width(4).height(2).build()
 		);
 
-		Predicate<Rect> predicate = evenWidth().and(evenHeight());
-		log.info("Java predicate: {}", predicate);
+		NamedPredicate<Rect> predicate = named(evenWidth().and(evenHeight()), "width and height is even");
+		log.info("rect filter by {}", predicate);
+
+		Predicate<Rect> loggedPredicate = log(predicate, Application.class);
 
 		rects.stream()
-				.filter(predicate)
+				.filter(loggedPredicate)
 				.forEach(r -> log.info("Rect: {}", r));
-
-
-		Predicate<Rect> guavePredicate = Predicates.and(GuavaPredicates.evenHeight(), GuavaPredicates.evenWidth());
-		log.info("Guava predicate: {}", guavePredicate);
-
-		rects.stream()
-				.filter(guavePredicate)
-				.forEach(r -> log.info("Rect: {}", r));
-
 	}
 }

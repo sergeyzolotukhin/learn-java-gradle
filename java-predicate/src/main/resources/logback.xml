@@ -5,6 +5,8 @@
         </encoder>
     </appender>
 
+    <logger name="ua.in.sz.swing.Application" level="trace" />
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
