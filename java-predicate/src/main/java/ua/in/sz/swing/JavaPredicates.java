@@ -17,7 +17,7 @@ public class JavaPredicates {
 		return rect -> rect.getHeight() % 2 == 0;
 	}
 
-	public static Predicate<Rect> log(NamedPredicate<Rect> predicate, Class clazz) {
+	public static <T> Predicate<T> log(NamedPredicate<T> predicate, Class clazz) {
 		Logger log = LoggerFactory.getLogger(clazz.getName());
 
 		return rect -> {
@@ -33,10 +33,10 @@ public class JavaPredicates {
 		};
 	}
 
-	public static NamedPredicate<Rect> named(Predicate<Rect> predicate, String name) {
-		return new NamedPredicate<>() {
+	public static <T> NamedPredicate<T> named(Predicate<T> predicate, String name) {
+		return new NamedPredicate<T>() {
 			@Override
-			public boolean test(Rect rect) {
+			public boolean test(T rect) {
 				return predicate.test(rect);
 			}
 
@@ -50,9 +50,5 @@ public class JavaPredicates {
 				return name();
 			}
 		};
-	}
-
-	public interface NamedPredicate<T> extends Predicate<T> {
-		String name();
 	}
 }

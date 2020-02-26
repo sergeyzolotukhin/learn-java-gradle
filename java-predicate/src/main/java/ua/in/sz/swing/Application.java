@@ -1,7 +1,6 @@
 package ua.in.sz.swing;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.swing.JavaPredicates.NamedPredicate;
 import ua.in.sz.swing.model.Rect;
 
 import java.util.List;
