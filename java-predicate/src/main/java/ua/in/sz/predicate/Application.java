@@ -1,14 +1,14 @@
-package ua.in.sz.swing;
+package ua.in.sz.predicate;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.swing.model.Rect;
+import ua.in.sz.predicate.model.Rect;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-import static ua.in.sz.swing.JavaPredicates.evenHeight;
-import static ua.in.sz.swing.JavaPredicates.evenWidth;
-import static ua.in.sz.swing.JavaPredicates.traced;
+import static ua.in.sz.predicate.JavaPredicates.evenHeight;
+import static ua.in.sz.predicate.JavaPredicates.evenWidth;
+import static ua.in.sz.predicate.JavaPredicates.traced;
 
 
 @Slf4j

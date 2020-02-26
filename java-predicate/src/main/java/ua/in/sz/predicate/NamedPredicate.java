@@ -1,4 +1,4 @@
-package ua.in.sz.swing;
+package ua.in.sz.predicate;
 
 import java.util.function.Predicate;
 

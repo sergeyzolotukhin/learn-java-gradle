@@ -1,8 +1,8 @@
-package ua.in.sz.swing;
+package ua.in.sz.predicate;
 
 import lombok.experimental.UtilityClass;
 import org.slf4j.Logger;
-import ua.in.sz.swing.model.Rect;
+import ua.in.sz.predicate.model.Rect;
 
 import java.util.function.Predicate;
 

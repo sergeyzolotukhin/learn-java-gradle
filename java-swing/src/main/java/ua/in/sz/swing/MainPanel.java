@@ -1,7 +1,7 @@
-package ua.in.sz.swing;
+package ua.in.sz.predicate;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.swing.model.Rect;
+import ua.in.sz.predicate.model.Rect;
 
 import javax.swing.*;
 import java.awt.*;
