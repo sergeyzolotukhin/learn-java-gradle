@@ -21,9 +21,10 @@ public class Application {
 				Rect.builder().width(4).height(2).build()
 		);
 
-		Predicate<Rect> predicate = traced(evenWidth().and(evenHeight()), "width and height is even", log);
+		Predicate<Rect> predicate = evenWidth().and(evenHeight());
 
-		log.info("rect filter by {}", predicate);
+		predicate = traced(predicate, "width and height is even", log);
+		log.info("rects filter by {}", predicate);
 
 		rects.stream()
 				.filter(predicate)
