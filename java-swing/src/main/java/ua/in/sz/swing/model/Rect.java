@@ -1,4 +1,4 @@
-package ua.in.sz.predicate.model;
+package ua.in.sz.swing.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

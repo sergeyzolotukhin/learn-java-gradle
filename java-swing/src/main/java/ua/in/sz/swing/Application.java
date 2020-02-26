@@ -1,4 +1,4 @@
-package ua.in.sz.predicate;
+package ua.in.sz.swing;
 
 import lombok.extern.slf4j.Slf4j;
 
