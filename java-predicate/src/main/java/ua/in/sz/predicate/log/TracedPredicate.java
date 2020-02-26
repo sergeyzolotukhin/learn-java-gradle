@@ -1,7 +1,6 @@
 package ua.in.sz.predicate.log;
 
 import org.slf4j.Logger;
-import ua.in.sz.predicate.log.NamedPredicate;
 
 import java.util.function.Predicate;
 
@@ -30,5 +29,9 @@ public class TracedPredicate<T> implements Predicate<T> {
 	@Override
 	public String toString() {
 		return predicate.toString();
+	}
+
+	public static <T> Predicate<T> traced(Predicate<T> predicate, String name, Logger log) {
+		return new TracedPredicate<>(new NamedPredicate<>(predicate, name), log);
 	}
 }

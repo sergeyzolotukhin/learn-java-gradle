@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 
 import static ua.in.sz.predicate.RectPredicates.evenHeight;
 import static ua.in.sz.predicate.RectPredicates.evenWidth;
-import static ua.in.sz.predicate.log.LogPredicates.traced;
+import static ua.in.sz.predicate.log.TracedPredicate.traced;
 
 
 @Slf4j
