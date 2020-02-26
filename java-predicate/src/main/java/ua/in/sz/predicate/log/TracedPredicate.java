@@ -24,17 +24,17 @@ public class TracedPredicate<T> implements Predicate<T> {
 		}
 	}
 
-	private void logNotMatched(NamedPredicate<T> predicate, T t) {
+	@Override
+	public String toString() {
+		return predicate.toString();
+	}
+
+	protected void logNotMatched(NamedPredicate<T> predicate, T t) {
 		log.trace("Predicate '{}' is not match at [{}]", predicate, t);
 	}
 
 	protected void logMatched(NamedPredicate<T> predicate, T t) {
 		log.debug("Predicate '{}' is match at [{}]", predicate, t);
-	}
-
-	@Override
-	public String toString() {
-		return predicate.toString();
 	}
 
 	public static <T> Predicate<T> traced(NamedPredicate<T> predicate, Logger log) {
