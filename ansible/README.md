@@ -10,6 +10,7 @@
     https://docs.ansible.com/ansible/latest/modules/list_of_database_modules.html
     https://medium.com/@khandelwal12nidhi/setup-ssh-key-and-initial-user-using-ansible-playbook-61eabbb0dba4
     https://docs.ansible.com/ansible/latest/modules/authorized_key_module.html
+    https://github.com/phinze/vagrant-host-shell
     
 #### TODO
     
