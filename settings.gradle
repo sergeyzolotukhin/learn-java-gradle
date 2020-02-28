@@ -36,5 +36,5 @@ include 'ansible'
 include 'pattern'
 //include 'java-swing'
 //include 'java-jdbc'
-include 'java-predicate'
+//include 'java-predicate'
 
