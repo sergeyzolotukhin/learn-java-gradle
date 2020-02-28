@@ -8,6 +8,9 @@ hosts = [
 
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/bionic64"
+    config.vagrant.plugins = [ "vagrant-host-shell" ]
+
+    config.vm.provision :host_shell, inline: 'pageant pd-master-1.ppk &'
 
     # management host
     config.vm.define "m1" do |d|
