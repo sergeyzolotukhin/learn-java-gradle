@@ -9,3 +9,6 @@
     - name: Install packages
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
       loop: [ 'bash', 'mc' ]
+
+    - name: Deploy SSH Key
+      authorized_key: user=vagrant key="{{ lookup('file', '/vagrant/pd-master-1.pub') }}" state=present
