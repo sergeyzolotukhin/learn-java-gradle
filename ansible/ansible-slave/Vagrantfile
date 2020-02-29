@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+hosts = [
+    [   "192.168.0.41", "s1"    ],
+#    [   "192.168.0.42", "s1"    ]
+]
+
+Vagrant.configure("2") do |config|
+    hosts.each do |h|
+        ip = h[0]
+        hostname = h[1]
+
+        config.vm.define hostname do |d|
+            d.vm.box = "ubuntu/bionic64"
+            d.vm.hostname = "%s.szolotukhin.in.ua" % hostname
+            d.vm.network :public_network, ip: ip
+            d.vm.provider "virtualbox" do |v|
+                v.name = hostname
+                v.gui = true
+                v.memory = "1024"
+                v.customize ["modifyvm", :id, "--vram", "128"]
+            end
+        end
+    end
+end
+
