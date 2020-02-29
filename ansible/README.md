@@ -13,6 +13,10 @@
     https://github.com/phinze/vagrant-host-shell
     https://github.com/hashicorp/vagrant/wiki/Available-Vagrant-Plugins
     
+#### Ruby
+
+    http://nashbridges.me/blocks-in-ruby
+    
 #### TODO
     
     Use static private key at vagrant
