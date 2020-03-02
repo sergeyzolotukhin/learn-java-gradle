@@ -19,9 +19,9 @@ public class CacheServiceClient implements Runnable {
 
 		for (int i = 0; i < 10; i++) {
 			String key = String.format("k-%d", (i % 2));
-			String value = cacheableService.invoke(key);
+			String value = cacheableService.get(key);
 
-			log.info("call invoke({}) => {}", key, value);
+			log.info("call get({}) => {}", key, value);
 		}
 
 

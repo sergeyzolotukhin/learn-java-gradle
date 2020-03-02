@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
+//    implementation 'org.springframework.boot:spring-boot-starter-cache'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'

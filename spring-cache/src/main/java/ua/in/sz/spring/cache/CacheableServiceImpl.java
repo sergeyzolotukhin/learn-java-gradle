@@ -13,12 +13,12 @@ public class CacheableServiceImpl implements CacheableService {
 	@Override
 	@SneakyThrows
 	@Cacheable("invocationCache")
-	public String invoke(String key) {
-		log.info("invoke start: [{}]", key);
+	public String get(String key) {
+		log.info("get start: [{}]", key);
 
 		TimeUnit.SECONDS.sleep(2);
 
-		log.info("invoke end: [{}]", key);
+		log.info("get end: [{}]", key);
 
 		return String.format("key:%s", key);
 	}
