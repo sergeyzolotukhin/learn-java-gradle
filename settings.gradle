@@ -12,7 +12,7 @@
 //include 'spring-swagger'
 //include 'spring-transactional'
 //include 'spring-bean-validation'
-include 'spring-cache'
+//include 'spring-cache'
 
 // ====================================================================================================================
 // Libraries
@@ -24,6 +24,7 @@ include 'spring-cache'
 //include 'lib-drool'
 //include 'activiti-learn'
 //include 'lib-bean-validation'
+include 'lib-togglz'
 
 // ====================================================================================================================
 // infrastructure
