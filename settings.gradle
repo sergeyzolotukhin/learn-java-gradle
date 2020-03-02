@@ -12,6 +12,7 @@
 //include 'spring-swagger'
 //include 'spring-transactional'
 //include 'spring-bean-validation'
+include 'spring-cache'
 
 // ====================================================================================================================
 // Libraries
@@ -28,8 +29,8 @@
 // infrastructure
 // ====================================================================================================================
 //include 'postgresql'
-include 'ansible:ansible-master'
-include 'ansible:ansible-slave'
+//include 'ansible:ansible-master'
+//include 'ansible:ansible-slave'
 
 // ====================================================================================================================
 // other
