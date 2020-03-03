@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldNameConstants
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "schedule")
 @Entity
 @Table(name = "SCHEDULE")
 public class ScheduleEntity {

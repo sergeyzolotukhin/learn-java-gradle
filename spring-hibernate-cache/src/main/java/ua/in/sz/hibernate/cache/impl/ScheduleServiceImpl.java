@@ -43,6 +43,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 		SessionFactory factory = session.getSessionFactory();
 //		log.info("Session factory statistics: {}", factory.getStatistics());
+
+		log.info("Session factory statistics:");
 		factory.getStatistics().logSummary();
 	}
 }
