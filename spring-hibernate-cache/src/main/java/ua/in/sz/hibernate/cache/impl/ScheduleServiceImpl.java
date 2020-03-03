@@ -27,8 +27,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 		Stopwatch stopwatch = Stopwatch.createStarted();
 
 		List<String> names = new ArrayList<>();
-		for (int i = 0; i < 100_000; i++) {
-			ScheduleEntity scheduleEntity = scheduleDao.find(3L);
+		for (long i = 0; i < 100_000; i++) {
+			long id = i / 10_000L + 3L;
+
+			ScheduleEntity scheduleEntity = scheduleDao.find(id);
 			names.add(StringUtils.trim(scheduleEntity.getName()));
 
 			if (i % 1000 == 0) {
