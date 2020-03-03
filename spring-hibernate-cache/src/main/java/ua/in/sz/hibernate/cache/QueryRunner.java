@@ -22,7 +22,7 @@ public class QueryRunner implements CommandLineRunner {
 	public void run(String... args) {
 		scheduleService.query();
 
-		TimeUnit.SECONDS.sleep(20);
+		TimeUnit.SECONDS.sleep(0);
 
 		scheduleService.query();
 	}
