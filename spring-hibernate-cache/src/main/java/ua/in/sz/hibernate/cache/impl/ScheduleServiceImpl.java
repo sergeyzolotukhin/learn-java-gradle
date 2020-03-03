@@ -74,13 +74,15 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	private void logStats() {
-		Session session = (Session) entityManager.getDelegate();
-		log.info("Session statistics: {}", session.getStatistics());
+		if (log.isTraceEnabled()) {
+			Session session = (Session) entityManager.getDelegate();
+			log.trace("Session statistics: {}", session.getStatistics());
 
-		SessionFactory factory = session.getSessionFactory();
-//		log.info("Session factory statistics: {}", factory.getStatistics());
+			SessionFactory factory = session.getSessionFactory();
+			log.trace("Session factory statistics: {}", factory.getStatistics());
 
-		log.info("Session factory statistics:");
-		factory.getStatistics().logSummary();
+			log.trace("Session factory statistics:");
+			factory.getStatistics().logSummary();
+		}
 	}
 }

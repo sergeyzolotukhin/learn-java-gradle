@@ -20,7 +20,7 @@ public class QueryRunner implements CommandLineRunner {
 	@Override
 	@SneakyThrows
 	public void run(String... args) {
-		scheduleService.jpqlQuery();
+		scheduleService.query();
 
 		TimeUnit.SECONDS.sleep(20);
 
