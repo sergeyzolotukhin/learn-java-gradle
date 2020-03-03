@@ -9,12 +9,15 @@ import javax.persistence.EntityManager;
 @Slf4j
 @Repository
 public class ScheduleDaoImpl implements ScheduleDao {
-
 	private final EntityManager entityManager;
 
 	@Autowired
 	public ScheduleDaoImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 
 	@Override

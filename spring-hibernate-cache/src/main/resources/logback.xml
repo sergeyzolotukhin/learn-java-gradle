@@ -5,6 +5,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="INFO" />
+
     <!--  frameworks  -->
     <logger name="org.quartz" level="warn" />
     <logger name="org.springframework" level="warn" />

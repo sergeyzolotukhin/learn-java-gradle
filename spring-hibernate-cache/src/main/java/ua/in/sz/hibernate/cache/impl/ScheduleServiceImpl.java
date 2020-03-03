@@ -4,6 +4,9 @@ import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.stat.SessionStatistics;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,5 +34,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
+
+		Session session = (Session)scheduleDao.getEntityManager().getDelegate();
+		log.info("Session statistics: {}", session.getStatistics());
+
+		SessionFactory factory = session.getSessionFactory();
+//		log.info("Session factory statistics: {}", factory.getStatistics());
+		factory.getStatistics().logSummary();
 	}
 }
