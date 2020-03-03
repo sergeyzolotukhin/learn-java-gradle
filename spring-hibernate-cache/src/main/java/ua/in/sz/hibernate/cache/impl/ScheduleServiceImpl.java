@@ -49,4 +49,32 @@ public class ScheduleServiceImpl implements ScheduleService {
 		log.info("Session factory statistics:");
 		factory.getStatistics().logSummary();
 	}
+
+	@Override
+	public void jpqlQuery() {
+		Stopwatch stopwatch = Stopwatch.createStarted();
+
+		List<String> names = new ArrayList<>();
+		for (long i = 0; i < 100_000; i++) {
+			long id = i / 10_000L + 3L;
+
+			ScheduleEntity scheduleEntity = scheduleDao.find("select e from ScheduleEntity e where e.id = :id", id);
+			names.add(StringUtils.trim(scheduleEntity.getName()));
+
+			if (i % 1000 == 0) {
+				scheduleDao.getEntityManager().clear();
+			}
+		}
+
+		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
+
+		Session session = (Session) scheduleDao.getEntityManager().getDelegate();
+		log.info("Session statistics: {}", session.getStatistics());
+
+		SessionFactory factory = session.getSessionFactory();
+//		log.info("Session factory statistics: {}", factory.getStatistics());
+
+		log.info("Session factory statistics:");
+		factory.getStatistics().logSummary();
+	}
 }

@@ -29,4 +29,11 @@ public class ScheduleDaoImpl implements ScheduleDao {
 	public ScheduleEntity find(Long id) {
 		return entityManager.find(ScheduleEntity.class, id);
 	}
+
+	@Override
+	public ScheduleEntity find(String jpql, Long id) {
+		return entityManager.createQuery(jpql, ScheduleEntity.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
 }
