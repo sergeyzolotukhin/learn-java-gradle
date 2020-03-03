@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,10 @@ import java.util.List;
 @Service
 @Transactional
 public class ScheduleServiceImpl implements ScheduleService {
-	private final ScheduleDao scheduleDao;
+	private final EntityManager entityManager;
 
-	public ScheduleServiceImpl(ScheduleDao scheduleDao) {
-		this.scheduleDao = scheduleDao;
+	public ScheduleServiceImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	@Override
@@ -30,11 +31,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 		for (long i = 0; i < 100_000; i++) {
 			long id = i / 10_000L + 3L;
 
-			ScheduleEntity scheduleEntity = scheduleDao.find(id);
-			names.add(StringUtils.trim(scheduleEntity.getName()));
+			Schedule schedule = entityManager.find(Schedule.class, id);
+			names.add(StringUtils.trim(schedule.getName()));
 
 			if (i % 1000 == 0) {
-				scheduleDao.getEntityManager().clear();
+				entityManager.clear();
 			}
 		}
 
@@ -51,11 +52,15 @@ public class ScheduleServiceImpl implements ScheduleService {
 		for (long i = 0; i < 100_000; i++) {
 			long id = i / 10_000L + 3L;
 
-			ScheduleEntity scheduleEntity = scheduleDao.find("select e from ScheduleEntity e where e.id = :id", id);
-			names.add(StringUtils.trim(scheduleEntity.getName()));
+			Schedule schedule = entityManager
+					.createQuery("select e from Schedule e where e.id = :id", Schedule.class)
+					.setParameter("id", id)
+					.getSingleResult();
+
+			names.add(StringUtils.trim(schedule.getName()));
 
 			if (i % 1000 == 0) {
-				scheduleDao.getEntityManager().clear();
+				entityManager.clear();
 			}
 		}
 
@@ -64,8 +69,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 		logStats();
 	}
 
+	public void save(Schedule schedule) {
+		entityManager.persist(schedule);
+	}
+
 	private void logStats() {
-		Session session = (Session) scheduleDao.getEntityManager().getDelegate();
+		Session session = (Session) entityManager.getDelegate();
 		log.info("Session statistics: {}", session.getStatistics());
 
 		SessionFactory factory = session.getSessionFactory();

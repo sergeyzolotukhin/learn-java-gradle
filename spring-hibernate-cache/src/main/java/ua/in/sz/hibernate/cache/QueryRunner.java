@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ua.in.sz.hibernate.cache.impl.ScheduleService;
 
+import java.util.concurrent.TimeUnit;
+
 @Slf4j
 @Component
 public class QueryRunner implements CommandLineRunner {
@@ -20,8 +22,8 @@ public class QueryRunner implements CommandLineRunner {
 	public void run(String... args) {
 		scheduleService.jpqlQuery();
 
-//		TimeUnit.SECONDS.sleep(20);
-//
-//		scheduleService.query();
+		TimeUnit.SECONDS.sleep(20);
+
+		scheduleService.query();
 	}
 }

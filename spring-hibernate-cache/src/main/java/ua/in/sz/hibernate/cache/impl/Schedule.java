@@ -24,7 +24,7 @@ import javax.persistence.Table;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "schedule")
 @Entity
 @Table(name = "SCHEDULE")
-public class ScheduleEntity {
+public class Schedule {
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")
