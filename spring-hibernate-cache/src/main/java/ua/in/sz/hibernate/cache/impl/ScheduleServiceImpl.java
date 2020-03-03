@@ -40,14 +40,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
 
-		Session session = (Session) scheduleDao.getEntityManager().getDelegate();
-		log.info("Session statistics: {}", session.getStatistics());
-
-		SessionFactory factory = session.getSessionFactory();
-//		log.info("Session factory statistics: {}", factory.getStatistics());
-
-		log.info("Session factory statistics:");
-		factory.getStatistics().logSummary();
+		logStats();
 	}
 
 	@Override
@@ -68,6 +61,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
 
+		logStats();
+	}
+
+	private void logStats() {
 		Session session = (Session) scheduleDao.getEntityManager().getDelegate();
 		log.info("Session statistics: {}", session.getStatistics());
 
