@@ -27,6 +27,6 @@ public class ScheduleDaoImpl implements ScheduleDao {
 
 	@Override
 	public ScheduleEntity find(Long id) {
-		return entityManager.getReference(ScheduleEntity.class, id);
+		return entityManager.find(ScheduleEntity.class, id);
 	}
 }

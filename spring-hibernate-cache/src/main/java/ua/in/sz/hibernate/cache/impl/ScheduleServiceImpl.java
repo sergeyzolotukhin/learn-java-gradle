@@ -6,7 +6,6 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.stat.SessionStatistics;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,11 +30,15 @@ public class ScheduleServiceImpl implements ScheduleService {
 		for (int i = 0; i < 100_000; i++) {
 			ScheduleEntity scheduleEntity = scheduleDao.find(3L);
 			names.add(StringUtils.trim(scheduleEntity.getName()));
+
+			if (i % 1000 == 0) {
+				scheduleDao.getEntityManager().clear();
+			}
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
 
-		Session session = (Session)scheduleDao.getEntityManager().getDelegate();
+		Session session = (Session) scheduleDao.getEntityManager().getDelegate();
 		log.info("Session statistics: {}", session.getStatistics());
 
 		SessionFactory factory = session.getSessionFactory();
