@@ -1,0 +1,17 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!--  frameworks  -->
+    <logger name="org.quartz" level="warn" />
+    <logger name="org.springframework" level="warn" />
+    <logger name="com.zaxxer" level="warn" />
+    <logger name="org.hibernate" level="warn" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
