@@ -7,7 +7,7 @@
 //include 'spring-aspect'
 //include 'spring-xml'
 //include 'spring-hibernate-search'
-include 'spring-hibernate-cache'
+//include 'spring-hibernate-cache'
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
@@ -26,6 +26,7 @@ include 'spring-hibernate-cache'
 //include 'activiti-learn'
 //include 'lib-bean-validation'
 //include 'lib-togglz'
+include 'lib-camel'
 
 // ====================================================================================================================
 // infrastructure

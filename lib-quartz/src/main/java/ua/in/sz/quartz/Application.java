@@ -1,4 +1,4 @@
-package ua.in.sz.quartz;
+package ua.in.sz.camel;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
