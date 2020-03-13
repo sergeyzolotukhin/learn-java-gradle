@@ -30,7 +30,6 @@ public class FtpRouteBuilder extends RouteBuilder {
 				.to("bean:ftp-2?method=send")
 				.to("bean:ftp-3?method=send")
 				.to("bean:ftp-4?method=send")
-				.end()
-				.to("bean:completed?method=send");
+				.end();
 	}
 }
