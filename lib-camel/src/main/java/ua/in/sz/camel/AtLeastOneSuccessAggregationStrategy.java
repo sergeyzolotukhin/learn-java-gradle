@@ -4,8 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.Exchange;
 
-import java.util.Objects;
-
 @Slf4j
 public class AtLeastOneSuccessAggregationStrategy implements AggregationStrategy {
 	@Override

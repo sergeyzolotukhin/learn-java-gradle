@@ -1,27 +1,19 @@
 package ua.in.sz.camel;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.camel.AggregationStrategy;
 import org.apache.camel.Exchange;
-import org.apache.camel.Predicate;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
-
-import java.util.Objects;
-
-import static java.util.Objects.isNull;
 
 @Slf4j
 public class FtpRouteBuilder extends RouteBuilder {
 	@Override
-	public void configure() throws Exception {
+	public void configure() {
 		onException(IllegalStateException.class)
-				.log("illegal")
-		.logExhausted(false);
-		//.setHeader("status", constant("failed-1"));
+				.process(exchange -> log.warn("illegal {}", exchange.getProperty(Exchange.TO_ENDPOINT)))
+				.logExhausted(false);
 
 		onException(RuntimeException.class)
-				.log("runtime")
+				.process(exchange -> log.warn("runtime {}", exchange.getProperty(Exchange.TO_ENDPOINT)))
 				.logExhausted(false);
 
 		from("direct:start")

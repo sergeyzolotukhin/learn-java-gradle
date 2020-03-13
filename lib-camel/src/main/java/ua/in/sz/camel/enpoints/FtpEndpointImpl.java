@@ -16,8 +16,6 @@ public class FtpEndpointImpl implements FtpEndpoint {
 
 		log.info("{}", result);
 
-//		throw new IllegalStateException(String.format("exception: %s", message));
-
 		return result;
 	}
 }
