@@ -18,7 +18,7 @@ public class Application {
 		JndiContext jndiContext = new JndiContext();
 
 		jndiContext.bind("ftp-1", new IllegalStateExceptionFtpEndpointImpl("ftp-1"));
-		jndiContext.bind("ftp-2", new RuntimeExceptionFtpEndpointImpl("ftp-2"));
+		jndiContext.bind("ftp-2", new FtpEndpointImpl("ftp-2"));
 		jndiContext.bind("ftp-3", new RuntimeExceptionFtpEndpointImpl("ftp-3"));
 		jndiContext.bind("ftp-4", new RuntimeExceptionFtpEndpointImpl("ftp-4"));
 		jndiContext.bind("completed", new CompletedFtpEndpointImpl());

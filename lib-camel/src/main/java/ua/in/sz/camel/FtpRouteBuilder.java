@@ -25,30 +25,7 @@ public class FtpRouteBuilder extends RouteBuilder {
 				.logExhausted(false);
 
 		from("direct:start")
-				.multicast(new AggregationStrategy() {
-					@Override
-					public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
-						if (newExchange == null) {
-							return oldExchange;
-						}
-
-						if (oldExchange == null) {
-							return newExchange;
-						}
-
-						Exchange answer = newExchange;
-
-						log.trace("Endpoint [{}] is failed {}, Endpoint [{}] is failed {}",
-								oldExchange.getProperty(Exchange.TO_ENDPOINT), oldExchange.isFailed(),
-								newExchange.getProperty(Exchange.TO_ENDPOINT), newExchange.isFailed());
-
-						if (!oldExchange.isFailed()) {
-							answer.setException(null);
-						}
-
-						return answer;
-					}
-				})
+				.multicast(new AtLeastOneSuccessAggregationStrategy())
 				.to("bean:ftp-1?method=send")
 				.to("bean:ftp-2?method=send")
 				.to("bean:ftp-3?method=send")
