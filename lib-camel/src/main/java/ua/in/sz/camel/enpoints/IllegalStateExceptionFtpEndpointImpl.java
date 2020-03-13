@@ -1,12 +1,12 @@
-package ua.in.sz.camel;
+package ua.in.sz.camel.enpoints;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class BrokenFtpEndpointImpl implements FtpEndpoint {
+public class IllegalStateExceptionFtpEndpointImpl implements FtpEndpoint {
 	private final String name;
 
-	public BrokenFtpEndpointImpl(String name) {
+	public IllegalStateExceptionFtpEndpointImpl(String name) {
 		this.name = name;
 	}
 
