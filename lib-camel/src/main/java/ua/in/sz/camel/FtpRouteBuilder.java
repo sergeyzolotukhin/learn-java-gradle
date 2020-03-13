@@ -3,6 +3,8 @@ package ua.in.sz.camel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.Exchange;
+import org.apache.camel.Predicate;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 
 import java.util.Objects;
@@ -14,14 +16,13 @@ public class FtpRouteBuilder extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		onException(IllegalStateException.class)
-				.handled(true);
-//				.continued(false);
-				//.setHeader("status", constant("failed-1"));
+				.log("illegal")
+		.logExhausted(false);
+		//.setHeader("status", constant("failed-1"));
 
 		onException(RuntimeException.class)
-				.handled(true);
-//				.continued(false);
-				//.setHeader("status", constant("failed-2"));
+				.log("runtime")
+				.logExhausted(false);
 
 		from("direct:start")
 				.multicast(new AggregationStrategy() {
@@ -37,8 +38,11 @@ public class FtpRouteBuilder extends RouteBuilder {
 
 						Exchange answer = newExchange;
 
-						log.info("A: {}, B: {}", oldExchange.isFailed(), newExchange.isFailed());
-						if (!oldExchange.isFailed() || !newExchange.isFailed()) {
+						log.trace("Endpoint [{}] is failed {}, Endpoint [{}] is failed {}",
+								oldExchange.getProperty(Exchange.TO_ENDPOINT), oldExchange.isFailed(),
+								newExchange.getProperty(Exchange.TO_ENDPOINT), newExchange.isFailed());
+
+						if (!oldExchange.isFailed()) {
 							answer.setException(null);
 						}
 
