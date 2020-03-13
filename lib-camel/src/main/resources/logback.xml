@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+    <logger name="org.apache.camel" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

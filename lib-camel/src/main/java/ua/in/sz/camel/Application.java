@@ -13,9 +13,10 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 		JndiContext jndiContext = new JndiContext();
 
-		jndiContext.bind("ftp-1", new FtpEndpointImpl("ftp-1"));
+		jndiContext.bind("ftp-1", new BrokenFtpEndpointImpl("ftp-1"));
 		jndiContext.bind("ftp-2", new FtpEndpointImpl("ftp-2"));
 		jndiContext.bind("ftp-3", new FtpEndpointImpl("ftp-3"));
+		jndiContext.bind("completed", new CompletedFtpEndpointImpl());
 
 		CamelContext camelContext = new DefaultCamelContext(jndiContext);
 		try {
