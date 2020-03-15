@@ -88,4 +88,6 @@ How to backup and share database state with CI?
     
     https://dzone.com/articles/hibernate-5-java-configuration-example    
 
+#### GIT
     
+    https://blog.osteele.com/2008/05/my-git-workflow/    
