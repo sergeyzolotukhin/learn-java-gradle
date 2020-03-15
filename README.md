@@ -91,3 +91,8 @@ How to backup and share database state with CI?
 #### GIT
     
     https://blog.osteele.com/2008/05/my-git-workflow/    
+    
+#### Pattern
+    
+    saga https://github.com/fernandoBRS/microservices-transactions
+    
