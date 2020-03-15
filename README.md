@@ -97,6 +97,9 @@ How to backup and share database state with CI?
     saga    https://github.com/fernandoBRS/microservices-transactions
             https://bool.dev/blog/detail/saga-pattern-i-raspredelennye-tranzaktsii
             https://dzone.com/articles/saga-pattern-how-to-implement-business-transaction
+            https://dzone.com/articles/microservices-and-the-saga-pattern-part-1
+            https://dzone.com/articles/microservices-and-the-saga-pattern-part-2
+            https://dzone.com/articles/microservices-and-the-saga-pattern-part-3
             
             
     
