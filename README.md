@@ -101,15 +101,18 @@ How to backup and share database state with CI?
             https://dzone.com/articles/microservices-and-the-saga-pattern-part-2
             https://dzone.com/articles/microservices-and-the-saga-pattern-part-3
             
-####
-
-    AWS EC-2
-    AWS BATCH JOBS
-    STEP FUNCTIONS
-    LAMBDA FUNCTIONS
-    DynamoDB
-    CloudWatch
-    CloudFoundation            
+#### AWS
+    
+    Ovewriew was readed:
+        AWS EC-2
+        AWS BATCH JOBS
+        DynamoDB
+    
+    Unknown topics:
+        STEP FUNCTIONS
+        LAMBDA FUNCTIONS
+        CloudWatch
+        CloudFoundation            
     
     
     Terraform
