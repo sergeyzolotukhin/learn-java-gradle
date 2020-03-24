@@ -107,12 +107,12 @@ How to backup and share database state with CI?
         AWS EC-2
         AWS BATCH JOBS
         DynamoDB
+        CloudFoundation  https://asha.com.ua/simpleaboutcloudformation/
     
     Unknown topics:
         STEP FUNCTIONS
         LAMBDA FUNCTIONS
         CloudWatch
-        CloudFoundation            
     
     
     Terraform
