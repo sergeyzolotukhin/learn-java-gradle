@@ -117,3 +117,5 @@ How to backup and share database state with CI?
     
     Terraform
     
+https://dou.ua/lenta/articles/rails-tutorial-docker-2/
+    
