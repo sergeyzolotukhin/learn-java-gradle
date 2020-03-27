@@ -46,9 +46,7 @@ class ApplicationTest {
 
 	@Test
 	void dateTimeLipe() {
-		log.info("Timezone: [{}]", format(TimeZone.getDefault()));
-
-		LocalDateTime dateTime = LocalDateTime.of(2021, 1, 1, 0, 0, 0);
+		LocalDateTime dateTime = LocalDateTime.of(2020, 12, 31, 23, 59, 0);
 		LocalDateTime dateTime1 = dateTime.plusSeconds(60);
 		LocalDateTime dateTime2 = dateTime.plusMinutes(1);
 		LocalDateTime dateTime3 = dateTime.plus(Duration.ofMinutes(1));
