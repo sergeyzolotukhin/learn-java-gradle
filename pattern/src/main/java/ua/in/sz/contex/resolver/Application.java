@@ -1,6 +1,7 @@
 package ua.in.sz.contex.resolver;
 
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.contex.resolver.model.Interval;
 import ua.in.sz.contex.resolver.model.Schedule;
 import ua.in.sz.contex.resolver.model.ScheduleValue;
 
@@ -20,16 +21,18 @@ public class Application {
 		List<ScheduleValue> values = new ArrayList<>();
 		for (int i = 0; i < 3; i++) {
 			values.add(ScheduleValue.builder()
-					.from(dateTime.plusHours(i))
-					.to(dateTime.plusHours(i + 1))
+					.interval(Interval.builder()
+							.from(dateTime.plusHours(i))
+							.to(dateTime.plusHours(i + 1)).build())
 					.value(i)
 					.build());
 		}
 
 
 		Schedule caseSchedule = Schedule.builder()
-				.from(marketDate.atStartOfDay())
-				.to(marketDate.plusDays(1).atStartOfDay())
+				.interval(Interval.builder()
+						.from(marketDate.atStartOfDay())
+						.to(marketDate.plusDays(1).atStartOfDay()).build())
 				.values(values)
 				.build();
 
@@ -46,15 +49,21 @@ public class Application {
 
 	public static Schedule boundValueSchedule(Schedule schedule) {
 		LocalDateTime from = schedule.getValues().stream()
-				.map(ScheduleValue::getFrom)
+				.map(ScheduleValue::getInterval)
+				.map(Interval::getFrom)
 				.min(Comparator.naturalOrder())
 				.orElseThrow(IllegalStateException::new);
 
 		LocalDateTime to = schedule.getValues().stream()
-				.map(ScheduleValue::getTo)
+				.map(ScheduleValue::getInterval)
+				.map(Interval::getTo)
 				.max(Comparator.naturalOrder())
 				.orElseThrow(IllegalStateException::new);
 
-		return Schedule.builder().from(from).to(to).values(schedule.getValues()).build();
+		return Schedule.builder()
+				.interval(Interval.builder()
+						.from(from)
+						.to(to).build())
+				.values(schedule.getValues()).build();
 	}
 }

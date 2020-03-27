@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,7 @@ import java.util.List;
 @FieldNameConstants
 @ToString(exclude = {"values"})
 public class Schedule {
-	private LocalDateTime from;
-	private LocalDateTime to;
+	private Interval interval;
 	@Builder.Default
 	private List<ScheduleValue> values = new ArrayList<>();
 }
