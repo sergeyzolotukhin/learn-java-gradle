@@ -56,7 +56,8 @@ class ApplicationTest {
 
 	@Test
 	void dateTimeLipe2() {
-		LocalDateTime dateTime = LocalDateTime.of(1985, 6, 30, 23, 59, 58);
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+		LocalDateTime dateTime = LocalDateTime.of(2015, 6, 30, 23, 59, 59);
 		LocalDateTime dateTime1 = dateTime.plusSeconds(1);
 
 		log.info("Date time: [{}] => [{}]", dateTime, dateTime1);
