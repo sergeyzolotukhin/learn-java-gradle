@@ -30,15 +30,18 @@ public class Application {
 
 
 		Schedule constraint = Schedule.builder()
-				.name("Constraint")
+				.name("General Constraint")
 				.interval(Interval.builder()
 						.from(marketDate.atStartOfDay())
 						.to(marketDate.plusDays(1).atStartOfDay()).build())
 				.values(values)
 				.build();
 
+		print(constraint);
+
 		Schedule schedule = Schedule.builder()
-				.interval(boundValueInterval(constraint.getValues()))
+				.name("RTBM Constraint")
+				.interval(sourceScheduleInterval(constraint))
 				.values(constraint.getValues()).build();
 
 		print(schedule);
@@ -51,6 +54,10 @@ public class Application {
 			log.info(" |-> {}", value);
 		}
 	}
+
+	// ================================================================================================================
+	// Strategies
+	// ================================================================================================================
 
 	public static Interval boundValueInterval(List<ScheduleValue> values) {
 		LocalDateTime from = values.stream()
@@ -66,5 +73,9 @@ public class Application {
 				.orElseThrow(IllegalStateException::new);
 
 		return Interval.builder().from(from).to(to).build();
+	}
+
+	public static Interval sourceScheduleInterval(Schedule schedule) {
+		return schedule.getInterval();
 	}
 }
