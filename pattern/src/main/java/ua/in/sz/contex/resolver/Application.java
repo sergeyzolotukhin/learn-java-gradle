@@ -32,6 +32,14 @@ public class Application {
 				.values(values)
 				.build();
 
-		log.info("Case: {}", caseSchedule);
+		print(caseSchedule);
+	}
+
+	public static void print(Schedule schedule) {
+		log.info("{}", schedule);
+
+		for (ScheduleValue value : schedule.getValues()) {
+			log.info(" |-> {}", value);
+		}
 	}
 }
