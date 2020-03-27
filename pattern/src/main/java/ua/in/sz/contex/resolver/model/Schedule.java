@@ -13,6 +13,7 @@ import java.util.List;
 @FieldNameConstants
 @ToString(exclude = {"values"})
 public class Schedule {
+	private String name;
 	private Interval interval;
 	@Builder.Default
 	private List<ScheduleValue> values = new ArrayList<>();

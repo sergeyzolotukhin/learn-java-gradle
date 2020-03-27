@@ -19,7 +19,7 @@ public class Application {
 
 		LocalDateTime dateTime = marketDate.atStartOfDay();
 		List<ScheduleValue> values = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			values.add(ScheduleValue.builder()
 					.interval(Interval.builder()
 							.from(dateTime.plusHours(i))
@@ -29,7 +29,8 @@ public class Application {
 		}
 
 
-		Schedule caseSchedule = Schedule.builder()
+		Schedule constraint = Schedule.builder()
+				.name("Constraint")
 				.interval(Interval.builder()
 						.from(marketDate.atStartOfDay())
 						.to(marketDate.plusDays(1).atStartOfDay()).build())
@@ -37,8 +38,8 @@ public class Application {
 				.build();
 
 		Schedule schedule = Schedule.builder()
-				.interval(boundValueInterval(caseSchedule))
-				.values(caseSchedule.getValues()).build();
+				.interval(boundValueInterval(constraint.getValues()))
+				.values(constraint.getValues()).build();
 
 		print(schedule);
 	}
@@ -51,14 +52,14 @@ public class Application {
 		}
 	}
 
-	public static Interval boundValueInterval(Schedule schedule) {
-		LocalDateTime from = schedule.getValues().stream()
+	public static Interval boundValueInterval(List<ScheduleValue> values) {
+		LocalDateTime from = values.stream()
 				.map(ScheduleValue::getInterval)
 				.map(Interval::getFrom)
 				.min(Comparator.naturalOrder())
 				.orElseThrow(IllegalStateException::new);
 
-		LocalDateTime to = schedule.getValues().stream()
+		LocalDateTime to = values.stream()
 				.map(ScheduleValue::getInterval)
 				.map(Interval::getTo)
 				.max(Comparator.naturalOrder())
