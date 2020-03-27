@@ -5,6 +5,7 @@ import ua.in.sz.contex.resolver.model.Interval;
 import ua.in.sz.contex.resolver.model.Schedule;
 import ua.in.sz.contex.resolver.model.ScheduleValue;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class Application {
 
 		Schedule schedule = Schedule.builder()
 				.name("RTBM Constraint")
-				.interval(sourceScheduleInterval(constraint))
+				.interval(resolutionInterval(constraint.getInterval().getFrom(), Duration.parse("P2D")))
 				.values(constraint.getValues()).build();
 
 		print(schedule);
@@ -77,5 +78,9 @@ public class Application {
 
 	public static Interval sourceScheduleInterval(Schedule schedule) {
 		return schedule.getInterval();
+	}
+
+	public static Interval resolutionInterval(LocalDateTime from, Duration resolution) {
+		return Interval.builder().from(from).to(from.plus(resolution)).build();
 	}
 }

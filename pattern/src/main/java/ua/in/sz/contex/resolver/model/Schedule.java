@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,8 @@ import java.util.List;
 @ToString(exclude = {"values"})
 public class Schedule {
 	private String name;
+	@Builder.Default
+	private Duration resolution = Duration.ZERO;
 	private Interval interval;
 	@Builder.Default
 	private List<ScheduleValue> values = new ArrayList<>();
