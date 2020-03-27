@@ -2,7 +2,6 @@ package ua.in.sz.javacore.timezone;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.TimeZone;
@@ -14,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class Application {
 	public static void main(String[] args) {
-		log.info("Timezone: [{}]", displayTimeZone(TimeZone.getDefault()));
+		log.info("Timezone: [{}]", format(TimeZone.getDefault()));
 
 //		LocalDateTime dateTime = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 //		LocalDateTime dateTime = LocalDateTime.now();
@@ -22,7 +21,7 @@ public class Application {
 		log.info("Date time: [{}]", dateTime);
 
 		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
-		log.info("Timezone: [{}]", displayTimeZone(TimeZone.getDefault()));
+		log.info("Timezone: [{}]", format(TimeZone.getDefault()));
 
 //		LocalDateTime dateTime1 = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 //		LocalDateTime dateTime1 = LocalDateTime.now();
@@ -30,12 +29,12 @@ public class Application {
 		log.info("Date time: [{}]", dateTime1);
 	}
 
-	private static void helpTimeZone() {
+	public static void help() {
 		Arrays.stream(TimeZone.getAvailableIDs()).forEach(id ->
-				log.info("Timezone [{}]", displayTimeZone(TimeZone.getTimeZone(id))));
+				log.info("Timezone [{}]", format(TimeZone.getTimeZone(id))));
 	}
 
-	private static String displayTimeZone(TimeZone tz) {
+	public static String format(TimeZone tz) {
 		long hours = TimeUnit.MILLISECONDS.toHours(tz.getRawOffset());
 		long minutes = TimeUnit.MILLISECONDS.toMinutes(tz.getRawOffset()) - TimeUnit.HOURS.toMinutes(hours);
 
