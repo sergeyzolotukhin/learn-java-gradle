@@ -16,13 +16,17 @@ public class Application {
 	public static void main(String[] args) {
 		log.info("Timezone: [{}]", displayTimeZone(TimeZone.getDefault()));
 
-		LocalDateTime dateTime = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
+//		LocalDateTime dateTime = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
+//		LocalDateTime dateTime = LocalDateTime.now();
+		ZonedDateTime dateTime = ZonedDateTime.now();
 		log.info("Date time: [{}]", dateTime);
 
 		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
 		log.info("Timezone: [{}]", displayTimeZone(TimeZone.getDefault()));
 
-		LocalDateTime dateTime1 = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
+//		LocalDateTime dateTime1 = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
+//		LocalDateTime dateTime1 = LocalDateTime.now();
+		ZonedDateTime dateTime1 = ZonedDateTime.now();
 		log.info("Date time: [{}]", dateTime1);
 	}
 
