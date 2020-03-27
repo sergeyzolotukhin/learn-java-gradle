@@ -7,6 +7,7 @@ import ua.in.sz.contex.resolver.model.ScheduleValue;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
@@ -32,7 +33,7 @@ public class Application {
 				.values(values)
 				.build();
 
-		print(caseSchedule);
+		print(boundValueSchedule(caseSchedule));
 	}
 
 	public static void print(Schedule schedule) {
@@ -41,5 +42,19 @@ public class Application {
 		for (ScheduleValue value : schedule.getValues()) {
 			log.info(" |-> {}", value);
 		}
+	}
+
+	public static Schedule boundValueSchedule(Schedule schedule) {
+		LocalDateTime from = schedule.getValues().stream()
+				.map(ScheduleValue::getFrom)
+				.min(Comparator.naturalOrder())
+				.orElseThrow(IllegalStateException::new);
+
+		LocalDateTime to = schedule.getValues().stream()
+				.map(ScheduleValue::getTo)
+				.max(Comparator.naturalOrder())
+				.orElseThrow(IllegalStateException::new);
+
+		return Schedule.builder().from(from).to(to).values(schedule.getValues()).build();
 	}
 }
