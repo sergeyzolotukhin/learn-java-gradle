@@ -36,7 +36,11 @@ public class Application {
 				.values(values)
 				.build();
 
-		print(boundValueSchedule(caseSchedule));
+		Schedule schedule = Schedule.builder()
+				.interval(boundValueInterval(caseSchedule))
+				.values(caseSchedule.getValues()).build();
+
+		print(schedule);
 	}
 
 	public static void print(Schedule schedule) {
@@ -47,7 +51,7 @@ public class Application {
 		}
 	}
 
-	public static Schedule boundValueSchedule(Schedule schedule) {
+	public static Interval boundValueInterval(Schedule schedule) {
 		LocalDateTime from = schedule.getValues().stream()
 				.map(ScheduleValue::getInterval)
 				.map(Interval::getFrom)
@@ -60,10 +64,6 @@ public class Application {
 				.max(Comparator.naturalOrder())
 				.orElseThrow(IllegalStateException::new);
 
-		return Schedule.builder()
-				.interval(Interval.builder()
-						.from(from)
-						.to(to).build())
-				.values(schedule.getValues()).build();
+		return Interval.builder().from(from).to(to).build();
 	}
 }
