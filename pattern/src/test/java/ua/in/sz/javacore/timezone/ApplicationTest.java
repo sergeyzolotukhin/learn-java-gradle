@@ -46,11 +46,19 @@ class ApplicationTest {
 
 	@Test
 	void dateTimeLipe() {
-		LocalDateTime dateTime = LocalDateTime.of(2020, 12, 31, 23, 59, 0);
-		LocalDateTime dateTime1 = dateTime.plusSeconds(60);
-		LocalDateTime dateTime2 = dateTime.plusMinutes(1);
-		LocalDateTime dateTime3 = dateTime.plus(Duration.ofMinutes(1));
+		LocalDateTime dateTime = LocalDateTime.of(2020, 2, 28, 0, 0, 0);
+		LocalDateTime dateTime1 = dateTime.plusHours(24);
+		LocalDateTime dateTime2 = dateTime.plusDays(1);
+		LocalDateTime dateTime3 = dateTime.plus(Duration.ofDays(1));
 
 		log.info("Date time: [{}] => [{}] => [{}] => [{}]", dateTime, dateTime1, dateTime2, dateTime3);
+	}
+
+	@Test
+	void dateTimeLipe2() {
+		LocalDateTime dateTime = LocalDateTime.of(1985, 6, 30, 23, 59, 58);
+		LocalDateTime dateTime1 = dateTime.plusSeconds(1);
+
+		log.info("Date time: [{}] => [{}]", dateTime, dateTime1);
 	}
 }
