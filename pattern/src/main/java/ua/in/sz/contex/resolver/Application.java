@@ -42,7 +42,9 @@ public class Application {
 
 		Schedule schedule = Schedule.builder()
 				.name("RTBM Constraint")
-				.interval(resolutionInterval(constraint.getInterval().getFrom(), Duration.parse("P2D")))
+				.interval(boundValueInterval(constraint.getValues()))
+//				.interval(sameInterval(constraint))
+//				.interval(resolutionInterval(constraint.getInterval().getFrom(), Duration.parse("P2D")))
 				.values(constraint.getValues()).build();
 
 		print(schedule);
@@ -76,7 +78,7 @@ public class Application {
 		return Interval.builder().from(from).to(to).build();
 	}
 
-	public static Interval sourceScheduleInterval(Schedule schedule) {
+	public static Interval sameInterval(Schedule schedule) {
 		return schedule.getInterval();
 	}
 
