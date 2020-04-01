@@ -7,9 +7,6 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -21,7 +18,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 @EnableScheduling
 @EnableAutoConfiguration
 public class Application {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		log.info("Start");
 		SpringApplication.run(Application.class);
 		log.info("End");
