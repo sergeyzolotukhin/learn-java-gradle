@@ -2,6 +2,7 @@ package ua.in.sz.javacore.timezone;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -12,6 +13,11 @@ import java.util.concurrent.TimeUnit;
  * Europe/Kiev:
  * 		[29-03-2020 02:00:00] => [2020-03-29T02:00+02:00[Europe/Kiev]]
  * 		[29-03-2020 04:00:00] => [2020-03-29T04:00+03:00[Europe/Kiev]]
+ *
+ * CET:
+ * 		[29-03-2020 01:00:00] => [2020-03-29T01:00+01:00[CET]]
+ * 		[29-03-2020 03:00:00] => [2020-03-29T03:00+02:00[CET]]
+ *
  */
 @Slf4j
 public class DstApplication {
@@ -20,7 +26,7 @@ public class DstApplication {
 
 		ZonedDateTime dateTime = ZonedDateTime.of(2020, 3, 29,
 				0, 0, 0, 0,
-				TimeZone.getTimeZone("Europe/Kiev").toZoneId());
+				ZoneId.of("CET"));
 
 		for (int i = 0; i < 4; i++) {
 			ZonedDateTime dateTime1 = dateTime.plusHours(i);
