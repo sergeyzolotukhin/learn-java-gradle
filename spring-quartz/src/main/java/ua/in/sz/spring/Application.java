@@ -28,14 +28,12 @@ public class Application {
 	public JobDetail jobDetail() {
 		return JobBuilder.newJob().ofType(SampleJob.class)
 				.storeDurably()
-				.withIdentity("Qrtz_Job_Detail")
 				.build();
 	}
 
 	@Bean
 	public Trigger trigger(JobDetail job) {
 		return TriggerBuilder.newTrigger().forJob(job)
-				.withIdentity("Qrtz_Trigger")
 				.withSchedule(simpleSchedule().repeatForever().withIntervalInSeconds(2))
 				.build();
 	}
