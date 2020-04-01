@@ -16,11 +16,11 @@ public class Application {
 	public static void main(String[] args) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-		ZonedDateTime dateTime = ZonedDateTime.of(2020, 3, 28,
-				12, 0, 0, 0,
+		ZonedDateTime dateTime = ZonedDateTime.of(2020, 3, 29,
+				0, 0, 0, 0,
 				TimeZone.getTimeZone("Europe/Kiev").toZoneId());
 
-		for (int i = 0; i < 24; i++) {
+		for (int i = 0; i < 4; i++) {
 			ZonedDateTime dateTime1 = dateTime.plusHours(i);
 			log.info("Date time: [{}] => [{}]", formatter.format(dateTime1), dateTime1);
 		}
