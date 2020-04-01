@@ -119,3 +119,7 @@ How to backup and share database state with CI?
     
 https://dou.ua/lenta/articles/rails-tutorial-docker-2/
     
+### Get exit code windows
+    
+    java Foo
+    echo %ERRORLEVEL%
