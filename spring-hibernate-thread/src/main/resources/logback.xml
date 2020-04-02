@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <turboFilter class="ua.in.sz.spring.thread.SqlFeatureFilter">
+    <turboFilter class="ua.in.sz.spring.thread.ShowSqlFeatureFilter">
         <Value>run query 2</Value>
     </turboFilter>
 

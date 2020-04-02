@@ -12,12 +12,12 @@ import org.slf4j.Marker;
 
 @Slf4j
 @Setter
-public class SqlFeatureFilter extends MatchingFilter {
+public class ShowSqlFeatureFilter extends MatchingFilter {
 	String MDCKey = "feature";
 	String value;
 	String loggerName = "org.hibernate.SQL";
 
-	public SqlFeatureFilter() {
+	public ShowSqlFeatureFilter() {
 		onMatch = FilterReply.ACCEPT;
 		onMismatch =FilterReply.DENY;
 	}
