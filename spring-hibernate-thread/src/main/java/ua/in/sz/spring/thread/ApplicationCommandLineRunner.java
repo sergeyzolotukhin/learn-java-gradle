@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ua.in.sz.spring.thread.entity.ScheduleEntity;
@@ -35,7 +36,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
 		List<Callable<Void>> tasks = new ArrayList<>();
 		for (int i = 0; i < 5; i++) {
-			tasks.add(this::runQuery);
+			final int no = i;
+			tasks.add(() -> runQuery(no));
 		}
 
 		List<Future<Void>> futures = executor.invokeAll(tasks);
@@ -49,9 +51,13 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 		log.info("End application");
 	}
 
-	private Void runQuery() {
+	private Void runQuery(int i) {
+		MDC.put("feature", String.format("run query %d", i));
+
 		long count = countEntity();
 		log.info("Entity count {}", count);
+
+		MDC.remove("feature");
 		return null;
 	}
 
