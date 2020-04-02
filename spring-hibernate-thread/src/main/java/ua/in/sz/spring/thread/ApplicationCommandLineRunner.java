@@ -25,6 +25,7 @@ import java.util.concurrent.Future;
 @RequiredArgsConstructor
 public class ApplicationCommandLineRunner implements CommandLineRunner {
 
+	public static final String MDC_FEATURE = "feature";
 	private final EntityManager entityManager;
 
 	@Override
@@ -52,12 +53,12 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 	}
 
 	private Void runQuery(int i) {
-		MDC.put("feature", String.format("run query %d", i));
+		MDC.put(MDC_FEATURE, String.format("run query %d", i));
 
 		long count = countEntity();
 		log.info("Entity count {}", count);
 
-		MDC.remove("feature");
+		MDC.remove(MDC_FEATURE);
 		return null;
 	}
 
