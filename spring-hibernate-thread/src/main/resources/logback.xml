@@ -5,7 +5,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+    <logger name="org.hibernate.SQL" level="DEBUG" />
+
     <logger name="org.springframework" level="warn" />
     <logger name="com.zaxxer" level="warn" />
     <logger name="org.hibernate" level="warn" />
