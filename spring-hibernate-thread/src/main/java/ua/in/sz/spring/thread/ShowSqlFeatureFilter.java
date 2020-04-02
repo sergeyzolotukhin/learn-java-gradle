@@ -2,7 +2,6 @@ package ua.in.sz.spring.thread;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.turbo.MDCFilter;
 import ch.qos.logback.classic.turbo.MatchingFilter;
 import ch.qos.logback.core.spi.FilterReply;
 import lombok.Setter;
