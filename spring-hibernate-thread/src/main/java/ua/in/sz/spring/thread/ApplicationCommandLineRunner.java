@@ -21,14 +21,15 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String...args) {
-		log.info("Application running ...");
+		long count = countEntity();
+		log.info("Entity count {}", count);
+	}
 
+	private long countEntity() {
 		CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
 		CriteriaQuery<Long> query = cq.select(cb.count(cq.from(ScheduleEntity.class)));
 
-		long count = getEntityManager().createQuery(query).getSingleResult();
-
-		log.info("Application ran. Count {}", count);
+		return getEntityManager().createQuery(query).getSingleResult();
 	}
 }
