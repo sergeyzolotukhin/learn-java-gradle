@@ -3,32 +3,26 @@ package ua.in.sz.english.dict2json.antlr;
 import lombok.extern.slf4j.Slf4j;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import ua.in.sz.english.dict2json.antlr.DictionaryParser.DefinitionContext;
+import ua.in.sz.english.dict2json.antlr.ExpressionParser.StatementContext;
 
 import java.util.List;
 
 @Slf4j
 public class AntlrApplication {
-	private static final String TEXT = "" +
-			"aard-wolf ['a:d,wulfj] n земляной волк.\n" +
-			"abashment [s'beejrmnt] n смуще'ние, замешательство.\n";
+	private static final String TEXT = "1 + 2\n" +
+			"1 + 2 * 3\n";
 
 	public static void main(String[] args) {
-		List<DefinitionContext> definitions = parse(TEXT);
+		List<StatementContext> statements = parse(TEXT);
 
-		for (DefinitionContext definition : definitions) {
-			String word = definition.word().getText();
-			String partOfSpeech = definition.partOfSpeech().getText();
-			String meaning = definition.meaning().getText();
-
-			log.info("Word [{}] is part of speech [{}] and it have meaning [{}]",
-					word, partOfSpeech, meaning);
+		for (StatementContext statement : statements) {
+			log.info("statement [{}]", statement.getText());
 		}
 	}
 
-	public static List<DefinitionContext> parse(String text) {
-		DictionaryLexer lexer = new DictionaryLexer(CharStreams.fromString(text));
-		DictionaryParser parser = new DictionaryParser(new CommonTokenStream(lexer));
-		return parser.dictionary().definition();
+	public static List<StatementContext> parse(String text) {
+		ExpressionLexer lexer = new ExpressionLexer(CharStreams.fromString(text));
+		ExpressionParser parser = new ExpressionParser(new CommonTokenStream(lexer));
+		return parser.program().statement();
 	}
 }
