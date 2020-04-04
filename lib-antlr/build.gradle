@@ -12,28 +12,28 @@ repositories {
 }
 
 dependencies {
-    compile 'commons-cli:commons-cli:1.4'
+    implementation 'commons-cli:commons-cli:1.4'
 
     // parsing
     antlr "org.antlr:antlr4:4.7.2"
-    compile "org.antlr:antlr4-runtime:4.7.2"
+    implementation "org.antlr:antlr4-runtime:4.7.2"
 
     // common utils
-    compile 'com.google.guava:guava:28.0-jre'
-    compile 'org.apache.commons:commons-text:1.7'
-    compile 'org.apache.commons:commons-lang3:3.9'
-    compile 'org.apache.commons:commons-collections4:4.4'
-    compile 'commons-io:commons-io:2.6'
+    implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'org.apache.commons:commons-text:1.7'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'commons-io:commons-io:2.6'
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
     // logging
-    compile 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // testing
-    testCompile 'org.junit.jupiter:junit-jupiter:5.5.1'
-    testCompile 'org.projectlombok:lombok:1.18.8'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+    testImplementation 'org.projectlombok:lombok:1.18.8'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
 }
