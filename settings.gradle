@@ -8,7 +8,7 @@
 //include 'spring-xml'
 //include 'spring-hibernate-search'
 //include 'spring-hibernate-cache'
-include 'spring-hibernate-thread'
+//include 'spring-hibernate-thread'
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
@@ -19,6 +19,7 @@ include 'spring-hibernate-thread'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
+include 'lib-antlr'
 //include 'lib-jcurses'
 //include 'lib-jackson'
 //include 'lib-quartz'
