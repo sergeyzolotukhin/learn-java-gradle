@@ -3,6 +3,7 @@ package ua.in.sz.english.dict2json.antlr;
 import lombok.extern.slf4j.Slf4j;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import ua.in.sz.english.dict2json.antlr.DictionaryParser.DefinitionContext;
 
 import java.util.List;
 
@@ -13,12 +14,9 @@ public class AntlrApplication {
 			"abashment [s'beejrmnt] n смуще'ние, замешательство.\n";
 
 	public static void main(String[] args) {
-		DictionaryLexer lexer = new DictionaryLexer(CharStreams.fromString(TEXT));
-		DictionaryParser parser = new DictionaryParser(new CommonTokenStream(lexer));
+		List<DefinitionContext> definitions = parse(TEXT);
 
-		List<DictionaryParser.DefinitionContext> definitions = parser.dictionary().definition();
-
-		for (DictionaryParser.DefinitionContext definition : definitions) {
+		for (DefinitionContext definition : definitions) {
 			String word = definition.word().getText();
 			String partOfSpeech = definition.partOfSpeech().getText();
 			String meaning = definition.meaning().getText();
@@ -26,5 +24,11 @@ public class AntlrApplication {
 			log.info("Word [{}] is part of speech [{}] and it have meaning [{}]",
 					word, partOfSpeech, meaning);
 		}
+	}
+
+	public static List<DefinitionContext> parse(String text) {
+		DictionaryLexer lexer = new DictionaryLexer(CharStreams.fromString(text));
+		DictionaryParser parser = new DictionaryParser(new CommonTokenStream(lexer));
+		return parser.dictionary().definition();
 	}
 }
