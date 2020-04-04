@@ -9,10 +9,11 @@ package ua.in.sz.english.dict2json.antlr;
 // ====================================================================================================================
 program:   statement+ ;
 
-statement:   expression NEWLINE
-    |   ID '=' expression NEWLINE
-    |   NEWLINE
+statement:   expression statementEnd
+    |   ID '=' expression statementEnd
     ;
+
+statementEnd: END;
 
 expression:   multiplicationExpression (('+'|'-') multiplicationExpression)* ;
 
@@ -27,6 +28,6 @@ atom:   INT
 // ====================================================================================================================
 ID  :   ('a'..'z'|'A'..'Z')+ ;
 INT :   [0-9]+ ;
-NEWLINE :'\r'? '\n';
+END :   ';';
 
-WHITESPACE : [ \t]+ -> skip;
+WHITESPACE : [ \t\r\n]+ -> skip;

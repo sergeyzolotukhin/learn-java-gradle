@@ -9,8 +9,8 @@ import java.util.List;
 
 @Slf4j
 public class AntlrApplication {
-	private static final String TEXT = "1 + 2\n" +
-			"1 + 2 * 3\n";
+	private static final String TEXT = "1 + 2;\n" +
+			"1 + 2 * 3;\n";
 
 	public static void main(String[] args) {
 		List<StatementContext> statements = parse(TEXT);
