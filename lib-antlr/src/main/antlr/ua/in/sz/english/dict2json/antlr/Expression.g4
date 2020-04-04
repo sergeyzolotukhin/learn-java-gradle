@@ -9,25 +9,26 @@ package ua.in.sz.english.dict2json.antlr;
 // ====================================================================================================================
 program:   statement+ ;
 
-statement:   expression statementEnd
-    |   ID '=' expression statementEnd
+statement:   expression ';'
+    |   identification '=' expression ';'
     ;
-
-statementEnd: END;
 
 expression:   multiplicationExpression (('+'|'-') multiplicationExpression)* ;
 
 multiplicationExpression:   atom ('*' atom)* ;
 
-atom:   INT
-    |   ID
+atom:   integer
+    |   identification
     |   '(' expression ')'
     ;
+
+integer: INTEGER;
+identification: IDENTIFICATION;
+
 // ====================================================================================================================
 // Lexer Rules
 // ====================================================================================================================
-ID  :   ('a'..'z'|'A'..'Z')+ ;
-INT :   [0-9]+ ;
-END :   ';';
+IDENTIFICATION  :   ('a'..'z'|'A'..'Z')+ ;
+INTEGER :   [0-9]+ ;
 
 WHITESPACE : [ \t\r\n]+ -> skip;
