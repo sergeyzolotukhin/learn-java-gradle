@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
 	@Override
-	public Integer visitIntLbl(ExpressionParser.IntLblContext ctx) {
+	public Integer visitInt(ExpressionParser.IntContext ctx) {
 		final Integer value = Integer.valueOf(ctx.getText());
 		log.trace("Integer: {}", value);
 		return value;

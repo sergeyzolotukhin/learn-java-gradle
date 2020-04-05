@@ -9,14 +9,14 @@ package ua.in.sz.english.dict2json.antlr;
 // ====================================================================================================================
 program     :   statement+ ;
 
-statement   :   expression ';'                      # printExpr
+statement   :   expression ';'                      # stmt
             |   identification '=' expression ';'   # assign
             ;
 
-expression  :   expression op=('*'|'/') expression          # multLbl
-            |   expression op=('+'|'-') expression          # addLbl
-            |   integer                                     # intLbl
-            |   identification                              # idLbl
+expression  :   expression op=('*'|'/') expression          # mul
+            |   expression op=('+'|'-') expression          # add
+            |   integer                                     # int
+            |   identification                              # var
             |   '(' expression ')'                          # parens
             ;
 
