@@ -2,8 +2,23 @@ package ua.in.sz.english.dict2json.antlr;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Slf4j
 public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
+	Map<String, Integer> variables = new HashMap<String, Integer>();
+
+	@Override
+	public Integer visitAssign(ExpressionParser.AssignContext ctx) {
+		String id = ctx.identification().getText();
+		int value = visit(ctx.expression());
+		variables.put(id, value);
+
+		log.debug("{} => {}", ctx.getText(), value);
+		return value;
+	}
+
 	@Override
 	public Integer visitInt(ExpressionParser.IntContext ctx) {
 		final Integer value = Integer.valueOf(ctx.getText());
@@ -44,7 +59,16 @@ public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
 	public Integer visitStmt(ExpressionParser.StmtContext ctx) {
 		Integer value = visit(ctx.expression());
 
-		log.debug("{} => {}", ctx.expression().getText(), value);
+		log.debug("{} => {}", ctx.getText(), value);
+		return value;
+	}
+
+	@Override
+	public Integer visitVar(ExpressionParser.VarContext ctx) {
+		final String id = ctx.identification().getText();
+		final Integer value = variables.get(id);
+
+		log.trace("var: {} => {}", id, value);
 		return value;
 	}
 }
