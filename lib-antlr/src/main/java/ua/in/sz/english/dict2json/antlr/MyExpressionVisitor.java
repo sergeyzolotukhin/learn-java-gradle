@@ -7,7 +7,7 @@ import java.util.Map;
 
 @Slf4j
 public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
-	Map<String, Integer> variables = new HashMap<String, Integer>();
+	Map<String, Integer> variables = new HashMap<>();
 
 	@Override
 	public Integer visitAssign(ExpressionParser.AssignContext ctx) {

@@ -20,6 +20,7 @@ public class AntlrApplication {
 
 		ExpressionVisitor<Integer> eval = new MyExpressionVisitor();
 		Integer result = eval.visit(program);
+		log.info("Result: {}", result);
 	}
 
 	private static void logStatements() {
