@@ -17,8 +17,8 @@ public class AntlrApplication {
 		ExpressionParser parser = new ExpressionParser(new CommonTokenStream(lexer));
 		ExpressionParser.ProgramContext program = parser.program();
 
-		ExpressionVisitor eval = new MyExpressionVisitor();
-		eval.visit(program);
+		ExpressionVisitor<Integer> eval = new MyExpressionVisitor();
+		Integer result = eval.visit(program);
 	}
 
 	private static void logStatements() {
