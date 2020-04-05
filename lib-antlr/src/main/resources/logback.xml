@@ -6,6 +6,8 @@
         </encoder>
     </appender>
 
+    <logger name="ua.in.sz.english.dict2json.antlr" level="TRACE" />
+
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>

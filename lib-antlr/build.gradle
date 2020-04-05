@@ -11,12 +11,16 @@ repositories {
     mavenCentral()
 }
 
+generateGrammarSource {
+    arguments += ["-visitor", "-listener"]
+}
+
 dependencies {
     implementation 'commons-cli:commons-cli:1.4'
 
     // parsing
-    antlr "org.antlr:antlr4:4.7.2"
-    implementation "org.antlr:antlr4-runtime:4.7.2"
+    antlr "org.antlr:antlr4:4.8-1"
+    implementation "org.antlr:antlr4-runtime:4.8-1"
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'

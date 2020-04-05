@@ -10,9 +10,18 @@ import java.util.List;
 @Slf4j
 public class AntlrApplication {
 	private static final String TEXT = "1 + 2;\n" +
-			"1 + 2 * 3;\n";
+			"3 * 4;\n";
 
 	public static void main(String[] args) {
+		ExpressionLexer lexer = new ExpressionLexer(CharStreams.fromString(TEXT));
+		ExpressionParser parser = new ExpressionParser(new CommonTokenStream(lexer));
+		ExpressionParser.ProgramContext program = parser.program();
+
+		ExpressionVisitor eval = new MyExpressionVisitor();
+		eval.visit(program);
+	}
+
+	private static void logStatements() {
 		List<StatementContext> statements = parse(TEXT);
 
 		for (StatementContext statement : statements) {

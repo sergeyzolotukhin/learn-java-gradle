@@ -7,20 +7,18 @@ package ua.in.sz.english.dict2json.antlr;
 // ====================================================================================================================
 // Parser Rules
 // ====================================================================================================================
-program:   statement+ ;
+program     :   statement+ ;
 
-statement:   expression ';'
-    |   identification '=' expression ';'
-    ;
+statement   :   expression ';'                      # printExpr
+            |   identification '=' expression ';'   # assign
+            ;
 
-expression:   multiplicationExpression (('+'|'-') multiplicationExpression)* ;
-
-multiplicationExpression:   atom ('*' atom)* ;
-
-atom:   integer
-    |   identification
-    |   '(' expression ')'
-    ;
+expression  :   expression op=('*'|'/') expression          # multLbl
+            |   expression op=('+'|'-') expression          # addLbl
+            |   integer                                     # intLbl
+            |   identification                              # idLbl
+            |   '(' expression ')'                          # parens
+            ;
 
 integer: INTEGER;
 identification: IDENTIFICATION;
