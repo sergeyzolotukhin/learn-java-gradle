@@ -18,7 +18,7 @@ public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
 		int right = visit(ctx.expression(1));
 		final int value = left + right;
 
-		log.trace("Sum: {}", value);
+		log.trace("{} + {} = {}", left, right, value);
 		return value;
 	}
 
@@ -28,7 +28,23 @@ public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
 		int right = visit(ctx.expression(1));
 		final int value = left * right;
 
-		log.trace("Mul: {}", value);
+		log.trace("{} * {} = {}", left, right, value);
+		return value;
+	}
+
+	@Override
+	public Integer visitParens(ExpressionParser.ParensContext ctx) {
+		final Integer value = visit(ctx.expression());;
+
+		log.trace("({}) => {}", ctx.expression().getText(), value);
+		return value;
+	}
+
+	@Override
+	public Integer visitStmt(ExpressionParser.StmtContext ctx) {
+		Integer value = visit(ctx.expression());
+
+		log.debug("{} => {}", ctx.expression().getText(), value);
 		return value;
 	}
 }

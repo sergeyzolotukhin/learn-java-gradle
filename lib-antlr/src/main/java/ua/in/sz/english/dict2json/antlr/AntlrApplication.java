@@ -9,7 +9,7 @@ import java.util.List;
 
 @Slf4j
 public class AntlrApplication {
-	private static final String TEXT = "1 + 2;\n" +
+	private static final String TEXT = "1 + 2 + ( 3 * 2 ) + 7;\n" +
 			"3 * 4;\n";
 
 	public static void main(String[] args) {

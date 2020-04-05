@@ -13,11 +13,13 @@ statement   :   expression ';'                      # stmt
             |   identification '=' expression ';'   # assign
             ;
 
-expression  :   expression op=('*'|'/') expression          # mul
-            |   expression op=('+'|'-') expression          # add
-            |   integer                                     # int
-            |   identification                              # var
-            |   '(' expression ')'                          # parens
+expression  :   expression ( '*' expression )+      # mul
+            |   expression ( '/' expression )+      # div
+            |   expression ( '+' expression )+      # add
+            |   expression ( '-' expression )+      # sub
+            |   integer                             # int
+            |   identification                      # var
+            |   '(' expression ')'                  # parens
             ;
 
 integer: INTEGER;
