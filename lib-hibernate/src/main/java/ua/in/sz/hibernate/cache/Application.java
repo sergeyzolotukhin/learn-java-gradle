@@ -20,11 +20,11 @@ public class Application {
 		Schedule schedule2 = Schedule.builder().name("Schedule 2").build();
 		Workspace workspace = Workspace.builder().name("Workspace 1").build();
 
-//		schedule1.setWorkspace(workspace);
-//		schedule2.setWorkspace(workspace);
+		schedule1.setWorkspace(workspace);
+		schedule2.setWorkspace(workspace);
 
-		workspace.add(schedule1);
-		workspace.add(schedule2);
+//		workspace.add(schedule1);
+//		workspace.add(schedule2);
 
 		log.info("persist");
 		em.getTransaction().begin();
