@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -39,5 +40,16 @@ public class Workspace {
 	private String name;
 
 	@OneToMany(mappedBy = "workspace")
-	private Set<Schedule> schedules;
+	@Builder.Default
+	private Set<Schedule> schedules = new HashSet<>();
+
+	public boolean add(Schedule schedule) {
+		schedule.setWorkspace(this);
+		return schedules.add(schedule);
+	}
+
+	public boolean remove(Schedule schedule) {
+		schedule.setWorkspace(null);
+		return schedules.remove(schedule);
+	}
 }

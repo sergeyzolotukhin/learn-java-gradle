@@ -1,6 +1,5 @@
 package ua.in.sz.hibernate.cache;
 
-import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.Workspace;
@@ -8,8 +7,6 @@ import ua.in.sz.hibernate.cache.impl.Workspace;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,13 +20,11 @@ public class Application {
 		Schedule schedule2 = Schedule.builder().name("Schedule 2").build();
 		Workspace workspace = Workspace.builder().name("Workspace 1").build();
 
-		schedule1.setWorkspace(workspace);
-		schedule2.setWorkspace(workspace);
+//		schedule1.setWorkspace(workspace);
+//		schedule2.setWorkspace(workspace);
 
-		Set<Schedule> schedules = Sets.newHashSet();
-		schedules.add(schedule1);
-		schedules.add(schedule2);
-		workspace.setSchedules(schedules);
+		workspace.add(schedule1);
+		workspace.add(schedule2);
 
 		log.info("persist");
 		em.getTransaction().begin();
