@@ -20,5 +20,10 @@ public class Application {
 
 		em.persist(schedule);
 		em.getTransaction().commit();
+
+		Schedule result = em.find(Schedule.class, schedule.getId());
+		em.detach(result);
+
+		log.info("Schedule: {}", schedule.getName());
 	}
 }

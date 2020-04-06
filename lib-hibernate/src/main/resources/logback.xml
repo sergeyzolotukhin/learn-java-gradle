@@ -5,6 +5,9 @@
         </encoder>
     </appender>
 
+    <!-- Trace SQL -->
+    <logger name="org.hibernate.SQL" level="debug" />
+
     <!-- Framework -->
     <logger name="org.hibernate" level="warn" />
 
