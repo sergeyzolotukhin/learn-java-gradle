@@ -10,14 +10,12 @@ import javax.persistence.Persistence;
 @Slf4j
 public class Application {
 	public static void main(String[] args) {
-
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
 		EntityManager em = emf.createEntityManager();
 
-		em.getTransaction().begin();
-
 		Schedule schedule = Schedule.builder().name("Schedule 1").build();
 
+		em.getTransaction().begin();
 		em.persist(schedule);
 		em.getTransaction().commit();
 
