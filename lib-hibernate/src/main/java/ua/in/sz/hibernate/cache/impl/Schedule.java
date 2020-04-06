@@ -37,13 +37,13 @@ public class Schedule {
 
 	public void setWorkspace(Workspace workspace) {
 		if (this.workspace != null) {
-			this.workspace.getSchedules().remove(this);
+			this.workspace.schedules.remove(this);
 		}
 
 		this.workspace = workspace;
 
 		if (this.workspace != null) {
-			this.workspace.getSchedules().add(this);
+			this.workspace.schedules.add(this);
 		}
 	}
 }

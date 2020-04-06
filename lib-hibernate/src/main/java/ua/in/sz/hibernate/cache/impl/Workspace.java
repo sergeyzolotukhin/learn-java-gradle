@@ -1,5 +1,6 @@
 package ua.in.sz.hibernate.cache.impl;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -18,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,7 +43,8 @@ public class Workspace {
 
 	@OneToMany(mappedBy = "workspace")
 	@Builder.Default
-	private Set<Schedule> schedules = new HashSet<>();
+	@Setter(AccessLevel.NONE)
+	protected Set<Schedule> schedules = new HashSet<>();
 
 	public void add(Schedule schedule) {
 		schedule.setWorkspace(this);
@@ -49,5 +52,9 @@ public class Workspace {
 
 	public void remove(Schedule schedule) {
 		schedule.setWorkspace(null);
+	}
+
+	public Set<Schedule> getSchedules() {
+		return Collections.unmodifiableSet(schedules);
 	}
 }
