@@ -28,23 +28,16 @@ public class Application {
 
 		log.info("persist");
 		em.getTransaction().begin();
-		em.persist(schedule1);
-		em.persist(schedule2);
 		em.persist(workspace);
 		em.getTransaction().commit();
 		em.clear();
 
 		log.info("find");
-		Schedule s1 = em.find(Schedule.class, schedule1.getId());
 		Workspace w1 = em.find(Workspace.class, workspace.getId());
-
-		log.info("is equal {}", s1.equals(Schedule.builder().name("Schedule 1").id(-15L).build()));
+		em.detach(w1);
 
 		String s1Names = w1.getSchedules().stream().map(Schedule::getName).collect(Collectors.joining(","));
 
-		log.info("Schedules [{}] in workspace [{}] ", s1Names, s1.getWorkspace().getName());
-
-		em.detach(s1);
-		em.detach(w1);
+		log.info("Schedules [{}] in workspace [{}] ", s1Names, w1.getName());
 	}
 }
