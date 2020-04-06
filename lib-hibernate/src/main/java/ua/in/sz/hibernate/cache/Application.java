@@ -16,15 +16,9 @@ public class Application {
 		EntityManager em = emf.createEntityManager();
 
 		// model
-		Schedule schedule1 = Schedule.builder().name("Schedule 1").build();
-		Schedule schedule2 = Schedule.builder().name("Schedule 2").build();
 		Workspace workspace = Workspace.builder().name("Workspace 1").build();
-
-//		schedule1.setWorkspace(workspace);
-//		schedule2.setWorkspace(workspace);
-
-		workspace.add(schedule1);
-		workspace.add(schedule2);
+		workspace.add(Schedule.builder().name("Schedule 1").build());
+		workspace.add(Schedule.builder().name("Schedule 2").build());
 
 		log.info("persist");
 		em.getTransaction().begin();
