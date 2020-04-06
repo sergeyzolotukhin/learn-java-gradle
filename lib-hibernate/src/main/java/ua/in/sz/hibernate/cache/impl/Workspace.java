@@ -45,11 +45,9 @@ public class Workspace {
 
 	public void add(Schedule schedule) {
 		schedule.setWorkspace(this);
-		schedules.add(schedule);
 	}
 
 	public void remove(Schedule schedule) {
 		schedule.setWorkspace(null);
-		schedules.remove(schedule);
 	}
 }

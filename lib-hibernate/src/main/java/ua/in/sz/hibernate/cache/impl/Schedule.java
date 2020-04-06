@@ -35,7 +35,6 @@ public class Schedule {
 	@ManyToOne
 	private Workspace workspace;
 
-	/*
 	public void setWorkspace(Workspace workspace) {
 		if (this.workspace != null) {
 			this.workspace.getSchedules().remove(this);
@@ -47,5 +46,4 @@ public class Schedule {
 			this.workspace.getSchedules().add(this);
 		}
 	}
-	 */
 }
