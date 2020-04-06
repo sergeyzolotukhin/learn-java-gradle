@@ -13,7 +13,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,4 +34,7 @@ public class Workspace {
 	private Long id;
 	@Column(name = "NAME")
 	private String name;
+
+	@OneToMany(mappedBy = "workspace")
+	private Set<Schedule> schedules;
 }

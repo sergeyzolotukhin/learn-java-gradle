@@ -13,7 +13,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,4 +34,6 @@ public class Schedule {
 	private Long id;
 	@Column(name = "NAME")
 	private String name;
+	@ManyToOne
+	private Workspace workspace;
 }

@@ -14,20 +14,25 @@ public class Application {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
 		EntityManager em = emf.createEntityManager();
 
-		Schedule schedule = Schedule.builder().name("Schedule 1").build();
+		Schedule schedule1 = Schedule.builder().name("Schedule 1").build();
+		Schedule schedule2 = Schedule.builder().name("Schedule 2").build();
 		Workspace workspace = Workspace.builder().name("Workspace 1").build();
 
+
+
+
 		em.getTransaction().begin();
-		em.persist(schedule);
+		em.persist(schedule1);
+		em.persist(schedule2);
 		em.persist(workspace);
 		em.getTransaction().commit();
 
-		Schedule result = em.find(Schedule.class, schedule.getId());
+		Schedule result = em.find(Schedule.class, schedule1.getId());
 		em.detach(result);
 
 		Workspace w1 = em.find(Workspace.class, workspace.getId());
 		em.detach(w1);
 
-		log.info("Schedule [{}] from workspace [{}] ", schedule.getName(), w1.getName());
+		log.info("Schedule [{}] from workspace [{}] ", schedule1.getName(), w1.getName());
 	}
 }
