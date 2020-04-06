@@ -19,5 +19,13 @@ public class Application {
 				log.info("true");
 			}
 		}
+
+		classNames();
+	}
+
+	private static void classNames() {
+		log.info("{}", Application.class.getName());
+		log.info("{}", Application.class.getSimpleName());
+		log.info("{}", Application.class.getCanonicalName());
 	}
 }
