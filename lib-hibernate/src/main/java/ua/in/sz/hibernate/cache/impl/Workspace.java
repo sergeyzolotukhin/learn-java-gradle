@@ -43,13 +43,13 @@ public class Workspace {
 	@Builder.Default
 	private Set<Schedule> schedules = new HashSet<>();
 
-	public boolean add(Schedule schedule) {
+	public void add(Schedule schedule) {
 		schedule.setWorkspace(this);
-		return schedules.add(schedule);
+		schedules.add(schedule);
 	}
 
-	public boolean remove(Schedule schedule) {
+	public void remove(Schedule schedule) {
 		schedule.setWorkspace(null);
-		return schedules.remove(schedule);
+		schedules.remove(schedule);
 	}
 }
