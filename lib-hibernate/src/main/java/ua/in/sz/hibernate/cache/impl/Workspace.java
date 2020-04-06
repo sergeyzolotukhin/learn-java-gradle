@@ -22,8 +22,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @FieldNameConstants
 @Entity
-@Table(name = "SCHEDULE")
-public class Schedule {
+@Table(name = "WORKSPACE")
+public class Workspace {
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")

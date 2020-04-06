@@ -6,6 +6,7 @@
     <persistence-unit name="PERSISTENCE">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>ua.in.sz.hibernate.cache.impl.Schedule</class>
+        <class>ua.in.sz.hibernate.cache.impl.Workspace</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
