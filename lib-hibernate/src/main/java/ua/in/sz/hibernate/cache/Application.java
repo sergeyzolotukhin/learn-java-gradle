@@ -31,16 +31,19 @@ public class Application {
 		schedules.add(schedule2);
 		workspace.setSchedules(schedules);
 
-		// persist
+		log.info("persist");
 		em.getTransaction().begin();
 		em.persist(schedule1);
 		em.persist(schedule2);
 		em.persist(workspace);
 		em.getTransaction().commit();
+		em.clear();
 
-		// find
+		log.info("find");
 		Schedule s1 = em.find(Schedule.class, schedule1.getId());
 		Workspace w1 = em.find(Workspace.class, workspace.getId());
+
+		log.info("is equal {}", s1.equals(Schedule.builder().name("Schedule 1").id(-15L).build()));
 
 		String s1Names = w1.getSchedules().stream().map(Schedule::getName).collect(Collectors.joining(","));
 

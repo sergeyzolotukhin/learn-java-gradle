@@ -2,6 +2,7 @@ package ua.in.sz.hibernate.cache.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldNameConstants
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "SCHEDULE")
 public class Schedule {
@@ -33,6 +35,7 @@ public class Schedule {
 	@Column(name = "ID")
 	private Long id;
 	@Column(name = "NAME")
+	@EqualsAndHashCode.Include
 	private String name;
 	@ManyToOne
 	private Workspace workspace;
