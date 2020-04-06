@@ -5,6 +5,9 @@
         </encoder>
     </appender>
 
+    <!-- Framework -->
+    <logger name="org.hibernate" level="warn" />
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
