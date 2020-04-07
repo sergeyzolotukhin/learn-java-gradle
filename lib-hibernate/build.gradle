@@ -2,6 +2,12 @@ plugins {
     id 'java'
 }
 
+repositories{
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
 dependencies {
     // data store
     implementation 'org.hibernate:hibernate-core:5.4.13.Final'
@@ -18,6 +24,8 @@ dependencies {
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.hibernate:hibernate-jpamodelgen:5.4.13.Final'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.hibernate:hibernate-jpamodelgen:5.4.13.Final'
 }
 

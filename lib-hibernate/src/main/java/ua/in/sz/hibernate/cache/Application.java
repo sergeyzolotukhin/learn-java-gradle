@@ -7,7 +7,12 @@ import ua.in.sz.hibernate.cache.impl.Workspace;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 import java.util.stream.Collectors;
+import ua.in.sz.hibernate.cache.impl.Schedule_;
 
 @Slf4j
 public class Application {
@@ -33,5 +38,18 @@ public class Application {
 		String s1Names = w1.getSchedules().stream().map(Schedule::getName).collect(Collectors.joining(","));
 
 		log.info("Schedules [{}] in workspace [{}] ", s1Names, w1.getName());
+
+		// JPA2 Meta model & criteria API
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
+		Root<Schedule> from = cq.from(Schedule.class);
+		CriteriaQuery<Schedule> select = cq.select(from);
+		cq.where( cb.equal(from.get(Schedule_.NAME), "Schedule 2" ) );
+
+		List<Schedule> schedules = em.createQuery(select).getResultList();
+
+		for (Schedule schedule : schedules) {
+			log.info("Schedule: [{}]", schedule.getName());
+		}
 	}
 }
