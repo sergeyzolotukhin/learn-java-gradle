@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,9 +45,8 @@ public class Application {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
 		Root<Schedule> from = cq.from(Schedule.class);
+		cq.where(cb.equal(from.get(Schedule_.name), "Schedule 2"));
 		CriteriaQuery<Schedule> select = cq.select(from);
-		cq.where(cb.equal(from.get(Schedule_.NAME), "Schedule 2"));
-
 		List<Schedule> schedules = em.createQuery(select).getResultList();
 
 		for (Schedule schedule : schedules) {
