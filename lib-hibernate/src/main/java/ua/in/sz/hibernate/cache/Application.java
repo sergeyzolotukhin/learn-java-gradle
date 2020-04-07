@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import ua.in.sz.hibernate.cache.impl.Schedule_;
 
 @Slf4j
@@ -44,7 +45,7 @@ public class Application {
 		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
 		Root<Schedule> from = cq.from(Schedule.class);
 		CriteriaQuery<Schedule> select = cq.select(from);
-		cq.where( cb.equal(from.get(Schedule_.NAME), "Schedule 2" ) );
+		cq.where(cb.equal(from.get(Schedule_.NAME), "Schedule 2"));
 
 		List<Schedule> schedules = em.createQuery(select).getResultList();
 
