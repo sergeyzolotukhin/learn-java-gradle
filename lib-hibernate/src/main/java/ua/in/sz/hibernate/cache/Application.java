@@ -45,7 +45,7 @@ public class Application {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
 		Root<Schedule> from = cq.from(Schedule.class);
-		cq.where(cb.equal(from.get(Schedule_.name), "Schedule 2").);
+		cq.where(cb.equal(from.get(Schedule_.name), "Schedule 2"));
 		CriteriaQuery<Schedule> select = cq.select(from);
 		List<Schedule> schedules = em.createQuery(select).getResultList();
 
