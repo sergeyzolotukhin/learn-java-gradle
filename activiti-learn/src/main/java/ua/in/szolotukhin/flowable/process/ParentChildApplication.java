@@ -2,16 +2,15 @@ package ua.in.szolotukhin.flowable.process;
 
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.ProcessEngine;
-import org.flowable.engine.ProcessEngineConfiguration;
-import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
-import ua.in.szolotukhin.flowable.common.ProcessEngineFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static ua.in.szolotukhin.flowable.common.ProcessEngineFactory.*;
 
 @Slf4j
 public class ParentChildApplication {
@@ -23,7 +22,7 @@ public class ParentChildApplication {
 	public static void main(String[] args) {
 		log.info("start application");
 
-		ProcessEngine engine = ProcessEngineFactory.createEngine(false);
+		ProcessEngine engine = createEngine(false);
 
 		deployProcess(engine, CHILD_PATH);
 		String processDefinitionKey = deployProcess(engine, PARENT_PATH);

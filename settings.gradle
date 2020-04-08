@@ -15,7 +15,7 @@
 //include 'spring-transactional'PropertyResolver
 //include 'spring-bean-validation'
 //include 'spring-cache'
-include 'spring-cxf'
+//include 'spring-cxf'
 
 // ====================================================================================================================
 // Libraries
@@ -26,7 +26,7 @@ include 'spring-cxf'
 //include 'lib-quartz'
 //include 'lib-viber'
 //include 'lib-drool'
-//include 'activiti-learn'
+include 'activiti-learn'
 //include 'lib-bean-validation'
 //include 'lib-togglz'
 //include 'lib-camel'
