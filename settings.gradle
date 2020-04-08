@@ -29,7 +29,8 @@
 //include 'lib-bean-validation'
 //include 'lib-togglz'
 //include 'lib-camel'
-include 'lib-hibernate'
+//include 'lib-hibernate'
+include 'lib-cxf'
 
 // ====================================================================================================================
 // infrastructure
