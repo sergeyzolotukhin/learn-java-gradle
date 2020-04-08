@@ -123,3 +123,7 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
     
     java Foo
     echo %ERRORLEVEL%
+    
+#### Best practices
+
+    A good exception message should explain what is wrong (in this case, "why it is wrong") and how to fix it
