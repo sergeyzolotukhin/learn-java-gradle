@@ -1,7 +1,14 @@
 package ua.in.szolotukhin.flowable.process;
 
 import lombok.extern.slf4j.Slf4j;
+import org.flowable.bpmn.model.BpmnModel;
+import org.flowable.bpmn.model.EndEvent;
+import org.flowable.bpmn.model.ExclusiveGateway;
+import org.flowable.bpmn.model.SequenceFlow;
+import org.flowable.bpmn.model.StartEvent;
 import org.flowable.engine.ProcessEngine;
+import org.flowable.engine.RepositoryService;
+import org.flowable.engine.RuntimeService;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -29,7 +36,58 @@ public class ParentChildApplication {
 
         startProcess(engine, processDefinitionKey);
 
-        log.info("End application");
+//		method(engine);
+
+		log.info("End application");
+	}
+
+	private static void method(ProcessEngine processEngine) {
+		BpmnModel bpmnModel = new BpmnModel();
+		org.flowable.bpmn.model.Process process = new org.flowable.bpmn.model.Process();
+		bpmnModel.addProcess(process);
+		process.setId("holidayRequest");
+
+		StartEvent startEvent = new StartEvent();
+		startEvent.setId("startEvent");
+
+		SequenceFlow sequenceFlow = new SequenceFlow("startEvent", "approveTask");
+
+		ExclusiveGateway exclusiveGateway = new ExclusiveGateway();
+		exclusiveGateway.setId("decision");
+
+		SequenceFlow sequenceFlow2 = new SequenceFlow("decision", "externalSystemCall");
+		SequenceFlow sequenceFlow3 = new SequenceFlow("decision", "sendRejectionMail");
+
+		SequenceFlow sequenceFlow4 = new SequenceFlow("externalSystemCall", "holidayApprovedTask");
+		SequenceFlow sequenceFlow5 = new SequenceFlow("holidayApprovedTask", "approveEnd");
+
+		EndEvent endEvent = new EndEvent();
+		endEvent.setId("approveEnd");
+
+		process.addFlowElement(startEvent);
+		process.addFlowElement(sequenceFlow);
+		process.addFlowElement(exclusiveGateway);
+		process.addFlowElement(sequenceFlow2);
+		process.addFlowElement(sequenceFlow3);
+		process.addFlowElement(sequenceFlow4);
+		process.addFlowElement(sequenceFlow5);
+		process.addFlowElement(endEvent);
+
+		// Deploy
+
+		RepositoryService repositoryService = processEngine.getRepositoryService();
+		Deployment deployment = repositoryService.createDeployment()
+				.addBpmnModel("holidayRequest", bpmnModel).deploy();
+
+//		ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
+//				.deploymentId(deployment.getId())
+//				.singleResult();
+
+//		log.info("Found process definition : {}", processDefinition.getName());
+
+		RuntimeService runtimeService = processEngine.getRuntimeService();
+		ProcessInstance processInstance =
+				runtimeService.startProcessInstanceByKey("holidayRequest");
 	}
 
 	private static String deployProcess(ProcessEngine engine, String processPath) {
@@ -59,5 +117,5 @@ public class ParentChildApplication {
 				.startProcessInstanceById(processDefinitionKey, variables);
 
 		log.info("Started process {}", processDefinitionKey);
-    }
+	}
 }
