@@ -1,10 +1,8 @@
-package ua.in.sz.cxf;
+package ua.in.sz.cxf.server;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cxf.frontend.ServerFactoryBean;
-import ua.in.sz.cxf.impl.WebService;
-import ua.in.sz.cxf.impl.WebServiceImpl;
 
 import java.util.concurrent.TimeUnit;
 

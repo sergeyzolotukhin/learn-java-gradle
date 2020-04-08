@@ -1,4 +1,4 @@
-package ua.in.sz.cxf.impl;
+package ua.in.sz.cxf.server;
 
 public interface WebService {
 	String sayHi(String text);

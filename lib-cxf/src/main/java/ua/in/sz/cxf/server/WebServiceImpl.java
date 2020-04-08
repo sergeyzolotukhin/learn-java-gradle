@@ -1,4 +1,4 @@
-package ua.in.sz.cxf.impl;
+package ua.in.sz.cxf.server;
 
 import lombok.extern.slf4j.Slf4j;
 
