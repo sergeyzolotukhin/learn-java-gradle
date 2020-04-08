@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://mina.apache.org/ftpserver/spring/v1"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd">
+
+    <server id="server-1">
+        <listeners>
+            <nio-listener name="default" port="21"/>
+        </listeners>
+        <file-user-manager file="users.properties" encrypt-passwords="clear"/>
+        <native-filesystem case-insensitive="false" create-home="true"/>
+    </server>
+
+    <server id="server-2">
+        <listeners>
+            <nio-listener name="default" port="22"/>
+        </listeners>
+        <file-user-manager file="users.properties" encrypt-passwords="clear"/>
+        <native-filesystem case-insensitive="false" create-home="true"/>
+    </server>
+
+    <server id="server-3">
+        <listeners>
+            <nio-listener name="default" port="23"/>
+        </listeners>
+        <file-user-manager file="users.properties" encrypt-passwords="clear"/>
+        <native-filesystem case-insensitive="false" create-home="true"/>
+    </server>
+
+</beans:beans>

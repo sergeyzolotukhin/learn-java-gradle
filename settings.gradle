@@ -15,6 +15,7 @@
 //include 'spring-transactional'PropertyResolver
 //include 'spring-bean-validation'
 //include 'spring-cache'
+include 'spring-cxf'
 
 // ====================================================================================================================
 // Libraries
@@ -30,7 +31,7 @@
 //include 'lib-togglz'
 //include 'lib-camel'
 //include 'lib-hibernate'
-include 'lib-cxf'
+//include 'lib-cxf'
 
 // ====================================================================================================================
 // infrastructure
