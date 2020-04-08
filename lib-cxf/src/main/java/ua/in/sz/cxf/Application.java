@@ -6,21 +6,20 @@ import org.apache.cxf.frontend.ServerFactoryBean;
 import ua.in.sz.cxf.impl.WebService;
 import ua.in.sz.cxf.impl.WebServiceImpl;
 
+import java.util.concurrent.TimeUnit;
+
 @Slf4j
 public class Application {
 	@SneakyThrows
 	public static void main(String[] args) {
-		WebServiceImpl helloworldImpl = new WebServiceImpl();
-		ServerFactoryBean svrFactory = new ServerFactoryBean();
-		svrFactory.setServiceClass(WebService.class);
-		svrFactory.setAddress("http://localhost:9000/Hello");
-		svrFactory.setServiceBean(helloworldImpl);
-//		svrFactory.setFeatures(Collections.singletonList(new LoggingFeature()));
-		//svrFactory.getServiceFactory().setDataBinding(new AegisDatabinding());
-		svrFactory.create();
+		ServerFactoryBean serverFactory = new ServerFactoryBean();
+		serverFactory.setServiceClass(WebService.class);
+		serverFactory.setAddress("http://localhost:8080/Hello");
+		serverFactory.setServiceBean(new WebServiceImpl());
+		serverFactory.create();
 
-		Thread.sleep(5 * 60 * 1000);
-		System.out.println("Server exiting");
-		System.exit(0);
+		TimeUnit.MINUTES.sleep(1);
+
+		log.info("Stop");
 	}
 }
