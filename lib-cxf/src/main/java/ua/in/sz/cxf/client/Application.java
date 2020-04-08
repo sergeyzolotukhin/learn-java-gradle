@@ -6,16 +6,16 @@ import ua.in.sz.cxf.server.WebService;
 
 import java.util.ResourceBundle;
 
+import static ua.in.sz.cxf.Constants.PROPERTIES;
+import static ua.in.sz.cxf.Constants.URL;
+
 @Slf4j
 public class Application {
-	public static final String URL = "url";
-	public static final String PROPERTIES = "application";
-
 	public static void main(String[] args) {
-		ResourceBundle rb = ResourceBundle.getBundle(PROPERTIES);
+		ResourceBundle resourceBundle = ResourceBundle.getBundle(PROPERTIES);
 
 		ClientProxyFactoryBean factory = new ClientProxyFactoryBean();
-		factory.setAddress(rb.getString(URL));
+		factory.setAddress(resourceBundle.getString(URL));
 		WebService client = factory.create(WebService.class);
 
 		String response = client.sayHi("Serhij.Zolotukhin");
