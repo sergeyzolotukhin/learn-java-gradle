@@ -3,7 +3,9 @@ package ua.in.sz.cxf.server;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cxf.frontend.ServerFactoryBean;
+import org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean;
 
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import static ua.in.sz.cxf.Constants.PROPERTIES;
@@ -15,10 +17,17 @@ public class Application {
 	public static void main(String[] args) {
 		ResourceBundle resourceBundle = ResourceBundle.getBundle(PROPERTIES);
 
+//		ReflectionServiceFactoryBean serviceFactoryBean = new ReflectionServiceFactoryBean();
+//		serviceFactoryBean.setProperties(Map.of("tlsClientParameters.jsseProvider", "ws-worker"));
+//		serviceFactoryBean.setProperties(Map.of("threadingParameters.threadNamePrefix", "ws-worker"));
+
+//		ServerFactoryBean serverFactory = new ServerFactoryBean(serviceFactoryBean);
 		ServerFactoryBean serverFactory = new ServerFactoryBean();
 		serverFactory.setServiceClass(WebService.class);
 		serverFactory.setAddress(resourceBundle.getString(URL));
 		serverFactory.setServiceBean(new WebServiceImpl());
+//		serverFactory.setFeatures();
+//		serverFactory.setProperties();
 		serverFactory.create();
 
 		log.info("Server started");
