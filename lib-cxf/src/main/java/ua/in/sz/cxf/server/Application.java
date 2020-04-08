@@ -20,5 +20,7 @@ public class Application {
 		serverFactory.setAddress(resourceBundle.getString(URL));
 		serverFactory.setServiceBean(new WebServiceImpl());
 		serverFactory.create();
+
+		log.info("Server started");
 	}
 }
