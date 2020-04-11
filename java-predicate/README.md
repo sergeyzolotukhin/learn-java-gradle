@@ -1,1 +1,1 @@
-#### Hot to debug java predicate
+#### How to debug java predicate
