@@ -25,8 +25,8 @@ public class Composite implements Component {
     public void accept(Visitor visitor) {
         visitor.visit(this);
 
-        for (Component child : children) {
-            child.accept(visitor);
-        }
+        visitor.preVisitChildren(this);
+        children.forEach(child -> child.accept(visitor));
+        visitor.postVisitChildren(this);
     }
 }
