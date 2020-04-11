@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.h2.util.Profiler;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
