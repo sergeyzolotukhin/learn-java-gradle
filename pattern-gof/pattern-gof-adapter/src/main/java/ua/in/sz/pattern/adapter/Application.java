@@ -25,8 +25,7 @@ public class Application {
 		DrawingShape thirdDrawing = DrawingShape.builder()
 				.shapes(Arrays.asList(
 						new ThirdCircleShape(),
-						new CommonShapeAdapter(new OwnRectangle())
-				))
+						new CommonShapeAdapter(new OwnRectangle())))
 				.build();
 
 		thirdDrawing.draw();
