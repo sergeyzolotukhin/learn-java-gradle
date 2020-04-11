@@ -101,6 +101,7 @@ How to backup and share database state with CI?
             https://dzone.com/articles/microservices-and-the-saga-pattern-part-2
             https://dzone.com/articles/microservices-and-the-saga-pattern-part-3
             https://en.wikipedia.org/wiki/Software_design_pattern
+            https://www.javacodegeeks.com/2014/01/java-using-the-specification-pattern-with-jpa.html
             
 #### AWS
     
