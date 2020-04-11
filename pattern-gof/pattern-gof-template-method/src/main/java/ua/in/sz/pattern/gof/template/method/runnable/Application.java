@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.gof.template.method;
+package ua.in.sz.pattern.gof.template.method.runnable;
 
 import com.google.common.base.Stopwatch;
 import lombok.SneakyThrows;
