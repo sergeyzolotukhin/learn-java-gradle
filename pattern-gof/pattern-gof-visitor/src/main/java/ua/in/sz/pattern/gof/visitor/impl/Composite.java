@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.gof.composite.impl;
+package ua.in.sz.pattern.gof.visitor.impl;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Getter
@@ -18,20 +17,16 @@ public class Composite implements Component {
 
     private final String name;
 
-    @Override
-    public void draw() {
-        log.info("Name: [{}], children: [{}]", getName(), childrenNames());
-    }
-
     public void add(Component component) {
         children.add(component);
     }
 
-    public void remove(Component component) {
-        children.add(component);
-    }
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
 
-    private String childrenNames() {
-        return children.stream().map(Component::getName).collect(Collectors.joining(","));
+        for (Component child : children) {
+            child.accept(visitor);
+        }
     }
 }
