@@ -27,10 +27,6 @@ public class Composite implements Component {
         children.add(component);
     }
 
-    public void remove(Component component) {
-        children.add(component);
-    }
-
     private String childrenNames() {
         return children.stream().map(Component::getName).collect(Collectors.joining(","));
     }
