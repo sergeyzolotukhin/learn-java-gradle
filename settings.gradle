@@ -43,7 +43,7 @@
 // ====================================================================================================================
 // other
 // ====================================================================================================================
-//include 'pattern'
+include 'pattern'
 include 'pattern-gof:pattern-gof-adapter'
 include 'pattern-gof:pattern-gof-composite'
 include 'pattern-gof:pattern-gof-visitor'
