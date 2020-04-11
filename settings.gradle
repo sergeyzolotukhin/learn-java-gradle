@@ -47,6 +47,7 @@
 include 'pattern-gof:pattern-gof-adapter'
 include 'pattern-gof:pattern-gof-composite'
 include 'pattern-gof:pattern-gof-visitor'
+include 'pattern-gof:pattern-gof-template-method'
 //include 'java-swing'
 //include 'java-jdbc'
 //include 'java-predicate'
