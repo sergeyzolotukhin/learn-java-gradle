@@ -12,9 +12,9 @@ repositories {
 }
 
 
-compileJava {
-    options.compilerArgs += ["--enable-preview"]
-}
+//compileJava {
+//    options.compilerArgs += ["--enable-preview"]
+//}
 
 dependencies {
     // experimental
