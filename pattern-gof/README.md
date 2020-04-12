@@ -29,3 +29,7 @@
     [ ] Strategy — Стратегия
     [x] Template method — Шаблонный метод
     [x] Visitor — Посетитель
+
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
