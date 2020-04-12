@@ -18,7 +18,7 @@
 - [x] Proxy — Заместитель
 
 ##### Behavioral - Поведенческие шаблоны проектирования
-- [ ] Chain of responsibility — Цепочка обязанностей
+- [x] **Chain of responsibility — Цепочка обязанностей**
 - [ ] Command — Команда
 - [ ] Interpreter — Интерпретатор
 - [ ] Iterator — Итератор
