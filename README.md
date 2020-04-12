@@ -134,4 +134,3 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 
     A good exception message should explain what is wrong (in this case, "why it is wrong") and how to fix it
     https://dzone.com/refcardz/designing-quality-software?chapter=3
-    https://github.com/in28minutes/java-best-practices
