@@ -105,6 +105,7 @@ How to backup and share database state with CI?
             https://www.javacodegeeks.com/2014/01/java-using-the-specification-pattern-with-jpa.html
             https://www.sourcecodeexamples.net/p/p-of-eaa.html
             https://refactoring.guru/ru/refactoring/catalog
+            https://www.sourcecodeexamples.net/2018/05/refactoring-chain-of-responsibility.html
             
 #### AWS
     
