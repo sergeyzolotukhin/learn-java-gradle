@@ -9,9 +9,9 @@
 - [ ] Singleton — Одиночка
 
 ##### Structural - Структурные шаблоны проектирования
-- [x] Adapter — Адаптер
+- [x] **Adapter — Адаптер**
 - [ ] Bridge — Мост
-- [x] Composite — Компоновщик
+- [x] **Composite — Компоновщик**
 - [ ] Decorator — Декоратор
 - [ ] Facade — Фасад
 - [ ] Flyweight — Приспособленец
@@ -28,4 +28,4 @@
 - [ ] State — Состояние
 - [ ] Strategy — Стратегия
 - [x] Template method — Шаблонный метод
-- [x] Visitor — Посетитель
+- [x] **Visitor — Посетитель**
