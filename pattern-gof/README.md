@@ -9,7 +9,7 @@
     [ ] Singleton — Одиночка
 
 ##### Structural - Структурные шаблоны проектирования
-    [ ] Adapter — Адаптер
+    [x] Adapter — Адаптер
     [ ] Bridge — Мост
     [x] Composite — Компоновщик
     [ ] Decorator — Декоратор
