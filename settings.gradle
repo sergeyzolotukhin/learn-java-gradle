@@ -14,7 +14,7 @@
 //include 'spring-swagger'
 //include 'spring-transactional'PropertyResolver
 //include 'spring-bean-validation'
-//include 'spring-cache'
+include 'spring-cache'
 //include 'spring-cxf'
 
 // ====================================================================================================================
