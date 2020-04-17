@@ -138,3 +138,9 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 #### AccessExceptionError
 
     https://examples.javacodegeeks.com/java-basics/exceptions/java-lang-illegalaccesserror-how-to-resolve-illegal-access-error/
+    
+#### How to artifact publish to github maven repository
+    
+    curl -X PUT "https://maven.pkg.github.com/sergeyzolotukhin/patterns/ua/in/sz/pattern/pattern-gof-adapter/1.0.0/pattern-gof-adapter-1.0.0.jar" 
+    -H "Authorization: token <GIT_HUB_TOKEN>" 
+    --upload-file "<jar path>" -vvv   

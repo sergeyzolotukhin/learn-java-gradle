@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'ua.in.sz.pattern'
-version '1.0-SNAPSHOT'
+version '1.0.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -21,8 +21,14 @@ publishing {
 
     repositories {
         maven {
-            name = 'myRepo'
-            url = "file://${buildDir}/repo"
+            url = uri("https://maven.pkg.github.com/sergeyzolotukhin/patterns")
+            credentials(HttpHeaderCredentials) {
+                name = "Authorization"
+                value = "token " + System.getenv("GIT_HUB_TOKEN")
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
         }
     }
 }
