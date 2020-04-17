@@ -143,4 +143,8 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
     
     curl -X PUT "https://maven.pkg.github.com/sergeyzolotukhin/patterns/ua/in/sz/pattern/pattern-gof-adapter/1.0.0/pattern-gof-adapter-1.0.0.jar" 
     -H "Authorization: token <GIT_HUB_TOKEN>" 
-    --upload-file "<jar path>" -vvv   
+    --upload-file "<jar path>" -vvv
+    
+#### How to set system environment variables   
+
+    https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10
