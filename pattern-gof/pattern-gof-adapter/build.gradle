@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group 'ua.in.sz.pattern'
@@ -9,6 +10,21 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'myRepo'
+            url = "file://${buildDir}/repo"
+        }
+    }
 }
 
 dependencies {
