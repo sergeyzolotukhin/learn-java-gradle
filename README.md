@@ -148,3 +148,14 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 #### How to set system environment variables   
 
     https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10
+    
+#### How to checkout specific version for folder GIT
+
+    git archive --output=./gof-a-v0.0.1.zip HEAD
+    git archive --output=./gof-a-v0.0.1.zip v0.0.1 ./pattern-gof-adapter
+    
+    7z x gof-a-v0.0.1.zip -obuild\gof-a-v0.0.1 > unzip.log
+
+#### 7-Zip
+    https://sevenzip.osdn.jp/chm/cmdline/syntax.htm
+    https://sevenzip.osdn.jp/chm/cmdline/commands/index.htm
