@@ -1,9 +1,10 @@
 import subprocess
 import logging as log
-from pathlib import Path
 import shutil
 import sys
 import os
+
+from pathlib import Path
 
 FORMAT = '%(asctime)23.23s [ %(levelname)10.10s ] %(filename)20.20s:%(lineno)4.4s - %(message)s'
 log.basicConfig(stream=sys.stdout, level=log.DEBUG, format=FORMAT)
