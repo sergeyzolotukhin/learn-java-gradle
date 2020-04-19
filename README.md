@@ -159,3 +159,8 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 #### 7-Zip
     https://sevenzip.osdn.jp/chm/cmdline/syntax.htm
     https://sevenzip.osdn.jp/chm/cmdline/commands/index.htm
+    
+#### Vim
+
+    https://i-notes.org/vimtutor-uchebnik-vim-versiya-1-7/
+    
