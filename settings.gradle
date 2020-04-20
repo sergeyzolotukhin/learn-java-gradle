@@ -7,14 +7,14 @@
 //include 'spring-aspect'
 //include 'spring-xml'
 //include 'spring-hibernate-search'
-//include 'spring-hibernate-cache'
+include 'spring-hibernate-cache'
 //include 'spring-hibernate-thread'
 //include 'spring-property'
 //include 'spring-camel'
 //include 'spring-swagger'
 //include 'spring-transactional'PropertyResolver
 //include 'spring-bean-validation'
-include 'spring-cache'
+//include 'spring-cache'
 //include 'spring-cxf'
 
 // ====================================================================================================================
