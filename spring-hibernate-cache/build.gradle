@@ -17,15 +17,13 @@ plugins {
 apply plugin: "io.spring.dependency-management"
 
 dependencyUpdates {
-    Properties blackList = new Properties()
-    blackList.load(file("backlist.properties").newDataInputStream())
-
-    logger.info("Black list: $blackList")
+    def blackList = file("dependancy.back.list").collect()
+    logger.lifecycle("Black list: $blackList")
 
     rejectVersionIf {
         String artifact = "${it.candidate.group}.${it.candidate.module}.${it.candidate.version}"
-        if (blackList.containsKey(artifact)) {
-            logger.info("Skipped black list dependancy [${artifact}]")
+        if (blackList.contains(artifact)) {
+            logger.lifecycle("Skipped black list dependancy [${artifact}]")
             return true
         }
 
