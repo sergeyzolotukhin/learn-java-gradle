@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS schedule
+(
+    ID   INT,
+    NAME CHAR(256),
+    PRIMARY KEY (ID)
+);
+
+CREATE SEQUENCE IF NOT EXISTS hibernate_sequence;

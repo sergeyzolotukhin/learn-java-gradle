@@ -28,7 +28,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 		Stopwatch stopwatch = Stopwatch.createStarted();
 
 		List<String> names = new ArrayList<>();
-		for (long i = 0; i < 100_000; i++) {
+		for (long i = 0; i < 10; i++) {
 			long id = i / 10_000L + 3L;
 
 			Schedule schedule = entityManager.find(Schedule.class, id);
