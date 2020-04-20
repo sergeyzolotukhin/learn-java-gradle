@@ -20,18 +20,16 @@ dependencyUpdates {
     Properties blackList = new Properties()
     blackList.load(file("backlist.properties").newDataInputStream())
 
-    logger.quiet("Version: $blackList")
+    logger.info("Black list: $blackList")
 
     rejectVersionIf {
         String artifact = "${it.candidate.group}.${it.candidate.module}.${it.candidate.version}"
-
         if (blackList.containsKey(artifact)) {
-            logger.quiet("Skipped dependancy artifact [${artifact}]")
+            logger.info("Skipped black list dependancy [${artifact}]")
             return true
-        } else {
-            logger.quiet("Apply dependancy artifact [${artifact}]")
-            return false
         }
+
+        return false;
     }
 }
 
