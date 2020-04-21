@@ -7,7 +7,7 @@
 //include 'spring-aspect'
 //include 'spring-xml'
 //include 'spring-hibernate-search'
-include 'spring-hibernate-cache'
+//include 'spring-hibernate-cache'
 //include 'spring-hibernate-thread'
 //include 'spring-property'
 //include 'spring-camel'
@@ -16,6 +16,7 @@ include 'spring-hibernate-cache'
 //include 'spring-bean-validation'
 //include 'spring-cache'
 //include 'spring-cxf'
+include 'spring-web-xml'
 
 // ====================================================================================================================
 // Libraries
