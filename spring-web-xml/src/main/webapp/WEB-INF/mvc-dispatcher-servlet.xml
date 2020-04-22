@@ -11,6 +11,7 @@
 
     <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
         <property name="taskExecutor" ref="taskExecutor" />
+        <property name="dataSource" ref="dbDataSource" />
     </bean>
 
     <bean id="taskExecutor"  class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
@@ -19,4 +20,7 @@
         <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
     </bean>
 
+    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:jboss/datasources/ExampleDS"/>
+    </bean>
 </beans>
