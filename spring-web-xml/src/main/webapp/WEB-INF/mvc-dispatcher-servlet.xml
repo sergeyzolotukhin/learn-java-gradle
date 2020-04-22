@@ -9,7 +9,14 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean name="/welcome.htm"
-          class="ua.in.sz.spring.HelloWorldController"/>
+    <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
+        <property name="taskExecutor" ref="taskExecutor" />
+    </bean>
+
+    <bean id="taskExecutor"  class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="5"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>
 
 </beans>
