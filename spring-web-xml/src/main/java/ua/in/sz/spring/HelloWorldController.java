@@ -43,9 +43,12 @@ public class HelloWorldController extends AbstractController {
     private void doTask() {
         try {
             logger.info("Start task");
-            TimeUnit.SECONDS.sleep(20);
 
-            long count = countEmployee();
+            long count = 0;
+            for (int i = 0; i < 100_000; i++) {
+                count = countEmployee();
+            }
+
             logger.info(String.format("Employee count: %d", count));
 
             logger.info("End task");
