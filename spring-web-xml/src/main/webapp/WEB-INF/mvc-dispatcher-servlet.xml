@@ -11,6 +11,7 @@
 
     <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
         <property name="taskExecutor" ref="taskExecutor" />
+        <!--suppress InjectionValueTypeInspection -->
         <property name="dataSource" ref="dbDataSource" />
     </bean>
 
