@@ -26,12 +26,12 @@
 
     <tx:annotation-driven/>
 
-    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        &lt;!&ndash;suppress InjectionValueTypeInspection &ndash;&gt;
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--suppress InjectionValueTypeInspection -->
         <property name="dataSource" ref="dbDataSource" />
-    </bean>-->
+    </bean>
 
-    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+<!--    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>-->
 
     <!--  Web layer  -->
 

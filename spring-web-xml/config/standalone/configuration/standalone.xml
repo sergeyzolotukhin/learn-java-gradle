@@ -136,17 +136,6 @@
                 <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5.5p [%-30.30t] %-30.30c - %s%e%n"/>
             </formatter>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
-            <default-job-repository name="in-memory"/>
-            <default-thread-pool name="batch"/>
-            <job-repository name="in-memory">
-                <in-memory/>
-            </job-repository>
-            <thread-pool name="batch">
-                <max-threads count="10"/>
-                <keepalive-time time="30" unit="seconds"/>
-            </thread-pool>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
@@ -353,9 +342,6 @@
             <expose-resolved-model/>
             <expose-expression-model/>
             <remoting-connector/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
-            <jpa default-datasource="" default-extended-persistence-inheritance="DEEP"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
             <remote-naming/>
