@@ -25,7 +25,7 @@ public class HelloWorldDaoImpl implements HelloWorldDao {
             log.info("Start task");
 
             long count = 0;
-            for (int i = 0; i < 100_000; i++) {
+            for (int i = 0; i < 1; i++) {
                 count = countEmployee();
             }
 
