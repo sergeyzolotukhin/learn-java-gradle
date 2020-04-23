@@ -1,27 +1,45 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
+
+    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:jboss/datasources/ExampleDS"/>
     </bean>
 
-    <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
-        <property name="taskExecutor" ref="taskExecutor" />
+    <bean name="helloWorldDao" class="ua.in.sz.spring.HelloWorldDaoImpl">
         <!--suppress InjectionValueTypeInspection -->
-        <property name="dataSource" ref="dbDataSource" />
+        <property name="dataSource" ref="dbDataSource"/>
     </bean>
 
-    <bean id="taskExecutor"  class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+    <!--  Service layer  -->
+
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <property name="corePoolSize" value="5"/>
         <property name="maxPoolSize" value="10"/>
         <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
     </bean>
 
-    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:jboss/datasources/ExampleDS"/>
+    <tx:annotation-driven/>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--suppress InjectionValueTypeInspection -->
+        <property name="dataSource" ref="dbDataSource" />
+    </bean>
+
+    <!--  Web layer  -->
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
+        <property name="taskExecutor" ref="taskExecutor"/>
+        <property name="helloWorldDao" ref="helloWorldDao"/>
     </bean>
 </beans>
