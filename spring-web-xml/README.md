@@ -4,6 +4,7 @@ http://localhost:8080/spring-web-xml/welcome.htm
 #### Documentation URLs
 
     https://docs.wildfly.org/19/Admin_Guide.html#Logging
+    https://www.baeldung.com/infinispan
 
 #### Window Linux subsystem
     
