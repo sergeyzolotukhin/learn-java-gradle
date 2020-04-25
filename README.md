@@ -166,3 +166,13 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 
     https://i-notes.org/vimtutor-uchebnik-vim-versiya-1-7/
     
+#### Other
+    Swagger
+    OAuth2
+    Microservices
+    Kafka
+    RabbitMQ
+    AWS 
+    React
+    
+    Test email notification
