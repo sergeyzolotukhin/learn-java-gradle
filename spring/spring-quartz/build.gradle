@@ -13,9 +13,9 @@ configurations {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-quartz:2.2.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz:2.2.6.RELEASE'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 }

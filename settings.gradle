@@ -3,7 +3,7 @@
 // ====================================================================================================================
 //include 'spring:spring-dev-tools'
 include 'spring:spring-shell'
-//include 'spring:spring-quartz'
+include 'spring:spring-quartz'
 include 'spring:spring-aspect'
 //include 'spring:spring-xml'
 //include 'spring:spring-hibernate-search'
