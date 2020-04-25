@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'pattern-gof/pattern-gof-adapter'
+      - 'pattern-gof/pattern-gof-adapter/**'
   pull_request:
     branches: [ master ]
 
