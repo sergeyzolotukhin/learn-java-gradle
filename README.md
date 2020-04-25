@@ -1,4 +1,4 @@
-https://github.com/sergeyzolotukhin/patterns/workflows/Java%20CI%20with%20Gradle/badge.svg
+![](https://github.com/sergeyzolotukhin/patterns/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
 pip install pywin32
 
