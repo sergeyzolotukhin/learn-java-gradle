@@ -5,13 +5,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE'
     }
 }
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -38,8 +38,8 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 //    annotationProcessor 'org.hibernate:hibernate-jpamodelgen:5.2.12.Final'
 }
 
