@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:2.2.6.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.2.6.RELEASE'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+}

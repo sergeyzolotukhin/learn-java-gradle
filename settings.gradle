@@ -13,7 +13,7 @@ include 'spring:spring-aspect'
 //include 'spring:spring-camel'
 //include 'spring:spring-swagger'
 //include 'spring:spring-transactional'PropertyResolver
-//include 'spring:spring-bean-validation'
+include 'spring:spring-bean-validation'
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
