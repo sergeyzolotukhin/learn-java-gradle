@@ -24,3 +24,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: my-artifact-01
+        path: pattern-gof/pattern-gof-adapter/build/libs
