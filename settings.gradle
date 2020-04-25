@@ -21,7 +21,7 @@
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
-//include 'activiti-learn'
+include 'library:lib-activiti'
 include 'library:lib-antlr'
 include 'library:lib-jcurses'
 include 'library:lib-jackson'
