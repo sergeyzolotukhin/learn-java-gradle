@@ -15,7 +15,7 @@ include 'spring:spring-camel'
 include 'spring:spring-transactional'
 include 'spring:spring-bean-validation'
 include 'spring:spring-cache'
-//include 'spring:spring-cxf'
+include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
 
 // ====================================================================================================================
