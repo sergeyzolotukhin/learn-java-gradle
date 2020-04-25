@@ -1,3 +1,5 @@
+https://github.com/sergeyzolotukhin/patterns/workflows/gradle/badge.svg
+
 pip install pywin32
 
 #### Properties
