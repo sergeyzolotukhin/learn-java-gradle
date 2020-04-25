@@ -45,9 +45,9 @@ venv1/
 
 #### Drool IDEA tools
 
-lib-drool/lib/
+library/lib-drool/lib/
 
 #### Antlr
 
-lib-antlr/src/main/gen/
+library/lib-antlr/src/main/gen/
 
