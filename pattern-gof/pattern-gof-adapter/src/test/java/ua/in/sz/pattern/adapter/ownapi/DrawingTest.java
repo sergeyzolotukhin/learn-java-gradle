@@ -10,6 +10,6 @@ class DrawingTest {
     @Test
     @DisplayName("I can render use own drawing api")
     void render() {
-        assertTrue(true, "Success test");
+        assertTrue(true, "Success test. Update message");
     }
 }
