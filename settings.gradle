@@ -5,7 +5,7 @@
 include 'spring:spring-shell'
 include 'spring:spring-quartz'
 include 'spring:spring-aspect'
-//include 'spring:spring-xml'
+include 'spring:spring-xml'
 //include 'spring:spring-hibernate-search'
 //include 'spring:spring-hibernate-cache'
 //include 'spring:spring-hibernate-thread'
