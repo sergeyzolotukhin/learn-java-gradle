@@ -17,42 +17,44 @@
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
-
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
-include 'library:lib-activiti'
-include 'library:lib-antlr'
-include 'library:lib-jcurses'
-include 'library:lib-jackson'
-include 'library:lib-quartz'
-include 'library:lib-viber'
-include 'library:lib-drool'
-include 'library:lib-bean-validation'
-include 'library:lib-togglz'
-include 'library:lib-camel'
-include 'library:lib-hibernate'
-include 'library:lib-cxf'
-
+//include 'library:lib-activiti'
+//include 'library:lib-antlr'
+//include 'library:lib-jcurses'
+//include 'library:lib-jackson'
+//include 'library:lib-quartz'
+//include 'library:lib-viber'
+//include 'library:lib-drool'
+//include 'library:lib-bean-validation'
+//include 'library:lib-togglz'
+//include 'library:lib-camel'
+//include 'library:lib-hibernate'
+//include 'library:lib-cxf'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
 //include 'postgresql'
 //include 'ansible:ansible-master'
 //include 'ansible:ansible-slave'
-
 // ====================================================================================================================
-// other
+// pattern gof
 // ====================================================================================================================
-//include 'pattern'
 //include 'pattern-gof:pattern-gof-adapter'
 //include 'pattern-gof:pattern-gof-composite'
 //include 'pattern-gof:pattern-gof-visitor'
 //include 'pattern-gof:pattern-gof-template-method'
 //include 'pattern-gof:pattern-gof-proxy'
 //include 'pattern-gof:pattern-gof-chain-of-responsibility'
-//include 'java-swing'
-//include 'java-jdbc'
-//include 'java-predicate'
-//include 'java-14'
-
+// ====================================================================================================================
+// java core features
+// ====================================================================================================================
+include 'java-core:java-swing'
+include 'java-core:java-jdbc'
+include 'java-core:java-predicate'
+include 'java-core:java-14'
+// ====================================================================================================================
+// other
+// ====================================================================================================================
+//include 'pattern'
