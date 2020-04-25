@@ -16,7 +16,7 @@
 //include 'spring-bean-validation'
 //include 'spring-cache'
 //include 'spring-cxf'
-include 'spring-web-xml'
+//include 'spring-web-xml'
 
 // ====================================================================================================================
 // Libraries
@@ -45,7 +45,7 @@ include 'spring-web-xml'
 // other
 // ====================================================================================================================
 //include 'pattern'
-//include 'pattern-gof:pattern-gof-adapter'
+include 'pattern-gof:pattern-gof-adapter'
 //include 'pattern-gof:pattern-gof-composite'
 //include 'pattern-gof:pattern-gof-visitor'
 //include 'pattern-gof:pattern-gof-template-method'
