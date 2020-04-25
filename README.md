@@ -4,7 +4,7 @@ pip install pywin32
 
 #### Properties
 
-What is best particles for property management?  
+What is the best particles for property management?  
 
 #### Logging
 * How to conditional logback config
