@@ -4,13 +4,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE'
     }
 }
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -32,13 +32,13 @@ dependencies {
     implementation 'commons-io:commons-io:2.6'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
     developmentOnly "org.springframework.boot:spring-boot-devtools"
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.8'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.2.RELEASE'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.6.RELEASE'
 
 }
