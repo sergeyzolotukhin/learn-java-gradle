@@ -2,7 +2,7 @@
 // spring
 // ====================================================================================================================
 //include 'spring:spring-dev-tools'
-//include 'spring:spring-shell'
+include 'spring:spring-shell'
 //include 'spring:spring-quartz'
 include 'spring:spring-aspect'
 //include 'spring:spring-xml'
