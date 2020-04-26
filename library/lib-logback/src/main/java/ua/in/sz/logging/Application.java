@@ -1,10 +1,10 @@
-package ua.in.sz.notcomplited.logging;
+package ua.in.sz.logging;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.notcomplited.logging.logs.Mdc;
-import ua.in.sz.notcomplited.logging.logs.MdcExecutorService;
-import ua.in.sz.notcomplited.logging.tasks.DebugDecorator;
-import ua.in.sz.notcomplited.logging.tasks.SecurityDecorator;
+import ua.in.sz.logging.logs.Mdc;
+import ua.in.sz.logging.logs.MdcExecutorService;
+import ua.in.sz.logging.tasks.DebugDecorator;
+import ua.in.sz.logging.tasks.SecurityDecorator;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

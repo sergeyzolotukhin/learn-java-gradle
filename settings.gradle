@@ -32,7 +32,8 @@
 //include 'library:lib-camel'
 //include 'library:lib-hibernate'
 //include 'library:lib-cxf'
-include 'library:lib-guava-cache'
+//include 'library:lib-guava-cache'
+include 'library:lib-logback'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
