@@ -16,7 +16,7 @@
 //include 'spring:spring-bean-validation'
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
-//include 'spring:spring-web-xml'
+include 'spring:spring-web-xml'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
@@ -33,7 +33,7 @@
 //include 'library:lib-hibernate'
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
-include 'library:lib-logback'
+//include 'library:lib-logback'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
