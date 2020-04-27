@@ -13,3 +13,4 @@ http://localhost:8080/spring-web-xml/welcome.htm
 #### JMX
 
     service:jmx:remoting-jmx://localhost:8080
+    service:jmx:remote://localhost:4447
