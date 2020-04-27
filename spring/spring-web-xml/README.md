@@ -9,3 +9,7 @@ http://localhost:8080/spring-web-xml/welcome.htm
 #### Window Linux subsystem
     
     tail ---disable-inotify -f application.2020-04-22.log
+
+#### JMX
+
+    service:jmx:remoting-jmx://localhost:8080
