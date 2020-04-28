@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 @Slf4j
 @Getter
 @Builder
-public class ScheduleValueVO<T> {
+public class ValueVO<T> {
 	public static final DateTimeFormatter FORMAT = DateTimeFormat.forPattern("dd.MM.yy HH:mm");
 
 	private DateTime start;

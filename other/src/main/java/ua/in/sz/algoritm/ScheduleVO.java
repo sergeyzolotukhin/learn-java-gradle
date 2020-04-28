@@ -9,7 +9,7 @@ import org.joda.time.DateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ua.in.sz.algoritm.ScheduleValueVO.FORMAT;
+import static ua.in.sz.algoritm.ValueVO.FORMAT;
 
 @Slf4j
 @Getter
@@ -20,7 +20,7 @@ public class ScheduleVO {
 	private DateTime end;
 
 	@Builder.Default
-	private List<ScheduleValueVO<?>> values = new ArrayList<>();
+	private List<ValueVO<?>> values = new ArrayList<>();
 
 	@Override
 	public String toString() {
@@ -30,7 +30,7 @@ public class ScheduleVO {
 				.append(FORMAT.print(end))
 				.append("\n");
 
-		for (ScheduleValueVO<?> value : values) {
+		for (ValueVO<?> value : values) {
 			sb.append("\t").append(value).append("\n");
 		}
 
