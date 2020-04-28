@@ -38,4 +38,5 @@ class ApplicationTest {
         return Range.between(LocalTime.of(sH, 0), LocalTime.of(eH, 0));
     }
 
+
 }
