@@ -4,50 +4,40 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.Range;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Stack;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Slf4j
 public class Application {
-    public static List<Range<LocalTime>> merge(List<Range<LocalTime>> ranges) {
-        List<Range<LocalTime>> ordered = ranges.stream()
-                .sorted(Comparator.comparing(Range::getMinimum))
-                .collect(Collectors.toList());
+    public static void main(String[] args) {
+        List<Range<LocalTime>> ranges = Arrays.asList(
+                range(0, 12),
+                range(6, 7),
+                range(1, 3),
 
-        List<Range<LocalTime>> result = new ArrayList<>();
-        Stack<Range<LocalTime>> stack = new Stack<>();
+                range(1, 2),
+                range(4, 11),
+                range(9, 10)
+        );
 
-        int i = 0;
-        Range<LocalTime> prev = null;
-        while (i < ranges.size()) {
-            Range<LocalTime> curr = ranges.get(i);
+        log.info("{}", ranges);
 
-            if (prev != null && !stack.empty() && prev.getMaximum().isBefore(ranges.get(i).getMinimum())) {
-                curr = stack.pop();
-            }
+        TreeSet<Range<LocalTime>> tree = new TreeSet<>(Comparator.comparing(Range::getMinimum));
 
-            if (prev == null) {
-                i++;
-                prev = curr;
-            }
+        tree.addAll(ranges);
 
-            if (prev.getMaximum().isAfter(curr.getMaximum())) {
-                stack.push(prev);
-            }
+        List<Range<LocalTime>> collect = new ArrayList<>(tree);
 
-            LocalTime maximum = prev.isOverlappedBy(curr) ? curr.getMinimum() : prev.getMaximum();
-            result.add(Range.between(prev.getMinimum(), maximum));
+        log.info("{}", collect);
 
-            i++;
-            prev = curr;
-        }
+        Range<LocalTime> ceiling = tree.ceiling(range(3, 4));
+        log.info("{}", ceiling);
 
-
-        return ranges;
+        Range<LocalTime> first = tree.first();
+        log.info("{}", first);
     }
 
+    private static Range<LocalTime> range(int sH, int eH) {
+        return Range.between(LocalTime.of(sH, 0), LocalTime.of(eH, 0));
+    }
 
 }
