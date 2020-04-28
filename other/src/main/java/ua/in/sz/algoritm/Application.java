@@ -1,43 +1,42 @@
 package ua.in.sz.algoritm;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.Range;
+import org.joda.time.DateTime;
 
-import java.time.LocalTime;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 public class Application {
     public static void main(String[] args) {
-        List<Range<LocalTime>> ranges = Arrays.asList(
-                range(0, 12),
-                range(6, 7),
-                range(1, 3),
+        List<ScheduleVO> schedules = Arrays.asList(
+                ScheduleVO.builder()
+                        .start(date(0, 0))
+                        .end(date(12, 0))
+                        .values(Arrays.asList(
+                                ScheduleValueVO.builder()
+                                        .start(date(0, 0))
+                                        .end(date(0, 15))
+                                        .value(1)
+                                        .build(),
+                                ScheduleValueVO.builder()
+                                        .start(date(0, 15))
+                                        .end(date(0, 30))
+                                        .value(2)
+                                        .build(),
+                                ScheduleValueVO.builder()
+                                        .start(date(0, 30))
+                                        .end(date(0, 45))
+                                        .value(3)
+                                        .build()
+                        ))
+                        .build());
 
-                range(1, 2),
-                range(4, 11),
-                range(9, 10)
-        );
-
-        log.info("{}", ranges);
-
-        TreeSet<Range<LocalTime>> tree = new TreeSet<>(Comparator.comparing(Range::getMinimum));
-
-        tree.addAll(ranges);
-
-        List<Range<LocalTime>> collect = new ArrayList<>(tree);
-
-        log.info("{}", collect);
-
-        Range<LocalTime> ceiling = tree.ceiling(range(3, 4));
-        log.info("{}", ceiling);
-
-        Range<LocalTime> first = tree.first();
-        log.info("{}", first);
+        log.info("{}", schedules);
     }
 
-    private static Range<LocalTime> range(int sH, int eH) {
-        return Range.between(LocalTime.of(sH, 0), LocalTime.of(eH, 0));
+    private static DateTime date(int h, int m) {
+        return new DateTime(2020, 1, 1, h, m);
     }
 
 }
