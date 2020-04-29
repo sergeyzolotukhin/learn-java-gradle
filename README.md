@@ -92,7 +92,8 @@ How to backup and share database state with CI?
 
 #### GIT
     
-    https://blog.osteele.com/2008/05/my-git-workflow/    
+    https://blog.osteele.com/2008/05/my-git-workflow/
+    git grep "List<Range<LocalTime>> merge = Application.merge(ranges);"
     
 #### Pattern
     
