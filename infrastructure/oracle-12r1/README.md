@@ -1,3 +1,1 @@
-#### Oracle
-
-    ORACLE PASSWORD FOR SYS, SYSTEM AND PDBADMIN: AscNUJlETmg=1
+[Documentation](https://github.com/sergeyzolotukhin/patterns/wiki/virtual-machine-home)
