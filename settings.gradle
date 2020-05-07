@@ -38,7 +38,7 @@ include 'spring:spring-web-xml'
 // infrastructure
 // ====================================================================================================================
 //include 'infrastructure:postgresql'
-include 'infrastructure:oracle-12r1'
+include 'infrastructure:oracle-12r1-shell-provision'
 //include 'infrastructure:ansible:ansible-master'
 //include 'infrastructure:ansible:ansible-slave'
 // ====================================================================================================================
