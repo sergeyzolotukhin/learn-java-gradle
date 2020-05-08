@@ -33,13 +33,13 @@ include 'spring:spring-web-xml'
 //include 'library:lib-hibernate'
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
-//include 'library:lib-logback'
+include 'library:lib-logback'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
 //include 'infrastructure:postgresql'
 //include 'infrastructure:oracle-12r1-shell-provision'
-include 'infrastructure:oracle-12r1-ansible-provision'
+//include 'infrastructure:oracle-12r1-ansible-provision'
 //include 'infrastructure:ansible:ansible-master'
 //include 'infrastructure:ansible:ansible-slave'
 // ====================================================================================================================
@@ -61,4 +61,4 @@ include 'infrastructure:oracle-12r1-ansible-provision'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
-include 'other'
+//include 'other'

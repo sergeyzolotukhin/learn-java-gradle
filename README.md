@@ -177,3 +177,7 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
     React
     
     Test email notification
+
+#### Logger
+
+    http://logback.qos.ch/manual/filters.html
