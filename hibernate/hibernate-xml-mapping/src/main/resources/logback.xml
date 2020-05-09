@@ -10,6 +10,7 @@
 
     <!-- Framework -->
     <logger name="org.hibernate" level="warn" />
+    <logger name="com.zaxxer.hikari" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

@@ -11,10 +11,12 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password"/>
 
-        <property name="connection.pool_size">1</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+        <property name="hibernate.hikari.maximumPoolSize">10</property>
+
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
 
-<!--        <property name="show_sql">true</property>-->
+        <property name="show_sql">true</property>
 <!--        <property name="hbm2ddl.auto">create</property>-->
         <property name="hbm2ddl.auto">none</property>
 
