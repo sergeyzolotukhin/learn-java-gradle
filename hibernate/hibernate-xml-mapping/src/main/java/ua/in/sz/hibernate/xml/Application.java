@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
@@ -34,7 +35,8 @@ public class Application {
 //            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
-            findSchedules(sessionFactory);
+//            findSchedules(sessionFactory);
+            findScheduleValues(sessionFactory);
 
             sessionFactory.close();
         } catch (Exception e) {
@@ -106,6 +108,33 @@ public class Application {
         if (log.isTraceEnabled()) {
             log.trace("Workspace: {}", CollectionUtils.size(workspaces));
         }
+    }
+
+    private static void findScheduleValues(SessionFactory sessionFactory) {
+        log.info("Find schedules.");
+        Stopwatch stopwatch1 = Stopwatch.createStarted();
+
+        List<Long> schedules = doInSession(sessionFactory, session -> {
+            List<Long> result = session.createQuery("select s.id from Schedule s", Long.class).list();
+
+            log.trace("Find number values");
+            Query<NumberScheduleValue> query = session.createQuery(
+                    "select n " +
+                            "from NumberScheduleValue n " +
+                            "where n.schedule.id in (:ids)",
+                    NumberScheduleValue.class);
+            query.setParameterList("ids", result);
+            List<NumberScheduleValue> values = query.list();
+
+            long numberCount = result.stream()
+                    .mapToLong(s -> values.size())
+                    .sum();
+            log.trace("Schedules number values: {}", numberCount);
+
+            return result;
+        });
+
+        log.info("Found schedules. count: {}, execution time: {}", CollectionUtils.size(schedules), stopwatch1.stop());
     }
 
     private static void findSchedules(SessionFactory sessionFactory) {
