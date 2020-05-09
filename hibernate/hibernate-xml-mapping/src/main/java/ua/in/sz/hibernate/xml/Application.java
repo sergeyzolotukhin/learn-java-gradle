@@ -52,10 +52,14 @@ public class Application {
 
             List<NumberScheduleValue> values = Arrays.asList(
                     NumberScheduleValue.builder()
+                            .effectiveDay(LocalDateTime.now())
+                            .terminationDay(LocalDateTime.now().plusHours(1))
                             .value(BigDecimal.valueOf(1))
                             .schedule(schedule)
                             .build(),
                     NumberScheduleValue.builder()
+                            .effectiveDay(LocalDateTime.now().plusHours(1))
+                            .terminationDay(LocalDateTime.now().plusHours(2))
                             .value(BigDecimal.valueOf(2))
                             .schedule(schedule)
                             .build()
@@ -90,8 +94,15 @@ public class Application {
         log.info("Find schedules.");
         Stopwatch stopwatch1 = Stopwatch.createStarted();
 
-        List<Schedule> schedules = doInSession(sessionFactory, session ->
-                session.createQuery("select s from Schedule s", Schedule.class).list());
+        List<Schedule> schedules = doInSession(sessionFactory, session -> {
+            List<Schedule> result = session.createQuery("select s from Schedule s", Schedule.class).list();
+            if (log.isTraceEnabled()) {
+                result.stream()
+                        .flatMap(s -> s.getNumberValueList().stream())
+                        .forEach(w -> log.trace("Schedules number values: {}", w));
+            }
+            return result;
+        });
 
         log.info("Found schedules. count: {}, execution time: {}", CollectionUtils.size(schedules), stopwatch1.stop());
     }

@@ -12,6 +12,9 @@
             </generator>
         </id>
 
+        <property name="effectiveDay" column="START_DATE" type="java.time.LocalDateTime"
+                  not-null="true"/>
+        <property name="terminationDay" column="STOP_DATE" type="java.time.LocalDateTime"/>
         <property name="value" column="VALUE" type="java.math.BigDecimal" not-null="true"/>
 
         <property name="type" column="VALUE_TYPE_ID" type="java.lang.String"/>
@@ -28,6 +31,9 @@
             </generator>
         </id>
 
+        <property name="effectiveDay" column="START_DATE" type="java.time.LocalDateTime"
+                  not-null="true"/>
+        <property name="terminationDay" column="STOP_DATE" type="java.time.LocalDateTime"/>
         <property name="value" column="VALUE" type="java.lang.String" not-null="true"/>
 
         <property name="type" column="VALUE_TYPE_ID" type="java.lang.String"/>

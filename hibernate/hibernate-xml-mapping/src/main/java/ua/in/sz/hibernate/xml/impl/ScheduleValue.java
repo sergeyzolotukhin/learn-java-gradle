@@ -7,6 +7,8 @@ import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @SuperBuilder
@@ -16,6 +18,8 @@ public abstract class ScheduleValue<T> implements IdBean<Long> {
     private Schedule schedule;
     private String type;
     private T value;
+    private LocalDateTime effectiveDay;
+    private LocalDateTime terminationDay;
 
     @Override
     public boolean equals(Object that) {

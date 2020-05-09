@@ -57,7 +57,8 @@ public class Schedule implements IdBean<Long> {
 		return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).
 				append("type", type).
 				append("identification", identification).
-				append("startDate", startDate).toString();
+				append("startDate", startDate)
+				.toString();
 	}
 
 }

@@ -5,14 +5,16 @@
         </encoder>
     </appender>
 
+    <logger name="ua.in.sz.hibernate.xml.Application" level="trace"/>
+
     <!-- Trace SQL -->
-<!--    <logger name="org.hibernate.SQL" level="debug" />-->
+    <!--    <logger name="org.hibernate.SQL" level="debug" />-->
 
     <!-- Framework -->
-    <logger name="org.hibernate" level="warn" />
-    <logger name="com.zaxxer.hikari" level="warn" />
+    <logger name="org.hibernate" level="warn"/>
+    <logger name="com.zaxxer.hikari" level="warn"/>
 
     <root level="INFO">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
