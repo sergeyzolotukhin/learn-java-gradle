@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.etse.entsoe.dao.bean.NumberScheduleValue" table="SR_SCHEDULE_VALUE_NUMBER">
+    <class name="ua.in.sz.hibernate.xml.impl.NumberScheduleValue" table="SR_SCHEDULE_VALUE_NUMBER">
         <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
                 <param name="sequence_name">SEQ_SCHEDULE_VALUE_NUMBER</param>
@@ -12,17 +12,14 @@
             </generator>
         </id>
 
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
         <property name="value" column="VALUE" type="java.math.BigDecimal" not-null="true"/>
 
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
+        <many-to-one name="type" column="VALUE_TYPE_ID" class="java.lang.String" lazy="false"
                      fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
+        <many-to-one name="schedule" column="SCHEDULE_ID" class="ua.in.sz.hibernate.xml.impl.Schedule"/>
     </class>
 
-    <class name="com.etse.entsoe.dao.bean.StringScheduleValue" table="SR_SCHEDULE_VALUE_STRING">
+    <class name="ua.in.sz.hibernate.xml.impl.StringScheduleValue" table="SR_SCHEDULE_VALUE_STRING">
         <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
                 <param name="sequence_name">SEQ_SCHEDULE_VALUE_STRING</param>
@@ -32,111 +29,11 @@
             </generator>
         </id>
 
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
         <property name="value" column="VALUE" type="java.lang.String" not-null="true"/>
 
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
+        <many-to-one name="type" column="VALUE_TYPE_ID" class="java.lang.String" lazy="false"
                      fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
+        <many-to-one name="schedule" column="SCHEDULE_ID" class="ua.in.sz.hibernate.xml.impl.Schedule"/>
     </class>
 
-    <class name="com.etse.entsoe.dao.bean.DateScheduleValue" table="SR_SCHEDULE_VALUE_DATE">
-        <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">SEQ_SCHEDULE_VALUE_DATE</param>
-                <param name="initial_value">1000000</param>
-                <param name="increment_size">100</param>
-                <param name="optimizer">org.hibernate.id.enhanced.PooledOptimizer</param>
-            </generator>
-        </id>
-
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
-        <property name="value" column="VALUE" type="com.etse.entsoe.dao.util.usertype.DateTimeType" not-null="true"/>
-
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
-                     fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
-    </class>
-
-    <class name="com.etse.entsoe.dao.bean.ArrayScheduleValue" table="SR_SCHEDULE_VALUE_ARRAY">
-        <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">SEQ_SCHEDULE_VALUE_ARRAY</param>
-                <param name="initial_value">1000000</param>
-                <param name="increment_size">100</param>
-                <param name="optimizer">org.hibernate.id.enhanced.PooledOptimizer</param>
-            </generator>
-        </id>
-
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
-        <property name="value" column="VALUE" type="com.etse.entsoe.dao.util.usertype.ArrayUserType" not-null="true"/>
-
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
-                     fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
-    </class>
-
-    <class name="com.etse.entsoe.dao.bean.MatrixScheduleValue" table="SR_SCHEDULE_VALUE_MATRIX">
-        <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">SEQ_SCHEDULE_VALUE_MATRIX</param>
-                <param name="initial_value">1000000</param>
-                <param name="increment_size">100</param>
-                <param name="optimizer">org.hibernate.id.enhanced.PooledOptimizer</param>
-            </generator>
-        </id>
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
-        <property name="value" column="VALUE" type="com.etse.entsoe.dao.util.usertype.MatrixUserType" not-null="true"/>
-
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
-                     fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
-    </class>
-
-    <class name="com.etse.entsoe.dao.bean.BlobScheduleValue" table="SR_SCHEDULE_VALUE_BLOB">
-        <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">SEQ_SCHEDULE_VALUE_BLOB</param>
-                <param name="initial_value">1000000</param>
-                <param name="increment_size">100</param>
-                <param name="optimizer">org.hibernate.id.enhanced.PooledOptimizer</param>
-            </generator>
-        </id>
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
-        <many-to-one name="value" column="VALUE" lazy="false" class="com.etse.entsoe.dao.bean.Attachment" cascade="save-update"/>
-
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
-                     fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
-    </class>
-
-    <class name="com.etse.entsoe.dao.bean.BooleanScheduleValue" table="SR_SCHEDULE_VALUE_BOOLEAN">
-        <id name="id" type="java.lang.Long" column="SCHEDULE_VALUE_ID">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">SEQ_SCHEDULE_VALUE_BOOLEAN</param>
-                <param name="initial_value">1000000</param>
-                <param name="increment_size">100</param>
-                <param name="optimizer">org.hibernate.id.enhanced.PooledOptimizer</param>
-            </generator>
-        </id>
-
-        <property name="effectiveDay" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
-                  not-null="true"/>
-        <property name="terminationDay" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
-        <property name="value" column="VALUE" type="org.hibernate.type.NumericBooleanType" not-null="true"/>
-
-        <many-to-one name="type" column="VALUE_TYPE_ID" class="com.etse.entsoe.dao.bean.ValueType" lazy="false"
-                     fetch="join"/>
-        <many-to-one name="schedule" column="SCHEDULE_ID" class="com.etse.entsoe.dao.bean.Schedule"/>
-    </class>
 </hibernate-mapping>
