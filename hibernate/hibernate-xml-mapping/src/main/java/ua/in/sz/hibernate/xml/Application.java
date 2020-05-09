@@ -10,6 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
+import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
 import java.math.BigDecimal;
@@ -28,10 +29,10 @@ public class Application {
         try {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-            createWorkspaces(sessionFactory);
-            createSchedules(sessionFactory);
+//            createWorkspaces(sessionFactory);
+//            createSchedules(sessionFactory);
 
-            findWorkspaces(sessionFactory);
+//            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
 
             sessionFactory.close();
@@ -50,7 +51,7 @@ public class Application {
                     .stopDate(LocalDateTime.now().plusDays(1))
                     .build();
 
-            List<NumberScheduleValue> values = Arrays.asList(
+            List<NumberScheduleValue> numberValues = Arrays.asList(
                     NumberScheduleValue.builder()
                             .effectiveDay(LocalDateTime.now())
                             .terminationDay(LocalDateTime.now().plusHours(1))
@@ -65,7 +66,23 @@ public class Application {
                             .build()
             );
 
-            schedule.setNumberValueList(values);
+            List<StringScheduleValue> stringValues = Arrays.asList(
+                    StringScheduleValue.builder()
+                            .effectiveDay(LocalDateTime.now())
+                            .terminationDay(LocalDateTime.now().plusHours(1))
+                            .value("One")
+                            .schedule(schedule)
+                            .build(),
+                    StringScheduleValue.builder()
+                            .effectiveDay(LocalDateTime.now().plusHours(1))
+                            .terminationDay(LocalDateTime.now().plusHours(2))
+                            .value("Two")
+                            .schedule(schedule)
+                            .build()
+            );
+
+            schedule.setNumberValueList(numberValues);
+            schedule.setStringValueList(stringValues);
 
             return session.save(schedule);
         });
@@ -86,7 +103,7 @@ public class Application {
         log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(workspaces), stopwatch.stop());
 
         if (log.isTraceEnabled()) {
-            workspaces.forEach(w -> log.trace("Workspace: {}", w));
+            log.trace("Workspace: {}", CollectionUtils.size(workspaces));
         }
     }
 
@@ -96,11 +113,18 @@ public class Application {
 
         List<Schedule> schedules = doInSession(sessionFactory, session -> {
             List<Schedule> result = session.createQuery("select s from Schedule s", Schedule.class).list();
-            if (log.isTraceEnabled()) {
-                result.stream()
-                        .flatMap(s -> s.getNumberValueList().stream())
-                        .forEach(w -> log.trace("Schedules number values: {}", w));
-            }
+            log.trace("Found schedules: count {}", CollectionUtils.size(result));
+
+            long numberCount = result.stream()
+                    .mapToLong(s -> s.getNumberValueList().size())
+                    .sum();
+            log.trace("Schedules number values: {}", numberCount);
+
+            long stringCount = result.stream()
+                    .mapToLong(s -> s.getStringValueList().size())
+                    .sum();
+            log.trace("Schedules string values: {}", stringCount);
+
             return result;
         });
 
