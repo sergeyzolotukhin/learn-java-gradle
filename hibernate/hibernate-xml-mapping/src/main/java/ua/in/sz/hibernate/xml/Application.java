@@ -11,6 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
 import java.util.List;
+import java.util.function.Function;
 
 
 @Slf4j
@@ -22,32 +23,35 @@ public class Application {
         try {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            session.save(Workspace.builder().name("Workspace 3").build());
-            session.getTransaction().commit();
-            session.close();
-
-            session = sessionFactory.openSession();
-            session.beginTransaction();
+            doInSession(sessionFactory, (session) ->
+                    session.save(Workspace.builder().name("Workspace 3").build()));
 
             log.info("Find workspaces.");
             Stopwatch stopwatch = Stopwatch.createStarted();
 
-            List<Workspace> result = session.createQuery("from Workspace", Workspace.class).list();
+            List<Workspace> result = doInSession(sessionFactory, session ->
+                    session.createQuery("from Workspace", Workspace.class).list());
 
             log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(result), stopwatch.stop());
+
             if (log.isTraceEnabled()) {
                 result.forEach(w -> log.trace("Workspace: {}", w));
             }
-
-            session.getTransaction().commit();
-            session.close();
 
             sessionFactory.close();
         } catch (Exception e) {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
+        }
+    }
+
+    private static <R> R doInSession(SessionFactory sessionFactory, Function<Session, R> function) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            R result = function.apply(session);
+            session.getTransaction().commit();
+
+            return result;
         }
     }
 }
