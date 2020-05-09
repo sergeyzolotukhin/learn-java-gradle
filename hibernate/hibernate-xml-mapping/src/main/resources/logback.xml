@@ -9,7 +9,7 @@
 <!--    <logger name="org.hibernate.SQL" level="debug" />-->
 
     <!-- Framework -->
-<!--    <logger name="org.hibernate" level="warn" />-->
+    <logger name="org.hibernate" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

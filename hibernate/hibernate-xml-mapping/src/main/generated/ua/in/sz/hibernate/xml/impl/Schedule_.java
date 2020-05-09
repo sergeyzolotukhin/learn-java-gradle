@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cache.impl;
+package ua.in.sz.hibernate.xml.impl;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.metamodel.SingularAttribute;
