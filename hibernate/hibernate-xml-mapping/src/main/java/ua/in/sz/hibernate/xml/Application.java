@@ -1,5 +1,6 @@
 package ua.in.sz.hibernate.xml;
 
+import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.Session;
@@ -29,10 +30,16 @@ public class Application {
 
             session = sessionFactory.openSession();
             session.beginTransaction();
+
+            log.info("Find workspaces.");
+            Stopwatch stopwatch = Stopwatch.createStarted();
+
             List<Workspace> result = session.createQuery("from Workspace", Workspace.class).list();
 
-            log.info("Workspaces count: {}", CollectionUtils.size(result));
-            result.forEach(w -> log.info("Workspace: {}", w));
+            log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(result), stopwatch.stop());
+            if (log.isTraceEnabled()) {
+                result.forEach(w -> log.trace("Workspace: {}", w));
+            }
 
             session.getTransaction().commit();
             session.close();
