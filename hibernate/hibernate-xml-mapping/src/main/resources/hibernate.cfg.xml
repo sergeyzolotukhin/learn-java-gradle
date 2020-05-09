@@ -22,6 +22,7 @@
 
         <mapping resource="ua/in/sz/hibernate/xml/Workspace.hbm.xml"/>
         <mapping resource="ua/in/sz/hibernate/xml/Schedule.hbm.xml"/>
+        <mapping resource="ua/in/sz/hibernate/xml/ScheduleValue.hbm.xml"/>
 
     </session-factory>
 

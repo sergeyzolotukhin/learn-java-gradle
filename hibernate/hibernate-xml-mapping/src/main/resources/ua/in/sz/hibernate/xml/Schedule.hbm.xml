@@ -21,8 +21,7 @@
 
         <many-to-one name="workspace" column="WORKSPACE_ID" class="ua.in.sz.hibernate.xml.impl.Workspace" fetch="select"
                      cascade="save-update"/>
-        <many-to-one name="type" column="SCHEDULE_TYPE_ID" class="java.lang.String" lazy="false"
-                     fetch="join"/>
+        <property name="type" column="SCHEDULE_TYPE_ID" type="java.lang.String"/>
 
         <bag name="numberValueList" table="SR_SCHEDULE_VALUE_NUMBER" cascade="all, delete-orphan, evict" inverse="true"
              fetch="subselect"

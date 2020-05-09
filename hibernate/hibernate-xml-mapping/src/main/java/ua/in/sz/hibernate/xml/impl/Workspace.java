@@ -1,9 +1,6 @@
 package ua.in.sz.hibernate.xml.impl;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +9,7 @@ import java.util.List;
 @Setter
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Workspace implements IdBean<Long> {
 	private Long id;
 	private String name;
