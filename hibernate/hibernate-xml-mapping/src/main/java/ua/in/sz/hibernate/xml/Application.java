@@ -35,8 +35,8 @@ public class Application {
 //            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
-//            findSchedules(sessionFactory);
-            findScheduleValues(sessionFactory);
+            findSchedules(sessionFactory);
+//            findScheduleValues(sessionFactory);
 
             sessionFactory.close();
         } catch (Exception e) {
@@ -142,7 +142,11 @@ public class Application {
         Stopwatch stopwatch1 = Stopwatch.createStarted();
 
         List<Schedule> schedules = doInSession(sessionFactory, session -> {
-            List<Schedule> result = session.createQuery("select s from Schedule s", Schedule.class).list();
+            List<Schedule> result = session.createQuery(
+                    "select s " +
+                            "from Schedule s ",
+                    Schedule.class)
+                    .list();
             log.trace("Found schedules: count {}", CollectionUtils.size(result));
 
             long numberCount = result.stream()
