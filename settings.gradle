@@ -30,10 +30,10 @@ include 'spring:spring-web-xml'
 //include 'library:lib-bean-validation'
 //include 'library:lib-togglz'
 //include 'library:lib-camel'
-//include 'library:lib-hibernate'
+include 'library:lib-hibernate'
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
-include 'library:lib-logback'
+//include 'library:lib-logback'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
