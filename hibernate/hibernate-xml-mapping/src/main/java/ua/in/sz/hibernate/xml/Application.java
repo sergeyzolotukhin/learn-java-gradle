@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.function.Function;
 
 
+@SuppressWarnings("unused")
 @Slf4j
 public class Application {
     public static void main(String[] args) {
