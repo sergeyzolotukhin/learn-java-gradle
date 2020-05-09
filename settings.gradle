@@ -16,7 +16,12 @@
 //include 'spring:spring-bean-validation'
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
-include 'spring:spring-web-xml'
+//include 'spring:spring-web-xml'
+// ====================================================================================================================
+// Hibernate
+// ====================================================================================================================
+//include 'library:lib-hibernate'
+include 'hibernate:hibernate-xml-mapping'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
@@ -30,7 +35,6 @@ include 'spring:spring-web-xml'
 //include 'library:lib-bean-validation'
 //include 'library:lib-togglz'
 //include 'library:lib-camel'
-include 'library:lib-hibernate'
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
 //include 'library:lib-logback'
