@@ -23,14 +23,14 @@ public class Application {
         try {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-            doInSession(sessionFactory, (session) ->
-                    session.save(Workspace.builder().name("Workspace 3").build()));
+//            doInSession(sessionFactory, (session) ->
+//                    session.save(Workspace.builder().name("Workspace 3").build()));
 
             log.info("Find workspaces.");
             Stopwatch stopwatch = Stopwatch.createStarted();
 
             List<Workspace> result = doInSession(sessionFactory, session ->
-                    session.createQuery("from Workspace", Workspace.class).list());
+                    session.createQuery("select w from Workspace w", Workspace.class).list());
 
             log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(result), stopwatch.stop());
 
