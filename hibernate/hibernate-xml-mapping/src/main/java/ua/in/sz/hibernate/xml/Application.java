@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
 import java.util.List;
@@ -23,26 +24,46 @@ public class Application {
         try {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-//            doInSession(sessionFactory, (session) ->
-//                    session.save(Workspace.builder().name("Workspace 3").build()));
+            createWorkspaces(sessionFactory);
 
-            log.info("Find workspaces.");
-            Stopwatch stopwatch = Stopwatch.createStarted();
+            findWorkspaces(sessionFactory);
 
-            List<Workspace> result = doInSession(sessionFactory, session ->
-                    session.createQuery("select w from Workspace w", Workspace.class).list());
-
-            log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(result), stopwatch.stop());
-
-            if (log.isTraceEnabled()) {
-                result.forEach(w -> log.trace("Workspace: {}", w));
-            }
+            findSchedules(sessionFactory);
 
             sessionFactory.close();
         } catch (Exception e) {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    private static void createWorkspaces(SessionFactory sessionFactory) {
+        doInSession(sessionFactory, (session) ->
+                session.save(Workspace.builder().name("Workspace 3").build()));
+    }
+
+    private static void findWorkspaces(SessionFactory sessionFactory) {
+        log.info("Find workspaces.");
+        Stopwatch stopwatch = Stopwatch.createStarted();
+
+        List<Workspace> workspaces = doInSession(sessionFactory, session ->
+                session.createQuery("select w from Workspace w", Workspace.class).list());
+
+        log.info("Found workspaces. count: {}, execution time: {}", CollectionUtils.size(workspaces), stopwatch.stop());
+
+        if (log.isTraceEnabled()) {
+            workspaces.forEach(w -> log.trace("Workspace: {}", w));
+        }
+    }
+
+    private static void findSchedules(SessionFactory sessionFactory) {
+        log.info("Find schedules.");
+        Stopwatch stopwatch1 = Stopwatch.createStarted();
+
+        List<Schedule> schedules = doInSession(sessionFactory, session ->
+                session.createQuery("select s from Schedule s", Schedule.class).list());
+
+        log.info("Found schedules. count: {}, execution time: {}", CollectionUtils.size(schedules), stopwatch1.stop());
     }
 
     private static <R> R doInSession(SessionFactory sessionFactory, Function<Session, R> function) {
