@@ -8,9 +8,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -25,9 +29,9 @@ public class Application {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
             createWorkspaces(sessionFactory);
+            createSchedules(sessionFactory);
 
             findWorkspaces(sessionFactory);
-
             findSchedules(sessionFactory);
 
             sessionFactory.close();
@@ -35,6 +39,32 @@ public class Application {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    private static void createSchedules(SessionFactory sessionFactory) {
+        doInSession(sessionFactory, (session) ->
+        {
+            Schedule schedule = Schedule.builder()
+                    .identification("Schedule 1")
+                    .startDate(LocalDateTime.now())
+                    .stopDate(LocalDateTime.now().plusDays(1))
+                    .build();
+
+            List<NumberScheduleValue> values = Arrays.asList(
+                    NumberScheduleValue.builder()
+                            .value(BigDecimal.valueOf(1))
+                            .schedule(schedule)
+                            .build(),
+                    NumberScheduleValue.builder()
+                            .value(BigDecimal.valueOf(2))
+                            .schedule(schedule)
+                            .build()
+            );
+
+            schedule.setNumberValueList(values);
+
+            return session.save(schedule);
+        });
     }
 
     private static void createWorkspaces(SessionFactory sessionFactory) {
