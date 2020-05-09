@@ -1,25 +1,26 @@
 package ua.in.sz.hibernate.xml.impl;
 
-import lombok.*;
-import lombok.experimental.FieldNameConstants;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 @Builder
-@ToString
 @NoArgsConstructor
-@AllArgsConstructor
-@FieldNameConstants
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Workspace {
+public class Workspace implements IdBean<Long> {
 	private Long id;
-	@EqualsAndHashCode.Include
 	private String name;
 
 	@Builder.Default
-	@ToString.Exclude
-	protected Set<Schedule> schedules = new HashSet<>();
+	private List<Schedule> schedules = new ArrayList<>();
+
+	@Override
+	public Long getId() {
+		return id;
+	}
 }

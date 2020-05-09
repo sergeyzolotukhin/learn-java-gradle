@@ -1,19 +1,27 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
-<hibernate-mapping package="ua.in.sz.hibernate.xml.impl">
-
-    <class name="Workspace" table="WORKSPACE">
-        <id name="id" column="ID">
-            <generator class="increment"/>
+<hibernate-mapping>
+    <class name="com.etse.entsoe.dao.bean.Workspace" table="SR_WORKSPACE">
+        <id name="id" type="java.lang.Long" column="WORKSPACE_ID">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">SEQ_WORKSPACE</param>
+                <param name="initial_value">10000</param>
+                <param name="increment_size">100</param>
+                <param name="optimizer">org.hibernate.id.enhanced.PooledLoOptimizer</param>
+            </generator>
         </id>
-        <property name="name" type="string" column="NAME"/>
-        <set name="schedules">
-            <key column="workspace_id"/>
-            <one-to-many class="ua.in.sz.hibernate.xml.impl.Schedule"/>
-        </set>
-    </class>
 
+        <property name="name" column="NAME" type="java.lang.String" not-null="true"/>
+        <property name="type" column="TYPE" type="java.lang.String"/>
+        <property name="creationTime" column="CREATION_TIME" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
+                  not-null="true"/>
+        <property name="userName" column="USERNAME" type="java.lang.String"/>
+        <property name="status" column="STATUS" type="java.lang.String"/>
+
+        <bag name="schedules" table="SR_SCHEDULE" fetch="subselect" cascade="save-update, delete-orphan" lazy="true">
+            <key column="WORKSPACE_ID" update="true"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.Schedule"/>
+        </bag>
+    </class>
 </hibernate-mapping>

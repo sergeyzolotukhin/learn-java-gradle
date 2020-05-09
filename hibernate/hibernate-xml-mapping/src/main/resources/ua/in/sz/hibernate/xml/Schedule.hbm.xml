@@ -1,16 +1,119 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
-<hibernate-mapping package="ua.in.sz.hibernate.xml.impl">
-
-    <class name="Schedule" table="SCHEDULE">
-        <id name="id" column="ID">
-            <generator class="increment"/>
+<hibernate-mapping>
+    <class name="com.etse.entsoe.dao.bean.Schedule" table="SR_SCHEDULE">
+        <id name="id" type="java.lang.Long" column="SCHEDULE_ID">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">SEQ_SCHEDULE</param>
+                <param name="initial_value">10000</param>
+                <param name="increment_size">100</param>
+                <param name="optimizer">org.hibernate.id.enhanced.PooledLoOptimizer</param>
+            </generator>
         </id>
-        <property name="name" type="string" column="EVENT_DATE"/>
-        <many-to-one name="workspace"/>
-    </class>
 
+
+        <property name="compositeKey" column="COMPOSITE_KEY" type="java.lang.String" not-null="true"/>
+        <property name="startDate" column="START_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
+                  not-null="true"/>
+        <property name="stopDate" column="STOP_DATE" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
+                  not-null="true"/>
+        <property name="actualVersion" column="IS_ACTUAL_VERSION" type="org.hibernate.type.NumericBooleanType"
+                  not-null="true"/>
+        <property name="creationTime" column="CREATION_TIME" type="com.etse.entsoe.dao.util.usertype.DateTimeType"
+                  not-null="true"/>
+        <property name="lastModifiedDate" column="LAST_MODIFIED_DATE"
+                  type="com.etse.entsoe.dao.util.usertype.DateTimeType"
+                  not-null="true"/>
+        <!-- deprecated: use ordering by creationTimestamp field-->
+        <property name="version" column="VERSION" type="java.lang.Long" not-null="true"/>
+        <property name="logContext" column="LOG_CONTEXT" type="java.lang.Long"/>
+        <property name="scheduleOrigin" column="SCHEDULE_ORIGIN" type="java.lang.String"/>
+        <property name="status" column="STATUS" type="java.lang.String"/>
+        <property name="identification" column="SCHEDULE_IDENT" type="java.lang.String"/>
+        <property name="deletionTime" column="DELETION_TIME" type="com.etse.entsoe.dao.util.usertype.DateTimeType"/>
+        <property name="draft" column="DRAFT" type="org.hibernate.type.NumericBooleanType"/>
+        <property name="valuesHash" column="VALUES_HASH" type="java.lang.String" not-null="true"/>
+
+        <!-- internally used field to use instead of version column for proper ordering -->
+        <!-- it is populated by DB engine(sets default value as current date -->
+        <property name="creationTimestamp" column="CREATION_TIMESTAMP"
+                  type="com.etse.entsoe.dao.util.usertype.DateTimeType" insert="false" update="false"/>
+
+        <many-to-one name="document" column="DOCUMENT_ID" class="com.etse.entsoe.dao.bean.Document" fetch="select"/>
+        <many-to-one name="workspace" column="WORKSPACE_ID" class="com.etse.entsoe.dao.bean.Workspace" fetch="select"
+                     cascade="save-update"/>
+        <many-to-one name="type" column="SCHEDULE_TYPE_ID" class="com.etse.entsoe.dao.bean.ScheduleType" lazy="false"
+                     fetch="join"/>
+
+        <bag name="parameterList" table="SR_SCHEDULE_PARAMETER" fetch="subselect" cascade="all, delete-orphan, evict"
+             lazy="false">
+            <key column="SCHEDULE_ID" update="false"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.ScheduleParameter"/>
+        </bag>
+
+        <!-- Numeric Values -->
+
+        <bag name="numberValueList" table="SR_SCHEDULE_VALUE_NUMBER" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.NumberScheduleValue"/>
+        </bag>
+
+        <!-- String Values -->
+
+        <bag name="stringValueList" table="SR_SCHEDULE_VALUE_STRING" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.StringScheduleValue"/>
+        </bag>
+
+        <!-- Boolean Values -->
+
+        <bag name="booleanValueList" table="SR_SCHEDULE_VALUE_BOOLEAN" cascade="all, delete-orphan, evict"
+             inverse="true" fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.BooleanScheduleValue"/>
+        </bag>
+
+        <!-- Date Values -->
+
+        <bag name="dateValueList" table="SR_SCHEDULE_VALUE_DATE" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.DateScheduleValue"/>
+        </bag>
+
+        <!-- Array Values -->
+
+        <bag name="arrayValueList" table="SR_SCHEDULE_VALUE_ARRAY" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.ArrayScheduleValue"/>
+        </bag>
+
+        <!-- Matrix Values -->
+
+        <bag name="matrixValueList" table="SR_SCHEDULE_VALUE_MATRIX" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.MatrixScheduleValue"/>
+        </bag>
+
+        <!-- Blob Values -->
+
+        <bag name="blobValueList" table="SR_SCHEDULE_VALUE_BLOB" cascade="all, delete-orphan, evict" inverse="true"
+             fetch="subselect"
+             order-by="VALUE_TYPE_ID,START_DATE">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="com.etse.entsoe.dao.bean.BlobScheduleValue"/>
+        </bag>
+
+    </class>
 </hibernate-mapping>
