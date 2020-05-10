@@ -11,12 +11,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
-import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -32,7 +28,7 @@ public class Application {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
-//            createSchedules(sessionFactory);
+            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
@@ -48,45 +44,7 @@ public class Application {
     private static void createSchedules(SessionFactory sessionFactory) {
         doInSession(sessionFactory, (session) ->
         {
-            Schedule schedule = Schedule.builder()
-                    .identification("Schedule 1")
-                    .startDate(LocalDateTime.now())
-                    .stopDate(LocalDateTime.now().plusDays(1))
-                    .build();
-
-            List<NumberScheduleValue> numberValues = Arrays.asList(
-                    NumberScheduleValue.builder()
-                            .effectiveDay(LocalDateTime.now())
-                            .terminationDay(LocalDateTime.now().plusHours(1))
-                            .value(BigDecimal.valueOf(1))
-                            .schedule(schedule)
-                            .build(),
-                    NumberScheduleValue.builder()
-                            .effectiveDay(LocalDateTime.now().plusHours(1))
-                            .terminationDay(LocalDateTime.now().plusHours(2))
-                            .value(BigDecimal.valueOf(2))
-                            .schedule(schedule)
-                            .build()
-            );
-
-            List<StringScheduleValue> stringValues = Arrays.asList(
-                    StringScheduleValue.builder()
-                            .effectiveDay(LocalDateTime.now())
-                            .terminationDay(LocalDateTime.now().plusHours(1))
-                            .value("One")
-                            .schedule(schedule)
-                            .build(),
-                    StringScheduleValue.builder()
-                            .effectiveDay(LocalDateTime.now().plusHours(1))
-                            .terminationDay(LocalDateTime.now().plusHours(2))
-                            .value("Two")
-                            .schedule(schedule)
-                            .build()
-            );
-
-            schedule.setNumberValueList(numberValues);
-            schedule.setStringValueList(stringValues);
-
+            Schedule schedule = ScheduleGenerator.generate();
             return session.save(schedule);
         });
     }
