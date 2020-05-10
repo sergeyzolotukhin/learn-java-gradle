@@ -30,7 +30,7 @@ public class ScheduleGenerator {
             NumberScheduleValue number = NumberScheduleValue.builder()
                     .effectiveDay(startDate.plusMinutes(i * 15))
                     .terminationDay(startDate.plusMinutes((i + 1) * 15))
-                    .value(BigDecimal.valueOf(1))
+                    .value(BigDecimal.valueOf(Math.random()))
                     .schedule(schedule)
                     .build();
 
