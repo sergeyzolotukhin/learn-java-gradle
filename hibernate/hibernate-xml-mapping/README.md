@@ -15,3 +15,8 @@
     https://www.logicbig.com/tutorials/misc/hibernate/custom-import-sql-command-extractor.html
     [Customize schema generation Hibernate](https://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/chapters/schema/Schema.html)
     https://springframework.guru/using-h2-and-oracle-with-spring-boot/
+
+#### Cluster table oracle
+
+    https://docs.oracle.com/database/121/CNCPT/tablecls.htm#CNCPT94767
+    https://docs.oracle.com/database/121/TGSQL/tgsql_indc.htm#TGSQL869
