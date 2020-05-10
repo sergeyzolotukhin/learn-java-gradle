@@ -44,8 +44,21 @@ public class Application {
     private static void createSchedules(SessionFactory sessionFactory) {
         doInSession(sessionFactory, (session) ->
         {
-            Schedule schedule = ScheduleGenerator.generate();
-            return session.save(schedule);
+            List<Schedule> schedules = ScheduleGenerator.generate();
+
+            for (int i = 0; i < schedules.size(); i++) {
+                session.save(schedules.get(i));
+
+                if (i % 500 == 0) {
+                    session.flush();
+                    session.clear();
+                }
+            }
+
+            session.flush();
+            session.clear();
+
+            return null;
         });
     }
 

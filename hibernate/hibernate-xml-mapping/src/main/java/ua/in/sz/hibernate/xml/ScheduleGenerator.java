@@ -11,26 +11,37 @@ import java.util.List;
 
 public class ScheduleGenerator {
 
-    public static Schedule generate() {
+    public static final int SCHEDULE_PER_DAY = 30;
+    public static final int NUMBERS_PER_SCHEDULE = 15;
+    public static final int STRING_PER_SCHEDULE = 10;
+    public static final int INTERVAL_PER_SCHEDULE = 96;
+
+    public static List<Schedule> generate() {
         LocalDateTime startDate = LocalDateTime.now();
 
-        Schedule schedule = Schedule.builder()
-                .identification("Schedule 1")
-                .startDate(startDate)
-                .stopDate(startDate.plusDays(1))
-                .build();
+        List<Schedule> schedules = new ArrayList<>();
 
-        schedule.setNumberValueList(createNumberValues(startDate, schedule));
-        schedule.setStringValueList(createStringValues(startDate, schedule));
+        for (int i = 0; i < SCHEDULE_PER_DAY; i++) {
+            Schedule schedule = Schedule.builder()
+                    .identification(String.format("Schedule %d", i))
+                    .startDate(startDate.plusDays(i))
+                    .stopDate(startDate.plusDays(i + 1))
+                    .build();
 
-        return schedule;
+            schedule.setNumberValueList(createNumberValues(startDate, schedule));
+            schedule.setStringValueList(createStringValues(startDate, schedule));
+
+            schedules.add(schedule);
+        }
+
+        return schedules;
     }
 
     private static List<NumberScheduleValue> createNumberValues(LocalDateTime startDate, Schedule schedule) {
         List<NumberScheduleValue> numberValues = new ArrayList<>();
 
-        for (int j = 0; j < 15; j++) {
-            for (int i = 0; i < 96; i++) {
+        for (int j = 0; j < NUMBERS_PER_SCHEDULE; j++) {
+            for (int i = 0; i < INTERVAL_PER_SCHEDULE; i++) {
                 NumberScheduleValue number = NumberScheduleValue.builder()
                         .type(String.format("Number type %d", j))
                         .effectiveDay(startDate.plusMinutes(i * 15))
@@ -49,8 +60,8 @@ public class ScheduleGenerator {
     private static List<StringScheduleValue> createStringValues(LocalDateTime startDate, Schedule schedule) {
         List<StringScheduleValue> stringValues = new ArrayList<>();
 
-        for (int j = 0; j < 10; j++) {
-            for (int i = 0; i < 96; i++) {
+        for (int j = 0; j < STRING_PER_SCHEDULE; j++) {
+            for (int i = 0; i < INTERVAL_PER_SCHEDULE; i++) {
                 StringScheduleValue string = StringScheduleValue.builder()
                         .type(String.format("String type %d", j))
                         .effectiveDay(startDate.plusMinutes(i * 15))
