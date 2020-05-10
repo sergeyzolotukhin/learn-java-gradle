@@ -58,7 +58,7 @@ public class Application {
                 for (int i = 0; i < schedules.size(); i++) {
                     session.save(schedules.get(i));
 
-                    if (i % 500 == 0) {
+                    if (i % 50 == 0) {
                         session.flush();
                         session.clear();
                     }
