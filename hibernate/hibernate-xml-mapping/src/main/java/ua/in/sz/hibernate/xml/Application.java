@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.StatelessSession;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -99,7 +100,7 @@ public class Application {
         log.info("Find schedules.");
         Stopwatch stopwatch1 = Stopwatch.createStarted();
 
-        List<Long> schedules = doInSession(sessionFactory, session -> {
+        List<Long> schedules = doInStatelessSession(sessionFactory, session -> {
             List<Long> result = session.createQuery("select s.id from Schedule s", Long.class).list();
 
             for (List<Long> chunk : Lists.partition(result, 1000)) {
@@ -115,8 +116,6 @@ public class Application {
                 List<NumberScheduleValue> values = query.list();
 
                 long numberCount = values.size();
-
-                session.clear();
 
                 log.trace("Schedules number values: {}, time {}", numberCount, stopwatch.stop());
             }
@@ -157,6 +156,16 @@ public class Application {
 
     private static <R> R doInSession(SessionFactory sessionFactory, Function<Session, R> function) {
         try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            R result = function.apply(session);
+            session.getTransaction().commit();
+
+            return result;
+        }
+    }
+
+    private static <R> R doInStatelessSession(SessionFactory sessionFactory, Function<StatelessSession, R> function) {
+        try (StatelessSession session = sessionFactory.openStatelessSession()) {
             session.beginTransaction();
             R result = function.apply(session);
             session.getTransaction().commit();
