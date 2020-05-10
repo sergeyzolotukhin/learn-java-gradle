@@ -13,6 +13,7 @@ import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Function;
 
@@ -44,19 +45,27 @@ public class Application {
     private static void createSchedules(SessionFactory sessionFactory) {
         doInSession(sessionFactory, (session) ->
         {
-            List<Schedule> schedules = ScheduleGenerator.generate();
+            LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 
-            for (int i = 0; i < schedules.size(); i++) {
-                session.save(schedules.get(i));
+            int DAYS = 12 * 31;
+            for (int d = 0; d < DAYS; d++) {
+                LocalDateTime date = startDate.plusDays(d);
+                log.info("Create schedule {}", date);
 
-                if (i % 500 == 0) {
-                    session.flush();
-                    session.clear();
+                List<Schedule> schedules = ScheduleGenerator.generate(date);
+
+                for (int i = 0; i < schedules.size(); i++) {
+                    session.save(schedules.get(i));
+
+                    if (i % 500 == 0) {
+                        session.flush();
+                        session.clear();
+                    }
                 }
-            }
 
-            session.flush();
-            session.clear();
+                session.flush();
+                session.clear();
+            }
 
             return null;
         });

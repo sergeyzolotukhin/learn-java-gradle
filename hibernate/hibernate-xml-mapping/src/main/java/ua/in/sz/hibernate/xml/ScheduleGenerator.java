@@ -11,21 +11,20 @@ import java.util.List;
 
 public class ScheduleGenerator {
 
-    public static final int SCHEDULE_PER_DAY = 30;
+    public static final int SCHEDULE_PER_DAY = 100 * 4;
     public static final int NUMBERS_PER_SCHEDULE = 15;
     public static final int STRING_PER_SCHEDULE = 10;
     public static final int INTERVAL_PER_SCHEDULE = 96;
 
-    public static List<Schedule> generate() {
-        LocalDateTime startDate = LocalDateTime.now();
-
+    public static List<Schedule> generate(LocalDateTime startDate) {
         List<Schedule> schedules = new ArrayList<>();
 
         for (int i = 0; i < SCHEDULE_PER_DAY; i++) {
             Schedule schedule = Schedule.builder()
                     .identification(String.format("Schedule %d", i))
-                    .startDate(startDate.plusDays(i))
-                    .stopDate(startDate.plusDays(i + 1))
+                    .type(String.format("Type %d", i))
+                    .startDate(startDate)
+                    .stopDate(startDate.plusDays(1))
                     .build();
 
             schedule.setNumberValueList(createNumberValues(startDate, schedule));
