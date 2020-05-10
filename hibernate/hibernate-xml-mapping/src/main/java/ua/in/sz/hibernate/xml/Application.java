@@ -43,15 +43,16 @@ public class Application {
     }
 
     private static void createSchedules(SessionFactory sessionFactory) {
-        doInSession(sessionFactory, (session) ->
-        {
-            LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
+        LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 
-            int DAYS = 12 * 31;
-            for (int d = 0; d < DAYS; d++) {
-                LocalDateTime date = startDate.plusDays(d);
-                log.info("Create schedule {}", date);
+        int DAYS = 12 * 31;
+        for (int d = 0; d < DAYS; d++) {
+            LocalDateTime date = startDate.plusDays(d);
 
+            log.info("Creating schedule {}", date);
+
+            doInSession(sessionFactory, (session) ->
+            {
                 List<Schedule> schedules = ScheduleGenerator.generate(date);
 
                 for (int i = 0; i < schedules.size(); i++) {
@@ -65,10 +66,12 @@ public class Application {
 
                 session.flush();
                 session.clear();
-            }
 
-            return null;
-        });
+                return null;
+            });
+
+            log.info("Created schedule {}", date);
+        }
     }
 
     private static void createWorkspaces(SessionFactory sessionFactory) {

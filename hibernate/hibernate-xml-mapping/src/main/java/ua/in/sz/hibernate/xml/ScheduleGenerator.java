@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ScheduleGenerator {
 
-    public static final int SCHEDULE_PER_DAY = 100 * 4;
+    public static final int SCHEDULE_PER_DAY = 10 * 4;
     public static final int NUMBERS_PER_SCHEDULE = 15;
     public static final int STRING_PER_SCHEDULE = 10;
     public static final int INTERVAL_PER_SCHEDULE = 96;
