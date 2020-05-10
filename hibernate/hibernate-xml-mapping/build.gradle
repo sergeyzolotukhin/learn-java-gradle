@@ -6,6 +6,9 @@ repositories{
     mavenLocal()
     jcenter()
     mavenCentral()
+    maven {
+        url "http://nexus.saas.hand-china.com/content/repositories/rdc/"
+    }
 }
 
 dependencies {
@@ -14,6 +17,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-hikaricp:5.4.15.Final'
     implementation 'com.zaxxer:HikariCP:3.4.4'
     implementation 'org.postgresql:postgresql:42.2.10'
+    compile 'com.oracle:ojdbc7:12.1.0.2'
 
     // common utils
     implementation 'commons-lang:commons-lang:2.6'
