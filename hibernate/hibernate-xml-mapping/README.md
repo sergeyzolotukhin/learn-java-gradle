@@ -20,3 +20,8 @@
 
     https://docs.oracle.com/database/121/CNCPT/tablecls.htm#CNCPT94767
     https://docs.oracle.com/database/121/TGSQL/tgsql_indc.htm#TGSQL869
+
+#### TKPROF
+
+    k:\soft\oracle\diag\rdbms\orcl\orcl\trace
+    k:\soft\oracle\product\12.1.0\dbhome_1\BIN

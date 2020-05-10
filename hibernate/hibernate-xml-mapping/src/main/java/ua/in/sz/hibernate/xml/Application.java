@@ -103,9 +103,13 @@ public class Application {
         List<Long> schedules = doInStatelessSession(sessionFactory, session -> {
             List<Long> result = session.createQuery("select s.id from Schedule s", Long.class).list();
 
+            int i = 0;
             for (List<Long> chunk : Lists.partition(result, 1000)) {
                 log.trace("Find number values");
                 Stopwatch stopwatch = Stopwatch.createStarted();
+
+                session.createNativeQuery("ALTER SESSION SET sql_trace=TRUE").executeUpdate();
+                session.createNativeQuery(String.format("ALTER SESSION SET TRACEFILE_IDENTIFIER = \"SCHEDULE_NUMBER_%d\"", i++)).executeUpdate();
 
                 Query<NumberScheduleValue> query = session.createQuery(
                         "select n " +
@@ -113,9 +117,12 @@ public class Application {
                                 "where n.schedule.id in (:ids)",
                         NumberScheduleValue.class);
                 query.setParameterList("ids", chunk);
+//                query.setComment("+ MONITOR");
                 List<NumberScheduleValue> values = query.list();
 
                 long numberCount = values.size();
+
+                session.createNativeQuery("ALTER SESSION SET sql_trace=FALSE").executeUpdate();
 
                 log.trace("Schedules number values: {}, time {}", numberCount, stopwatch.stop());
             }
