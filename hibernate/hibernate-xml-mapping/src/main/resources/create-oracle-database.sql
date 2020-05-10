@@ -14,3 +14,39 @@ GRANT CREATE SEQUENCE TO GE_DEV01;
 
 GRANT ALTER ANY TABLE TO GE_DEV01;
 GRANT DROP ANY TABLE TO GE_DEV01;
+
+-- --------------------------------------------------------------------------------------------------------------------
+insert into CL_SR_SCHEDULE_VALUE_NUMBER_T (
+    SCHEDULE_VALUE_ID, START_DATE, STOP_DATE, VALUE, VALUE_TYPE_ID, SCHEDULE_ID
+)
+select
+    SCHEDULE_VALUE_ID, START_DATE, STOP_DATE, VALUE, VALUE_TYPE_ID, SCHEDULE_ID
+from sr_schedule_value_number;
+
+drop cluster GE_DEV01.CL_SR_SCHEDULE_VALUE_NUMBER;
+create cluster GE_DEV01.CL_SR_SCHEDULE_VALUE_NUMBER (
+    SCHEDULE_ID      NUMBER(19,0)
+    )
+    hashkeys 10000
+    hash is ora_hash(SCHEDULE_ID)
+    size 256;
+
+create table GE_DEV01.CL_SR_SCHEDULE_VALUE_NUMBER_T
+(
+    "SCHEDULE_VALUE_ID" NUMBER(19,0) NOT NULL ENABLE,
+    "START_DATE" TIMESTAMP (6) NOT NULL ENABLE,
+    "STOP_DATE" TIMESTAMP (6),
+    "VALUE" NUMBER(19,2) NOT NULL ENABLE,
+    "VALUE_TYPE_ID" VARCHAR2(255 CHAR),
+    "SCHEDULE_ID" NUMBER(19,0),
+    PRIMARY KEY ("SCHEDULE_VALUE_ID")
+)
+    cluster
+    GE_DEV01.CL_SR_SCHEDULE_VALUE_NUMBER
+    (
+     SCHEDULE_ID
+        );
+
+begin
+    DBMS_STATS.GATHER_SCHEMA_STATS(ownname => 'GE_DEV01');
+end;

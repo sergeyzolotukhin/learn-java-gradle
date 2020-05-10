@@ -18,7 +18,6 @@ import ua.in.sz.hibernate.xml.impl.Workspace;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 
 @SuppressWarnings("unused")
@@ -108,8 +107,8 @@ public class Application {
                 log.trace("Find number values");
                 Stopwatch stopwatch = Stopwatch.createStarted();
 
-                session.createNativeQuery("ALTER SESSION SET sql_trace=TRUE").executeUpdate();
-                session.createNativeQuery(String.format("ALTER SESSION SET TRACEFILE_IDENTIFIER = \"SCHEDULE_NUMBER_%d\"", i++)).executeUpdate();
+//                session.createNativeQuery("ALTER SESSION SET sql_trace=TRUE").executeUpdate();
+//                session.createNativeQuery(String.format("ALTER SESSION SET TRACEFILE_IDENTIFIER = \"SCHEDULE_NUMBER_%d\"", i++)).executeUpdate();
 
                 Query<NumberScheduleValue> query = session.createQuery(
                         "select n " +
@@ -122,7 +121,7 @@ public class Application {
 
                 long numberCount = values.size();
 
-                session.createNativeQuery("ALTER SESSION SET sql_trace=FALSE").executeUpdate();
+//                session.createNativeQuery("ALTER SESSION SET sql_trace=FALSE").executeUpdate();
 
                 log.trace("Schedules number values: {}, time {}", numberCount, stopwatch.stop());
             }
