@@ -21,6 +21,7 @@
     https://docs.oracle.com/database/121/CNCPT/tablecls.htm#CNCPT94767
     https://docs.oracle.com/database/121/TGSQL/tgsql_indc.htm#TGSQL869
     https://hemantoracledba.blogspot.com/2013/06/getting-rowids-present-in-block.html
+    https://www.peasland.net/2011/08/01/dumping-data-blocks/
 
 #### TKPROF
 
