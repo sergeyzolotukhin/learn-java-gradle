@@ -20,34 +20,49 @@ public class ScheduleGenerator {
                 .stopDate(startDate.plusDays(1))
                 .build();
 
-        List<NumberScheduleValue> numberValues = new ArrayList<>();
-        List<StringScheduleValue> stringValues = new ArrayList<>();
-
-        schedule.setNumberValueList(numberValues);
-        schedule.setStringValueList(stringValues);
-
-        for (int i = 0; i < 96; i++) {
-            NumberScheduleValue number = NumberScheduleValue.builder()
-                    .effectiveDay(startDate.plusMinutes(i * 15))
-                    .terminationDay(startDate.plusMinutes((i + 1) * 15))
-                    .value(BigDecimal.valueOf(Math.random()))
-                    .schedule(schedule)
-                    .build();
-
-            numberValues.add(number);
-        }
-
-        for (int i = 0; i < 96; i++) {
-            StringScheduleValue string = StringScheduleValue.builder()
-                    .effectiveDay(startDate.plusMinutes(i * 15))
-                    .terminationDay(startDate.plusMinutes((i + 1) * 15))
-                    .value(String.format("One %d", i))
-                    .schedule(schedule)
-                    .build();
-
-            stringValues.add(string);
-        }
+        schedule.setNumberValueList(createNumberValues(startDate, schedule));
+        schedule.setStringValueList(createStringValues(startDate, schedule));
 
         return schedule;
+    }
+
+    private static List<NumberScheduleValue> createNumberValues(LocalDateTime startDate, Schedule schedule) {
+        List<NumberScheduleValue> numberValues = new ArrayList<>();
+
+        for (int j = 0; j < 15; j++) {
+            for (int i = 0; i < 96; i++) {
+                NumberScheduleValue number = NumberScheduleValue.builder()
+                        .type(String.format("Number type %d", j))
+                        .effectiveDay(startDate.plusMinutes(i * 15))
+                        .terminationDay(startDate.plusMinutes((i + 1) * 15))
+                        .value(BigDecimal.valueOf(Math.random()))
+                        .schedule(schedule)
+                        .build();
+
+                numberValues.add(number);
+            }
+        }
+
+        return numberValues;
+    }
+
+    private static List<StringScheduleValue> createStringValues(LocalDateTime startDate, Schedule schedule) {
+        List<StringScheduleValue> stringValues = new ArrayList<>();
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 96; i++) {
+                StringScheduleValue string = StringScheduleValue.builder()
+                        .type(String.format("String type %d", j))
+                        .effectiveDay(startDate.plusMinutes(i * 15))
+                        .terminationDay(startDate.plusMinutes((i + 1) * 15))
+                        .value(String.format("One %d", i))
+                        .schedule(schedule)
+                        .build();
+
+                stringValues.add(string);
+            }
+        }
+
+        return stringValues;
     }
 }
