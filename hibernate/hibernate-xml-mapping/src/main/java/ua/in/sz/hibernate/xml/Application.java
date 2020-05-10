@@ -116,6 +116,8 @@ public class Application {
 
                 long numberCount = values.size();
 
+                session.clear();
+
                 log.trace("Schedules number values: {}, time {}", numberCount, stopwatch.stop());
             }
 
