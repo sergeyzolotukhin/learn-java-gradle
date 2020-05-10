@@ -1,6 +1,7 @@
 package ua.in.sz.hibernate.xml;
 
 import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.Session;
@@ -16,6 +17,7 @@ import ua.in.sz.hibernate.xml.impl.Workspace;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 
 @SuppressWarnings("unused")
@@ -29,11 +31,11 @@ public class Application {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
-            createSchedules(sessionFactory);
+//            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
-            findSchedules(sessionFactory);
-//            findScheduleValues(sessionFactory);
+//            findSchedules(sessionFactory);
+            findScheduleValues(sessionFactory);
 
             sessionFactory.close();
         } catch (Exception e) {
@@ -100,19 +102,22 @@ public class Application {
         List<Long> schedules = doInSession(sessionFactory, session -> {
             List<Long> result = session.createQuery("select s.id from Schedule s", Long.class).list();
 
-            log.trace("Find number values");
-            Query<NumberScheduleValue> query = session.createQuery(
-                    "select n " +
-                            "from NumberScheduleValue n " +
-                            "where n.schedule.id in (:ids)",
-                    NumberScheduleValue.class);
-            query.setParameterList("ids", result);
-            List<NumberScheduleValue> values = query.list();
+            for (List<Long> chunk : Lists.partition(result, 1000)) {
+                log.trace("Find number values");
+                Stopwatch stopwatch = Stopwatch.createStarted();
 
-            long numberCount = result.stream()
-                    .mapToLong(s -> values.size())
-                    .sum();
-            log.trace("Schedules number values: {}", numberCount);
+                Query<NumberScheduleValue> query = session.createQuery(
+                        "select n " +
+                                "from NumberScheduleValue n " +
+                                "where n.schedule.id in (:ids)",
+                        NumberScheduleValue.class);
+                query.setParameterList("ids", chunk);
+                List<NumberScheduleValue> values = query.list();
+
+                long numberCount = values.size();
+
+                log.trace("Schedules number values: {}, time {}", numberCount, stopwatch.stop());
+            }
 
             return result;
         });
