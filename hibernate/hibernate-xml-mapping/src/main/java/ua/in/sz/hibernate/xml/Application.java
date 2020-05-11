@@ -25,6 +25,7 @@ import ua.in.sz.hibernate.xml.impl.Workspace;
 import javax.persistence.ParameterMode;
 import java.sql.Connection;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Function;
 
@@ -46,8 +47,7 @@ public class Application {
 
 //            createWorkspaces(sessionFactory);
 //            createSchedules(sessionFactory);
-
-            gatherStats(sessionFactory);
+//            gatherStats(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
@@ -94,7 +94,11 @@ public class Application {
 
             doInSession(sessionFactory, (session) ->
             {
-                List<Schedule> schedules = ScheduleGenerator.generate(date);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                Workspace workspace = Workspace.builder().name(formatter.format(date)).build();
+                session.save(workspace);
+
+                List<Schedule> schedules = ScheduleGenerator.generate(date, workspace);
 
                 for (int i = 0; i < schedules.size(); i++) {
                     session.save(schedules.get(i));
@@ -180,7 +184,8 @@ public class Application {
                     "select s " +
                             "from Schedule s " +
                             "LEFT JOIN FETCH s.stringValueSet sv " +
-                            "LEFT JOIN FETCH s.numberValueSet nv "
+                            "LEFT JOIN FETCH s.numberValueSet nv " +
+                            "WHERE s.workspace.name = '2020-01-01'"
                     , Schedule.class);
 
             List<Schedule> result = query.list();

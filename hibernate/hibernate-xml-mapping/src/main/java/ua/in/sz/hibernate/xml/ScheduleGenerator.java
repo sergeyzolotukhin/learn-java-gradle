@@ -3,6 +3,7 @@ package ua.in.sz.hibernate.xml;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
+import ua.in.sz.hibernate.xml.impl.Workspace;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ public class ScheduleGenerator {
     public static final int STRING_PER_SCHEDULE = 2; //10;
     public static final int INTERVAL_PER_SCHEDULE = 1;//96;
 
-    public static List<Schedule> generate(LocalDateTime startDate) {
+    public static List<Schedule> generate(LocalDateTime startDate, Workspace workspace ) {
         List<Schedule> schedules = new ArrayList<>();
 
         for (int i = 0; i < SCHEDULE_PER_DAY; i++) {
@@ -25,6 +26,7 @@ public class ScheduleGenerator {
                     .type(String.format("Type %d", i))
                     .startDate(startDate)
                     .stopDate(startDate.plusDays(1))
+                    .workspace(workspace)
                     .build();
 
             schedule.setNumberValueList(createNumberValues(startDate, schedule));
