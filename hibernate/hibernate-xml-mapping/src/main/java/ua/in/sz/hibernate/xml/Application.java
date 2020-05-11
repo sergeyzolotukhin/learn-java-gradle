@@ -40,7 +40,7 @@ public class Application {
             Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
             JdbcConnection jdbcCon = new JdbcConnection(con);
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
-            Liquibase liquibase = new Liquibase("db-changelog.xml", new ClassLoaderResourceAccessor(), database);
+            Liquibase liquibase = new Liquibase("db-changelog-cluster.xml", new ClassLoaderResourceAccessor(), database);
             liquibase.update("test");
 
             SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();

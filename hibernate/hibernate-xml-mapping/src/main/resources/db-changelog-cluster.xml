@@ -1,0 +1,149 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                   http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/pro
+                   http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!--  Sequences  -->
+    
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-1">
+        <createSequence incrementBy="100" maxValue="9999999999999999999999999999" sequenceName="SEQ_SCHEDULE"
+                        startValue="26000"/>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-2">
+        <createSequence incrementBy="100" maxValue="9999999999999999999999999999"
+                        sequenceName="SEQ_SCHEDULE_VALUE_NUMBER" startValue="21194000"/>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-3">
+        <createSequence incrementBy="100" maxValue="9999999999999999999999999999"
+                        sequenceName="SEQ_SCHEDULE_VALUE_STRING" startValue="14462000"/>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-4">
+        <createSequence incrementBy="100" maxValue="9999999999999999999999999999" sequenceName="SEQ_WORKSPACE"
+                        startValue="10000"/>
+    </changeSet>
+
+    <!--  cluster for tables  -->
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="cl-1">
+        <sql>
+            create cluster SR_CL_SCHEDULE ( SCHEDULE_ID NUMBER(19,0) )
+        </sql>
+        <rollback>drop cluster SR_CL_SCHEDULE</rollback>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="cl-2">
+        <sql>
+            create index SR_IX_CL_SCHEDULE on cluster SR_CL_SCHEDULE
+        </sql>
+        <rollback>drop cluster SR_IX_CL_SCHEDULE</rollback>
+    </changeSet>
+
+    <!--  Tables -->
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-5">
+        <createTable tableName="SR_SCHEDULE">
+            <column name="SCHEDULE_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SR_PK_S_SID"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STOP_DATE" type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_IDENT" type="VARCHAR2(255 CHAR)"/>
+            <column name="WORKSPACE_ID" type="NUMBER(19, 0)"/>
+            <column name="SCHEDULE_TYPE_ID" type="VARCHAR2(255 CHAR)"/>
+        </createTable>
+        <modifySql>
+            <append value="cluster SR_CL_SCHEDULE ( SCHEDULE_ID )"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-6">
+        <createTable tableName="SR_SCHEDULE_VALUE_NUMBER">
+            <column name="SCHEDULE_VALUE_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SR_PK_SVN_SVID"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STOP_DATE" type="TIMESTAMP(6)"/>
+            <column name="VALUE" type="NUMBER(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE_TYPE_ID" type="VARCHAR2(255 CHAR)"/>
+            <column name="SCHEDULE_ID" type="NUMBER(19, 0)"/>
+        </createTable>
+        <modifySql>
+            <append value="cluster SR_CL_SCHEDULE ( SCHEDULE_ID )"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-7">
+        <createTable tableName="SR_SCHEDULE_VALUE_STRING">
+            <column name="SCHEDULE_VALUE_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SR_PK_SVS_SVID"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STOP_DATE" type="TIMESTAMP(6)"/>
+            <column name="VALUE" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE_TYPE_ID" type="VARCHAR2(255 CHAR)"/>
+            <column name="SCHEDULE_ID" type="NUMBER(19, 0)"/>
+        </createTable>
+        <modifySql>
+            <append value="cluster SR_CL_SCHEDULE ( SCHEDULE_ID )"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-8">
+        <createTable tableName="SR_WORKSPACE">
+            <column name="WORKSPACE_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="SR_PK_W_WID"/>
+            </column>
+            <column name="NAME" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Foreign keys  -->
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-9">
+        <addForeignKeyConstraint baseColumnNames="WORKSPACE_ID" baseTableName="SR_SCHEDULE"
+                                 constraintName="SR_FK_WI_WID_S_WID" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="WORKSPACE_ID" referencedTableName="SR_WORKSPACE"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-10">
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_ID" baseTableName="SR_SCHEDULE_VALUE_STRING"
+                                 constraintName="SR_FK_SVS_SID_S_SID" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_ID" referencedTableName="SR_SCHEDULE" validate="true"/>
+    </changeSet>
+
+    <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-11">
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_ID" baseTableName="SR_SCHEDULE_VALUE_NUMBER"
+                                 constraintName="SR_FK_SVN_SID_S_SID" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_ID" referencedTableName="SR_SCHEDULE" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>
