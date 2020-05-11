@@ -45,8 +45,8 @@ public class Application {
 
             SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
 
-            createSchedules(sessionFactory);
-            gatherStats(sessionFactory);
+//            createSchedules(sessionFactory);
+//            gatherStats(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
@@ -178,7 +178,15 @@ public class Application {
         log.info("Find schedules.");
         Stopwatch stopwatch1 = Stopwatch.createStarted();
 
-        List<Schedule> schedules = doInSession(sessionFactory, session -> {
+        List<Schedule> schedules = doInStatelessSession(sessionFactory, session -> {
+            Long count = session.createQuery(
+                    "select count (s) " +
+                            "from Schedule s " +
+                            "WHERE s.workspace.name = '2020-01-01'"
+                    , Long.class)
+                    .uniqueResult();
+            log.info("Found schedule count: {}", count);
+
             Query<Schedule> query = session.createQuery(
                     "select s " +
                             "from Schedule s " +
