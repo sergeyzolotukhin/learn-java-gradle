@@ -37,5 +37,17 @@
             <one-to-many class="ua.in.sz.hibernate.xml.impl.StringScheduleValue"/>
         </bag>
 
+        <set name="numberValueSet" table="SR_SCHEDULE_VALUE_NUMBER" cascade="none" inverse="true"
+             fetch="subselect">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="ua.in.sz.hibernate.xml.impl.NumberScheduleValue"/>
+        </set>
+
+        <set name="stringValueSet" table="SR_SCHEDULE_VALUE_STRING" cascade="none" inverse="true"
+             fetch="subselect">
+            <key column="SCHEDULE_ID"/>
+            <one-to-many class="ua.in.sz.hibernate.xml.impl.StringScheduleValue"/>
+        </set>
+
     </class>
 </hibernate-mapping>

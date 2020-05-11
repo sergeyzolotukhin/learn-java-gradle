@@ -12,7 +12,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,6 +34,11 @@ public class Schedule implements IdBean<Long> {
 	private List<NumberScheduleValue> numberValueList = new ArrayList<>();
 	@Builder.Default
 	private List<StringScheduleValue> stringValueList = new ArrayList<>();
+
+	@Builder.Default
+	private Set<NumberScheduleValue> numberValueSet = new HashSet<>();
+	@Builder.Default
+	private Set<StringScheduleValue> stringValueSet = new HashSet<>();
 
 	@Override
 	public int hashCode() {

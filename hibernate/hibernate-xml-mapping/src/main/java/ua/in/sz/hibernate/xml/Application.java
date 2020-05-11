@@ -6,6 +6,7 @@ import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -36,27 +37,31 @@ public class Application {
                 .build();
         try {
             MetadataSources metadataSources = new MetadataSources(registry);
-
             Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
-            JdbcConnection jdbcCon = new JdbcConnection(con);
-            Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
-            Liquibase liquibase = new Liquibase("db-changelog-cluster.xml", new ClassLoaderResourceAccessor(), database);
-            liquibase.update("test");
+
+//            updateDatabase(con);
 
             SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
-            createSchedules(sessionFactory);
+//            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
-//            findSchedules(sessionFactory);
-            findScheduleValues(sessionFactory);
+            findSchedules(sessionFactory);
+//            findScheduleValues(sessionFactory);
 
             sessionFactory.close();
         } catch (Exception e) {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    private static void updateDatabase(Connection con) throws LiquibaseException {
+        JdbcConnection jdbcCon = new JdbcConnection(con);
+        Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
+        Liquibase liquibase = new Liquibase("db-changelog-cluster.xml", new ClassLoaderResourceAccessor(), database);
+        liquibase.update("test");
     }
 
     private static void createSchedules(SessionFactory sessionFactory) {
@@ -152,20 +157,23 @@ public class Application {
         Stopwatch stopwatch1 = Stopwatch.createStarted();
 
         List<Schedule> schedules = doInSession(sessionFactory, session -> {
-            List<Schedule> result = session.createQuery(
+            Query<Schedule> query = session.createQuery(
                     "select s " +
-                            "from Schedule s ",
-                    Schedule.class)
-                    .list();
+                            "from Schedule s " +
+                            "LEFT JOIN FETCH s.stringValueSet sv " +
+                            "LEFT JOIN FETCH s.numberValueSet nv "
+                    , Schedule.class);
+
+            List<Schedule> result = query.list();
             log.trace("Found schedules: count {}", CollectionUtils.size(result));
 
             long numberCount = result.stream()
-                    .mapToLong(s -> s.getNumberValueList().size())
+                    .mapToLong(s -> s.getNumberValueSet().size())
                     .sum();
             log.trace("Schedules number values: {}", numberCount);
 
             long stringCount = result.stream()
-                    .mapToLong(s -> s.getStringValueList().size())
+                    .mapToLong(s -> s.getStringValueSet().size())
                     .sum();
             log.trace("Schedules string values: {}", stringCount);
 

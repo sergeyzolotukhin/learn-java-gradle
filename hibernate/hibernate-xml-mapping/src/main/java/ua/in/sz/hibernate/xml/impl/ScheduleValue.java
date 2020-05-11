@@ -31,11 +31,17 @@ public abstract class ScheduleValue<T> implements IdBean<Long> {
 
         return schedule != null && thatValue.schedule != null && new EqualsBuilder().
                 append(schedule.getId(), thatValue.schedule.getId()).
-                append(type, thatValue.type).isEquals();
+                append(type, thatValue.type).
+                append(effectiveDay, thatValue.effectiveDay)
+                .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(schedule).append(type).toHashCode();
+        return new HashCodeBuilder()
+                .append(schedule)
+                .append(type)
+                .append(effectiveDay)
+                .toHashCode();
     }
 }

@@ -41,6 +41,7 @@ dependencies {
 
 liquibase {
     activities {
+        //noinspection GroovyAssignabilityCheck
         main {
             changeLogFile 'src/main/resources/db-changelog.xml'
             url "jdbc:oracle:thin:@localhost:1521:orcl"

@@ -16,6 +16,10 @@ grant create cluster TO GE_DEV01;
 GRANT ALTER ANY TABLE TO GE_DEV01;
 GRANT DROP ANY TABLE TO GE_DEV01;
 
+-- execution plan
+grant SELECT_CATALOG_ROLE to GE_DEV01;
+grant SELECT ANY DICTIONARY to GE_DEV01;
+
 -- --------------------------------------------------------------------------------------------------------------------
 insert into CL_SR_SCHEDULE_VALUE_NUMBER_T (
     SCHEDULE_VALUE_ID, START_DATE, STOP_DATE, VALUE, VALUE_TYPE_ID, SCHEDULE_ID
