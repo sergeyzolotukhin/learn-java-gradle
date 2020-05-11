@@ -22,7 +22,7 @@
         <property name="show_sql">false</property>
 <!--        <property name="show_sql">true</property>-->
 <!--        <property name="hbm2ddl.auto">create</property>-->
-        <property name="hbm2ddl.auto">none</property>
+        <property name="hbm2ddl.auto">validate</property>
 
         <mapping resource="ua/in/sz/hibernate/xml/Workspace.hbm.xml"/>
         <mapping resource="ua/in/sz/hibernate/xml/Schedule.hbm.xml"/>
