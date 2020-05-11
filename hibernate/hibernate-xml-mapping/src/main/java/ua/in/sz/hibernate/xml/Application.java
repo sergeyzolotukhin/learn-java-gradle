@@ -22,6 +22,7 @@ import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
+import javax.persistence.ParameterMode;
 import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -37,14 +38,16 @@ public class Application {
                 .build();
         try {
             MetadataSources metadataSources = new MetadataSources(registry);
-            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
 
+//            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
 //            updateDatabase(con);
 
             SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
 //            createSchedules(sessionFactory);
+
+            gatherStats(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
@@ -55,6 +58,22 @@ public class Application {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    private static void gatherStats(SessionFactory sessionFactory) {
+        doInStatelessSession(sessionFactory, session -> {
+            log.info("Gathering stats");
+            Stopwatch stopwatch = Stopwatch.createStarted();
+
+            session.createStoredProcedureCall("DBMS_STATS.GATHER_SCHEMA_STATS")
+                    .registerStoredProcedureParameter("ownname", String.class, ParameterMode.IN)
+                    .setParameter("ownname", "GE_DEV01")
+                    .execute();
+
+            log.info("Gathered stats. Execution time: {}", stopwatch.stop());
+
+            return null;
+        });
     }
 
     private static void updateDatabase(Connection con) throws LiquibaseException {
