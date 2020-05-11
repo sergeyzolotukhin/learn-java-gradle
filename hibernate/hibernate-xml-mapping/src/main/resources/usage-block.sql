@@ -46,3 +46,11 @@ ALTER DATABASE DATAFILE 'K:\SOFT\ORACLE\ORADATA\ORCL\GE_DEV01.DBF' RESIZE 10M;
 
 alter table GE_DEV01.SR_SCHEDULE move tablespace GE_TABLESPACE_DEV01;
 alter index GE_DEV01.SYS_C0010004 rebuild;
+
+select rowid, DBMS_ROWID.ROWID_BLOCK_NUMBER(rowid) block_id, dbms_rowid.rowid_row_number(ROWID) as row_no, s.*
+from SR_SCHEDULE s
+;
+
+select rowid, DBMS_ROWID.ROWID_BLOCK_NUMBER(rowid) block_id, dbms_rowid.rowid_row_number(ROWID) as row_no, s.*
+from SR_SCHEDULE_VALUE_NUMBER s
+;

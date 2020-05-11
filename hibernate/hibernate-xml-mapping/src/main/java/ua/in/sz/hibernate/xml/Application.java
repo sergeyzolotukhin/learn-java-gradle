@@ -31,7 +31,7 @@ public class Application {
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
-//            createSchedules(sessionFactory);
+            createSchedules(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
 //            findSchedules(sessionFactory);
@@ -47,7 +47,7 @@ public class Application {
     private static void createSchedules(SessionFactory sessionFactory) {
         LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 
-        int DAYS = 12 * 31;
+        int DAYS = 1; //12 * 31;
         for (int d = 0; d < DAYS; d++) {
             LocalDateTime date = startDate.plusDays(d);
 
