@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "org.liquibase.gradle" version "2.0.2"
 }
 
 repositories{
@@ -16,8 +17,12 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.15.Final'
     implementation 'org.hibernate:hibernate-hikaricp:5.4.15.Final'
     implementation 'com.zaxxer:HikariCP:3.4.4'
-    implementation 'org.postgresql:postgresql:42.2.10'
-    compile 'com.oracle:ojdbc7:12.1.0.2'
+    implementation 'org.liquibase:liquibase-core:3.8.9'
+    implementation 'com.oracle:ojdbc7:12.1.0.2'
+
+    // database migration
+    liquibaseRuntime 'org.liquibase:liquibase-core:3.8.9'
+    liquibaseRuntime 'com.oracle:ojdbc7:12.1.0.2'
 
     // common utils
     implementation 'commons-lang:commons-lang:2.6'
@@ -32,5 +37,17 @@ dependencies {
     // development
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
+}
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/db-changelog.xml'
+            url "jdbc:oracle:thin:@localhost:1521:orcl"
+            username "GE_DEV01"
+            password "GE_DEV01"
+        }
+    }
+//    runList = project.ext.runList
 }
 

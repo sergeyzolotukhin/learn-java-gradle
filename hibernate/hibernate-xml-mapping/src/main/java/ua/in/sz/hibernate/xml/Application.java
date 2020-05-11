@@ -2,6 +2,11 @@ package ua.in.sz.hibernate.xml;
 
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;
+import liquibase.Liquibase;
+import liquibase.database.Database;
+import liquibase.database.DatabaseFactory;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.resource.ClassLoaderResourceAccessor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.Session;
@@ -10,11 +15,13 @@ import org.hibernate.StatelessSession;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Function;
@@ -28,7 +35,15 @@ public class Application {
                 .configure()
                 .build();
         try {
-            SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            MetadataSources metadataSources = new MetadataSources(registry);
+
+            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
+            JdbcConnection jdbcCon = new JdbcConnection(con);
+            Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
+            Liquibase liquibase = new Liquibase("db-changelog.xml", new ClassLoaderResourceAccessor(), database);
+            liquibase.update("test");
+
+            SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
 
 //            createWorkspaces(sessionFactory);
             createSchedules(sessionFactory);

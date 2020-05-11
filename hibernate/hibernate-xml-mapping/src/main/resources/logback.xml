@@ -11,6 +11,7 @@
     <!--    <logger name="org.hibernate.SQL" level="debug" />-->
 
     <!-- Framework -->
+    <logger name="liquibase" level="warn"/>
     <logger name="org.hibernate" level="warn"/>
     <logger name="com.zaxxer.hikari" level="warn"/>
 

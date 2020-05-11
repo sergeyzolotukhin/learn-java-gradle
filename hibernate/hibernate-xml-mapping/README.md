@@ -16,6 +16,10 @@
     [Customize schema generation Hibernate](https://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/chapters/schema/Schema.html)
     https://springframework.guru/using-h2-and-oracle-with-spring-boot/
 
+#### Hibernate liquebase integration
+
+    https://thorben-janssen.com/automatic-database-updates-integrating-liquibase/
+
 #### Cluster table oracle
 
     https://docs.oracle.com/database/121/CNCPT/tablecls.htm#CNCPT94767
