@@ -30,7 +30,7 @@ public class ScheduleGeneratorApplication {
     public static void main(String[] args) {
         Sessions.doInSessionFactory(sessionFactory -> {
             createSchedules(sessionFactory);
-            gatherStats(sessionFactory);
+//            gatherStats(sessionFactory);
         });
     }
 
