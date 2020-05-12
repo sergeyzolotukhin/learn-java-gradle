@@ -8,10 +8,12 @@ import org.hibernate.StatelessSession;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static ua.in.sz.hibernate.xml.Sessions.doInStatelessSession;
 
@@ -42,6 +44,10 @@ public class ScheduleValueClusterApplication {
             List<Long> workspaceIds = findWorkspaceIds(session, Collections.singletonList("2020-01-01"));
 
             List<Schedule> schedules = findSchedules(session, workspaceIds);
+
+            List<Long> scheduleIds = schedules.stream().map(Schedule::getId).collect(Collectors.toList());
+
+            List<NumberScheduleValue> numberScheduleValues = findNumberScheduleValues(session, scheduleIds);
 
             log.info("Loaded schedules, count {}", schedules.size());
 
@@ -78,6 +84,23 @@ public class ScheduleValueClusterApplication {
                 .list();
 
         log.info("Found schedules. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
+
+        return result;
+    }
+
+    private static List<NumberScheduleValue> findNumberScheduleValues(StatelessSession session, List<Long> scheduleIds) {
+        log.info("Find number schedule values");
+        Stopwatch stopwatch = Stopwatch.createStarted();
+
+        List<NumberScheduleValue> result = session.createQuery(
+                "select n " +
+                        "from NumberScheduleValue n " +
+                        "where n.schedule.id in (:scheduleIds)"
+                , NumberScheduleValue.class)
+                .setParameterList("scheduleIds", scheduleIds)
+                .list();
+
+        log.info("Found number schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
 
         return result;
     }
