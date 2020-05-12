@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import static ua.in.sz.hibernate.xml.Sessions.doInSession;
 
 @Slf4j
-public class ScheduleValueApplication {
+public class ScheduleValueSetApplication {
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()
@@ -94,7 +94,7 @@ public class ScheduleValueApplication {
         Stopwatch stopwatch = Stopwatch.createStarted();
 
         List<NumberScheduleValue> result = schedules.stream()
-                .flatMap(schedule -> schedule.getNumberValueList().stream())
+                .flatMap(schedule -> schedule.getNumberValueSet().stream())
                 .collect(Collectors.toList());
 
         log.trace("Found number schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
@@ -107,7 +107,7 @@ public class ScheduleValueApplication {
         Stopwatch stopwatch = Stopwatch.createStarted();
 
         List<StringScheduleValue> result = schedules.stream()
-                .flatMap(schedule -> schedule.getStringValueList().stream())
+                .flatMap(schedule -> schedule.getStringValueSet().stream())
                 .collect(Collectors.toList());
 
         log.trace("Found string schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
