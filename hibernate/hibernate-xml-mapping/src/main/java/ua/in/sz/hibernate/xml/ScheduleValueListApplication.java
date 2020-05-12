@@ -30,8 +30,8 @@ public class ScheduleValueListApplication {
 
             List<Schedule> schedules = findSchedules(session, workspaceIds);
 
-            List<NumberScheduleValue> numberValues = findNumberScheduleValues(schedules);
-            List<StringScheduleValue> stringValues = findStringScheduleValues(schedules);
+            List<NumberScheduleValue> numberValues = findNumberScheduleValues(session, schedules);
+            List<StringScheduleValue> stringValues = findStringScheduleValues(session, schedules);
 
             log.info("Loaded schedules, count {}, numbers {}, strings {}, time {}",
                     schedules.size(), numberValues.size(), stringValues.size(),
@@ -72,20 +72,25 @@ public class ScheduleValueListApplication {
         return result;
     }
 
-    private static List<NumberScheduleValue> findNumberScheduleValues(List<Schedule> schedules) {
+    private static List<NumberScheduleValue> findNumberScheduleValues(Session session, List<Schedule> schedules) {
         log.trace("Find number schedule values");
         Stopwatch stopwatch = Stopwatch.createStarted();
+
+        Sessions.startTkProf(session, "load-number-value-3");
 
         List<NumberScheduleValue> result = schedules.stream()
                 .flatMap(schedule -> schedule.getNumberValueList().stream())
                 .collect(Collectors.toList());
+
+        Sessions.endTkProf(session);
 
         log.trace("Found number schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
 
         return result;
     }
 
-    private static List<StringScheduleValue> findStringScheduleValues(List<Schedule> schedules ) {
+    @SuppressWarnings("unused")
+    private static List<StringScheduleValue> findStringScheduleValues(Session session, List<Schedule> schedules) {
         log.trace("Find string schedule values");
         Stopwatch stopwatch = Stopwatch.createStarted();
 

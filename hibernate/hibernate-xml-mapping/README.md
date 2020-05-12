@@ -32,6 +32,7 @@
 
     k:\soft\oracle\diag\rdbms\orcl\orcl\trace
     k:\soft\oracle\product\12.1.0\dbhome_1\BIN
+    tkprof.exe orcl_ora_7572_load-number-value-2.trc load-num.txt
 
 #### SQL Real Time monitor
 

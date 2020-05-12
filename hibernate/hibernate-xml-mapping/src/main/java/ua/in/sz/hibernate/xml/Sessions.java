@@ -102,4 +102,22 @@ public class Sessions {
             stmt.execute();
         });
     }
+
+    public static void startTkProf(StatelessSession session, String name) {
+        session.createNativeQuery("ALTER SESSION SET sql_trace=TRUE").executeUpdate();
+        session.createNativeQuery(String.format("ALTER SESSION SET TRACEFILE_IDENTIFIER = \"%s\"", name)).executeUpdate();
+    }
+
+    public static void endTkProf(StatelessSession session) {
+        session.createNativeQuery("ALTER SESSION SET sql_trace=FALSE").executeUpdate();
+    }
+
+    public static void startTkProf(Session session, String name) {
+        session.createNativeQuery("ALTER SESSION SET sql_trace=TRUE").executeUpdate();
+        session.createNativeQuery(String.format("ALTER SESSION SET TRACEFILE_IDENTIFIER = \"%s\"", name)).executeUpdate();
+    }
+
+    public static void endTkProf(Session session) {
+        session.createNativeQuery("ALTER SESSION SET sql_trace=FALSE").executeUpdate();
+    }
 }
