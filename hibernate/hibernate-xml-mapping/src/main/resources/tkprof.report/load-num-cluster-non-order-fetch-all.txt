@@ -85,8 +85,10 @@ Number of plan statistics captured: 1
 Rows (1st) Rows (avg) Rows (max)  Row Source Operation
 ---------- ---------- ----------  ---------------------------------------------------
     576000     576000     576000  INLIST ITERATOR  (cr=4008 pr=0 pw=0 time=603662 us)
-    576000     576000     576000   TABLE ACCESS CLUSTER SR_SCHEDULE_VALUE_NUMBER (cr=4008 pr=0 pw=0 time=262326 us cost=403 size=28800000 card=576000)
-       400        400        400    INDEX RANGE SCAN SR_IX_CL_SCHEDULE_VN (cr=8 pr=0 pw=0 time=2242 us cost=2 size=0 card=1)(object id 92354)
+    576000     576000     576000   TABLE ACCESS CLUSTER SR_SCHEDULE_VALUE_NUMBER
+                                        (cr=4008 pr=0 pw=0 time=262326 us cost=403 size=28800000 card=576000)
+       400        400        400    INDEX RANGE SCAN SR_IX_CL_SCHEDULE_VN
+                                        (cr=8 pr=0 pw=0 time=2242 us cost=2 size=0 card=1)(object id 92354)
 
 ********************************************************************************
 
