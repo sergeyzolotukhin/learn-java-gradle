@@ -76,13 +76,13 @@ public class ScheduleValueClusterApplication {
         log.trace("Find number schedule values");
         Stopwatch stopwatch = Stopwatch.createStarted();
 
-        Sessions.startTkProf(session, "load-number-value-2");
+        Sessions.startTkProf(session, "load-number-value-4");
 
         List<NumberScheduleValue> result = session.createQuery(
                 "select n from NumberScheduleValue n where n.schedule.id in (:scheduleIds)"
                 , NumberScheduleValue.class)
                 .setParameterList("scheduleIds", scheduleIds)
-                .setFetchSize(100000)
+                .setFetchSize(800000)
                 .setReadOnly(true)
                 .setCacheable(false)
                 .list();
