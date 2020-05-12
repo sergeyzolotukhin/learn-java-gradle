@@ -7,7 +7,9 @@ import org.hibernate.StatelessSession;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 
+import java.sql.Connection;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -34,9 +36,7 @@ public class Sessions {
     }
 
     public static void doInSessionFactory(Consumer<SessionFactory> function) {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         try {
             MetadataSources metadataSources = new MetadataSources(registry);
 
@@ -48,5 +48,23 @@ public class Sessions {
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    public static void doInConnection(ConnectionConsumer<Connection> consumer) {
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+        try {
+            MetadataSources metadataSources = new MetadataSources(registry);
+            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
+
+            consumer.accept(con);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            StandardServiceRegistryBuilder.destroy(registry);
+        }
+    }
+
+    public interface ConnectionConsumer<T> {
+        void accept(T t) throws Exception;
     }
 }
