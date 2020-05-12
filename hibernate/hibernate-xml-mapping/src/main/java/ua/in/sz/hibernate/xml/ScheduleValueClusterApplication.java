@@ -76,11 +76,20 @@ public class ScheduleValueClusterApplication {
         log.trace("Find number schedule values");
         Stopwatch stopwatch = Stopwatch.createStarted();
 
+        String sqlName = "load-number-value-2";
+
+        Long sqlId = Sessions.startSqlMonitor(session, sqlName);
+
         List<NumberScheduleValue> result = session.createQuery(
                 "select n from NumberScheduleValue n where n.schedule.id in (:scheduleIds)"
                 , NumberScheduleValue.class)
                 .setParameterList("scheduleIds", scheduleIds)
+                .setFetchSize(100000)
+                .setReadOnly(true)
+                .setCacheable(false)
                 .list();
+
+        Sessions.endSqlMonitor(session, sqlName, sqlId);
 
         log.trace("Found number schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
 

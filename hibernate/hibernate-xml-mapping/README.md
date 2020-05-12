@@ -32,3 +32,7 @@
 
     k:\soft\oracle\diag\rdbms\orcl\orcl\trace
     k:\soft\oracle\product\12.1.0\dbhome_1\BIN
+
+#### SQL Real Time monitor
+
+    https://yasu-khan.github.io/Oracle12c-History-Reports-of-RealTimeSQLMonitoring
