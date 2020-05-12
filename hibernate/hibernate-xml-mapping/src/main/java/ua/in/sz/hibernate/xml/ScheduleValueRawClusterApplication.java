@@ -33,7 +33,7 @@ public class ScheduleValueRawClusterApplication {
             List<Long> scheduleIds = schedules.stream().map(Schedule::getId).collect(Collectors.toList());
 
             List<Object[]> numberValues = findNumberScheduleValues(session, scheduleIds);
-            List<StringScheduleValue> stringValues = findStringScheduleValues(session, scheduleIds);
+            List<Object[]> stringValues = findStringScheduleValues(session, scheduleIds);
 
             log.info("Loaded schedules, count {}, numbers {}, strings {}, time {}",
                     schedules.size(), numberValues.size(), stringValues.size(),
@@ -95,14 +95,17 @@ public class ScheduleValueRawClusterApplication {
         return result;
     }
 
-    private static List<StringScheduleValue> findStringScheduleValues(StatelessSession session, List<Long> scheduleIds) {
+    private static List<Object[]> findStringScheduleValues(StatelessSession session, List<Long> scheduleIds) {
         log.trace("Find string schedule values");
         Stopwatch stopwatch = Stopwatch.createStarted();
 
-        List<StringScheduleValue> result = session.createQuery(
-                "select n from StringScheduleValue n where n.schedule.id in (:scheduleIds)"
-                , StringScheduleValue.class)
-                .setParameterList("scheduleIds", scheduleIds)
+        List<Object[]> result = session.createQuery(
+                "select n.schedule.id, n.effectiveDay, n.terminationDay, n.type, n.value " +
+                        "from StringScheduleValue n where n.schedule.id in (:scheduleIds)"
+                , Object[].class)
+                .setParameterList("scheduleIds", scheduleIds).setFetchSize(400000)
+                .setReadOnly(true)
+                .setCacheable(false)
                 .list();
 
         log.trace("Found string schedule values. count: {}, time: {}", CollectionUtils.size(result), stopwatch.stop());
