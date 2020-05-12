@@ -2,32 +2,21 @@ package ua.in.sz.hibernate.xml;
 
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;
-import liquibase.Liquibase;
-import liquibase.database.Database;
-import liquibase.database.DatabaseFactory;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
-import liquibase.resource.ClassLoaderResourceAccessor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.StatelessSession;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.Workspace;
 
-import javax.persistence.ParameterMode;
-import java.sql.Connection;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.function.Function;
+
+import static ua.in.sz.hibernate.xml.Sessions.doInSession;
+import static ua.in.sz.hibernate.xml.Sessions.doInStatelessSession;
 
 
 @SuppressWarnings("unused")
@@ -39,14 +28,7 @@ public class Application {
                 .build();
         try {
             MetadataSources metadataSources = new MetadataSources(registry);
-
-//            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
-//            updateDatabase(con);
-
             SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
-
-//            createSchedules(sessionFactory);
-//            gatherStats(sessionFactory);
 
 //            findWorkspaces(sessionFactory);
             findSchedules(sessionFactory);
@@ -56,65 +38,6 @@ public class Application {
         } catch (Exception e) {
             log.error("Can't save or load workspace", e);
             StandardServiceRegistryBuilder.destroy(registry);
-        }
-    }
-
-    private static void gatherStats(SessionFactory sessionFactory) {
-        doInStatelessSession(sessionFactory, session -> {
-            log.info("Gathering stats");
-            Stopwatch stopwatch = Stopwatch.createStarted();
-
-            session.createStoredProcedureCall("DBMS_STATS.GATHER_SCHEMA_STATS")
-                    .registerStoredProcedureParameter("ownname", String.class, ParameterMode.IN)
-                    .setParameter("ownname", "GE_DEV01")
-                    .execute();
-
-            log.info("Gathered stats. Execution time: {}", stopwatch.stop());
-
-            return null;
-        });
-    }
-
-    private static void updateDatabase(Connection con) throws LiquibaseException {
-        JdbcConnection jdbcCon = new JdbcConnection(con);
-        Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
-        Liquibase liquibase = new Liquibase("db-changelog-cluster.xml", new ClassLoaderResourceAccessor(), database);
-        liquibase.update("test");
-    }
-
-    private static void createSchedules(SessionFactory sessionFactory) {
-        LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
-
-        int DAYS = 10; //12 * 31;
-        for (int d = 0; d < DAYS; d++) {
-            LocalDateTime date = startDate.plusDays(d);
-
-            log.info("Creating schedule {}", date);
-
-            doInSession(sessionFactory, (session) ->
-            {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                Workspace workspace = Workspace.builder().name(formatter.format(date)).build();
-                session.save(workspace);
-
-                List<Schedule> schedules = ScheduleGenerator.generate(date, workspace);
-
-                for (int i = 0; i < schedules.size(); i++) {
-                    session.save(schedules.get(i));
-
-                    if (i % 50 == 0) {
-                        session.flush();
-                        session.clear();
-                    }
-                }
-
-                session.flush();
-                session.clear();
-
-                return null;
-            });
-
-            log.info("Created schedule {}", date);
         }
     }
 
@@ -214,23 +137,5 @@ public class Application {
         log.info("Found schedules. count: {}, execution time: {}", CollectionUtils.size(schedules), stopwatch1.stop());
     }
 
-    private static <R> R doInSession(SessionFactory sessionFactory, Function<Session, R> function) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            R result = function.apply(session);
-            session.getTransaction().commit();
 
-            return result;
-        }
-    }
-
-    private static <R> R doInStatelessSession(SessionFactory sessionFactory, Function<StatelessSession, R> function) {
-        try (StatelessSession session = sessionFactory.openStatelessSession()) {
-            session.beginTransaction();
-            R result = function.apply(session);
-            session.getTransaction().commit();
-
-            return result;
-        }
-    }
 }
