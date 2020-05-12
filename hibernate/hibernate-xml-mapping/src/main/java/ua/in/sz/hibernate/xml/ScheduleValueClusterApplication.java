@@ -5,9 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.SessionFactory;
 import org.hibernate.StatelessSession;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
@@ -21,21 +18,7 @@ import static ua.in.sz.hibernate.xml.Sessions.doInStatelessSession;
 @Slf4j
 public class ScheduleValueClusterApplication {
     public static void main(String[] args) {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
-        try {
-            MetadataSources metadataSources = new MetadataSources(registry);
-
-            SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
-
-            findSchedules(sessionFactory);
-
-            sessionFactory.close();
-        } catch (Exception e) {
-            log.error("Can't save or load workspace", e);
-            StandardServiceRegistryBuilder.destroy(registry);
-        }
+        Sessions.doInSessionFactory(ScheduleValueClusterApplication::findSchedules);
     }
 
     private static void findSchedules(SessionFactory sessionFactory) {
