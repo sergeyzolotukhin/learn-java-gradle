@@ -1,18 +1,8 @@
 package ua.in.sz.hibernate.xml;
 
 import com.google.common.base.Stopwatch;
-import liquibase.Liquibase;
-import liquibase.database.Database;
-import liquibase.database.DatabaseFactory;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
-import liquibase.resource.ClassLoaderResourceAccessor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
@@ -20,7 +10,6 @@ import ua.in.sz.hibernate.xml.impl.Workspace;
 
 import javax.persistence.ParameterMode;
 import java.math.BigDecimal;
-import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -39,32 +28,10 @@ public class ScheduleGeneratorApplication {
     public static final int INTERVAL_PER_SCHEDULE = 96;
 
     public static void main(String[] args) {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
-        try {
-            MetadataSources metadataSources = new MetadataSources(registry);
-
-            Connection con = metadataSources.getServiceRegistry().getService(ConnectionProvider.class).getConnection();
-            updateDatabase(con);
-
-            SessionFactory sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
-
+        Sessions.doInSessionFactory(sessionFactory -> {
             createSchedules(sessionFactory);
             gatherStats(sessionFactory);
-
-            sessionFactory.close();
-        } catch (Exception e) {
-            log.error("Can't save or load workspace", e);
-            StandardServiceRegistryBuilder.destroy(registry);
-        }
-    }
-
-    private static void updateDatabase(Connection con) throws LiquibaseException {
-        JdbcConnection jdbcCon = new JdbcConnection(con);
-        Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(jdbcCon);
-        Liquibase liquibase = new Liquibase("db-changelog-value-cluster.xml", new ClassLoaderResourceAccessor(), database);
-        liquibase.update("test");
+        });
     }
 
     private static void createSchedules(SessionFactory sessionFactory) {
@@ -109,7 +76,7 @@ public class ScheduleGeneratorApplication {
 
             session.createStoredProcedureCall("DBMS_STATS.GATHER_SCHEMA_STATS")
                     .registerStoredProcedureParameter("ownname", String.class, ParameterMode.IN)
-                    .setParameter("ownname", "GE_DEV01")
+                    .setParameter("ownname", "GE_DEV02")
                     .execute();
 
             log.info("Gathered stats. Execution time: {}", stopwatch.stop());
