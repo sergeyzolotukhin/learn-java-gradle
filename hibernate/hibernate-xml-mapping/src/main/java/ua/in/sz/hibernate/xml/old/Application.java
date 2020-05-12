@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.xml;
+package ua.in.sz.hibernate.xml.old;
 
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;

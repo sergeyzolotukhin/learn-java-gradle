@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="ua.in.sz.hibernate.xml.Application" level="trace"/>
+    <logger name="ua.in.sz.hibernate.xml.old.Application" level="trace"/>
     <logger name="ua.in.sz.hibernate.xml.ScheduleValueClusterApplication" level="trace"/>
     <logger name="ua.in.sz.hibernate.xml.ScheduleValueApplication" level="trace"/>
 
