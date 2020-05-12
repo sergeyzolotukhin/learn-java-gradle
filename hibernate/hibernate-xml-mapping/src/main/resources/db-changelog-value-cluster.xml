@@ -157,4 +157,11 @@
                                  referencedColumnNames="SCHEDULE_ID" referencedTableName="SR_SCHEDULE" validate="true"/>
     </changeSet>
 
+    <!-- Indexes -->
+    <changeSet author="serhij.zolotukhin@gmail.com" id="IX-1">
+        <createIndex indexName="SR_IX_SCHEDULE_WS_ID" tableName="SR_SCHEDULE">
+            <column name="WORKSPACE_ID"/>
+        </createIndex>
+    </changeSet>
+
 </databaseChangeLog>

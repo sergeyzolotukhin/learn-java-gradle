@@ -12,7 +12,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <!--  Sequences  -->
-    
+
     <changeSet author="serhij.zolotukhin@gmail.com" id="1589199664794-1">
         <createSequence incrementBy="100" maxValue="9999999999999999999999999999" sequenceName="SEQ_SCHEDULE"
                         startValue="26000"/>
@@ -118,6 +118,13 @@
                                  constraintName="FKQ7L14NKSUL7PGTD2AKSSS538G" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
                                  referencedColumnNames="SCHEDULE_ID" referencedTableName="SR_SCHEDULE" validate="true"/>
+    </changeSet>
+
+    <!-- Indexes -->
+    <changeSet author="serhij.zolotukhin@gmail.com" id="IX-1">
+        <createIndex indexName="SR_IX_SCHEDULE_WS_ID" tableName="SR_SCHEDULE">
+            <column name="WORKSPACE_ID"/>
+        </createIndex>
     </changeSet>
 
 </databaseChangeLog>
