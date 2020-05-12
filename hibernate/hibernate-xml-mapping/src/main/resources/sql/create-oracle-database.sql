@@ -19,3 +19,9 @@ GRANT DROP ANY TABLE TO GE_DEV03;
 -- execution plan
 grant SELECT_CATALOG_ROLE to GE_DEV03;
 grant SELECT ANY DICTIONARY to GE_DEV03;
+
+drop cluster SR_CL_SCHEDULE_VN;
+drop cluster SR_CL_SCHEDULE_VS;
+
+alter system flush buffer_cache;
+alter system flush shared_pool;
