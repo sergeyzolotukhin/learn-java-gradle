@@ -8,6 +8,7 @@
     <logger name="ua.in.sz.hibernate.xml.old.Application" level="trace"/>
     <logger name="ua.in.sz.hibernate.xml.ScheduleValueClusterApplication" level="trace"/>
     <logger name="ua.in.sz.hibernate.xml.ScheduleValueListApplication" level="trace"/>
+    <logger name="ua.in.sz.hibernate.xml.ScheduleValueRawClusterApplication" level="trace"/>
 
     <!-- Trace SQL -->
     <!--    <logger name="org.hibernate.SQL" level="debug" />-->
