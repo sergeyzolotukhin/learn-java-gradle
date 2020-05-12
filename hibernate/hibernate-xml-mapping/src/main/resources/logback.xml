@@ -6,6 +6,7 @@
     </appender>
 
     <logger name="ua.in.sz.hibernate.xml.Application" level="trace"/>
+    <logger name="ua.in.sz.hibernate.xml.ScheduleValueClusterApplication" level="trace"/>
 
     <!-- Trace SQL -->
     <!--    <logger name="org.hibernate.SQL" level="debug" />-->
