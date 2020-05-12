@@ -32,6 +32,7 @@ import static ua.in.sz.hibernate.xml.Sessions.doInStatelessSession;
 @Slf4j
 public class ScheduleGeneratorApplication {
 
+    public static final int DAYS = 10;
     public static final int SCHEDULE_PER_DAY = 10 * 4;
     public static final int NUMBERS_PER_SCHEDULE = 15;
     public static final int STRING_PER_SCHEDULE = 10;
@@ -69,7 +70,6 @@ public class ScheduleGeneratorApplication {
     private static void createSchedules(SessionFactory sessionFactory) {
         LocalDateTime startDate = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
 
-        int DAYS = 10;
         for (int d = 0; d < DAYS; d++) {
             LocalDateTime date = startDate.plusDays(d);
 
