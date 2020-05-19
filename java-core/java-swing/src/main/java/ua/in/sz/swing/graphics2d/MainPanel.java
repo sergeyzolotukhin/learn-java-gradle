@@ -1,7 +1,7 @@
-package ua.in.sz.swing;
+package ua.in.sz.swing.graphics2d;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.swing.model.Rect;
+import ua.in.sz.swing.graphics2d.model.Rect;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package ua.in.sz.swing.model;
+package ua.in.sz.swing.graphics2d.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
