@@ -44,9 +44,10 @@ public class Application {
 		b2c.gridx = 1;
 		b2c.gridwidth = 2;
 		b2c.weightx = 1;
-		b2c.anchor = DebugGridBagConstraints.EAST;
+		b2c.anchor = DebugGridBagConstraints.WEST;
 		b2c.fill = DebugGridBagConstraints.HORIZONTAL;
-		panel.add(new JButton("2"  ), b2c);
+		JButton c1 = new JButton("2");
+		panel.add(c1, b2c);
 
 		frame.setContentPane(panel);
 

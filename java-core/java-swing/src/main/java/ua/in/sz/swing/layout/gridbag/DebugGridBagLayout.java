@@ -1831,16 +1831,12 @@ public class DebugGridBagLayout implements LayoutManager2, java.io.Serializable 
                 r.y += info.minHeight[i];
 
             r.width = 0;
-            for (i = constraints.tempX;
-                 i < (constraints.tempX + constraints.tempWidth);
-                 i++) {
+            for (i = constraints.tempX; i < (constraints.tempX + constraints.tempWidth); i++) {
                 r.width += info.minWidth[i];
             }
 
             r.height = 0;
-            for (i = constraints.tempY;
-                 i < (constraints.tempY + constraints.tempHeight);
-                 i++) {
+            for (i = constraints.tempY; i < (constraints.tempY + constraints.tempHeight); i++) {
                 r.height += info.minHeight[i];
             }
 
