@@ -1694,7 +1694,6 @@ public class DebugGridBagLayout implements LayoutManager2, java.io.Serializable 
      */
     protected void ArrangeGrid(Container parent) {
         int compindex;
-        DebugGridBagConstraints constraints;
         Insets insets = parent.getInsets();
         Component[] components = parent.getComponents();
         Dimension d;
@@ -1815,7 +1814,7 @@ public class DebugGridBagLayout implements LayoutManager2, java.io.Serializable 
                 continue;
             }
 
-            constraints = lookupConstraints(comp);
+            DebugGridBagConstraints constraints = lookupConstraints(comp);
 
             if (rightToLeft) {
                 r.x = parent.getWidth() - (diffw / 2 + insets.right);

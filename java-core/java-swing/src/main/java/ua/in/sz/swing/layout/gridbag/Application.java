@@ -18,21 +18,34 @@ public class Application {
 		DebugGridBagConstraints b1c = new DebugGridBagConstraints();
 		b1c.gridy = 0;
 		b1c.gridx = 0;
-		b1c.fill = GridBagConstraints.BOTH;
+		b1c.weightx = 1;
+		b1c.anchor = DebugGridBagConstraints.WEST;
+		b1c.fill = DebugGridBagConstraints.BOTH;
 		panel.add(new JButton("1"  ), b1c);
 
 		DebugGridBagConstraints b3c = new DebugGridBagConstraints();
 		b3c.gridy = 0;
-		b3c.gridx = 3;
-		b3c.fill = GridBagConstraints.BOTH;
+		b3c.gridx = 1;
+		b3c.weightx = 1;
+		b3c.anchor = DebugGridBagConstraints.WEST;
+		b3c.fill = DebugGridBagConstraints.BOTH;
 		panel.add(new JButton("3"  ), b3c);
+
+		DebugGridBagConstraints b5c = new DebugGridBagConstraints();
+		b5c.gridy = 0;
+		b5c.gridx = 2;
+		b5c.weightx = 1;
+		b5c.anchor = DebugGridBagConstraints.WEST;
+		b5c.fill = DebugGridBagConstraints.HORIZONTAL;
+		panel.add(new JButton("5"  ), b5c);
 
 		DebugGridBagConstraints b2c = new DebugGridBagConstraints();
 		b2c.gridy = 1;
 		b2c.gridx = 1;
 		b2c.gridwidth = 2;
-		b2c.gridheight = 2;
-		b2c.fill = GridBagConstraints.BOTH;
+		b2c.weightx = 1;
+		b2c.anchor = DebugGridBagConstraints.EAST;
+		b2c.fill = DebugGridBagConstraints.HORIZONTAL;
 		panel.add(new JButton("2"  ), b2c);
 
 		frame.setContentPane(panel);
