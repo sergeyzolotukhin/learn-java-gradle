@@ -1278,8 +1278,7 @@ public class DebugGridBagLayout implements LayoutManager2,
      * @param constraints the constraints to be applied
      * @param r           the {@code Rectangle} to be adjusted
      */
-    protected void AdjustForGravity(DebugGridBagConstraints constraints,
-                                    Rectangle r) {
+    protected void AdjustForGravity(DebugGridBagConstraints constraints, Rectangle r) {
         int diffx, diffy;
         int cellY = r.y;
         int cellHeight = r.height;
@@ -1692,7 +1691,6 @@ public class DebugGridBagLayout implements LayoutManager2,
      * @param parent the layout container
      */
     protected void ArrangeGrid(Container parent) {
-        Component comp;
         int compindex;
         DebugGridBagConstraints constraints;
         Insets insets = parent.getInsets();
@@ -1810,10 +1808,11 @@ public class DebugGridBagLayout implements LayoutManager2,
         info.starty = diffh / 2 + insets.top;
 
         for (compindex = 0; compindex < components.length; compindex++) {
-            comp = components[compindex];
+            Component comp = components[compindex];
             if (!comp.isVisible()) {
                 continue;
             }
+
             constraints = lookupConstraints(comp);
 
             if (rightToLeft) {
