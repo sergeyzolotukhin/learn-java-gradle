@@ -13,16 +13,27 @@ public class Application {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Layout demo");
 
-		JPanel panel = new JPanel(new GridLayout(3, 3));
-		panel.add(new JButton("1"  ));
-		panel.add(new JButton("2"));
-		panel.add(new JButton("3"));
+		JPanel panel = new JPanel(new DebugGridBagLayout());
 
-		panel.add(new JButton("4"));
-		panel.add(new JButton("5"));
-		panel.add(new JButton("6"));
+		DebugGridBagConstraints b1c = new DebugGridBagConstraints();
+		b1c.gridy = 0;
+		b1c.gridx = 0;
+		b1c.fill = GridBagConstraints.BOTH;
+		panel.add(new JButton("1"  ), b1c);
 
-		panel.add(new JButton("7"));
+		DebugGridBagConstraints b3c = new DebugGridBagConstraints();
+		b3c.gridy = 0;
+		b3c.gridx = 3;
+		b3c.fill = GridBagConstraints.BOTH;
+		panel.add(new JButton("3"  ), b3c);
+
+		DebugGridBagConstraints b2c = new DebugGridBagConstraints();
+		b2c.gridy = 1;
+		b2c.gridx = 1;
+		b2c.gridwidth = 2;
+		b2c.gridheight = 2;
+		b2c.fill = GridBagConstraints.BOTH;
+		panel.add(new JButton("2"  ), b2c);
 
 		frame.setContentPane(panel);
 

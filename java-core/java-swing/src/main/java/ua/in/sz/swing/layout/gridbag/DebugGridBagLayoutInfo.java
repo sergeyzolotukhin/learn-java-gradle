@@ -1,0 +1,55 @@
+package ua.in.sz.swing.layout.gridbag;
+
+import java.awt.*;
+
+public class DebugGridBagLayoutInfo implements java.io.Serializable {
+    /*
+     * serialVersionUID
+     */
+    private static final long serialVersionUID = -4899416460737170217L;
+
+    int width, height;          /* number of  cells: horizontal and vertical */
+    int startx, starty;         /* starting point for layout */
+    int[] minWidth;             /* largest minWidth in each column */
+    int[] minHeight;            /* largest minHeight in each row */
+    double[] weightX;           /* largest weight in each column */
+    double[] weightY;           /* largest weight in each row */
+    boolean hasBaseline;        /* Whether or not baseline layout has been
+     * requested and one of the components
+     * has a valid baseline. */
+    // These are only valid if hasBaseline is true and are indexed by
+    // row.
+    short[] baselineType;       /* The type of baseline for a particular
+     * row.  A mix of the BaselineResizeBehavior
+     * constants (1 << ordinal()) */
+    int[] maxAscent;            /* Max ascent (baseline). */
+    int[] maxDescent;           /* Max descent (height - baseline) */
+
+    /**
+     * Creates an instance of GridBagLayoutInfo representing {@code GridBagLayout}
+     * grid cells with it's own parameters.
+     * @param width the columns
+     * @param height the rows
+     * @since 1.6
+     */
+    DebugGridBagLayoutInfo(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    /**
+     * Returns true if the specified row has any component aligned on the
+     * baseline with a baseline resize behavior of CONSTANT_DESCENT.
+     */
+    boolean hasConstantDescent(int row) {
+        return ((baselineType[row] & (1 << Component.BaselineResizeBehavior.
+                CONSTANT_DESCENT.ordinal())) != 0);
+    }
+
+    /**
+     * Returns true if there is a baseline for the specified row.
+     */
+    boolean hasBaseline(int row) {
+        return (hasBaseline && baselineType[row] != 0);
+    }
+}
