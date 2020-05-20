@@ -1,12 +1,14 @@
 package ua.in.sz.swing.layout.gridbag;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Hashtable;
 
+@Slf4j
 @SuppressWarnings({"unused", "ConstantConditions", "UnusedAssignment", "ForLoopReplaceableByForEach", "DuplicatedCode"})
-public class DebugGridBagLayout implements LayoutManager2,
-        java.io.Serializable {
+public class DebugGridBagLayout implements LayoutManager2, java.io.Serializable {
 
     static final int EMPIRICMULTIPLIER = 2;
     /**
@@ -1869,12 +1871,10 @@ public class DebugGridBagLayout implements LayoutManager2,
             } else {
                 if (comp.getX() != r.x || comp.getY() != r.y ||
                         comp.getWidth() != r.width || comp.getHeight() != r.height) {
+                    log.info("set bound [{}] of component [{}]", r, comp);
                     comp.setBounds(r.x, r.y, r.width, r.height);
                 }
             }
         }
     }
-
-    // Added for serial backwards compatibility (4348425)
-    static final long serialVersionUID = 8838754796412211005L;
 }
