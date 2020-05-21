@@ -34,12 +34,11 @@ public class MainController {
 
     private List<ResourceDto> loadResources() {
         try (Reader reader = new BufferedReader(new InputStreamReader(resourceCsv.getInputStream()))) {
-            CsvToBean<ResourceDto> csvToBean = new CsvToBeanBuilder<ResourceDto>(reader)
+            List<ResourceDto> resources = new CsvToBeanBuilder<ResourceDto>(reader)
                     .withType(ResourceDto.class)
                     .withIgnoreLeadingWhiteSpace(true)
-                    .build();
-
-            List<ResourceDto> resources = csvToBean.parse();
+                    .build()
+                    .parse();
 
             log.debug("Resources loaded. count {}", size(resources));
 

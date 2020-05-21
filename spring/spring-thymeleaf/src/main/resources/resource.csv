@@ -1,9 +1,13 @@
-name,icon
-Усовершенствованная схема,advanced_circuit.png
-?,chemical_science_pack.png
-?,copper_cable.png
-?,electronic_circuit.png
-?,petroleum_gas.png
-?,plastic_bar.png
-?,sulfur.png
-?,water.png
+icon,name
+chemical_science_pack.png,?
+advanced_circuit.png,Усовершенствованная схема
+sulfur.png,?
+engine_unit.png,?
+electronic_circuit.png,?
+plastic_bar.png,?
+copper_cable.png,?
+water.png,?
+petroleum_gas.png,?
+iron_gear_wheel.png,?
+pipe.png,?
+steel_plate.png,?
