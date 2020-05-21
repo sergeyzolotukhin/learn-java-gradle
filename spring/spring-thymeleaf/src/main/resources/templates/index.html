@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <img th:src="@{/icon/chemical_science_pack.png}"/>
@@ -11,5 +11,25 @@
 <img th:src="@{/icon/electronic_circuit.png}"/>
 <img th:src="@{/icon/plastic_bar.png}"/>
 <img th:src="@{/icon/copper_cable.png}"/>
+<img th:src="@{/icon/water.png}"/>
+<img th:src="@{/icon/petroleum_gas.png}"/>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Icon</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="resouece, i : ${resources}">
+        <th scope="row" th:text="${i.index + 1}"></th>
+        <td th:text="${resouece.name}"></td>
+        <td><img th:src="@{${'/icon/' + resouece.icon}}"/></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
