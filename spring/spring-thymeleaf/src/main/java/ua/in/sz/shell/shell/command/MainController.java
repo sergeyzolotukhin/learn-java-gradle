@@ -3,7 +3,6 @@ package ua.in.sz.shell.shell.command;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
@@ -22,27 +21,33 @@ import static org.apache.commons.collections4.CollectionUtils.size;
 @Controller
 public class MainController {
     @Value("classpath:resource.csv")
-    private Resource resource;
+    private Resource resourceCsv;
 
     @GetMapping("/index")
     public String greeting(Model model) {
-        log.info("Get faster");
+        List<ResourceDto> resources = loadResources();
 
-        try (Reader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
+        model.addAttribute("resources", resources);
+
+        return "index";
+    }
+
+    private List<ResourceDto> loadResources() {
+        try (Reader reader = new BufferedReader(new InputStreamReader(resourceCsv.getInputStream()))) {
             CsvToBean<ResourceDto> csvToBean = new CsvToBeanBuilder<ResourceDto>(reader)
                     .withType(ResourceDto.class)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
 
-            List<ResourceDto> result = csvToBean.parse();
+            List<ResourceDto> resources = csvToBean.parse();
 
-            log.info("Resources loaded. count {}", size(result));
+            log.debug("Resources loaded. count {}", size(resources));
 
-            model.addAttribute("resources", result);
+            return resources;
         } catch (Exception ex) {
-            model.addAttribute("resources", Collections.<ResourceDto>emptyList());
-        }
+            log.error("Can't load resources", ex);
 
-        return "index";
+            return Collections.emptyList();
+        }
     }
 }
