@@ -55,7 +55,21 @@
   {
     "id": "ENG_UNT",
     "icon": "engine_unit.png",
-    "time": 10
+    "time": 10,
+    "required": [
+      {
+        "id" : "IRN_WHL",
+        "amount": 1
+      },
+      {
+        "id" : "PIPE",
+        "amount": 2
+      },
+      {
+        "id" : "STL_PLT",
+        "amount": 1
+      }
+    ]
   },
   {
     "id": "ELC_CIR",
