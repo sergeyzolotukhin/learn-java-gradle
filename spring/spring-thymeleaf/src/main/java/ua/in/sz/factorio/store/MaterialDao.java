@@ -12,6 +12,7 @@ import ua.in.sz.factorio.domain.Material;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static org.apache.commons.collections4.CollectionUtils.size;
 
 @Slf4j
@@ -29,7 +30,7 @@ public class MaterialDao {
         } catch (Exception ex) {
             log.error("Can't load resources", ex);
 
-            return Collections.emptyList();
+            return emptyList();
         }
     }
 }
