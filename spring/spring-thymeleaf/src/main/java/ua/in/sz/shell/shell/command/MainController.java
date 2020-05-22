@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,20 +24,40 @@ public class MainController {
 
     @GetMapping("/index")
     public String greeting(Model model) {
-        List<ResourceDto> resources = loadResourcesFromJson();
+        List<Material> materials = loadResourcesFromJson();
 
-        model.addAttribute("resources", resources);
-        model.addAttribute("resourceCache", new ResourceCache(resources));
+        List<MaterialDto> result = new ArrayList<>();
+        for (Material material : materials) {
+
+            List<MaterialDto.RequiredDto> requiredDtos = new ArrayList<>();
+            for (RequiredMaterial required : material.getRequired()) {
+                String icon = materials.stream().filter(m -> required.getId().equals(m.getId())).map(Material::getIcon).findFirst().orElse("");
+
+                requiredDtos.add(MaterialDto.RequiredDto.builder()
+                        .icon(icon)
+                        .amount(required.getAmount())
+                        .build());
+            }
+
+            result.add(MaterialDto.builder()
+                    .id(material.getId())
+                    .icon(material.getIcon())
+                    .time(material.getTime())
+                    .required(requiredDtos)
+                    .build());
+        }
+
+        model.addAttribute("materials", result);
 
         return "index";
     }
 
-    private List<ResourceDto> loadResourcesFromJson() {
+    private List<Material> loadResourcesFromJson() {
         ObjectMapper mapper = new ObjectMapper();
         try (JsonParser parser = mapper.createParser(resourceJson.getInputStream())) {
-            List<ResourceDto> resources = Lists.newArrayList(mapper.readValue(parser, ResourceDto[].class));
-            log.debug("Resources loaded. count {}", size(resources));
-            return resources;
+            List<Material> materials = Lists.newArrayList(mapper.readValue(parser, Material[].class));
+            log.debug("Resources loaded. count {}", size(materials));
+            return materials;
         } catch (Exception ex) {
             log.error("Can't load resources", ex);
 

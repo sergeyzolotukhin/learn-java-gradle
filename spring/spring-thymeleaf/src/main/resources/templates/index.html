@@ -21,27 +21,25 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="resouece: ${resources}">
-        <td scope="row" th:text="${resouece.id}"></td>
-        <td><img th:src="@{${'/icon/' + resouece.icon}}"/></td>
-        <td th:text="${resouece.time}"></td>
+    <tr th:each="material: ${materials}">
+        <td scope="row" th:text="${material.id}"></td>
+        <td><img th:src="@{${'/icon/' + material.icon}}"/></td>
+        <td th:text="${material.time}"></td>
 
         <td>
-            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(0).getId())}}"/>
+            <img th:src="@{${'/icon/' + material.getRequiredIcon(1)}}"/>
         </td>
-        <td th:text="${resouece.getRequired(0).getAmount()}"></td>
+        <td th:text="${material.getRequiredAmount(1)}"></td>
 
         <td>
-            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(1).getId())}}"/>
+            <img th:src="@{${'/icon/' + material.getRequiredIcon(2)}}"/>
         </td>
-        <td th:text="${resouece.getRequired(1).getAmount()}"></td>
+        <td th:text="${material.getRequiredAmount(2)}"></td>
 
         <td>
-            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(2).getId())}}"/>
+            <img th:src="@{${'/icon/' + material.getRequiredIcon(3)}}"/>
         </td>
-        <td th:text="${resouece.getRequired(2).getAmount()}"></td>
-
-        <td/>
+        <td th:text="${material.getRequiredAmount(3)}"></td>
     </tr>
     </tbody>
 </table>

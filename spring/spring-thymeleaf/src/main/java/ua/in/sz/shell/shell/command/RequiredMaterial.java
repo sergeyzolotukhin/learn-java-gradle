@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class RequiredResourceDto {
+public class RequiredMaterial {
     private String id;
     private int amount;
 }
