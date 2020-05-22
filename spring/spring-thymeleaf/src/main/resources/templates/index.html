@@ -7,22 +7,8 @@
 <body>
 
 <table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Icon</th>
-        <th scope="col">Time</th>
-        <th scope="col">Required</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Required</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Required</th>
-        <th scope="col">Amount</th>
-    </tr>
-    </thead>
     <tbody>
     <tr th:each="material: ${materials}">
-        <td scope="row" th:text="${material.id}"></td>
         <td><img th:src="@{${'/icon/' + material.icon}}"/></td>
         <td th:text="${material.time}"></td>
 
