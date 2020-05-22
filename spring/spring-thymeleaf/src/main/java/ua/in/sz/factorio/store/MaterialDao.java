@@ -9,7 +9,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 import ua.in.sz.factorio.domain.Material;
 
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.emptyList;
