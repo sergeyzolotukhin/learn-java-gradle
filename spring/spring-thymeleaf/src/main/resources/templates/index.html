@@ -26,13 +26,19 @@
         <td><img th:src="@{${'/icon/' + resouece.icon}}"/></td>
         <td th:text="${resouece.time}"></td>
 
-        <td th:text="${resouece.getRequired(0).getId()}"></td>
+        <td>
+            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(0).getId())}}"/>
+        </td>
         <td th:text="${resouece.getRequired(0).getAmount()}"></td>
 
-        <td th:text="${resouece.getRequired(1).getId()}"></td>
+        <td>
+            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(1).getId())}}"/>
+        </td>
         <td th:text="${resouece.getRequired(1).getAmount()}"></td>
 
-        <td th:text="${resouece.getRequired(2).getId()}"></td>
+        <td>
+            <img th:src="@{${'/icon/' + resourceCache.getIcon(resouece.getRequired(2).getId())}}"/>
+        </td>
         <td th:text="${resouece.getRequired(2).getAmount()}"></td>
 
         <td/>

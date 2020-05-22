@@ -34,45 +34,59 @@
     "time": 10
   },
   {
+    "id": "ELC_CIR",
     "icon": "electronic_circuit.png"
   },
   {
+    "id": "PLS_BAR",
     "icon": "plastic_bar.png"
   },
   {
+    "id": "COP_CAB",
     "icon": "copper_cable.png"
   },
   {
+    "id": "WATER",
     "icon": "water.png"
   },
   {
+    "id": "PET_GAS",
     "icon": "petroleum_gas.png"
   },
   {
+    "id": "IRN_WHL",
     "icon": "iron_gear_wheel.png"
   },
   {
+    "id": "PIPE",
     "icon": "pipe.png"
   },
   {
+    "id": "STL_PLT",
     "icon": "steel_plate.png"
   },
   {
+    "id": "IRN_PLT",
     "icon": "iron_plate.png"
   },
   {
+    "id": "COAL",
     "icon": "coal.png"
   },
   {
+    "id": "COP_PLT",
     "icon": "copper_plate.png"
   },
   {
+    "id": "CRUDE_OIL",
     "icon": "crude_oil.png"
   },
   {
+    "id": "IRN_ORE",
     "icon": "iron_ore.png"
   },
   {
+    "id": "COP_ORE",
     "icon": "copper_ore.png"
   }
 ]
