@@ -20,8 +20,8 @@ public class MaterialDto {
         return i < required.size() ? required.get(i).icon : null;
     }
 
-    public int getRequiredAmount(int i) {
-        return i < required.size() ? required.get(i).amount : 0;
+    public Integer getRequiredAmount(int i) {
+        return i < required.size() ? required.get(i).amount : null;
     }
 
     @Builder
