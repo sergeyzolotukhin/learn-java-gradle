@@ -21,12 +21,36 @@
   {
     "id": "ADV_CIR",
     "icon": "advanced_circuit.png",
-    "time": 6
+    "time": 6,
+    "required": [
+      {
+        "id" : "COP_CAB",
+        "amount": 4
+      },
+      {
+        "id" : "ELC_CIR",
+        "amount": 2
+      },
+      {
+        "id" : "PLS_BAR",
+        "amount": 2
+      }
+    ]
   },
   {
     "id": "SULFUR",
     "icon": "sulfur.png",
-    "time": 1
+    "time": 1,
+    "required": [
+      {
+        "id" : "PET_GAS",
+        "amount": 30
+      },
+      {
+        "id" : "WATER",
+        "amount": 30
+      }
+    ]
   },
   {
     "id": "ENG_UNT",

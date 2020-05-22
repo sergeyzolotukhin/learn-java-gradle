@@ -14,6 +14,11 @@
         <td th:text="${material.time}"></td>
 
         <td>
+            <img th:if="${material.getRequiredIcon(0)}" th:src="@{${'/icon/' + material.getRequiredIcon(0)}}"/>
+        </td>
+        <td th:text="${material.getRequiredAmount(0)}"></td>
+
+        <td>
             <img th:if="${material.getRequiredIcon(1)}" th:src="@{${'/icon/' + material.getRequiredIcon(1)}}"/>
         </td>
         <td th:text="${material.getRequiredAmount(1)}"></td>
@@ -22,11 +27,6 @@
             <img th:if="${material.getRequiredIcon(2)}" th:src="@{${'/icon/' + material.getRequiredIcon(2)}}"/>
         </td>
         <td th:text="${material.getRequiredAmount(2)}"></td>
-
-        <td>
-            <img th:if="${material.getRequiredIcon(3)}" th:src="@{${'/icon/' + material.getRequiredIcon(3)}}"/>
-        </td>
-        <td th:text="${material.getRequiredAmount(3)}"></td>
     </tr>
     </tbody>
 </table>
