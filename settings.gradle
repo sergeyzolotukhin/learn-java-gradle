@@ -17,12 +17,13 @@
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
-include 'spring:spring-thymeleaf'
+//include 'spring:spring-thymeleaf'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
 //include 'library:lib-hibernate'
-//include 'hibernate:hibernate-xml-mapping'
+include 'hibernate:hibernate-xml-mapping'
+include 'hibernate:tabular-format'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
@@ -67,3 +68,4 @@ include 'spring:spring-thymeleaf'
 // other
 // ====================================================================================================================
 //include 'other'
+
