@@ -11,11 +11,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'com.opencsv:opencsv:5.2'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.0'
 
     // common utils
     implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'org.apache.commons:commons-collections4:4.4'
 
     // development
     compileOnly "org.springframework.boot:spring-boot-devtools"

@@ -4,5 +4,53 @@
   },
   {
     "icon": "advanced_circuit.png"
+  },
+  {
+    "icon": "sulfur.png"
+  },
+  {
+    "icon": "engine_unit.png"
+  },
+  {
+    "icon": "electronic_circuit.png"
+  },
+  {
+    "icon": "plastic_bar.png"
+  },
+  {
+    "icon": "copper_cable.png"
+  },
+  {
+    "icon": "water.png"
+  },
+  {
+    "icon": "petroleum_gas.png"
+  },
+  {
+    "icon": "iron_gear_wheel.png"
+  },
+  {
+    "icon": "pipe.png"
+  },
+  {
+    "icon": "steel_plate.png"
+  },
+  {
+    "icon": "iron_plate.png"
+  },
+  {
+    "icon": "coal.png"
+  },
+  {
+    "icon": "copper_plate.png"
+  },
+  {
+    "icon": "crude_oil.png"
+  },
+  {
+    "icon": "iron_ore.png"
+  },
+  {
+    "icon": "copper_ore.png"
   }
 ]
