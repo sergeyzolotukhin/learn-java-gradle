@@ -1,15 +1,37 @@
 [
   {
-    "icon": "chemical_science_pack.png"
+    "id": "CHM_SCI",
+    "icon": "chemical_science_pack.png",
+    "time": 24,
+    "required": [
+      {
+        "id" : "ADV_CIR",
+        "amount": 3
+      },
+      {
+        "id" : "ENG_UNT",
+        "amount": 2
+      },
+      {
+        "id" : "SULFUR",
+        "amount": 1
+      }
+    ]
   },
   {
-    "icon": "advanced_circuit.png"
+    "id": "ADV_CIR",
+    "icon": "advanced_circuit.png",
+    "time": 6
   },
   {
-    "icon": "sulfur.png"
+    "id": "SULFUR",
+    "icon": "sulfur.png",
+    "time": 1
   },
   {
-    "icon": "engine_unit.png"
+    "id": "ENG_UNT",
+    "icon": "engine_unit.png",
+    "time": 10
   },
   {
     "icon": "electronic_circuit.png"

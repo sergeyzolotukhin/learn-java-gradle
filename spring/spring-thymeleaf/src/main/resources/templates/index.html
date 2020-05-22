@@ -11,14 +11,31 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Icon</th>
-        <th scope="col">Name</th>
+        <th scope="col">Time</th>
+        <th scope="col">Required</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Required</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Required</th>
+        <th scope="col">Amount</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="resouece, i : ${resources}">
-        <th scope="row" th:text="${i.index + 1}"></th>
+    <tr th:each="resouece: ${resources}">
+        <td scope="row" th:text="${resouece.id}"></td>
         <td><img th:src="@{${'/icon/' + resouece.icon}}"/></td>
-        <td th:text="${resouece.name}"></td>
+        <td th:text="${resouece.time}"></td>
+
+        <td th:text="${resouece.getRequired(0).getId()}"></td>
+        <td th:text="${resouece.getRequired(0).getAmount()}"></td>
+
+        <td th:text="${resouece.getRequired(1).getId()}"></td>
+        <td th:text="${resouece.getRequired(1).getAmount()}"></td>
+
+        <td th:text="${resouece.getRequired(2).getId()}"></td>
+        <td th:text="${resouece.getRequired(2).getAmount()}"></td>
+
+        <td/>
     </tr>
     </tbody>
 </table>
