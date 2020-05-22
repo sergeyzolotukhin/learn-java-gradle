@@ -1,4 +1,4 @@
-package ua.in.sz.shell.shell.command;
+package ua.in.sz.factorio.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

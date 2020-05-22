@@ -1,4 +1,4 @@
-package ua.in.sz.shell.shell.command;
+package ua.in.sz.factorio.ui;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ua.in.sz.factorio.domain.Material;
+import ua.in.sz.factorio.domain.RequiredMaterial;
 
 import java.util.ArrayList;
 import java.util.Collections;

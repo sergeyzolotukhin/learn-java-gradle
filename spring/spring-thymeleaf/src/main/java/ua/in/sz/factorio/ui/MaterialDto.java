@@ -1,4 +1,4 @@
-package ua.in.sz.shell.shell.command;
+package ua.in.sz.factorio.ui;
 
 import lombok.Builder;
 import lombok.Getter;
