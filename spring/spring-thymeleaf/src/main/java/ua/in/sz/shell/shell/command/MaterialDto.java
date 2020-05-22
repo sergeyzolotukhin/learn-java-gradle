@@ -17,7 +17,7 @@ public class MaterialDto {
     private final List<RequiredDto> required = new ArrayList<>();
 
     public String getRequiredIcon(int i) {
-        return i < required.size() ? required.get(i).icon : "";
+        return i < required.size() ? required.get(i).icon : null;
     }
 
     public int getRequiredAmount(int i) {
