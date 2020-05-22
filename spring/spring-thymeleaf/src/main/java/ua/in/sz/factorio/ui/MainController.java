@@ -18,7 +18,7 @@ public class MainController {
     @Autowired
     private MaterialDao materialDao;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String greeting(Model model) {
         List<Material> materials = materialDao.findAll();
 
