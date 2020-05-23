@@ -22,7 +22,7 @@
 // Hibernate
 // ====================================================================================================================
 //include 'library:lib-hibernate'
-include 'hibernate:hibernate-xml-mapping'
+//include 'hibernate:hibernate-xml-mapping'
 include 'hibernate:tabular-format'
 // ====================================================================================================================
 // Libraries
