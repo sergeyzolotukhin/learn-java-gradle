@@ -3,6 +3,9 @@
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ua.in.sz.tabular.format.ScheduleLayout" >
                 <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+
+                <headerPattern>%n</headerPattern>
+                <footerPattern>%n</footerPattern>
             </layout>
         </encoder>
     </appender>

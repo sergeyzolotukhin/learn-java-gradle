@@ -2,6 +2,7 @@ package ua.in.sz.tabular.format;
 
 import ch.qos.logback.classic.PatternLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.ScheduleValue;
@@ -21,6 +22,11 @@ public class ScheduleLayout extends PatternLayout {
 
     public static final String NEW_LINE = System.lineSeparator();
     public static final String HORIZONTAL_LINE = StringUtils.rightPad("=", 120, "=");
+
+    @Setter
+    private String headerPattern;
+    @Setter
+    private String footerPattern;
 
     @Override
     public String doLayout(ILoggingEvent event) {
