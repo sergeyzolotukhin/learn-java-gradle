@@ -14,13 +14,6 @@ import java.util.List;
 @Slf4j
 public class TabularFormatApp {
     public static void main(String[] args) {
-        BigDecimal value = BigDecimal.valueOf(165465.458751146565465465464654646546544815);
-
-        System.out.println(String.format("| %-30d | %-20s | %-20s | %20.2f |",
-                0, "", "", 0.0));
-        System.out.println(String.format("| %-30d | %-20s | %-20s | %20.5f |",
-                1, "Serhij", "Zolotukhin", value));
-
         LocalDateTime day = LocalDate.now().atStartOfDay();
 
         Schedule schedule = Schedule.builder()
@@ -31,6 +24,15 @@ public class TabularFormatApp {
                 .build();
 
         log.info("Message {}", schedule);
+    }
+
+    private static void prettyPrint() {
+        BigDecimal value = BigDecimal.valueOf(165465.458751146565465465464654646546544815);
+
+        System.out.println(String.format("| %-30d | %-20s | %-20s | %20.2f |",
+                0, "", "", 0.0));
+        System.out.println(String.format("| %-30d | %-20s | %-20s | %20.5f |",
+                1, "Serhij", "Zolotukhin", value));
     }
 
     private static List<NumberScheduleValue> createNumberValues(LocalDateTime day, String valueType) {
