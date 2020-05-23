@@ -1,9 +1,9 @@
 package ua.in.sz.tabular.format;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
-import ua.in.sz.hibernate.xml.impl.Schedule;
-import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
+import ua.in.sz.tabular.domain.NumberScheduleValue;
+import ua.in.sz.tabular.domain.Schedule;
+import ua.in.sz.tabular.domain.StringScheduleValue;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

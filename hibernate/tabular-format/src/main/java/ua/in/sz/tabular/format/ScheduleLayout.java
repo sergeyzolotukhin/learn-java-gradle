@@ -4,8 +4,8 @@ import ch.qos.logback.classic.PatternLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
-import ua.in.sz.hibernate.xml.impl.Schedule;
-import ua.in.sz.hibernate.xml.impl.ScheduleValue;
+import ua.in.sz.tabular.domain.Schedule;
+import ua.in.sz.tabular.domain.ScheduleValue;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
