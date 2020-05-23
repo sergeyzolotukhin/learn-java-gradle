@@ -3,16 +3,16 @@ package ua.in.sz.tabular.format;
 import ch.qos.logback.classic.PatternLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import org.apache.commons.lang3.StringUtils;
-import ua.in.sz.hibernate.xml.impl.NumberScheduleValue;
 import ua.in.sz.hibernate.xml.impl.Schedule;
 import ua.in.sz.hibernate.xml.impl.ScheduleValue;
-import ua.in.sz.hibernate.xml.impl.StringScheduleValue;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 import static java.util.stream.Collectors.*;
 import static org.apache.commons.lang3.StringUtils.SPACE;
@@ -32,14 +32,9 @@ public class ScheduleLayout extends PatternLayout {
             if (arg instanceof Schedule) {
                 Schedule schedule = (Schedule) arg;
 
-                sb.append(HORIZONTAL_LINE).append(NEW_LINE);
-                sb.append(schedule.getStartDate()).append(" - ").append(schedule.getStopDate()).append(NEW_LINE);
-                sb.append(HORIZONTAL_LINE).append(NEW_LINE);
-
-                stringValuesByType(schedule).forEach(doLayoutStringValues(sb));
-                numberValuesByType(schedule).forEach(doLayoutNumberValues(sb));
-
-                sb.append(HORIZONTAL_LINE).append(NEW_LINE);
+                doLayoutHeader(sb, schedule);
+                doLayoutValues(sb, schedule);
+                doLayoutFooter(sb, schedule);
             }
         }
 
@@ -47,46 +42,62 @@ public class ScheduleLayout extends PatternLayout {
     }
 
     // ================================================================================================================
+    // layout schedule
+    // ================================================================================================================
+
+    private void doLayoutHeader(StringBuilder sb, Schedule schedule) {
+        sb.append(HORIZONTAL_LINE).append(NEW_LINE);
+        sb.append(schedule.getStartDate()).append(" - ").append(schedule.getStopDate()).append(NEW_LINE);
+        sb.append(HORIZONTAL_LINE).append(NEW_LINE);
+    }
+
+    private void doLayoutValues(StringBuilder sb, Schedule schedule) {
+        valuesByType(schedule.getStringValueList()).forEach(doLayoutValues(sb, getStringValue()));
+        valuesByType(schedule.getNumberValueList()).forEach(doLayoutValues(sb, formatNumberValue()));
+    }
+
+    private void doLayoutFooter(StringBuilder sb, Schedule schedule) {
+        sb.append(HORIZONTAL_LINE).append(NEW_LINE);
+    }
+
+    // ================================================================================================================
     // layout schedule values
     // ================================================================================================================
 
-    private BiConsumer<String, List<StringScheduleValue>> doLayoutStringValues(StringBuilder sb) {
+    private <T, V extends ScheduleValue<T>>
+    Map<String, List<V>> valuesByType(List<V> values) {
+        return values.stream()
+                .collect(groupingBy(ScheduleValue::getType,
+                        collectingAndThen(toList(), l -> l.stream()
+                                .sorted(Comparator.comparing(ScheduleValue::getEffectiveDay))
+                                .collect(toList()))));
+    }
+
+    private <T, V extends ScheduleValue<T>>
+    BiConsumer<String, List<V>> doLayoutValues(StringBuilder sb, Function<T, String> format) {
         return (type, values) -> {
             sb.append(type).append(SPACE);
 
-            String valuesText = values.stream().map(ScheduleValue::getValue).collect(joining(SPACE));
+            String valuesText = values.stream()
+                    .map(ScheduleValue::getValue)
+                    .map(format)
+                    .collect(joining(SPACE));
+
             sb.append(valuesText).append(NEW_LINE);
         };
     }
 
-    private BiConsumer<String, List<NumberScheduleValue>> doLayoutNumberValues(StringBuilder sb) {
+    // ================================================================================================================
+    // values formatter
+    // ================================================================================================================
+
+    private Function<String, String> getStringValue() {
+        return v -> v;
+    }
+
+    private Function<BigDecimal, String> formatNumberValue() {
         DecimalFormat df = new DecimalFormat();
 
-        return (type, values) -> {
-            sb.append(type).append(SPACE);
-
-            String valuesText = values.stream().map(ScheduleValue::getValue).map(df::format).collect(joining(SPACE));
-            sb.append(valuesText).append(NEW_LINE);
-        };
-    }
-
-    // ================================================================================================================
-    // Extract values from schedules
-    // ================================================================================================================
-
-    private Map<String, List<NumberScheduleValue>> numberValuesByType(Schedule schedule) {
-        return schedule.getNumberValueList().stream()
-                .collect(groupingBy(ScheduleValue::getType,
-                        collectingAndThen(toList(), l -> l.stream()
-                                .sorted(Comparator.comparing(ScheduleValue::getEffectiveDay))
-                                .collect(toList()))));
-    }
-
-    private Map<String, List<StringScheduleValue>> stringValuesByType(Schedule schedule) {
-        return schedule.getStringValueList().stream()
-                .collect(groupingBy(ScheduleValue::getType,
-                        collectingAndThen(toList(), l -> l.stream()
-                                .sorted(Comparator.comparing(ScheduleValue::getEffectiveDay))
-                                .collect(toList()))));
+        return df::format;
     }
 }
