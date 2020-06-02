@@ -20,8 +20,8 @@ public class Application {
 		int[] keys = {1, 1, 1, 1, 1, 1, 1, 1, 1, 9};
 		for (int i : keys) {
 			String key = String.valueOf(i);
-			char[] val1 = cachedLoader.load(key);
-			log.info("Got {}", val1.length);
+			char[] value = cachedLoader.load(key);
+			log.info("Got {}", value.length);
 		}
 
 		sw.stop();
