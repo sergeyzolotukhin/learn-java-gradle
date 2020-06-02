@@ -3,9 +3,9 @@ package ua.in.sz.ehcache;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.ehcache.CacheManager;
 import org.apache.commons.lang3.time.StopWatch;
-import ua.in.sz.ehcache.loader.CacheLoader;
+import ua.in.sz.ehcache.loader.impl.CacheLoader;
 import ua.in.sz.ehcache.loader.Loader;
-import ua.in.sz.ehcache.loader.SlowLoader;
+import ua.in.sz.ehcache.loader.impl.SlowLoader;
 
 @Slf4j
 public class Application {

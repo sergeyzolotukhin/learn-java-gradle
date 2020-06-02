@@ -1,9 +1,10 @@
-package ua.in.sz.ehcache.loader;
+package ua.in.sz.ehcache.loader.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
+import ua.in.sz.ehcache.loader.Loader;
 
 import java.util.Optional;
 
