@@ -21,6 +21,7 @@ public class Schedule implements IdBean<Long> {
 	private String identification;
 	private LocalDateTime startDate;
 	private LocalDateTime stopDate;
+	private Resolution resolution;
 
 	private Workspace workspace;
 

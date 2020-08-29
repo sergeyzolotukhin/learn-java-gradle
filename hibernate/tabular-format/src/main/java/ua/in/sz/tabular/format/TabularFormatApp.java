@@ -2,6 +2,7 @@ package ua.in.sz.tabular.format;
 
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.tabular.domain.NumberScheduleValue;
+import ua.in.sz.tabular.domain.Resolution;
 import ua.in.sz.tabular.domain.Schedule;
 import ua.in.sz.tabular.domain.StringScheduleValue;
 
@@ -17,6 +18,7 @@ public class TabularFormatApp {
         LocalDateTime day = LocalDate.now().atStartOfDay();
 
         Schedule schedule = Schedule.builder()
+                .resolution(Resolution.PT30M)
                 .startDate(day)
                 .stopDate(day.plusDays(1))
                 .numberValueList(createNumberValues(day, "CLUP"))

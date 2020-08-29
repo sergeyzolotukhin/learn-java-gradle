@@ -1,0 +1,12 @@
+# https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html
+
+####
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/
+Content-Type: application/json
+{
+  "id": 999,
+  "value": "content"
+}
