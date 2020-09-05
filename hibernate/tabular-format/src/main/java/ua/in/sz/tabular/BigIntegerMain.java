@@ -7,20 +7,13 @@ public class BigIntegerMain {
 
     // bitsPerDigit in the given radix times 1024
     // Rounded up to avoid underallocation.
-    private static final long bitsPerDigit[] = {
-            0, 0, 1024, 1624, 2048, 2378, 2648, 2875, 3072, 3247,
-
-            3402,
-
-            3543, 3672,
-            3790, 3899, 4001, 4096, 4186, 4271, 4350, 4426, 4498, 4567, 4633,
-            4696, 4756, 4814, 4870, 4923, 4975, 5025, 5074, 5120, 5166, 5210,
-            5253, 5295};
+    private static final long bitsPerDigit = 3402;
 
     static final long LONG_MASK = 0xffffffffL;
 
     static int[] mag;
 
+    // mag[0] * 1 000 000 000 ^ 0 + mag[1] * 1 000 000 000 ^ 1 + ... + mag[n] * 1 000 000 000 ^ n
     public static void BigInteger(String val, int radix) {
         int cursor = 0, numDigits;
         final int len = val.length();
@@ -28,7 +21,7 @@ public class BigIntegerMain {
 
         // Pre-allocate array of expected size. May be too large but can
         // never be too small. Typically exact.
-        long numBits = ((numDigits * bitsPerDigit[radix]) >>> 10) + 1;
+        long numBits = ((numDigits * bitsPerDigit) >>> 10) + 1;
         int numWords = (int) (numBits + 31) >>> 5;
         int[] magnitude = new int[numWords];
 
