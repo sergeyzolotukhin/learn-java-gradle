@@ -14,6 +14,9 @@ import java.util.concurrent.TimeUnit;
  * heap* gc+heap* cds+heap gc+heap+verify gc+heap+region
  *
  * MaxTenuringThreshold
+ * -Xlog:cpu*=debug
+ *
+ * https://blog.codefx.org/java/unified-logging-with-the-xlog-option/
  * https://docs.oracle.com/javase/9/gctuning/garbage-first-garbage-collector.htm#JSGCT-GUID-082C967F-2DAC-4B59-8A81-0CEC6EEB9016
  */
 public class G1Main {
