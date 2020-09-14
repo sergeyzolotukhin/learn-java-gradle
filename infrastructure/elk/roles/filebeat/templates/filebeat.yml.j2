@@ -1,0 +1,40 @@
+filebeat:
+  prospectors:
+    -
+      # Paths that should be crawled and fetched. Glob based paths.
+      # For each file found under this path, a harvester is started.
+      paths:
+        - /var/log/syslog
+      # Type to be published in the 'type' field. For Elasticsearch output,
+      # the type defines the document type these entries should be stored
+      # in. Default: log
+      document_type: syslog
+    -
+      paths:
+{% for target in targets %}
+        - {{ target }}
+{% endfor %}
+      ignore_older: {{ filebeat_ignore_older }}
+
+output:
+  logstash:
+    enabled: true
+
+    # The list of downstream Logstash servers.
+    hosts:
+      - "{{ groups['logstash'][0] }}:5044"
+
+logging:
+  level: warning
+
+  # enable file rotation with default configuration
+  to_files: true
+
+  # do not log to syslog
+  to_syslog: false
+
+  files:
+    path: "{{ filebeat_logs_dir }}"
+    name: filebeat.log
+    files.rotateeverybytes: 10485760
+    keepfiles: 7

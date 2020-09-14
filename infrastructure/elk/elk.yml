@@ -1,0 +1,23 @@
+---
+- hosts: all
+  tasks: []
+
+- name: Install Elasticsearch
+  hosts: elasticsearch
+  become: true
+  vars:
+    es_cluster_name: elasticsearch
+  roles:
+    - elasticsearch
+
+- name: Install Logstash
+  hosts: logstash
+  become: true
+  roles:
+    - logstash
+
+- name: Install Kibana
+  hosts: kibana
+  become: true
+  roles:
+    - kibana

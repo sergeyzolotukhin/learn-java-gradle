@@ -1,0 +1,16 @@
+- name: Add Elastic gpg key
+  rpm_key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+  tags:
+    - install
+
+- name: Add Beats repository.
+  copy:
+    src: elastic-beats.repo
+    dest: /etc/yum.repos.d/elastic-beats.repo
+    mode: 0644
+
+- name: Install Filebeat
+  yum: name=filebeat state=latest update_cache=yes
+  tags:
+    - install
+

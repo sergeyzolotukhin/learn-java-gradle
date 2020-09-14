@@ -45,6 +45,7 @@ include 'library:lib-activiti'
 // infrastructure
 // ====================================================================================================================
 //include 'infrastructure:postgresql'
+include 'infrastructure:elk'
 //include 'infrastructure:oracle-12r1-shell-provision'
 //include 'infrastructure:oracle-12r1-ansible-provision'
 //include 'infrastructure:ansible:ansible-master'

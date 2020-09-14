@@ -1,0 +1,15 @@
+---
+- hosts:
+    - logstash
+    - filebeat
+  tasks: []
+
+- name: Install Filebeat
+  hosts: filebeat
+  become: true
+  vars:
+    targets:
+      - /var/log/*.log
+    filebeat_ignore_older: 1h
+  roles:
+    - filebeat

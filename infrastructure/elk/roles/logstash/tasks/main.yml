@@ -1,0 +1,34 @@
+---
+#- name: Create the hosts file for all machines.
+#  lineinfile: dest=/etc/hosts line="{{ hostvars[item]['ansible_default_ipv4']['address'] }} {{ item }}"
+#  with_items: groups['elasticsearch']
+#  tags:
+#    - install
+
+- include: yum.yml
+  when: ansible_os_family == 'RedHat'
+  tags:
+    - install
+
+- include: apt.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+    - install
+
+- name: Copy Logstash input and filter
+  copy: src={{ item }} dest=/etc/logstash/conf.d/{{ item }} owner=logstash group=logstash
+  with_items:
+    - 02-beats-input.conf
+    - 10-syslog-filter.conf
+    - 11-universal-filter.conf
+  notify: restart logstash
+  tags:
+    - install
+
+- name: Copy Logstash output 
+  template: src={{ item }}.j2 dest=/etc/logstash/conf.d/{{ item }} owner=logstash group=logstash
+  with_items:
+    - 30-elasticsearch-output.conf
+  notify: restart logstash
+  tags:
+    - install

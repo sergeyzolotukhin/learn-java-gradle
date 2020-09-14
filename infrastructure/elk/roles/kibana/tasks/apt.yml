@@ -1,0 +1,14 @@
+#- name: Add Elastic gpg key
+#  apt_key: url=https://artifacts.elastic.co/GPG-KEY-elasticsearch state=present
+#  tags:
+#    - install
+
+- name: Add Kibana repo
+  apt_repository: repo='deb http://packages.elastic.co/kibana/4.4/debian stable main' state=present
+  tags:
+    - install
+
+- name: Install Kibana
+  apt: name=kibana state=latest update_cache=yes
+  tags:
+    - install

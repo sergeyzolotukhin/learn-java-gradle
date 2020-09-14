@@ -1,0 +1,16 @@
+- name: Add Elastic gpg key
+  rpm_key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+  tags:
+    - install
+
+- name: Add Kibana repository.
+  copy:
+    src: kibana.repo
+    dest: /etc/yum.repos.d/kibana.repo
+    mode: 0644
+
+- name: Install Kibana
+  yum: name=kibana state=latest update_cache=yes
+  tags:
+    - install
+

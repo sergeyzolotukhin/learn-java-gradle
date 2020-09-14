@@ -1,0 +1,29 @@
+---
+#- name: Create the hosts file for all machines.
+#  lineinfile: dest=/etc/hosts line="{{ hostvars[item]['ansible_default_ipv4']['address'] }} {{ item }}"
+#  with_items: groups['logstash']
+#  tags:
+#    - install
+
+- include: yum.yml
+  when: ansible_os_family == 'RedHat'
+  tags:
+    - install
+
+- include: apt.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+    - install
+
+- name: Create the Filebeat directories
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ filebeat_logs_dir }}"
+  tags:
+    - install
+
+- name: Copy Filebeat config          
+  template: src=filebeat.yml.j2 dest=/etc/filebeat/filebeat.yml
+  notify: restart filebeat
+  tags:
+    - install

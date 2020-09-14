@@ -1,0 +1,16 @@
+- name: Add Elastic gpg key
+  rpm_key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+  tags:
+    - install
+
+- name: Add Logstash repository.
+  copy:
+    src: logstash.repo
+    dest: /etc/yum.repos.d/logstash.repo
+    mode: 0644
+
+- name: Install Logstash
+  yum: name=logstash state=latest update_cache=yes
+  tags:
+    - install
+
