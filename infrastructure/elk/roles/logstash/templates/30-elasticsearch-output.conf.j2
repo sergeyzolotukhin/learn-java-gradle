@@ -1,6 +1,6 @@
 output {
   elasticsearch {
-    hosts => ["{{ groups['elasticsearch'][0] }}:9200"]
+    hosts => ["localhost:9200"]
     sniffing => true
     manage_template => false
     index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"

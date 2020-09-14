@@ -1,46 +1,17 @@
 Ansible-Vagrant-ELK
 =====================
 
-This is an Ansible playbook to setup ELK environment for **private** production and test environments
+This is an Ansible playbook to setup ELK environment
 
-Warning: roles does not contains any security features
-
-Environment Basic
+Environment
 -----------------
-1. Download and install Ansible
-
-   ``` bash
-      pip install ansible
-   ```
-
-Test Environment
-----------------
 1. Run Vagrant
 
    ``` bash
       vagrant up
-      # Note:
-      # Vagrant will set up new VM for you and apply to it `elk.yml`, that will
-      # set up ELK into VM.
-      # If something goes wrong you can reapply `elk.yml` with command:
-      # $ vagrant provision
    ```
 
-2. Open [Kibana](http://192.168.33.16:5601/app/kibana) in browser
-
-Deploy to Production
---------------------
-1. Install ELK
-
-   ``` bash
-      ansible-playbook -i prod_hosts elk.yml
-   ```
-
-3. Install Filebeat
-
-   ``` bash
-      $ ansible-playbook -i prod_hosts filebeat.yml
-   ```
+2. Open [Kibana](http://192.168.2.210:5601/app/kibana) in browser
 
 Docs
 ----
