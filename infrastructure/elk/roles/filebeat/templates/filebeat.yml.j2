@@ -22,10 +22,10 @@ output:
 
     # The list of downstream Logstash servers.
     hosts:
-      - "{{ groups['logstash'][0] }}:5044"
+      - "localhost:5044"
 
 logging:
-  level: warning
+  level: info
 
   # enable file rotation with default configuration
   to_files: true
