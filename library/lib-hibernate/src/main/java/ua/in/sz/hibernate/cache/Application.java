@@ -1,12 +1,12 @@
 package ua.in.sz.hibernate.cache;
 
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.Workspace;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
@@ -52,5 +52,12 @@ public class Application {
 		for (Schedule schedule : schedules) {
 			log.info("Schedule: [{}]", schedule.getName());
 		}
+
+		TypedQuery<Schedule> query = em.createQuery("select m from Schedule m", Schedule.class);
+		List<Schedule> list = query.getResultList();
+
+		Session session = em.unwrap(Session.class);
+		Query<Schedule> q1 = session.createQuery("select m from Schedule m", Schedule.class);
+
 	}
 }
