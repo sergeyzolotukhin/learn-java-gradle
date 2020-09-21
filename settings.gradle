@@ -21,13 +21,13 @@
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
-//include 'library:lib-hibernate'
+include 'library:lib-hibernate'
 //include 'hibernate:hibernate-xml-mapping'
 //include 'hibernate:tabular-format'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
-include 'library:lib-activiti'
+//include 'library:lib-activiti'
 //include 'library:lib-antlr'
 //include 'library:lib-jcurses'
 //include 'library:lib-jackson'
@@ -45,7 +45,7 @@ include 'library:lib-activiti'
 // infrastructure
 // ====================================================================================================================
 //include 'infrastructure:postgresql'
-include 'infrastructure:elk'
+//include 'infrastructure:elk'
 //include 'infrastructure:oracle-12r1-shell-provision'
 //include 'infrastructure:oracle-12r1-ansible-provision'
 //include 'infrastructure:ansible:ansible-master'

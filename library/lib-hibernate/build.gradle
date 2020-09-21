@@ -2,6 +2,19 @@ plugins {
     id 'java'
 }
 
+tasks.withType(JavaCompile) {
+    options.annotationProcessorGeneratedSourcesDirectory = file("src/main/generated")
+}
+
+
+/*sourceSets {
+    generated {
+        java {
+            srcDirs = ['src/generated/java']
+        }
+    }
+}*/
+
 repositories{
     mavenLocal()
     jcenter()
