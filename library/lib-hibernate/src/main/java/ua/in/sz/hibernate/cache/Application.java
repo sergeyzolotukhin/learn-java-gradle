@@ -2,6 +2,7 @@ package ua.in.sz.hibernate.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.Workspace;
@@ -58,6 +59,15 @@ public class Application {
 
 		Session session = em.unwrap(Session.class);
 		Query<Schedule> q1 = session.createQuery("select m from Schedule m", Schedule.class);
+		q1.setCacheRegion("f");
+		q1.setCacheable(true);
+		List<Schedule> l1 = q1.list();
+
+		NativeQuery<Object> nq1 = session.createNativeQuery("select * from SCHEDULE", Object.class);
+		nq1.addSynchronizedQuerySpace("f");
+		nq1.setCacheable(true);
+		nq1.setCacheRegion("f");
+		List<Object> nl1 = nq1.list();
 
 	}
 }
