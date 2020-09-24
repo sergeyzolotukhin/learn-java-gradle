@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     // experimental
-    implementation 'net.sf.ehcache:ehcache:2.10.6'
+    implementation 'org.ehcache:ehcache:3.8.1'
 
     // common utils
     implementation 'com.google.guava:guava:29.0-jre'

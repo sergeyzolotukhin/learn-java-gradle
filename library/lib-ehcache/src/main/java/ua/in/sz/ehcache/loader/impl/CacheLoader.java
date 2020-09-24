@@ -1,9 +1,8 @@
 package ua.in.sz.ehcache.loader.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
+import org.ehcache.Cache;
+import org.ehcache.CacheManager;
 import ua.in.sz.ehcache.loader.Loader;
 
 import java.util.Optional;
@@ -15,20 +14,19 @@ public class CacheLoader implements Loader {
 
     public CacheLoader(Loader delegate, CacheManager cacheManager) {
         this.delegate = delegate;
-        this.cache = cacheManager.getCache("products");
+        this.cache = cacheManager.getCache("products", String.class, char[].class);
     }
 
     @Override
     public char[] load(String key) {
         return Optional.ofNullable(cache.get(key))
-                .map(Element::getObjectValue)
                 .map(char[].class::cast)
                 .orElseGet(() -> doLoad(key));
     }
 
     private char[] doLoad(String key) {
         char[] data = delegate.load(key);
-        cache.put(new Element(key, data));
+        cache.put(key, data);
         return data;
     }
 }

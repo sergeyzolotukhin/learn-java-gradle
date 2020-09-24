@@ -21,7 +21,7 @@
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
-include 'library:lib-hibernate'
+//include 'library:lib-hibernate'
 //include 'hibernate:hibernate-xml-mapping'
 //include 'hibernate:tabular-format'
 // ====================================================================================================================
@@ -39,7 +39,7 @@ include 'library:lib-hibernate'
 //include 'library:lib-camel'
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
-//include 'library:lib-ehcache'
+include 'library:lib-ehcache'
 //include 'library:lib-logback'
 // ====================================================================================================================
 // infrastructure
