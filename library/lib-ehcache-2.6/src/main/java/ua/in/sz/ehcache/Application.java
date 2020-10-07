@@ -1,26 +1,16 @@
 package ua.in.sz.ehcache;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.ehcache.CacheManager;
 import org.apache.commons.lang3.time.StopWatch;
-import org.ehcache.CacheManager;
-import org.ehcache.config.Configuration;
-import org.ehcache.config.builders.CacheManagerBuilder;
-import org.ehcache.xml.XmlConfiguration;
 import ua.in.sz.ehcache.loader.impl.CacheLoader;
 import ua.in.sz.ehcache.loader.Loader;
 import ua.in.sz.ehcache.loader.impl.SlowLoader;
 
-import java.net.URL;
-
 @Slf4j
 public class Application {
-	@SneakyThrows
 	public static void main(String[] args) {
-		URL myUrl = Application.class.getResource("/ehcache.xml");
-		Configuration xmlConfig = new XmlConfiguration(myUrl);
-		CacheManager cacheManager = CacheManagerBuilder.newCacheManager(xmlConfig);
-		cacheManager.init();
+		CacheManager cacheManager = CacheManager.newInstance();
 
 		Loader slowLoader = new SlowLoader();
 		Loader cachedLoader = new CacheLoader(slowLoader, cacheManager);
@@ -39,6 +29,6 @@ public class Application {
 		double average = sw.getTime() / 1000.0 / keys.length;
 		log.info("Execution time: {}, average: {} sec", sw, String.format("%.1f", average));
 
-		cacheManager.close();
+		cacheManager.shutdown();
 	}
 }
