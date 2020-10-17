@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "docker-1" do |d|
+      d.vm.box = "ubuntu/bionic64"
+      d.vm.provision :shell, path: "docker_provision.sh"
+      d.vm.provider "virtualbox" do |vb|
+          vb.name = "docker-1"
+          vb.gui = true
+          vb.memory = "2024"
+      end
+  end
+end
