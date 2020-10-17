@@ -13,27 +13,27 @@ repositories {
 
 dependencies {
     // json
-    compile 'com.fasterxml.jackson.core:jackson-core:2.10.0'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.0'
 
     // common utils
-    compile 'com.google.guava:guava:28.1-jre'
-    compile 'org.apache.commons:commons-lang3:3.9'
+    implementation 'com.google.guava:guava:28.1-jre'
+    implementation 'org.apache.commons:commons-lang3:3.9'
 
     // logging
-    compile 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
     // testing
-    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
-    testCompile 'org.junit.jupiter:junit-jupiter-params:5.5.2'
-    testCompile 'org.mockito:mockito-junit-jupiter:3.1.0'
-    testCompile 'org.hamcrest:hamcrest:2.1'
-    testCompile 'org.skyscreamer:jsonassert:1.5.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.5.2'
+    testImplementation 'org.mockito:mockito-junit-jupiter:3.1.0'
+    testImplementation 'org.hamcrest:hamcrest:2.1'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
