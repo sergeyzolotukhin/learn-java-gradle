@@ -27,7 +27,7 @@
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
-include 'library:lib-flowable'
+//include 'library:lib-flowable'
 //include 'library:lib-antlr'
 //include 'library:lib-jcurses'
 //include 'library:lib-jackson'
@@ -42,6 +42,7 @@ include 'library:lib-flowable'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
 //include 'library:lib-logback'
+include 'library:lib-junit-hamcrest'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
