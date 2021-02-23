@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @Slf4j
-@Component
+//@Component
 @RequiredArgsConstructor
 public class ScheduledEmployeeCleaner implements CommandLineRunner, Runnable {
 

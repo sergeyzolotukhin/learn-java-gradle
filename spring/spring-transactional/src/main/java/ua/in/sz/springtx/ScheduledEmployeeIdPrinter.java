@@ -15,7 +15,7 @@ import java.util.List;
 import static java.util.Collections.emptyMap;
 
 @Slf4j
-@Component
+//@Component
 @RequiredArgsConstructor
 public class ScheduledEmployeeIdPrinter implements Runnable {
 

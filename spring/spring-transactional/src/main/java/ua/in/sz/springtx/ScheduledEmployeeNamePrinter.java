@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.sql.Connection;
@@ -23,7 +24,8 @@ public class ScheduledEmployeeNamePrinter implements Runnable {
 
 	@Override
 	@SneakyThrows
-	@Scheduled(fixedDelay = 1000)
+	@Scheduled(initialDelay = 1_000,fixedDelay = 60_000)
+	@Transactional
 	public void run() {
 		assertAutoCommitDisabled();
 
