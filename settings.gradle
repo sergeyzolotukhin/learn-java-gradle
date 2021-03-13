@@ -12,7 +12,7 @@
 //include 'spring:spring-property'
 //include 'spring:spring-camel'
 //include 'spring:spring-swagger'
-include 'spring:spring-transactional'
+//include 'spring:spring-transactional'
 //include 'spring:spring-bean-validation'
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
@@ -71,5 +71,5 @@ include 'spring:spring-transactional'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
-//include 'other'
+include 'other'
 
