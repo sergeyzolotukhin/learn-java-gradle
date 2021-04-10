@@ -52,6 +52,8 @@
 //include 'infrastructure:oracle-12r1-ansible-provision'
 //include 'infrastructure:ansible:ansible-master'
 //include 'infrastructure:ansible:ansible-slave'
+include 'infrastructure:zoo-keeper'
+include 'infrastructure:kafka'
 // ====================================================================================================================
 // pattern gof
 // ====================================================================================================================
