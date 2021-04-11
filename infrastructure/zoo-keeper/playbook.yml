@@ -8,7 +8,7 @@
   tasks:
     - name: Install packages
       apt:
-        name: ['mc']
+        name: ['mc', 'default-jdk']
         update_cache: yes
         state: latest
         force_apt_get: yes
