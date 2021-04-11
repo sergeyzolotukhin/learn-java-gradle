@@ -19,6 +19,12 @@
         state: directory
         mode: 0755
 
+    - name: Create a Zoo Keeper data directory
+      file:
+        path: /var/zoo-keeper/data
+        state: directory
+        mode: 0755
+
     - name: Download a zoo Keeper archive
       get_url:
         url: https://www2.apache.paket.ua/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0-bin.tar.gz
