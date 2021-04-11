@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
     config.vm.define "zoo-keeper-1" do |d|
         d.vm.box = "ubuntu/bionic64"
-        d.vm.network "public_network", ip: "192.168.0.33"
+        d.vm.network "public_network", ip: "192.168.1.33"
         d.vm.provider "virtualbox" do |v|
             v.name = "zoo-keeper-1"
             v.gui = true
