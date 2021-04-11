@@ -19,13 +19,13 @@
         state: directory
         mode: 0755
 
-    - name: Download a zoo Keeper tarball
+    - name: Download a zoo Keeper archive
       get_url:
         url: https://www2.apache.paket.ua/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0-bin.tar.gz
         dest: /opt/zoo-keeper
         mode: 0755
 
-    - name: Maldet | Unarchive copied package
+    - name: Unarchive a zoo Kepper
       unarchive:
         src: /opt/zoo-keeper/apache-zookeeper-3.7.0-bin.tar.gz
         dest: /opt/zoo-keeper/
