@@ -21,6 +21,13 @@
 
     - name: Download a zoo Keeper tarball
       get_url:
-        url: https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0-bin.tar.gz
+        url: https://www2.apache.paket.ua/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0-bin.tar.gz
         dest: /opt/zoo-keeper
         mode: 0755
+
+    - name: Maldet | Unarchive copied package
+      unarchive:
+        src: /opt/zoo-keeper/apache-zookeeper-3.7.0-bin.tar.gz
+        dest: /opt/zoo-keeper/
+        extra_opts: [ --strip-components=1 ]
+        remote_src: yes
