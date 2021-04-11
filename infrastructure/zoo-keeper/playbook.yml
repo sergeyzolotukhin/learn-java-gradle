@@ -12,3 +12,15 @@
         update_cache: yes
         state: latest
         force_apt_get: yes
+
+    - name: Create a Zoo Keeper directory
+      file:
+        path: /opt/zoo-keeper
+        state: directory
+        mode: 0755
+
+    - name: Download a zoo Keeper tarball
+      get_url:
+        url: https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0-bin.tar.gz
+        dest: /opt/zoo-keeper
+        mode: 0755
