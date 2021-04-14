@@ -38,7 +38,7 @@ public class ParentChildApplication {
 
 		log.info("End application");
 
-		Thread.sleep(20_000);
+		Thread.sleep(60_000 * 30);
 		engine.close();
 
 		log.info("The process engine closed");

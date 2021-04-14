@@ -16,7 +16,7 @@ public class AsyncServiceTask implements JavaDelegate {
 		log.info("Executing task {}: async={}, exclusive={}", serviceTask.getId(),
 				serviceTask.isAsynchronous(), serviceTask.isExclusive());
 
-		Thread.sleep(5_000);
+		Thread.sleep(60_000 * 25);
 
 		log.info("Executed task {}", serviceTask.getId());
 	}
