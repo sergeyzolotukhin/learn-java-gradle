@@ -1,0 +1,102 @@
+Full thread dump
+
+"flowable-async-job-executor-thread-3@4177" prio=5 tid=0x1e nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:505)
+	  at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3137)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1614)
+	  at java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1056)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	  at java.lang.Thread.run(Thread.java:832)
+
+"flowable-acquire-async-jobs@3554" prio=5 tid=0x12 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable.sleep(AcquireAsyncJobsDueRunnable.java:142)
+	  at org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable.run(AcquireAsyncJobsDueRunnable.java:76)
+	  - locked <0x105c> (a org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable)
+	  at java.lang.Thread.run(Thread.java:832)
+
+"flowable-acquire-timer-jobs@3555" prio=5 tid=0x13 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at org.flowable.job.service.impl.asyncexecutor.AcquireTimerJobsRunnable.run(AcquireTimerJobsRunnable.java:99)
+	  - locked <0x105e> (a org.flowable.job.service.impl.asyncexecutor.AcquireTimerJobsRunnable)
+	  at java.lang.Thread.run(Thread.java:832)
+
+"flowable-reset-expired-jobs@3556" prio=5 tid=0x14 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at org.flowable.job.service.impl.asyncexecutor.ResetExpiredJobsRunnable.run(ResetExpiredJobsRunnable.java:69)
+	  - locked <0x1060> (a org.flowable.job.service.impl.asyncexecutor.ResetExpiredJobsRunnable)
+	  at java.lang.Thread.run(Thread.java:832)
+
+"flowable-async-job-executor-thread-2@4160" prio=5 tid=0x1d nid=NA sleeping
+  java.lang.Thread.State: TIMED_WAITING
+	  at java.lang.Thread.sleep(Thread.java:-1)
+	  at ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask.execute(AsyncServiceTask.java:19)
+	  at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	  at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	  at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	  at org.flowable.engine.impl.bpmn.behavior.ServiceTaskJavaDelegateActivityBehavior.execute(ServiceTaskJavaDelegateActivityBehavior.java:59)
+	  at org.flowable.engine.impl.bpmn.helper.ClassDelegate.execute(ClassDelegate.java:203)
+	  at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:264)
+	  at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:158)
+	  at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:113)
+	  at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:77)
+	  at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	  at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	  at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	  at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	  at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	  at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:71)
+	  at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	  at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	  at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	  at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	  at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	  at java.lang.Thread.run(Thread.java:832)
+
+"main@1" prio=5 tid=0x1 nid=NA sleeping
+  java.lang.Thread.State: TIMED_WAITING
+	  at java.lang.Thread.sleep(Thread.java:-1)
+	  at ua.in.szolotukhin.flowable.process.ParentChildApplication.main(ParentChildApplication.java:41)
+
+// ====================================================================================================================
+
+"Reference Handler@4182" daemon prio=10 tid=0x2 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-1)
+	  at java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+	  at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+"Finalizer@4183" daemon prio=8 tid=0x3 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	  at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+"Signal Dispatcher@4184" daemon prio=9 tid=0x4 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Attach Listener@4185" daemon prio=5 tid=0x5 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Notification Thread@783" daemon prio=9 tid=0x10 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner@1658" daemon prio=8 tid=0xc nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+	  at java.lang.Thread.run(Thread.java:832)
+	  at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)
+
