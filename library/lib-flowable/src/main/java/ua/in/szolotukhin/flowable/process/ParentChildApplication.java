@@ -13,9 +13,7 @@ import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static ua.in.szolotukhin.flowable.common.ProcessEngineFactory.*;
 
@@ -26,7 +24,7 @@ public class ParentChildApplication {
 
 	private static final boolean HOME = true;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		log.info("start application");
 
 		ProcessEngine engine = createEngine(false);
@@ -39,6 +37,11 @@ public class ParentChildApplication {
 //		method(engine);
 
 		log.info("End application");
+
+		Thread.sleep(20_000);
+		engine.close();
+
+		log.info("The process engine closed");
 	}
 
 	private static void method(ProcessEngine processEngine) {
