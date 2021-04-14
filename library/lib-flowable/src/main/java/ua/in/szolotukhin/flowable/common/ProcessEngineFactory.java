@@ -4,6 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.ProcessEngine;
 import org.flowable.engine.ProcessEngineConfiguration;
 import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
+import org.flowable.job.service.impl.asyncexecutor.ResetExpiredJobsRunnable;
+import ua.in.szolotukhin.flowable.debug.TraceDefaultAsyncJobExecutor;
+import ua.in.szolotukhin.flowable.debug.TraceResetExpiredJobsRunnable;
+import ua.in.szolotukhin.flowable.debug.TraceStandaloneProcessEngineConfiguration;
 
 @Slf4j
 public class ProcessEngineFactory {
@@ -13,7 +17,7 @@ public class ProcessEngineFactory {
 
 		log.info("Create engine");
 
-		StandaloneProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration();
+		StandaloneProcessEngineConfiguration cfg = new TraceStandaloneProcessEngineConfiguration();
 
         if (HOME) {
             cfg.setJdbcUrl("jdbc:postgresql://localhost/flowable")
