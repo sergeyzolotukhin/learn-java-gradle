@@ -9,20 +9,20 @@
         <startEvent id="start-event"/>
 
         <!--      Sync  -->
-        <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="p-sync-1"/>
-        <serviceTask id="p-sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
-                     flowable:async="true"/>
-        <sequenceFlow id="flow-2" sourceRef="p-sync-1" targetRef="p-call-activity-1"/>
+<!--         <sequenceFlow id="flow-1" sourceRef="start-event" targetRef="p-sync-1"/> -->
+<!--         <serviceTask id="p-sync-1" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask" -->
+<!--                      flowable:async="true"/> -->
+        <sequenceFlow id="flow-2" sourceRef="start-event" targetRef="p-call-activity-1"/>
 
         <!--     subprocess   -->
         <callActivity id="p-call-activity-1" calledElement="subprocess-child"
                       flowable:async="true" flowable:exclusive="false"/>
 
         <!--    Sync    -->
-        <sequenceFlow id="flow-5" sourceRef="p-call-activity-1" targetRef="p-sync-2"/>
-        <serviceTask id="p-sync-2" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask"
-                     flowable:async="true"/>
-        <sequenceFlow id="flow-20" sourceRef="p-sync-2" targetRef="end-event"/>
+        <sequenceFlow id="flow-5" sourceRef="p-call-activity-1" targetRef="end-event"/>
+<!--         <serviceTask id="p-sync-2" flowable:class="ua.in.szolotukhin.flowable.common.tasks.AsyncServiceTask" -->
+<!--                      flowable:async="true"/> -->
+<!--         <sequenceFlow id="flow-20" sourceRef="p-sync-2" targetRef="end-event"/> -->
 
         <endEvent id="end-event"/>
     </process>

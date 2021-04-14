@@ -29,6 +29,8 @@ A conversion pattern is composed of literal text and format control expressions 
 <!--  Job execution trace  -->
 <!--    <logger name="org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable" level="debug"/>-->
 <!--    <logger name="org.flowable.job.service.impl.asyncexecutor.JobAddedTransactionListener" level="trace"/>-->
+
+    <!--  Trace SQL statements  -->
 <!--    <logger name="org.flowable.common.engine.impl.db.DbSqlSession" level="debug"/>-->
 
 <!--  Other  -->
