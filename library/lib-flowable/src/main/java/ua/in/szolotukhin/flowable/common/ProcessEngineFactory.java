@@ -35,9 +35,10 @@ public class ProcessEngineFactory {
         }
 
 		cfg.setAsyncExecutorActivate(true);
-        int timeout = 60 * 1000;
+        int timeout = 1000;
 //        cfg.setAsyncExecutorResetExpiredJobsMaxTimeout(timeout);
         cfg.setAsyncExecutorAsyncJobLockTimeInMillis(timeout);
+        cfg.setAsyncExecutorResetExpiredJobsInterval(1000);
 //        cfg.setAsyncExecutorTimerLockTimeInMillis(timeout);
 //		cfg.setEnableVerboseExecutionTreeLogging(true);
 
