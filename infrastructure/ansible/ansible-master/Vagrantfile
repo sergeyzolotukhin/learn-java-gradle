@@ -2,6 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+
+#     config.ssh.username = 'vagrant'
+#     config.ssh.password = 'vagrant'
+#     config.ssh.insert_key = false
+
     config.vm.define "m1" do |d|
         d.vm.box = "ubuntu/focal64"
         d.vm.hostname = "m1.szolotukhin.in.ua"
@@ -12,6 +17,12 @@ Vagrant.configure("2") do |config|
             v.memory = "1024"
             v.customize ["modifyvm", :id, "--vram", "128"]
         end
+        config.vm.provision "shell", inline: <<-SHELL
+            sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config
+            sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+            service ssh restart
+        SHELL
+
 =begin
         d.vm.provision :ansible_local do |v|
             v.playbook = "playbook.yml"
