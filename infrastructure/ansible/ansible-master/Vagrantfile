@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
 #     config.ssh.password = 'vagrant'
 #     config.ssh.insert_key = false
 
+    # https://friendsofvagrant.github.io/v1/docs/multivm.html
     config.vm.define "m1" do |d|
         d.vm.box = "ubuntu/focal64"
         d.vm.hostname = "m1.szolotukhin.in.ua"
