@@ -9,4 +9,6 @@ sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt --yes install ansible
 
+sudo apt --yes install sshpass
+
 sudo apt --yes install mc
