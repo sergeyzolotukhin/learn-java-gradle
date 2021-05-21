@@ -28,9 +28,22 @@
 
 #### My steps how to learn ansible.
 
-    1. How to install ansible with vagrant oo the one node. DONE
-    2. How to enable connect to other node via password. DONE
-    3. How to create simple play book to ping other node. DONE
-    4. How to create a simple role. DONE
-    5. How to apply separate roles to different hosts. DONE
-    
+DONE:
+    * How to install ansible with vagrant oo the one node.
+    * How to enable connect to other node via password.
+    * How to create simple play book to ping other node.
+    * How to create a simple role.
+    * How to apply separate roles to different hosts.
+
+IN PROGRESS:
+
+TODO:
+
+    * Install postgresql
+    * Create database via ansible
+    * Insert data via ansible
+    * Create database dump
+    * Restore database from dump
+
+    * Execute custom python script on the node
+    * Create custom module
