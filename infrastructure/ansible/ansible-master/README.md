@@ -5,4 +5,4 @@
     2. Execute following commands:
 
         cd /vagrant/ansible
-        ansible-playbook playbook.yml -i inventory
+        ansible-playbook playbook.yml
