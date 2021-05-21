@@ -1,10 +1,8 @@
 ---
 - hosts: all
   name: Ansible mulity host setup
-  gather_facts: false
   become: yes
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
-
-  tasks:
-    - ping:
+  roles:
+    - db
