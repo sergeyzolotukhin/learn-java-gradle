@@ -4,5 +4,13 @@
   become: yes
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
+
+- hosts: db
+  become: yes
   roles:
     - db
+
+- hosts: web
+  become: yes
+  roles:
+    - web

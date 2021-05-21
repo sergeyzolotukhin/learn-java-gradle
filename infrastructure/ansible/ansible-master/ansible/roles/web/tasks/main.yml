@@ -1,0 +1,6 @@
+---
+- name: Create Web User
+  user:
+    name: web_user
+    shell: /bin/bash
+    append: yes

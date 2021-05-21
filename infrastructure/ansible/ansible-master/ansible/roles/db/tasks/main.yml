@@ -1,4 +1,10 @@
 ---
-- name: Install packages
+- name: Install packages to DB host
   apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
   loop: [ 'mc' ]
+
+- name: Create DB user
+  user:
+    name: db_user
+    shell: /bin/bash
+    append: yes
