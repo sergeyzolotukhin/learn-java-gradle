@@ -28,5 +28,18 @@ Vagrant.configure("2") do |config|
         end
         s.vm.provision "shell", path: "provision-node.sh"
     end
+
+    config.vm.define "s2" do |a|
+        a.vm.box = "ubuntu/focal64"
+        a.vm.hostname = "s2.szolotukhin.in.ua"
+        a.vm.network :public_network, ip: "192.168.1.42"
+        a.vm.provider "virtualbox" do |b|
+            b.name = "ansible managed node 2"
+            b.gui = true
+            b.memory = "1024"
+            b.customize ["modifyvm", :id, "--vram", "128"]
+        end
+        a.vm.provision "shell", path: "provision-node.sh"
+    end
 end
 
