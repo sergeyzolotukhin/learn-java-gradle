@@ -36,10 +36,10 @@ DONE:
     * How to apply separate roles to different hosts.
 
 IN PROGRESS:
+    * Enable access to Postgresql for other hosts
 
 TODO:
 
-    * Install postgresql
     * Create database via ansible
     * Insert data via ansible
     * Create database dump
@@ -47,3 +47,21 @@ TODO:
 
     * Execute custom python script on the node
     * Create custom module
+
+##### Enable access to Postgresql for other hosts
+
+    I had the same exact problem. The issue was on the host side, basically the firewall was blocking the port I was using. So this is what I did (I am using OSX Mavericks)
+
+    Open the port (Host)
+        sudo ipfw add 7000 allow tcp from any to any dst-port 7001
+
+    Modify Vagrantfile in order to allow portforwarding
+        config.vm.network "forwarded_port", guest: 5432, host: 7001
+
+    Edit postgresql.conf (Guest)
+        listen_addresses = '*'
+
+    Edit pg_hba.conf (you might want to tune this better)
+        host    all       all   0.0.0.0/0     md5
+
+    Now, from the host connect normally using the port (in my case 7001) and 'localhost' as host address
