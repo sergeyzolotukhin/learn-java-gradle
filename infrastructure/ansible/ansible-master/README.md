@@ -6,3 +6,8 @@
 
         cd /vagrant/ansible
         ansible-playbook playbook.yml
+
+#### Known issue
+
+    Failed to connect to the host via ssh:  WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+    ssh-keygen -R 192.168.1.41

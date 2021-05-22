@@ -1,10 +1,27 @@
 ---
 - name: Install packages to DB host
-  apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+    force_apt_get: yes
   loop: [ 'mc' ]
 
-- name: Create DB user
-  user:
-    name: db_user
-    shell: /bin/bash
-    append: yes
+- name: Import the Postgre SQL apt key
+  become: true
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+
+- name: Install Postgre SQL deb repository
+  become: true
+  apt_repository:
+    repo: deb http://apt.postgresql.org/pub/repos/apt focal-pgdg main
+    state: present
+
+- name: Install Postgre SQL 13
+  become: true
+  apt:
+    name: postgresql-13
+    state: present
+    update_cache: true
