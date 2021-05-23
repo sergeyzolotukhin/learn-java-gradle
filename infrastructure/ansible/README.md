@@ -73,3 +73,4 @@ TODO:
     https://github.com/devopsgroup-io/vagrant-hostmanager
 
     https://app.vagrantup.com/boxes/search
+    https://vagrant-lists.github.io/plugins.html
