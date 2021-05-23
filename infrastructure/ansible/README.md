@@ -65,3 +65,11 @@ TODO:
         host    all       all   0.0.0.0/0     md5
 
     Now, from the host connect normally using the port (in my case 7001) and 'localhost' as host address
+
+#### Vagrant DNS
+
+    https://github.com/BerlinVagrant/vagrant-dns
+    https://github.com/vagrant-landrush/landrush
+    https://github.com/devopsgroup-io/vagrant-hostmanager
+
+    https://app.vagrantup.com/boxes/search
