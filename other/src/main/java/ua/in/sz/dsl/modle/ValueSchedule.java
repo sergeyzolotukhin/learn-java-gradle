@@ -1,9 +1,10 @@
 package ua.in.sz.dsl.modle;
 
-import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.Getter;
-import org.joda.time.*;
+import org.joda.time.DateTime;
+import org.joda.time.Minutes;
+import org.joda.time.Period;
 
 import java.util.List;
 
