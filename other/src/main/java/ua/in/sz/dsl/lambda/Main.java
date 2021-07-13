@@ -26,22 +26,19 @@ public class Main {
         ValueSchedule valuesOfA = ValueSchedule.builder()
                 .code("A")
                 .values(Lists.newArrayList("0", "1", "2"))
-                .start(date.withTimeAtStartOfDay())
-                .end(date.withTimeAtStartOfDay().plusDays(1))
+                .day(date)
                 .resolution(Period.parse("PT5M"))
                 .build();
 
         ValueSchedule valuesOfB = ValueSchedule.builder()
                 .code("B")
                 .values(Lists.newArrayList("0", "1", "2"))
-                .start(date.withTimeAtStartOfDay())
-                .end(date.withTimeAtStartOfDay().plusDays(1))
+                .day(date)
                 .resolution(Period.parse("PT5M"))
                 .build();
 
         Schedule schedule = Schedule.builder()
-                .start(date.withTimeAtStartOfDay())
-                .end(date.withTimeAtStartOfDay().plusDays(1))
+                .day(date)
                 .resolution(Period.parse("PT5M"))
                 .values(Lists.newArrayList(valuesOfA, valuesOfB))
                 .build();
