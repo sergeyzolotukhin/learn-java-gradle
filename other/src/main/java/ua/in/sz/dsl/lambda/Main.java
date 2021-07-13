@@ -26,24 +26,22 @@ public class Main {
     public static void main(String[] args) {
         DateTime date = DateTime.now();
 
-        ValueSchedule valuesOfA = ValueSchedule.builder()
-                .code("A")
-                .values(Lists.newArrayList("0", "1", "2"))
-                .day(date)
-                .resolution(PT5M)
-                .build();
-
-        ValueSchedule valuesOfB = ValueSchedule.builder()
-                .code("B")
-                .values(Lists.newArrayList("0", "1", "2"))
-                .day(date)
-                .resolution(PT5M)
-                .build();
-
         Schedule schedule = Schedule.builder()
                 .day(date)
                 .resolution(PT5M)
-                .values(Lists.newArrayList(valuesOfA, valuesOfB))
+                .values(Lists.newArrayList(
+                        ValueSchedule.builder()
+                                .code("A")
+                                .values(Lists.newArrayList("0", "1", "2"))
+                                .day(date)
+                                .resolution(PT5M)
+                                .build(),
+                        ValueSchedule.builder()
+                                .code("B")
+                                .values(Lists.newArrayList("0", "1", "2"))
+                                .day(date)
+                                .resolution(PT5M)
+                                .build()))
                 .build();
 
         String value1 = schedule.getValue("A", date.withTimeAtStartOfDay().withMinuteOfHour(5));
