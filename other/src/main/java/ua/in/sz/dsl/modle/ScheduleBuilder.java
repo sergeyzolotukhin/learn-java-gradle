@@ -16,9 +16,9 @@ public class ScheduleBuilder {
 
     ScheduleBuilder(String type, DateTime start, Resolution resolution) {
         this.type = type;
-        this.start = start.withTimeAtStartOfDay();
-        this.end = this.start.plusDays(1);
         this.resolution = resolution.period();
+        this.start = start;
+        this.end = this.start.plus(resolution.period());
     }
 
     public ScheduleBuilder start(DateTime start) {

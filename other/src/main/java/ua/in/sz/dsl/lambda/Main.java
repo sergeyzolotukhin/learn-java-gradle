@@ -3,6 +3,7 @@ package ua.in.sz.dsl.lambda;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import ua.in.sz.dsl.modle.Schedule;
+import ua.in.sz.dsl.modle.Schedules;
 import ua.in.sz.dsl.modle.Value;
 
 import static ua.in.sz.notcomplited.schedules.domain.Resolution.PT5M;
@@ -17,9 +18,9 @@ The base class is the definition IntegrationFlow[Definition] of all builder.
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        DateTime date = DateTime.now();
+        DateTime day = DateTime.now();
 
-        Schedule schedule = Schedule.builder("S", date, PT5M)
+        Schedule schedule = Schedules.dailyFiveMinutes("S", day)
                 .values(Value.builder("A")
                                 .values("0", "1", "2")
                                 .build(),
@@ -28,7 +29,7 @@ public class Main {
                                 .build())
                 .build();
 
-        String value1 = schedule.getValue("A", date.withTimeAtStartOfDay().withMinuteOfHour(5));
+        String value1 = schedule.getValue("A", day.withTimeAtStartOfDay().withMinuteOfHour(5));
         log.info("The value of [{}] is [{}]", "A", value1);
     }
 }
