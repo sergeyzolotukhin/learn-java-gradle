@@ -21,19 +21,29 @@ The base class is the definition IntegrationFlow[Definition] of all builder.
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        ValueSchedule values = ValueSchedule.builder()
+        ValueSchedule valuesOfA = ValueSchedule.builder()
+                .code("A")
+                .values(Lists.newArrayList("0", "1", "2"))
                 .start(DateTime.parse("2021-07-15T00:00"))
                 .end(DateTime.parse("2021-07-16T00:00"))
                 .resolution(Period.parse("PT5M"))
-                .code("A")
+                .build();
+
+        ValueSchedule valuesOfB = ValueSchedule.builder()
+                .code("B")
                 .values(Lists.newArrayList("0", "1", "2"))
+                .start(DateTime.parse("2021-07-15T00:00"))
+                .end(DateTime.parse("2021-07-16T00:00"))
+                .resolution(Period.parse("PT5M"))
                 .build();
 
         Schedule schedule = Schedule.builder()
                 .start(DateTime.parse("2021-07-15T00:00"))
                 .end(DateTime.parse("2021-07-16T00:00"))
-                .values(Collections.singletonList(values))
+                .resolution(Period.parse("PT5M"))
+                .values(Lists.newArrayList(valuesOfA, valuesOfB))
                 .build();
+
 
 //        String value = values.getValue(DateTime.parse("2021-07-15T00:05"));
         String value1 = schedule.getValue("A", DateTime.parse("2021-07-15T00:05"));
