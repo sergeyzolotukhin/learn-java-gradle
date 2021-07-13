@@ -24,8 +24,8 @@ public class Value {
         this.values = values;
     }
 
-    public static ValueBuilder builder() {
-        return new ValueBuilder();
+    public static ValueBuilder builder(String code) {
+        return new ValueBuilder(code);
     }
 
     public String getValue(DateTime time) {
@@ -84,7 +84,8 @@ public class Value {
             return this;
         }
 
-        ValueBuilder() {
+        ValueBuilder(String code) {
+            this.code = code;
         }
 
         public ValueBuilder start(DateTime start) {

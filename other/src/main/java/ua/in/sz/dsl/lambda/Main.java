@@ -19,16 +19,11 @@ public class Main {
     public static void main(String[] args) {
         DateTime date = DateTime.now();
 
-        Schedule schedule = Schedule.builder()
-                .day(date)
-                .resolution(PT5M)
-                .values(
-                        Value.builder()
-                                .code("A")
+        Schedule schedule = Schedule.builder("S", date, PT5M)
+                .values(Value.builder("A")
                                 .values("0", "1", "2")
                                 .build(),
-                        Value.builder()
-                                .code("B")
+                        Value.builder("B")
                                 .values("0", "1", "2")
                                 .build())
                 .build();

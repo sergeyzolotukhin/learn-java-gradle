@@ -8,21 +8,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Schedule {
+    private String type;
     private DateTime start;
     private DateTime end;
     private Period resolution;
 
     private List<Value> values;
 
-    Schedule(DateTime start, DateTime end, Period resolution, List<Value> values) {
+    Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values) {
+        this.type = type;
         this.start = start;
         this.end = end;
         this.resolution = resolution;
         this.values = values;
     }
 
-    public static ScheduleBuilder builder() {
-        return new ScheduleBuilder();
+    public static ScheduleBuilder builder(String type, DateTime start, Resolution resolution) {
+        return new ScheduleBuilder(type, start, resolution);
     }
 
     public String getValue(String code, DateTime time) {
@@ -34,12 +36,17 @@ public class Schedule {
     }
 
     public static class ScheduleBuilder {
+        private String type;
         private DateTime start;
         private DateTime end;
         private Period resolution;
         private List<Value> values;
 
-        ScheduleBuilder() {
+        ScheduleBuilder(String type, DateTime start, Resolution resolution) {
+            this.type = type;
+            this.start = start.withTimeAtStartOfDay();
+            this.end = this.start.plusDays(1);
+            this.resolution = resolution.period();
         }
 
         public ScheduleBuilder start(DateTime start) {
@@ -81,7 +88,7 @@ public class Schedule {
                 v.setResolution(resolution);
             });
 
-            return new Schedule(start, end, resolution, values);
+            return new Schedule(type, start, end, resolution, values);
         }
 
         public String toString() {
