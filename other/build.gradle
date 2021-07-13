@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     // experimental
+//    implementation 'org.springframework.integration:spring-integration-core:5.5.1'
     implementation 'joda-time:joda-time:2.10.5'
     implementation 'javax.cache:cache-api:1.1.1'
     implementation 'org.quartz-scheduler:quartz:2.3.2'
