@@ -74,6 +74,12 @@ public class Schedule {
         }
 
         public Schedule build() {
+            values.forEach(v -> {
+                v.setStart(start);
+                v.setEnd(end);
+                v.setResolution(resolution);
+            });
+
             return new Schedule(start, end, resolution, values);
         }
 

@@ -33,14 +33,10 @@ public class Main {
                         ValueSchedule.builder()
                                 .code("A")
                                 .values(Lists.newArrayList("0", "1", "2"))
-                                .day(date)
-                                .resolution(PT5M)
                                 .build(),
                         ValueSchedule.builder()
                                 .code("B")
                                 .values(Lists.newArrayList("0", "1", "2"))
-                                .day(date)
-                                .resolution(PT5M)
                                 .build()))
                 .build();
 
