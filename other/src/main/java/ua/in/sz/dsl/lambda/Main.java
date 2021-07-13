@@ -6,13 +6,6 @@ import ua.in.sz.dsl.modle.Schedule;
 import ua.in.sz.dsl.modle.Schedules;
 import ua.in.sz.dsl.modle.Values;
 
-/*
-A name in the plural form IntegrationFlow[s] is return builder IntegrationFlow[Builder].
-
-SourcePollingChannelAdapter[Spec] ->
-The base class is the definition IntegrationFlow[Definition] of all builder.
-
- */
 @Slf4j
 public class Main {
     public static void main(String[] args) {
