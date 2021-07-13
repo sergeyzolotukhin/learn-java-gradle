@@ -21,50 +21,32 @@ The base class is the definition IntegrationFlow[Definition] of all builder.
 @Slf4j
 public class Main {
     public static void main(String[] args) {
+        DateTime date = DateTime.now();
+
         ValueSchedule valuesOfA = ValueSchedule.builder()
                 .code("A")
                 .values(Lists.newArrayList("0", "1", "2"))
-                .start(DateTime.parse("2021-07-15T00:00"))
-                .end(DateTime.parse("2021-07-16T00:00"))
+                .start(date.withTimeAtStartOfDay())
+                .end(date.withTimeAtStartOfDay().plusDays(1))
                 .resolution(Period.parse("PT5M"))
                 .build();
 
         ValueSchedule valuesOfB = ValueSchedule.builder()
                 .code("B")
                 .values(Lists.newArrayList("0", "1", "2"))
-                .start(DateTime.parse("2021-07-15T00:00"))
-                .end(DateTime.parse("2021-07-16T00:00"))
+                .start(date.withTimeAtStartOfDay())
+                .end(date.withTimeAtStartOfDay().plusDays(1))
                 .resolution(Period.parse("PT5M"))
                 .build();
 
         Schedule schedule = Schedule.builder()
-                .start(DateTime.parse("2021-07-15T00:00"))
-                .end(DateTime.parse("2021-07-16T00:00"))
+                .start(date.withTimeAtStartOfDay())
+                .end(date.withTimeAtStartOfDay().plusDays(1))
                 .resolution(Period.parse("PT5M"))
                 .values(Lists.newArrayList(valuesOfA, valuesOfB))
                 .build();
 
-
-//        String value = values.getValue(DateTime.parse("2021-07-15T00:05"));
-        String value1 = schedule.getValue("A", DateTime.parse("2021-07-15T00:05"));
+        String value1 = schedule.getValue("A", date.withTimeAtStartOfDay().withMinuteOfHour(5));
         log.info("The value of [{}] is [{}]", "A", value1);
     }
-
-
-
-
-/*    public static void m() {
-        StandardIntegrationFlow inputChannel = IntegrationFlows.from(sourceDirectory(), c -> c.poller(Pollers.fixedRate(100)))
-                .channel("inputChannel")
-                .filter((Integer p) -> p > 0)
-                .transform(Object::toString)
-                .channel(MessageChannels.queue())
-                .get();
-
-        System.out.println(inputChannel);
-    }
-
-    public static MessageSource<Object> sourceDirectory() {
-        return null;
-    }*/
 }
