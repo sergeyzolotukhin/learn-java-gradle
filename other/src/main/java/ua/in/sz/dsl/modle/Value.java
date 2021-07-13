@@ -5,9 +5,10 @@ import org.joda.time.Minutes;
 import org.joda.time.Period;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class ValueSchedule {
+public class Value {
     private DateTime start;
     private DateTime end;
     private Period resolution;
@@ -15,7 +16,7 @@ public class ValueSchedule {
     private String code;
     private List<String> values;
 
-    ValueSchedule(DateTime start, DateTime end, Period resolution, String code, List<String> values) {
+    Value(DateTime start, DateTime end, Period resolution, String code, List<String> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;
@@ -23,8 +24,8 @@ public class ValueSchedule {
         this.values = values;
     }
 
-    public static ValueScheduleBuilder builder() {
-        return new ValueScheduleBuilder();
+    public static ValueBuilder builder() {
+        return new ValueBuilder();
     }
 
     public String getValue(DateTime time) {
@@ -65,54 +66,54 @@ public class ValueSchedule {
         this.resolution = resolution;
     }
 
-    public static class ValueScheduleBuilder {
+    public static class ValueBuilder {
         private DateTime start;
         private DateTime end;
         private Period resolution;
         private String code;
         private List<String> values;
 
-        public ValueScheduleBuilder day(DateTime start) {
+        public ValueBuilder day(DateTime start) {
             this.start = start.withTimeAtStartOfDay();
             this.end = this.start.plusDays(1);
             return this;
         }
 
-        public ValueScheduleBuilder resolution(Resolution resolution) {
+        public ValueBuilder resolution(Resolution resolution) {
             this.resolution = resolution.period();
             return this;
         }
 
-        ValueScheduleBuilder() {
+        ValueBuilder() {
         }
 
-        public ValueScheduleBuilder start(DateTime start) {
+        public ValueBuilder start(DateTime start) {
             this.start = start;
             return this;
         }
 
-        public ValueScheduleBuilder end(DateTime end) {
+        public ValueBuilder end(DateTime end) {
             this.end = end;
             return this;
         }
 
-        public ValueScheduleBuilder resolution(Period resolution) {
+        public ValueBuilder resolution(Period resolution) {
             this.resolution = resolution;
             return this;
         }
 
-        public ValueScheduleBuilder code(String code) {
+        public ValueBuilder code(String code) {
             this.code = code;
             return this;
         }
 
-        public ValueScheduleBuilder values(List<String> values) {
-            this.values = values;
+        public ValueBuilder values(String ... values) {
+            this.values = Arrays.asList(values);
             return this;
         }
 
-        public ValueSchedule build() {
-            return new ValueSchedule(start, end, resolution, code, values);
+        public Value build() {
+            return new Value(start, end, resolution, code, values);
         }
 
         public String toString() {

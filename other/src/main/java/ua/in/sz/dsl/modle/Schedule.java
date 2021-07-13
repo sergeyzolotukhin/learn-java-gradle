@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Period;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Schedule {
@@ -11,9 +12,9 @@ public class Schedule {
     private DateTime end;
     private Period resolution;
 
-    private List<ValueSchedule> values;
+    private List<Value> values;
 
-    Schedule(DateTime start, DateTime end, Period resolution, List<ValueSchedule> values) {
+    Schedule(DateTime start, DateTime end, Period resolution, List<Value> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;
@@ -36,7 +37,7 @@ public class Schedule {
         private DateTime start;
         private DateTime end;
         private Period resolution;
-        private List<ValueSchedule> values;
+        private List<Value> values;
 
         ScheduleBuilder() {
         }
@@ -68,8 +69,8 @@ public class Schedule {
             return this;
         }
 
-        public ScheduleBuilder values(List<ValueSchedule> values) {
-            this.values = values;
+        public ScheduleBuilder values(Value... values) {
+            this.values = Arrays.asList(values);
             return this;
         }
 

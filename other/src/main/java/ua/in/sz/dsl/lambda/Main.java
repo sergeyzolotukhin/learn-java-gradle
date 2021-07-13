@@ -1,16 +1,9 @@
 package ua.in.sz.dsl.lambda;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
-import org.joda.time.Period;
-import org.kie.soup.commons.util.Maps;
 import ua.in.sz.dsl.modle.Schedule;
-import ua.in.sz.dsl.modle.ValueSchedule;
-import ua.in.sz.notcomplited.schedules.domain.Resolution;
-
-import java.util.Collections;
+import ua.in.sz.dsl.modle.Value;
 
 import static ua.in.sz.notcomplited.schedules.domain.Resolution.PT5M;
 
@@ -29,15 +22,15 @@ public class Main {
         Schedule schedule = Schedule.builder()
                 .day(date)
                 .resolution(PT5M)
-                .values(Lists.newArrayList(
-                        ValueSchedule.builder()
+                .values(
+                        Value.builder()
                                 .code("A")
-                                .values(Lists.newArrayList("0", "1", "2"))
+                                .values("0", "1", "2")
                                 .build(),
-                        ValueSchedule.builder()
+                        Value.builder()
                                 .code("B")
-                                .values(Lists.newArrayList("0", "1", "2"))
-                                .build()))
+                                .values("0", "1", "2")
+                                .build())
                 .build();
 
         String value1 = schedule.getValue("A", date.withTimeAtStartOfDay().withMinuteOfHour(5));
