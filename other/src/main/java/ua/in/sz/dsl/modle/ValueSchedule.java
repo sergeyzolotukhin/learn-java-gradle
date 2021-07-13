@@ -8,11 +8,13 @@ import org.joda.time.*;
 import java.util.List;
 
 @Builder
+@Getter
 public class ValueSchedule {
     private DateTime start;
     private DateTime end;
     private Period resolution;
 
+    private String code;
     private List<String> values;
 
     public String getValue(DateTime time) {

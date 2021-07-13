@@ -9,6 +9,8 @@ import org.kie.soup.commons.util.Maps;
 import ua.in.sz.dsl.modle.Schedule;
 import ua.in.sz.dsl.modle.ValueSchedule;
 
+import java.util.Collections;
+
 /*
 A name in the plural form IntegrationFlow[s] is return builder IntegrationFlow[Builder].
 
@@ -23,13 +25,14 @@ public class Main {
                 .start(DateTime.parse("2021-07-15T00:00"))
                 .end(DateTime.parse("2021-07-16T00:00"))
                 .resolution(Period.parse("PT5M"))
+                .code("A")
                 .values(Lists.newArrayList("0", "1", "2"))
                 .build();
 
         Schedule schedule = Schedule.builder()
                 .start(DateTime.parse("2021-07-15T00:00"))
                 .end(DateTime.parse("2021-07-16T00:00"))
-                .values(ImmutableMap.of("A", values))
+                .values(Collections.singletonList(values))
                 .build();
 
 //        String value = values.getValue(DateTime.parse("2021-07-15T00:05"));
