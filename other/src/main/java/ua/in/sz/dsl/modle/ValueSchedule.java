@@ -3,6 +3,7 @@ package ua.in.sz.dsl.modle;
 import org.joda.time.DateTime;
 import org.joda.time.Minutes;
 import org.joda.time.Period;
+import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
 import java.util.List;
 
@@ -62,6 +63,11 @@ public class ValueSchedule {
         public ValueScheduleBuilder day(DateTime start) {
             this.start = start.withTimeAtStartOfDay();
             this.end = this.start.plusDays(1);
+            return this;
+        }
+
+        public ValueScheduleBuilder resolution(Resolution resolution) {
+            this.resolution = resolution.period();
             return this;
         }
 

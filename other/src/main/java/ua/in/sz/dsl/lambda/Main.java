@@ -8,8 +8,11 @@ import org.joda.time.Period;
 import org.kie.soup.commons.util.Maps;
 import ua.in.sz.dsl.modle.Schedule;
 import ua.in.sz.dsl.modle.ValueSchedule;
+import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
 import java.util.Collections;
+
+import static ua.in.sz.notcomplited.schedules.domain.Resolution.PT5M;
 
 /*
 A name in the plural form IntegrationFlow[s] is return builder IntegrationFlow[Builder].
@@ -27,19 +30,19 @@ public class Main {
                 .code("A")
                 .values(Lists.newArrayList("0", "1", "2"))
                 .day(date)
-                .resolution(Period.parse("PT5M"))
+                .resolution(PT5M)
                 .build();
 
         ValueSchedule valuesOfB = ValueSchedule.builder()
                 .code("B")
                 .values(Lists.newArrayList("0", "1", "2"))
                 .day(date)
-                .resolution(Period.parse("PT5M"))
+                .resolution(PT5M)
                 .build();
 
         Schedule schedule = Schedule.builder()
                 .day(date)
-                .resolution(Period.parse("PT5M"))
+                .resolution(PT5M)
                 .values(Lists.newArrayList(valuesOfA, valuesOfB))
                 .build();
 

@@ -3,6 +3,7 @@ package ua.in.sz.notcomplited.schedules.domain;
 import org.joda.time.Period;
 
 public enum Resolution {
+	PT5M("PT5M"),
 	PT15M("PT15M"),
 	PT30M("PT30M"),
 	PT45M("PT45M"),
