@@ -2,6 +2,7 @@ package ua.in.sz.dsl.lambda;
 
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
+import ua.in.sz.dsl.modle.Params;
 import ua.in.sz.dsl.modle.Schedule;
 import ua.in.sz.dsl.modle.Schedules;
 import ua.in.sz.dsl.modle.Values;
@@ -12,7 +13,8 @@ public class Main {
         DateTime day = DateTime.now();
 
         Schedule schedule = Schedules.dailyFiveMinutes("S", day)
-                .values(Values.values("A","0", "1", "2"),
+                .params(Params.param("A", "RO1"))
+                .values(Values.values("A", "0", "1", "2"),
                         Values.values("B", "0", "1", "2"))
                 .build();
 

@@ -2,6 +2,7 @@ package ua.in.sz.dsl.modle.builder;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import ua.in.sz.dsl.modle.Param;
 import ua.in.sz.dsl.modle.Schedule;
 import ua.in.sz.dsl.modle.Value;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
@@ -15,6 +16,7 @@ public class ScheduleBuilder {
     private DateTime end;
     private Period resolution;
     private List<Value> values;
+    private List<Param> params;
 
     public ScheduleBuilder(String type, DateTime start, Resolution resolution) {
         this.type = type;
@@ -46,6 +48,11 @@ public class ScheduleBuilder {
 
     public ScheduleBuilder values(Value... values) {
         this.values = Arrays.asList(values);
+        return this;
+    }
+
+    public ScheduleBuilder params(Param... params) {
+        this.params = Arrays.asList(params);
         return this;
     }
 

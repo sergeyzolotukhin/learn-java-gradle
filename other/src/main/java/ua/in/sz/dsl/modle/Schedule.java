@@ -13,6 +13,7 @@ public class Schedule {
     private DateTime end;
     private Period resolution;
 
+    private List<Param> params;
     private List<Value> values;
 
     public Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values) {

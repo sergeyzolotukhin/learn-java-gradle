@@ -58,8 +58,4 @@ public class ValueBuilder {
     public Value build() {
         return new Value(start, end, resolution, code, values);
     }
-
-    public String toString() {
-        return "ValueSchedule.ValueScheduleBuilder(start=" + this.start + ", end=" + this.end + ", resolution=" + this.resolution + ", code=" + this.code + ", values=" + this.values + ")";
-    }
 }
