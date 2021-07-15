@@ -3,6 +3,7 @@ package ua.in.sz.dsl.modle;
 import org.joda.time.DateTime;
 import org.joda.time.Minutes;
 import org.joda.time.Period;
+import ua.in.sz.dsl.modle.builder.ValueBuilder;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Value {
     private String code;
     private List<String> values;
 
-    Value(DateTime start, DateTime end, Period resolution, String code, List<String> values) {
+    public Value(DateTime start, DateTime end, Period resolution, String code, List<String> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;

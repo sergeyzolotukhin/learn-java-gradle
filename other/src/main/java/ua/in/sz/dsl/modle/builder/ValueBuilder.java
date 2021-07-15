@@ -1,7 +1,8 @@
-package ua.in.sz.dsl.modle;
+package ua.in.sz.dsl.modle.builder;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import ua.in.sz.dsl.modle.Value;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
 import java.util.Arrays;
@@ -25,7 +26,7 @@ public class ValueBuilder {
         return this;
     }
 
-    ValueBuilder(String code) {
+    public ValueBuilder(String code) {
         this.code = code;
     }
 

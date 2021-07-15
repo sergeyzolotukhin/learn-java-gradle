@@ -2,6 +2,7 @@ package ua.in.sz.dsl.modle;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import ua.in.sz.dsl.modle.builder.ScheduleBuilder;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class Schedule {
 
     private List<Value> values;
 
-    Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values) {
+    public Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values) {
         this.type = type;
         this.start = start;
         this.end = end;
