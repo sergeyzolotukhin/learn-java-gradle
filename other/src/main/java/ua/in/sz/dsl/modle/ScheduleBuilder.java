@@ -26,12 +26,6 @@ public class ScheduleBuilder {
         return this;
     }
 
-    public ScheduleBuilder day(DateTime start) {
-        this.start = start.withTimeAtStartOfDay();
-        this.end = this.start.plusDays(1);
-        return this;
-    }
-
     public ScheduleBuilder resolution(Resolution resolution) {
         this.resolution = resolution.period();
         return this;
@@ -61,9 +55,5 @@ public class ScheduleBuilder {
         });
 
         return new Schedule(type, start, end, resolution, values);
-    }
-
-    public String toString() {
-        return "Schedule.ScheduleBuilder(start=" + this.start + ", end=" + this.end + ", resolution=" + this.resolution + ", values=" + this.values + ")";
     }
 }
