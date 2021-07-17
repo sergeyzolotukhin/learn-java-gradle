@@ -35,7 +35,6 @@ public class ScheduleBuilder {
         return this;
     }
 
-
     public ScheduleBuilder end(DateTime end) {
         this.end = end;
         return this;
@@ -63,6 +62,6 @@ public class ScheduleBuilder {
             v.setResolution(resolution);
         });
 
-        return new Schedule(type, start, end, resolution, values);
+        return new Schedule(type, start, end, resolution, values, params);
     }
 }

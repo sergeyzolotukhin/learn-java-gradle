@@ -16,12 +16,13 @@ public class Schedule {
     private List<Param> params;
     private List<Value> values;
 
-    public Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values) {
+    public Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values, List<Param> params) {
         this.type = type;
         this.start = start;
         this.end = end;
         this.resolution = resolution;
         this.values = values;
+        this.params = params;
     }
 
     public static ScheduleBuilder builder(String type, DateTime start, Resolution resolution) {
