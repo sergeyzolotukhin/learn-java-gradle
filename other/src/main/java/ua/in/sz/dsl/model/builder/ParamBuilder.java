@@ -1,6 +1,6 @@
-package ua.in.sz.dsl.modle.builder;
+package ua.in.sz.dsl.model.builder;
 
-import ua.in.sz.dsl.modle.Param;
+import ua.in.sz.dsl.model.Param;
 
 public class ParamBuilder {
     private String code;

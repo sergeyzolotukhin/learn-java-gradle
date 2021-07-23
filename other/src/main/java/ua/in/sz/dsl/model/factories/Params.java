@@ -1,6 +1,6 @@
-package ua.in.sz.dsl.modle.factories;
+package ua.in.sz.dsl.model.factories;
 
-import ua.in.sz.dsl.modle.Param;
+import ua.in.sz.dsl.model.Param;
 
 public class Params {
     public static Param param(String type, String value) {

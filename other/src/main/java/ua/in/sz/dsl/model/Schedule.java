@@ -1,8 +1,8 @@
-package ua.in.sz.dsl.modle;
+package ua.in.sz.dsl.model;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import ua.in.sz.dsl.modle.builder.ScheduleBuilder;
+import ua.in.sz.dsl.model.builder.ScheduleBuilder;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
 import java.util.List;
