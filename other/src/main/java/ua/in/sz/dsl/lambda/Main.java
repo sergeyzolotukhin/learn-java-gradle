@@ -2,10 +2,10 @@ package ua.in.sz.dsl.lambda;
 
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
-import ua.in.sz.dsl.modle.Params;
+import ua.in.sz.dsl.modle.factories.Params;
 import ua.in.sz.dsl.modle.Schedule;
-import ua.in.sz.dsl.modle.Schedules;
-import ua.in.sz.dsl.modle.Values;
+import ua.in.sz.dsl.modle.factories.Schedules;
+import ua.in.sz.dsl.modle.factories.Values;
 
 @Slf4j
 public class Main {
