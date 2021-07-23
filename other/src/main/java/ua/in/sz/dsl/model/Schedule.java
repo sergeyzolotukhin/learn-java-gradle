@@ -8,7 +8,7 @@ import ua.in.sz.notcomplited.schedules.domain.Resolution;
 import java.util.List;
 
 public class Schedule {
-    private String type;
+    private Code type;
     private DateTime start;
     private DateTime end;
     private Period resolution;
@@ -16,7 +16,7 @@ public class Schedule {
     private List<Param> params;
     private List<Value> values;
 
-    public Schedule(String type, DateTime start, DateTime end, Period resolution, List<Value> values, List<Param> params) {
+    public Schedule(Code type, DateTime start, DateTime end, Period resolution, List<Value> values, List<Param> params) {
         this.type = type;
         this.start = start;
         this.end = end;
@@ -25,7 +25,7 @@ public class Schedule {
         this.params = params;
     }
 
-    public static ScheduleBuilder builder(String type, DateTime start, Resolution resolution) {
+    public static ScheduleBuilder builder(Code type, DateTime start, Resolution resolution) {
         return new ScheduleBuilder(type, start, resolution);
     }
 
