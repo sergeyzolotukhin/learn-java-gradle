@@ -1,12 +1,13 @@
 package ua.in.sz.dsl.model.builder;
 
+import ua.in.sz.dsl.model.Code;
 import ua.in.sz.dsl.model.Param;
 
 public class ParamBuilder {
-    private String code;
+    private Code code;
     private String param;
 
-    public ParamBuilder(String code) {
+    public ParamBuilder(Code code) {
         this.code = code;
     }
 

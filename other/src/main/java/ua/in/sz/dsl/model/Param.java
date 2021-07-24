@@ -3,15 +3,15 @@ package ua.in.sz.dsl.model;
 import ua.in.sz.dsl.model.builder.ParamBuilder;
 
 public class Param {
-    private String code;
+    private Code code;
     private String param;
 
-    public Param(String code, String param) {
+    public Param(Code code, String param) {
         this.code = code;
         this.param = param;
     }
 
-    public static ParamBuilder builder(String code) {
+    public static ParamBuilder builder(Code code) {
         return new ParamBuilder(code);
     }
 
@@ -19,7 +19,7 @@ public class Param {
         return param;
     }
 
-    public String getCode() {
+    public Code getCode() {
         return this.code;
     }
 }

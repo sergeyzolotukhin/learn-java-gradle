@@ -2,25 +2,27 @@ package ua.in.sz.dsl.lambda;
 
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
-import ua.in.sz.dsl.domain.ScheduleType;
-import ua.in.sz.dsl.model.factories.Params;
 import ua.in.sz.dsl.model.Schedule;
+import ua.in.sz.dsl.model.factories.Params;
 import ua.in.sz.dsl.model.factories.Schedules;
 import ua.in.sz.dsl.model.factories.Values;
+
+import static ua.in.sz.dsl.domain.ScheduleTypes.AVAILABILITY;
+import static ua.in.sz.dsl.domain.ScheduleTypes.FORECAST;
 
 @Slf4j
 public class Main {
     public static void main(String[] args) {
         DateTime day = DateTime.now();
 
-        Schedule scheduleA = Schedules.dailyFiveMinutes(ScheduleType.AVAILABILITY, day)
-                .params(Params.param("A", "RO1"))
+        Schedule scheduleA = Schedules.dailyFiveMinutes(AVAILABILITY, day)
+                .params(Params.param(AVAILABILITY.RESOURCE, "RO1"))
                 .values(Values.values("A", "0", "1", "2"),
                         Values.values("B", "0", "1", "2"))
                 .build();
 
-        Schedule scheduleB = Schedules.dailyFiveMinutes(ScheduleType.FORECAST, day)
-                .params(Params.param("A", "RO2"))
+        Schedule scheduleB = Schedules.dailyFiveMinutes(FORECAST, day)
+                .params(Params.param(FORECAST.RESOURCE, "RO2"))
                 .values(Values.values("A", "0", "1", "2"),
                         Values.values("B", "0", "1", "2"))
                 .build();
