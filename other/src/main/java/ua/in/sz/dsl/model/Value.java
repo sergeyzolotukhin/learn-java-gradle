@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Minutes;
 import org.joda.time.Period;
 import ua.in.sz.dsl.metadata.Type;
+import ua.in.sz.dsl.metadata.ValueType;
 import ua.in.sz.dsl.model.builder.ValueBuilder;
 
 import java.util.List;
@@ -13,10 +14,10 @@ public class Value {
     private DateTime end;
     private Period resolution;
 
-    private Type type;
+    private ValueType type;
     private List<String> values;
 
-    public Value(DateTime start, DateTime end, Period resolution, Type type, List<String> values) {
+    public Value(DateTime start, DateTime end, Period resolution, ValueType type, List<String> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;
@@ -24,7 +25,7 @@ public class Value {
         this.values = values;
     }
 
-    public static ValueBuilder builder(Type type) {
+    public static ValueBuilder builder(ValueType type) {
         return new ValueBuilder(type);
     }
 
@@ -46,7 +47,7 @@ public class Value {
         return this.resolution;
     }
 
-    public Type getCode() {
+    public ValueType getType() {
         return this.type;
     }
 

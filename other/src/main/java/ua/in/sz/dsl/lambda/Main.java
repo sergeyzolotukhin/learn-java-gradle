@@ -15,19 +15,19 @@ public class Main {
     public static void main(String[] args) {
         DateTime day = DateTime.now();
 
-        Schedule scheduleA = Schedules.dailyFiveMinutes(AVAILABILITY, day)
+        Schedule availability = Schedules.dailyFiveMinutes(AVAILABILITY, day)
                 .params(Params.param(AVAILABILITY.RESOURCE, "RO1"))
                 .values(Values.values(AVAILABILITY.QUANTITY, "0", "1", "2"),
                         Values.values(AVAILABILITY.PRICE, "0", "1", "2"))
                 .build();
 
-        Schedule scheduleB = Schedules.dailyFiveMinutes(FORECAST, day)
+        Schedule forecast = Schedules.dailyFiveMinutes(FORECAST, day)
                 .params(Params.param(FORECAST.RESOURCE, "RO2"))
                 .values(Values.values(FORECAST.VALUE, "0", "1", "2"),
                         Values.values(FORECAST.PRICE, "0", "1", "2"))
                 .build();
 
-        String value1 = scheduleA.getValue(AVAILABILITY.QUANTITY, day.withTimeAtStartOfDay().withMinuteOfHour(5));
+        String value1 = availability.getValue(AVAILABILITY.QUANTITY, day.withTimeAtStartOfDay().withMinuteOfHour(5));
         log.info("The value of [{}] is [{}]", "A", value1);
     }
 }

@@ -3,7 +3,7 @@ package ua.in.sz.dsl.model;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import ua.in.sz.dsl.metadata.ScheduleType;
-import ua.in.sz.dsl.metadata.Type;
+import ua.in.sz.dsl.metadata.ValueType;
 import ua.in.sz.dsl.model.builder.ScheduleBuilder;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
@@ -31,9 +31,9 @@ public class Schedule {
         return new ScheduleBuilder(type, start, resolution);
     }
 
-    public String getValue(Type type, DateTime time) {
+    public String getValue(ValueType type, DateTime time) {
         return values.stream()
-                .filter(v -> type.equals(v.getCode()))
+                .filter(v -> type.getCode().equals(v.getType().getCode()))
                 .map(v -> v.getValue(time))
                 .findFirst()
                 .orElseThrow(IllegalStateException::new);
