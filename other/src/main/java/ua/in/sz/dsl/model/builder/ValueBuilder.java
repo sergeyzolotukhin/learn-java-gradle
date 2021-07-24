@@ -2,7 +2,7 @@ package ua.in.sz.dsl.model.builder;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import ua.in.sz.dsl.model.Code;
+import ua.in.sz.dsl.model.Type;
 import ua.in.sz.dsl.model.Value;
 import ua.in.sz.notcomplited.schedules.domain.Resolution;
 
@@ -13,7 +13,7 @@ public class ValueBuilder {
     private DateTime start;
     private DateTime end;
     private Period resolution;
-    private Code code;
+    private Type type;
     private List<String> values;
 
     public ValueBuilder day(DateTime start) {
@@ -27,8 +27,8 @@ public class ValueBuilder {
         return this;
     }
 
-    public ValueBuilder(Code code) {
-        this.code = code;
+    public ValueBuilder(Type type) {
+        this.type = type;
     }
 
     public ValueBuilder start(DateTime start) {
@@ -46,8 +46,8 @@ public class ValueBuilder {
         return this;
     }
 
-    public ValueBuilder code(Code code) {
-        this.code = code;
+    public ValueBuilder code(Type type) {
+        this.type = type;
         return this;
     }
 
@@ -57,6 +57,6 @@ public class ValueBuilder {
     }
 
     public Value build() {
-        return new Value(start, end, resolution, code, values);
+        return new Value(start, end, resolution, type, values);
     }
 }

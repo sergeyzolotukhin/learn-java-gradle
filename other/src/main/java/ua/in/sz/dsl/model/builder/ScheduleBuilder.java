@@ -2,7 +2,7 @@ package ua.in.sz.dsl.model.builder;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import ua.in.sz.dsl.model.Code;
+import ua.in.sz.dsl.model.Type;
 import ua.in.sz.dsl.model.Param;
 import ua.in.sz.dsl.model.Schedule;
 import ua.in.sz.dsl.model.Value;
@@ -12,14 +12,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ScheduleBuilder {
-    private Code type;
+    private Type type;
     private DateTime start;
     private DateTime end;
     private Period resolution;
     private List<Value> values;
     private List<Param> params;
 
-    public ScheduleBuilder(Code type, DateTime start, Resolution resolution) {
+    public ScheduleBuilder(Type type, DateTime start, Resolution resolution) {
         this.type = type;
         this.resolution = resolution.period();
         this.start = start;

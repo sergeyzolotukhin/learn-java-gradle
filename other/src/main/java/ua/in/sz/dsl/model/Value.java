@@ -12,19 +12,19 @@ public class Value {
     private DateTime end;
     private Period resolution;
 
-    private Code code;
+    private Type type;
     private List<String> values;
 
-    public Value(DateTime start, DateTime end, Period resolution, Code code, List<String> values) {
+    public Value(DateTime start, DateTime end, Period resolution, Type type, List<String> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;
-        this.code = code;
+        this.type = type;
         this.values = values;
     }
 
-    public static ValueBuilder builder(Code code) {
-        return new ValueBuilder(code);
+    public static ValueBuilder builder(Type type) {
+        return new ValueBuilder(type);
     }
 
     public String getValue(DateTime time) {
@@ -45,8 +45,8 @@ public class Value {
         return this.resolution;
     }
 
-    public Code getCode() {
-        return this.code;
+    public Type getCode() {
+        return this.type;
     }
 
     public List<String> getValues() {

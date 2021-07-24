@@ -8,7 +8,7 @@ import ua.in.sz.notcomplited.schedules.domain.Resolution;
 import java.util.List;
 
 public class Schedule {
-    private Code type;
+    private Type type;
     private DateTime start;
     private DateTime end;
     private Period resolution;
@@ -16,7 +16,7 @@ public class Schedule {
     private List<Param> params;
     private List<Value> values;
 
-    public Schedule(Code type, DateTime start, DateTime end, Period resolution, List<Value> values, List<Param> params) {
+    public Schedule(Type type, DateTime start, DateTime end, Period resolution, List<Value> values, List<Param> params) {
         this.type = type;
         this.start = start;
         this.end = end;
@@ -25,13 +25,13 @@ public class Schedule {
         this.params = params;
     }
 
-    public static ScheduleBuilder builder(Code type, DateTime start, Resolution resolution) {
+    public static ScheduleBuilder builder(Type type, DateTime start, Resolution resolution) {
         return new ScheduleBuilder(type, start, resolution);
     }
 
-    public String getValue(Code code, DateTime time) {
+    public String getValue(Type type, DateTime time) {
         return values.stream()
-                .filter(v -> code.equals(v.getCode()))
+                .filter(v -> type.equals(v.getCode()))
                 .map(v -> v.getValue(time))
                 .findFirst()
                 .orElseThrow(IllegalStateException::new);

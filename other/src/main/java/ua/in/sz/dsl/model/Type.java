@@ -1,5 +1,5 @@
 package ua.in.sz.dsl.model;
 
-public interface Code {
+public interface Type {
     String getCode();
 }

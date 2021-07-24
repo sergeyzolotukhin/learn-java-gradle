@@ -3,23 +3,23 @@ package ua.in.sz.dsl.model;
 import ua.in.sz.dsl.model.builder.ParamBuilder;
 
 public class Param {
-    private Code code;
+    private Type type;
     private String param;
 
-    public Param(Code code, String param) {
-        this.code = code;
+    public Param(Type type, String param) {
+        this.type = type;
         this.param = param;
     }
 
-    public static ParamBuilder builder(Code code) {
-        return new ParamBuilder(code);
+    public static ParamBuilder builder(Type type) {
+        return new ParamBuilder(type);
     }
 
     public String getParam() {
         return param;
     }
 
-    public Code getCode() {
-        return this.code;
+    public Type getCode() {
+        return this.type;
     }
 }
