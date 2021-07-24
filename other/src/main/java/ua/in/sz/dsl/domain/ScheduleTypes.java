@@ -28,28 +28,28 @@ public class ScheduleTypes {
 
     // ================================================================================================================
 
-    private static class ParamType extends AbstractType {
+    private static class ParamType extends TypeSupport {
         private ParamType(String code) {
             super(code);
         }
     }
 
-    private static class ValueType extends AbstractType {
+    private static class ValueType extends TypeSupport {
         private ValueType(String code) {
             super(code);
         }
     }
 
-    private static abstract class ScheduleType extends AbstractType {
+    private static abstract class ScheduleType extends TypeSupport {
         protected ScheduleType(String code) {
             super(code);
         }
     }
 
-    private static abstract class AbstractType implements Type {
+    private static abstract class TypeSupport implements Type {
         private final String code;
 
-        private AbstractType(String code) {
+        private TypeSupport(String code) {
             this.code = code;
         }
 
