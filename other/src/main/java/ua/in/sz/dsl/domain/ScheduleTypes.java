@@ -28,6 +28,12 @@ public class ScheduleTypes {
 
     // ================================================================================================================
 
+    private static abstract class ScheduleType extends TypeSupport {
+        protected ScheduleType(String code) {
+            super(code);
+        }
+    }
+
     private static class ParamType extends TypeSupport {
         private ParamType(String code) {
             super(code);
@@ -36,12 +42,6 @@ public class ScheduleTypes {
 
     private static class ValueType extends TypeSupport {
         private ValueType(String code) {
-            super(code);
-        }
-    }
-
-    private static abstract class ScheduleType extends TypeSupport {
-        protected ScheduleType(String code) {
             super(code);
         }
     }
