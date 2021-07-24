@@ -12,10 +12,10 @@ public class Value {
     private DateTime end;
     private Period resolution;
 
-    private String code;
+    private Code code;
     private List<String> values;
 
-    public Value(DateTime start, DateTime end, Period resolution, String code, List<String> values) {
+    public Value(DateTime start, DateTime end, Period resolution, Code code, List<String> values) {
         this.start = start;
         this.end = end;
         this.resolution = resolution;
@@ -23,7 +23,7 @@ public class Value {
         this.values = values;
     }
 
-    public static ValueBuilder builder(String code) {
+    public static ValueBuilder builder(Code code) {
         return new ValueBuilder(code);
     }
 
@@ -45,7 +45,7 @@ public class Value {
         return this.resolution;
     }
 
-    public String getCode() {
+    public Code getCode() {
         return this.code;
     }
 

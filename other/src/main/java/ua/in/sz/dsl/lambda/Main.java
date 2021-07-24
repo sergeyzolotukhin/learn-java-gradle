@@ -17,17 +17,17 @@ public class Main {
 
         Schedule scheduleA = Schedules.dailyFiveMinutes(AVAILABILITY, day)
                 .params(Params.param(AVAILABILITY.RESOURCE, "RO1"))
-                .values(Values.values("A", "0", "1", "2"),
-                        Values.values("B", "0", "1", "2"))
+                .values(Values.values(AVAILABILITY.QUANTITY, "0", "1", "2"),
+                        Values.values(AVAILABILITY.PRICE, "0", "1", "2"))
                 .build();
 
         Schedule scheduleB = Schedules.dailyFiveMinutes(FORECAST, day)
                 .params(Params.param(FORECAST.RESOURCE, "RO2"))
-                .values(Values.values("A", "0", "1", "2"),
-                        Values.values("B", "0", "1", "2"))
+                .values(Values.values(FORECAST.VALUE, "0", "1", "2"),
+                        Values.values(FORECAST.PRICE, "0", "1", "2"))
                 .build();
 
-        String value1 = scheduleA.getValue("A", day.withTimeAtStartOfDay().withMinuteOfHour(5));
+        String value1 = scheduleA.getValue(AVAILABILITY.QUANTITY, day.withTimeAtStartOfDay().withMinuteOfHour(5));
         log.info("The value of [{}] is [{}]", "A", value1);
     }
 }

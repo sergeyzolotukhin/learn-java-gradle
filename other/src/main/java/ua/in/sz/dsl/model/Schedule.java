@@ -29,7 +29,7 @@ public class Schedule {
         return new ScheduleBuilder(type, start, resolution);
     }
 
-    public String getValue(String code, DateTime time) {
+    public String getValue(Code code, DateTime time) {
         return values.stream()
                 .filter(v -> code.equals(v.getCode()))
                 .map(v -> v.getValue(time))
