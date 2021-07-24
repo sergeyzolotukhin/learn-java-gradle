@@ -1,5 +1,6 @@
 package ua.in.sz.dsl.domain;
 
+import ua.in.sz.dsl.metadata.ParamType;
 import ua.in.sz.dsl.metadata.ScheduleType;
 import ua.in.sz.dsl.metadata.Type;
 
@@ -8,7 +9,7 @@ public class ScheduleTypes {
     public static final Forecast FORECAST = new Forecast("FC");
 
     public static class Availability extends ScheduleTypeSupport {
-        public final Type RESOURCE = new ParamTypeSupport("RO");
+        public final ParamType RESOURCE = new ParamTypeSupport("RO");
         public final Type QUANTITY = new ValueTypeSupport("Q");
         public final Type PRICE = new ValueTypeSupport("P");
 
@@ -18,7 +19,7 @@ public class ScheduleTypes {
     }
 
     public static class Forecast extends ScheduleTypeSupport {
-        public final Type RESOURCE = new ValueTypeSupport("RO");
+        public final ParamType RESOURCE = new ParamTypeSupport("RO");
         public final Type VALUE = new ValueTypeSupport("Q");
         public final Type PRICE = new ValueTypeSupport("P");
 
@@ -35,7 +36,7 @@ public class ScheduleTypes {
         }
     }
 
-    private static class ParamTypeSupport extends TypeSupport {
+    private static class ParamTypeSupport extends TypeSupport implements ParamType {
         private ParamTypeSupport(String code) {
             super(code);
         }

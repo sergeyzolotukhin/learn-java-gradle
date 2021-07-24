@@ -1,18 +1,18 @@
 package ua.in.sz.dsl.model;
 
-import ua.in.sz.dsl.metadata.Type;
+import ua.in.sz.dsl.metadata.ParamType;
 import ua.in.sz.dsl.model.builder.ParamBuilder;
 
 public class Param {
-    private Type type;
+    private ParamType type;
     private String param;
 
-    public Param(Type type, String param) {
+    public Param(ParamType type, String param) {
         this.type = type;
         this.param = param;
     }
 
-    public static ParamBuilder builder(Type type) {
+    public static ParamBuilder builder(ParamType type) {
         return new ParamBuilder(type);
     }
 
@@ -20,7 +20,7 @@ public class Param {
         return param;
     }
 
-    public Type getCode() {
+    public ParamType getCode() {
         return this.type;
     }
 }
