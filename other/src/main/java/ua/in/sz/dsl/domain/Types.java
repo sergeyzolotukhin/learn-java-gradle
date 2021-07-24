@@ -5,7 +5,7 @@ import ua.in.sz.dsl.metadata.ScheduleType;
 import ua.in.sz.dsl.metadata.Type;
 import ua.in.sz.dsl.metadata.ValueType;
 
-public class ScheduleTypes {
+public class Types {
     public static final Availability AVAILABILITY = new Availability("AV");
     public static final Forecast FORECAST = new Forecast("FC");
 

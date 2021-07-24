@@ -7,8 +7,8 @@ import ua.in.sz.dsl.model.factories.Params;
 import ua.in.sz.dsl.model.factories.Schedules;
 import ua.in.sz.dsl.model.factories.Values;
 
-import static ua.in.sz.dsl.domain.ScheduleTypes.AVAILABILITY;
-import static ua.in.sz.dsl.domain.ScheduleTypes.FORECAST;
+import static ua.in.sz.dsl.domain.Types.AVAILABILITY;
+import static ua.in.sz.dsl.domain.Types.FORECAST;
 
 @Slf4j
 public class Main {
