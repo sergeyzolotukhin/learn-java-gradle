@@ -1,25 +1,26 @@
 package ua.in.sz.dsl.domain;
 
+import ua.in.sz.dsl.metadata.ScheduleType;
 import ua.in.sz.dsl.metadata.Type;
 
 public class ScheduleTypes {
     public static final Availability AVAILABILITY = new Availability("AV");
     public static final Forecast FORECAST = new Forecast("FC");
 
-    public static class Availability extends ScheduleType {
-        public final Type RESOURCE = new ParamType("RO");
-        public final Type QUANTITY = new ValueType("Q");
-        public final Type PRICE = new ValueType("P");
+    public static class Availability extends ScheduleTypeSupport {
+        public final Type RESOURCE = new ParamTypeSupport("RO");
+        public final Type QUANTITY = new ValueTypeSupport("Q");
+        public final Type PRICE = new ValueTypeSupport("P");
 
         Availability(String code) {
             super(code);
         }
     }
 
-    public static class Forecast extends ScheduleType {
-        public final Type RESOURCE = new ValueType("RO");
-        public final Type VALUE = new ValueType("Q");
-        public final Type PRICE = new ValueType("P");
+    public static class Forecast extends ScheduleTypeSupport {
+        public final Type RESOURCE = new ValueTypeSupport("RO");
+        public final Type VALUE = new ValueTypeSupport("Q");
+        public final Type PRICE = new ValueTypeSupport("P");
 
         Forecast(String code) {
             super(code);
@@ -28,20 +29,20 @@ public class ScheduleTypes {
 
     // ================================================================================================================
 
-    private static abstract class ScheduleType extends TypeSupport {
-        protected ScheduleType(String code) {
+    private static abstract class ScheduleTypeSupport extends TypeSupport implements ScheduleType {
+        protected ScheduleTypeSupport(String code) {
             super(code);
         }
     }
 
-    private static class ParamType extends TypeSupport {
-        private ParamType(String code) {
+    private static class ParamTypeSupport extends TypeSupport {
+        private ParamTypeSupport(String code) {
             super(code);
         }
     }
 
-    private static class ValueType extends TypeSupport {
-        private ValueType(String code) {
+    private static class ValueTypeSupport extends TypeSupport {
+        private ValueTypeSupport(String code) {
             super(code);
         }
     }
