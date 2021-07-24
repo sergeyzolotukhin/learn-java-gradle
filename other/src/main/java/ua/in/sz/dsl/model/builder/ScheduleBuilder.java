@@ -2,7 +2,7 @@ package ua.in.sz.dsl.model.builder;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import ua.in.sz.dsl.model.Type;
+import ua.in.sz.dsl.metadata.Type;
 import ua.in.sz.dsl.model.Param;
 import ua.in.sz.dsl.model.Schedule;
 import ua.in.sz.dsl.model.Value;

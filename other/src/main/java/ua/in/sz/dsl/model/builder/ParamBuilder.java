@@ -1,6 +1,6 @@
 package ua.in.sz.dsl.model.builder;
 
-import ua.in.sz.dsl.model.Type;
+import ua.in.sz.dsl.metadata.Type;
 import ua.in.sz.dsl.model.Param;
 
 public class ParamBuilder {

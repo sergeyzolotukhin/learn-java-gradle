@@ -1,6 +1,6 @@
 package ua.in.sz.dsl.domain;
 
-import ua.in.sz.dsl.model.Type;
+import ua.in.sz.dsl.metadata.Type;
 
 public class ScheduleTypes {
     public static final Availability AVAILABILITY = new Availability("AV");

@@ -1,6 +1,6 @@
 package ua.in.sz.dsl.model.factories;
 
-import ua.in.sz.dsl.model.Type;
+import ua.in.sz.dsl.metadata.Type;
 import ua.in.sz.dsl.model.Value;
 
 public class Values {
