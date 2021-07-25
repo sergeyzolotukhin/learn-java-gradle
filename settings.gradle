@@ -74,4 +74,5 @@ include 'infrastructure:ansible:ansible-master'
 // other
 // ====================================================================================================================
 include 'other'
+include 'house'
 
