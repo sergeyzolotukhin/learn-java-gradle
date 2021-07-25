@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Heating - обогрев
+ *
+ * https://www.teplodar.ru/help/articles/detail/raskhod-pellet/
  */
 @Slf4j
 public class GasHeating {
