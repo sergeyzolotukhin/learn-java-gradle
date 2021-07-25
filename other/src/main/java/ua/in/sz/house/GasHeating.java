@@ -44,16 +44,16 @@ public class GasHeating {
 
     public static void main(String[] args) {
         double boilerPowerPerHour = houseSquare * powerPerSquare * climateRatio;
-        log.info("Boiler power is {} Watt", boilerPowerPerHour);
+        log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
         double gasPerHour = boilerPowerPerHour / 2.0 / heatCapacity;
-        log.info("Gas per hour is {} M3/h", gasPerHour);
+        log.debug("Gas per hour is {} M3/h", gasPerHour);
 
         double gasPerYear = gasPerHour * 24 * coldDayPerYear;
-        log.info("Gas per year is {} M3", gasPerYear);
+        log.debug("Gas per year is {} M3", gasPerYear);
 
         double costPerYear = gasPerYear * costOfGas;
-        log.info("Cost per year is {} UAH", costPerYear);
+        log.debug("Cost per year is {} UAH", costPerYear);
 
         double costPerMonth = costPerYear / 6.0;
         log.info("Cost per month is {} UAH", costPerMonth);

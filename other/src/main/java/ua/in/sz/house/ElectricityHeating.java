@@ -27,16 +27,16 @@ public class ElectricityHeating {
 
     public static void main(String[] args) {
         double boilerPowerPerHour = houseSquare * powerPerSquare;
-        log.info("Boiler power is {} Watt", boilerPowerPerHour);
+        log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
         double electricityPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
-        log.info("Electricity per year is {} M3", electricityPerYear);
+        log.debug("Electricity per year is {} M3", electricityPerYear);
 
         double electricityPerMonth = boilerPowerPerHour / 2.0 * 24.0 * 30;
-        log.info("Electricity per month is {} KWt", electricityPerMonth / 1000.0);
+        log.debug("Electricity per month is {} KWt", electricityPerMonth / 1000.0);
 
         double costPerYear = electricityPerYear * costOfElectricity;
-        log.info("Cost per year is {} UAH", costPerYear);
+        log.debug("Cost per year is {} UAH", costPerYear);
 
         double costPerMonth = costPerYear / 6.0;
         log.info("Cost per month is {} UAH", costPerMonth);
