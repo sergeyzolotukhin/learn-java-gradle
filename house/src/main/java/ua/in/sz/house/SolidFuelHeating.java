@@ -28,7 +28,7 @@ public class SolidFuelHeating {
     /**
      * теплоемкость пеллет — 5 кВт/кг.
      */
-    private static final double heatCapacityOfPellet = 5.0 * 1000.0;
+    private static final double heatCapacityOfPellet = 4.73 * 1000.0;
 
     public static void main(String[] args) {
         double boilerPowerPerHour = houseSquare * powerPerSquare;
