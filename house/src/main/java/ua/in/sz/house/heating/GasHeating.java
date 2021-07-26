@@ -1,4 +1,4 @@
-package ua.in.sz.house;
+package ua.in.sz.house.heating;
 
 import lombok.extern.slf4j.Slf4j;
 

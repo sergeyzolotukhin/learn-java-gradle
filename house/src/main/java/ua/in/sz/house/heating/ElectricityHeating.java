@@ -1,4 +1,4 @@
-package ua.in.sz.house;
+package ua.in.sz.house.heating;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,8 @@ import ua.in.sz.house.model.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
-public class SolidFuelHeating {
+public class ElectricityHeating {
+
     private final House house;
 
     /**
@@ -15,22 +16,21 @@ public class SolidFuelHeating {
     private static final int coldDayPerYear = /* November */ 15 + 30 + 30 + 30 + 30 + /* April */ 15;
 
     /**
-     * Стоимось пелет за килограм - гривен
+     * Стоимось электро энергии за ватт - гривен
      */
-    private static final double costOfPellet = 3_400.0 / 1_000.0;
-
-    /**
-     * теплоемкость пеллет — 5 кВт/кг.
-     */
-    private static final double heatCapacityOfPellet = 4.73 * 1000.0;
+    private static final double costOfElectricity = 2.3 / 1_000.0;
 
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
-        double powerPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
-        double pelletWidthPerYear = powerPerYear / heatCapacityOfPellet;
-        double costPerYear = pelletWidthPerYear * costOfPellet;
+        double electricityPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
+        log.debug("Electricity per year is {} M3", electricityPerYear);
+
+        double electricityPerMonth = boilerPowerPerHour / 2.0 * 24.0 * 30;
+        log.debug("Electricity per month is {} KWt", electricityPerMonth / 1000.0);
+
+        double costPerYear = electricityPerYear * costOfElectricity;
         log.debug("Cost per year is {} UAH", costPerYear);
 
         return costPerYear;

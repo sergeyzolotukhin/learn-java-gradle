@@ -1,6 +1,8 @@
 package ua.in.sz.house;
 
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.heating.ElectricityHeating;
+import ua.in.sz.house.heating.SolidFuelHeating;
 import ua.in.sz.house.model.Block;
 import ua.in.sz.house.model.House;
 
