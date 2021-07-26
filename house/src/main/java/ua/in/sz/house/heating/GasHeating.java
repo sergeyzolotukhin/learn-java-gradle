@@ -40,14 +40,8 @@ public class GasHeating implements Heating {
     @Override
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20) * climateRatio;
-        log.debug("Boiler power is {} Watt", boilerPowerPerHour);
-
         double gasPerHour = boilerPowerPerHour / 2.0 / heatCapacity;
-        log.debug("Gas per hour is {} M3/h", gasPerHour);
-
         double gasPerYear = gasPerHour * 24 * coldDayPerYear;
-        log.debug("Gas per year is {} M3", gasPerYear);
-
         return gasPerYear * costOfGas;
     }
 }

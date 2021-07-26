@@ -27,13 +27,8 @@ public class SolidFuelHeating implements Heating {
     @Override
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
-        log.debug("Boiler power is {} Watt", boilerPowerPerHour);
-
         double powerPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
         double pelletWidthPerYear = powerPerYear / heatCapacityOfPellet;
-        double costPerYear = pelletWidthPerYear * costOfPellet;
-        log.debug("Cost per year is {} UAH", costPerYear);
-
-        return costPerYear;
+        return pelletWidthPerYear * costOfPellet;
     }
 }

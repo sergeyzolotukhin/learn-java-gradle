@@ -23,17 +23,7 @@ public class ElectricityHeating implements Heating {
     @Override
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
-        log.debug("Boiler power is {} Watt", boilerPowerPerHour);
-
         double electricityPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
-        log.debug("Electricity per year is {} M3", electricityPerYear);
-
-        double electricityPerMonth = boilerPowerPerHour / 2.0 * 24.0 * 30;
-        log.debug("Electricity per month is {} KWt", electricityPerMonth / 1000.0);
-
-        double costPerYear = electricityPerYear * costOfElectricity;
-        log.debug("Cost per year is {} UAH", costPerYear);
-
-        return costPerYear;
+        return electricityPerYear * costOfElectricity;
     }
 }
