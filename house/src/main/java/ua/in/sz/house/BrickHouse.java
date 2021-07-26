@@ -51,8 +51,7 @@ public class BrickHouse {
         /**
          * Газоблок марки D300
          */
-        GAS_CONCRETE_BLOCK_D300(0.117, 0.6, 0.3, 0.2)
-        ;
+        GAS_CONCRETE_BLOCK_D300(0.117, 0.6, 0.3, 0.2);
 
         private final double heatTransferRatio;
 
