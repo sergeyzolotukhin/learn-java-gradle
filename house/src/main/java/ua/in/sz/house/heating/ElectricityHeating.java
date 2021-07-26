@@ -6,7 +6,7 @@ import ua.in.sz.house.model.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
-public class ElectricityHeating {
+public class ElectricityHeating implements Heating {
 
     private final House house;
 
@@ -20,6 +20,7 @@ public class ElectricityHeating {
      */
     private static final double costOfElectricity = 2.3 / 1_000.0;
 
+    @Override
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);

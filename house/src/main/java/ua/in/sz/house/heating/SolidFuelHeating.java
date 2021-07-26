@@ -6,7 +6,7 @@ import ua.in.sz.house.model.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
-public class SolidFuelHeating {
+public class SolidFuelHeating implements Heating {
     private final House house;
 
     /**
@@ -24,6 +24,7 @@ public class SolidFuelHeating {
      */
     private static final double heatCapacityOfPellet = 4.73 * 1000.0;
 
+    @Override
     public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);

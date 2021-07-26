@@ -2,6 +2,7 @@ package ua.in.sz.house;
 
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.heating.ElectricityHeating;
+import ua.in.sz.house.heating.Heating;
 import ua.in.sz.house.heating.SolidFuelHeating;
 import ua.in.sz.house.model.Block;
 import ua.in.sz.house.model.House;
@@ -10,8 +11,8 @@ import ua.in.sz.house.model.House;
 public class Main {
     public static void main(String[] args) {
         House house = House.of(Block.CERAMICS_BRICK);
-        ElectricityHeating electricityHeating = ElectricityHeating.of(house);
-        SolidFuelHeating solidFuelHeating = SolidFuelHeating.of(house);
+        Heating electricityHeating = ElectricityHeating.of(house);
+        Heating solidFuelHeating = SolidFuelHeating.of(house);
 
         log.info(String.format("Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel",
