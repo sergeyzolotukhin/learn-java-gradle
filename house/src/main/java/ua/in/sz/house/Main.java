@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static House buildHouse(Block block) {
-        int height = 3;
+        double height = 2.5;
         return House.builder()
                 .walls(Arrays.asList(
                         Wall.builder().block(block).length(10).height(height).build(),
