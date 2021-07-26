@@ -1,20 +1,10 @@
 package ua.in.sz.house;
 
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.model.House;
 
 @Slf4j
 public class ElectricityHeating {
-    /**
-     * При анализе многих готовых расчетов была выведена средняя цифра:
-     * на отопление 10 квадратных метров площади требуется 1 кВт тепла.
-     */
-    private static final double powerPerSquare = 1_000.0 / 10.0;
-
-    /**
-     * Площадь дома
-     */
-    private static final double houseSquare = 100.0;
-
     /**
      * Холожных дней в году
      */
@@ -25,8 +15,8 @@ public class ElectricityHeating {
      */
     private static final double costOfElectricity = 2.3 / 1_000.0;
 
-    public static void main(String[] args) {
-        double boilerPowerPerHour = houseSquare * powerPerSquare;
+    public static double costPerYear(House house) {
+        double boilerPowerPerHour = house.getHeatLoss(23, -20);
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
         double electricityPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
@@ -38,7 +28,6 @@ public class ElectricityHeating {
         double costPerYear = electricityPerYear * costOfElectricity;
         log.debug("Cost per year is {} UAH", costPerYear);
 
-        double costPerMonth = costPerYear / 6.0;
-        log.info("Cost per month is {} UAH", costPerMonth);
+        return costPerYear;
     }
 }
