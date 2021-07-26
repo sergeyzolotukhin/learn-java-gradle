@@ -13,7 +13,7 @@ import ua.in.sz.house.model.Block;
 @Builder
 public class Wall {
 
-    private Block block;
+    private final Block block;
 
     private final double length;
     private final double height;
