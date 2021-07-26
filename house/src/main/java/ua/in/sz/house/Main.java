@@ -10,17 +10,21 @@ import java.util.Arrays;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        House house = buildHouse();
+        House ceramicsHouse = buildHouse(Block.CERAMICS_BRICK);
 
-        double heatLossKWt = house.getHeatLoss(20.0, -20.0) / 1000.0;
-        log.info("Heat loss is {} KWt on wall square {} M2", String.format("%.2f", heatLossKWt),
-                house.getWallSquare());
+        log.info("Heat loss is {} KWt on wall square {} M2",
+                formatHeatLossKW(ceramicsHouse.getHeatLoss(20.0, -20.0)),
+                ceramicsHouse.getWallSquare());
+
+        House gasConcreteHouse = buildHouse(Block.GAS_CONCRETE_BLOCK_D300);
+
+        log.info("Heat loss is {} KWt on wall square {} M2",
+                formatHeatLossKW(gasConcreteHouse.getHeatLoss(20.0, -20.0)),
+                gasConcreteHouse.getWallSquare());
     }
 
-    private static House buildHouse() {
-        Block block = Block.CERAMICS_BRICK;
+    public static House buildHouse(Block block) {
         int height = 3;
-
         return House.builder()
                 .walls(Arrays.asList(
                         Wall.builder().block(block).length(10).height(height).build(),
@@ -29,5 +33,9 @@ public class Main {
                         Wall.builder().block(block).length(10).height(height).build()
                 ))
                 .build();
+    }
+
+    private static String formatHeatLossKW(double heatLoss) {
+        return String.format("%.2f", heatLoss / 1000.0);
     }
 }
