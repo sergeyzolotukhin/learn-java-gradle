@@ -26,7 +26,7 @@ public class House {
     }
 
     public static void main(String[] args) {
-        Block block = Block.GAS_CONCRETE_BLOCK_D300;
+        Block block = Block.CERAMICS_BRICK;
         int height = 3;
 
         House house = House.builder()
