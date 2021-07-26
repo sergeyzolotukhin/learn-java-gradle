@@ -1,10 +1,16 @@
 package ua.in.sz.house;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.model.House;
 
 @Slf4j
+@AllArgsConstructor(staticName = "of")
 public class ElectricityHeating {
+
+    private final House house;
+
     /**
      * Холожных дней в году
      */
@@ -15,7 +21,7 @@ public class ElectricityHeating {
      */
     private static final double costOfElectricity = 2.3 / 1_000.0;
 
-    public static double costPerYear(House house) {
+    public double costPerYear() {
         double boilerPowerPerHour = house.getHeatLoss(23, -20);
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
