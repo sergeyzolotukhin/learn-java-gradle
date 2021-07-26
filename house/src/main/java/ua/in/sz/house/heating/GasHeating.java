@@ -1,6 +1,8 @@
 package ua.in.sz.house.heating;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.model.House;
 
 /**
  * Heating - обогрев
@@ -8,17 +10,10 @@ import lombok.extern.slf4j.Slf4j;
  * https://www.teplodar.ru/help/articles/detail/raskhod-pellet/
  */
 @Slf4j
-public class GasHeating {
-    /**
-     * При анализе многих готовых расчетов была выведена средняя цифра:
-     * на отопление 10 квадратных метров площади требуется 1 кВт тепла.
-     */
-    private static final double powerPerSquare = 1_000.0 / 10.0;
+@AllArgsConstructor(staticName = "of")
+public class GasHeating implements Heating {
 
-    /**
-     * Площадь дома
-     */
-    private static final double houseSquare = 100.0;
+    private final House house;
 
     /**
      * ratio - коэффициенты
@@ -42,8 +37,9 @@ public class GasHeating {
      */
     private static final int costOfGas = 11;
 
-    public static void main(String[] args) {
-        double boilerPowerPerHour = houseSquare * powerPerSquare * climateRatio;
+    @Override
+    public double costPerYear() {
+        double boilerPowerPerHour = house.getHeatLoss(23, -20) * climateRatio;
         log.debug("Boiler power is {} Watt", boilerPowerPerHour);
 
         double gasPerHour = boilerPowerPerHour / 2.0 / heatCapacity;
@@ -52,10 +48,6 @@ public class GasHeating {
         double gasPerYear = gasPerHour * 24 * coldDayPerYear;
         log.debug("Gas per year is {} M3", gasPerYear);
 
-        double costPerYear = gasPerYear * costOfGas;
-        log.debug("Cost per year is {} UAH", costPerYear);
-
-        double costPerMonth = costPerYear / 6.0;
-        log.info("Cost per month is {} UAH", costPerMonth);
+        return gasPerYear * costOfGas;
     }
 }
