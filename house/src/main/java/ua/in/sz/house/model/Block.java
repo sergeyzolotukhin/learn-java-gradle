@@ -11,9 +11,12 @@ public enum Block {
      */
     CERAMICS_BRICK(0.7, 0.25, 0.12, 0.65),
     /**
-     * Газоблок марки D300
+     * Газоблок
      */
-    GAS_CONCRETE_BLOCK_D300(0.117, 0.6, 0.3, 0.2);
+    GAS_CONCRETE_BLOCK_D300(0.088, 0.6, 0.3, 0.2),
+    GAS_CONCRETE_BLOCK_D400(0.117, 0.6, 0.3, 0.2),
+    GAS_CONCRETE_BLOCK_D500(0.147, 0.6, 0.3, 0.2),
+    ;
 
     private final double heatTransferRatio;
 

@@ -26,7 +26,7 @@ public class Main {
         ));
 
         // GAS CONCRETE
-        house = House.of(Block.GAS_CONCRETE_BLOCK_D300);
+        house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
         electricityHeating = ElectricityHeating.of(house);
         solidFuelHeating = SolidFuelHeating.of(house);
         gasHeating = GasHeating.of(house);
