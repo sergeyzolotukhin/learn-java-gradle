@@ -5,7 +5,11 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@AllArgsConstructor
 public class BrickHouse {
+
+    private BuildingBlock buildingBlock;
+
     /**
      * теплопотери, Вт;
      * https://bilux.ua/raschet-teplopoter-chastnogo-doma/#
@@ -23,17 +27,15 @@ public class BrickHouse {
     }
 
     private double heatTransferRatio() {
-        int nBrick = 2;
-//        double wallThickness = 0.250 * nBrick + 0.010 * (nBrick - 1); // M
-        double wallThickness = 0.5; // M
-        double heatTransferRatio = Material.GAS_CONCRETE_D300.getHeatTransferRatio(); // Вт/м * C
+        double wallThickness = buildingBlock.getLength(); // M
+        double heatTransferRatio = buildingBlock.getHeatTransferRatio(); // Вт/м * C
         double rWall = wallThickness / heatTransferRatio;
 
         return 1.0 / rWall;
     }
 
     public static void main(String[] args) {
-        BrickHouse house = new BrickHouse();
+        BrickHouse house = new BrickHouse(BuildingBlock.GAS_CONCRETE_BLOCK_D300);
         double heatLoss = house.heatLoss(20.0, -20.0);
         log.info("Heat loss is {} KWt on wall square {} M2", heatLoss / 1000.0,
                 house.wallSquare());
@@ -41,17 +43,16 @@ public class BrickHouse {
 
     @Getter
     @AllArgsConstructor
-    private enum Material {
-        /**
-         * Кирпичь полнотелый
-         */
-        CERAMICS(0.7),
-        GAS_CONCRETE_D300(0.117)
+    private enum BuildingBlock {
+        CERAMICS_BRICK(0.7, 0.25, 0.12, 0.65),
+        GAS_CONCRETE_BLOCK_D300(0.117, 0.6, 0.3, 0.2)
         ;
 
-        /**
-         * Коэффициент теплопроводности, Вт/м °C
-         */
         private final double heatTransferRatio;
+
+        private final double length;
+        private final double width;
+        private final double height;
+
     }
 }
