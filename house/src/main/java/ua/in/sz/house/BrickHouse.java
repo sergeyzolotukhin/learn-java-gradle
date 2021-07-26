@@ -26,7 +26,7 @@ public class BrickHouse {
         int nBrick = 2;
 //        double wallThickness = 0.250 * nBrick + 0.010 * (nBrick - 1); // M
         double wallThickness = 0.5; // M
-        double brickHeatTransfer = HeatTransfer.CERAMICS.getRatio(); // Вт/м * C
+        double brickHeatTransfer = Material.GAS_CONCRETE_D300.getHeatTransferRatio(); // Вт/м * C
         double rWall = wallThickness / brickHeatTransfer;
 
         return 1.0 / rWall;
@@ -41,13 +41,17 @@ public class BrickHouse {
 
     @Getter
     @AllArgsConstructor
-    private enum HeatTransfer {
+    private enum Material {
         /**
          * Кирпичь полнотелый
          */
-        BRICK(0.7),
-        CERAMICS(0.16)
+        CERAMICS(0.7),
+        GAS_CONCRETE_D300(0.117)
         ;
-        private final double ratio;
+
+        /**
+         * Коэффициент теплопроводности, Вт/м °C
+         */
+        private final double heatTransferRatio;
     }
 }
