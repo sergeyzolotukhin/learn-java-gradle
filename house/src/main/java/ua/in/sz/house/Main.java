@@ -13,13 +13,13 @@ public class Main {
         House ceramicsHouse = buildHouse(Block.CERAMICS_BRICK);
 
         log.info("Heat loss is {} KWt on wall square {} M2",
-                formatHeatLossKW(ceramicsHouse.getHeatLoss(20.0, -20.0)),
+                formatHeatLossKW(ceramicsHouse.getHeatLoss(24.0, -20.0)),
                 ceramicsHouse.getWallSquare());
 
         House gasConcreteHouse = buildHouse(Block.GAS_CONCRETE_BLOCK_D300);
 
         log.info("Heat loss is {} KWt on wall square {} M2",
-                formatHeatLossKW(gasConcreteHouse.getHeatLoss(20.0, -20.0)),
+                formatHeatLossKW(gasConcreteHouse.getHeatLoss(24.0, -20.0)),
                 gasConcreteHouse.getWallSquare());
     }
 
