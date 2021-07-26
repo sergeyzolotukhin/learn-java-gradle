@@ -3,6 +3,7 @@ package ua.in.sz.house.model;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -20,5 +21,17 @@ public class House {
         return walls.stream()
                 .mapToDouble(Wall::getSquare)
                 .sum();
+    }
+
+    public static House of(Block block) {
+        double height = 2.5;
+        return House.builder()
+                .walls(Arrays.asList(
+                        Wall.builder().block(block).length(10).height(height).build(),
+                        Wall.builder().block(block).length(10).height(height).build(),
+                        Wall.builder().block(block).length(10).height(height).build(),
+                        Wall.builder().block(block).length(10).height(height).build()
+                ))
+                .build();
     }
 }

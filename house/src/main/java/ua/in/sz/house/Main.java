@@ -3,36 +3,21 @@ package ua.in.sz.house;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.model.Block;
 import ua.in.sz.house.model.House;
-import ua.in.sz.house.model.Wall;
-
-import java.util.Arrays;
 
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        House ceramicsHouse = buildHouse(Block.CERAMICS_BRICK);
+        House ceramicsHouse = House.of(Block.CERAMICS_BRICK);
 
         log.info("Heat loss is {} KWt on wall square {} M2",
                 formatHeatLossKW(ceramicsHouse.getHeatLoss(24.0, -20.0)),
                 ceramicsHouse.getWallSquare());
 
-        House gasConcreteHouse = buildHouse(Block.GAS_CONCRETE_BLOCK_D300);
+        House gasConcreteHouse = House.of(Block.GAS_CONCRETE_BLOCK_D300);
 
         log.info("Heat loss is {} KWt on wall square {} M2",
                 formatHeatLossKW(gasConcreteHouse.getHeatLoss(24.0, -20.0)),
                 gasConcreteHouse.getWallSquare());
-    }
-
-    public static House buildHouse(Block block) {
-        double height = 2.5;
-        return House.builder()
-                .walls(Arrays.asList(
-                        Wall.builder().block(block).length(10).height(height).build(),
-                        Wall.builder().block(block).length(10).height(height).build(),
-                        Wall.builder().block(block).length(10).height(height).build(),
-                        Wall.builder().block(block).length(10).height(height).build()
-                ))
-                .build();
     }
 
     private static String formatHeatLossKW(double heatLoss) {
