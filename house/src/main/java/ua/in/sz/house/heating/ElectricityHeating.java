@@ -3,7 +3,7 @@ package ua.in.sz.house.heating;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.TempCalendar;
-import ua.in.sz.house.model.House;
+import ua.in.sz.house.building.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")

@@ -5,8 +5,8 @@ import ua.in.sz.house.heating.ElectricityHeating;
 import ua.in.sz.house.heating.GasHeating;
 import ua.in.sz.house.heating.Heating;
 import ua.in.sz.house.heating.SolidFuelHeating;
-import ua.in.sz.house.model.Block;
-import ua.in.sz.house.model.House;
+import ua.in.sz.house.building.Block;
+import ua.in.sz.house.building.House;
 
 @Slf4j
 public class Main {

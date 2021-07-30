@@ -1,9 +1,8 @@
-package ua.in.sz.house.model;
+package ua.in.sz.house.building;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.model.Block;
 
 /**
  * https://bilux.ua/raschet-teplopoter-chastnogo-doma/#
