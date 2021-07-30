@@ -2,17 +2,16 @@ package ua.in.sz.house.heating;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class SolidFuelHeating implements Heating {
-    private final House house;
+    public static final double HOUR_PER_DAY = 24.0;
 
-    /**
-     * Холожных дней в году
-     */
-    private static final int coldDayPerYear = /* November */ 15 + 30 + 30 + 30 + 30 + /* April */ 15;
+    private final House house;
+    private final TempCalendar calendar;
 
     /**
      * Стоимось пелет за килограм - гривен
@@ -26,8 +25,13 @@ public class SolidFuelHeating implements Heating {
 
     @Override
     public double costPerYear() {
-        double boilerPowerPerHour = house.getHeatLoss(23, -20);
-        double powerPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
+        double powerPerYear = 0.0;
+        for (TempCalendar.Month month : calendar) {
+            double powerPerHour = house.getHeatLoss(23, month.avg());
+            double powerPerDay = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
+            powerPerYear += powerPerDay;
+        }
+
         double pelletWidthPerYear = powerPerYear / heatCapacityOfPellet;
         return pelletWidthPerYear * costOfPellet;
     }

@@ -15,7 +15,7 @@ public class Main {
 
         House house = House.of(Block.CERAMICS_BRICK);
         Heating electricityHeating = ElectricityHeating.of(house, calendar);
-        Heating solidFuelHeating = SolidFuelHeating.of(house);
+        Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
         Heating gasHeating = GasHeating.of(house);
 
         log.info(String.format("Heat loss is %.2f KWt on wall square %.0f M2. " +
@@ -23,14 +23,14 @@ public class Main {
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
                 electricityHeating.costPerYear() / 12.0,
-                solidFuelHeating.costPerYear() / 6.0,
+                solidFuelHeating.costPerYear() / 12.0,
                 gasHeating.costPerYear() / 6.0
         ));
 
         // GAS CONCRETE
         house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
         electricityHeating = ElectricityHeating.of(house, calendar);
-        solidFuelHeating = SolidFuelHeating.of(house);
+        solidFuelHeating = SolidFuelHeating.of(house, calendar);
         gasHeating = GasHeating.of(house);
 
         log.info(String.format("Heat loss is %.2f KWt on wall square %.0f M2. " +
@@ -38,7 +38,7 @@ public class Main {
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
                 electricityHeating.costPerYear() / 12.0,
-                solidFuelHeating.costPerYear() / 6.0,
+                solidFuelHeating.costPerYear() / 12.0,
                 gasHeating.costPerYear() / 6.0
         ));
     }
