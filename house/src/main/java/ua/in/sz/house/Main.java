@@ -11,8 +11,10 @@ import ua.in.sz.house.model.House;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
+        TempCalendar calendar = TempCalendar.of();
+
         House house = House.of(Block.CERAMICS_BRICK);
-        Heating electricityHeating = ElectricityHeating.of(house);
+        Heating electricityHeating = ElectricityHeating.of(house, calendar);
         Heating solidFuelHeating = SolidFuelHeating.of(house);
         Heating gasHeating = GasHeating.of(house);
 
@@ -20,14 +22,14 @@ public class Main {
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
-                electricityHeating.costPerYear() / 6.0,
+                electricityHeating.costPerYear() / 12.0,
                 solidFuelHeating.costPerYear() / 6.0,
                 gasHeating.costPerYear() / 6.0
         ));
 
         // GAS CONCRETE
         house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
-        electricityHeating = ElectricityHeating.of(house);
+        electricityHeating = ElectricityHeating.of(house, calendar);
         solidFuelHeating = SolidFuelHeating.of(house);
         gasHeating = GasHeating.of(house);
 
@@ -35,7 +37,7 @@ public class Main {
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
-                electricityHeating.costPerYear() / 6.0,
+                electricityHeating.costPerYear() / 12.0,
                 solidFuelHeating.costPerYear() / 6.0,
                 gasHeating.costPerYear() / 6.0
         ));

@@ -2,18 +2,18 @@ package ua.in.sz.house.heating;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.model.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class ElectricityHeating implements Heating {
 
-    private final House house;
+    public static final double HOUR_PER_DAY = 24.0;
+    public static final double TARGET_TEMPERATURE = 23.0;
 
-    /**
-     * Холожных дней в году
-     */
-    private static final int coldDayPerYear = /* November */ 15 + 30 + 30 + 30 + 30 + /* April */ 15;
+    private final House house;
+    private final TempCalendar calendar;
 
     /**
      * Стоимось электро энергии за ватт - гривен
@@ -22,8 +22,13 @@ public class ElectricityHeating implements Heating {
 
     @Override
     public double costPerYear() {
-        double boilerPowerPerHour = house.getHeatLoss(23, -20);
-        double electricityPerYear = boilerPowerPerHour / 2.0 * 24.0 * coldDayPerYear;
-        return electricityPerYear * costOfElectricity;
+        double powerPerYear = 0.0;
+        for (TempCalendar.Month month : calendar) {
+            double powerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avg());
+            double powerPerMonth = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
+            powerPerYear += powerPerMonth;
+        }
+
+        return powerPerYear * costOfElectricity;
     }
 }
