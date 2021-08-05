@@ -25,6 +25,11 @@ public class SolidFuelHeating implements Heating {
 
     @Override
     public double costPerYear() {
+        double pelletWidthPerYear = pelletWidthPerYear();
+        return pelletWidthPerYear * costOfPellet;
+    }
+
+    private double pelletWidthPerYear() {
         double powerPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
             double powerPerHour = house.getHeatLoss(23, month.avgTemperature());
@@ -32,7 +37,6 @@ public class SolidFuelHeating implements Heating {
             powerPerYear += powerPerDay;
         }
 
-        double pelletWidthPerYear = powerPerYear / heatCapacityOfPellet;
-        return pelletWidthPerYear * costOfPellet;
+        return powerPerYear / heatCapacityOfPellet;
     }
 }
