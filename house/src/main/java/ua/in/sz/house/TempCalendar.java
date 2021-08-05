@@ -9,8 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 
 @NoArgsConstructor(staticName = "of")
-public class TempCalendar implements Iterable<TempCalendar.Month>
-{
+public class TempCalendar implements Iterable<TempCalendar.Month> {
+    public static final double HOUR_PER_DAY = 24.0;
+
     private static final List<Month> MONTHS = ImmutableList.<Month>builder()
             .add(Month.of(-1.6, -3.8, 31)) // Jun
             .add(Month.of(-0.6, -3.2, 28)) // Feb

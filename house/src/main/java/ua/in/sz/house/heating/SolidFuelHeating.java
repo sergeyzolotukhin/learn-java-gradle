@@ -5,11 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
 
+import static ua.in.sz.house.TempCalendar.HOUR_PER_DAY;
+
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class SolidFuelHeating implements Heating {
-    public static final double HOUR_PER_DAY = 24.0;
-
     private final House house;
     private final TempCalendar calendar;
 
