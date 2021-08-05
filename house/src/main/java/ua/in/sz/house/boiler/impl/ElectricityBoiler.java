@@ -1,6 +1,8 @@
-package ua.in.sz.house.boiler;
+package ua.in.sz.house.boiler.impl;
 
 import lombok.NoArgsConstructor;
+import ua.in.sz.house.boiler.Boiler;
+import ua.in.sz.house.boiler.Resource;
 import ua.in.sz.house.building.House;
 
 @NoArgsConstructor(staticName = "of")
