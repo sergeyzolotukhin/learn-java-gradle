@@ -17,4 +17,10 @@ public abstract class Resource {
     public static class Pellet extends Resource {
         private double quantity;
     }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    public static class Gas extends Resource {
+        private double quantity;
+    }
 }

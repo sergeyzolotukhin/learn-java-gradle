@@ -24,6 +24,7 @@ public class ResourceCostCalculator {
             ImmutableMap.<Class<? extends Resource>, Double>builder()
                     .put(Resource.Electricity.class, 2.3 / 1_000.0)
                     .put(Resource.Pellet.class, 3_400.0 / 1_000.0)
+                    .put(Resource.Gas.class, 11.0)
                     .build();
 
     public double costPerYear() {
