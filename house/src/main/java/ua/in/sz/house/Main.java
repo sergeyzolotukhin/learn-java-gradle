@@ -3,7 +3,6 @@ package ua.in.sz.house;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.ElectricityBoiler;
-import ua.in.sz.house.boiler.ResourceCostCalculator;
 import ua.in.sz.house.heating.GasHeating;
 import ua.in.sz.house.heating.Heating;
 import ua.in.sz.house.heating.SolidFuelHeating;

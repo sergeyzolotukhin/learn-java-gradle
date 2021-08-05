@@ -1,4 +1,4 @@
-package ua.in.sz.house.boiler;
+package ua.in.sz.house;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
