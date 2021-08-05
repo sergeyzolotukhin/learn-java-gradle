@@ -38,7 +38,7 @@ public class TempCalendar implements Iterable<TempCalendar.Month>
         private double night;
         private int dayPerMonth;
 
-        public double avg() {
+        public double avgTemperature() {
             return (day + night) / 2.0;
         }
     }

@@ -27,7 +27,7 @@ public class SolidFuelHeating implements Heating {
     public double costPerYear() {
         double powerPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double powerPerHour = house.getHeatLoss(23, month.avg());
+            double powerPerHour = house.getHeatLoss(23, month.avgTemperature());
             double powerPerDay = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
             powerPerYear += powerPerDay;
         }

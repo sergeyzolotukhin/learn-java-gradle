@@ -24,7 +24,7 @@ public class ElectricityHeating implements Heating {
     public double costPerYear() {
         double powerPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double powerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avg());
+            double powerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature());
             double powerPerMonth = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
             powerPerYear += powerPerMonth;
         }

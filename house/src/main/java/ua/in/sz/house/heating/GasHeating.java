@@ -40,7 +40,7 @@ public class GasHeating implements Heating {
     public double costPerYear() {
         double gasPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double boilerPowerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avg()) * climateRatio;
+            double boilerPowerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature()) * climateRatio;
 
             double gasPerHour = boilerPowerPerHour / heatCapacity;
             double gasPerMonth = gasPerHour * HOUR_PER_DAY * month.getDayPerMonth();
