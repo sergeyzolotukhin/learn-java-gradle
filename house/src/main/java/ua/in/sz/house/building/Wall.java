@@ -2,6 +2,7 @@ package ua.in.sz.house.building;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Builder
 public class Wall {
 
-    private final Block block;
+    private final Layout layout;
 
     private final double length;
     private final double height;
@@ -31,10 +32,30 @@ public class Wall {
         return length * height;
     }
 
+    public double getWidth() {
+        return layout.getWidth();
+    }
+
     private double heatTransferRatio() {
-        double wallThickness = block.getLength(); // M
-        double heatTransferRatio = block.getHeatTransferRatio(); // Вт/м * C
+        double wallThickness = layout.getWidth(); // M
+        double heatTransferRatio = layout.getBlock().getHeatTransferRatio(); // Вт/м * C
         double rWall = wallThickness / heatTransferRatio;
         return 1.0 / rWall;
+    }
+
+    @Builder
+    @Getter
+    public static class Layout {
+        private Block block;
+        private double count;
+        private boolean byLength;
+
+        public double getWidth() {
+            if (byLength) {
+                return count * block.getLength();
+            } else {
+                return count * block.getWidth();
+            }
+        }
     }
 }

@@ -18,8 +18,9 @@ public class Main {
         Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
         Heating gasHeating = GasHeating.of(house);
 
-        log.info(String.format("Heat loss is %.2f KWt on wall square %.0f M2. " +
+        log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
+                house.getWallWidth() * 1000,
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
                 electricityHeating.costPerYear() / 12.0,
@@ -33,8 +34,9 @@ public class Main {
         solidFuelHeating = SolidFuelHeating.of(house, calendar);
         gasHeating = GasHeating.of(house);
 
-        log.info(String.format("Heat loss is %.2f KWt on wall square %.0f M2. " +
+        log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
+                house.getWallWidth() * 1000,
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
                 electricityHeating.costPerYear() / 12.0,
