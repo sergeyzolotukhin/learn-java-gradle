@@ -16,19 +16,34 @@ public class Main {
         TempCalendar calendar = TempCalendar.of();
 
         House house = House.of(Block.CERAMICS_BRICK);
-        Heating electricityHeating = ElectricityHeating.of(house, calendar);
-        Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
-        Heating gasHeating = GasHeating.of(house, calendar);
 
+        Heating electricityHeating = ElectricityHeating.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
-                        "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
+                        "Heating cost: %.0f by Electricity",
                 house.getWallWidth() * 1000,
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
-                electricityHeating.costPerYear() / 12.0,
-                solidFuelHeating.costPerYear() / 12.0,
+                electricityHeating.costPerYear() / 12.0
+        ));
+
+        Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
+        log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
+                        "Heating cost: %.0f by Solid Fuel",
+                house.getWallWidth() * 1000,
+                house.getHeatLoss(24.0, -20.0) / 1000.0,
+                house.getWallSquare(),
+                solidFuelHeating.costPerYear() / 12.0
+        ));
+
+        Heating gasHeating = GasHeating.of(house, calendar);
+        log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
+                        "Heating cost: %.0f by Gas",
+                house.getWallWidth() * 1000,
+                house.getHeatLoss(24.0, -20.0) / 1000.0,
+                house.getWallSquare(),
                 gasHeating.costPerYear() / 6.0
         ));
+
 
         // GAS CONCRETE
         house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
