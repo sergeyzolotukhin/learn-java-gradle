@@ -22,13 +22,16 @@ public class ElectricityHeating implements Heating {
 
     @Override
     public double costPerYear() {
+        return powerPerYear() * costOfElectricity;
+    }
+
+    private double powerPerYear() {
         double powerPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
             double powerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature());
             double powerPerMonth = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
             powerPerYear += powerPerMonth;
         }
-
-        return powerPerYear * costOfElectricity;
+        return powerPerYear;
     }
 }
