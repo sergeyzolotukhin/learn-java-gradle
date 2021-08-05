@@ -10,6 +10,8 @@ import ua.in.sz.house.building.House;
 
 @Slf4j
 public class Main {
+    public static final double TARGET_TEMPERATURE = 23.0;
+
     public static void main(String[] args) {
         TempCalendar calendar = TempCalendar.of();
 

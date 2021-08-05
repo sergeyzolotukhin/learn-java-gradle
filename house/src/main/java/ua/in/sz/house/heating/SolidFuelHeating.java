@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
 
+import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
 import static ua.in.sz.house.TempCalendar.HOUR_PER_DAY;
 
 @Slf4j
@@ -30,13 +31,17 @@ public class SolidFuelHeating implements Heating {
     }
 
     private double pelletWidthPerYear() {
-        double powerPerYear = 0.0;
+        double pelletPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double powerPerHour = house.getHeatLoss(23, month.avgTemperature());
-            double powerPerDay = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
-            powerPerYear += powerPerDay;
+            double pelletPerHour = pelletPerHour(month);
+            double pelletPerDay = pelletPerHour * HOUR_PER_DAY * month.getDayPerMonth();
+            pelletPerYear += pelletPerDay;
         }
 
-        return powerPerYear / heatCapacityOfPellet;
+        return pelletPerYear;
+    }
+
+    private double pelletPerHour(TempCalendar.Month month) {
+        return house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature()) / heatCapacityOfPellet;
     }
 }

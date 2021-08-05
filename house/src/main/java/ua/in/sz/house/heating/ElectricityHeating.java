@@ -5,12 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
 
+import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
 import static ua.in.sz.house.TempCalendar.HOUR_PER_DAY;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class ElectricityHeating implements Heating {
-    public static final double TARGET_TEMPERATURE = 23.0;
+
 
     private final House house;
     private final TempCalendar calendar;
@@ -28,10 +29,15 @@ public class ElectricityHeating implements Heating {
     private double powerPerYear() {
         double powerPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double powerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature());
+            double tOut = month.avgTemperature();
+            double powerPerHour = electricityPerHour(tOut);
             double powerPerMonth = powerPerHour * HOUR_PER_DAY * month.getDayPerMonth();
             powerPerYear += powerPerMonth;
         }
         return powerPerYear;
+    }
+
+    private double electricityPerHour(double tOut) {
+        return house.getHeatLoss(TARGET_TEMPERATURE, tOut);
     }
 }

@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
 
+import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
 import static ua.in.sz.house.TempCalendar.HOUR_PER_DAY;
-import static ua.in.sz.house.heating.ElectricityHeating.TARGET_TEMPERATURE;
 
 /**
  * Heating - обогрев
@@ -46,12 +46,15 @@ public class GasHeating implements Heating {
     private double gasPerYear() {
         double gasPerYear = 0.0;
         for (TempCalendar.Month month : calendar) {
-            double boilerPowerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avgTemperature()) * climateRatio;
-
-            double gasPerHour = boilerPowerPerHour / heatCapacity;
+            double gasPerHour = gasPerHour(month.avgTemperature());
             double gasPerMonth = gasPerHour * HOUR_PER_DAY * month.getDayPerMonth();
             gasPerYear += gasPerMonth;
         }
         return gasPerYear;
+    }
+
+    private double gasPerHour(double tOut) {
+        double boilerPowerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, tOut) * climateRatio;
+        return boilerPowerPerHour / heatCapacity;
     }
 }
