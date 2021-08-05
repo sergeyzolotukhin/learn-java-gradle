@@ -1,7 +1,9 @@
 package ua.in.sz.house.building;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.boiler.Boiler;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.List;
 @Slf4j
 @Builder
 public class House {
+    @Getter
+    private Boiler boiler;
     private final List<Wall> walls;
 
     public double getHeatLoss(double tIn, double tOut) {
@@ -27,12 +31,13 @@ public class House {
         return walls.get(0).getWidth();
     }
 
-    public static House of(Block block) {
+    public static House of(Block block, Boiler boiler) {
         double height = 2.5;
 
         Wall.Layout wallLayout = wallLayout(block);
 
         return House.builder()
+                .boiler(boiler)
                 .walls(Arrays.asList(
                         Wall.builder().layout(wallLayout).length(10).height(height).build(),
                         Wall.builder().layout(wallLayout).length(10).height(height).build(),

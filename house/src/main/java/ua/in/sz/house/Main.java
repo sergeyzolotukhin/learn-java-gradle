@@ -1,7 +1,9 @@
 package ua.in.sz.house;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.heating.ElectricityHeating;
+import ua.in.sz.house.boiler.Boiler;
+import ua.in.sz.house.boiler.ElectricityBoiler;
+import ua.in.sz.house.boiler.ResourceCostCalculator;
 import ua.in.sz.house.heating.GasHeating;
 import ua.in.sz.house.heating.Heating;
 import ua.in.sz.house.heating.SolidFuelHeating;
@@ -14,19 +16,19 @@ public class Main {
 
     public static void main(String[] args) {
         TempCalendar calendar = TempCalendar.of();
+        Boiler boiler = ElectricityBoiler.of();
+        House house = House.of(Block.CERAMICS_BRICK, boiler);
 
-        House house = House.of(Block.CERAMICS_BRICK);
-
-        Heating heating = ElectricityHeating.of(house, calendar);
+        ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity",
                 house.getWallWidth() * 1000,
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
-                heating.costPerYear() / 12.0
+                costCalculator.costPerYear() / 12.0
         ));
 
-        heating = SolidFuelHeating.of(house, calendar);
+        Heating heating = SolidFuelHeating.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Solid Fuel",
                 house.getWallWidth() * 1000,
@@ -46,8 +48,8 @@ public class Main {
 
 
         // GAS CONCRETE
-        house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
-        Heating electricityHeating = ElectricityHeating.of(house, calendar);
+        house = House.of(Block.GAS_CONCRETE_BLOCK_D500, boiler);
+        costCalculator = ResourceCostCalculator.of(house, calendar);
         Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
         Heating gasHeating = GasHeating.of(house, calendar);
 
@@ -56,7 +58,7 @@ public class Main {
                 house.getWallWidth() * 1000,
                 house.getHeatLoss(24.0, -20.0) / 1000.0,
                 house.getWallSquare(),
-                electricityHeating.costPerYear() / 12.0,
+                costCalculator.costPerYear() / 12.0,
                 solidFuelHeating.costPerYear() / 12.0,
                 gasHeating.costPerYear() / 6.0
         ));
