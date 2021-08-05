@@ -16,7 +16,7 @@ public class Main {
         House house = House.of(Block.CERAMICS_BRICK);
         Heating electricityHeating = ElectricityHeating.of(house, calendar);
         Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
-        Heating gasHeating = GasHeating.of(house);
+        Heating gasHeating = GasHeating.of(house, calendar);
 
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",
@@ -32,7 +32,7 @@ public class Main {
         house = House.of(Block.GAS_CONCRETE_BLOCK_D500);
         electricityHeating = ElectricityHeating.of(house, calendar);
         solidFuelHeating = SolidFuelHeating.of(house, calendar);
-        gasHeating = GasHeating.of(house);
+        gasHeating = GasHeating.of(house, calendar);
 
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity, %.0f by Solid Fuel, %.0f by Gas",

@@ -2,7 +2,11 @@ package ua.in.sz.house.heating;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.TempCalendar;
 import ua.in.sz.house.building.House;
+
+import static ua.in.sz.house.heating.ElectricityHeating.TARGET_TEMPERATURE;
+import static ua.in.sz.house.heating.SolidFuelHeating.HOUR_PER_DAY;
 
 /**
  * Heating - обогрев
@@ -12,8 +16,8 @@ import ua.in.sz.house.building.House;
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class GasHeating implements Heating {
-
     private final House house;
+    private final TempCalendar calendar;
 
     /**
      * ratio - коэффициенты
@@ -28,20 +32,21 @@ public class GasHeating implements Heating {
     private static final double heatCapacity = 9_300;
 
     /**
-     * Холожных дней в году
-     */
-    private static final int coldDayPerYear = /* November */ 15 + 30 + 30 + 30 + 30 + /* April */ 15;
-
-    /**
      * Стоимось газа за куб - гривен
      */
     private static final int costOfGas = 11;
 
     @Override
     public double costPerYear() {
-        double boilerPowerPerHour = house.getHeatLoss(23, -20) * climateRatio;
-        double gasPerHour = boilerPowerPerHour / 2.0 / heatCapacity;
-        double gasPerYear = gasPerHour * 24 * coldDayPerYear;
+        double gasPerYear = 0.0;
+        for (TempCalendar.Month month : calendar) {
+            double boilerPowerPerHour = house.getHeatLoss(TARGET_TEMPERATURE, month.avg()) * climateRatio;
+
+            double gasPerHour = boilerPowerPerHour / heatCapacity;
+            double gasPerMonth = gasPerHour * HOUR_PER_DAY * month.getDayPerMonth();
+            gasPerYear += gasPerMonth;
+        }
+
         return gasPerYear * costOfGas;
     }
 }
