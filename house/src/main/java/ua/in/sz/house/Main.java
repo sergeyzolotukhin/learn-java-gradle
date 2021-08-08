@@ -21,15 +21,17 @@ public class Main {
 
         ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house);
 
-        log.info("House info:");
-        log.info(String.format("\tsize: %.0f x %.0f m", house.getWidth(), house.getLength()));
-        log.info(String.format("\twall width %.0f mm", house.getWallWidth() * 1000.0));
-        log.info(String.format("\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0));
+        String houseInfo = "\nHouse info:" +
+                String.format("\n\tsize: %.0f x %.0f m", house.getWidth(), house.getLength()) +
+                String.format("\n\twall width %.0f mm", house.getWallWidth() * 1000.0) +
+                String.format("\n\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0);
 
-        log.info("House materials:");
-        log.info(String.format("\tblock count %.0f", house.blockCount()));
+        String materialInfo = "\nHouse materials:" +
+                String.format("\n\tblock count %.0f", house.blockCount());
 
-        log.info("House support cost:");
-        log.info(String.format("\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0));
+        String supportCostInfo = "\nHouse support cost:" +
+                String.format("\n\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0);
+
+        log.info(houseInfo + materialInfo + supportCostInfo);
     }
 }
