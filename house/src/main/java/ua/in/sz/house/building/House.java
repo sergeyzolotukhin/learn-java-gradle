@@ -7,12 +7,13 @@ import ua.in.sz.house.boiler.Boiler;
 @Slf4j
 public class House {
     @Getter
-    private Boiler boiler;
+    private final Boiler boiler;
     private final Wall wall;
 
-    private double height;
-    private double length;
-    private double width;
+    @Getter
+    private final double height;
+    private final double length;
+    private final double width;
 
     House(Boiler boiler, Wall wall, double height, double length, double width) {
         this.boiler = boiler;
@@ -20,7 +21,6 @@ public class House {
         this.height = height;
         this.length = length;
         this.width = width;
-
     }
 
     public double getHeatLoss(double tIn, double tOut) {
