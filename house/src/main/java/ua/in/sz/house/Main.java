@@ -13,15 +13,13 @@ public class Main {
     public static final double TARGET_TEMPERATURE = 23.0;
 
     public static void main(String[] args) {
-        TempCalendar calendar = TempCalendar.of();
-
         House house = House.builder()
                 .block(Block.CERAMICS_BRICK)
                 .boiler(new ElectricityBoiler())
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house, calendar);
+        ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity",
                 house.getWallWidth() * 1000,

@@ -18,7 +18,7 @@ public class ResourceCostCalculator {
 
 
     private final House house;
-    private final TempCalendar calendar;
+    private final TempCalendar calendar = TempCalendar.of();
 
     private static final Map<Class<? extends Resource>, Double> resourceCost =
             ImmutableMap.<Class<? extends Resource>, Double>builder()
