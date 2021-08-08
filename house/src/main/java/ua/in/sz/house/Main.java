@@ -23,7 +23,7 @@ public class Main {
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity",
                 house.getWallWidth() * 1000,
-                house.getHeatLoss(24.0, -20.0) / 1000.0,
+                house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0,
                 house.getWallSquare(),
                 costCalculator.costPerYear() / 12.0
         ));
