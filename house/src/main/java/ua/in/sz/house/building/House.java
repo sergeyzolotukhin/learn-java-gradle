@@ -1,50 +1,42 @@
 package ua.in.sz.house.building;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.Boiler;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Slf4j
-@Builder
 public class House {
     @Getter
     private Boiler boiler;
-    private final List<Wall> walls;
+    private final Wall wall;
+
+    private double height;
+    private double length;
+    private double width;
+
+    House(Boiler boiler, Wall wall, double height, double length, double width) {
+        this.boiler = boiler;
+        this.wall = wall;
+        this.height = height;
+        this.length = length;
+        this.width = width;
+
+    }
 
     public double getHeatLoss(double tIn, double tOut) {
-        return walls.stream()
-                .mapToDouble(w -> w.getHeatLoss(tIn, tOut))
-                .sum();
+        return wall.getHeatLoss(tIn, tOut);
     }
 
     public double getWallSquare() {
-        return walls.stream()
-                .mapToDouble(Wall::getSquare)
-                .sum();
+        return length * width;
+    }
+
+    public static HouseBuilder builder() {
+        return new HouseBuilder();
     }
 
     public double getWallWidth() {
-        return walls.get(0).getWidth();
-    }
-
-    public static House of(Block block, Boiler boiler) {
-        double height = 2.5;
-
-        Wall.Layout wallLayout = wallLayout(block);
-
-        return House.builder()
-                .boiler(boiler)
-                .walls(Arrays.asList(
-                        Wall.builder().layout(wallLayout).length(10).height(height).build(),
-                        Wall.builder().layout(wallLayout).length(10).height(height).build(),
-                        Wall.builder().layout(wallLayout).length(10).height(height).build(),
-                        Wall.builder().layout(wallLayout).length(10).height(height).build()
-                ))
-                .build();
+        return wall.getWidth();
     }
 
     private static Wall.Layout wallLayout(Block block) {
@@ -52,6 +44,48 @@ public class House {
             return Wall.Layout.builder().block(block).count(2).byLength(true).build();
         } else {
             return Wall.Layout.builder().block(block).count(1).byLength(false).build();
+        }
+    }
+
+    public static class HouseBuilder {
+        private Block block;
+        private Boiler boiler;
+
+        private double height;
+        private double length;
+        private double width;
+
+        HouseBuilder() {
+        }
+
+        public HouseBuilder boiler(Boiler boiler) {
+            this.boiler = boiler;
+            return this;
+        }
+
+        public HouseBuilder block(Block block) {
+            this.block = block;
+            return this;
+        }
+
+        public HouseBuilder size(double width, double length, double height) {
+            this.width = width;
+            this.length = length;
+            this.height = height;
+            return this;
+        }
+
+        public House build() {
+            Wall.Layout wallLayout = wallLayout(block);
+            double perimeter = 2.0 * width + 2.0 * length;
+
+            Wall wall = Wall.builder()
+                    .layout(wallLayout)
+                    .length(perimeter)
+                    .height(height)
+                    .build();
+
+            return new House(boiler, wall, height, length, width);
         }
     }
 }
