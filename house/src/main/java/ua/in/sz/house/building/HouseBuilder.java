@@ -32,7 +32,6 @@ public class HouseBuilder {
                 .block(block)
                 .height(height)
                 .length(wallPerimeter())
-                .width(wallWidth(block))
                 .build();
 
         return new House(boiler, wall, height, length, width);
@@ -40,13 +39,5 @@ public class HouseBuilder {
 
     private double wallPerimeter() {
         return 2.0 * width + 2.0 * length;
-    }
-
-    private double wallWidth(Block block) {
-        if (Block.CERAMICS_BRICK.equals(block)) {
-            return 2.0 * block.getLength();
-        } else {
-            return block.getWidth();
-        }
     }
 }
