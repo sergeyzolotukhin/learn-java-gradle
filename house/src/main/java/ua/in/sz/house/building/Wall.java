@@ -36,9 +36,8 @@ public class Wall {
     }
 
     private double heatTransferRatio() {
-        double wallThickness = width; // M
         double heatTransferRatio = block.getHeatTransferRatio(); // Вт/м * C
-        double rWall = wallThickness / heatTransferRatio;
+        double rWall = width / heatTransferRatio;
         return 1.0 / rWall;
     }
 }
