@@ -28,6 +28,18 @@ public class Wall {
         }
     }
 
+    public double blockCount() {
+        if (Block.CERAMICS_BRICK.equals(block)) {
+            double cementThickness = 10.0 / 1000.0; // 1 cm
+            double countByLength = Math.ceil(length / (block.getLength() + cementThickness));
+            double countByHeight = Math.ceil(height / (block.getHeight() + cementThickness));
+            double countByWidth = 4.0;
+            return countByLength * countByHeight * countByWidth;
+        } else {
+            return 0;
+        }
+    }
+
     /**
      * Площадь М2
      */

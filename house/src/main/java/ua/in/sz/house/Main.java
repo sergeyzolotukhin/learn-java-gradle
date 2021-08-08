@@ -20,12 +20,16 @@ public class Main {
                 .build();
 
         ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house);
-        log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
-                        "Heating cost: %.0f by Electricity",
-                house.getWallWidth() * 1000,
-                house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0,
-                house.getWallSquare(),
-                costCalculator.costPerYear() / 12.0
-        ));
+
+        log.info("House info:");
+        log.info(String.format("\tsize: %.0f x %.0f m", house.getWidth(), house.getLength()));
+        log.info(String.format("\twall width %.0f mm", house.getWallWidth() * 1000.0));
+        log.info(String.format("\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0));
+
+        log.info("House materials:");
+        log.info(String.format("\tblock count %.0f", house.blockCount()));
+
+        log.info("House support cost:");
+        log.info(String.format("\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0));
     }
 }

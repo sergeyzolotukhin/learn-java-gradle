@@ -12,7 +12,9 @@ public class House {
 
     @Getter
     private final double height;
+    @Getter
     private final double length;
+    @Getter
     private final double width;
 
     House(Boiler boiler, Wall wall, double height, double length, double width) {
@@ -31,8 +33,8 @@ public class House {
         return wall.getWidth();
     }
 
-    public double getWallSquare() {
-        return length * width;
+    public double blockCount() {
+        return wall.blockCount();
     }
 
     public static HouseBuilder builder() {
