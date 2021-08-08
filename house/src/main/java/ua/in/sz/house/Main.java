@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         TempCalendar calendar = TempCalendar.of();
 
-        House house = House.of(Block.CERAMICS_BRICK, ElectricityBoiler.of());
+        House house = House.of(Block.CERAMICS_BRICK, new ElectricityBoiler());
         ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Electricity",
@@ -25,7 +25,7 @@ public class Main {
                 costCalculator.costPerYear() / 12.0
         ));
 
-        house = House.of(Block.CERAMICS_BRICK, SolidFuelBoiler.of());
+        house = House.of(Block.CERAMICS_BRICK, new SolidFuelBoiler());
         costCalculator = ResourceCostCalculator.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Solid Fuel",
@@ -35,7 +35,7 @@ public class Main {
                 costCalculator.costPerYear() / 12.0
         ));
 
-        house = House.of(Block.CERAMICS_BRICK, GasBoiler.of());
+        house = House.of(Block.CERAMICS_BRICK, new GasBoiler());
         costCalculator = ResourceCostCalculator.of(house, calendar);
         log.info(String.format("Wall width %.0f. Heat loss is %.2f KWt on wall square %.0f M2. " +
                         "Heating cost: %.0f by Gas",
@@ -47,7 +47,7 @@ public class Main {
 
 
         // GAS CONCRETE
-        house = House.of(Block.GAS_CONCRETE_BLOCK_D500, ElectricityBoiler.of());
+        house = House.of(Block.GAS_CONCRETE_BLOCK_D500, new ElectricityBoiler());
         costCalculator = ResourceCostCalculator.of(house, calendar);
 //        Heating solidFuelHeating = SolidFuelHeating.of(house, calendar);
 //        Heating gasHeating = GasHeating.of(house, calendar);

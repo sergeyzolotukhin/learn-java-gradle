@@ -5,7 +5,7 @@ import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.Resource;
 import ua.in.sz.house.building.House;
 
-@NoArgsConstructor(staticName = "of")
+@NoArgsConstructor
 public class ElectricityBoiler extends Boiler {
     @Override
     public Resource resourceQuantity(House house, double tIn, double tOut) {

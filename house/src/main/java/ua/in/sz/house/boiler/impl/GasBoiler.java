@@ -7,7 +7,7 @@ import ua.in.sz.house.building.House;
 
 import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
 
-@AllArgsConstructor(staticName = "of")
+@AllArgsConstructor
 public class GasBoiler extends Boiler {
     /**
      * удельная теплоемкость сгорания природного газа

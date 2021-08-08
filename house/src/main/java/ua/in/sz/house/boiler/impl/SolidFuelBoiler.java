@@ -5,7 +5,7 @@ import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.Resource;
 import ua.in.sz.house.building.House;
 
-@AllArgsConstructor(staticName = "of")
+@AllArgsConstructor
 public class SolidFuelBoiler extends Boiler {
     /**
      * теплоемкость пеллет — 5 кВт/кг.
