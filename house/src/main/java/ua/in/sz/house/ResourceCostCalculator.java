@@ -22,7 +22,7 @@ public class ResourceCostCalculator {
 
     private static final Map<Class<? extends Resource>, Double> resourceCost =
             ImmutableMap.<Class<? extends Resource>, Double>builder()
-                    .put(Resource.Electricity.class, 2.3 / 1_000.0)
+                    .put(Resource.Electricity.class, 1.68 / 1_000.0)
                     .put(Resource.Pellet.class, 3_400.0 / 1_000.0)
                     .put(Resource.Gas.class, 11.0)
                     .build();
