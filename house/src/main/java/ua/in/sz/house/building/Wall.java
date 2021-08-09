@@ -2,6 +2,7 @@ package ua.in.sz.house.building;
 
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.NotImplementedException;
 
 /**
  * https://bilux.ua/raschet-teplopoter-chastnogo-doma/#
@@ -36,7 +37,7 @@ public class Wall {
             double countByWidth = 4.0;
             return countByLength * countByHeight * countByWidth;
         } else {
-            return 0;
+            throw new NotImplementedException("A block calculation not implemented");
         }
     }
 
