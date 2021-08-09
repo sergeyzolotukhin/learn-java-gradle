@@ -81,9 +81,9 @@ public class Wall {
                     layerVolume * m3ToMm3, layerLength * mToMm, layerWidth * mToMm, CEMENT_THICKNESS * mToMm));
 
 
-            return countByHeight * sliceVolumePerLayer
-                    + countByHeight * rowVolumePerLayer
-                    + (countByHeight - 1) * layerVolume;
+            return sliceVolumePerLayer * countByHeight
+                    + rowVolumePerLayer * countByHeight
+                    + layerVolume * (countByHeight - 1);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }
