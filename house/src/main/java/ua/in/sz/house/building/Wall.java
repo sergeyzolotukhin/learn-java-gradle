@@ -62,12 +62,18 @@ public class Wall {
             log.debug(String.format("slice cement mortar one %.0f mm3, row %.0f mm3, layer %.0f mm3. Block count %.2f",
                     sliceVolume * m3ToMm3, sliceVolumePerRow * m3ToMm3, sliceVolumePerLayer * m3ToMm3, countByLength));
 
+            double rowLength = block.getLength() * countByLength + CEMENT_THICKNESS * (countByLength - 1);
+            double rowVolume = rowLength * block.getHeight() * CEMENT_THICKNESS;
+            double rowVolumePerLayer = rowVolume * (countByWidth - 1);
 
-            double w = length * block.getHeight() * CEMENT_THICKNESS * (countByWidth - 1.0);
+            int mToMm = 1_000;
+            log.debug(String.format("row cement mortar one %.0f mm3, layer %.0f mm3. Length %.0f mm3, height %.0f mm3, width %.0f mm3",
+                    rowVolume * m3ToMm3, rowVolumePerLayer * m3ToMm3, rowLength * mToMm, block.getHeight() * mToMm, CEMENT_THICKNESS * mToMm));
+
             double h = length * getWidth() * CEMENT_THICKNESS;
 
             return countByHeight * sliceVolumePerLayer
-                    + countByHeight * w
+                    + countByHeight * rowVolumePerLayer
                     + (countByHeight - 1) * h;
         } else {
             throw new NotImplementedException("A block calculation not implemented");
