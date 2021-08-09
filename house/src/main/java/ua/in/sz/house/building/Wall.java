@@ -50,6 +50,9 @@ public class Wall {
      */
     public double cementMortar() {
         if (Block.CERAMICS_BRICK.equals(block)) {
+            int m3ToMm3 = 1_000_000_000;
+            int mToMm = 1_000;
+
             double countByHeight = Math.ceil(height / (block.getHeight() + CEMENT_THICKNESS));
             double countByLength = Math.ceil(length / (block.getLength() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
@@ -58,23 +61,29 @@ public class Wall {
             double sliceVolumePerRow = (countByLength - 1.0) * sliceVolume;
             double sliceVolumePerLayer = sliceVolumePerRow * (countByWidth - 1.0);
 
-            int m3ToMm3 = 1_000_000_000;
             log.debug(String.format("slice cement mortar one %.0f mm3, row %.0f mm3, layer %.0f mm3. Block count %.2f",
                     sliceVolume * m3ToMm3, sliceVolumePerRow * m3ToMm3, sliceVolumePerLayer * m3ToMm3, countByLength));
+
 
             double rowLength = block.getLength() * countByLength + CEMENT_THICKNESS * (countByLength - 1);
             double rowVolume = rowLength * block.getHeight() * CEMENT_THICKNESS;
             double rowVolumePerLayer = rowVolume * (countByWidth - 1);
 
-            int mToMm = 1_000;
             log.debug(String.format("row cement mortar one %.0f mm3, layer %.0f mm3. Length %.0f mm3, height %.0f mm3, width %.0f mm3",
                     rowVolume * m3ToMm3, rowVolumePerLayer * m3ToMm3, rowLength * mToMm, block.getHeight() * mToMm, CEMENT_THICKNESS * mToMm));
 
-            double h = length * getWidth() * CEMENT_THICKNESS;
+
+            double layerLength = block.getLength() * countByLength + CEMENT_THICKNESS * (countByLength - 1);
+            double layerWidth = 4.0 * block.getWidth() + CEMENT_THICKNESS * (3.0);
+            double layerVolume = layerLength * layerWidth * CEMENT_THICKNESS;
+
+            log.debug(String.format("layer cement mortar %.0f mm3. Length %.0f mm3, width %.0f mm3, height %.0f mm3",
+                    layerVolume * m3ToMm3, layerLength * mToMm, layerWidth * mToMm, CEMENT_THICKNESS * mToMm));
+
 
             return countByHeight * sliceVolumePerLayer
                     + countByHeight * rowVolumePerLayer
-                    + (countByHeight - 1) * h;
+                    + (countByHeight - 1) * layerVolume;
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }
