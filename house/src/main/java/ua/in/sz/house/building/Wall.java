@@ -59,8 +59,9 @@ public class Wall {
             double sliceVolumePerLayer = sliceVolumePerRow * (countByWidth - 1.0);
 
             int m3ToMm3 = 1_000_000_000;
-            log.debug(String.format("cement mortar vertical single %.0f mm3 row %.0f mm3. block count %.2f. per layer %.0f",
-                    sliceVolume * m3ToMm3, sliceVolumePerRow * m3ToMm3, countByLength, sliceVolumePerLayer * m3ToMm3));
+            log.debug(String.format("slice cement mortar one %.0f mm3, row %.0f mm3, layer %.0f mm3. Block count %.2f",
+                    sliceVolume * m3ToMm3, sliceVolumePerRow * m3ToMm3, sliceVolumePerLayer * m3ToMm3, countByLength));
+
 
             double w = length * block.getHeight() * CEMENT_THICKNESS * (countByWidth - 1.0);
             double h = length * getWidth() * CEMENT_THICKNESS;
