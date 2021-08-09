@@ -81,9 +81,18 @@ public class Wall {
                     layerVolume * m3ToMm3, layerLength * mToMm, layerWidth * mToMm, CEMENT_THICKNESS * mToMm));
 
 
-            return sliceVolumePerLayer * countByHeight
-                    + rowVolumePerLayer * countByHeight
-                    + layerVolume * (countByHeight - 1);
+            double allSliceVolume = sliceVolumePerLayer * countByHeight;
+            double allRowVolume = rowVolumePerLayer * countByHeight;
+            double allLayerVolume = layerVolume * (countByHeight - 1);
+
+            double volume = allSliceVolume + allRowVolume + allLayerVolume;
+
+            log.debug(String.format("cement mortar %.3f M3, slice %.0f mm3, row %.0f mm3, layer %.0f mm3 " +
+                            "layers %.0f, count by length %.0f, count by width %.0f",
+                    volume, allSliceVolume * m3ToMm3, allRowVolume * m3ToMm3, allLayerVolume * m3ToMm3,
+                    countByHeight, countByLength, countByWidth));
+
+            return volume;
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }
