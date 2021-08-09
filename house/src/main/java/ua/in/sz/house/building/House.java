@@ -37,6 +37,10 @@ public class House {
         return wall.blockCount();
     }
 
+    public double cementMortar() {
+        return wall.cementMortar();
+    }
+
     public static HouseBuilder builder() {
         return new HouseBuilder();
     }

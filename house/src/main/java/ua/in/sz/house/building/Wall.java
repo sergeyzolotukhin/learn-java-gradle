@@ -1,6 +1,7 @@
 package ua.in.sz.house.building;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 
@@ -10,9 +11,12 @@ import org.apache.commons.lang3.NotImplementedException;
 @Slf4j
 @Builder
 public class Wall {
-    private final Block block;
+    private static final double CEMENT_THICKNESS = 10.0 / 1000.0; // 1 cm
 
+    private final Block block;
+    @Getter
     private final double height;
+    @Getter
     private final double length;
 
     public Wall(Block block, double height, double length) {
@@ -23,7 +27,7 @@ public class Wall {
 
     public double getWidth() {
         if (Block.CERAMICS_BRICK.equals(block)) {
-            return 2.0 * block.getLength();
+            return 2.0 * block.getLength() + CEMENT_THICKNESS;
         } else {
             return block.getWidth();
         }
@@ -31,11 +35,39 @@ public class Wall {
 
     public double blockCount() {
         if (Block.CERAMICS_BRICK.equals(block)) {
-            double cementThickness = 10.0 / 1000.0; // 1 cm
-            double countByLength = Math.ceil(length / (block.getLength() + cementThickness));
-            double countByHeight = Math.ceil(height / (block.getHeight() + cementThickness));
+
+            double countByLength = Math.ceil(length / (block.getLength() + CEMENT_THICKNESS));
+            double countByHeight = Math.ceil(height / (block.getHeight() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
             return countByLength * countByHeight * countByWidth;
+        } else {
+            throw new NotImplementedException("A block calculation not implemented");
+        }
+    }
+
+    /**
+     * Объем цементно песчаного раствора М3
+     */
+    public double cementMortar() {
+        if (Block.CERAMICS_BRICK.equals(block)) {
+            double countByHeight = Math.ceil(height / (block.getHeight() + CEMENT_THICKNESS));
+            double countByLength = Math.ceil(length / (block.getLength() + CEMENT_THICKNESS));
+            double countByWidth = 4.0;
+
+            double sliceVolume = CEMENT_THICKNESS * block.getHeight() * block.getWidth();
+            double sliceVolumePerRow = (countByLength - 1.0) * sliceVolume;
+            double sliceVolumePerLayer = sliceVolumePerRow * (countByWidth - 1.0);
+
+            int m3ToMm3 = 1_000_000_000;
+            log.debug(String.format("cement mortar vertical single %.0f mm3 row %.0f mm3. block count %.2f. per layer %.0f",
+                    sliceVolume * m3ToMm3, sliceVolumePerRow * m3ToMm3, countByLength, sliceVolumePerLayer * m3ToMm3));
+
+            double w = length * block.getHeight() * CEMENT_THICKNESS * (countByWidth - 1.0);
+            double h = length * getWidth() * CEMENT_THICKNESS;
+
+            return countByHeight * sliceVolumePerLayer
+                    + countByHeight * w
+                    + (countByHeight - 1) * h;
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

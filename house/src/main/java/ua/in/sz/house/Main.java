@@ -27,7 +27,8 @@ public class Main {
                 String.format("\n\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0);
 
         String materialInfo = "\nHouse materials:" +
-                String.format("\n\tblock count %.0f cost %.0f UAH", house.blockCount(), house.blockCount() * 3.3);
+                String.format("\n\tblock count %.0f cost %.0f UAH", house.blockCount(), house.blockCount() * 3.3) +
+                String.format("\n\tcement mortar %.2f M3", house.cementMortar());
 
         String supportCostInfo = "\nHouse support cost:" +
                 String.format("\n\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0);
