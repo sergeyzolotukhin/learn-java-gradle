@@ -11,43 +11,43 @@ public class Main {
     public static void main(String[] args) {
         PicoWriter topWriter = new PicoWriter();
 
-        topWriter.s("package com.samplepackage;");
-        topWriter.s("");
-        topWriter.s("public class MyClass {");
+        topWriter.w("package com.samplepackage;");
+        topWriter.w("");
+        topWriter.w("public class MyClass {");
 
         PicoWriter memvarWriter = topWriter.createDeferredWriter();
-        topWriter.s("{");
+        topWriter.w("{");
         PicoWriter indentedSection = topWriter.createDeferredWriter();
-        topWriter.s("}");
-        topWriter.s("");
+        topWriter.w("}");
+        topWriter.w("");
 
         PicoWriter methodSection = topWriter.createDeferredWriter();
 
-        memvarWriter.s("String myString = null;");
-        memvarWriter.s("String myString2 = null;");
+        memvarWriter.w("String myString = null;");
+        memvarWriter.w("String myString2 = null;");
 
-        indentedSection.s("// Contents of the indented section (1)");
-        indentedSection.s("// Contents of the indented section (2)");
+        indentedSection.w("// Contents of the indented section (1)");
+        indentedSection.w("// Contents of the indented section (2)");
 
         PicoWriter mainMethod = methodSection.createDeferredWriter();
 
         main(mainMethod);
 
-        topWriter.s("}");
+        topWriter.w("}");
 
         log.info("\n{}", topWriter);
     }
 
     private static void main(PicoWriter w) {
-        w.s("public static void main(String[] args) {");
-        w.s("   if (args.length == 0) {");
-        w.s("       System.out.println(\"Require more than one argument\");");
-        w.s("   } else if (args.length == 1) {");
-        w.s("       doSomething();");
-        w.s("   } else {");
-        w.s("       System.out.println(\"Too many arguments\");");
-        w.s("   }");
-        w.s("}");
-        w.s("");
+        w.w("public static void main(String[] args) {");
+        w.w("   if (args.length == 0) {");
+        w.w("       System.out.println(\"Require more than one argument\");");
+        w.w("   } else if (args.length == 1) {");
+        w.w("       doSomething();");
+        w.w("   } else {");
+        w.w("       System.out.println(\"Too many arguments\");");
+        w.w("   }");
+        w.w("}");
+        w.w("");
     }
 }

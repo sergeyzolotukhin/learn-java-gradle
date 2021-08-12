@@ -39,44 +39,10 @@ public class PicoWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
-    public PicoWriter s(String string) {
-        int bf = indents;
-
-        int s = 0;
-        for (s = 0; s < string.length(); s++) {
-            char c = string.charAt(s);
-            if (c == ' ') {
-                continue;
-            }
-
-            if (c == '}') {
-                indentLeft();
-            }
-
-            break;
-        }
-
-        int cr = indents;
+    public PicoWriter w(String string) {
         _numLines++;
-        sb.append(string.substring(s));
-
-        for (int i = string.length() - 1; i >= s; i--) {
-            char c = string.charAt(i);
-            if (c == ' ') {
-                continue;
-            }
-            if (c == '{') {
-                indentRight();
-            } else if (c == '}') {
-                indentLeft();
-            }
-
-            break;
-        }
-
-        int af = indents;
-        sb.append("// ").append(bf).append(" -> ").append(cr).append(" -> ").append(af);
-        flush(cr);
+        sb.append(string);
+        flush();
 
         return this;
     }
