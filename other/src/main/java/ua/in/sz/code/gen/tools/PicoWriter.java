@@ -39,7 +39,7 @@ public class PicoWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
-    public PicoWriter w() {
+    public PicoWriter nl() {
         return w("");
     }
 
@@ -115,7 +115,7 @@ public class PicoWriter implements PicoWriterItem {
     }
     // ================================================================================================================
 
-    public final PicoWriter createDeferredWriter() {
+    public final PicoWriter writer() {
         if (sb.length() > 0) {
             flush();
             lineNo++;
@@ -158,7 +158,7 @@ public class PicoWriter implements PicoWriterItem {
     public PicoWriter createDeferredIndentedWriter(String startLine, String endLine) {
         writeln(startLine);
         indentRight();
-        PicoWriter ggg = createDeferredWriter();
+        PicoWriter ggg = writer();
         indentLeft();
         writeln(endLine);
         dirty = true;

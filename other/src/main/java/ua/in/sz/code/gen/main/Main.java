@@ -9,20 +9,20 @@ import ua.in.sz.code.gen.tools.PicoWriter;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        PicoWriter c = new PicoWriter();
+        PicoWriter clazz = new PicoWriter();
 
-        c.w("package com.samplepackage;");
-        c.w();
-        c.w("public class MyClass {");
+        clazz.w("package com.samplepackage;");
+        clazz.nl();
+        clazz.w("public class MyClass {");
 
-        PicoWriter field = c.createDeferredWriter();
+        PicoWriter field = clazz.writer();
 
-        c.w("{");
-        PicoWriter statics = c.createDeferredWriter();
-        c.w("}");
-        c.w();
+        clazz.w("{");
+        PicoWriter statics = clazz.writer();
+        clazz.w("}");
+        clazz.nl();
 
-        PicoWriter main = c.createDeferredWriter();
+        PicoWriter main = clazz.writer();
 
         field.w("String myString = null;");
         field.w("String myString2 = null;");
@@ -32,9 +32,9 @@ public class Main {
 
         main(main);
 
-        c.w("}");
+        clazz.w("}");
 
-        log.info("\n{}", c);
+        log.info("\n{}", clazz);
     }
 
     private static void main(PicoWriter w) {
@@ -47,6 +47,6 @@ public class Main {
         w.w("       System.out.println(\"Too many arguments\");");
         w.w("   }");
         w.w("}");
-        w.w();
+        w.nl();
     }
 }
