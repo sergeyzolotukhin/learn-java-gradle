@@ -1,7 +1,7 @@
 package ua.in.sz.code.gen.main;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.code.gen.tools.PicoWriter;
+import ua.in.sz.code.gen.tools.CodeWriter;
 
 /**
  * https://github.com/ainslec/picocog
@@ -9,20 +9,20 @@ import ua.in.sz.code.gen.tools.PicoWriter;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        PicoWriter clazz = new PicoWriter();
+        CodeWriter clazz = new CodeWriter();
 
         clazz.w("package com.samplepackage;");
         clazz.nl();
         clazz.w("public class MyClass {");
 
-        PicoWriter field = clazz.writer();
+        CodeWriter field = clazz.writer();
 
         clazz.w("{");
-        PicoWriter statics = clazz.writer();
+        CodeWriter statics = clazz.writer();
         clazz.w("}");
         clazz.nl();
 
-        PicoWriter main = clazz.writer();
+        CodeWriter main = clazz.writer();
 
         field.w("String myString = null;");
         field.w("String myString2 = null;");
@@ -37,7 +37,7 @@ public class Main {
         log.info("\n{}", clazz);
     }
 
-    private static void main(PicoWriter w) {
+    private static void main(CodeWriter w) {
         w.w("public static void main(String[] args) {");
         w.w("   if (args.length == 0) {");
         w.w("       System.out.println(\"Require more than one argument\");");

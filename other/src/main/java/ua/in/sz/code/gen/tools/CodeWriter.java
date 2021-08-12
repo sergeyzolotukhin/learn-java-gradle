@@ -3,7 +3,7 @@ package ua.in.sz.code.gen.tools;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PicoWriter implements PicoWriterItem {
+public class CodeWriter implements PicoWriterItem {
     private static final String SEP = "\n";
     private static final String TAB = "\t";
     private int indents = -1;
@@ -16,11 +16,11 @@ public class PicoWriter implements PicoWriterItem {
     private final List<PicoWriterItem> lines = new ArrayList<>();
     private final StringBuilder sb = new StringBuilder();
 
-    public PicoWriter() {
+    public CodeWriter() {
         indents = 0;
     }
 
-    private PicoWriter(int initialIndent) {
+    private CodeWriter(int initialIndent) {
         indents = Math.max(initialIndent, 0);
     }
 
@@ -39,15 +39,15 @@ public class PicoWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
-    public PicoWriter nl() {
+    public CodeWriter nl() {
         return w("");
     }
 
-    public PicoWriter tab() {
+    public CodeWriter tab() {
         return this;
     }
 
-    public PicoWriter w(String string) {
+    public CodeWriter w(String string) {
         lineNo++;
         sb.append(string);
         flush();
@@ -55,7 +55,7 @@ public class PicoWriter implements PicoWriterItem {
         return this;
     }
 
-    public PicoWriter writeln(String string) {
+    public CodeWriter writeln(String string) {
         lineNo++;
         sb.append(string.trim());
         flush();
@@ -103,8 +103,8 @@ public class PicoWriter implements PicoWriterItem {
                 }
 
                 lastRowWasBlank = thisRowIsBlank;
-            } else if (item instanceof PicoWriter) {
-                lastRowWasBlank = ((PicoWriter) item).render(sb, indentBase, normalizeAdjacentBlankRows, lastRowWasBlank);
+            } else if (item instanceof CodeWriter) {
+                lastRowWasBlank = ((CodeWriter) item).render(sb, indentBase, normalizeAdjacentBlankRows, lastRowWasBlank);
             } else {
                 String string = item.toString();
                 sb.append(string);
@@ -115,20 +115,20 @@ public class PicoWriter implements PicoWriterItem {
     }
     // ================================================================================================================
 
-    public final PicoWriter writer() {
+    public final CodeWriter writer() {
         if (sb.length() > 0) {
             flush();
             lineNo++;
         }
 
-        PicoWriter inner = new PicoWriter(indents);
+        CodeWriter inner = new CodeWriter(indents);
         lines.add(inner);
         lineNo++;
 
         return inner;
     }
 
-    public final PicoWriter writeln(PicoWriter inner) {
+    public final CodeWriter writeln(CodeWriter inner) {
         if (sb.length() > 0) {
             flush();
             lineNo++;
@@ -142,11 +142,11 @@ public class PicoWriter implements PicoWriterItem {
         return this;
     }
 
-    private void adjustIndents(PicoWriter inner, int indents) {
+    private void adjustIndents(CodeWriter inner, int indents) {
         if (inner != null) {
             for (PicoWriterItem item : inner.lines) {
-                if (item instanceof PicoWriter) {
-                    adjustIndents((PicoWriter) item, indents);
+                if (item instanceof CodeWriter) {
+                    adjustIndents((CodeWriter) item, indents);
                 } else if (item instanceof IndentedLine) {
                     IndentedLine il = (IndentedLine) item;
                     il._indent = il._indent + indents;
@@ -155,10 +155,10 @@ public class PicoWriter implements PicoWriterItem {
         }
     }
 
-    public PicoWriter createDeferredIndentedWriter(String startLine, String endLine) {
+    public CodeWriter createDeferredIndentedWriter(String startLine, String endLine) {
         writeln(startLine);
         indentRight();
-        PicoWriter ggg = writer();
+        CodeWriter ggg = writer();
         indentLeft();
         writeln(endLine);
         dirty = true;
