@@ -13,26 +13,33 @@ public class Main {
 
         clazz.w("package com.samplepackage;");
         clazz.nl();
+
         clazz.w("public class MyClass {");
-
-        CodeWriter field = clazz.writer();
-
-        clazz.w("{");
-        CodeWriter statics = clazz.writer();
-        clazz.w("}");
         clazz.nl();
 
+        CodeWriter field = clazz.writer();
+        field.nl();
+
+        CodeWriter statics = clazz.writer();
+        statics.nl();
+
         CodeWriter main = clazz.writer();
+        main.nl();
+
+        clazz.w("}");
+        clazz.nl();
 
         field.w("String myString = null;");
         field.w("String myString2 = null;");
 
-        statics.w("// Contents of the indented section (1)");
-        statics.w("// Contents of the indented section (2)");
+        statics.w(" {");
+        statics.w("     // Contents of the indented section (1)");
+        statics.w("     // Contents of the indented section (2)");
+        statics.w(" }");
 
         main(main);
 
-        clazz.w("}");
+
 
         log.info("\n{}", clazz);
     }
