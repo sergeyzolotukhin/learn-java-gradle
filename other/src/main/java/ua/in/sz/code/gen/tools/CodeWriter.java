@@ -41,7 +41,7 @@ public class CodeWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
-    public CodeWriter nl() {
+    public CodeWriter w() {
         return w("");
     }
 

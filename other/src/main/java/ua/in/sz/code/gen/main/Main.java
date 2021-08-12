@@ -12,25 +12,25 @@ public class Main {
         CodeWriter clazz = new CodeWriter();
 
         clazz.w("package com.samplepackage;");
-        clazz.nl();
+        clazz.w();
 
         clazz.w("public class MyClass {");
-        clazz.nl();
+        clazz.w();
 
         CodeWriter field = clazz.writer();
         field.w(Main::field);
-        field.nl();
+        field.w();
 
         CodeWriter statics = clazz.writer();
         statics.w(Main::statics);
-        statics.nl();
+        statics.w();
 
         CodeWriter main = clazz.writer();
         main.w(Main::main);
-        main.nl();
+        main.w();
 
         clazz.w("}");
-        clazz.nl();
+        clazz.w();
 
         log.info("\n{}", clazz);
     }
@@ -57,6 +57,6 @@ public class Main {
         w.w("       System.out.println(\"Too many arguments\");");
         w.w("   }");
         w.w("}");
-        w.nl();
+        w.w();
     }
 }
