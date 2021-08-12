@@ -3,7 +3,6 @@ package ua.in.sz.code.gen.tools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class CodeWriter implements PicoWriterItem {
     private static final String SEP = "\n";
@@ -41,19 +40,19 @@ public class CodeWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
-    public CodeWriter w() {
-        return w("");
+    public CodeWriter wl() {
+        return wl("");
     }
 
     public CodeWriter tab() {
         return this;
     }
 
-    public CodeWriter w(Consumer<CodeWriter> w) {
+    public CodeWriter wl(Consumer<CodeWriter> w) {
         return this;
     }
 
-    public CodeWriter w(String string) {
+    public CodeWriter wl(String string) {
         lineNo++;
         sb.append(string);
         flush();

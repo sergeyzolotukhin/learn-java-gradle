@@ -11,52 +11,52 @@ public class Main {
     public static void main(String[] args) {
         CodeWriter clazz = new CodeWriter();
 
-        clazz.w("package com.samplepackage;");
-        clazz.w();
+        clazz.wl("package com.samplepackage;");
+        clazz.wl();
 
-        clazz.w("public class MyClass {");
-        clazz.w();
+        clazz.wl("public class MyClass {");
+        clazz.wl();
 
         CodeWriter field = clazz.writer();
-        field.w(Main::field);
-        field.w();
+        field.wl(Main::field);
+        field.wl();
 
         CodeWriter statics = clazz.writer();
-        statics.w(Main::statics);
-        statics.w();
+        statics.wl(Main::statics);
+        statics.wl();
 
         CodeWriter main = clazz.writer();
-        main.w(Main::main);
-        main.w();
+        main.wl(Main::main);
+        main.wl();
 
-        clazz.w("}");
-        clazz.w();
+        clazz.wl("}");
+        clazz.wl();
 
         log.info("\n{}", clazz);
     }
 
     private static void field(CodeWriter w) {
-        w.w("String myString = null;");
-        w.w("String myString2 = null;");
+        w.wl("String myString = null;");
+        w.wl("String myString2 = null;");
     }
 
     private static void statics(CodeWriter w) {
-        w.w(" {");
-        w.w("     // Contents of the indented section (1)");
-        w.w("     // Contents of the indented section (2)");
-        w.w(" }");
+        w.wl(" {");
+        w.wl("     // Contents of the indented section (1)");
+        w.wl("     // Contents of the indented section (2)");
+        w.wl(" }");
     }
 
     private static void main(CodeWriter w) {
-        w.w("public static void main(String[] args) {");
-        w.w("   if (args.length == 0) {");
-        w.w("       System.out.println(\"Require more than one argument\");");
-        w.w("   } else if (args.length == 1) {");
-        w.w("       doSomething();");
-        w.w("   } else {");
-        w.w("       System.out.println(\"Too many arguments\");");
-        w.w("   }");
-        w.w("}");
-        w.w();
+        w.wl("public static void main(String[] args) {");
+        w.wl("   if (args.length == 0) {");
+        w.wl("       System.out.println(\"Require more than one argument\");");
+        w.wl("   } else if (args.length == 1) {");
+        w.wl("       doSomething();");
+        w.wl("   } else {");
+        w.wl("       System.out.println(\"Too many arguments\");");
+        w.wl("   }");
+        w.wl("}");
+        w.wl();
     }
 }
