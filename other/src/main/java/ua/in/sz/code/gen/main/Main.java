@@ -9,33 +9,32 @@ import ua.in.sz.code.gen.tools.PicoWriter;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        PicoWriter topWriter = new PicoWriter();
+        PicoWriter c = new PicoWriter();
 
-        topWriter.w("package com.samplepackage;");
-        topWriter.w("");
-        topWriter.w("public class MyClass {");
+        c.w("package com.samplepackage;");
+        c.w();
+        c.w("public class MyClass {");
 
-        PicoWriter memvarWriter = topWriter.createDeferredWriter();
-        topWriter.w("{");
-        PicoWriter indentedSection = topWriter.createDeferredWriter();
-        topWriter.w("}");
-        topWriter.w("");
+        PicoWriter pv = c.createDeferredWriter();
 
-        PicoWriter methodSection = topWriter.createDeferredWriter();
+        c.w("{");
+        PicoWriter si = c.createDeferredWriter();
+        c.w("}");
+        c.w();
 
-        memvarWriter.w("String myString = null;");
-        memvarWriter.w("String myString2 = null;");
+        PicoWriter mainMethod = c.createDeferredWriter();
 
-        indentedSection.w("// Contents of the indented section (1)");
-        indentedSection.w("// Contents of the indented section (2)");
+        pv.w("String myString = null;");
+        pv.w("String myString2 = null;");
 
-        PicoWriter mainMethod = methodSection.createDeferredWriter();
+        si.w("// Contents of the indented section (1)");
+        si.w("// Contents of the indented section (2)");
 
         main(mainMethod);
 
-        topWriter.w("}");
+        c.w("}");
 
-        log.info("\n{}", topWriter);
+        log.info("\n{}", c);
     }
 
     private static void main(PicoWriter w) {
@@ -48,6 +47,6 @@ public class Main {
         w.w("       System.out.println(\"Too many arguments\");");
         w.w("   }");
         w.w("}");
-        w.w("");
+        w.w();
     }
 }

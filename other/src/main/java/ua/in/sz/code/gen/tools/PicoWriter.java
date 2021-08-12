@@ -39,6 +39,10 @@ public class PicoWriter implements PicoWriterItem {
 
     // ================================================================================================================
 
+    public PicoWriter w() {
+        return w("");
+    }
+
     public PicoWriter w(String string) {
         _numLines++;
         sb.append(string);
