@@ -11,9 +11,9 @@ public class Main {
     public static void main(String[] args) {
         CodeWriter clazz = new CodeWriter();
 
-        clazz.wl("package com.samplepackage;");
+        clazz.wl("package ua.in.sz.code.gen.gen;");
         clazz.wl();
-        clazz.wl("public class MyClass {");
+        clazz.wl("public class My {");
         clazz.wl();
 
         CodeWriter field = clazz.writer();
@@ -44,8 +44,8 @@ public class Main {
     private static void statics(CodeWriter w) {
         w.wl("" +
                 "{" +
-                "// Contents of the indented section (1)" +
-                "// Contents of the indented section (2)" +
+                "/* Contents of the indented section (1) */" +
+                "/* Contents of the indented section (2) */" +
                 "}"
         );
     }
@@ -60,6 +60,9 @@ public class Main {
                 "   } else {" +
                 "       System.out.println(\"Too many arguments\");" +
                 "   }" +
+                "}" +
+
+                "private static void doSomething() {" +
                 "}"
         );
     }
