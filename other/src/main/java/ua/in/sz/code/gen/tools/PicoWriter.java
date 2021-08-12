@@ -43,6 +43,10 @@ public class PicoWriter implements PicoWriterItem {
         return w("");
     }
 
+    public PicoWriter tab() {
+        return this;
+    }
+
     public PicoWriter w(String string) {
         lineNo++;
         sb.append(string);

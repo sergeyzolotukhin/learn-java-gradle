@@ -15,22 +15,22 @@ public class Main {
         c.w();
         c.w("public class MyClass {");
 
-        PicoWriter pv = c.createDeferredWriter();
+        PicoWriter field = c.createDeferredWriter();
 
         c.w("{");
-        PicoWriter si = c.createDeferredWriter();
+        PicoWriter statics = c.createDeferredWriter();
         c.w("}");
         c.w();
 
-        PicoWriter mainMethod = c.createDeferredWriter();
+        PicoWriter main = c.createDeferredWriter();
 
-        pv.w("String myString = null;");
-        pv.w("String myString2 = null;");
+        field.w("String myString = null;");
+        field.w("String myString2 = null;");
 
-        si.w("// Contents of the indented section (1)");
-        si.w("// Contents of the indented section (2)");
+        statics.w("// Contents of the indented section (1)");
+        statics.w("// Contents of the indented section (2)");
 
-        main(mainMethod);
+        main(main);
 
         c.w("}");
 
