@@ -1,8 +1,6 @@
 package ua.in.sz.code.gen.main;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import ua.in.sz.code.gen.tools.PicoWriter;
 
 /**
@@ -13,47 +11,43 @@ public class Main {
     public static void main(String[] args) {
         PicoWriter topWriter = new PicoWriter();
 
-        String myPackageName = "com.samplepackage";
-        String myClassName   = "MyClass";
+        topWriter.s("package com.samplepackage;");
+        topWriter.s("");
+        topWriter.s("public class MyClass {");
 
-        topWriter.writeln ("package " + myPackageName + ";");
-        topWriter.writeln ("");
-        topWriter.writeln_r ("public class "+myClassName+" {");
-
-        PicoWriter memvarWriter    = topWriter.createDeferredWriter();
-        topWriter.writeln_r ("{");
+        PicoWriter memvarWriter = topWriter.createDeferredWriter();
+        topWriter.s("{");
         PicoWriter indentedSection = topWriter.createDeferredWriter();
-        topWriter.writeln_l ("}");
-        topWriter.writeln("");
+        topWriter.s("}");
+        topWriter.s("");
 
-        // Reserve a place at the current row
         PicoWriter methodSection = topWriter.createDeferredWriter();
 
-        memvarWriter.writeln("String myString = null;" );
-        indentedSection.writeln("// Contents of the indented section (1)");
-        memvarWriter.writeln("String myString2 = null;" );
-        indentedSection.writeln("// Contents of the indented section (2)");
+        memvarWriter.s("String myString = null;");
+        memvarWriter.s("String myString2 = null;");
 
-        // Reserve a place at the current row
+        indentedSection.s("// Contents of the indented section (1)");
+        indentedSection.s("// Contents of the indented section (2)");
+
         PicoWriter mainMethod = methodSection.createDeferredWriter();
 
-        genMain(mainMethod);
+        main(mainMethod);
 
-        topWriter.writeln_l ("}");
+        topWriter.s("}");
 
-        log.info("{}", topWriter);
+        log.info("\n{}", topWriter);
     }
 
-    private static void genMain(PicoWriter w) {
-        w.w("public static void main(String[] args) {");
-        w.r("   if (args.length == 0) {");
-        w.r("       System.out.println(\"Require more than one argument\");");
-        w.l("   } else if (args.length == 1) {");
-        w.r("       doSomething();");
-        w.l("   } else {");
-        w.r("       System.out.println(\"Too many arguments\");");
-        w.l("   }");
-        w.l("}");
-        w.w("");
+    private static void main(PicoWriter w) {
+        w.s("public static void main(String[] args) {");
+        w.s("   if (args.length == 0) {");
+        w.s("       System.out.println(\"Require more than one argument\");");
+        w.s("   } else if (args.length == 1) {");
+        w.s("       doSomething();");
+        w.s("   } else {");
+        w.s("       System.out.println(\"Too many arguments\");");
+        w.s("   }");
+        w.s("}");
+        w.s("");
     }
 }
