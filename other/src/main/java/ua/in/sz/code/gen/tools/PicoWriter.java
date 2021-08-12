@@ -40,8 +40,11 @@ public class PicoWriter implements PicoWriterItem {
     // ================================================================================================================
 
     public PicoWriter s(String string) {
-        for (int i = 0; i < string.length(); i++) {
-            char c = string.charAt(i);
+        int bf = indents;
+
+        int s = 0;
+        for (s = 0; s < string.length(); s++) {
+            char c = string.charAt(s);
             if (c == ' ') {
                 continue;
             }
@@ -53,9 +56,11 @@ public class PicoWriter implements PicoWriterItem {
             break;
         }
 
-        writeln(string.trim() + " // " + indents);
+        int cr = indents;
+        _numLines++;
+        sb.append(string.substring(s));
 
-        for (int i = string.length() - 1; i >= 0; i--) {
+        for (int i = string.length() - 1; i >= s; i--) {
             char c = string.charAt(i);
             if (c == ' ') {
                 continue;
@@ -68,6 +73,11 @@ public class PicoWriter implements PicoWriterItem {
 
             break;
         }
+
+        int af = indents;
+        sb.append("// ").append(bf).append(" -> ").append(cr).append(" -> ").append(af);
+        flush(cr);
+
         return this;
     }
 
@@ -197,6 +207,12 @@ public class PicoWriter implements PicoWriterItem {
 
     public void setGenerate(boolean generate) {
         _generate = generate;
+    }
+
+    private void flush(int indents) {
+        _content.add(new IndentedLine(sb.toString(), indents));
+        sb.setLength(0);
+        _isDirty = false;
     }
 
     private void flush() {
