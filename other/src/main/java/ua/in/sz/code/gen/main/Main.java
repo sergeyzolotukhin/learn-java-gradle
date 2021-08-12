@@ -18,30 +18,33 @@ public class Main {
         clazz.nl();
 
         CodeWriter field = clazz.writer();
+        field.w(Main::field);
         field.nl();
 
         CodeWriter statics = clazz.writer();
+        statics.w(Main::statics);
         statics.nl();
 
         CodeWriter main = clazz.writer();
+        main.w(Main::main);
         main.nl();
 
         clazz.w("}");
         clazz.nl();
 
-        field.w("String myString = null;");
-        field.w("String myString2 = null;");
-
-        statics.w(" {");
-        statics.w("     // Contents of the indented section (1)");
-        statics.w("     // Contents of the indented section (2)");
-        statics.w(" }");
-
-        main(main);
-
-
-
         log.info("\n{}", clazz);
+    }
+
+    private static void field(CodeWriter w) {
+        w.w("String myString = null;");
+        w.w("String myString2 = null;");
+    }
+
+    private static void statics(CodeWriter w) {
+        w.w(" {");
+        w.w("     // Contents of the indented section (1)");
+        w.w("     // Contents of the indented section (2)");
+        w.w(" }");
     }
 
     private static void main(CodeWriter w) {

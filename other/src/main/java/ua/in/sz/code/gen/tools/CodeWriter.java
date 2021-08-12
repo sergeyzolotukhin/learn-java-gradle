@@ -2,6 +2,8 @@ package ua.in.sz.code.gen.tools;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class CodeWriter implements PicoWriterItem {
     private static final String SEP = "\n";
@@ -44,6 +46,10 @@ public class CodeWriter implements PicoWriterItem {
     }
 
     public CodeWriter tab() {
+        return this;
+    }
+
+    public CodeWriter w(Consumer<CodeWriter> w) {
         return this;
     }
 
