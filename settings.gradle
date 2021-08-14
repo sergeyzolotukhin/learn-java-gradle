@@ -37,7 +37,7 @@
 //include 'library:lib-bean-validation'
 //include 'library:lib-togglz'
 //include 'library:lib-camel'
-//include 'library:lib-cxf'
+include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
@@ -50,7 +50,7 @@
 //include 'infrastructure:elk'
 //include 'infrastructure:oracle-12r1-shell-provision'
 //include 'infrastructure:oracle-12r1-ansible-provision'
-include 'infrastructure:ansible:ansible-master'
+//include 'infrastructure:ansible:ansible-master'
 //include 'infrastructure:ansible:ansible-slave'
 //include 'infrastructure:zoo-keeper'
 //include 'infrastructure:kafka'
@@ -74,5 +74,5 @@ include 'infrastructure:ansible:ansible-master'
 // other
 // ====================================================================================================================
 include 'other'
-include 'house'
+//include 'house'
 
