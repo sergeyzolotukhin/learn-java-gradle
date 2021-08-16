@@ -37,7 +37,7 @@
 //include 'library:lib-bean-validation'
 //include 'library:lib-togglz'
 //include 'library:lib-camel'
-include 'library:lib-cxf'
+//include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
