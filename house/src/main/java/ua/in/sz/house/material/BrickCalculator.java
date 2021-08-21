@@ -1,17 +1,28 @@
 package ua.in.sz.house.material;
 
-import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.building.Wall;
 
 
-@AllArgsConstructor(staticName = "of")
-public class BrickCalculator {
+public class BrickCalculator implements MaterialCalculator {
     private static final double CEMENT_THICKNESS = 10.0 / 1000.0; // 1 cm
 
     private final House house;
+
+    public BrickCalculator(House house) {
+        this.house = house;
+    }
+
+    public static BrickCalculator of(House house) {
+        return new BrickCalculator(house);
+    }
+
+    @Override
+    public double calculate() {
+        return blockCount();
+    }
 
     public double blockCount() {
         Wall wall = house.getWall();

@@ -1,11 +1,22 @@
 package ua.in.sz.house.material;
 
-import lombok.AllArgsConstructor;
 import ua.in.sz.house.building.House;
 
-@AllArgsConstructor(staticName = "of")
-public class SangCalculator {
+public class SangCalculator implements MaterialCalculator {
     private final House house;
+
+    public SangCalculator(House house) {
+        this.house = house;
+    }
+
+    public static SangCalculator of(House house) {
+        return new SangCalculator(house);
+    }
+
+    @Override
+    public double calculate() {
+        return sangKg();
+    }
 
     public double sangKg() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);

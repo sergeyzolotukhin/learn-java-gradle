@@ -1,12 +1,18 @@
 package ua.in.sz.house.material;
 
 
-import lombok.AllArgsConstructor;
 import ua.in.sz.house.building.House;
 
-@AllArgsConstructor(staticName = "of")
-public class CementCalculator {
+public class CementCalculator implements MaterialCalculator {
     private final House house;
+
+    public CementCalculator(House house) {
+        this.house = house;
+    }
+
+    public static CementCalculator of(House house) {
+        return new CementCalculator(house);
+    }
 
     public double cementKg() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
@@ -14,5 +20,10 @@ public class CementCalculator {
         double cementMortar = cementMortarCalculator.cementMortar();
         double volume = cementMortar / 4.0;
         return volume * 1625; // кг в м3 песка
+    }
+
+    @Override
+    public double calculate() {
+        return cementKg();
     }
 }

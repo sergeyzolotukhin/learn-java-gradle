@@ -1,6 +1,5 @@
 package ua.in.sz.house.material;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.building.Block;
@@ -8,11 +7,23 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.building.Wall;
 
 @Slf4j
-@AllArgsConstructor(staticName = "of")
-public class CementMortarCalculator {
+public class CementMortarCalculator implements MaterialCalculator {
     private static final double CEMENT_THICKNESS = 10.0 / 1000.0; // 1 cm
 
     private final House house;
+
+    public CementMortarCalculator(House house) {
+        this.house = house;
+    }
+
+    public static CementMortarCalculator of(House house) {
+        return new CementMortarCalculator(house);
+    }
+
+    @Override
+    public double calculate() {
+        return cementMortar();
+    }
 
     /**
      * Объем цементно песчаного раствора М3
