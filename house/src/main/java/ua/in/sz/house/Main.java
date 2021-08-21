@@ -4,9 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
-import ua.in.sz.house.report.HouseReport;
 import ua.in.sz.house.report.MaterialReport;
-import ua.in.sz.house.report.SupportReport;
 
 @Slf4j
 public class Main {
