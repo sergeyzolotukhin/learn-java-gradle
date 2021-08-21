@@ -72,7 +72,7 @@ public class Main {
                         String.format("%.0f", travelCargoTime),
                         String.format("%.0f", (travelCargoTime - Math.floor(travelCargoTime)) * 60));
 
-                if (leftWorkTime < runTime + loadTime + runTime + unloadTime) {
+                if (leftWorkTime < runTime + travelCargoTime || leftTravel <= 0.0) {
                     break;
                 }
 
@@ -90,7 +90,7 @@ public class Main {
             log.info("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
         }
 
-        log.info("Total time to work {} hours, total distance {} km, come in count {}", Math.ceil(totalTime), totalDistance, comeInCount);
+        log.info("Total time to work {} hours, total distance {} km, come in count {}", Math.ceil(totalTime), Math.ceil(totalDistance), comeInCount);
     }
 
     private static double maxPackage(Cars.DafCf65 car, Packages.BrickPackage pack) {
