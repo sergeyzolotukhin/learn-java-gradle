@@ -23,9 +23,6 @@ public class TransportCostCalculator {
         log.debug("Package count {} travel count {} sum block count {}",
                 requiredPackageCount, travelCount, requiredPackageCount * pack.getCount());
 
-        // Склад Белогородка -> Ворзель
-
-
         double averageVelocity = 60.0; // Km/h
         double loadTime = 1; // hours
         double unloadTime = 1; // hours
