@@ -53,15 +53,18 @@ public class Main {
             comeInCount++;
             log.info("come in time {} min", String.format("%.0f", comeInTime * 60));
 
-            double leftWorkTime = 8.0;
+            double leftWorkTime = 9.0;
+            double workTime = 0.0;
             leftWorkTime -= comeInTime;
+            workTime += comeInTime;
             while (leftWorkTime > comeOutTime) {
                 if (leftWorkTime < travelCargoTime) {
                     break;
                 }
 
                 // do travel cargo from stock to house
-                leftWorkTime = leftWorkTime - travelCargoTime;
+                leftWorkTime -= travelCargoTime;
+                workTime += travelCargoTime;
                 totalTime = totalTime + travelCargoTime;
                 totalDistance += travelDistance;
                 leftTravel--;
@@ -73,15 +76,18 @@ public class Main {
                     break;
                 }
 
+                leftWorkTime -= runTime;
+                workTime += runTime;
                 totalDistance += travelDistance;
                 totalTime += runTime;
                 log.info("travel to load time {} min",
                         String.format("%.0f", runTime * 60));
             }
+            workTime += comeOutTime;
 
             totalTime += comeOutTime;
             totalDistance += comeOutDistance;
-            log.info("come out time {} min", String.format("%.0f", comeOutTime * 60));
+            log.info("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
         }
 
         log.info("Total time to work {} hours, total distance {} km, come in count {}", Math.ceil(totalTime), totalDistance, comeInCount);
