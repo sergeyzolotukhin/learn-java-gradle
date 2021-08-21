@@ -1,6 +1,8 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.material.impl;
 
 import ua.in.sz.house.building.House;
+import ua.in.sz.house.material.Material;
+import ua.in.sz.house.material.MaterialCalculator;
 
 public class SangCalculator implements MaterialCalculator {
     private final House house;

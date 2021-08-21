@@ -1,10 +1,12 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.material.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.building.Wall;
+import ua.in.sz.house.material.Material;
+import ua.in.sz.house.material.MaterialCalculator;
 
 @Slf4j
 public class CementMortarCalculator implements MaterialCalculator {

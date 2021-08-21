@@ -1,9 +1,11 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.material.impl;
 
 import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.building.Wall;
+import ua.in.sz.house.material.Material;
+import ua.in.sz.house.material.MaterialCalculator;
 
 
 public class BrickCalculator implements MaterialCalculator {
