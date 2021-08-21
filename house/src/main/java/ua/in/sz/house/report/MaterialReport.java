@@ -5,7 +5,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.MaterialCalculator;
-import ua.in.sz.house.material.Packages;
+import ua.in.sz.house.transport.Packages;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
 

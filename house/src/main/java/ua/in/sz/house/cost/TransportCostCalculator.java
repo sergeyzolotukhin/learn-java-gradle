@@ -2,7 +2,7 @@ package ua.in.sz.house.cost;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.material.Packages;
+import ua.in.sz.house.transport.Packages;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
 

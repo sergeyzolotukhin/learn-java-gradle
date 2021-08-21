@@ -1,4 +1,4 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.transport;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
