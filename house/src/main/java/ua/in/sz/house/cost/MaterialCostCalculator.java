@@ -9,20 +9,19 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@AllArgsConstructor(staticName = "of")
 public class MaterialCostCalculator {
-    private final Map<Material.Names, Double> costs = ImmutableMap.<Material.Names, Double>builder()
+    private static final Map<Material.Names, Double> costs = ImmutableMap.<Material.Names, Double>builder()
             .put(Material.Names.BRICK, 3.3)
             .put(Material.Names.CEMENT, 1800.0 / 1000.0)
             .put(Material.Names.CEMENT_MORTAR, 0.0)
             .put(Material.Names.SANG, 180.0 / 1000.0)
             .build();
 
-    public void calculate(List<Material> materials) {
+    public static void calculate(List<Material> materials) {
         materials.forEach(m -> m.setCost(cost(m)));
     }
 
-    public double cost(Material material) {
+    public static double cost(Material material) {
         Double cost = costs.get(material.getName());
         if (cost == null) {
             throw new IllegalStateException("The cost of material [" + material.getName() + "] not found");

@@ -27,7 +27,7 @@ public class Main {
                 .build();
 
         List<Material> materials = MaterialCalculators.of(house).calculate();
-        MaterialCostCalculator.of().calculate(materials);
+        MaterialCostCalculator.calculate(materials);
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
 
         Packages.BrickPackage pack = Packages.brickPackage();
