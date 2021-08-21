@@ -32,21 +32,4 @@ public class AllMaterialCalculator {
     private MaterialCalculator createCalculator(Class<? extends MaterialCalculator> clazz) {
         return clazz.getDeclaredConstructor(House.class).newInstance(house);
     }
-
-    public double blockCount() {
-        return BrickCalculator.of(house).calculate().getQuantity();
-    }
-
-    public double cementMortar() {
-        return CementMortarCalculator.of(house).calculate().getQuantity();
-    }
-
-    public double cementKg() {
-        return CementCalculator.of(house).calculate().getQuantity();
-    }
-
-    public double sangKg() {
-        return SangCalculator.of(house).calculate().getQuantity();
-    }
-
 }
