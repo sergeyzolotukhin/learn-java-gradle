@@ -20,7 +20,7 @@ public class BrickCalculator implements MaterialCalculator {
     }
 
     @Override
-    public AllMaterialCalculator.Material calculate() {
+    public Material calculate() {
         Wall wall = house.getWall();
         Block block = wall.getBlock();
 
@@ -28,7 +28,7 @@ public class BrickCalculator implements MaterialCalculator {
             double countByLength = Math.ceil(wall.getLength() / (block.getLength() + CEMENT_THICKNESS));
             double countByHeight = Math.ceil(wall.getHeight() / (block.getHeight() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
-            return AllMaterialCalculator.Material.of("brick", countByLength * countByHeight * countByWidth);
+            return Material.of("brick", countByLength * countByHeight * countByWidth);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

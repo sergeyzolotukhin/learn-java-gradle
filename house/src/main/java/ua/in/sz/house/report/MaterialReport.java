@@ -6,6 +6,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.AllMaterialCalculator;
+import ua.in.sz.house.material.Material;
 import ua.in.sz.house.transport.Packages;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
@@ -21,7 +22,7 @@ public class MaterialReport {
         AllMaterialCalculator materialCalculator = AllMaterialCalculator.of(house);
         MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
 
-        List<AllMaterialCalculator.Material> materials = materialCalculator.calculate();
+        List<Material> materials = materialCalculator.calculate();
         log.info("Materials: {}", materials);
 
         double blockCount = materialCalculator.blockCount();

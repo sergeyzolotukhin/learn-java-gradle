@@ -14,11 +14,11 @@ public class SangCalculator implements MaterialCalculator {
     }
 
     @Override
-    public AllMaterialCalculator.Material calculate() {
+    public Material calculate() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
 
         double cementMortar = cementMortarCalculator.calculate().getQuantity();
         double volume = cementMortar * 3.0 / 4.0;
-        return AllMaterialCalculator.Material.of("sang", volume * 1500); // кг в м3 цемента
+        return Material.of("sang", volume * 1500); // кг в м3 цемента
     }
 }

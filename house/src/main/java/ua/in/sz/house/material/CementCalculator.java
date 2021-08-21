@@ -15,11 +15,11 @@ public class CementCalculator implements MaterialCalculator {
     }
 
     @Override
-    public AllMaterialCalculator.Material calculate() {
+    public Material calculate() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
 
         double cementMortar = cementMortarCalculator.calculate().getQuantity();
         double volume = cementMortar / 4.0;
-        return AllMaterialCalculator.Material.of("cement", volume * 1625); // кг в м3 песка
+        return Material.of("cement", volume * 1625); // кг в м3 песка
     }
 }

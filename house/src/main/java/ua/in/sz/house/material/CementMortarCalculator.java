@@ -24,7 +24,7 @@ public class CementMortarCalculator implements MaterialCalculator {
      * Объем цементно песчаного раствора М3
      */
     @Override
-    public AllMaterialCalculator.Material calculate() {
+    public Material calculate() {
         Wall wall = house.getWall();
         Block block = wall.getBlock();
 
@@ -71,7 +71,7 @@ public class CementMortarCalculator implements MaterialCalculator {
                     volume, allSliceVolume * m3ToMm3, allRowVolume * m3ToMm3, allLayerVolume * m3ToMm3,
                     countByHeight, countByLength, countByWidth));
 
-            return AllMaterialCalculator.Material.of("cementMortar", volume);
+            return Material.of("cementMortar", volume);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

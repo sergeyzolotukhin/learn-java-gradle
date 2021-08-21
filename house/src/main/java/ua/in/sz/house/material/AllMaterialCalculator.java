@@ -49,11 +49,4 @@ public class AllMaterialCalculator {
         return SangCalculator.of(house).calculate().getQuantity();
     }
 
-    @Getter
-    @AllArgsConstructor(staticName = "of")
-    @ToString
-    public static class Material {
-        private final String name;
-        private final double quantity;
-    }
 }
