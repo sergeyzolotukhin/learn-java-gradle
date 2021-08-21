@@ -6,7 +6,9 @@ import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.SupportCostCalculator;
 import ua.in.sz.house.materials.BrickCalculator;
+import ua.in.sz.house.materials.CementCalculator;
 import ua.in.sz.house.materials.CementMortarCalculator;
+import ua.in.sz.house.materials.SangCalculator;
 
 @Slf4j
 public class Main {
@@ -28,10 +30,12 @@ public class Main {
 
         BrickCalculator brickCalculator = BrickCalculator.of(house);
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
+        CementCalculator cementCalculator = CementCalculator.of(house);
+        SangCalculator sangCalculator = SangCalculator.of(house);
 
         double cementMortar = cementMortarCalculator.cementMortar();
-        double cement = cementKg(cementMortar);
-        double sang = sandKg(cementMortar);
+        double cement = cementCalculator.cementKg();
+        double sang = sangCalculator.sangKg();
 
         String materialInfo = "\nHouse materials:" +
                 String.format("\n\tblock count %.0f cost %.0f UAH", brickCalculator.blockCount(), brickCalculator.blockCount() * 3.3) +
@@ -43,15 +47,5 @@ public class Main {
                 String.format("\n\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0);
 
         log.info(houseInfo + materialInfo + supportCostInfo);
-    }
-
-    private static double cementKg(double cementMortar) {
-        double volume = cementMortar / 4.0;
-        return volume * 1625; // кг в м3 песка
-    }
-
-    private static double sandKg(double cementMortar) {
-        double volume = cementMortar * 3.0 / 4.0;
-        return volume * 1500; // кг в м3 цемента
     }
 }
