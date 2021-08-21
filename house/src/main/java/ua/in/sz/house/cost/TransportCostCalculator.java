@@ -27,7 +27,6 @@ public class TransportCostCalculator {
         double loadTime = 1; // hours
         double unloadTime = 1; // hours
 
-
         double totalTime = 0;
         double totalDistance = 0;
         double comeInCount = 0;
@@ -91,7 +90,7 @@ public class TransportCostCalculator {
         return totalCost;
     }
 
-    private static double maxPackage(Cars.CargoCar car, Packages.BrickPackage pack) {
+    private double maxPackage(Cars.CargoCar car, Packages.BrickPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
         log.info("Max package count per weight {} package weight {} weight {}",
                 maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);
