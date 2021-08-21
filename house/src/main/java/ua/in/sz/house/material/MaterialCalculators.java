@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor(staticName = "of")
-public class AllMaterialCalculator {
+public class MaterialCalculators {
     private final House house;
 
-    public static List<Class<? extends MaterialCalculator>> calculatorClasses =
+    public static List<Class<? extends MaterialCalculator>> calculators =
             ImmutableList.<Class<? extends MaterialCalculator>>builder()
                     .add(BrickCalculator.class)
                     .add(CementCalculator.class)
@@ -22,7 +22,7 @@ public class AllMaterialCalculator {
                     .build();
 
     public List<Material> calculate() {
-        return calculatorClasses.stream()
+        return calculators.stream()
                 .map(this::createCalculator)
                 .map(MaterialCalculator::calculate)
                 .collect(Collectors.toList());
