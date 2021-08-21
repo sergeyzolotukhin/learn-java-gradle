@@ -15,10 +15,10 @@ public class TransportCostCalculator {
 
     public double cost(Packages.BrickPackage pack, double requiredPackageCount) {
         double maxPackage = maxPackage(car, pack);
-        log.info("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
+        log.debug("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
 
         double travelCount = Math.ceil(requiredPackageCount / maxPackage);
-        log.info("Package count {} travel count {} sum block count {}",
+        log.debug("Package count {} travel count {} sum block count {}",
                 requiredPackageCount, travelCount, requiredPackageCount * pack.getCount());
 
         // Склад Белогородка -> Ворзель
@@ -44,7 +44,7 @@ public class TransportCostCalculator {
             totalTime += comeInTime;
             totalDistance += comeInDistance;
             comeInCount++;
-            log.info("come in time {} min", String.format("%.0f", comeInTime * 60));
+            log.debug("come in time {} min", String.format("%.0f", comeInTime * 60));
 
             double leftWorkTime = 9.0;
             double workTime = 0.0;
@@ -61,7 +61,7 @@ public class TransportCostCalculator {
                 totalTime = totalTime + travelCargoTime;
                 totalDistance += travelDistance;
                 leftTravel--;
-                log.info("travel cargo time {} hours {} min",
+                log.debug("travel cargo time {} hours {} min",
                         String.format("%.0f", travelCargoTime),
                         String.format("%.0f", (travelCargoTime - Math.floor(travelCargoTime)) * 60));
 
@@ -73,21 +73,21 @@ public class TransportCostCalculator {
                 workTime += runTime;
                 totalDistance += travelDistance;
                 totalTime += runTime;
-                log.info("travel to load time {} min",
+                log.debug("travel to load time {} min",
                         String.format("%.0f", runTime * 60));
             }
             workTime += comeOutTime;
 
             totalTime += comeOutTime;
             totalDistance += comeOutDistance;
-            log.info("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
+            log.debug("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
         }
 
         double totalCost = comeInCount * car.getComeInCost()
                 + Math.ceil(totalTime) * car.getHourCost()
                 + Math.ceil(totalDistance) * car.getKmCost();
 
-        log.info("Total time to work {} hours, total distance {} km, come in count {}. Cost {} UAH",
+        log.debug("Total time to work {} hours, total distance {} km, come in count {}. Cost {} UAH",
                 Math.ceil(totalTime), Math.ceil(totalDistance), comeInCount, Math.ceil(totalCost));
 
         return totalCost;
@@ -95,13 +95,13 @@ public class TransportCostCalculator {
 
     private double maxPackage(Cars.CargoCar car, Packages.BrickPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
-        log.info("Max package count per weight {} package weight {} weight {}",
+        log.debug("Max package count per weight {} package weight {} weight {}",
                 maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);
 
         double packagePerWidth = Math.floor(car.getWidth() / pack.getLength());
         double packagePerLength = Math.floor(car.getLength() / pack.getWidth());
         double maxPackagePerLength = packagePerLength * packagePerWidth;
-        log.info("Max package count per length {} package width {} car length {} weight {}",
+        log.debug("Max package count per length {} package width {} car length {} weight {}",
                 maxPackagePerLength, pack.getWidth(), car.getLength(), maxPackagePerLength * pack.getWeight() / 1000.0);
 
         return Math.min(maxPackagePerWeight, maxPackagePerLength);
