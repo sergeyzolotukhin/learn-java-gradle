@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
-import ua.in.sz.house.cost.SupportCostCalculator;
 import ua.in.sz.house.report.HouseReport;
 import ua.in.sz.house.report.MaterialReport;
+import ua.in.sz.house.report.SupportReport;
 
 @Slf4j
 public class Main {
@@ -21,10 +21,7 @@ public class Main {
 
         String houseInfo = HouseReport.of(house).report();
         String materialInfo = MaterialReport.of(house).report();
-
-        SupportCostCalculator supportCostCalculator = SupportCostCalculator.of(house);
-        String supportCostInfo = "\nHouse support cost:" +
-                String.format("\n\theating cost per month %.0f UAH", supportCostCalculator.costPerYear() / 12.0);
+        String supportCostInfo = SupportReport.of(house).report();
 
         log.info(houseInfo + materialInfo + supportCostInfo);
     }
