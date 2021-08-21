@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
-import ua.in.sz.house.material.MaterialCalculator;
+import ua.in.sz.house.material.AllMaterialCalculator;
 import ua.in.sz.house.transport.Packages;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
@@ -14,13 +14,13 @@ public class MaterialReport {
     private final House house;
 
     public String report() {
-        MaterialCalculator materialCalculator = MaterialCalculator.of(house);
-        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
+        AllMaterialCalculator allMaterialCalculator = AllMaterialCalculator.of(house);
+        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(allMaterialCalculator);
 
-        double blockCount = materialCalculator.blockCount();
-        double cementMortar = materialCalculator.cementMortar();
-        double cement = materialCalculator.cementKg();
-        double sang = materialCalculator.sangKg();
+        double blockCount = allMaterialCalculator.blockCount();
+        double cementMortar = allMaterialCalculator.cementMortar();
+        double cement = allMaterialCalculator.cementKg();
+        double sang = allMaterialCalculator.sangKg();
 
         double blockCost = materialCostCalculator.blockCost();
         double cementCost = materialCostCalculator.cementCost();

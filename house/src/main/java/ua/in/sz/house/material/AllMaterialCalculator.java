@@ -6,7 +6,7 @@ import ua.in.sz.house.building.House;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
-public class MaterialCalculator {
+public class AllMaterialCalculator {
     private final House house;
 
     public double blockCount(){
