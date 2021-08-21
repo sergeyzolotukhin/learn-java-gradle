@@ -8,20 +8,20 @@ public class Cars {
     /**
      * DAF CF 65 - 10 000 Kg
      */
-    public static DafCf65 dafCf65() {
-        return new DafCf65(7.2, 2.5, 2.5, 10_000, 370, 370, 18);
+    public static CargoCar dafCf65() {
+        return new CargoCar(7.2, 2.5, 2.5, 10_000, 370, 370, 18);
     }
 
     /**
      * DAF XF 95 - 20 000 Kg
      */
-    public static DafCf65 dafXf95() {
-        return new DafCf65(13.6, 2.5, 2.5, 20_000, 620, 620, 30);
+    public static CargoCar dafXf95() {
+        return new CargoCar(13.6, 2.5, 2.5, 20_000, 620, 620, 30);
     }
 
     @Getter
     @AllArgsConstructor
-    public static class DafCf65 {
+    public static class CargoCar {
         private final double length;
         private final double width;
         private final double height;
