@@ -1,7 +1,6 @@
 package ua.in.sz.house.material;
 
 import com.google.common.collect.ImmutableList;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -15,16 +14,13 @@ import java.util.stream.Collectors;
 public class AllMaterialCalculator {
     private final House house;
 
-    public List<Class<? extends MaterialCalculator>> calculatorClasses;
-
-    {
-        calculatorClasses = ImmutableList.<Class<? extends MaterialCalculator>>builder()
-                .add(BrickCalculator.class)
-                .add(CementCalculator.class)
-                .add(CementMortarCalculator.class)
-                .add(SangCalculator.class)
-                .build();
-    }
+    public static List<Class<? extends MaterialCalculator>> calculatorClasses =
+            ImmutableList.<Class<? extends MaterialCalculator>>builder()
+                    .add(BrickCalculator.class)
+                    .add(CementCalculator.class)
+                    .add(CementMortarCalculator.class)
+                    .add(SangCalculator.class)
+                    .build();
 
     public List<Double> calculate() {
         return calculatorClasses.stream()
@@ -38,7 +34,7 @@ public class AllMaterialCalculator {
         return clazz.getDeclaredConstructor(House.class).newInstance(house);
     }
 
-    public double blockCount(){
+    public double blockCount() {
         return BrickCalculator.of(house).calculate();
     }
 
