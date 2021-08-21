@@ -2,9 +2,7 @@ package ua.in.sz.house.report;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
-import ua.in.sz.house.material.AllMaterialCalculator;
 import ua.in.sz.house.material.Material;
 
 import java.util.List;
@@ -12,13 +10,9 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class MaterialReport {
-    private final House house;
+    private final List<Material> materials;
 
     public String report() {
-        AllMaterialCalculator materialCalculator = AllMaterialCalculator.of(house);
-        List<Material> materials = materialCalculator.calculate();
-        log.info("Materials: {}", materials);
-
         MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of();
 
         StringBuilder sb = new StringBuilder();
