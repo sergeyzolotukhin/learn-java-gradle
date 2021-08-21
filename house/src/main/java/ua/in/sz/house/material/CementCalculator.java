@@ -20,6 +20,6 @@ public class CementCalculator implements MaterialCalculator {
 
         double cementMortar = cementMortarCalculator.calculate().getQuantity();
         double volume = cementMortar / 4.0;
-        return Material.of("cement", volume * 1625); // кг в м3 песка
+        return Material.of(Material.Names.CEMENT, volume * 1625); // кг в м3 песка
     }
 }

@@ -8,6 +8,13 @@ import lombok.ToString;
 @AllArgsConstructor(staticName = "of")
 @ToString
 public class Material {
-    private final String name;
+    private final Names name;
     private final double quantity;
+
+    public enum Names {
+        BRICK,
+        CEMENT,
+        CEMENT_MORTAR,
+        SANG
+    }
 }

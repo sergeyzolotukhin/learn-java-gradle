@@ -28,7 +28,7 @@ public class BrickCalculator implements MaterialCalculator {
             double countByLength = Math.ceil(wall.getLength() / (block.getLength() + CEMENT_THICKNESS));
             double countByHeight = Math.ceil(wall.getHeight() / (block.getHeight() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
-            return Material.of("brick", countByLength * countByHeight * countByWidth);
+            return Material.of(Material.Names.BRICK, countByLength * countByHeight * countByWidth);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }
