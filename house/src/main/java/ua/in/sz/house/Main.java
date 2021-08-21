@@ -7,12 +7,41 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.SupportCostCalculator;
 import ua.in.sz.house.material.*;
+import ua.in.sz.house.transport.Cars;
 
 @Slf4j
 public class Main {
     public static final double TARGET_TEMPERATURE = 23.0;
 
     public static void main(String[] args) {
+        double blockCount = 24640;
+        Packages.BrickPackage pack = Packages.brickPackage();
+        double requiredPackageCount = Math.ceil(blockCount / pack.getCount());
+
+        Cars.DafCf65 car = Cars.dafCf65();
+
+        double maxPackage = maxPackage(car, pack);
+        log.info("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
+
+        double travelCount = Math.ceil(requiredPackageCount / maxPackage);
+        log.info("Package count {} travel count {} sum block count {}",
+                requiredPackageCount, travelCount, requiredPackageCount * pack.getCount());
+    }
+
+    private static double maxPackage(Cars.DafCf65 car, Packages.BrickPackage pack) {
+        double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
+        log.info("Max package count per weight {} package weight {}", maxPackagePerWeight, pack.getWeight() / 1000.0);
+
+        double packagePerWidth = Math.floor(car.getWidth() / pack.getLength());
+        double packagePerLength = Math.floor(car.getLength() / pack.getWidth());
+        double maxPackagePerLength = packagePerLength * packagePerWidth;
+        log.info("Max package count per length {} package width {} car length {} weight {}",
+                maxPackagePerLength, pack.getWidth(), car.getLength(), maxPackagePerLength * pack.getWeight() / 1000.0);
+
+        return Math.min(maxPackagePerWeight, maxPackagePerLength);
+    }
+
+    public static void main1(String[] args) {
         House house = House.builder()
                 .block(Block.CERAMICS_BRICK)
                 .boiler(new ElectricityBoiler())
