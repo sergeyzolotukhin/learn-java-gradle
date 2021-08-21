@@ -18,7 +18,7 @@ public class Main {
         Packages.BrickPackage pack = Packages.brickPackage();
         double requiredPackageCount = Math.ceil(blockCount / pack.getCount());
 
-        Cars.DafCf65 car = Cars.dafCf65();
+        Cars.DafCf65 car = Cars.dafXf95();
 
         double maxPackage = maxPackage(car, pack);
         log.info("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
@@ -90,7 +90,9 @@ public class Main {
             log.info("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
         }
 
-        double totalCost = comeInCount * 370 + Math.ceil(totalTime) * 370 + Math.ceil(totalDistance) * 18;
+        double totalCost = comeInCount * car.getComeInCost()
+                + Math.ceil(totalTime) * car.getHourCost()
+                + Math.ceil(totalDistance) * car.getKmCost();
 
         log.info("Total time to work {} hours, total distance {} km, come in count {}. Cost {} UAH",
                 Math.ceil(totalTime), Math.ceil(totalDistance), comeInCount, Math.ceil(totalCost));
