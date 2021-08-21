@@ -9,6 +9,7 @@ import ua.in.sz.house.cost.SupportCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.*;
 import ua.in.sz.house.transport.Cars;
+import ua.in.sz.house.transport.Distances;
 
 @Slf4j
 public class Main {
@@ -30,7 +31,7 @@ public class Main {
 
         MaterialCalculator materialCalculator = MaterialCalculator.of(house);
         MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
-        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95());
+        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());
 
         double blockCount = materialCalculator.blockCount();
         double cementMortar = materialCalculator.cementMortar();
