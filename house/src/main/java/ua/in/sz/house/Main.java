@@ -31,7 +31,7 @@ public class Main {
 
         MaterialCalculator materialCalculator = MaterialCalculator.of(house);
         MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
-        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());
+        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
 
         double blockCount = materialCalculator.blockCount();
         double cementMortar = materialCalculator.cementMortar();
