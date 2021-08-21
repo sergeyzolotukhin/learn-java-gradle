@@ -6,6 +6,13 @@ import lombok.Getter;
 public class Cars {
 
     /**
+     * Isuzu NQR75 - 5 000 Kg
+     */
+    public static CargoCar isuzuNqr75() {
+        return new CargoCar(6.0, 2.4, 2.4, 5_000, 275, 275, 13);
+    }
+
+    /**
      * DAF CF 65 - 10 000 Kg
      */
     public static CargoCar dafCf65() {
