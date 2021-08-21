@@ -15,7 +15,6 @@ import static ua.in.sz.house.cost.TemperatureCalendar.HOUR_PER_DAY;
 @AllArgsConstructor(staticName = "of")
 public class SupportCostCalculator {
 
-
     private final House house;
     private final TemperatureCalendar calendar = TemperatureCalendar.of();
 

@@ -13,6 +13,7 @@ import org.apache.commons.lang3.NotImplementedException;
 public class Wall {
     private static final double CEMENT_THICKNESS = 10.0 / 1000.0; // 1 cm
 
+    @Getter
     private final Block block;
     @Getter
     private final double height;
@@ -30,18 +31,6 @@ public class Wall {
             return 2.0 * block.getLength() + CEMENT_THICKNESS;
         } else {
             return block.getWidth();
-        }
-    }
-
-    public double blockCount() {
-        if (Block.CERAMICS_BRICK.equals(block)) {
-
-            double countByLength = Math.ceil(length / (block.getLength() + CEMENT_THICKNESS));
-            double countByHeight = Math.ceil(height / (block.getHeight() + CEMENT_THICKNESS));
-            double countByWidth = 4.0;
-            return countByLength * countByHeight * countByWidth;
-        } else {
-            throw new NotImplementedException("A block calculation not implemented");
         }
     }
 

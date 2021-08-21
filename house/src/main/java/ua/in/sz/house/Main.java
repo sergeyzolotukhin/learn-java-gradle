@@ -5,6 +5,7 @@ import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.SupportCostCalculator;
+import ua.in.sz.house.materials.BrickCalculator;
 
 @Slf4j
 public class Main {
@@ -24,13 +25,14 @@ public class Main {
                 String.format("\n\twall width %.0f mm", house.getWallWidth() * 1000.0) +
                 String.format("\n\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0);
 
+        BrickCalculator brickCalculator = BrickCalculator.of(house);
 
         double cementMortar = house.cementMortar();
         double cement = cementKg(cementMortar);
         double sang = sandKg(cementMortar);
 
         String materialInfo = "\nHouse materials:" +
-                String.format("\n\tblock count %.0f cost %.0f UAH", house.blockCount(), house.blockCount() * 3.3) +
+                String.format("\n\tblock count %.0f cost %.0f UAH", brickCalculator.blockCount(), brickCalculator.blockCount() * 3.3) +
                 String.format("\n\tcement mortar %.2f M3", cementMortar) +
                 String.format("\n\tcement %.3f T cost %.2f UAH", cement / 1000.0, cement / 1000.0 * 1800.0)  +
                 String.format("\n\tsang %.3f T cost %.2f UAH", sang / 1000.0, sang / 1000.0 * 180.0);

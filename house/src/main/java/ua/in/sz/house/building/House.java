@@ -8,6 +8,7 @@ import ua.in.sz.house.boiler.Boiler;
 public class House {
     @Getter
     private final Boiler boiler;
+    @Getter
     private final Wall wall;
 
     @Getter
@@ -31,10 +32,6 @@ public class House {
 
     public double getWallWidth() {
         return wall.getWidth();
-    }
-
-    public double blockCount() {
-        return wall.blockCount();
     }
 
     public double cementMortar() {
