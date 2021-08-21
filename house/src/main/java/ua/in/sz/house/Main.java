@@ -5,10 +5,10 @@ import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.SupportCostCalculator;
-import ua.in.sz.house.materials.BrickCalculator;
-import ua.in.sz.house.materials.CementCalculator;
-import ua.in.sz.house.materials.CementMortarCalculator;
-import ua.in.sz.house.materials.SangCalculator;
+import ua.in.sz.house.material.BrickCalculator;
+import ua.in.sz.house.material.CementCalculator;
+import ua.in.sz.house.material.CementMortarCalculator;
+import ua.in.sz.house.material.SangCalculator;
 
 @Slf4j
 public class Main {

@@ -1,4 +1,4 @@
-package ua.in.sz.house.materials;
+package ua.in.sz.house.material;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

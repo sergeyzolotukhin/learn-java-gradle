@@ -1,4 +1,4 @@
-package ua.in.sz.house.materials;
+package ua.in.sz.house.material;
 
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.NotImplementedException;

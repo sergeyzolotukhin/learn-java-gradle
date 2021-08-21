@@ -3,10 +3,7 @@ package ua.in.sz.house.building;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ua.in.sz.house.boiler.impl.ElectricityBoiler;
-import ua.in.sz.house.materials.CementMortarCalculator;
-
-import static org.junit.jupiter.api.Assertions.*;
+import ua.in.sz.house.material.CementMortarCalculator;
 
 @Slf4j
 class WallTest {
