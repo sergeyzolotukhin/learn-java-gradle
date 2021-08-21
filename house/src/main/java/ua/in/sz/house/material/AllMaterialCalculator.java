@@ -47,10 +47,10 @@ public class AllMaterialCalculator {
     }
 
     public double cementKg() {
-        return CementCalculator.of(house).cementKg();
+        return CementCalculator.of(house).calculate();
     }
 
     public double sangKg() {
-        return SangCalculator.of(house).sangKg();
+        return SangCalculator.of(house).calculate();
     }
 }

@@ -15,10 +15,6 @@ public class SangCalculator implements MaterialCalculator {
 
     @Override
     public double calculate() {
-        return sangKg();
-    }
-
-    public double sangKg() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
 
         double cementMortar = cementMortarCalculator.calculate();
