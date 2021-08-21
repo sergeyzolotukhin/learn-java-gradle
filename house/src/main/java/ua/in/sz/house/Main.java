@@ -100,7 +100,8 @@ public class Main {
 
     private static double maxPackage(Cars.DafCf65 car, Packages.BrickPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
-        log.info("Max package count per weight {} package weight {}", maxPackagePerWeight, pack.getWeight() / 1000.0);
+        log.info("Max package count per weight {} package weight {} weight {}",
+                maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);
 
         double packagePerWidth = Math.floor(car.getWidth() / pack.getLength());
         double packagePerLength = Math.floor(car.getLength() / pack.getWidth());
