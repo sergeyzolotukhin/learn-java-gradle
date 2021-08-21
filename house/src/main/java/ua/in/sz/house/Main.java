@@ -19,8 +19,8 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        log.info(HouseReport.of(house).report());
+//        log.info(HouseReport.of(house).report());
         log.info(MaterialReport.of(house).report());
-        log.info(SupportReport.of(house).report());
+//        log.info(SupportReport.of(house).report());
     }
 }
