@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.material.Material;
 
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -16,6 +17,10 @@ public class MaterialCostCalculator {
             .put(Material.Names.CEMENT_MORTAR, 0.0)
             .put(Material.Names.SANG, 180.0 / 1000.0)
             .build();
+
+    public void calculate(List<Material> materials) {
+        materials.forEach(m -> m.setCost(cost(m)));
+    }
 
     public double cost(Material material) {
         Double cost = costs.get(material.getName());
