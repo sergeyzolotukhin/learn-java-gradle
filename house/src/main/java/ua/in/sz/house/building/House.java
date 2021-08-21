@@ -34,10 +34,6 @@ public class House {
         return wall.getWidth();
     }
 
-    public double cementMortar() {
-        return wall.cementMortar();
-    }
-
     public static HouseBuilder builder() {
         return new HouseBuilder();
     }

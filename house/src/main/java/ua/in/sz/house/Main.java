@@ -6,6 +6,7 @@ import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.SupportCostCalculator;
 import ua.in.sz.house.materials.BrickCalculator;
+import ua.in.sz.house.materials.CementMortarCalculator;
 
 @Slf4j
 public class Main {
@@ -26,8 +27,9 @@ public class Main {
                 String.format("\n\twall heat less %.2f kWt", house.getHeatLoss(TARGET_TEMPERATURE, -20.0) / 1000.0);
 
         BrickCalculator brickCalculator = BrickCalculator.of(house);
+        CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
 
-        double cementMortar = house.cementMortar();
+        double cementMortar = cementMortarCalculator.cementMortar();
         double cement = cementKg(cementMortar);
         double sang = sandKg(cementMortar);
 
