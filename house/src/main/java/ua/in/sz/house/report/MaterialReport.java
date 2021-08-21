@@ -21,7 +21,7 @@ public class MaterialReport {
         AllMaterialCalculator materialCalculator = AllMaterialCalculator.of(house);
         MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
 
-        List<Double> materials = materialCalculator.calculate();
+        List<AllMaterialCalculator.Material> materials = materialCalculator.calculate();
         log.info("Materials: {}", materials);
 
         double blockCount = materialCalculator.blockCount();

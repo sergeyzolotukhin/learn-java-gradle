@@ -1,8 +1,7 @@
 package ua.in.sz.house.material;
 
 import com.google.common.collect.ImmutableList;
-import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.building.House;
 
@@ -22,7 +21,7 @@ public class AllMaterialCalculator {
                     .add(SangCalculator.class)
                     .build();
 
-    public List<Double> calculate() {
+    public List<Material> calculate() {
         return calculatorClasses.stream()
                 .map(this::createCalculator)
                 .map(MaterialCalculator::calculate)
@@ -35,18 +34,26 @@ public class AllMaterialCalculator {
     }
 
     public double blockCount() {
-        return BrickCalculator.of(house).calculate();
+        return BrickCalculator.of(house).calculate().getQuantity();
     }
 
     public double cementMortar() {
-        return CementMortarCalculator.of(house).calculate();
+        return CementMortarCalculator.of(house).calculate().getQuantity();
     }
 
     public double cementKg() {
-        return CementCalculator.of(house).calculate();
+        return CementCalculator.of(house).calculate().getQuantity();
     }
 
     public double sangKg() {
-        return SangCalculator.of(house).calculate();
+        return SangCalculator.of(house).calculate().getQuantity();
+    }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    @ToString
+    public static class Material {
+        private final String name;
+        private final double quantity;
     }
 }
