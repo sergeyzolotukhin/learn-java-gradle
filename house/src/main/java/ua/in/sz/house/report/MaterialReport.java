@@ -23,7 +23,7 @@ public class MaterialReport {
         List<Material> materials = materialCalculator.calculate();
         log.info("Materials: {}", materials);
 
-        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
+        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materials);
 
         double blockCount = materialCalculator.blockCount();
         double cementMortar = materialCalculator.cementMortar();
