@@ -9,10 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RequiredArgsConstructor(staticName = "of")
 public class MaterialCalculators {
-    private final House house;
-
     public static List<Class<? extends MaterialCalculator>> calculators =
             ImmutableList.<Class<? extends MaterialCalculator>>builder()
                     .add(BrickCalculator.class)
@@ -21,15 +18,15 @@ public class MaterialCalculators {
                     .add(SangCalculator.class)
                     .build();
 
-    public List<Material> calculate() {
+    public static List<Material> calculate(House house) {
         return calculators.stream()
-                .map(this::createCalculator)
+                .map(c -> createCalculator(c, house))
                 .map(MaterialCalculator::calculate)
                 .collect(Collectors.toList());
     }
 
     @SneakyThrows
-    private MaterialCalculator createCalculator(Class<? extends MaterialCalculator> clazz) {
+    private static MaterialCalculator createCalculator(Class<? extends MaterialCalculator> clazz, House house) {
         return clazz.getDeclaredConstructor(House.class).newInstance(house);
     }
 }
