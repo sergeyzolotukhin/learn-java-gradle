@@ -19,10 +19,8 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        String houseInfo = HouseReport.of(house).report();
-        String materialInfo = MaterialReport.of(house).report();
-        String supportCostInfo = SupportReport.of(house).report();
-
-        log.info(houseInfo + materialInfo + supportCostInfo);
+        log.info(HouseReport.of(house).report());
+        log.info(MaterialReport.of(house).report());
+        log.info(SupportReport.of(house).report());
     }
 }
