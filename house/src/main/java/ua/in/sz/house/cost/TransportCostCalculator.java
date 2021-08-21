@@ -11,8 +11,6 @@ public class TransportCostCalculator {
     private final Cars.CargoCar car;
 
     public double cost(Packages.BrickPackage pack, double requiredPackageCount) {
-
-
         double maxPackage = maxPackage(car, pack);
         log.info("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
 
