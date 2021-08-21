@@ -20,10 +20,10 @@ public class MaterialReport {
 
     public String report() {
         AllMaterialCalculator materialCalculator = AllMaterialCalculator.of(house);
-        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
-
         List<Material> materials = materialCalculator.calculate();
         log.info("Materials: {}", materials);
+
+        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materialCalculator);
 
         double blockCount = materialCalculator.blockCount();
         double cementMortar = materialCalculator.cementMortar();
