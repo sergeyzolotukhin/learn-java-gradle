@@ -21,10 +21,6 @@ public class BrickCalculator implements MaterialCalculator {
 
     @Override
     public double calculate() {
-        return blockCount();
-    }
-
-    public double blockCount() {
         Wall wall = house.getWall();
         Block block = wall.getBlock();
 

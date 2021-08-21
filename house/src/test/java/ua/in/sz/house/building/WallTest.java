@@ -15,7 +15,7 @@ class WallTest {
 
         double expected = 0.106;
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
-        double actual = cementMortarCalculator.cementMortar();
+        double actual = cementMortarCalculator.calculate();
 
         log.trace(String.format("Expected %.3f M3 actual %.3f", expected, actual));
 

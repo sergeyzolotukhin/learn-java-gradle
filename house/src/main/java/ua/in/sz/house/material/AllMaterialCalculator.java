@@ -39,11 +39,11 @@ public class AllMaterialCalculator {
     }
 
     public double blockCount(){
-        return BrickCalculator.of(house).blockCount();
+        return BrickCalculator.of(house).calculate();
     }
 
     public double cementMortar() {
-        return CementMortarCalculator.of(house).cementMortar();
+        return CementMortarCalculator.of(house).calculate();
     }
 
     public double cementKg() {

@@ -21,7 +21,7 @@ public class SangCalculator implements MaterialCalculator {
     public double sangKg() {
         CementMortarCalculator cementMortarCalculator = CementMortarCalculator.of(house);
 
-        double cementMortar = cementMortarCalculator.cementMortar();
+        double cementMortar = cementMortarCalculator.calculate();
         double volume = cementMortar * 3.0 / 4.0;
         return volume * 1500; // кг в м3 цемента
     }

@@ -20,15 +20,11 @@ public class CementMortarCalculator implements MaterialCalculator {
         return new CementMortarCalculator(house);
     }
 
-    @Override
-    public double calculate() {
-        return cementMortar();
-    }
-
     /**
      * Объем цементно песчаного раствора М3
      */
-    public double cementMortar() {
+    @Override
+    public double calculate() {
         Wall wall = house.getWall();
         Block block = wall.getBlock();
 
