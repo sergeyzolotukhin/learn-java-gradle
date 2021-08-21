@@ -90,7 +90,10 @@ public class Main {
             log.info("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
         }
 
-        log.info("Total time to work {} hours, total distance {} km, come in count {}", Math.ceil(totalTime), Math.ceil(totalDistance), comeInCount);
+        double totalCost = comeInCount * 370 + Math.ceil(totalTime) * 370 + Math.ceil(totalDistance) * 18;
+
+        log.info("Total time to work {} hours, total distance {} km, come in count {}. Cost {} UAH",
+                Math.ceil(totalTime), Math.ceil(totalDistance), comeInCount, Math.ceil(totalCost));
     }
 
     private static double maxPackage(Cars.DafCf65 car, Packages.BrickPackage pack) {
