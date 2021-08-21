@@ -1,33 +1,28 @@
 package ua.in.sz.house.cost;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.material.Material;
 
-import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")
 public class MaterialCostCalculator {
-    private final List<Material> materials;
+    private final Map<Material.Names, Double> costs = ImmutableMap.<Material.Names, Double>builder()
+            .put(Material.Names.BRICK, 3.3)
+            .put(Material.Names.CEMENT, 1800.0 / 1000.0)
+            .put(Material.Names.CEMENT_MORTAR, 0.0)
+            .put(Material.Names.SANG, 180.0 / 1000.0)
+            .build();
 
-    public double blockCost() {
-        return quantity(Material.Names.BRICK) * 3.3;
-    }
+    public double cost(Material material) {
+        Double cost = costs.get(material.getName());
+        if (cost == null) {
+            throw new IllegalStateException("The cost of material [" + material.getName() + "] not found");
+        }
 
-    public double cementCost() {
-        return quantity(Material.Names.CEMENT) / 1000.0 * 1800.0;
-    }
-
-    public double sangCost() {
-        return quantity(Material.Names.SANG) / 1000.0 * 180.0;
-    }
-
-    private Double quantity(Material.Names materialName) {
-        return materials.stream()
-                .filter(m -> materialName.equals(m.getName()))
-                .map(Material::getQuantity)
-                .findFirst()
-                .orElse(0.0);
+        return material.getQuantity() * cost;
     }
 }

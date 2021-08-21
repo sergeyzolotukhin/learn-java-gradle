@@ -4,12 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
-import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.AllMaterialCalculator;
 import ua.in.sz.house.material.Material;
-import ua.in.sz.house.transport.Packages;
-import ua.in.sz.house.transport.Cars;
-import ua.in.sz.house.transport.Distances;
 
 import java.util.List;
 
@@ -23,27 +19,24 @@ public class MaterialReport {
         List<Material> materials = materialCalculator.calculate();
         log.info("Materials: {}", materials);
 
-        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of(materials);
+        MaterialCostCalculator materialCostCalculator = MaterialCostCalculator.of();
 
-        double blockCount = materialCalculator.blockCount();
-        double cementMortar = materialCalculator.cementMortar();
-        double cement = materialCalculator.cementKg();
-        double sang = materialCalculator.sangKg();
+        StringBuilder sb = new StringBuilder();
 
-        double blockCost = materialCostCalculator.blockCost();
-        double cementCost = materialCostCalculator.cementCost();
-        double sangCost = materialCostCalculator.sangCost();
+        sb.append("\nHouse materials:");
 
-        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
+        for (Material material : materials) {
+            double cost = materialCostCalculator.cost(material);
+            sb.append(String.format("\n\t%s quantity %.0f cost %.0f UAH transport cost %.0f UAH",
+                    material.getName(), material.getQuantity(), cost, 0.0));
+        }
 
-        Packages.BrickPackage pack = Packages.brickPackage();
-        double requiredPackageCount = Math.ceil(blockCount / pack.getCount());
-        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
+//        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
+//
+//        Packages.BrickPackage pack = Packages.brickPackage();
+//        double requiredPackageCount = Math.ceil(blockCount / pack.getCount());
+//        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
 
-        return "\nHouse materials:" +
-                String.format("\n\tblock count %.0f cost %.0f UAH transport cost %.0f UAH", blockCount, blockCost, brickTravelCost) +
-                String.format("\n\tcement mortar %.2f M3", cementMortar) +
-                String.format("\n\tcement %.3f T cost %.2f UAH", cement / 1000.0, cementCost) +
-                String.format("\n\tsang %.3f T cost %.2f UAH", sang / 1000.0, sangCost);
+        return sb.toString();
     }
 }
