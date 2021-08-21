@@ -22,7 +22,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        SupportCostCalculator costCalculator = SupportCostCalculator.of(house);
+        SupportCostCalculator supportCostCalculator = SupportCostCalculator.of(house);
 
         String houseInfo = "\nHouse info:" +
                 String.format("\n\tsize: %.0f x %.0f m", house.getWidth(), house.getLength()) +
@@ -50,7 +50,7 @@ public class Main {
                 String.format("\n\tsang %.3f T cost %.2f UAH", sang / 1000.0, materialCostCalculator.sangCost());
 
         String supportCostInfo = "\nHouse support cost:" +
-                String.format("\n\theating cost per month %.0f UAH", costCalculator.costPerYear() / 12.0);
+                String.format("\n\theating cost per month %.0f UAH", supportCostCalculator.costPerYear() / 12.0);
 
         log.info(houseInfo + materialInfo + supportCostInfo);
     }
