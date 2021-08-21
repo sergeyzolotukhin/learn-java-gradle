@@ -26,6 +26,65 @@ public class Main {
         double travelCount = Math.ceil(requiredPackageCount / maxPackage);
         log.info("Package count {} travel count {} sum block count {}",
                 requiredPackageCount, travelCount, requiredPackageCount * pack.getCount());
+
+        // Склад Белогородка -> Ворзель
+        double comeInDistance = 26.8;
+        double comeOutDistance = 33.6;
+        double travelDistance = 26.8;
+
+        double averageVelocity = 60.0; // Km/h
+        double loadTime = 1; // hours
+        double unloadTime = 1; // hours
+
+
+        double totalTime = 0;
+        double totalDistance = 0;
+        double comeInCount = 0;
+
+        double runTime = travelDistance / averageVelocity;
+        double comeInTime = comeInDistance / averageVelocity;
+        double comeOutTime = comeOutDistance / averageVelocity;
+        double travelCargoTime = loadTime + runTime + unloadTime;
+
+        double leftTravel = travelCount;
+        while (leftTravel > 0) {
+            totalTime += comeInTime;
+            totalDistance += comeInDistance;
+            comeInCount++;
+            log.info("come in time {} min", String.format("%.0f", comeInTime * 60));
+
+            double leftWorkTime = 8.0;
+            leftWorkTime -= comeInTime;
+            while (leftWorkTime > comeOutTime) {
+                if (leftWorkTime < travelCargoTime) {
+                    break;
+                }
+
+                // do travel cargo from stock to house
+                leftWorkTime = leftWorkTime - travelCargoTime;
+                totalTime = totalTime + travelCargoTime;
+                totalDistance += travelDistance;
+                leftTravel--;
+                log.info("travel cargo time {} hours {} min",
+                        String.format("%.0f", travelCargoTime),
+                        String.format("%.0f", (travelCargoTime - Math.floor(travelCargoTime)) * 60));
+
+                if (leftWorkTime < runTime + loadTime + runTime + unloadTime) {
+                    break;
+                }
+
+                totalDistance += travelDistance;
+                totalTime += runTime;
+                log.info("travel to load time {} min",
+                        String.format("%.0f", runTime * 60));
+            }
+
+            totalTime += comeOutTime;
+            totalDistance += comeOutDistance;
+            log.info("come out time {} min", String.format("%.0f", comeOutTime * 60));
+        }
+
+        log.info("Total time to work {} hours, total distance {} km, come in count {}", Math.ceil(totalTime), totalDistance, comeInCount);
     }
 
     private static double maxPackage(Cars.DafCf65 car, Packages.BrickPackage pack) {
@@ -66,7 +125,7 @@ public class Main {
         String materialInfo = "\nHouse materials:" +
                 String.format("\n\tblock count %.0f cost %.0f UAH", blockCount, materialCostCalculator.blockCost()) +
                 String.format("\n\tcement mortar %.2f M3", cementMortar) +
-                String.format("\n\tcement %.3f T cost %.2f UAH", cement / 1000.0, materialCostCalculator.cementCost())  +
+                String.format("\n\tcement %.3f T cost %.2f UAH", cement / 1000.0, materialCostCalculator.cementCost()) +
                 String.format("\n\tsang %.3f T cost %.2f UAH", sang / 1000.0, materialCostCalculator.sangCost());
 
         String supportCostInfo = "\nHouse support cost:" +
