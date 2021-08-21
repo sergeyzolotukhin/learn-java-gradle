@@ -1,4 +1,4 @@
-package ua.in.sz.house;
+package ua.in.sz.house.cost;
 
 import com.google.common.collect.ImmutableList;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @NoArgsConstructor(staticName = "of")
-public class TempCalendar implements Iterable<TempCalendar.Month> {
+public class TemperatureCalendar implements Iterable<TemperatureCalendar.Month> {
     public static final double HOUR_PER_DAY = 24.0;
 
     private static final List<Month> MONTHS = ImmutableList.<Month>builder()

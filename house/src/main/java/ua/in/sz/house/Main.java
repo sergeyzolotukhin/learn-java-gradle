@@ -1,12 +1,10 @@
 package ua.in.sz.house;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.impl.ElectricityBoiler;
-import ua.in.sz.house.boiler.impl.GasBoiler;
-import ua.in.sz.house.boiler.impl.SolidFuelBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
+import ua.in.sz.house.cost.SupportCostCalculator;
 
 @Slf4j
 public class Main {
@@ -19,7 +17,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        ResourceCostCalculator costCalculator = ResourceCostCalculator.of(house);
+        SupportCostCalculator costCalculator = SupportCostCalculator.of(house);
 
         String houseInfo = "\nHouse info:" +
                 String.format("\n\tsize: %.0f x %.0f m", house.getWidth(), house.getLength()) +
