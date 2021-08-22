@@ -1,8 +1,7 @@
-package ua.in.sz.house.material.impl;
+package ua.in.sz.house.material.calculator;
 
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.material.Material;
-import ua.in.sz.house.material.MaterialCalculator;
 import ua.in.sz.house.material.MaterialCode;
 
 public class SangCalculator implements MaterialCalculator {

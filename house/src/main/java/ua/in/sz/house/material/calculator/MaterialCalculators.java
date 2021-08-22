@@ -1,13 +1,11 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.material.calculator;
 
 import com.google.common.collect.ImmutableList;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.building.House;
-import ua.in.sz.house.material.impl.BrickCalculator;
-import ua.in.sz.house.material.impl.CementCalculator;
-import ua.in.sz.house.material.impl.CementMortarCalculator;
-import ua.in.sz.house.material.impl.SangCalculator;
+import ua.in.sz.house.material.BillOfMaterials;
+import ua.in.sz.house.material.Material;
 
 import java.util.List;
 import java.util.stream.Collectors;

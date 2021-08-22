@@ -7,7 +7,7 @@ public class MaterialPackages {
      * https://specnavigator.ru/materialy/kirpich/raschet-kolichestva-v-poddone.html
      */
     public static MaterialPackage brickPackage() {
-        return new MaterialPackage(1.2, 0.8, 420, 3.5 * 420);
+        return new MaterialPackage(MaterialCode.BRICK,1.2, 0.8, 420, 3.5 * 420);
     }
 
 }

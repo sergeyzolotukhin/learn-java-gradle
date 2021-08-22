@@ -7,6 +7,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.*;
+import ua.in.sz.house.material.calculator.MaterialCalculators;
 import ua.in.sz.house.report.MaterialReport;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
@@ -23,6 +24,8 @@ public class Main {
                 .build();
 
         BillOfMaterials<Material> billOfMaterials = MaterialCalculators.calculate(house);
+        Material brick = billOfMaterials.get(MaterialCode.BRICK);
+        log.info("Brick has value: {}", brick.getQuantity());
 
         MaterialCostCalculator.calculate(billOfMaterials);
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
