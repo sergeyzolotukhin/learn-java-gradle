@@ -24,14 +24,11 @@ public class Main {
                 .build();
 
         BillOfMaterials<Material> billOfMaterials = MaterialCalculators.calculate(house);
-        Material brick = billOfMaterials.get(MaterialCode.BRICK);
-        log.info("Brick has value: {}", brick.getQuantity());
+        BillOfMaterials<MaterialPackage> billOfPackages = MaterialPackages.packages(billOfMaterials);
 
         MaterialCostCalculator.calculate(billOfMaterials);
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
 
-        MaterialPackage pack = MaterialPackages.brickPackage();
-//        double requiredPackageCount = Math.ceil(blockCount / pack.getCount());
 //        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
 
 //        log.info(HouseReport.of(house).report());

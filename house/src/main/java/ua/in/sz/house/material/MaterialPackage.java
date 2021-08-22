@@ -1,16 +1,21 @@
 package ua.in.sz.house.material;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class MaterialPackage implements HasMaterialCode {
     private final MaterialCode materialCode;
     private final double length;
     private final double width;
+    private final double height;
+
     private final double count;
     private final double weight;
+    @Setter
+    private double packageCount;
 
     @Override
     public String code() {
