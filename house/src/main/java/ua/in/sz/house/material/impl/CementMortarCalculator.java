@@ -7,6 +7,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.building.Wall;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialCalculator;
+import ua.in.sz.house.material.MaterialCode;
 
 @Slf4j
 public class CementMortarCalculator implements MaterialCalculator {
@@ -73,7 +74,7 @@ public class CementMortarCalculator implements MaterialCalculator {
                     volume, allSliceVolume * m3ToMm3, allRowVolume * m3ToMm3, allLayerVolume * m3ToMm3,
                     countByHeight, countByLength, countByWidth));
 
-            return Material.of(Material.Name.CEMENT_MORTAR, volume);
+            return Material.of(MaterialCode.CEMENT_MORTAR, volume);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

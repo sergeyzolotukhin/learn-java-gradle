@@ -7,27 +7,26 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Material {
-    private final Name name;
+public class Material implements HasMaterialCode {
+    private final MaterialCode materialCode;
     private final double quantity;
     private double cost;
     private double transportCost;
 
-    public Material(Name name, double quantity, double cost, double transportCost) {
-        this.name = name;
+    public Material(MaterialCode materialCode, double quantity, double cost, double transportCost) {
+        this.materialCode = materialCode;
         this.quantity = quantity;
         this.cost = cost;
         this.transportCost = transportCost;
     }
 
-    public static Material of(Name name, double quantity) {
-        return new Material(name, quantity, 0.0, 0.0);
+    @Override
+    public String code() {
+        return materialCode.code();
     }
 
-    public enum Name {
-        BRICK,
-        CEMENT,
-        CEMENT_MORTAR,
-        SANG
+    public static Material of(MaterialCode materialCode, double quantity) {
+        return new Material(materialCode, quantity, 0.0, 0.0);
     }
+
 }

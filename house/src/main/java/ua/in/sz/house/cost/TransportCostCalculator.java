@@ -2,7 +2,7 @@ package ua.in.sz.house.cost;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.transport.Packages;
+import ua.in.sz.house.material.MaterialPackage;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
 
@@ -15,7 +15,7 @@ public class TransportCostCalculator {
     private final Cars.CargoCar car;
     private final Distances.Distance distance;
 
-    public double cost(Packages.BrickPackage pack, double requiredPackageCount) {
+    public double cost(MaterialPackage pack, double requiredPackageCount) {
         double maxPackage = maxPackage(car, pack);
         log.debug("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);
 
@@ -90,7 +90,7 @@ public class TransportCostCalculator {
         return totalCost;
     }
 
-    private double maxPackage(Cars.CargoCar car, Packages.BrickPackage pack) {
+    private double maxPackage(Cars.CargoCar car, MaterialPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
         log.debug("Max package count per weight {} package weight {} weight {}",
                 maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);

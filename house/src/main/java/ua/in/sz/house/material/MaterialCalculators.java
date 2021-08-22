@@ -22,7 +22,7 @@ public class MaterialCalculators {
                     .add(SangCalculator.class)
                     .build();
 
-    public static BillOfMaterials calculate(House house) {
+    public static BillOfMaterials<Material> calculate(House house) {
         return BillOfMaterials.of(calculators.stream()
                 .map(c -> createCalculator(c, house))
                 .map(MaterialCalculator::calculate)

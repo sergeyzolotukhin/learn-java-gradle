@@ -4,6 +4,7 @@ package ua.in.sz.house.material.impl;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialCalculator;
+import ua.in.sz.house.material.MaterialCode;
 
 public class CementCalculator implements MaterialCalculator {
     private final House house;
@@ -22,6 +23,6 @@ public class CementCalculator implements MaterialCalculator {
 
         double cementMortar = cementMortarCalculator.calculate().getQuantity();
         double volume = cementMortar / 4.0;
-        return Material.of(Material.Name.CEMENT, volume * 1625); // кг в м3 песка
+        return Material.of(MaterialCode.CEMENT, volume * 1625); // кг в м3 песка
     }
 }

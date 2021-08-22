@@ -4,19 +4,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class BillOfMaterials extends ArrayList<Material> {
-    private BillOfMaterials(Collection<? extends Material> c) {
+public class BillOfMaterials<T extends HasMaterialCode> extends ArrayList<T> {
+    private BillOfMaterials(Collection<T> c) {
         super(c);
     }
 
-    public Material get(Material.Name name) {
+    public T get(MaterialCode materialCode) {
         return this.stream()
-                .filter(m -> name.equals(m.getName()))
+                .filter(m -> materialCode.code().equals(m.code()))
                 .findFirst()
                 .orElse(null);
     }
 
-    public static BillOfMaterials of(List<Material> materials) {
-        return new BillOfMaterials(materials);
+    public static <E extends HasMaterialCode> BillOfMaterials<E> of(List<E> materials) {
+        return new BillOfMaterials<E>(materials);
     }
+
 }
