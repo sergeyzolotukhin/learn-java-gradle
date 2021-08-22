@@ -6,14 +6,12 @@ import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
+import ua.in.sz.house.material.BillOfMaterials;
 import ua.in.sz.house.material.MaterialCalculators;
-import ua.in.sz.house.material.Material;
 import ua.in.sz.house.report.MaterialReport;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
 import ua.in.sz.house.transport.Packages;
-
-import java.util.List;
 
 @Slf4j
 public class Main {
@@ -26,8 +24,9 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        List<Material> materials = MaterialCalculators.calculate(house);
-        MaterialCostCalculator.calculate(materials);
+        BillOfMaterials billOfMaterials = MaterialCalculators.calculate(house);
+
+        MaterialCostCalculator.calculate(billOfMaterials);
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
 
         Packages.BrickPackage pack = Packages.brickPackage();
@@ -35,7 +34,7 @@ public class Main {
 //        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
 
 //        log.info(HouseReport.of(house).report());
-        log.info(MaterialReport.of(materials).report());
+        log.info(MaterialReport.of(billOfMaterials).report());
 //        log.info(SupportReport.of(house).report());
     }
 }

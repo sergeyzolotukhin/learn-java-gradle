@@ -9,11 +9,11 @@ import java.util.Map;
 
 @Slf4j
 public class MaterialCostCalculator {
-    private static final Map<Material.Names, Double> costs = ImmutableMap.<Material.Names, Double>builder()
-            .put(Material.Names.BRICK, 3.3)
-            .put(Material.Names.CEMENT, 1800.0 / 1000.0)
-            .put(Material.Names.CEMENT_MORTAR, 0.0)
-            .put(Material.Names.SANG, 180.0 / 1000.0)
+    private static final Map<Material.Name, Double> costs = ImmutableMap.<Material.Name, Double>builder()
+            .put(Material.Name.BRICK, 3.3)
+            .put(Material.Name.CEMENT, 1800.0 / 1000.0)
+            .put(Material.Name.CEMENT_MORTAR, 0.0)
+            .put(Material.Name.SANG, 180.0 / 1000.0)
             .build();
 
     public static void calculate(List<Material> materials) {

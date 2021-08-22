@@ -8,23 +8,23 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Material {
-    private final Names name;
+    private final Name name;
     private final double quantity;
     private double cost;
     private double transportCost;
 
-    public Material(Names name, double quantity, double cost, double transportCost) {
+    public Material(Name name, double quantity, double cost, double transportCost) {
         this.name = name;
         this.quantity = quantity;
         this.cost = cost;
         this.transportCost = transportCost;
     }
 
-    public static Material of(Names name, double quantity) {
+    public static Material of(Name name, double quantity) {
         return new Material(name, quantity, 0.0, 0.0);
     }
 
-    public enum Names {
+    public enum Name {
         BRICK,
         CEMENT,
         CEMENT_MORTAR,

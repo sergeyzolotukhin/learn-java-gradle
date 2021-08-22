@@ -21,6 +21,6 @@ public class SangCalculator implements MaterialCalculator {
 
         double cementMortar = cementMortarCalculator.calculate().getQuantity();
         double volume = cementMortar * 3.0 / 4.0;
-        return Material.of(Material.Names.SANG, volume * 1500); // кг в м3 цемента
+        return Material.of(Material.Name.SANG, volume * 1500); // кг в м3 цемента
     }
 }
