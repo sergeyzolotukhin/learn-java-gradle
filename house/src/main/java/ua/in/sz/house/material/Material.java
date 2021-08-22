@@ -12,7 +12,7 @@ public class Material implements HasMaterialCode {
     private final double quantity;
     private double cost;
     private double transportCost;
-    private boolean required = true;
+    private boolean required;
 
     public Material(MaterialCode materialCode, double quantity, double cost, double transportCost, boolean required) {
         this.materialCode = materialCode;
