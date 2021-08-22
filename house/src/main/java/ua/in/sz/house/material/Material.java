@@ -10,6 +10,8 @@ import lombok.ToString;
 public class Material implements HasMaterialCode {
     private final MaterialCode materialCode;
     private final double quantity;
+
+    // TODO: remove
     private double cost;
     private double transportCost;
     private boolean required;
