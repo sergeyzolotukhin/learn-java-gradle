@@ -2,9 +2,9 @@ package ua.in.sz.house.material.calculator;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
-import ua.in.sz.house.building.Block;
-import ua.in.sz.house.building.House;
-import ua.in.sz.house.building.Wall;
+import ua.in.sz.house.house.Block;
+import ua.in.sz.house.house.House;
+import ua.in.sz.house.house.Wall;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialCode;
 

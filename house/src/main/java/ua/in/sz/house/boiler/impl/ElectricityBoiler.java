@@ -3,7 +3,7 @@ package ua.in.sz.house.boiler.impl;
 import lombok.NoArgsConstructor;
 import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.Resource;
-import ua.in.sz.house.building.House;
+import ua.in.sz.house.house.House;
 
 @NoArgsConstructor
 public class ElectricityBoiler extends Boiler {

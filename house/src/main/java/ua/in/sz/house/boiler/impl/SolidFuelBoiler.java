@@ -3,7 +3,7 @@ package ua.in.sz.house.boiler.impl;
 import lombok.AllArgsConstructor;
 import ua.in.sz.house.boiler.Boiler;
 import ua.in.sz.house.boiler.Resource;
-import ua.in.sz.house.building.House;
+import ua.in.sz.house.house.House;
 
 @AllArgsConstructor
 public class SolidFuelBoiler extends Boiler {

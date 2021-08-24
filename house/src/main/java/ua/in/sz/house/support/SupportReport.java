@@ -1,8 +1,7 @@
 package ua.in.sz.house.support;
 
 import lombok.AllArgsConstructor;
-import ua.in.sz.house.building.House;
-import ua.in.sz.house.support.SupportCostCalculator;
+import ua.in.sz.house.house.House;
 
 @AllArgsConstructor(staticName = "of")
 public class SupportReport {

@@ -1,7 +1,7 @@
 package ua.in.sz.house.material.calculator;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.building.House;
+import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.BillOfMaterials;
 import ua.in.sz.house.material.Material;
 

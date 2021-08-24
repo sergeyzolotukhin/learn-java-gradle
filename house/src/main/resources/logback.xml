@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <logger name="ua.in.sz.house.building.Wall" level="debug"/>
+    <logger name="ua.in.sz.house.house.Wall" level="debug"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

@@ -1,6 +1,6 @@
 package ua.in.sz.house.boiler;
 
-import ua.in.sz.house.building.House;
+import ua.in.sz.house.house.House;
 
 public abstract class Boiler {
 
