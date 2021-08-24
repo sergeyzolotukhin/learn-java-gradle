@@ -14,7 +14,7 @@ public class MaterialPackages {
     }
 
     /**
-     * Размер стандартного мешка с цементом весом 50 кг равен 60*49,5*9 см.
+     * Размер стандартного мешка с цементом весом 50 кг равен 0.6 * 0.5 * 0.09 m.
      */
     public static MaterialPackage cementPackage() {
         return new MaterialPackage(MaterialCode.CEMENT, 0.44, 0.38, 0.09, 50, 50);
