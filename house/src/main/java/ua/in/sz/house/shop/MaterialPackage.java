@@ -1,7 +1,9 @@
-package ua.in.sz.house.material;
+package ua.in.sz.house.shop;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import ua.in.sz.house.material.HasMaterialCode;
+import ua.in.sz.house.material.MaterialCode;
 
 @Getter
 @RequiredArgsConstructor
