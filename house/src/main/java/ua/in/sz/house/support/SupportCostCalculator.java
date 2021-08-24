@@ -1,4 +1,4 @@
-package ua.in.sz.house.cost;
+package ua.in.sz.house.support;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import ua.in.sz.house.building.House;
 import java.util.Map;
 
 import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
-import static ua.in.sz.house.cost.TemperatureCalendar.HOUR_PER_DAY;
+import static ua.in.sz.house.support.TemperatureCalendar.HOUR_PER_DAY;
 
 @Slf4j
 @AllArgsConstructor(staticName = "of")

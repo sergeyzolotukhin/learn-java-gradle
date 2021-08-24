@@ -1,7 +1,6 @@
-package ua.in.sz.house.report;
+package ua.in.sz.house.building;
 
 import lombok.AllArgsConstructor;
-import ua.in.sz.house.building.House;
 
 import static ua.in.sz.house.Main.TARGET_TEMPERATURE;
 

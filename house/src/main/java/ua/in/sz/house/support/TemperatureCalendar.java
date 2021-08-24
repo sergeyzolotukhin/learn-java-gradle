@@ -1,4 +1,4 @@
-package ua.in.sz.house.cost;
+package ua.in.sz.house.support;
 
 import com.google.common.collect.ImmutableList;
 import lombok.AllArgsConstructor;
