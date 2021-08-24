@@ -1,10 +1,8 @@
-package ua.in.sz.house.cost;
+package ua.in.sz.house.transport;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.shop.MaterialPackage;
-import ua.in.sz.house.transport.Cars;
-import ua.in.sz.house.transport.Distances;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
