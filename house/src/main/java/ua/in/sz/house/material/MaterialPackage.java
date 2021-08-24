@@ -2,7 +2,6 @@ package ua.in.sz.house.material;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @RequiredArgsConstructor
