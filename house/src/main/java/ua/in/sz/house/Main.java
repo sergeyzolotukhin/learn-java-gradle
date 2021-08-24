@@ -10,6 +10,9 @@ import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.order.MaterialOrderReport;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.MaterialShop;
+import ua.in.sz.house.transport.Cars;
+import ua.in.sz.house.transport.Distances;
+import ua.in.sz.house.transport.TransportCostCalculator;
 
 import java.util.List;
 
@@ -28,5 +31,11 @@ public class Main {
         List<MaterialOrder> order = MaterialShop.order(materials);
 
         log.info(MaterialOrderReport.report(order));
+
+        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());
+        for (MaterialOrder materialOrder : order) {
+            double cost = transportCostCalculator.cost(materialOrder);
+            log.info("Transport of {} has cost {}", materialOrder.code(), cost);
+        }
     }
 }
