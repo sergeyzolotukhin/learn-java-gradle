@@ -1,7 +1,7 @@
 package ua.in.sz.house.report;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.house.shop.MaterialOrder;
+import ua.in.sz.house.shop.order.MaterialOrder;
 
 import java.util.List;
 

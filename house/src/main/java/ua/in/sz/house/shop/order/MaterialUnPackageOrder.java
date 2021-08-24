@@ -1,16 +1,17 @@
-package ua.in.sz.house.shop;
+package ua.in.sz.house.shop.order;
 
 import lombok.RequiredArgsConstructor;
+import ua.in.sz.house.material.MaterialCode;
 
 @RequiredArgsConstructor(staticName = "of")
-public class MaterialPackageOrder implements MaterialOrder {
-    private final MaterialPackage pack;
+public class MaterialUnPackageOrder implements MaterialOrder {
+    private final MaterialCode materialCode;
     private final double quantity;
     private final double cost;
 
     @Override
     public String code() {
-        return pack.code();
+        return materialCode.code();
     }
 
     @Override
@@ -23,3 +24,4 @@ public class MaterialPackageOrder implements MaterialOrder {
         return cost;
     }
 }
+
