@@ -1,4 +1,4 @@
-package ua.in.sz.house.report;
+package ua.in.sz.house.shop;
 
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.shop.order.MaterialOrder;
