@@ -14,9 +14,8 @@ import java.util.Map;
 
 public class MaterialShop {
     private static final Map<String, Double> costs = ImmutableMap.<String, Double>builder()
-            .put(MaterialCode.BRICK.code(), 3.3)
-            .put(MaterialCode.CEMENT.code(), 1800.0 / 1000.0)
-            .put(MaterialCode.CEMENT_MORTAR.code(), 0.0)
+            .put(MaterialCode.BRICK.code(), 3.3 * 420)
+            .put(MaterialCode.CEMENT.code(), 1800.0 / 1000.0 * 50)
             .put(MaterialCode.SANG.code(), 180.0 / 1000.0)
             .build();
 
