@@ -7,7 +7,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.material.BillOfMaterials;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
-import ua.in.sz.house.shop.MaterialOrderReport;
+import ua.in.sz.house.shop.order.MaterialOrderReport;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.MaterialShop;
 
