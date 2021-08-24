@@ -7,7 +7,7 @@ import ua.in.sz.house.building.House;
 import ua.in.sz.house.cost.MaterialCostCalculator;
 import ua.in.sz.house.cost.TransportCostCalculator;
 import ua.in.sz.house.material.*;
-import ua.in.sz.house.material.calculator.MaterialCalculators;
+import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.report.MaterialReport;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
@@ -23,7 +23,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        BillOfMaterials<Material> materials = MaterialCalculators.calculate(house);
+        BillOfMaterials<Material> materials = MaterialCalculator.calculate(house);
         BillOfMaterials<MaterialOrder> order = MaterialPackages.packages(materials);
 
         MaterialCostCalculator.calculate(materials);

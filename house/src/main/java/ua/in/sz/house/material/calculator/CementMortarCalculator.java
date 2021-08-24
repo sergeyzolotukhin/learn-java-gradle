@@ -9,24 +9,13 @@ import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialCode;
 
 @Slf4j
-public class CementMortarCalculator implements MaterialCalculator {
+public class CementMortarCalculator {
     private static final double CEMENT_THICKNESS = 10.0 / 1000.0; // 1 cm
-
-    private final House house;
-
-    public CementMortarCalculator(House house) {
-        this.house = house;
-    }
-
-    public static CementMortarCalculator of(House house) {
-        return new CementMortarCalculator(house);
-    }
 
     /**
      * Объем цементно песчаного раствора М3
      */
-    @Override
-    public Material calculate() {
+    public static Material calculate(House house) {
         Wall wall = house.getWall();
         Block block = wall.getBlock();
 
