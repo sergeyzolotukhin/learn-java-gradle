@@ -4,14 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.building.Block;
 import ua.in.sz.house.building.House;
-import ua.in.sz.house.cost.TransportCostCalculator;
-import ua.in.sz.house.material.*;
+import ua.in.sz.house.material.BillOfMaterials;
+import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.report.MaterialOrderReport;
 import ua.in.sz.house.shop.MaterialOrder;
 import ua.in.sz.house.shop.MaterialShop;
-import ua.in.sz.house.transport.Cars;
-import ua.in.sz.house.transport.Distances;
 
 import java.util.List;
 
@@ -29,12 +27,6 @@ public class Main {
         BillOfMaterials<Material> materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
 
-        TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
-
-//        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
-
-//        log.info(HouseReport.of(house).report());
         log.info(MaterialOrderReport.report(order));
-//        log.info(SupportReport.of(house).report());
     }
 }
