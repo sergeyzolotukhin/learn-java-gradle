@@ -12,16 +12,16 @@ public class Material implements HasMaterialCode {
     private final double quantity;
 
     // TODO: remove
-    private double cost;
-    private double transportCost;
-    private boolean required;
+//    private double cost;
+//    private double transportCost;
+//    private boolean required;
 
-    public Material(MaterialCode materialCode, double quantity, double cost, double transportCost, boolean required) {
+    public Material(MaterialCode materialCode, double quantity) {
         this.materialCode = materialCode;
         this.quantity = quantity;
-        this.cost = cost;
-        this.transportCost = transportCost;
-        this.required = required;
+//        this.cost = cost;
+//        this.transportCost = transportCost;
+//        this.required = required;
     }
 
     @Override
@@ -30,11 +30,7 @@ public class Material implements HasMaterialCode {
     }
 
     public static Material of(MaterialCode materialCode, double quantity) {
-        return of(materialCode, quantity, true);
-    }
-
-    public static Material of(MaterialCode materialCode, double quantity, boolean required) {
-        return new Material(materialCode, quantity, 0.0, 0.0, required);
+        return new Material(materialCode, quantity);
     }
 
 }

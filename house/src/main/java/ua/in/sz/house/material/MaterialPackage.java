@@ -14,9 +14,6 @@ public class MaterialPackage implements HasMaterialCode {
 
     private final double count;
     private final double weight;
-    // TODO: remove
-    @Setter
-    private double packageCount;
 
     @Override
     public String code() {

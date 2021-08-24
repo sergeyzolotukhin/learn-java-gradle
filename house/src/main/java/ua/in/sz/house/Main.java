@@ -23,16 +23,16 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        BillOfMaterials<Material> billOfMaterials = MaterialCalculators.calculate(house);
-        BillOfMaterials<MaterialPackage> billOfPackages = MaterialPackages.packages(billOfMaterials);
+        BillOfMaterials<Material> materials = MaterialCalculators.calculate(house);
+        BillOfMaterials<MaterialOrder> order = MaterialPackages.packages(materials);
 
-        MaterialCostCalculator.calculate(billOfMaterials);
+        MaterialCostCalculator.calculate(materials);
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToTarasovo());
 
 //        double brickTravelCost = transportCostCalculator.cost(pack, requiredPackageCount);
 
 //        log.info(HouseReport.of(house).report());
-        log.info(MaterialReport.of(billOfMaterials).report());
+        log.info(MaterialReport.of(materials).report());
 //        log.info(SupportReport.of(house).report());
     }
 }

@@ -17,23 +17,22 @@ public class MaterialPackages {
             .put(MaterialCode.SANG, sangPackage())
             .build();
 
-    public static BillOfMaterials<MaterialPackage> packages(BillOfMaterials<Material> billOfMaterials) {
-        List<MaterialPackage> packages = billOfMaterials.stream()
-                .filter(Material::isRequired)
-                .map(MaterialPackages::toPackage)
+    public static BillOfMaterials<MaterialOrder> packages(BillOfMaterials<Material> billOfMaterials) {
+        List<MaterialOrder> packages = billOfMaterials.stream()
+                .map(MaterialPackages::createOrder)
                 .collect(Collectors.toList());
 
         return BillOfMaterials.of(packages);
     }
 
-    private static MaterialPackage toPackage(Material material) {
+    private static MaterialOrder createOrder(Material material) {
         MaterialPackage pack = materialPackages.get(material.getMaterialCode());
         if (pack == null) {
             throw new IllegalStateException("The packed of material [" + material.code() + "] not found");
         }
 
-        pack.setPackageCount(Math.ceil(material.getQuantity() / pack.getCount()));
-        return pack;
+        double packCount = Math.ceil(material.getQuantity() / pack.getCount());
+        return MaterialOrder.of(pack, packCount);
     }
 
     /**

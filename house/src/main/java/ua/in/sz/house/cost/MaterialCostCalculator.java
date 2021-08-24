@@ -18,7 +18,7 @@ public class MaterialCostCalculator {
             .build();
 
     public static void calculate(List<Material> materials) {
-        materials.forEach(m -> m.setCost(cost(m)));
+//        materials.forEach(m -> m.setCost(cost(m)));
     }
 
     public static double cost(Material material) {

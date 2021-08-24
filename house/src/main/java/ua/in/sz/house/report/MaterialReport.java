@@ -18,7 +18,7 @@ public class MaterialReport {
 
         for (Material material : materials) {
             sb.append(String.format("\n\t%s quantity %.0f cost %.0f UAH transport cost %.0f UAH",
-                    material.code(), material.getQuantity(), material.getCost(), material.getTransportCost()));
+                    material.code(), material.getQuantity(), 0, 0));
         }
 
         return sb.toString();

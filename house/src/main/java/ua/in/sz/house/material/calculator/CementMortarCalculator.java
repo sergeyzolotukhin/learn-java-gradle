@@ -73,7 +73,7 @@ public class CementMortarCalculator implements MaterialCalculator {
                     volume, allSliceVolume * m3ToMm3, allRowVolume * m3ToMm3, allLayerVolume * m3ToMm3,
                     countByHeight, countByLength, countByWidth));
 
-            return Material.of(MaterialCode.CEMENT_MORTAR, volume, false);
+            return Material.of(MaterialCode.CEMENT_MORTAR, volume);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }
