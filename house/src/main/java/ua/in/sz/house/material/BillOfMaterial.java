@@ -21,7 +21,7 @@ public class BillOfMaterial implements BillOfMaterialItem {
         }
 
         for (BillOfMaterialItem child : children) {
-            if (child instanceof Material && materialType.equals(((Material)child).getMaterialType())) {
+            if (child instanceof Material && materialType.equals(((Material) child).getMaterialType())) {
                 return (Material) child;
             }
 
@@ -38,10 +38,5 @@ public class BillOfMaterial implements BillOfMaterialItem {
 
     public void add(BillOfMaterialItem item) {
         children.add(item);
-    }
-
-    @Override
-    public MaterialType getMaterialType() {
-        return material.getMaterialType();
     }
 }
