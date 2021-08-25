@@ -15,14 +15,18 @@ public class BillOfMaterial implements BillOfMaterialItem {
         this.material = material;
     }
 
-    public BillOfMaterialItem get(MaterialType materialType) {
+    public Material get(MaterialType materialType) {
+        if (material != null && materialType.equals(material.getMaterialType())) {
+            return material;
+        }
+
         for (BillOfMaterialItem child : children) {
-            if (materialType.equals(child.getMaterialType())) {
-                return child;
+            if (child instanceof Material && materialType.equals(((Material)child).getMaterialType())) {
+                return (Material) child;
             }
 
             if (child instanceof BillOfMaterial) {
-                BillOfMaterialItem item = ((BillOfMaterial) child).get(materialType);
+                Material item = ((BillOfMaterial) child).get(materialType);
                 if (item != null) {
                     return item;
                 }
@@ -38,6 +42,6 @@ public class BillOfMaterial implements BillOfMaterialItem {
 
     @Override
     public MaterialType getMaterialType() {
-        return parent.getMaterialType();
+        return material.getMaterialType();
     }
 }

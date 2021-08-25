@@ -32,7 +32,7 @@ public class Main {
         BillOfMaterial materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
 
-        Material cementMortar = ((BillOfMaterial) materials.get(MaterialType.CEMENT_MORTAR)).getMaterial();
+        Material cementMortar = materials.get(MaterialType.CEMENT_MORTAR);
         log.info("Cement mortar {}", cementMortar.getQuantity());
 
         log.info(MaterialOrderReport.report(order));

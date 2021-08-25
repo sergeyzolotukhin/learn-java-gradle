@@ -22,19 +22,19 @@ public class MaterialShop {
     public static List<MaterialOrder> order(BillOfMaterial materials) {
         List<MaterialOrder> result = new ArrayList<>();
 
-        Material brick = (Material)materials.get(MaterialType.BRICK);
+        Material brick = materials.get(MaterialType.BRICK);
         MaterialPackage brickPackage = MaterialPackages.brickPackage();
         double brickPackCount = Math.ceil(brick.getQuantity() / brickPackage.getCount());
         double brickCost = cost(MaterialType.BRICK, brickPackCount);
         result.add(MaterialPackageOrder.of(brickPackage, brickPackCount, brickCost));
 
-        Material cement = (Material)materials.get(MaterialType.CEMENT);
+        Material cement = materials.get(MaterialType.CEMENT);
         MaterialPackage cementPackage = MaterialPackages.cementPackage();
         double cementPackCount = Math.ceil(cement.getQuantity() / brickPackage.getCount());
         double cementCost = cost(MaterialType.CEMENT, cementPackCount);
         result.add(MaterialPackageOrder.of(cementPackage, cementPackCount, cementCost));
 
-        Material sang = (Material)materials.get(MaterialType.SANG);
+        Material sang = materials.get(MaterialType.SANG);
         double sangCost = cost(MaterialType.SANG, sang.getQuantity());
         result.add(MaterialUnPackageOrder.of(MaterialType.SANG, sang.getQuantity(), sangCost));
 
