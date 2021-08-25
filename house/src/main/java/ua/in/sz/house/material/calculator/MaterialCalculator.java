@@ -5,18 +5,25 @@ import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.BillOfMaterial;
 import ua.in.sz.house.material.Material;
 
-import java.util.Arrays;
-
 @Slf4j
 public class MaterialCalculator {
 
-    public static BillOfMaterial<Material> calculate(House house) {
+    public static BillOfMaterial calculate(House house) {
         Material cementMortar = CementMortarCalculator.calculate(house);
-        Material brick = BrickCalculator.calculate(house);
-
         Material cement = CementCalculator.calculate(cementMortar);
         Material sang = SangCalculator.calculate(cementMortar);
 
-        return BillOfMaterial.of(Arrays.asList(brick, cement, sang));
+        Material brick = BrickCalculator.calculate(house);
+
+        BillOfMaterial bom = new BillOfMaterial(null);
+
+        BillOfMaterial cementMortarBom = new BillOfMaterial(cementMortar);
+        cementMortarBom.add(cement);
+        cementMortarBom.add(sang);
+
+        bom.add(cementMortarBom);
+        bom.add(brick);
+
+        return bom;
     }
 }

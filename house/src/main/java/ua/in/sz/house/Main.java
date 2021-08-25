@@ -27,7 +27,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        BillOfMaterial<Material> materials = MaterialCalculator.calculate(house);
+        BillOfMaterial materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
 
         log.info(MaterialOrderReport.report(order));

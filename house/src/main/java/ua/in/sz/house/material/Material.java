@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Material {
+public class Material implements BillOfMaterialItem {
     private final MaterialType materialType;
     private final double quantity;
 

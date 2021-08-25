@@ -1,23 +1,40 @@
 package ua.in.sz.house.material;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class BillOfMaterial<T extends Material> extends ArrayList<T> {
-    private BillOfMaterial(Collection<T> c) {
-        super(c);
+
+public class BillOfMaterial implements BillOfMaterialItem {
+    private final BillOfMaterialItem parent;
+    private final List<BillOfMaterialItem> children = new ArrayList<>();
+
+    public BillOfMaterial(BillOfMaterialItem parent) {
+        this.parent = parent;
     }
 
-    public T get(MaterialType materialType) {
-        return this.stream()
-                .filter(m -> materialType.equals(m.getMaterialType()))
-                .findFirst()
-                .orElse(null);
+    public BillOfMaterialItem get(MaterialType materialType) {
+        for (BillOfMaterialItem child : children) {
+            if (materialType.equals(child.getMaterialType())) {
+                return child;
+            }
+
+            if (child instanceof BillOfMaterial) {
+                BillOfMaterialItem item = ((BillOfMaterial) child).get(materialType);
+                if (item != null) {
+                    return item;
+                }
+            }
+        }
+
+        return null;
     }
 
-    public static <E extends Material> BillOfMaterial<E> of(List<E> materials) {
-        return new BillOfMaterial<E>(materials);
+    public void add(BillOfMaterialItem item) {
+        children.add(item);
     }
 
+    @Override
+    public MaterialType getMaterialType() {
+        return parent.getMaterialType();
+    }
 }
