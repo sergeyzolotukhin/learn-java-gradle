@@ -11,17 +11,9 @@ public class Material implements HasMaterialCode {
     private final MaterialCode materialCode;
     private final double quantity;
 
-    // TODO: remove
-//    private double cost;
-//    private double transportCost;
-//    private boolean required;
-
     public Material(MaterialCode materialCode, double quantity) {
         this.materialCode = materialCode;
         this.quantity = quantity;
-//        this.cost = cost;
-//        this.transportCost = transportCost;
-//        this.required = required;
     }
 
     @Override
@@ -32,5 +24,4 @@ public class Material implements HasMaterialCode {
     public static Material of(MaterialCode materialCode, double quantity) {
         return new Material(materialCode, quantity);
     }
-
 }
