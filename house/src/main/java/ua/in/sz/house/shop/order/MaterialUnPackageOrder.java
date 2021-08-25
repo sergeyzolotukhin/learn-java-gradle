@@ -1,27 +1,14 @@
 package ua.in.sz.house.shop.order;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ua.in.sz.house.material.MaterialCode;
+import ua.in.sz.house.material.MaterialType;
 
+@Getter
 @RequiredArgsConstructor(staticName = "of")
 public class MaterialUnPackageOrder implements MaterialOrder {
-    private final MaterialCode materialCode;
+    private final MaterialType materialType;
     private final double quantity;
     private final double cost;
-
-    @Override
-    public String code() {
-        return materialCode.code();
-    }
-
-    @Override
-    public double getQuantity() {
-        return quantity;
-    }
-
-    @Override
-    public double getCost() {
-        return cost;
-    }
 }
 

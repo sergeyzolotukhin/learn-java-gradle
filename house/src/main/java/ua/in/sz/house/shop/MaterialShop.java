@@ -3,7 +3,7 @@ package ua.in.sz.house.shop;
 import com.google.common.collect.ImmutableMap;
 import ua.in.sz.house.material.BillOfMaterials;
 import ua.in.sz.house.material.Material;
-import ua.in.sz.house.material.MaterialCode;
+import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.MaterialPackageOrder;
 import ua.in.sz.house.shop.order.MaterialUnPackageOrder;
@@ -13,38 +13,38 @@ import java.util.List;
 import java.util.Map;
 
 public class MaterialShop {
-    private static final Map<String, Double> costs = ImmutableMap.<String, Double>builder()
-            .put(MaterialCode.BRICK.code(), 3.3 * 420)
-            .put(MaterialCode.CEMENT.code(), 1800.0 / 1000.0 * 50)
-            .put(MaterialCode.SANG.code(), 180.0 / 1000.0)
+    private static final Map<MaterialType, Double> costs = ImmutableMap.<MaterialType, Double>builder()
+            .put(MaterialType.BRICK, 3.3 * 420)
+            .put(MaterialType.CEMENT, 1800.0 / 1000.0 * 50)
+            .put(MaterialType.SANG, 180.0 / 1000.0)
             .build();
 
     public static List<MaterialOrder> order(BillOfMaterials<Material> materials) {
         List<MaterialOrder> result = new ArrayList<>();
 
-        Material brick = materials.get(MaterialCode.BRICK);
+        Material brick = materials.get(MaterialType.BRICK);
         MaterialPackage brickPackage = MaterialPackages.brickPackage();
         double brickPackCount = Math.ceil(brick.getQuantity() / brickPackage.getCount());
-        double brickCost = cost(MaterialCode.BRICK, brickPackCount);
+        double brickCost = cost(MaterialType.BRICK, brickPackCount);
         result.add(MaterialPackageOrder.of(brickPackage, brickPackCount, brickCost));
 
-        Material cement = materials.get(MaterialCode.CEMENT);
+        Material cement = materials.get(MaterialType.CEMENT);
         MaterialPackage cementPackage = MaterialPackages.cementPackage();
         double cementPackCount = Math.ceil(cement.getQuantity() / brickPackage.getCount());
-        double cementCost = cost(MaterialCode.CEMENT, cementPackCount);
+        double cementCost = cost(MaterialType.CEMENT, cementPackCount);
         result.add(MaterialPackageOrder.of(cementPackage, cementPackCount, cementCost));
 
-        Material sang = materials.get(MaterialCode.SANG);
-        double sangCost = cost(MaterialCode.SANG, sang.getQuantity());
-        result.add(MaterialUnPackageOrder.of(MaterialCode.SANG, sang.getQuantity(), sangCost));
+        Material sang = materials.get(MaterialType.SANG);
+        double sangCost = cost(MaterialType.SANG, sang.getQuantity());
+        result.add(MaterialUnPackageOrder.of(MaterialType.SANG, sang.getQuantity(), sangCost));
 
         return result;
     }
 
-    private static double cost(MaterialCode materialCode, double quantity) {
-        Double cost = costs.get(materialCode.code());
+    private static double cost(MaterialType materialType, double quantity) {
+        Double cost = costs.get(materialType);
         if (cost == null) {
-            throw new IllegalStateException("The cost of material [" + materialCode.code() + "] not found");
+            throw new IllegalStateException("The cost of material [" + materialType + "] not found");
         }
 
         return quantity * cost;

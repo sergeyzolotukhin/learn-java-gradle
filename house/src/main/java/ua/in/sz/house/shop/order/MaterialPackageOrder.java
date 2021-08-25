@@ -2,6 +2,7 @@ package ua.in.sz.house.shop.order;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 
 @Getter
@@ -12,7 +13,7 @@ public class MaterialPackageOrder implements MaterialOrder {
     private final double cost;
 
     @Override
-    public String code() {
-        return pack.code();
+    public MaterialType getMaterialType() {
+        return pack.getMaterialType();
     }
 }

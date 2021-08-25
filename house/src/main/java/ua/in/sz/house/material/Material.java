@@ -7,21 +7,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Material implements HasMaterialCode {
-    private final MaterialCode materialCode;
+public class Material {
+    private final MaterialType materialType;
     private final double quantity;
 
-    public Material(MaterialCode materialCode, double quantity) {
-        this.materialCode = materialCode;
+    public Material(MaterialType materialType, double quantity) {
+        this.materialType = materialType;
         this.quantity = quantity;
     }
 
-    @Override
-    public String code() {
-        return materialCode.code();
-    }
-
-    public static Material of(MaterialCode materialCode, double quantity) {
-        return new Material(materialCode, quantity);
+    public static Material of(MaterialType materialType, double quantity) {
+        return new Material(materialType, quantity);
     }
 }
