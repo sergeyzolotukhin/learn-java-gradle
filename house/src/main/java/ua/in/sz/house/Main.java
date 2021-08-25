@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.house.Block;
 import ua.in.sz.house.house.House;
-import ua.in.sz.house.material.BillOfMaterials;
+import ua.in.sz.house.material.BillOfMaterial;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.order.MaterialOrderReport;
@@ -27,7 +27,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        BillOfMaterials<Material> materials = MaterialCalculator.calculate(house);
+        BillOfMaterial<Material> materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
 
         log.info(MaterialOrderReport.report(order));

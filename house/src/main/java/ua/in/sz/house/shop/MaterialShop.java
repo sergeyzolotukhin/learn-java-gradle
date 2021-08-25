@@ -1,7 +1,7 @@
 package ua.in.sz.house.shop;
 
 import com.google.common.collect.ImmutableMap;
-import ua.in.sz.house.material.BillOfMaterials;
+import ua.in.sz.house.material.BillOfMaterial;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.order.MaterialOrder;
@@ -19,7 +19,7 @@ public class MaterialShop {
             .put(MaterialType.SANG, 180.0 / 1000.0)
             .build();
 
-    public static List<MaterialOrder> order(BillOfMaterials<Material> materials) {
+    public static List<MaterialOrder> order(BillOfMaterial<Material> materials) {
         List<MaterialOrder> result = new ArrayList<>();
 
         Material brick = materials.get(MaterialType.BRICK);

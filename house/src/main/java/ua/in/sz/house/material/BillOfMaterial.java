@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class BillOfMaterials<T extends Material> extends ArrayList<T> {
-    private BillOfMaterials(Collection<T> c) {
+public class BillOfMaterial<T extends Material> extends ArrayList<T> {
+    private BillOfMaterial(Collection<T> c) {
         super(c);
     }
 
@@ -16,8 +16,8 @@ public class BillOfMaterials<T extends Material> extends ArrayList<T> {
                 .orElse(null);
     }
 
-    public static <E extends Material> BillOfMaterials<E> of(List<E> materials) {
-        return new BillOfMaterials<E>(materials);
+    public static <E extends Material> BillOfMaterial<E> of(List<E> materials) {
+        return new BillOfMaterial<E>(materials);
     }
 
 }
