@@ -5,7 +5,9 @@ import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.house.Block;
 import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.BillOfMaterial;
+import ua.in.sz.house.material.BillOfMaterialItem;
 import ua.in.sz.house.material.Material;
+import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.order.MaterialOrderReport;
 import ua.in.sz.house.shop.order.MaterialOrder;
@@ -29,6 +31,9 @@ public class Main {
 
         BillOfMaterial materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
+
+        Material cementMortar = (Material) ((BillOfMaterial) materials.get(MaterialType.CEMENT_MORTAR)).getParent();
+        log.info("Cement mortar {}", cementMortar.getQuantity());
 
         log.info(MaterialOrderReport.report(order));
 
