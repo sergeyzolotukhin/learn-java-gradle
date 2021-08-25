@@ -8,11 +8,11 @@ import java.util.List;
 
 public class BillOfMaterial implements BillOfMaterialItem {
     @Getter
-    private final BillOfMaterialItem parent;
+    private final Material material;
     private final List<BillOfMaterialItem> children = new ArrayList<>();
 
-    public BillOfMaterial(BillOfMaterialItem parent) {
-        this.parent = parent;
+    public BillOfMaterial(Material material) {
+        this.material = material;
     }
 
     public BillOfMaterialItem get(MaterialType materialType) {
