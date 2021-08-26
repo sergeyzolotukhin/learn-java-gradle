@@ -1,5 +1,6 @@
 package ua.in.sz.house.shop;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import ua.in.sz.house.material.BillOfMaterial;
 import ua.in.sz.house.material.Material;
@@ -17,6 +18,15 @@ public class MaterialShop {
             .put(MaterialType.BRICK, 3.3 * 420)
             .put(MaterialType.CEMENT, 1800.0 / 1000.0 * 50)
             .put(MaterialType.SANG, 180.0 / 1000.0)
+            .build();
+
+    private static final Map<MaterialType, MaterialPackage> packages = ImmutableMap.<MaterialType, MaterialPackage>builder()
+            .put(MaterialType.BRICK, MaterialPackages.brickPackage())
+            .put(MaterialType.CEMENT, MaterialPackages.cementPackage())
+            .build();
+
+    private static final List<MaterialType> unPackages = ImmutableList.<MaterialType>builder()
+            .add(MaterialType.SANG)
             .build();
 
     public static List<MaterialOrder> order(BillOfMaterial materials) {
