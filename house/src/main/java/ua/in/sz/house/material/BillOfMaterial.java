@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 
 public class BillOfMaterial implements BillOfMaterialItem {
@@ -16,24 +18,20 @@ public class BillOfMaterial implements BillOfMaterialItem {
     }
 
     public Material get(MaterialType materialType) {
-        if (material != null && materialType.equals(material.getMaterialType())) {
-            return material;
-        }
-
-        for (BillOfMaterialItem child : children) {
-            if (child instanceof Material && materialType.equals(((Material) child).getMaterialType())) {
-                return (Material) child;
-            }
-
-            if (child instanceof BillOfMaterial) {
-                Material item = ((BillOfMaterial) child).get(materialType);
-                if (item != null) {
-                    return item;
-                }
-            }
-        }
-
-        return null;
+        return Optional.ofNullable(this.material)
+                .filter(m -> materialType.equals(m.getMaterialType()))
+                .or(() -> children.stream()
+                        .filter(Material.class::isInstance)
+                        .map(Material.class::cast)
+                        .filter(m -> materialType.equals(m.getMaterialType()))
+                        .findFirst())
+                .or(() -> children.stream()
+                        .filter(BillOfMaterial.class::isInstance)
+                        .map(BillOfMaterial.class::cast)
+                        .map(m -> m.get(materialType))
+                        .filter(Objects::nonNull)
+                        .findFirst())
+                .orElse(null);
     }
 
     public void add(BillOfMaterialItem item) {

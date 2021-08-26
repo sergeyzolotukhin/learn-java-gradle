@@ -5,7 +5,7 @@ plugins {
 group 'ua.in.sz.house'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 
 repositories {
     mavenCentral()
@@ -33,3 +33,4 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
 }
+targetCompatibility = JavaVersion.VERSION_1_9
