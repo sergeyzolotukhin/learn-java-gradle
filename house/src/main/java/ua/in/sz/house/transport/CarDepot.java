@@ -107,39 +107,39 @@ public class CarDepot {
         double requiredTravelCount = Math.ceil(unPackageOrder.getQuantity() / car.getMaxWeight());
         int workTime = 8;
 
-        final double averageVelocity = 60.0; // Km/h
+        final double velocity = 60.0; // Km/h
         final double loadTime = 1; // hours
         final double unloadTime = 1; // hours
 
+        DistanceResolver distance = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
+
         // distance in KM
-        DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
-        double comeIn = distanceResolver.comeIn();
-        double travel = distanceResolver.travel();
-        double comeOut = distanceResolver.comeOut();
+        double comeIn = distance.comeIn();
+        double forward = distance.travel();
+        double back = distance.travel();
+        double comeOut = distance.comeOut();
 
         // time in hours
-        final double runTime = travel / averageVelocity;
-        final double comeInTime = comeIn / averageVelocity;
-        final double comeOutTime = comeOut / averageVelocity;
+        final double forwardTime = forward / velocity;
+        final double backTime = back / velocity;
+        final double comeInTime = comeIn / velocity;
+        final double comeOutTime = comeOut / velocity;
 
-        double forwardTime = loadTime + runTime + unloadTime;
-        double cycleTime = loadTime + runTime + unloadTime + runTime;
+        double leftTimePerDay = workTime - (comeInTime + loadTime + forwardTime + unloadTime + comeOutTime);
+        double cyclePerDay = Math.floor(leftTimePerDay / (loadTime + forwardTime + unloadTime + backTime));
+        double days = Math.floor(requiredTravelCount / (cyclePerDay + 1));
+        double lastDayCycle = Math.max(requiredTravelCount - days * (cyclePerDay + 1) - 1, 0);
 
-        double leftTimePerDay = workTime - (comeInTime + forwardTime + comeOutTime);
-        double cyclePerDay = Math.floor(leftTimePerDay / cycleTime);
-        double fullDays = Math.floor(requiredTravelCount / (cyclePerDay + 1));
-        double lastDayCycle = Math.max(requiredTravelCount - fullDays * (cyclePerDay + 1) - 1, 0);
+        double totalDistance = days * (comeIn + forward + comeOut)
+                + days * cyclePerDay * (comeIn + forward + comeOut + back)
+                + lastDayCycle * (comeIn + forward + comeOut + back);
 
-        double forwardTravel = comeIn + travel + comeOut;
-        double cycleTravel = comeIn + travel + comeOut + travel;
-        double distance = fullDays * (forwardTravel + cyclePerDay * cycleTravel) + lastDayCycle * cycleTravel;
-
-        double forwardCount = fullDays * (1 + cyclePerDay) + lastDayCycle;
+        double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
         double movedWeight = forwardCount * car.getMaxWeight();
 
-        log.info("Distance has value {} KM cargo moving {} moved weight {}", distance, forwardCount, movedWeight);
+        log.info("Distance has value {} KM cargo moving {} moved weight {}", totalDistance, forwardCount, movedWeight);
 
-        return distance * car.getKmCost();
+        return totalDistance * car.getKmCost();
     }
 
     private static double maxPackage(CargoCar car, MaterialPackage pack) {
