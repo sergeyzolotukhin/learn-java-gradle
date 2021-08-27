@@ -9,10 +9,9 @@ import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.Order;
 import ua.in.sz.house.shop.order.OrderReport;
+import ua.in.sz.house.transport.CarDepot;
 import ua.in.sz.house.transport.Cars;
-import ua.in.sz.house.transport.DistanceResolver;
 import ua.in.sz.house.transport.Place;
-import ua.in.sz.house.transport.TransportCostCalculator;
 
 import java.util.List;
 
@@ -32,9 +31,8 @@ public class Main {
         List<Order> order = MaterialShop.order(materials);
         log.info(OrderReport.report(order));
 
-        DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
         for (Order materialOrder : order) {
-            double cost = TransportCostCalculator.cost(Cars.dafXf95(), materialOrder, distanceResolver);
+            double cost = CarDepot.cost(Cars.dafXf95(), materialOrder, house);
             log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
     }

@@ -1,6 +1,7 @@
 package ua.in.sz.house.transport;
 
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.house.house.House;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.Order;
 import ua.in.sz.house.shop.order.PackageOrder;
@@ -9,9 +10,11 @@ import ua.in.sz.house.shop.order.PackageOrder;
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
  */
 @Slf4j
-public class TransportCostCalculator {
+public class CarDepot {
 
-    public static double cost(Cars.CargoCar car, Order order, DistanceResolver distanceResolver) {
+    public static double cost(Cars.CargoCar car, Order order, House house) {
+        DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
+
         if (order instanceof PackageOrder) {
             PackageOrder materialPackageOrder = (PackageOrder) order;
             MaterialPackage pack = materialPackageOrder.getPack();
