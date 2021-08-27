@@ -29,10 +29,6 @@ public class Main {
 
         Material materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
-
-        Material cementMortar = materials.get(MaterialType.CEMENT_MORTAR);
-        log.info("Cement mortar {}", cementMortar.getQuantity());
-
         log.info(MaterialOrderReport.report(order));
 
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());

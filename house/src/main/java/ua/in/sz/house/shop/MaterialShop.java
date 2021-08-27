@@ -31,31 +31,34 @@ public class MaterialShop {
     public static List<MaterialOrder> order(Material materials) {
         List<MaterialOrder> result = new ArrayList<>();
 
-        Material brick = materials.get(MaterialType.BRICK);
-        MaterialPackage brickPackage = MaterialPackages.brickPackage();
-        double brickPackCount = Math.ceil(brick.getQuantity() / brickPackage.getCount());
-        double brickCost = cost(MaterialType.BRICK, brickPackCount);
-        result.add(MaterialPackageOrder.of(brickPackage, brickPackCount, brickCost));
+        for (Material m : materials.getAll()) {
+            MaterialType type = m.getMaterialType();
+            double quantity = m.getQuantity();
 
-        Material cement = materials.get(MaterialType.CEMENT);
-        MaterialPackage cementPackage = MaterialPackages.cementPackage();
-        double cementPackCount = Math.ceil(cement.getQuantity() / brickPackage.getCount());
-        double cementCost = cost(MaterialType.CEMENT, cementPackCount);
-        result.add(MaterialPackageOrder.of(cementPackage, cementPackCount, cementCost));
-
-        Material sang = materials.get(MaterialType.SANG);
-        double sangCost = cost(MaterialType.SANG, sang.getQuantity());
-        result.add(MaterialUnPackageOrder.of(MaterialType.SANG, sang.getQuantity(), sangCost));
+            if (packages.containsKey(type)) {
+                result.add(packageOrder(type, quantity));
+            } else if (unPackages.contains(type)) {
+                result.add(unPackageOrder(type, quantity));
+            }
+        }
 
         return result;
     }
 
-    private static double cost(MaterialType materialType, double quantity) {
-        Double cost = costs.get(materialType);
-        if (cost == null) {
-            throw new IllegalStateException("The cost of material [" + materialType + "] not found");
-        }
+    private static MaterialUnPackageOrder unPackageOrder(MaterialType type, double quantity) {
+        double cost = cost(type, quantity);
+        return MaterialUnPackageOrder.of(type, quantity, cost);
+    }
 
+    private static MaterialPackageOrder packageOrder(MaterialType type, double quantity) {
+        MaterialPackage pack = packages.get(type);
+        double count = Math.ceil(quantity / pack.getCount());
+        double cost = cost(type, quantity);
+        return MaterialPackageOrder.of(pack, count, cost);
+    }
+
+    private static double cost(MaterialType materialType, double quantity) {
+        Double cost = costs.getOrDefault(materialType, 0.0);
         return quantity * cost;
     }
 }
