@@ -4,9 +4,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
-import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.MaterialPackageOrder;
-import ua.in.sz.house.shop.order.MaterialUnPackageOrder;
+import ua.in.sz.house.shop.order.Order;
+import ua.in.sz.house.shop.order.PackageOrder;
+import ua.in.sz.house.shop.order.UnPackageOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +28,8 @@ public class MaterialShop {
             .add(MaterialType.SANG)
             .build();
 
-    public static List<MaterialOrder> order(Material materials) {
-        List<MaterialOrder> result = new ArrayList<>();
+    public static List<Order> order(Material materials) {
+        List<Order> result = new ArrayList<>();
 
         for (Material m : materials.getAll()) {
             MaterialType type = m.getMaterialType();
@@ -45,16 +45,16 @@ public class MaterialShop {
         return result;
     }
 
-    private static MaterialUnPackageOrder unPackageOrder(MaterialType type, double quantity) {
+    private static UnPackageOrder unPackageOrder(MaterialType type, double quantity) {
         double cost = cost(type, quantity);
-        return MaterialUnPackageOrder.of(type, quantity, cost);
+        return UnPackageOrder.of(type, quantity, cost);
     }
 
-    private static MaterialPackageOrder packageOrder(MaterialType type, double quantity) {
+    private static PackageOrder packageOrder(MaterialType type, double quantity) {
         MaterialPackage pack = packages.get(type);
         double count = Math.ceil(quantity / pack.getCount());
         double cost = cost(type, quantity);
-        return MaterialPackageOrder.of(pack, count, cost);
+        return PackageOrder.of(pack, count, cost);
     }
 
     private static double cost(MaterialType materialType, double quantity) {

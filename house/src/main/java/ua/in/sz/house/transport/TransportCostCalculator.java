@@ -3,8 +3,8 @@ package ua.in.sz.house.transport;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.shop.MaterialPackage;
-import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.MaterialPackageOrder;
+import ua.in.sz.house.shop.order.Order;
+import ua.in.sz.house.shop.order.PackageOrder;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
@@ -15,9 +15,9 @@ public class TransportCostCalculator {
     private final Cars.CargoCar car;
     private final Distances.Distance distance;
 
-    public double cost(MaterialOrder order) {
-        if (order instanceof MaterialPackageOrder) {
-            MaterialPackageOrder materialPackageOrder = (MaterialPackageOrder) order;
+    public double cost(Order order) {
+        if (order instanceof PackageOrder) {
+            PackageOrder materialPackageOrder = (PackageOrder) order;
             MaterialPackage pack = materialPackageOrder.getPack();
             double requiredPackageCount = materialPackageOrder.getQuantity();
 

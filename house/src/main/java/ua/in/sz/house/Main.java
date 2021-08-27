@@ -7,8 +7,8 @@ import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
-import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.MaterialOrderReport;
+import ua.in.sz.house.shop.order.Order;
+import ua.in.sz.house.shop.order.OrderReport;
 import ua.in.sz.house.transport.Cars;
 import ua.in.sz.house.transport.Distances;
 import ua.in.sz.house.transport.TransportCostCalculator;
@@ -27,11 +27,11 @@ public class Main {
                 .build();
 
         Material materials = MaterialCalculator.calculate(house);
-        List<MaterialOrder> order = MaterialShop.order(materials);
-        log.info(MaterialOrderReport.report(order));
+        List<Order> order = MaterialShop.order(materials);
+        log.info(OrderReport.report(order));
 
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());
-        for (MaterialOrder materialOrder : order) {
+        for (Order materialOrder : order) {
             double cost = transportCostCalculator.cost(materialOrder);
             log.info("Transport of {} has cost {}", materialOrder.getMaterialType(), cost);
         }

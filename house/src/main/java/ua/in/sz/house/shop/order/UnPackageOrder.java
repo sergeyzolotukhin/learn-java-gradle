@@ -6,7 +6,7 @@ import ua.in.sz.house.material.MaterialType;
 
 @Getter
 @RequiredArgsConstructor(staticName = "of")
-public class MaterialUnPackageOrder implements MaterialOrder {
+public class UnPackageOrder implements Order {
     private final MaterialType materialType;
     private final double quantity;
     private final double cost;
