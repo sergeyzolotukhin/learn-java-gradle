@@ -3,22 +3,20 @@ package ua.in.sz.house.house;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.boiler.Boiler;
+import ua.in.sz.house.transport.Place;
 
 @Slf4j
+@Getter
 public class House {
-    @Getter
+    private final Place place;
     private final Boiler boiler;
-    @Getter
     private final Wall wall;
-
-    @Getter
     private final double height;
-    @Getter
     private final double length;
-    @Getter
     private final double width;
 
-    House(Boiler boiler, Wall wall, double height, double length, double width) {
+    House(Place place, Boiler boiler, Wall wall, double height, double length, double width) {
+        this.place = place;
         this.boiler = boiler;
         this.wall = wall;
         this.height = height;

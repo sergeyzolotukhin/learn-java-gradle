@@ -1,14 +1,21 @@
 package ua.in.sz.house.house;
 
 import ua.in.sz.house.boiler.Boiler;
+import ua.in.sz.house.transport.Place;
 
 public class HouseBuilder {
+    private Place place;
     private Block block;
     private Boiler boiler;
 
     private double height;
     private double length;
     private double width;
+
+    public HouseBuilder place(Place place) {
+        this.place = place;
+        return this;
+    }
 
     public HouseBuilder boiler(Boiler boiler) {
         this.boiler = boiler;
@@ -34,7 +41,7 @@ public class HouseBuilder {
                 .length(wallPerimeter())
                 .build();
 
-        return new House(boiler, wall, height, length, width);
+        return new House(place, boiler, wall, height, length, width);
     }
 
     private double wallPerimeter() {

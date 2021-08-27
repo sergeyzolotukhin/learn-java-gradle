@@ -1,6 +1,5 @@
 package ua.in.sz.house.transport;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.Order;
@@ -10,12 +9,9 @@ import ua.in.sz.house.shop.order.PackageOrder;
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
  */
 @Slf4j
-@AllArgsConstructor(staticName = "of")
 public class TransportCostCalculator {
-    private final Cars.CargoCar car;
-    private final Distances.Distance distance;
 
-    public double cost(Order order) {
+    public static double cost(Cars.CargoCar car, Order order, DistanceResolver distanceResolver) {
         if (order instanceof PackageOrder) {
             PackageOrder materialPackageOrder = (PackageOrder) order;
             MaterialPackage pack = materialPackageOrder.getPack();
@@ -36,15 +32,15 @@ public class TransportCostCalculator {
             double totalDistance = 0;
             double comeInCount = 0;
 
-            double runTime = distance.getTravelDistance() / averageVelocity;
-            double comeInTime = distance.getComeInDistance() / averageVelocity;
-            double comeOutTime = distance.getComeOutDistance() / averageVelocity;
+            double runTime = distanceResolver.travel() / averageVelocity;
+            double comeInTime = distanceResolver.comeIn() / averageVelocity;
+            double comeOutTime = distanceResolver.comeOut() / averageVelocity;
             double travelCargoTime = loadTime + runTime + unloadTime;
 
             double leftTravel = travelCount;
             while (leftTravel > 0) {
                 totalTime += comeInTime;
-                totalDistance += distance.getComeInDistance();
+                totalDistance += distanceResolver.comeIn();
                 comeInCount++;
                 log.debug("come in time {} min", String.format("%.0f", comeInTime * 60));
 
@@ -61,7 +57,7 @@ public class TransportCostCalculator {
                     leftWorkTime -= travelCargoTime;
                     workTime += travelCargoTime;
                     totalTime = totalTime + travelCargoTime;
-                    totalDistance += distance.getTravelDistance();
+                    totalDistance += distanceResolver.travel();
                     leftTravel--;
                     log.debug("travel cargo time {} hours {} min",
                             String.format("%.0f", travelCargoTime),
@@ -73,7 +69,7 @@ public class TransportCostCalculator {
 
                     leftWorkTime -= runTime;
                     workTime += runTime;
-                    totalDistance += distance.getTravelDistance();
+                    totalDistance += distanceResolver.travel();
                     totalTime += runTime;
                     log.debug("travel to load time {} min",
                             String.format("%.0f", runTime * 60));
@@ -81,7 +77,7 @@ public class TransportCostCalculator {
                 workTime += comeOutTime;
 
                 totalTime += comeOutTime;
-                totalDistance += distance.getComeOutDistance();
+                totalDistance += distanceResolver.comeOut();
                 log.debug("come out time {} min, work time {} hours", String.format("%.0f", comeOutTime * 60), String.format("%.0f", workTime));
             }
 
@@ -99,7 +95,7 @@ public class TransportCostCalculator {
 
     }
 
-    private double maxPackage(Cars.CargoCar car, MaterialPackage pack) {
+    private static double maxPackage(Cars.CargoCar car, MaterialPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
         log.debug("Max package count per weight {} package weight {} weight {}",
                 maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);
