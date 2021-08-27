@@ -29,7 +29,7 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        BillOfMaterial materials = MaterialCalculator.calculate(house);
+        Material materials = MaterialCalculator.calculate(house);
         List<MaterialOrder> order = MaterialShop.order(materials);
 
         Material cementMortar = materials.get(MaterialType.CEMENT_MORTAR);

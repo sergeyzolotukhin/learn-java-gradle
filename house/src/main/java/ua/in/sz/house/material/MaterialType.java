@@ -4,5 +4,6 @@ public enum MaterialType {
     BRICK,
     CEMENT,
     CEMENT_MORTAR,
-    SANG;
+    SANG,
+    WALL;
 }

@@ -29,7 +29,7 @@ public class MaterialShop {
             .add(MaterialType.SANG)
             .build();
 
-    public static List<MaterialOrder> order(BillOfMaterial materials) {
+    public static List<MaterialOrder> order(Material materials) {
         List<MaterialOrder> result = new ArrayList<>();
 
         Material brick = materials.get(MaterialType.BRICK);
