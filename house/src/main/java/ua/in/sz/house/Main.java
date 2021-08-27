@@ -33,7 +33,7 @@ public class Main {
         TransportCostCalculator transportCostCalculator = TransportCostCalculator.of(Cars.dafXf95(), Distances.brickStockToVorzel());
         for (Order materialOrder : order) {
             double cost = transportCostCalculator.cost(materialOrder);
-            log.info("Transport of {} has cost {}", materialOrder.getMaterialType(), cost);
+            log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
     }
 }

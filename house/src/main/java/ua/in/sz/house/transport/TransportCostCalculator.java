@@ -19,7 +19,7 @@ public class TransportCostCalculator {
         if (order instanceof PackageOrder) {
             PackageOrder materialPackageOrder = (PackageOrder) order;
             MaterialPackage pack = materialPackageOrder.getPack();
-            double requiredPackageCount = materialPackageOrder.getQuantity();
+            double requiredPackageCount = materialPackageOrder.quantity();
 
             double maxPackage = maxPackage(car, pack);
             log.debug("Max package count {} weight {}", maxPackage, maxPackage * pack.getWeight() / 1000.0);

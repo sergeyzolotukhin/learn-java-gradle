@@ -13,7 +13,7 @@ public class OrderReport {
 
         for (Order material : order) {
             sb.append(String.format("\n\t%s quantity %.0f cost %.0f UAH",
-                    material.getMaterialType(), material.getQuantity(), material.getCost()));
+                    material.materialType(), material.quantity(), material.cost()));
         }
 
         return sb.toString();

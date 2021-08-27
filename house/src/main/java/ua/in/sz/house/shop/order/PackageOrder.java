@@ -13,7 +13,17 @@ public class PackageOrder implements Order {
     private final double cost;
 
     @Override
-    public MaterialType getMaterialType() {
+    public MaterialType materialType() {
         return pack.getMaterialType();
+    }
+
+    @Override
+    public double quantity() {
+        return quantity;
+    }
+
+    @Override
+    public double cost() {
+        return cost;
     }
 }

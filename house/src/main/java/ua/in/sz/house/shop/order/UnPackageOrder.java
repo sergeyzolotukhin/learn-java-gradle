@@ -10,5 +10,20 @@ public class UnPackageOrder implements Order {
     private final MaterialType materialType;
     private final double quantity;
     private final double cost;
+
+    @Override
+    public MaterialType materialType() {
+        return materialType;
+    }
+
+    @Override
+    public double quantity() {
+        return quantity;
+    }
+
+    @Override
+    public double cost() {
+        return cost;
+    }
 }
 
