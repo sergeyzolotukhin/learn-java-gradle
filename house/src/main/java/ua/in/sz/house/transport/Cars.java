@@ -1,8 +1,5 @@
 package ua.in.sz.house.transport;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 public class Cars {
 
     /**
@@ -26,17 +23,4 @@ public class Cars {
         return new CargoCar(13.6, 2.5, 2.5, 20_000, 620, 620, 30);
     }
 
-    @Getter
-    @AllArgsConstructor
-    public static class CargoCar {
-        private final double length;
-        private final double width;
-        private final double height;
-
-        private final double maxWeight;
-
-        private final double comeInCost;
-        private final double hourCost;
-        private final double kmCost;
-    }
 }

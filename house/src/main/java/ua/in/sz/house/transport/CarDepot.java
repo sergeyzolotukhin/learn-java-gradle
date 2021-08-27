@@ -12,7 +12,7 @@ import ua.in.sz.house.shop.order.PackageOrder;
 @Slf4j
 public class CarDepot {
 
-    public static double cost(Cars.CargoCar car, Order order, House house) {
+    public static double cost(CargoCar car, Order order, House house) {
         DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
 
         if (order instanceof PackageOrder) {
@@ -98,17 +98,15 @@ public class CarDepot {
 
     }
 
-    private static double maxPackage(Cars.CargoCar car, MaterialPackage pack) {
+    private static double maxPackage(CargoCar car, MaterialPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
-        log.debug("Max package count per weight {} package weight {} weight {}",
-                maxPackagePerWeight, pack.getWeight() / 1000.0, maxPackagePerWeight * pack.getWeight() / 1000.0);
+        double maxPackagePerSquare = maxPackagePerSquare(car, pack);
+        return Math.min(maxPackagePerWeight, maxPackagePerSquare);
+    }
 
+    private static double maxPackagePerSquare(CargoCar car, MaterialPackage pack) {
         double packagePerWidth = Math.floor(car.getWidth() / pack.getLength());
         double packagePerLength = Math.floor(car.getLength() / pack.getWidth());
-        double maxPackagePerLength = packagePerLength * packagePerWidth;
-        log.debug("Max package count per length {} package width {} car length {} weight {}",
-                maxPackagePerLength, pack.getWidth(), car.getLength(), maxPackagePerLength * pack.getWeight() / 1000.0);
-
-        return Math.min(maxPackagePerWeight, maxPackagePerLength);
+        return packagePerLength * packagePerWidth;
     }
 }
