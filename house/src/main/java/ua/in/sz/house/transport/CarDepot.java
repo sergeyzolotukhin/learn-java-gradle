@@ -5,6 +5,7 @@ import ua.in.sz.house.house.House;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.Order;
 import ua.in.sz.house.shop.order.PackageOrder;
+import ua.in.sz.house.shop.order.UnPackageOrder;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
@@ -96,6 +97,49 @@ public class CarDepot {
             return 0.0;
         }
 
+    }
+
+    public static double sangCost(CargoCar car, Order order, House house) {
+        if (!(order instanceof UnPackageOrder)) {
+            return 0;
+        }
+        UnPackageOrder unPackageOrder = (UnPackageOrder) order;
+        double requiredTravelCount = Math.ceil(unPackageOrder.getQuantity() / car.getMaxWeight());
+        int workTime = 8;
+
+        final double averageVelocity = 60.0; // Km/h
+        final double loadTime = 1; // hours
+        final double unloadTime = 1; // hours
+
+        // distance in KM
+        DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
+        double comeIn = distanceResolver.comeIn();
+        double travel = distanceResolver.travel();
+        double comeOut = distanceResolver.comeOut();
+
+        // time in hours
+        final double runTime = travel / averageVelocity;
+        final double comeInTime = comeIn / averageVelocity;
+        final double comeOutTime = comeOut / averageVelocity;
+
+        double forwardTime = loadTime + runTime + unloadTime;
+        double cycleTime = loadTime + runTime + unloadTime + runTime;
+
+        double leftTimePerDay = workTime - (comeInTime + forwardTime + comeOutTime);
+        double cyclePerDay = Math.floor(leftTimePerDay / cycleTime);
+        double fullDays = Math.floor(requiredTravelCount / (cyclePerDay + 1));
+        double lastDayCycle = Math.max(requiredTravelCount - fullDays * (cyclePerDay + 1) - 1, 0);
+
+        double forwardTravel = comeIn + travel + comeOut;
+        double cycleTravel = comeIn + travel + comeOut + travel;
+        double distance = fullDays * (forwardTravel + cyclePerDay * cycleTravel) + lastDayCycle * cycleTravel;
+
+        double forwardCount = fullDays * (1 + cyclePerDay) + lastDayCycle;
+        double movedWeight = forwardCount * car.getMaxWeight();
+
+        log.info("Distance has value {} KM cargo moving {} moved weight {}", distance, forwardCount, movedWeight);
+
+        return distance * car.getKmCost();
     }
 
     private static double maxPackage(CargoCar car, MaterialPackage pack) {

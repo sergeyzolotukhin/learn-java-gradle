@@ -32,7 +32,7 @@ public class Main {
         log.info(OrderReport.report(order));
 
         for (Order materialOrder : order) {
-            double cost = CarDepot.cost(Cars.dafXf95(), materialOrder, house);
+            double cost = CarDepot.sangCost(Cars.kamaz_551(), materialOrder, house);
             log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
     }

@@ -2,6 +2,10 @@ package ua.in.sz.house.transport;
 
 public class Cars {
 
+    public static CargoCar kamaz_551() {
+        return new CargoCar(0, 0, 0, 10_000, 0, 0, 18);
+    }
+
     /**
      * Isuzu NQR75 - 5 000 Kg
      */
