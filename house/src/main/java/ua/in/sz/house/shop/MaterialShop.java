@@ -2,7 +2,6 @@ package ua.in.sz.house.shop;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import ua.in.sz.house.material.BillOfMaterial;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.order.MaterialOrder;

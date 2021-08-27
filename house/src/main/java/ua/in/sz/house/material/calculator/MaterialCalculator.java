@@ -10,15 +10,15 @@ public class MaterialCalculator {
 
     public static Material calculate(House house) {
         Material wall = new Material(MaterialType.WALL, 1);
-        wall.addSubMaterial(BrickCalculator.calculate(house));
-        wall.addSubMaterial(cementMortar(house));
+        wall.add(BrickCalculator.calculate(house));
+        wall.add(cementMortar(house));
         return wall;
     }
 
     private static Material cementMortar(House house) {
         Material cementMortar = CementMortarCalculator.calculate(house);
-        cementMortar.addSubMaterial(CementCalculator.calculate(cementMortar));
-        cementMortar.addSubMaterial(SangCalculator.calculate(cementMortar));
+        cementMortar.add(CementCalculator.calculate(cementMortar));
+        cementMortar.add(SangCalculator.calculate(cementMortar));
         return cementMortar;
     }
 }
