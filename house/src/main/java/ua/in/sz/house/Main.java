@@ -34,7 +34,7 @@ public class Main {
 
         DistanceResolver distanceResolver = new DistanceResolver(house.getPlace(), Place.TRAVITA, Place.MOROR_M);
         for (Order materialOrder : order) {
-            double cost = TransportCostCalculator.cost(Cars.dafXf95(), materialOrder,distanceResolver);
+            double cost = TransportCostCalculator.cost(Cars.dafXf95(), materialOrder, distanceResolver);
             log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
     }
