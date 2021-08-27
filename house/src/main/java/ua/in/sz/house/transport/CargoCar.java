@@ -15,4 +15,6 @@ public class CargoCar {
     private final double comeInCost;
     private final double hourCost;
     private final double kmCost;
+
+    private final double velocity;
 }

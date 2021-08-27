@@ -107,7 +107,6 @@ public class CarDepot {
         double requiredTravelCount = Math.ceil(unPackageOrder.getQuantity() / car.getMaxWeight());
         int workTime = 8;
 
-        final double velocity = 60.0; // Km/h
         final double loadTime = 1; // hours
         final double unloadTime = 1; // hours
 
@@ -120,10 +119,10 @@ public class CarDepot {
         double comeOut = distance.comeOut();
 
         // time in hours
-        final double forwardTime = forward / velocity;
-        final double backTime = back / velocity;
-        final double comeInTime = comeIn / velocity;
-        final double comeOutTime = comeOut / velocity;
+        final double forwardTime = forward / car.getVelocity();
+        final double backTime = back / car.getVelocity();
+        final double comeInTime = comeIn / car.getVelocity();
+        final double comeOutTime = comeOut / car.getVelocity();
 
         double leftTimePerDay = workTime - (comeInTime + loadTime + forwardTime + unloadTime + comeOutTime);
         double cyclePerDay = Math.floor(leftTimePerDay / (loadTime + forwardTime + unloadTime + backTime));
