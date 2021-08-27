@@ -7,6 +7,7 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -35,6 +36,15 @@ public class Material {
                 .filter(Objects::nonNull)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Material> getAll() {
+        List<Material> result = new ArrayList<>();
+        result.add(this);
+        result.addAll(components.stream()
+                .flatMap(c -> c.getAll().stream())
+                .collect(Collectors.toList()));
+        return result;
     }
 
     public static Material of(MaterialType materialType, double quantity) {
