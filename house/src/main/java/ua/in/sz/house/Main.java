@@ -9,7 +9,7 @@ import ua.in.sz.house.material.MaterialReport;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.MaterialOrderReport;
+import ua.in.sz.house.shop.MaterialOrderReport;
 import ua.in.sz.house.transport.*;
 
 @Slf4j
