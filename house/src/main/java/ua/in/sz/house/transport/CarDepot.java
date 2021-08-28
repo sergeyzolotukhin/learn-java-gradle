@@ -35,7 +35,7 @@ public class CarDepot {
         return cost(car, travelCount(car, materialOrder), distance);
     }
 
-    public static double cost(CargoCar car, double travelCount, Distance distance) {
+    private static double cost(CargoCar car, double travelCount, Distance distance) {
         int workTime = 8;
 
         final double loadTime = 1; // hours
