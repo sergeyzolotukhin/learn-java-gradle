@@ -5,7 +5,7 @@ plugins {
 group 'ua.in.sz.house'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.9
+sourceCompatibility = 16
 
 repositories {
     mavenCentral()
@@ -22,15 +22,15 @@ dependencies {
     implementation 'commons-io:commons-io:2.6'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.8'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
 }
-targetCompatibility = JavaVersion.VERSION_1_9
+targetCompatibility = JavaVersion.VERSION_16
