@@ -9,7 +9,7 @@ public class MaterialOrderReport {
 
         sb.append("\nHouse order:");
 
-        for (MaterialOrder.Item material : materialOrder.getItems()) {
+        for (MaterialOrder.Item material : materialOrder.items()) {
             sb.append(String.format("\n\t%s quantity %.0f cost %.0f UAH",
                     material.materialType(), material.quantity(), material.cost()));
         }

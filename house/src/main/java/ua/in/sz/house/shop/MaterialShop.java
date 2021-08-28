@@ -42,7 +42,7 @@ public class MaterialShop {
             }
         }
 
-        return MaterialOrder.of(result);
+        return new MaterialOrder(result);
     }
 
     private static UnPackageMaterial unPackageOrder(MaterialType type, double quantity) {
