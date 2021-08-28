@@ -5,6 +5,7 @@ import ua.in.sz.house.boiler.impl.ElectricityBoiler;
 import ua.in.sz.house.house.Block;
 import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.Material;
+import ua.in.sz.house.material.MaterialReport;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.MaterialOrder;
@@ -24,6 +25,8 @@ public class Main {
                 .build();
 
         Material material = MaterialCalculator.calculate(house);
+        log.info(MaterialReport.report(material));
+
         MaterialOrder materialOrder = MaterialShop.makeOrder(material);
         log.info(MaterialOrderReport.report(materialOrder));
 

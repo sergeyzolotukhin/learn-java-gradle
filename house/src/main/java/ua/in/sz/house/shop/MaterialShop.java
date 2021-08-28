@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
+import ua.in.sz.house.material.MaterialUnit;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.PackageMaterial;
 import ua.in.sz.house.shop.order.UnPackageMaterial;
@@ -34,27 +35,28 @@ public class MaterialShop {
         for (Material component : material.allComponents()) {
             MaterialType type = component.getMaterialType();
             double quantity = component.getQuantity();
+            MaterialUnit unit = component.getUnit();
 
             if (packages.containsKey(type)) {
                 result.add(packageOrder(type, quantity));
             } else if (unPackages.contains(type)) {
-                result.add(unPackageOrder(type, quantity));
+                result.add(unPackageOrder(type, quantity, unit));
             }
         }
 
         return new MaterialOrder(result);
     }
 
-    private static UnPackageMaterial unPackageOrder(MaterialType type, double quantity) {
+    private static UnPackageMaterial unPackageOrder(MaterialType type, double quantity, MaterialUnit unit) {
         double cost = cost(type, quantity);
-        return new UnPackageMaterial(type, quantity, cost);
+        return new UnPackageMaterial(type, quantity, unit, cost);
     }
 
     private static PackageMaterial packageOrder(MaterialType type, double quantity) {
         MaterialPackage pack = packages.get(type);
         double count = Math.ceil(quantity / pack.getCount());
         double cost = cost(type, quantity);
-        return new PackageMaterial(pack, count, cost);
+        return new PackageMaterial(pack, count, MaterialUnit.PIECE, cost);
     }
 
     private static double cost(MaterialType materialType, double quantity) {

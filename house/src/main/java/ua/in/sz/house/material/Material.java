@@ -1,7 +1,6 @@
 package ua.in.sz.house.material;
 
 import lombok.Getter;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,15 +8,16 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Getter
-@ToString
 public class Material {
     private final MaterialType materialType;
     private final double quantity;
+    private final MaterialUnit unit;
     private final List<Material> components = new ArrayList<>();
 
-    public Material(MaterialType materialType, double quantity) {
+    public Material(MaterialType materialType, double quantity, MaterialUnit unit) {
         this.materialType = materialType;
         this.quantity = quantity;
+        this.unit = unit;
     }
 
     public void add(Material material) {
@@ -43,9 +43,5 @@ public class Material {
                 .flatMap(c -> c.allComponents().stream())
                 .collect(Collectors.toList()));
         return result;
-    }
-
-    public static Material of(MaterialType materialType, double quantity) {
-        return new Material(materialType, quantity);
     }
 }

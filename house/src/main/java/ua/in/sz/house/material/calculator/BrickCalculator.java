@@ -6,6 +6,7 @@ import ua.in.sz.house.house.House;
 import ua.in.sz.house.house.Wall;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
+import ua.in.sz.house.material.MaterialUnit;
 
 
 public class BrickCalculator {
@@ -19,7 +20,9 @@ public class BrickCalculator {
             double countByLength = Math.ceil(wall.getLength() / (block.getLength() + CEMENT_THICKNESS));
             double countByHeight = Math.ceil(wall.getHeight() / (block.getHeight() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
-            return Material.of(MaterialType.BRICK, countByLength * countByHeight * countByWidth);
+            double quantity = countByLength * countByHeight * countByWidth;
+
+            return new Material(MaterialType.BRICK, quantity, MaterialUnit.PIECE);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

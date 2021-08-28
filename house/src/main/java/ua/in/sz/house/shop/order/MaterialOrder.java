@@ -1,6 +1,7 @@
 package ua.in.sz.house.shop.order;
 
 import ua.in.sz.house.material.MaterialType;
+import ua.in.sz.house.material.MaterialUnit;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public record MaterialOrder(List<Item> items) {
         double quantity();
 
         double cost();
+
+        MaterialUnit unit();
     }
 }

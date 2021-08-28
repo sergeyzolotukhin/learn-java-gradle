@@ -10,8 +10,8 @@ public class MaterialOrderReport {
         sb.append("\nMaterial order:");
 
         for (MaterialOrder.Item material : materialOrder.items()) {
-            sb.append(String.format("\n\t%-10.10s quantity %7.0f cost %10.0f UAH",
-                    material.materialType().getName(), material.quantity(), material.cost()));
+            sb.append(String.format("\n\t%-10.10s quantity %7.0f %6.6s cost %10.0f UAH",
+                    material.materialType().getName(), material.quantity(), material.unit().getName(), material.cost()));
         }
 
         return sb.toString();
