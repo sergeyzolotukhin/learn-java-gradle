@@ -32,7 +32,7 @@ public class Main {
         log.info(OrderReport.report(order));
 
         for (Order materialOrder : order) {
-            double cost = CarDepot.cost(Cars.isuzuNqr75(), materialOrder, house.getPlace());
+            double cost = CarDepot.cost(Cars.isuzuNqr75(), materialOrder);
             log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
     }
