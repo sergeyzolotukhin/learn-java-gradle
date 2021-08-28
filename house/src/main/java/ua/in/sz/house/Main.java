@@ -9,10 +9,7 @@ import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.OrderReport;
-import ua.in.sz.house.transport.CarDepot;
-import ua.in.sz.house.transport.CarOrder;
-import ua.in.sz.house.transport.CarPrice;
-import ua.in.sz.house.transport.Place;
+import ua.in.sz.house.transport.*;
 
 @Slf4j
 public class Main {
@@ -32,10 +29,6 @@ public class Main {
 
         CarOrder carOrder = CarDepot.order(materialOrder);
         CarPrice carPrice = CarDepot.price(carOrder);
-
-        for (CarPrice.Item item : carPrice.items()) {
-            log.info("The {} car will run {} KM, cargo moving {} moved weight {} cost {} UAH",
-                    item.car().getName(), item.distance(), item.forward(), item.weight(), item.cost());
-        }
+        log.info(CarPriceReport.report(carPrice));
     }
 }
