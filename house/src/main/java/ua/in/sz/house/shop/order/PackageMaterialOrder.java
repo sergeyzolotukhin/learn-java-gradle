@@ -7,7 +7,7 @@ import ua.in.sz.house.shop.MaterialPackage;
 
 @Getter
 @RequiredArgsConstructor(staticName = "of")
-public class PackageOrder implements Order {
+public class PackageMaterialOrder implements MaterialOrder {
     private final MaterialPackage pack;
     private final double quantity;
     private final double cost;

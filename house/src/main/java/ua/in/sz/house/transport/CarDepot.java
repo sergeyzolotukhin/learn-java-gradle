@@ -3,18 +3,18 @@ package ua.in.sz.house.transport;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.shop.MaterialPackage;
-import ua.in.sz.house.shop.order.Order;
-import ua.in.sz.house.shop.order.PackageOrder;
-import ua.in.sz.house.shop.order.UnPackageOrder;
+import ua.in.sz.house.shop.order.MaterialOrder;
+import ua.in.sz.house.shop.order.PackageMaterialOrder;
+import ua.in.sz.house.shop.order.UnPackageMaterialOrder;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
  */
 @Slf4j
 public class CarDepot {
-    public static double cost(CargoCar car, Order order) {
+    public static double cost(CargoCar car, MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
-        return cost(car, travelCount(car, order), distance);
+        return cost(car, travelCount(car, materialOrder), distance);
     }
 
     public static double cost(CargoCar car, double travelCount, Distance distance) {
@@ -52,24 +52,24 @@ public class CarDepot {
         return totalDistance * car.getKmCost();
     }
 
-    public static double travelCount(CargoCar car, Order order) {
-        if (order instanceof PackageOrder packageOrder) {
+    public static double travelCount(CargoCar car, MaterialOrder materialOrder) {
+        if (materialOrder instanceof PackageMaterialOrder packageOrder) {
             return packageTravelCount(car, packageOrder);
         }
 
-        if (order instanceof UnPackageOrder unPackageOrder) {
+        if (materialOrder instanceof UnPackageMaterialOrder unPackageOrder) {
             return unPackageTravelCount(car, unPackageOrder);
         }
 
-        throw new NotImplementedException("Unsupported package type " + order.getClass());
+        throw new NotImplementedException("Unsupported package type " + materialOrder.getClass());
     }
 
-    private static double packageTravelCount(CargoCar car, PackageOrder order) {
+    private static double packageTravelCount(CargoCar car, PackageMaterialOrder order) {
         double maxPackage = maxPackage(car, order.getPack());
         return Math.ceil(order.quantity() / maxPackage);
     }
 
-    private static double unPackageTravelCount(CargoCar car, UnPackageOrder order) {
+    private static double unPackageTravelCount(CargoCar car, UnPackageMaterialOrder order) {
         return Math.ceil(order.getQuantity() / car.getMaxWeight());
     }
 

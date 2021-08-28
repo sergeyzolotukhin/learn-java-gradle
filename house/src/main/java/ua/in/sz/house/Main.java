@@ -7,7 +7,7 @@ import ua.in.sz.house.house.House;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
-import ua.in.sz.house.shop.order.Order;
+import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.OrderReport;
 import ua.in.sz.house.transport.CarDepot;
 import ua.in.sz.house.transport.Cars;
@@ -28,10 +28,10 @@ public class Main {
                 .build();
 
         Material materials = MaterialCalculator.calculate(house);
-        List<Order> order = MaterialShop.order(materials);
+        List<MaterialOrder> order = MaterialShop.order(materials);
         log.info(OrderReport.report(order));
 
-        for (Order materialOrder : order) {
+        for (MaterialOrder materialOrder : order) {
             double cost = CarDepot.cost(Cars.isuzuNqr75(), materialOrder);
             log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
         }
