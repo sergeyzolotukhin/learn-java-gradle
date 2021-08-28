@@ -29,7 +29,7 @@ public class CarDepot {
     }
 
     public static void cost(CarOrder carOrder) {
-        for (CarOrder.Item item : carOrder.getItems()) {
+        for (CarOrder.Item item : carOrder.items()) {
             CargoCar car = item.car();
             MaterialOrder.Item materialOrder = item.materialOrder();
             Distance distance = item.distance();
