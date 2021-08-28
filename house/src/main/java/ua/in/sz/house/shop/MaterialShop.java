@@ -55,7 +55,7 @@ public class MaterialShop {
     private static PackageMaterial packageOrder(MaterialType type, double quantity) {
         MaterialPackage pack = packages.get(type);
         double count = Math.ceil(quantity / pack.getCount());
-        double cost = cost(type, quantity);
+        double cost = cost(type, count);
         return new PackageMaterial(pack, count, MaterialUnit.PIECE, cost);
     }
 
