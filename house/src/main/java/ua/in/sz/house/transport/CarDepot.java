@@ -2,7 +2,6 @@ package ua.in.sz.house.transport;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
-import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.PackageMaterial;
@@ -10,6 +9,8 @@ import ua.in.sz.house.shop.order.UnPackageMaterial;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static ua.in.sz.house.material.MaterialType.*;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
@@ -19,13 +20,13 @@ public class CarDepot {
     public static CarOrder makeOrder(MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
 
-        List<CarOrder.Item> result = new ArrayList<>();
+        List<CarOrder.Item> items = new ArrayList<>();
 
-        result.add(new CarOrder.Item(materialOrder.get(MaterialType.CEMENT), Cars.isuzuNqr75_5t(), distance));
-        result.add(new CarOrder.Item(materialOrder.get(MaterialType.SANG), Cars.kamaz_5511_10t(), distance));
-        result.add(new CarOrder.Item(materialOrder.get(MaterialType.BRICK), Cars.dafXf95_20t(), distance));
+        items.add(new CarOrder.Item(Cars.isuzuNqr75_5t(), distance, materialOrder.get(CEMENT)));
+        items.add(new CarOrder.Item(Cars.kamaz_5511_10t(), distance, materialOrder.get(SANG)));
+        items.add(new CarOrder.Item(Cars.dafXf95_20t(), distance, materialOrder.get(BRICK)));
 
-        return new CarOrder(result);
+        return new CarOrder(items);
     }
 
     public static CarPrice makePrice(CarOrder carOrder) {
@@ -33,14 +34,21 @@ public class CarDepot {
 
         for (CarOrder.Item item : carOrder.items()) {
             CargoCar car = item.car();
-            MaterialOrder.Item materialOrder = item.materialOrder();
             Distance distance = item.distance();
-            CarPrice.Item price = makePrice(car, travelCount(car, materialOrder), distance);
+            MaterialOrder.Item materialOrder = item.materialOrder();
+
+            double travelCount = travelCount(car, materialOrder);
+            CarPrice.Item price = makePrice(car, travelCount, distance);
+
             result.add(price);
         }
 
         return new CarPrice(result);
     }
+
+    // ================================================================================================================
+    // private methods
+    // ================================================================================================================
 
     private static CarPrice.Item makePrice(CargoCar car, double travelCount, Distance distance) {
         int workTime = 8;
