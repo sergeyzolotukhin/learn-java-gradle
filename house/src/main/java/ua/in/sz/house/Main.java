@@ -25,8 +25,8 @@ public class Main {
                 .size(10.0, 10.0, 3.0)
                 .build();
 
-        Material materials = MaterialCalculator.calculate(house);
-        MaterialOrder materialOrder = MaterialShop.order(materials);
+        Material material = MaterialCalculator.calculate(house);
+        MaterialOrder materialOrder = MaterialShop.order(material);
         log.info(OrderReport.report(materialOrder));
 
         CarOrder carOrder = CarDepot.order(materialOrder);
