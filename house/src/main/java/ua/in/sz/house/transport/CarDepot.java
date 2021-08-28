@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Slf4j
 public class CarDepot {
-    public static CarOrder order(MaterialOrder materialOrder) {
+    public static CarOrder makeOrder(MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
 
         List<CarOrder.Item> result = new ArrayList<>();
@@ -28,21 +28,21 @@ public class CarDepot {
         return new CarOrder(result);
     }
 
-    public static CarPrice price(CarOrder carOrder) {
+    public static CarPrice makePrice(CarOrder carOrder) {
         List<CarPrice.Item> result = new ArrayList<>();
 
         for (CarOrder.Item item : carOrder.items()) {
             CargoCar car = item.car();
             MaterialOrder.Item materialOrder = item.materialOrder();
             Distance distance = item.distance();
-            CarPrice.Item price = price(car, travelCount(car, materialOrder), distance);
+            CarPrice.Item price = makePrice(car, travelCount(car, materialOrder), distance);
             result.add(price);
         }
 
         return new CarPrice(result);
     }
 
-    private static CarPrice.Item price(CargoCar car, double travelCount, Distance distance) {
+    private static CarPrice.Item makePrice(CargoCar car, double travelCount, Distance distance) {
         int workTime = 8;
 
         final double loadTime = 1; // hours

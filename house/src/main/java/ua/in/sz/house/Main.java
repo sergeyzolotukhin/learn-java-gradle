@@ -24,11 +24,11 @@ public class Main {
                 .build();
 
         Material material = MaterialCalculator.calculate(house);
-        MaterialOrder materialOrder = MaterialShop.order(material);
+        MaterialOrder materialOrder = MaterialShop.makeOrder(material);
         log.info(OrderReport.report(materialOrder));
 
-        CarOrder carOrder = CarDepot.order(materialOrder);
-        CarPrice carPrice = CarDepot.price(carOrder);
+        CarOrder carOrder = CarDepot.makeOrder(materialOrder);
+        CarPrice carPrice = CarDepot.makePrice(carOrder);
         log.info(CarPriceReport.report(carPrice));
     }
 }

@@ -28,7 +28,7 @@ public class MaterialShop {
             .add(MaterialType.SANG)
             .build();
 
-    public static MaterialOrder order(Material material) {
+    public static MaterialOrder makeOrder(Material material) {
         List<MaterialOrder.Item> result = new ArrayList<>();
 
         for (Material component : material.allComponents()) {
