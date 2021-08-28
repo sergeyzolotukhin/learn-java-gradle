@@ -28,17 +28,21 @@ public class CarDepot {
         return new CarOrder(result);
     }
 
-    public static void cost(CarOrder carOrder) {
+    public static CarPrice price(CarOrder carOrder) {
+        List<CarPrice.Item> result = new ArrayList<>();
+
         for (CarOrder.Item item : carOrder.items()) {
             CargoCar car = item.car();
             MaterialOrder.Item materialOrder = item.materialOrder();
             Distance distance = item.distance();
-            double cost = cost(car, travelCount(car, materialOrder), distance);
-            log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
+            CarPrice.Item price = price(car, travelCount(car, materialOrder), distance);
+            result.add(price);
         }
+
+        return new CarPrice(result);
     }
 
-    private static double cost(CargoCar car, double travelCount, Distance distance) {
+    private static CarPrice.Item price(CargoCar car, double travelCount, Distance distance) {
         int workTime = 8;
 
         final double loadTime = 1; // hours
@@ -68,10 +72,7 @@ public class CarDepot {
         double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
         double movedWeight = forwardCount * car.getMaxWeight();
 
-        log.info("The {} car will run {} KM, cargo moving {} moved weight {}",
-                car.getName(), totalDistance, forwardCount, movedWeight);
-
-        return totalDistance * car.getKmCost();
+        return new CarPrice.Item(car, totalDistance, forwardCount, movedWeight, totalDistance * car.getKmCost());
     }
 
     public static double travelCount(CargoCar car, MaterialOrder.Item materialOrder) {
