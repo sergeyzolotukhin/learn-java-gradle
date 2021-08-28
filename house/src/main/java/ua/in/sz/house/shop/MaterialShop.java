@@ -5,8 +5,8 @@ import com.google.common.collect.ImmutableMap;
 import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.PackageMaterialOrder;
-import ua.in.sz.house.shop.order.UnPackageMaterialOrder;
+import ua.in.sz.house.shop.order.PackageMaterial;
+import ua.in.sz.house.shop.order.UnPackageMaterial;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,16 +45,16 @@ public class MaterialShop {
         return MaterialOrder.of(result);
     }
 
-    private static UnPackageMaterialOrder unPackageOrder(MaterialType type, double quantity) {
+    private static UnPackageMaterial unPackageOrder(MaterialType type, double quantity) {
         double cost = cost(type, quantity);
-        return new UnPackageMaterialOrder(type, quantity, cost);
+        return new UnPackageMaterial(type, quantity, cost);
     }
 
-    private static PackageMaterialOrder packageOrder(MaterialType type, double quantity) {
+    private static PackageMaterial packageOrder(MaterialType type, double quantity) {
         MaterialPackage pack = packages.get(type);
         double count = Math.ceil(quantity / pack.getCount());
         double cost = cost(type, quantity);
-        return new PackageMaterialOrder(pack, count, cost);
+        return new PackageMaterial(pack, count, cost);
     }
 
     private static double cost(MaterialType materialType, double quantity) {

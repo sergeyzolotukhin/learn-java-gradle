@@ -5,8 +5,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.PackageMaterialOrder;
-import ua.in.sz.house.shop.order.UnPackageMaterialOrder;
+import ua.in.sz.house.shop.order.PackageMaterial;
+import ua.in.sz.house.shop.order.UnPackageMaterial;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,23 +72,23 @@ public class CarDepot {
     }
 
     public static double travelCount(CargoCar car, MaterialOrder.Item materialOrder) {
-        if (materialOrder instanceof PackageMaterialOrder packageOrder) {
+        if (materialOrder instanceof PackageMaterial packageOrder) {
             return packageTravelCount(car, packageOrder);
         }
 
-        if (materialOrder instanceof UnPackageMaterialOrder unPackageOrder) {
+        if (materialOrder instanceof UnPackageMaterial unPackageOrder) {
             return unPackageTravelCount(car, unPackageOrder);
         }
 
         throw new NotImplementedException("Unsupported package type " + materialOrder.getClass());
     }
 
-    private static double packageTravelCount(CargoCar car, PackageMaterialOrder order) {
+    private static double packageTravelCount(CargoCar car, PackageMaterial order) {
         double maxPackage = maxPackage(car, order.pack());
         return Math.ceil(order.quantity() / maxPackage);
     }
 
-    private static double unPackageTravelCount(CargoCar car, UnPackageMaterialOrder order) {
+    private static double unPackageTravelCount(CargoCar car, UnPackageMaterial order) {
         return Math.ceil(order.quantity() / car.getMaxWeight());
     }
 
