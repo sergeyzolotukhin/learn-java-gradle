@@ -1,13 +1,20 @@
 package ua.in.sz.house.transport;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import ua.in.sz.house.shop.order.MaterialOrder;
 
-@Getter
-@AllArgsConstructor
+import java.util.List;
+
 public class CarOrder {
-    private final MaterialOrder.Item materialOrder;
-    private final CargoCar car;
-    private final Distance distance;
+    private final List<Item> items;
+
+    public CarOrder(List<Item> items) {
+        this.items = items;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public static record Item(MaterialOrder.Item materialOrder, CargoCar car, Distance distance) {
+    }
 }

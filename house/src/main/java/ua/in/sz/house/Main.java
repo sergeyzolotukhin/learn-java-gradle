@@ -13,8 +13,6 @@ import ua.in.sz.house.transport.CarDepot;
 import ua.in.sz.house.transport.CarOrder;
 import ua.in.sz.house.transport.Place;
 
-import java.util.List;
-
 @Slf4j
 public class Main {
     public static final double TARGET_TEMPERATURE = 23.0;
@@ -31,11 +29,7 @@ public class Main {
         MaterialOrder materialOrder = MaterialShop.order(materials);
         log.info(OrderReport.report(materialOrder));
 
-        List<CarOrder> carOrder = CarDepot.order(materialOrder);
-
-        for (CarOrder co : carOrder) {
-            double cost = CarDepot.cost(co);
-            log.info("Transport of {} has cost {}", co.getMaterialOrder().materialType(), cost);
-        }
+        CarOrder carOrder = CarDepot.order(materialOrder);
+        CarDepot.cost(carOrder);
     }
 }

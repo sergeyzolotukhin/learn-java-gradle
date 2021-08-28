@@ -16,23 +16,26 @@ import java.util.List;
  */
 @Slf4j
 public class CarDepot {
-    public static List<CarOrder> order(MaterialOrder materialOrder) {
+    public static CarOrder order(MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
 
-        List<CarOrder> result = new ArrayList<>();
+        List<CarOrder.Item> result = new ArrayList<>();
 
-        result.add(new CarOrder(materialOrder.get(MaterialType.CEMENT), Cars.isuzuNqr75_5t(), distance));
-        result.add(new CarOrder(materialOrder.get(MaterialType.SANG), Cars.kamaz_5511_10t(), distance));
-        result.add(new CarOrder(materialOrder.get(MaterialType.BRICK), Cars.dafXf95_20t(), distance));
+        result.add(new CarOrder.Item(materialOrder.get(MaterialType.CEMENT), Cars.isuzuNqr75_5t(), distance));
+        result.add(new CarOrder.Item(materialOrder.get(MaterialType.SANG), Cars.kamaz_5511_10t(), distance));
+        result.add(new CarOrder.Item(materialOrder.get(MaterialType.BRICK), Cars.dafXf95_20t(), distance));
 
-        return result;
+        return new CarOrder(result);
     }
 
-    public static double cost(CarOrder carOrder) {
-        CargoCar car = carOrder.getCar();
-        MaterialOrder.Item materialOrder = carOrder.getMaterialOrder();
-        Distance distance = carOrder.getDistance();
-        return cost(car, travelCount(car, materialOrder), distance);
+    public static void cost(CarOrder carOrder) {
+        for (CarOrder.Item item : carOrder.getItems()) {
+            CargoCar car = item.car();
+            MaterialOrder.Item materialOrder = item.materialOrder();
+            Distance distance = item.distance();
+            double cost = cost(car, travelCount(car, materialOrder), distance);
+            log.info("Transport of {} has cost {}", materialOrder.materialType(), cost);
+        }
     }
 
     private static double cost(CargoCar car, double travelCount, Distance distance) {
