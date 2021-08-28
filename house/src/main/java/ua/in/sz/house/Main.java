@@ -28,7 +28,7 @@ public class Main {
                 .build();
 
         Material materials = MaterialCalculator.calculate(house);
-        List<MaterialOrder> materialOrder = MaterialShop.order(materials);
+        MaterialOrder materialOrder = MaterialShop.order(materials);
         log.info(OrderReport.report(materialOrder));
 
         List<CarOrder> carOrder = CarDepot.order(materialOrder);

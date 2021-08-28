@@ -7,7 +7,7 @@ import ua.in.sz.house.shop.order.MaterialOrder;
 @Getter
 @AllArgsConstructor
 public class CarOrder {
-    private final MaterialOrder materialOrder;
+    private final MaterialOrder.Item materialOrder;
     private final CargoCar car;
     private final Distance distance;
 }

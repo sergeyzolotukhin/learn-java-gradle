@@ -16,33 +16,21 @@ import java.util.List;
  */
 @Slf4j
 public class CarDepot {
-    public static List<CarOrder> order(List<MaterialOrder> materialOrders) {
+    public static List<CarOrder> order(MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
 
         List<CarOrder> result = new ArrayList<>();
 
-        MaterialOrder cement = material(materialOrders, MaterialType.CEMENT);
-        result.add(new CarOrder(cement, Cars.isuzuNqr75_5t(), distance));
-
-        MaterialOrder sang = material(materialOrders, MaterialType.SANG);
-        result.add(new CarOrder(sang, Cars.kamaz_5511_10t(), distance));
-
-        MaterialOrder brick = material(materialOrders, MaterialType.BRICK);
-        result.add(new CarOrder(brick, Cars.dafXf95_20t(), distance));
+        result.add(new CarOrder(materialOrder.get(MaterialType.CEMENT), Cars.isuzuNqr75_5t(), distance));
+        result.add(new CarOrder(materialOrder.get(MaterialType.SANG), Cars.kamaz_5511_10t(), distance));
+        result.add(new CarOrder(materialOrder.get(MaterialType.BRICK), Cars.dafXf95_20t(), distance));
 
         return result;
     }
 
-    private static MaterialOrder material(List<MaterialOrder> materialOrders, MaterialType materialType) {
-        return materialOrders.stream()
-                .filter(m -> m.materialType().equals(materialType))
-                .findFirst()
-                .orElse(null);
-    }
-
     public static double cost(CarOrder carOrder) {
         CargoCar car = carOrder.getCar();
-        MaterialOrder materialOrder = carOrder.getMaterialOrder();
+        MaterialOrder.Item materialOrder = carOrder.getMaterialOrder();
         Distance distance = carOrder.getDistance();
         return cost(car, travelCount(car, materialOrder), distance);
     }
@@ -83,7 +71,7 @@ public class CarDepot {
         return totalDistance * car.getKmCost();
     }
 
-    public static double travelCount(CargoCar car, MaterialOrder materialOrder) {
+    public static double travelCount(CargoCar car, MaterialOrder.Item materialOrder) {
         if (materialOrder instanceof PackageMaterialOrder packageOrder) {
             return packageTravelCount(car, packageOrder);
         }
@@ -96,12 +84,12 @@ public class CarDepot {
     }
 
     private static double packageTravelCount(CargoCar car, PackageMaterialOrder order) {
-        double maxPackage = maxPackage(car, order.getPack());
+        double maxPackage = maxPackage(car, order.pack());
         return Math.ceil(order.quantity() / maxPackage);
     }
 
     private static double unPackageTravelCount(CargoCar car, UnPackageMaterialOrder order) {
-        return Math.ceil(order.getQuantity() / car.getMaxWeight());
+        return Math.ceil(order.quantity() / car.getMaxWeight());
     }
 
     private static double maxPackage(CargoCar car, MaterialPackage pack) {

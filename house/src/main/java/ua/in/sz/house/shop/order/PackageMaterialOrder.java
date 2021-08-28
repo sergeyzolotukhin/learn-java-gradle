@@ -1,29 +1,13 @@
 package ua.in.sz.house.shop.order;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 
-@Getter
-@RequiredArgsConstructor(staticName = "of")
-public class PackageMaterialOrder implements MaterialOrder {
-    private final MaterialPackage pack;
-    private final double quantity;
-    private final double cost;
+public record PackageMaterialOrder(MaterialPackage pack, double quantity, double cost)
+        implements MaterialOrder.Item {
 
     @Override
     public MaterialType materialType() {
         return pack.getMaterialType();
-    }
-
-    @Override
-    public double quantity() {
-        return quantity;
-    }
-
-    @Override
-    public double cost() {
-        return cost;
     }
 }

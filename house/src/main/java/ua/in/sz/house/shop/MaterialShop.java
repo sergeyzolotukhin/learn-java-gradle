@@ -28,10 +28,10 @@ public class MaterialShop {
             .add(MaterialType.SANG)
             .build();
 
-    public static List<MaterialOrder> order(Material materials) {
-        List<MaterialOrder> result = new ArrayList<>();
+    public static MaterialOrder order(Material material) {
+        List<MaterialOrder.Item> result = new ArrayList<>();
 
-        for (Material m : materials.getAll()) {
+        for (Material m : material.getAll()) {
             MaterialType type = m.getMaterialType();
             double quantity = m.getQuantity();
 
@@ -42,19 +42,19 @@ public class MaterialShop {
             }
         }
 
-        return result;
+        return MaterialOrder.of(result);
     }
 
     private static UnPackageMaterialOrder unPackageOrder(MaterialType type, double quantity) {
         double cost = cost(type, quantity);
-        return UnPackageMaterialOrder.of(type, quantity, cost);
+        return new UnPackageMaterialOrder(type, quantity, cost);
     }
 
     private static PackageMaterialOrder packageOrder(MaterialType type, double quantity) {
         MaterialPackage pack = packages.get(type);
         double count = Math.ceil(quantity / pack.getCount());
         double cost = cost(type, quantity);
-        return PackageMaterialOrder.of(pack, count, cost);
+        return new PackageMaterialOrder(pack, count, cost);
     }
 
     private static double cost(MaterialType materialType, double quantity) {
