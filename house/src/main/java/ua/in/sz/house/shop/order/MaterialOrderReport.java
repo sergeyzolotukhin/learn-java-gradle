@@ -3,7 +3,7 @@ package ua.in.sz.house.shop.order;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class OrderReport {
+public class MaterialOrderReport {
     public static String report(MaterialOrder materialOrder) {
         StringBuilder sb = new StringBuilder();
 

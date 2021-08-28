@@ -8,7 +8,7 @@ import ua.in.sz.house.material.Material;
 import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.MaterialOrder;
-import ua.in.sz.house.shop.order.OrderReport;
+import ua.in.sz.house.shop.order.MaterialOrderReport;
 import ua.in.sz.house.transport.*;
 
 @Slf4j
@@ -25,7 +25,7 @@ public class Main {
 
         Material material = MaterialCalculator.calculate(house);
         MaterialOrder materialOrder = MaterialShop.makeOrder(material);
-        log.info(OrderReport.report(materialOrder));
+        log.info(MaterialOrderReport.report(materialOrder));
 
         CarOrder carOrder = CarDepot.makeOrder(materialOrder);
         CarPrice carPrice = CarDepot.makePrice(carOrder);
