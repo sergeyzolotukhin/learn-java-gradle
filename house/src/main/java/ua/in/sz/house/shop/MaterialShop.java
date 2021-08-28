@@ -31,9 +31,9 @@ public class MaterialShop {
     public static MaterialOrder order(Material material) {
         List<MaterialOrder.Item> result = new ArrayList<>();
 
-        for (Material m : material.getAll()) {
-            MaterialType type = m.getMaterialType();
-            double quantity = m.getQuantity();
+        for (Material component : material.allComponents()) {
+            MaterialType type = component.getMaterialType();
+            double quantity = component.getQuantity();
 
             if (packages.containsKey(type)) {
                 result.add(packageOrder(type, quantity));
