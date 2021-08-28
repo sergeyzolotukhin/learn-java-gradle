@@ -1,20 +1,28 @@
 package ua.in.sz.house.transport;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class CarPriceReport {
     public static String report(CarPrice carPrice) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nTransport price:");
+        sb.append("\n\t Transport price:");
+
+        String title = String.format("\n\t%-16.16s %9.9s %7.7s %9.9s %9.9s",
+                "car name", "distance KM", "forward", "weight T", "cost UAH");
+        int size = title.length();
+
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
+        sb.append(title);
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
 
         for (CarPrice.Item price : carPrice.items()) {
             sb.append(String.format(
-                    "\n\tThe %-16.16s car will run %5.0f KM, " +
-                            "cargo moving %2.0f moved weight %3.0f T " +
-                            "cost %6.0f UAH",
-                    price.car().getName(), price.distance(),
-                    price.forward(), kgToT(price.weight()),
-                    price.cost()));
+                    "\n\t%-16.16s %9.0f %7.0f %9.0f %9.0f",
+                    price.car().getName(), price.distance(), price.forward(), kgToT(price.weight()),price.cost()));
         }
+
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
 
         return sb.toString();
     }
