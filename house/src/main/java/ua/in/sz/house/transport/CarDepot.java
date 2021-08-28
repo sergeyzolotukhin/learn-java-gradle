@@ -2,18 +2,48 @@ package ua.in.sz.house.transport;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
+import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.PackageMaterialOrder;
 import ua.in.sz.house.shop.order.UnPackageMaterialOrder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
  */
 @Slf4j
 public class CarDepot {
-    public static double cost(CargoCar car, MaterialOrder materialOrder) {
+    public static List<CarOrder> order(List<MaterialOrder> materialOrders) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
+
+        List<CarOrder> result = new ArrayList<>();
+
+        MaterialOrder cement = material(materialOrders, MaterialType.CEMENT);
+        result.add(new CarOrder(cement, Cars.isuzuNqr75_5t(), distance));
+
+        MaterialOrder sang = material(materialOrders, MaterialType.SANG);
+        result.add(new CarOrder(sang, Cars.kamaz_5511_10t(), distance));
+
+        MaterialOrder brick = material(materialOrders, MaterialType.BRICK);
+        result.add(new CarOrder(brick, Cars.dafXf95_20t(), distance));
+
+        return result;
+    }
+
+    private static MaterialOrder material(List<MaterialOrder> materialOrders, MaterialType materialType) {
+        return materialOrders.stream()
+                .filter(m -> m.materialType().equals(materialType))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static double cost(CarOrder carOrder) {
+        CargoCar car = carOrder.getCar();
+        MaterialOrder materialOrder = carOrder.getMaterialOrder();
+        Distance distance = carOrder.getDistance();
         return cost(car, travelCount(car, materialOrder), distance);
     }
 
@@ -47,7 +77,8 @@ public class CarDepot {
         double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
         double movedWeight = forwardCount * car.getMaxWeight();
 
-        log.info("Distance has value {} KM cargo moving {} moved weight {}", totalDistance, forwardCount, movedWeight);
+        log.info("The {} car will run {} KM, cargo moving {} moved weight {}",
+                car.getName(), totalDistance, forwardCount, movedWeight);
 
         return totalDistance * car.getKmCost();
     }

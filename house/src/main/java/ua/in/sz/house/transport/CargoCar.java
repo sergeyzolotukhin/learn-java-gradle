@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CargoCar {
+    private final String name;
+
     private final double length;
     private final double width;
     private final double height;
