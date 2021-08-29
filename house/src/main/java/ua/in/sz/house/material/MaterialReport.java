@@ -8,16 +8,22 @@ public class MaterialReport {
 
         sb.append("\n\tMaterials");
 
-        sb.append(StringUtils.rightPad("\n\t=", 33, "="));
-        sb.append(String.format("\n\t%-15.15s %7.7s %7.7s", "name", "quantity", "unit"));
-        sb.append(StringUtils.rightPad("\n\t=", 33, "="));
+        String title = String.format("\n\t%-15.15s %7.7s %7.7s %10.10s", "name", "quantity", "unit", "weight kg");
+        int size = title.length();
+
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
+        sb.append(title);
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
 
         for (Material component : material.allComponents()) {
-            sb.append(String.format("\n\t%-15.15s %7.0f %7.7s",
-                    component.getMaterialType().getName(), component.getQuantity(), component.getUnit().getName()));
+            sb.append(String.format("\n\t%-15.15s %7.0f %7.7s %10.0f",
+                    component.getMaterialType().getName(),
+                    component.getQuantity(),
+                    component.getUnit().getName(),
+                    component.getWeight()));
         }
 
-        sb.append(StringUtils.rightPad("\n\t=", 33, "="));
+        sb.append(StringUtils.rightPad("\n\t=", size, "="));
 
         return sb.toString();
     }

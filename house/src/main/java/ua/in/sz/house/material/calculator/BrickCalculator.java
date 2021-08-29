@@ -21,8 +21,9 @@ public class BrickCalculator {
             double countByHeight = Math.ceil(wall.getHeight() / (block.getHeight() + CEMENT_THICKNESS));
             double countByWidth = 4.0;
             double quantity = countByLength * countByHeight * countByWidth;
+            double weight = quantity * Block.CERAMICS_BRICK.getWeight();
 
-            return new Material(MaterialType.BRICK, quantity, MaterialUnit.PIECE);
+            return new Material(MaterialType.BRICK, quantity, MaterialUnit.PIECE, weight);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

@@ -63,7 +63,7 @@ public class CementMortarCalculator {
                     volume, allSliceVolume * m3ToMm3, allRowVolume * m3ToMm3, allLayerVolume * m3ToMm3,
                     countByHeight, countByLength, countByWidth));
 
-            return new Material(MaterialType.CEMENT_MORTAR, volume, MaterialUnit.M3);
+            return new Material(MaterialType.CEMENT_MORTAR, volume, MaterialUnit.M3, 0.0);
         } else {
             throw new NotImplementedException("A block calculation not implemented");
         }

@@ -12,12 +12,14 @@ public class Material {
     private final MaterialType materialType;
     private final double quantity;
     private final MaterialUnit unit;
+    private final double weight;
     private final List<Material> components = new ArrayList<>();
 
-    public Material(MaterialType materialType, double quantity, MaterialUnit unit) {
+    public Material(MaterialType materialType, double quantity, MaterialUnit unit, double weight) {
         this.materialType = materialType;
         this.quantity = quantity;
         this.unit = unit;
+        this.weight = weight;
     }
 
     public void add(Material material) {
