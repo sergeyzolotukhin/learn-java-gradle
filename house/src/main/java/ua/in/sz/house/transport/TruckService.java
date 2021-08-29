@@ -2,6 +2,7 @@ package ua.in.sz.house.transport;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
+import ua.in.sz.house.material.MaterialType;
 import ua.in.sz.house.shop.MaterialPackage;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.order.PackageMaterial;
@@ -28,6 +29,7 @@ public class TruckService {
         items.add(new TruckOrder.Item(Trucks.isuzuNqr75_5t(), distance, materialOrder.get(CEMENT)));
         items.add(new TruckOrder.Item(Trucks.kamaz_5511_10t(), distance, materialOrder.get(SANG)));
         items.add(new TruckOrder.Item(Trucks.dafXf95_20t(), distance, materialOrder.get(BRICK)));
+        items.add(new TruckOrder.Item(Trucks.kamaz_5511_10t(), distance, materialOrder.get(GRAVEL)));
 
         return new TruckOrder(items);
     }
@@ -41,7 +43,7 @@ public class TruckService {
             MaterialOrder.Item materialOrder = item.materialOrder();
 
             double travelCount = travelCount(truck, materialOrder);
-            TruckPrice.Item price = makePrice(truck, travelCount, distance);
+            TruckPrice.Item price = makePrice(truck, travelCount, distance, materialOrder.materialType());
 
             result.add(price);
         }
@@ -53,7 +55,7 @@ public class TruckService {
     // private methods
     // ================================================================================================================
 
-    private static TruckPrice.Item makePrice(Truck truck, double travelCount, Distance distance) {
+    private static TruckPrice.Item makePrice(Truck truck, double travelCount, Distance distance, MaterialType materialType) {
         int workTime = 8;
 
         final double loadTime = 1; // hours
@@ -83,7 +85,7 @@ public class TruckService {
         double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
         double movedWeight = forwardCount * truck.maxWeight();
 
-        return new TruckPrice.Item(truck, totalDistance, forwardCount, movedWeight, totalDistance * truck.kmCost());
+        return new TruckPrice.Item(truck, totalDistance, forwardCount, movedWeight, totalDistance * truck.kmCost(), materialType);
     }
 
     public static double travelCount(Truck truck, MaterialOrder.Item materialOrder) {
