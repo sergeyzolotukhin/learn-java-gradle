@@ -18,6 +18,7 @@ public class MaterialShop {
             .put(MaterialType.BRICK, 3.3 * 420)
             .put(MaterialType.CEMENT, 1800.0 / 1000.0 * 50)
             .put(MaterialType.SANG, 180.0 / 1000.0)
+            .put(MaterialType.GRAVEL, 360.0 / 1000.0)
             .build();
 
     private static final Map<MaterialType, MaterialPackage> packages = ImmutableMap.<MaterialType, MaterialPackage>builder()
@@ -27,6 +28,7 @@ public class MaterialShop {
 
     private static final List<MaterialType> unPackages = ImmutableList.<MaterialType>builder()
             .add(MaterialType.SANG)
+            .add(MaterialType.GRAVEL)
             .build();
 
     public static MaterialOrder makeOrder(Material material) {
