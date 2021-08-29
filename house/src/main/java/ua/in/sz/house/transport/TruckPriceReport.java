@@ -19,7 +19,7 @@ public class TruckPriceReport {
         for (TruckPrice.Item price : truckPrice.items()) {
             sb.append(String.format(
                     "\n\t%-16.16s %9.0f %7.0f %9.0f %9.0f",
-                    price.car().getName(), price.distance(), price.forward(), kgToT(price.weight()),price.cost()));
+                    price.car().name(), price.distance(), price.forward(), kgToT(price.weight()),price.cost()));
         }
 
         sb.append(StringUtils.rightPad("\n\t=", size, "="));

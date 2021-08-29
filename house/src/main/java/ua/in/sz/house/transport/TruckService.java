@@ -66,10 +66,10 @@ public class TruckService {
         double comeOut = distance.comeOut();
 
         // time in hours
-        final double forwardTime = forward / truck.getVelocity();
-        final double backTime = back / truck.getVelocity();
-        final double comeInTime = comeIn / truck.getVelocity();
-        final double comeOutTime = comeOut / truck.getVelocity();
+        final double forwardTime = forward / truck.velocity();
+        final double backTime = back / truck.velocity();
+        final double comeInTime = comeIn / truck.velocity();
+        final double comeOutTime = comeOut / truck.velocity();
 
         double leftTimePerDay = workTime - (comeInTime + loadTime + forwardTime + unloadTime + comeOutTime);
         double cyclePerDay = Math.floor(leftTimePerDay / (loadTime + forwardTime + unloadTime + backTime));
@@ -81,9 +81,9 @@ public class TruckService {
                 + lastDayCycle * (comeIn + forward + comeOut + back);
 
         double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
-        double movedWeight = forwardCount * truck.getMaxWeight();
+        double movedWeight = forwardCount * truck.maxWeight();
 
-        return new TruckPrice.Item(truck, totalDistance, forwardCount, movedWeight, totalDistance * truck.getKmCost());
+        return new TruckPrice.Item(truck, totalDistance, forwardCount, movedWeight, totalDistance * truck.kmCost());
     }
 
     public static double travelCount(Truck truck, MaterialOrder.Item materialOrder) {
@@ -106,18 +106,18 @@ public class TruckService {
     }
 
     private static double unPackageTravelCount(DumpTruck truck, UnPackageMaterial order) {
-        return Math.ceil(order.quantity() / truck.getMaxWeight());
+        return Math.ceil(order.quantity() / truck.maxWeight());
     }
 
     private static double maxPackage(CargoTruck truck, MaterialPackage pack) {
-        double maxPackagePerWeight = Math.floor(truck.getMaxWeight() / pack.getWeight());
+        double maxPackagePerWeight = Math.floor(truck.maxWeight() / pack.getWeight());
         double maxPackagePerSquare = maxPackagePerSquare(truck, pack);
         return Math.min(maxPackagePerWeight, maxPackagePerSquare);
     }
 
     private static double maxPackagePerSquare(CargoTruck truck, MaterialPackage pack) {
-        double packagePerWidth = Math.floor(truck.getWidth() / pack.getLength());
-        double packagePerLength = Math.floor(truck.getLength() / pack.getWidth());
+        double packagePerWidth = Math.floor(truck.width() / pack.getLength());
+        double packagePerLength = Math.floor(truck.length() / pack.getWidth());
         return packagePerLength * packagePerWidth;
     }
 }
