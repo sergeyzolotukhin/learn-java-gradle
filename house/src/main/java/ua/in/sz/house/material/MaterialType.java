@@ -13,7 +13,7 @@ public enum MaterialType {
 
     // intermediate material
     CEMENT_MORTAR("Cement mortar"),
-    FORMWORK("formwork"), // опалубка
+    FORMWORK("Formwork"), // опалубка
 
     // raw materials
     BRICK("Brick"),
