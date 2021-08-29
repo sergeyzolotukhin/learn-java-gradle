@@ -20,16 +20,16 @@ public class MaterialOrderReport {
         for (MaterialOrder.Item material : materialOrder.items()) {
             sb.append(String.format("\n\t%-10.10s %7.0f %6.6s %10.0f",
                     material.materialType().getName(),
-                    material.quantity(),
+                    Math.ceil(material.quantity()),
                     material.unit().getName(),
-                    material.cost()));
+                    Math.ceil(material.cost())));
 
             totalCost += material.cost();
         }
 
         sb.append(StringUtils.rightPad("\n\t=", size, "="));
         sb.append(String.format("\n\t%-10.10s %7.7s %6.6s %10.0f",
-                StringUtils.EMPTY, StringUtils.EMPTY, StringUtils.EMPTY, totalCost));
+                StringUtils.EMPTY, StringUtils.EMPTY, StringUtils.EMPTY, Math.ceil(totalCost)));
 
         return sb.toString();
     }
