@@ -10,10 +10,16 @@ import ua.in.sz.house.material.MaterialUnit;
 public class MaterialCalculator {
 
     public static Material calculate(House house) {
+        Material building = new Material(MaterialType.HOUSE, 1, MaterialUnit.PIECE, 0.0);
+
         Material wall = new Material(MaterialType.WALL, 1, MaterialUnit.PIECE, 0.0);
         wall.add(BrickCalculator.calculate(house));
         wall.add(cementMortar(house));
-        return wall;
+
+        building.add(wall);
+        building.add(FoundationCalculator.calculate(house));
+
+        return building;
     }
 
     private static Material cementMortar(House house) {

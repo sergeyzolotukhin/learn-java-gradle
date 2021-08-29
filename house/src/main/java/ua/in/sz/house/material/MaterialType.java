@@ -6,11 +6,20 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum MaterialType {
+    // building parts
+    HOUSE("House"),
+    FOUNDATION("Foundation"),
+    WALL("Wall"),
+
+    // intermediate material
+    CEMENT_MORTAR("Cement mortar"),
+
+    // raw materials
     BRICK("Brick"),
     CEMENT("Cement"),
-    CEMENT_MORTAR("Cement mortar"),
     SANG("Sang"),
-    WALL("Wall");
+    GRAVEL("Gravel"),
+    ;
 
     private final String name;
 }
