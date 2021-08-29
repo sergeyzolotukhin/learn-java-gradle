@@ -2,8 +2,8 @@ package ua.in.sz.house.transport;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class CarPriceReport {
-    public static String report(CarPrice carPrice) {
+public class TruckPriceReport {
+    public static String report(TruckPrice truckPrice) {
         StringBuilder sb = new StringBuilder();
 
         sb.append("\n\t Transport price:");
@@ -16,7 +16,7 @@ public class CarPriceReport {
         sb.append(title);
         sb.append(StringUtils.rightPad("\n\t=", size, "="));
 
-        for (CarPrice.Item price : carPrice.items()) {
+        for (TruckPrice.Item price : truckPrice.items()) {
             sb.append(String.format(
                     "\n\t%-16.16s %9.0f %7.0f %9.0f %9.0f",
                     price.car().getName(), price.distance(), price.forward(), kgToT(price.weight()),price.cost()));

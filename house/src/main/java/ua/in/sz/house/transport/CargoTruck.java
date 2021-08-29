@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class CargoCar {
+public class CargoTruck {
     private final String name;
 
     private final double length;

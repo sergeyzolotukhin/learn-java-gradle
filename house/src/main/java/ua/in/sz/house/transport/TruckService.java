@@ -16,41 +16,41 @@ import static ua.in.sz.house.material.MaterialType.*;
  * http://motor-m.kiev.ua/gryzoperevozki_kiev_do_20_tonn.html
  */
 @Slf4j
-public class CarDepot {
-    public static CarOrder makeOrder(MaterialOrder materialOrder) {
+public class TruckService {
+    public static TruckOrder makeOrder(MaterialOrder materialOrder) {
         Distance distance = new Distance(26.8, 26.8, 33.6);
 
-        List<CarOrder.Item> items = new ArrayList<>();
+        List<TruckOrder.Item> items = new ArrayList<>();
 
-        items.add(new CarOrder.Item(Cars.isuzuNqr75_5t(), distance, materialOrder.get(CEMENT)));
-        items.add(new CarOrder.Item(Cars.kamaz_5511_10t(), distance, materialOrder.get(SANG)));
-        items.add(new CarOrder.Item(Cars.dafXf95_20t(), distance, materialOrder.get(BRICK)));
+        items.add(new TruckOrder.Item(Trucks.isuzuNqr75_5t(), distance, materialOrder.get(CEMENT)));
+        items.add(new TruckOrder.Item(Trucks.kamaz_5511_10t(), distance, materialOrder.get(SANG)));
+        items.add(new TruckOrder.Item(Trucks.dafXf95_20t(), distance, materialOrder.get(BRICK)));
 
-        return new CarOrder(items);
+        return new TruckOrder(items);
     }
 
-    public static CarPrice makePrice(CarOrder carOrder) {
-        List<CarPrice.Item> result = new ArrayList<>();
+    public static TruckPrice makePrice(TruckOrder truckOrder) {
+        List<TruckPrice.Item> result = new ArrayList<>();
 
-        for (CarOrder.Item item : carOrder.items()) {
-            CargoCar car = item.car();
+        for (TruckOrder.Item item : truckOrder.items()) {
+            CargoTruck car = item.car();
             Distance distance = item.distance();
             MaterialOrder.Item materialOrder = item.materialOrder();
 
             double travelCount = travelCount(car, materialOrder);
-            CarPrice.Item price = makePrice(car, travelCount, distance);
+            TruckPrice.Item price = makePrice(car, travelCount, distance);
 
             result.add(price);
         }
 
-        return new CarPrice(result);
+        return new TruckPrice(result);
     }
 
     // ================================================================================================================
     // private methods
     // ================================================================================================================
 
-    private static CarPrice.Item makePrice(CargoCar car, double travelCount, Distance distance) {
+    private static TruckPrice.Item makePrice(CargoTruck car, double travelCount, Distance distance) {
         int workTime = 8;
 
         final double loadTime = 1; // hours
@@ -80,10 +80,10 @@ public class CarDepot {
         double forwardCount = days * (1 + cyclePerDay) + lastDayCycle;
         double movedWeight = forwardCount * car.getMaxWeight();
 
-        return new CarPrice.Item(car, totalDistance, forwardCount, movedWeight, totalDistance * car.getKmCost());
+        return new TruckPrice.Item(car, totalDistance, forwardCount, movedWeight, totalDistance * car.getKmCost());
     }
 
-    public static double travelCount(CargoCar car, MaterialOrder.Item materialOrder) {
+    public static double travelCount(CargoTruck car, MaterialOrder.Item materialOrder) {
         if (materialOrder instanceof PackageMaterial packageOrder) {
             return packageTravelCount(car, packageOrder);
         }
@@ -95,22 +95,22 @@ public class CarDepot {
         throw new NotImplementedException("Unsupported package type " + materialOrder.getClass());
     }
 
-    private static double packageTravelCount(CargoCar car, PackageMaterial order) {
+    private static double packageTravelCount(CargoTruck car, PackageMaterial order) {
         double maxPackage = maxPackage(car, order.pack());
         return Math.ceil(order.quantity() / maxPackage);
     }
 
-    private static double unPackageTravelCount(CargoCar car, UnPackageMaterial order) {
+    private static double unPackageTravelCount(CargoTruck car, UnPackageMaterial order) {
         return Math.ceil(order.quantity() / car.getMaxWeight());
     }
 
-    private static double maxPackage(CargoCar car, MaterialPackage pack) {
+    private static double maxPackage(CargoTruck car, MaterialPackage pack) {
         double maxPackagePerWeight = Math.floor(car.getMaxWeight() / pack.getWeight());
         double maxPackagePerSquare = maxPackagePerSquare(car, pack);
         return Math.min(maxPackagePerWeight, maxPackagePerSquare);
     }
 
-    private static double maxPackagePerSquare(CargoCar car, MaterialPackage pack) {
+    private static double maxPackagePerSquare(CargoTruck car, MaterialPackage pack) {
         double packagePerWidth = Math.floor(car.getWidth() / pack.getLength());
         double packagePerLength = Math.floor(car.getLength() / pack.getWidth());
         return packagePerLength * packagePerWidth;

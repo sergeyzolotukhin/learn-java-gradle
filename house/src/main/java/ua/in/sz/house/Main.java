@@ -30,8 +30,8 @@ public class Main {
         MaterialOrder materialOrder = MaterialShop.makeOrder(material);
         log.info(MaterialOrderReport.report(materialOrder));
 
-        CarOrder carOrder = CarDepot.makeOrder(materialOrder);
-        CarPrice carPrice = CarDepot.makePrice(carOrder);
-        log.info(CarPriceReport.report(carPrice));
+        TruckOrder truckOrder = TruckService.makeOrder(materialOrder);
+        TruckPrice truckPrice = TruckService.makePrice(truckOrder);
+        log.info(TruckPriceReport.report(truckPrice));
     }
 }
