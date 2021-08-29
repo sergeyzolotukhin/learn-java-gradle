@@ -97,7 +97,8 @@ public class TruckService {
             return unPackageTravelCount(dumpTruck, unPackageOrder);
         }
 
-        throw new NotImplementedException("Unsupported package type " + materialOrder.getClass());
+        throw new NotImplementedException("Unsupported package type " + materialOrder.getClass().getSimpleName() +
+                " by truck " + truck.getClass().getSimpleName());
     }
 
     private static double packageTravelCount(CargoTruck cargoTruck, PackageMaterial order) {
