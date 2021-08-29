@@ -1,16 +1,12 @@
-package ua.in.sz.house.transport;
+package ua.in.sz.house.transport.truck;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class CargoTruck {
+public class DumpTruck implements Truck {
     private final String name;
-
-    private final double length;
-    private final double width;
-    private final double height;
 
     private final double maxWeight;
 

@@ -1,9 +1,12 @@
 package ua.in.sz.house.transport;
 
+import ua.in.sz.house.transport.truck.CargoTruck;
+import ua.in.sz.house.transport.truck.DumpTruck;
+
 public class Trucks {
 
-    public static CargoTruck kamaz_5511_10t() {
-        return new CargoTruck("KAMAZ 5511 - 10t",0, 0, 0, 10_000, 0, 0, 18, 60);
+    public static DumpTruck kamaz_5511_10t() {
+        return new DumpTruck("KAMAZ 5511 - 10t",10_000, 0, 0, 18, 60);
     }
 
     /**

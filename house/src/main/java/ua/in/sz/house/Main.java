@@ -10,7 +10,11 @@ import ua.in.sz.house.material.calculator.MaterialCalculator;
 import ua.in.sz.house.shop.MaterialShop;
 import ua.in.sz.house.shop.order.MaterialOrder;
 import ua.in.sz.house.shop.MaterialOrderReport;
-import ua.in.sz.house.transport.*;
+import ua.in.sz.house.transport.Place;
+import ua.in.sz.house.transport.TruckOrder;
+import ua.in.sz.house.transport.TruckPrice;
+import ua.in.sz.house.transport.TruckPriceReport;
+import ua.in.sz.house.transport.TruckService;
 
 @Slf4j
 public class Main {
