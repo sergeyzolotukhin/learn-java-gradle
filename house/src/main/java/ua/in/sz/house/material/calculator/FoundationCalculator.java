@@ -9,6 +9,8 @@ import ua.in.sz.house.material.MaterialUnit;
  * https://vik.by/instruments/glubina-promerzaniya-grunta/ukraina/kiev
  * https://cdelayremont.ru/raschet-betona-na-fundament
  * http://eurobeton.su/beton_news/klassy-i-marki-betona/
+ *
+ * https://gidroizolyatsiya-fundamenta.ru/blog/raschet-opalubki-dlya-lentochnogo-fundamenta.html
  */
 public class FoundationCalculator {
     private static final double DEPTH_OF_FREEZING = 1.18;
@@ -51,6 +53,31 @@ public class FoundationCalculator {
         foundation.add(new Material(MaterialType.GRAVEL, totalGravel, MaterialUnit.KG, totalGravel));
         foundation.add(new Material(MaterialType.CEMENT, totalCement, MaterialUnit.KG, totalCement));
 
+        foundation.add(formwork(house));
+
         return foundation;
+    }
+
+    private static final double WOOD_THICKNESS = 50 / 1000.0;
+    private static final double WOOD_WIDTH = 150 / 1000.0;
+    private static final double WOOD_LENGTH = 2.75;
+    private static final double WOOD_VOLUME = WOOD_LENGTH * WOOD_WIDTH * WOOD_THICKNESS;
+    private static final double WOOD_DENSITY = 500; // kg / m3 - сосна
+
+    private static Material formwork(House house) {
+        Material formwork = new Material(MaterialType.FORMWORK, 1, MaterialUnit.PIECE, 0.0);
+
+        double height = UPPER_OFFSET + DEPTH_OF_FREEZING + LOWER_OFFSET;
+        double length = house.getWall().getLength();
+
+        double woodByHeight = Math.ceil(height / WOOD_WIDTH);
+        double woodByLength = Math.ceil(length / WOOD_LENGTH);
+
+        double volume = WOOD_VOLUME * woodByHeight * woodByLength;
+
+        Material wood = new Material(MaterialType.WOOD, volume, MaterialUnit.M3, volume * WOOD_DENSITY);
+        formwork.add(wood);
+
+        return formwork;
     }
 }

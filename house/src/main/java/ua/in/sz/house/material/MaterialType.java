@@ -13,12 +13,14 @@ public enum MaterialType {
 
     // intermediate material
     CEMENT_MORTAR("Cement mortar"),
+    FORMWORK("formwork"), // опалубка
 
     // raw materials
     BRICK("Brick"),
     CEMENT("Cement"),
     SANG("Sang"),
     GRAVEL("Gravel"),
+    WOOD("Wood"),
     ;
 
     private final String name;

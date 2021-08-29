@@ -19,16 +19,16 @@ public class MaterialReport {
         for (Material component : material.allComponents()) {
             sb.append(String.format("\n\t%-15.15s %7.0f %7.7s %10.0f",
                     component.getMaterialType().getName(),
-                    component.getQuantity(),
+                    Math.ceil(component.getQuantity()),
                     component.getUnit().getName(),
-                    component.getWeight()));
+                    Math.ceil(component.getWeight())));
 
             totalWeight += component.getWeight();
         }
 
         sb.append(StringUtils.rightPad("\n\t=", size, "="));
         sb.append(String.format("\n\t%-15.15s %7.7s %7.7s %10.0f",
-                StringUtils.EMPTY, StringUtils.EMPTY, StringUtils.EMPTY, totalWeight));
+                StringUtils.EMPTY, StringUtils.EMPTY, StringUtils.EMPTY, Math.ceil(totalWeight)));
 
         return sb.toString();
     }
