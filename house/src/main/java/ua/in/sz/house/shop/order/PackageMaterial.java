@@ -11,4 +11,10 @@ public record PackageMaterial(MaterialPackage pack, double quantity, MaterialUni
     public MaterialType materialType() {
         return pack.getMaterialType();
     }
+
+    @Override
+    public MaterialOrder.Item add(MaterialOrder.Item item) {
+        PackageMaterial added = (PackageMaterial) item;
+        return new PackageMaterial(pack, quantity + added.quantity(), unit, cost + added.cost());
+    }
 }

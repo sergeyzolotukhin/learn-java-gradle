@@ -9,7 +9,7 @@ public record MaterialOrder(List<Item> items) {
     public MaterialOrder.Item get(MaterialType materialType) {
         return items.stream()
                 .filter(m -> m.materialType().equals(materialType))
-                .findFirst()
+                .reduce(Item::add)
                 .orElse(null);
     }
 
@@ -21,5 +21,7 @@ public record MaterialOrder(List<Item> items) {
         double cost();
 
         MaterialUnit unit();
+
+        Item add(Item item);
     }
 }
