@@ -10,7 +10,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'org.springframework.boot' version '2.5.4'
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -29,16 +29,16 @@ dependencies {
     runtimeOnly files('config')
 
     // common utils
-    implementation 'commons-io:commons-io:2.6'
+    implementation 'commons-io:commons-io:2.11.0'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     developmentOnly "org.springframework.boot:spring-boot-devtools"
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.6.RELEASE'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
 
 }
