@@ -9,8 +9,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Slf4j
