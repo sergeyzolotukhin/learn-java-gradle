@@ -13,6 +13,7 @@ compileJava {
 }
 
 dependencies {
+    compileOnly project(':code-gen-javac')
     annotationProcessor project(':code-gen-javac')
 
     // development
