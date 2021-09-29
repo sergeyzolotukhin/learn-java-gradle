@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 @Slf4j
@@ -28,12 +29,13 @@ public class Application {
             }
         }
 
-        try (Scanner scanner = new Scanner(path)) {
-			while (scanner.hasNext()) {
-				String line = scanner.next();
-				log.info("{}", line);
-			}
-		}
+        Pattern pa = Pattern.compile("^I.*$", Pattern.MULTILINE);
+        try (Scanner scanner = new Scanner(path).useDelimiter(pa)) {
+            while (scanner.hasNext()) {
+                String line = scanner.next();
+                log.info("[{}]", line);
+            }
+        }
     }
 
     private static CsvToBean<Employee> csvToEmployee(Reader reader) {
@@ -44,7 +46,7 @@ public class Application {
     }
 
     private static MappingStrategy<Employee> employeeMappingStrategy() {
-		HeaderColumnNameMappingStrategy<Employee> ms = new HeaderColumnNameMappingStrategy<>();
+        HeaderColumnNameMappingStrategy<Employee> ms = new HeaderColumnNameMappingStrategy<>();
         ms.setType(Employee.class);
         return ms;
     }
