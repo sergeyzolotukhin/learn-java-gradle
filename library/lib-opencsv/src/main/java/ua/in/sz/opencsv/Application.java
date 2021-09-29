@@ -3,6 +3,8 @@ package ua.in.sz.opencsv;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.FuzzyMappingStrategy;
+import com.opencsv.bean.HeaderColumnNameMappingStrategy;
+import com.opencsv.bean.MappingStrategy;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,8 +44,8 @@ public class Application {
                 .build();
     }
 
-    private static FuzzyMappingStrategy<Employee> employeeMappingStrategy() {
-        FuzzyMappingStrategy<Employee> ms = new FuzzyMappingStrategy<>();
+    private static MappingStrategy<Employee> employeeMappingStrategy() {
+		HeaderColumnNameMappingStrategy<Employee> ms = new HeaderColumnNameMappingStrategy<>();
         ms.setType(Employee.class);
         return ms;
     }
