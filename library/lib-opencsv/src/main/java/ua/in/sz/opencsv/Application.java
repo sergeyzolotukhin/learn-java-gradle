@@ -3,6 +3,7 @@ package ua.in.sz.opencsv;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.bean.FuzzyMappingStrategy;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +20,9 @@ public class Application {
 	public static void main(String[] args) {
 		Path path = Paths.get(ClassLoader.getSystemResource("data.csv").toURI());
 		try (Reader reader = Files.newBufferedReader(path)) {
-			ColumnPositionMappingStrategy<Employee> ms = new ColumnPositionMappingStrategy<>();
+//			ColumnPositionMappingStrategy<Employee> ms = new ColumnPositionMappingStrategy<>();
+//			ms.setType(Employee.class);
+			FuzzyMappingStrategy<Employee> ms = new FuzzyMappingStrategy<>();
 			ms.setType(Employee.class);
 
 			CsvToBean<Employee> cb = new CsvToBeanBuilder<Employee>(reader)
