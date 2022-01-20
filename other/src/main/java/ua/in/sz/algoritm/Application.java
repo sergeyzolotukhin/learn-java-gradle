@@ -50,7 +50,7 @@ public class Application {
 
         result.setValues(new ArrayList<>(valueOnDate.values()));
 
-        log.info("{}", result);
+        log.info("Result: {}", result);
     }
 
     private static DateTime min(DateTime d1, DateTime d2){
