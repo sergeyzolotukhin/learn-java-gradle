@@ -34,7 +34,6 @@ RUN mkdir -p /var/run/vsftpd/empty \
 COPY vsftpd.conf /etc/vsftpd.conf
 
 EXPOSE 21 21000-21010
-#VOLUME /ftp
 
 STOPSIGNAL SIGKILL
 
