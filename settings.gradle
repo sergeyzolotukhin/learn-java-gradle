@@ -55,6 +55,7 @@
 //include 'infrastructure:ansible:ansible-slave'
 //include 'infrastructure:zoo-keeper'
 //include 'infrastructure:kafka'
+include 'infrastructure:docker'
 // ====================================================================================================================
 // pattern gof
 // ====================================================================================================================
