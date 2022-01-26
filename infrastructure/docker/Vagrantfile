@@ -6,7 +6,12 @@ Vagrant.configure("2") do |config|
         # Ubuntu 20.04.3 LTS - Focal Fossa
         d.vm.box = "ubuntu/focal64"
 #         d.vm.network "forwarded_port", guest: 80, host: 8080
-#         d.vm.network "forwarded_port", guest: 21, host: 21
+        d.vm.network "forwarded_port", guest: 20, host: 20
+        d.vm.network "forwarded_port", guest: 21, host: 21
+
+        for i in 65500..65515
+            config.vm.network :forwarded_port, guest: i, host: i
+        end
 
         d.vm.provider "virtualbox" do |vb|
             vb.name = "docker-1"

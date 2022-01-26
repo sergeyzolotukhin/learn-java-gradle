@@ -1,12 +1,19 @@
-FROM alpine:3.13
-RUN apk --no-cache add vsftpd
+FROM metabrainz/base-image
 
-COPY start_vsftpd.sh /bin/start_vsftpd.sh
-COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends vsftpd \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 21 21000-21010
-VOLUME /ftp/ftp
+RUN mkdir -p /var/run/vsftpd/empty \
+ && mkdir -p /etc/vsftpd \
+ && mkdir -p /var/ftp \
+ && mv /etc/vsftpd.conf /etc/vsftpd.orig \
+ && mkdir /etc/service/vsftpd
 
-STOPSIGNAL SIGKILL
+ADD vsftpd.sh /etc/service/vsftpd/run
 
-ENTRYPOINT ["/bin/start_vsftpd.sh"]
+VOLUME ["/var/ftp"]
+
+EXPOSE 20-21
+EXPOSE 65500-65515
