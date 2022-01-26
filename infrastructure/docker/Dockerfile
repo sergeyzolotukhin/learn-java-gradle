@@ -3,6 +3,9 @@ FROM ubuntu:20.04
 RUN apt-get update \
     && apt-get -y install vsftpd
 
+# network tools
+RUN apt-get -y install iproute2
+
 # add users / groups
 RUN useradd -d /ftp_site/TSOC_HOUSE -s /bin/bash tsoc-house-ftp-upload \
   && echo "tsoc-house-ftp-upload:tsoc-house-ftp-upload" | chpasswd \

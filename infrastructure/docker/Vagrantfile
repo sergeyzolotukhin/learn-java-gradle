@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
         d.vm.provision :docker do |dc|
             dc.build_image "/vagrant", args: "-t my-name/my-new-image"
-            dc.run "my-name/my-new-image"
+            dc.run "my-name/my-new-image", args: "-p 21:21"
         end
     end
 end
