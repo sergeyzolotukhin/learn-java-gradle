@@ -1,19 +1,22 @@
-FROM metabrainz/base-image
+FROM ubuntu:20.04
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends vsftpd \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get -y install vsftpd
 
-RUN mkdir -p /var/run/vsftpd/empty \
- && mkdir -p /etc/vsftpd \
- && mkdir -p /var/ftp \
- && mv /etc/vsftpd.conf /etc/vsftpd.orig \
- && mkdir /etc/service/vsftpd
+# support tools
+#RUN apt-get -y install mc
 
-ADD vsftpd.sh /etc/service/vsftpd/run
+#RUN apk --no-cache add vsftpd
 
-VOLUME ["/var/ftp"]
+COPY start_vsftpd.sh /bin/start_vsftpd.sh
+#COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-EXPOSE 20-21
-EXPOSE 65500-65515
+EXPOSE 21
+# EXPOSE 21 21000-21010
+#VOLUME /ftp/ftp
+VOLUME /ftp
+
+STOPSIGNAL SIGKILL
+
+CMD ["/usr/sbin/vsftpd","-obackground=NO"]
+#ENTRYPOINT ["/bin/start_vsftpd.sh"]
