@@ -5,8 +5,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "docker-1" do |d|
         # Ubuntu 20.04.3 LTS - Focal Fossa
         d.vm.box = "ubuntu/focal64"
-#         d.vm.network "forwarded_port", guest: 80, host: 8080
-#         d.vm.network "forwarded_port", guest: 20, host: 20
         d.vm.network "forwarded_port", guest: 21, host: 21
 
         for i in 21000..21010
@@ -19,10 +17,6 @@ Vagrant.configure("2") do |config|
             vb.memory = "4048"
         end
 
-#         d.vm.provider "docker" do |dp|
-#             dp.volumes = ["/var:/ftp"]
-#         end
-
         d.vm.provision "shell", inline: <<-SHELL
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
             sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -32,7 +26,7 @@ Vagrant.configure("2") do |config|
 
         d.vm.provision :docker do |dc|
             dc.build_image "/vagrant", args: "-t my-name/my-new-image"
-            dc.run "my-name/my-new-image", args: "-p 21:21"
+            dc.run "my-name/my-new-image", args: "-p 21:21 -p 21000-21010:21000-21010"
         end
     end
 end
