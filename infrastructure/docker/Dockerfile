@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 RUN apt-get update \
     && apt-get -y install vsftpd
 
-# network tools
+# network / others tools
 RUN apt-get -y install iproute2
 
 # add users / groups
