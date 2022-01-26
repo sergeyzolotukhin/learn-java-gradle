@@ -25,8 +25,10 @@ RUN mkdir -p /ftp_site/TSOC_HOUSE/external_documents_for_etp_publication \
 RUN chown -R tsoc-house-ftp-upload /ftp_site/TSOC_HOUSE \
   && chmod 775 /ftp_site/TSOC_HOUSE
 
-COPY start_vsftpd.sh /bin/start_vsftpd.sh
-#COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+RUN mkdir -p /var/run/vsftpd/empty \
+  && touch /var/log/vsftpd.log
+
+COPY vsftpd.conf /etc/vsftpd.conf
 
 EXPOSE 21
 # EXPOSE 21 21000-21010
