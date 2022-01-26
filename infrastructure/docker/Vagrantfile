@@ -8,11 +8,24 @@ Vagrant.configure("2") do |config|
         # Ubuntu 16.04.7 LTS - Xenial Xerus
         # Ubuntu 14.04.6 LTS - Trusty Tahr
         d.vm.box = "ubuntu/focal64"
-        d.vm.provision :shell, path: "docker_provision.sh"
+#         d.vm.provision :shell, path: "docker_provision.sh"
+        d.vm.network "forwarded_port", guest: 80, host: 8080
+
         d.vm.provider "virtualbox" do |vb|
             vb.name = "docker-1"
             vb.gui = true
             vb.memory = "4048"
         end
+
+        # require plugin https://github.com/leighmcculloch/vagrant-docker-compose
+        d.vagrant.plugins = "vagrant-docker-compose"
+
+        # install docker and docker-compose
+        # https://www.vagrantup.com/docs/provisioning/docker
+        d.vm.provision :docker
+        d.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", rebuild: true, run: "always"
     end
 end
+
+# Where does Vagrant download its .box files to?
+#   C:/Users/USERNAME/.vagrant.d/boxes
