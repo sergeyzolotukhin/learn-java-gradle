@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+    config.vm.define "docker-1" do |d|
+        # Ubuntu 20.04.3 LTS - Focal Fossa
+        d.vm.box = "ubuntu/focal64"
+
+
+        d.vm.provider "virtualbox" do |vb|
+            vb.name = "docker-engine-1"
+            vb.memory = "4048"
+        end
+
+
+        d.vm.provision "shell", inline: <<-SHELL
+            sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+            sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            echo -e "root\nroot" | passwd root
+            systemctl restart sshd.service
+        SHELL
+
+        # Install Docker
+        d.vm.provision :docker
+
+        # Install Docker Compose
+        # First, install required plugin https://github.com/leighmcculloch/vagrant-docker-compose:
+        # vagrant plugin install vagrant-docker-compose
+        config.vm.provision :docker_compose
+    end
+end
