@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.define "docker-1" do |d|
+    config.vm.define "docker-ftp-1" do |d|
         # Ubuntu 20.04.3 LTS - Focal Fossa
         d.vm.box = "ubuntu/focal64"
         d.vm.network "forwarded_port", guest: 21, host: 21
@@ -12,16 +12,11 @@ Vagrant.configure("2") do |config|
         end
 
         d.vm.provider "virtualbox" do |vb|
-            vb.name = "docker-1"
+            vb.name = "docker-ftp-1"
             vb.memory = "4048"
         end
 
-        d.vm.provision "shell", inline: <<-SHELL
-            sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-            sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-            echo -e "root\nroot" | passwd root
-            systemctl restart sshd.service
-        SHELL
+        d.vm.provision "shell", path: "root-login-enable.sh"
 
         d.vm.provision :docker do |dc|
             dc.build_image "/vagrant", args: "-t my-name/my-new-image"
