@@ -3,3 +3,5 @@
 C:\java\IDEA-2018.3.5\bin\idea64.exe --line 10 k:/projects/patterns/other/src/main/java/ua/in/sz/code/gen/main/Main.java
 
 idea:k:/projects/patterns/other/src/main/java/ua/in/sz/code/gen/main/Main.java
+
+https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)?redirectedfrom=MSDN
