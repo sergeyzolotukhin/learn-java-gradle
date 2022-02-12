@@ -4,13 +4,23 @@
 Vagrant.configure("2") do |config|
     # Ubuntu 20.04.3 LTS - Focal Fossa
     config.vm.box = "ubuntu/focal64"
-    config.ssh.port = 3334
-    config.vm.network "forwarded_port", guest: 22, host: 3334, id: :ssh
+#     config.ssh.port = 3334
+#     config.vm.network "forwarded_port", guest: 22, host: 3334, id: :ssh
+
     config.vm.provider :virtualbox do |vb|
         vb.name = "haproxy-1"
         vb.memory = "2048"
         vb.gui = true
     end
+
+    config.vm.provision "shell", path: "root-login-enable.sh"
+    config.vm.provision "shell" do |s|
+        s.path = "provision.sh"
+    end
+
+    config.vm.network "forwarded_port", guest: 22, host: 3334, id: :ssh, disable: true
+    config.vm.network "forwarded_port", guest: 3334, host: 3334, id: :ssh
+    config.ssh.port = 3334
 
     config.vm.provision "shell", path: "root-login-enable.sh"
 end
