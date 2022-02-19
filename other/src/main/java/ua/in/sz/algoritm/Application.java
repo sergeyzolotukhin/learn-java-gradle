@@ -9,7 +9,7 @@ import java.util.*;
 public class Application {
     public static void main(String[] args) {
         List<ValueVO<?>> values1 = Arrays.asList(
-                ValueVO.builder().start(date(0, 0)).end(date(0, 15)).value(1).build(),
+                ValueVO.builder().start(0, 0).end(0, 15).value(1).build(),
                 ValueVO.builder().start(date(0, 15)).end(date(0, 30)).value(2).build(),
                 ValueVO.builder().start(date(0, 30)).end(date(0, 45)).value(3).build(),
                 ValueVO.builder().start(date(0, 45)).end(date(1, 0)).value(4).build(),
