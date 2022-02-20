@@ -5,7 +5,7 @@ plugins {
 group 'ua.in.sz.pattern'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = "16"
 
 repositories {
     mavenCentral()
@@ -22,14 +22,14 @@ dependencies {
     implementation 'commons-io:commons-io:2.6'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.8'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
 }
