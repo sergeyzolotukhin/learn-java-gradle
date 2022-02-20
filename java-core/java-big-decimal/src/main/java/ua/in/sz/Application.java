@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Application {
     public static void main(String[] args) {
         BigDecimal val = new BigDecimal("1.1");
-        MyBigDecimal val1 = new MyBigDecimal("1.1");
+        MyBigDecimal val1 = new MyBigDecimal("1000.001001001001");
         log.info("{}", val1);
     }
 }

@@ -44,9 +44,7 @@ public class MyBigDecimal {
     // state
 
     private final int scale;
-    private transient int precision;
     private final transient long intCompact;
-    private final BigInteger intVal;
 
     public MyBigDecimal(String val) {
         this(val.toCharArray(), 0, val.length());
@@ -60,7 +58,6 @@ public class MyBigDecimal {
         int prec = 0;                 // record precision value
         int scl = 0;                  // record scale value
         long rs = 0;                  // the compact value in long
-        BigInteger rb = null;         // the inflated value in BigInteger
 
         try {
             // handle the sign
@@ -92,6 +89,7 @@ public class MyBigDecimal {
                             rs *= 10;
                             ++prec;
                         } // else digit is a redundant leading zero
+
                         if (dot)
                             ++scl;
                     } else if ((c >= '1' && c <= '9')) { // have digit
@@ -99,6 +97,7 @@ public class MyBigDecimal {
                         if (prec != 1 || rs != 0)
                             ++prec; // prec unchanged if preceded by 0s
                         rs = rs * 10 + digit;
+
                         if (dot)
                             ++scl;
                     } else if (c == '.') {   // have dot
@@ -106,10 +105,6 @@ public class MyBigDecimal {
                         if (dot) // two dots
                             throw new NumberFormatException("Character array contains more than one decimal point.");
                         dot = true;
-                    } else if (Character.isDigit(c)) { // slow path
-                        throw new NotImplementedException("E");
-                    } else if ((c == 'e') || (c == 'E')) {
-                        throw new NotImplementedException("E");
                     } else {
                         throw new NumberFormatException(
                                 "Character " + c + " is neither a decimal digit number, decimal point, nor \"e\" notation exponential mark.");
@@ -140,9 +135,7 @@ public class MyBigDecimal {
             throw nfe;
         }
         this.scale = scl;
-        this.precision = prec;
         this.intCompact = rs;
-        this.intVal = rb;
     }
 
     private static int checkScaleNonZero(long val) {
@@ -193,8 +186,7 @@ public class MyBigDecimal {
         }
     }
 
-    private static boolean needIncrement(long ldivisor, int roundingMode,
-                                         int qsign, long q, long r) {
+    private static boolean needIncrement(long ldivisor, int roundingMode, int qsign, long q, long r) {
         assert r != 0L;
 
         int cmpFracHalf;
@@ -261,16 +253,12 @@ public class MyBigDecimal {
     }
 
     public int signum() {
-        return (intCompact != INFLATED) ?
-                Long.signum(intCompact) :
-                intVal.signum();
+        return Long.signum(intCompact);
     }
 
     private String layoutChars(boolean sci) {
         if (scale == 0)                      // zero scale is trivial
-            return (intCompact != INFLATED) ?
-                    Long.toString(intCompact) :
-                    intVal.toString();
+            return Long.toString(intCompact);
         if (scale == 2 &&
                 intCompact >= 0 && intCompact < Integer.MAX_VALUE) {
             // currency fast path
@@ -285,13 +273,10 @@ public class MyBigDecimal {
         char[] coeff;
         int offset;  // offset is the starting index for coeff array
         // Get the significand as an absolute value
-        if (intCompact != INFLATED) {
+
             offset = sbHelper.putIntCompact(Math.abs(intCompact));
             coeff = sbHelper.getCompactCharArray();
-        } else {
-            offset = 0;
-            coeff = intVal.abs().toString().toCharArray();
-        }
+
 
         // Construct a buffer, with sufficient capacity for all cases.
         // If E-notation is needed, length will be: +1 if negative, +1
