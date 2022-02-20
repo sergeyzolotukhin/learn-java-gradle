@@ -1,19 +1,23 @@
 package ua.in.sz;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
+@Slf4j
 public class MyBigInteger {
     private static long bitsPerDigit[] = { 0, 0,
-            1024, 1624, 2048, 2378, 2648, 2875, 3072, 3247, 3402, 3543, 3672,
+            1024, 1624, 2048, 2378, 2648, 2875, 3072, 3247, 3402 /*10*/, 3543, 3672,
             3790, 3899, 4001, 4096, 4186, 4271, 4350, 4426, 4498, 4567, 4633,
             4696, 4756, 4814, 4870, 4923, 4975, 5025, 5074, 5120, 5166, 5210,
             5253, 5295};
-    private static int digitsPerInt[] = {0, 0, 30, 19, 15, 13, 11,
-            11, 10, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6,
+    private static int digitsPerInt[] = {0, 0,
+            30, 19, 15, 13, 11, 11, 10, 9, 9 /* 10 */, 8, 8,
+            8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6,
             6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5};
     private static int intRadix[] = {0, 0,
             0x40000000, 0x4546b3db, 0x40000000, 0x48c27395, 0x159fd800,
-            0x75db9c97, 0x40000000, 0x17179149, 0x3b9aca00, 0xcc6db61,
+            0x75db9c97, 0x40000000, 0x17179149, 0x3b9aca00 /* 10 */, 0xcc6db61,
             0x19a10000, 0x309f1021, 0x57f6c100, 0xa2f1b6f,  0x10000000,
             0x18754571, 0x247dbc80, 0x3547667b, 0x4c4b4000, 0x6b5a6e1d,
             0x6c20a40,  0x8d2d931,  0xb640000,  0xe8d4a51,  0x1269ae40,
@@ -68,8 +72,7 @@ public class MyBigInteger {
         numDigits = len - cursor;
         signum = sign;
 
-        // Pre-allocate array of expected size. May be too large but can
-        // never be too small. Typically exact.
+        // Pre-allocate array of expected size. May be too large but can never be too small. Typically exact.
         long numBits = ((numDigits * bitsPerDigit[radix]) >>> 10) + 1;
         if (numBits + 31 >= (1L << 32)) {
             reportOverflow();
@@ -85,6 +88,8 @@ public class MyBigInteger {
         magnitude[numWords - 1] = Integer.parseInt(group, radix);
         if (magnitude[numWords - 1] < 0)
             throw new NumberFormatException("Illegal digit");
+        log.info("G: {}", group);
+        log.info("M[{}]: {}", numWords - 1, magnitude[numWords - 1]);
 
         // Process remaining digit groups
         int superRadix = intRadix[radix];
@@ -94,8 +99,11 @@ public class MyBigInteger {
             groupVal = Integer.parseInt(group, radix);
             if (groupVal < 0)
                 throw new NumberFormatException("Illegal digit");
+
+            log.info("G: {}", group);
             destructiveMulAdd(magnitude, superRadix, groupVal);
         }
+
         // Required for cases where the array was overallocated.
         mag = trustedStripLeadingZeroInts(magnitude);
         if (mag.length >= MAX_MAG_LENGTH) {
@@ -103,27 +111,29 @@ public class MyBigInteger {
         }
     }
 
-    private static void destructiveMulAdd(int[] x, int y, int z) {
+    private static void destructiveMulAdd(int[] x, int superRadix, int groupVal) {
         // Perform the multiplication word by word
-        long ylong = y & LONG_MASK;
-        long zlong = z & LONG_MASK;
+        long ysuperRadix = superRadix & LONG_MASK;
+        long zgroupVal = groupVal & LONG_MASK;
         int len = x.length;
 
         long product = 0;
         long carry = 0;
         for (int i = len-1; i >= 0; i--) {
-            product = ylong * (x[i] & LONG_MASK) + carry;
+            product = ysuperRadix * (x[i] & LONG_MASK) + carry;
+            log.info("M[{}]: {} <= superRadix {} * x[{}] {} + carry {}", i, product, superRadix, i, x[i], carry);
             x[i] = (int)product;
             carry = product >>> 32;
         }
 
         // Perform the addition
-        long sum = (x[len-1] & LONG_MASK) + zlong;
+        long sum = (x[len-1] & LONG_MASK) + zgroupVal;
         x[len-1] = (int)sum;
         carry = sum >>> 32;
         for (int i = len-2; i >= 0; i--) {
             sum = (x[i] & LONG_MASK) + carry;
             x[i] = (int)sum;
+            log.info("S[{}]: {} <= superRadix {} groupVal {}",i, sum, superRadix, groupVal);
             carry = sum >>> 32;
         }
     }
