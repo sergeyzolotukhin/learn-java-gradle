@@ -55,8 +55,8 @@
 //include 'infrastructure:ansible:ansible-slave'
 //include 'infrastructure:zoo-keeper'
 //include 'infrastructure:kafka'
-include 'infrastructure:docker'
-include 'infrastructure:docker-engine'
+//include 'infrastructure:docker'
+//include 'infrastructure:docker-engine'
 // ====================================================================================================================
 // pattern gof
 // ====================================================================================================================
@@ -73,10 +73,11 @@ include 'infrastructure:docker-engine'
 //include 'java-core:java-jdbc'
 //include 'java-core:java-predicate'
 //include 'java-core:java-14'
+include 'java-core:java-big-decimal'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
-include 'other'
+//include 'other'
 //include 'house'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
