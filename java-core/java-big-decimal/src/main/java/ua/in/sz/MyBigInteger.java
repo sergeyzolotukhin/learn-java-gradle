@@ -43,33 +43,19 @@ public class MyBigInteger {
         int cursor = 0, numDigits;
         final int len = val.length();
 
-        if (radix < Character.MIN_RADIX || radix > Character.MAX_RADIX)
-            throw new NumberFormatException("Radix out of range");
-        if (len == 0)
-            throw new NumberFormatException("Zero length BigInteger");
-
         // Check for at most one leading sign
         int sign = 1;
         int index1 = val.lastIndexOf('-');
         int index2 = val.lastIndexOf('+');
         if (index1 >= 0) {
-            if (index1 != 0 || index2 >= 0) {
-                throw new NumberFormatException("Illegal embedded sign character");
-            }
             sign = -1;
             cursor = 1;
         } else if (index2 >= 0) {
-            if (index2 != 0) {
-                throw new NumberFormatException("Illegal embedded sign character");
-            }
             cursor = 1;
         }
-        if (cursor == len)
-            throw new NumberFormatException("Zero length BigInteger");
 
         // Skip leading zeros and compute number of digits in magnitude
-        while (cursor < len &&
-                Character.digit(val.charAt(cursor), radix) == 0) {
+        while (cursor < len && Character.digit(val.charAt(cursor), radix) == 0) {
             cursor++;
         }
 
