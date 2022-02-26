@@ -1,3 +1,9 @@
+https://www.jenkins.io/doc/developer/building/intellij/
+https://www.jenkins.io/doc/developer/
+https://github.com/jenkinsci/jenkins
+
+=======================================================================================================================
+
 ![](https://github.com/sergeyzolotukhin/patterns/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
 pip install pywin32
