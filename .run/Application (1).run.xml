@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application (1)" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="ua.in.sz.Application" />
-    <module name="patterns.java-core.java-big-decimal.main" />
+    <module name="patterns.java-core.eclipse-collections.main" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="ua.in.sz.*" />
