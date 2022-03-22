@@ -1,0 +1,13 @@
+#### Cache goals
+
+resource utilization:
+    * reduced disk I/O, physical reads, physical writes
+
+concurrency:
+    * reduce lock contention
+    * usually hold locks for shorter periods of time.
+
+monitoring:
+    * cache hit ratios
+
+
