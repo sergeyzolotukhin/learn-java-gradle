@@ -43,9 +43,11 @@
 
 Что можем сделать в оффлаин режиме?
     какая есть подержка кеширования в Drools, BPMN, CXF, Camel
-    создать класстерное виртуальное окружения (vagrant, oracle vm, wildfly, Infinispan)
+    создать класстерное виртуальное окружения (vagrant, oracle vm, wildfly, Infinispan, Load balancing)
     создать постейшее приложение с (Spring, Hibernate, BPMN, Drools, CXF, Camel, PostgreSQL)
     создать нагрузочные тесты (измерить с/без кеширования)
+
+Какой результат мы получим?
 
 Дополнительные условия.
     транзакционнасть
