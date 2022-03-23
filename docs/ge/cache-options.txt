@@ -1,4 +1,4 @@
-Standing data cache на примере JBOSS Infinispan.
+POC: Standing data cache на примере JBOSS Infinispan.
 
 Цель POC:
     Выбрать опримальную топологию и конфигрурацию кеша кластера.
