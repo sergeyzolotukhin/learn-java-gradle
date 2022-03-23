@@ -1,4 +1,5 @@
 #### Cache goals
+#######################################################################################################################
 
 resource utilization:
     * reduced disk I/O, physical reads, physical writes
@@ -9,5 +10,32 @@ concurrency:
 
 monitoring:
     * cache hit ratios
+
+#######################################################################################################################
+#
+#######################################################################################################################
+https://medium.datadriveninvestor.com/all-things-caching-use-cases-benefits-strategies-choosing-a-caching-technology-exploring-fa6c1f2e93aa
+
+Caching Prerequisites
+Before even deciding on the caching layer, you need to ask yourself the following questions:
+
+* Which business use-cases in your system require high throughput, fast response or low latency?
+    * standing data
+    * active schedules
+
+* Are you fine with data inconsistency if you use the cache?
+    ????
+
+* What kind of data do you want to store? Objects, static data, simple key-value pairs or in-memory data structures?
+    ????
+
+* Do you need to maintain the cache for transactional / master data?
+    Yes
+
+* Do you need in-process cache or shared cache in a single node or distributed cache for n number of nodes?
+    ????
+
+* If you use distributed cache, what about performance, reliability, scalability, and availability?
+    ????
 
 
