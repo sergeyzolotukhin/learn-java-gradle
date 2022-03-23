@@ -12,6 +12,9 @@
 
 Где кешировать?
     on service level
+        + хранить уже готовые объекты.
+        + учитывать период вадиности объетка.
+
     on hibernate level
         + уже реализованно
         - прейдется хранить множество мелких сущностей
@@ -34,9 +37,9 @@
         ? может хранить значительно больше данных
 
 Как измерить?
-    hit ratio h - установить порог и сделать нотификацию
-    Read latency - The average read latency (in milliseconds) per incoming read operation.
+    + Read latency - The average read latency (in milliseconds) per incoming read operation.
     Read ops - 	The total number of read operations.
+    hit ratio h - установить порог и сделать нотификацию
 
 Что можем сделать в оффлаин режиме?
 
