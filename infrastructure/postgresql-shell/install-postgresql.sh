@@ -1,14 +1,18 @@
 #!/bin/bash
 
-# Create the file repository configuration:
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-
-# Import the repository signing key:
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-# Update the package lists:
 sudo apt-get update
-
-# Install the latest version of PostgreSQL.
-# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
 sudo apt-get -y install postgresql
+
+sudo sed -i "s/#listen_address.*/listen_addresses '*'/" /etc/postgresql/14/main/postgresql.conf
+
+sudo cat >> /etc/postgresql/14/main/pg_hba.conf <<EOF
+  # Accept all IPv4 connections - FOR DEVELOPMENT ONLY!!!
+  host    all         all         0.0.0.0/0             md5
+EOF
+
+sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'\" "
+
+sudo systemctl restart postgresql

@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
         vb.gui = true
     end
 
+    config.vm.network :forwarded_port, guest: 5432, host: 5432
     config.vm.synced_folder ".", "/vagrant"
     config.vm.provision "shell", path: "root-login-enable.sh"
     config.vm.provision "shell", path: "install-postgresql.sh"
