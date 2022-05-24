@@ -8,10 +8,10 @@ echo 'Update index of packages'
 sudo apt-get -qq update
 
 echo 'Install postgresql'
-sudo apt-get -qq -y install postgresql-14
+sudo apt-get -qq -y install postgresql-14 > /dev/null
 
 echo 'Install tools'
-sudo apt-get -qq -y install mc
+sudo apt-get -qq -y install mc > /dev/null
 
 echo 'Update postgresql configurations'
 sudo cp /vagrant/postgresql.conf /etc/postgresql/14/main/postgresql.conf
