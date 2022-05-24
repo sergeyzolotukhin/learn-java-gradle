@@ -10,6 +10,6 @@ sudo apt-get -y install mc
 sudo cp /vagrant/postgresql.conf /etc/postgresql/14/main/postgresql.conf
 sudo cp /vagrant/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
 
-sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'\" "
+sudo su postgres -c "psql -a -f /vagrant/alter-postgres-password.sql"
 
 sudo systemctl restart postgresql
