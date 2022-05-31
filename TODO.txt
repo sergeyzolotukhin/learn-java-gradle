@@ -1,0 +1,22 @@
+git init
+git remote add origin https://github.com/multiple-git-remotes/main.git
+git remote add origin-a https://github.com/multiple-git-remotes/module-a.git
+git remote add origin-b https://github.com/multiple-git-remotes/module-b.git
+
+git fetch origin
+git fetch origin-a
+git fetch origin-b
+
+git checkout --track origin/main
+git checkout -b main-a origin-a/main
+git checkout main
+git checkout main-a
+
+
+============================================================
+git checkout --track origin/main
+git switch -
+git pull origin main
+git checkout -b main origin/main
+
+git checkout --track origin/serverfix
