@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * https://www.eclipse.org/collections/
+ * <a href="https://www.eclipse.org/collections/">Eclipse collection</a>
  */
 @Slf4j
 public class Application {
