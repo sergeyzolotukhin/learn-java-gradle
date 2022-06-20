@@ -40,7 +40,7 @@
 //include 'library:lib-cxf'
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
-//include 'library:lib-ehcache-2.6'
+include 'library:lib-ehcache-2.6'
 //include 'library:lib-logback'
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
@@ -74,7 +74,7 @@
 //include 'java-core:java-predicate'
 //include 'java-core:java-14'
 //include 'java-core:java-big-decimal'
-include 'java-core:eclipse-collections'
+//include 'java-core:eclipse-collections'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
