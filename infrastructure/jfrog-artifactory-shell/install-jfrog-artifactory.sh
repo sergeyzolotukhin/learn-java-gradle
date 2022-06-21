@@ -1,19 +1,22 @@
 #!/bin/bash
 
-echo 'Add jfrog repository'
-sudo apt-get update
-wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
-echo "deb https://jfrog.bintray.com/artifactory-debs focal main" | sudo tee /etc/apt/sources.list.d/jfrog.list
-
 echo 'Update index of packages'
-sudo apt-get update
+#sudo apt-get update
 
-echo 'Install JFrog Artifactory'
-sudo apt-cache madison jfrog-artifactory-oss
-sudo apt -y install jfrog-artifactory-oss=7.27.9 -V
+echo 'Copy installer archive'
+sudo mkdir /opt/jfrog-artifactory
+sudo cp /vagrant/jfrog-artifactory-oss-7.39.4-linux.tar.gz /opt/jfrog-artifactory
+cd /opt/jfrog-artifactory || return
 
-echo 'Install tools'
-sudo apt-get -y install mc
+echo 'Set the JFrog Home'
+export JFROG_HOME=/opt/jfrog-artifactory
+
+echo 'Extract installer archive'
+sudo tar -xvf jfrog-artifactory-oss-7.39.4-linux.tar.gz
+sudo mv artifactory-oss-7.39.4 artifactory
+
+echo 'Install service JFrog Artifactory'
+sudo $JFROG_HOME/artifactory/app/bin/installService.sh
 
 echo 'Restart JFrog Artifactory'
 sudo systemctl start artifactory.service
