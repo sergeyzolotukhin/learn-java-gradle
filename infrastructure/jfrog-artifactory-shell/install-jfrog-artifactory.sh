@@ -11,15 +11,15 @@ sudo mkdir /opt/jfrog-artifactory
 sudo cp /vagrant/jfrog-artifactory-oss-7.39.4-linux.tar.gz /opt/jfrog-artifactory
 cd /opt/jfrog-artifactory || return
 
-echo 'Set the JFrog Home'
-export JFROG_HOME=/opt/jfrog-artifactory
+#echo 'Set the JFrog Home'
+#export JFROG_HOME=/opt/jfrog-artifactory
 
 echo 'Extract installer archive'
 sudo tar -xf jfrog-artifactory-oss-7.39.4-linux.tar.gz
 sudo mv artifactory-oss-7.39.4 artifactory
 
 #echo 'Install service JFrog Artifactory'
-#sudo $JFROG_HOME/artifactory/app/bin/installService.sh
+#sudo /opt/jfrog-artifactory/artifactory/app/bin/installService.sh
 
 #echo 'Restart JFrog Artifactory'
 #sudo systemctl start artifactory.service

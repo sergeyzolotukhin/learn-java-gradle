@@ -1,7 +1,16 @@
+# How to run
+
+cd /opt/jfrog-artifactory/artifactory/app/bin# 
+./artifactory.sh
+
+# How to access
+
 http://localhost:8081/artifactory
 
 Username: admin
 Password: password
+
+# Others
 
 [Install Ubuntu](https://computingforgeeks.com/how-to-install-jfrog-artifactory-on-ubuntu-linux/)
 [Documentation](https://www.jfrog.com/confluence/display/JFROG/JFrog+Artifactory)
