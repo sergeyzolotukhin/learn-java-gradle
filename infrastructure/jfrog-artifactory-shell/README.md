@@ -1,4 +1,4 @@
-http://loclhost:8081/artifactory
+http://localhost:8081/artifactory
 
 Username: admin
 Password: password
