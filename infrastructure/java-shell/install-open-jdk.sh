@@ -8,7 +8,7 @@ sudo apt-get -y install mc
 
 
 echo 'Install Java ===================================================================================================='
-sudo apt -y install openjdk-18-jdk
+sudo apt -y install openjdk-17-jdk
 
 echo 'Verify Java JDK Installation====================================================================================='
 sudo java --version
