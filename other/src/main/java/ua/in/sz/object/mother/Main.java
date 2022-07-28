@@ -27,7 +27,8 @@ public class Main {
                         .build(),
                 entity("id-4")
                         .factor(commission(false))
-                        .build()));
+                        .build()
+        ));
 
         entities.forEach(e -> log.info("Entity: {}", e));
     }
