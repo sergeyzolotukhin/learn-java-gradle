@@ -42,7 +42,7 @@
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
 //include 'library:lib-logback'
-include 'library:lib-junit-hamcrest'
+//include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 // ====================================================================================================================
 // infrastructure
@@ -78,7 +78,7 @@ include 'library:lib-junit-hamcrest'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
-//include 'other'
+include 'other'
 //include 'house'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
