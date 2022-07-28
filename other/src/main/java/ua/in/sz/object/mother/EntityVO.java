@@ -31,6 +31,16 @@ public class EntityVO {
     public static class EntityVOBuilder {
         private List<FactorVO> factors;
 
+        public EntityVOBuilder factor(FactorVO factor) {
+            if (this.factors == null) {
+                this.factors = new ArrayList<>();
+            }
+
+            this.factors.add(factor);
+
+            return this;
+        }
+
         public EntityVOBuilder factor(String type, Integer value) {
             if (this.factors == null) {
                 this.factors = new ArrayList<>();

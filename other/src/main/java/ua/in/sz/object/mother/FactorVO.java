@@ -10,5 +10,5 @@ public class FactorVO {
     private String from;
     private String to;
     private String type;
-    private Integer value;
+    private Object value;
 }

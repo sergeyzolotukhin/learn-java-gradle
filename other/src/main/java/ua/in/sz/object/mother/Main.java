@@ -38,6 +38,14 @@ public class Main {
                 entity("id-3").primaryRole("Role-2")
                         .factor("factor-type-1", 1)
                         .build());
+        entities.add(
+                entity("id-3")
+                        .factor(commission(true))
+                        .build());
+        entities.add(
+                entity("id-4")
+                        .factor(commission(false))
+                        .build());
 
 
         entities.forEach(e -> log.info("Entity: {}", e));
@@ -49,5 +57,12 @@ public class Main {
                 .to("2022-01-02")
                 .primaryRole("role-1")
                 .identification(identification);
+    }
+
+    private static FactorVO commission(boolean value) {
+        return FactorVO.builder()
+                .type("is_commission")
+                .value(value)
+                .build();
     }
 }
