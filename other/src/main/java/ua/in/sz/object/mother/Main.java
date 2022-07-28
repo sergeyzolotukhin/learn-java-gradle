@@ -28,6 +28,26 @@ public class Main {
                         .build()
         );
 
-        log.info("Entities: {}", entities);
+        entities.add(
+                entity("id-2")
+                        .factor("factor-type-1", 1)
+                        .factor("factor-type-2", 12)
+                        .factor("factor-type-2", 13)
+                        .build());
+        entities.add(
+                entity("id-3").primaryRole("Role-2")
+                        .factor("factor-type-1", 1)
+                        .build());
+
+
+        entities.forEach(e -> log.info("Entity: {}", e));
+    }
+
+    private static EntityVO.EntityVOBuilder entity(String identification) {
+        return EntityVO.builder()
+                .from("2022-01-01")
+                .to("2022-01-02")
+                .primaryRole("role-1")
+                .identification(identification);
     }
 }
