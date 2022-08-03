@@ -34,6 +34,9 @@ HDD
     2 1 TB - Disk 1 - ?
     3 1 TB - Disk 2 - F - book, K - media
     4 1 TB - Disk 3 - G - work, E - HDD download
+USB HDD
+    1 1 TB - a-data black
+    2
 =======================================================================================================================
 C: M2 OS (backup) - 500 GB total - disk image via acronis, copy to USB HDD
     operation system - 100 GB
@@ -55,7 +58,7 @@ F: HDD Book/Photo/Home (backup) - 500 GB - sync with USB HDD
     books - 100 GB used -> 500 GB
     photo (family)
     home ( documentations / photo )
-
+    work ( luxoft / GE )
 
 M: HDD Film/Musics (no backup) - 1 TB - download from internet
     films - 150 GB used -> 1 TB
@@ -63,3 +66,11 @@ M: HDD Film/Musics (no backup) - 1 TB - download from internet
 I: HDD Install (no backup) - 500 GB - download from internet
     software (install) - 200 GB
     operation system images - 2 GB per iso
+=======================================================================================================================
+USB HDD a-data black - 1 TB
+    book backup -> 530 GB
+    home backup -> 15 GB
+    photo -> 100 MB
+    film (movable to TV) -> 320 GB
+    work backup (luxoft/GE)
+    password/certificate
