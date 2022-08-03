@@ -39,11 +39,13 @@ M2 OS
     operation system - 100 GB
     software (installed) - 6 GB
 
+M2 Work
+    maven repository - 10 GB
+    java projects source code (build/target) - 1 GB
+
 logical part
     data
-        maven repository - 10 GB
         docker repository -
-        java projects source code (build/target) - 1 GB
         database data
         database backup
     software (distribution) - 200 GB
