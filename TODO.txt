@@ -35,24 +35,31 @@ HDD
     3 1 TB - Disk 2 - F - book, K - media
     4 1 TB - Disk 3 - G - work, E - HDD download
 =======================================================================================================================
-M2 OS
+C: M2 OS (backup) - 500 GB total - disk image via acronis, copy to USB HDD
     operation system - 100 GB
     software (installed) - 6 GB
 
-M2 Work
+D: M2 Java (no backup) - 500 GB total
     maven repository - 10 GB
-    java projects source code (build/target) - 1 GB
+    java projects source code (build/target) - 1 GB -> github backup
 
-logical part
-    data
-        docker repository -
-        database data
-        database backup
-    software (distribution) - 200 GB
-    virtual machines (running/created/halt) - 10 GB per images
-    operation system images - 2 GB per iso
-    books - 100 GB used
-    films - 150 GB used
+E: HDD Torrent/Download/Game/Others (no backup)
+    torrent - 10 GB
+    chrome download - 20 GB
+G: HDD VM/Docker/Database (no backup) - 500 GB
+    virtual machines (running/created/halt) - 10 GB per images - vagrant recreate
+    docker images
+    database data
+
+F: HDD Book/Photo/Home (backup) - 500 GB - sync with USB HDD
+    books - 100 GB used -> 500 GB
+    photo (family)
+    home ( documentations / photo )
+
+
+M: HDD Film/Musics (no backup) - 1 TB - download from internet
+    films - 150 GB used -> 1 TB
     musics - 1 GB
-    photo
-    home documentations / photo
+I: HDD Install (no backup) - 500 GB - download from internet
+    software (install) - 200 GB
+    operation system images - 2 GB per iso
