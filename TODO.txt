@@ -30,10 +30,10 @@ SSD
     1 256 GB - Disk 4
     2 256 GB - Disk 5
 HDD
-    1 2 TB - Disk 0 - P - backup soft, M - films
+    1 2 TB - Disk 0 - H - install , M - media
     2 1 TB - Disk 1 - ?
-    3 1 TB - Disk 2 - F - book, K - media
-    4 1 TB - Disk 3 - F - vm, E - HDD download
+    3 1 TB - Disk 2 - G - HDD book
+    4 1 TB - Disk 3 - E - HDD download, F - HDD vm
 USB HDD
     1 1 TB - orange
     2 2 TB - a-data black
@@ -46,7 +46,7 @@ D: M2 2 programming (no backup) - 500 GB total
     maven repository - 10 GB
     java projects source code (build/target) - 1 GB -> github backup
 
-E: HDD download (no backup)
+E: HDD download (no backup) - 500 GB
     torrent - 10 GB
     chrome download - 20 GB
     game
@@ -56,16 +56,16 @@ F: HDD vm (no backup) - 500 GB
     docker images
     database data
 
-F: HDD Book/Photo/Home (backup) - 500 GB - sync with USB HDD
+G: HDD book (backup) - 500 GB - sync with USB HDD
     books - 100 GB used -> 500 GB
     photo (family)
     home ( documentations / photo )
     work ( luxoft / GE )
 
-M: HDD Film/Musics (no backup) - 1 TB - download from internet
+H: HDD media (no backup) - 1 TB - download from internet
     films - 150 GB used -> 1 TB
     musics - 1 GB
-I: HDD Install (no backup) - 500 GB - download from internet
+I: HDD install (no backup) - 1 TB - download from internet
     software (install) - 200 GB
     os images - 2 GB per iso
 =======================================================================================================================
