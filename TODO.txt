@@ -56,16 +56,18 @@ F: HDD vm (no backup) - 500 GB
     docker images
     database data
 
-G: HDD book (backup) - 500 GB - sync with USB HDD
+G: HDD book (backup) - 1 TB - sync with USB HDD
     books - 100 GB used -> 500 GB
+
+H: HDD home (backup)
     photo (family)
     home ( documentations / photo )
     work ( luxoft / GE )
 
-H: HDD media (no backup) - 1 TB - download from internet
+I: HDD media (no backup) - 1 TB - download from internet
     films - 150 GB used -> 1 TB
     musics - 1 GB
-I: HDD install (no backup) - 1 TB - download from internet
+J: HDD install (no backup) - 1 TB - download from internet
     software (install) - 200 GB
     os images - 2 GB per iso
 =======================================================================================================================
