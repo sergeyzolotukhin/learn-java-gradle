@@ -68,12 +68,12 @@ I: HDD Install (no backup) - 500 GB - download from internet
     operation system images - 2 GB per iso
 =======================================================================================================================
 USB HDD orange - 1 TB
+    password/certificate
+    work backup (luxoft/GE)
     book backup -> 530 GB
     home backup -> 15 GB
     photo -> 100 MB
     film (movable to TV) -> 320 GB
-    work backup (luxoft/GE)
-    password/certificate
 
 USB HDD black - 2 TB
     films (movable) - 12 GB
