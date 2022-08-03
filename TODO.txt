@@ -74,3 +74,11 @@ USB HDD orange - 1 TB
     film (movable to TV) -> 320 GB
     work backup (luxoft/GE)
     password/certificate
+
+USB HDD black - 2 TB
+    films (movable) - 12 GB
+    3d max - 38 GB
+    book - 30 GB
+    photo - 15 GB
+    home 3d backup - 3 GB
+    java backup - 500 MB
