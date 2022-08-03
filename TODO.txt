@@ -59,7 +59,7 @@ F: HDD vm (no backup) - 500 GB
 G: HDD book (backup) - 1 TB - sync with USB HDD
     books - 100 GB used -> 500 GB
 
-H: HDD home (backup)
+H: HDD home (backup) - 1 TB - sync with USB HDD
     photo (family)
     home ( documentations / photo )
     work ( luxoft / GE )
