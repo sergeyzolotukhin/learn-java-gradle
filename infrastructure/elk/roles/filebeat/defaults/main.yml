@@ -1,5 +1,0 @@
----
-targets:
-  - /var/log/*.log
-filebeat_ignore_older: 1h
-filebeat_logs_dir: /var/log/filebeat

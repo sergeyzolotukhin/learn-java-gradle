@@ -1,1 +1,0 @@
-[Documentation](https://github.com/sergeyzolotukhin/patterns/wiki/virtual-machine-home)

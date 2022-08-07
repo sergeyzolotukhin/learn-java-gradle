@@ -1,4 +1,0 @@
-web:
-  image: nginx
-  ports:
-    - "80:80"

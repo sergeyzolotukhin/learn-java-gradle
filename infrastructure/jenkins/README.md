@@ -1,1 +1,0 @@
-[install agent](https://github.com/culmat/vagrant.jenkins.slave)
