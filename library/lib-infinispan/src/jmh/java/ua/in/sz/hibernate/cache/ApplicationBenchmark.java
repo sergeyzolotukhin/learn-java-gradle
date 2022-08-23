@@ -2,12 +2,7 @@ package ua.in.sz.hibernate.cache;
 
 
 import org.infinispan.Cache;
-import org.infinispan.container.entries.CacheEntry;
-import org.infinispan.context.Flag;
-import org.infinispan.filter.CacheFilters;
-import org.infinispan.filter.KeyValueFilter;
 import org.infinispan.manager.DefaultCacheManager;
-import org.infinispan.metadata.Metadata;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -15,10 +10,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
@@ -82,7 +74,13 @@ public class ApplicationBenchmark {
 //                .toList();
 //        bh.consume(entries); // 1042 ns
 
-        for (Map.Entry<String, String> e : cache.entrySet()) { // 347 ns
+//        for (Map.Entry<String, String> e : cache.entrySet()) { // 347 ns
+//            if (e == null) {
+//                throw new IllegalStateException();
+//            }
+//        }
+
+        for (String e : cache.keySet()) { // 313 ns
             if (e == null) {
                 throw new IllegalStateException();
             }
