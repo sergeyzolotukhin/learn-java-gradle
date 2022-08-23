@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'me.champeau.jmh' version '0.6.6'
 }
 
 repositories{
@@ -12,7 +13,11 @@ dependencies {
     // data store
     implementation(platform("org.infinispan:infinispan-bom:13.0.10.Final"))
     implementation("org.infinispan:infinispan-core")
-    compileOnly 'org.infinispan:infinispan-component-annotations:13.0.10.Final'
+    implementation 'org.infinispan:infinispan-component-annotations:13.0.10.Final'
+
+    // test
+    implementation 'org.openjdk.jmh:jmh-core:1.35'
+    implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.35'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.2.11'
@@ -20,5 +25,6 @@ dependencies {
     // development
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.35'
 }
 

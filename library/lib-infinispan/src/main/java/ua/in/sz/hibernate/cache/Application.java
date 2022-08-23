@@ -14,6 +14,5 @@ public class Application {
 		cache.put("1", "One");
 		cache.put("2", "Two");
 		log.info("1={}", cache.get("1"));
-
 	}
 }
