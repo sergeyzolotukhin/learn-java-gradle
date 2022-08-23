@@ -38,8 +38,9 @@ public class ApplicationBenchmark {
         cacheManager = new DefaultCacheManager(Application.class.getResourceAsStream("/weatherapp-infinispan.xml"));
         cache = cacheManager.getCache("weather");
 
-        cache.put("1", "One");
-        cache.put("2", "Two");
+        cache.put("01", "One");
+        cache.put("02", "Two");
+        cache.put("13", "Two");
     }
 
     @TearDown
@@ -49,7 +50,10 @@ public class ApplicationBenchmark {
 
     @Benchmark
     public void findByPredicate(Blackhole bh) {
-        List<Object> entities = cache.values().stream().toList();
-        bh.consume(entities);
+//        List<Object> entities = cache.values().stream().toList();
+//        bh.consume(entities);
+
+        Object o = cache.get("01");
+        bh.consume(o);
     }
 }
