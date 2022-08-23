@@ -2,6 +2,8 @@ package ua.in.sz.hibernate.cache;
 
 
 import org.infinispan.Cache;
+import org.infinispan.container.entries.CacheEntry;
+import org.infinispan.context.Flag;
 import org.infinispan.manager.DefaultCacheManager;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -54,8 +56,12 @@ public class ApplicationBenchmark {
 //        List<Object> entities = cache.values().stream().toList();
 //        bh.consume(entities); // 840 ns
 
-        List<Map.Entry<Object, Object>> entries = cache.entrySet().stream().toList();
-        bh.consume(entries); // 845 ns
+//        List<Map.Entry<Object, Object>> entries = cache.entrySet().stream().toList();
+//        bh.consume(entries); // 845 ns
+
+        List<CacheEntry<Object, Object>> entries = cache.getAdvancedCache().withFlags(Flag.CACHE_MODE_LOCAL)
+                .cacheEntrySet().stream().toList();
+        bh.consume(entries); // 846 ns
 
 //        Object o = cache.get("01"); // 54 ns
 //        bh.consume(o);
