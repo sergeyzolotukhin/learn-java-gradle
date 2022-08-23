@@ -12,6 +12,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
@@ -51,9 +52,12 @@ public class ApplicationBenchmark {
     @Benchmark
     public void findByPredicate(Blackhole bh) {
 //        List<Object> entities = cache.values().stream().toList();
-//        bh.consume(entities);
+//        bh.consume(entities); // 840 ns
 
-        Object o = cache.get("01");
-        bh.consume(o);
+        List<Map.Entry<Object, Object>> entries = cache.entrySet().stream().toList();
+        bh.consume(entries); // 845 ns
+
+//        Object o = cache.get("01"); // 54 ns
+//        bh.consume(o);
     }
 }
