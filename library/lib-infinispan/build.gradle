@@ -2,19 +2,6 @@ plugins {
     id 'java'
 }
 
-/*tasks.withType(JavaCompile) {
-    options.annotationProcessorGeneratedSourcesDirectory = file("src/main/generated")
-}*/
-
-
-/*sourceSets {
-    generated {
-        java {
-            srcDirs = ['src/generated/java']
-        }
-    }
-}*/
-
 repositories{
     mavenLocal()
     jcenter()
@@ -23,21 +10,15 @@ repositories{
 
 dependencies {
     // data store
-
-
-    // common utils
-    implementation 'com.google.guava:guava:28.1-jre'
-    implementation 'org.apache.commons:commons-text:1.8'
-    implementation 'org.apache.commons:commons-lang3:3.9'
-    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation(platform("org.infinispan:infinispan-bom:13.0.10.Final"))
+    implementation("org.infinispan:infinispan-core")
+    compileOnly 'org.infinispan:infinispan-component-annotations:13.0.10.Final'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    compileOnly 'org.hibernate:hibernate-jpamodelgen:5.4.13.Final'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.hibernate:hibernate-jpamodelgen:5.4.13.Final'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
