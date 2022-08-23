@@ -5,6 +5,11 @@
         xmlns="urn:infinispan:config:10.1">
 
     <cache-container default-cache="weather">
-        <local-cache name="weather" />
+        <local-cache name="weather">
+<!--            <encoding>-->
+<!--                <key media-type="application/x-java-object"/>-->
+<!--                <value media-type="application/x-java-object"/>-->
+<!--            </encoding>-->
+        </local-cache>
     </cache-container>
 </infinispan>

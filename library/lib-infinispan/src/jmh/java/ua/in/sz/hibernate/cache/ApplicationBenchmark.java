@@ -68,19 +68,25 @@ public class ApplicationBenchmark {
 //                .cacheEntrySet().stream().toList();
 //        bh.consume(entries); // 846 ns
 
-        List<CacheEntry<String, String>> entries = cache.getAdvancedCache()
-                .withFlags(
-                        Flag.SKIP_CACHE_LOAD, Flag.SKIP_CACHE_STORE,
-                        Flag.SKIP_INDEXING, Flag.SKIP_INDEX_CLEANUP,
-                        Flag.SKIP_LOCKING, Flag.SKIP_REMOTE_LOOKUP,
-                        Flag.SKIP_STATISTICS, Flag.SKIP_LISTENER_NOTIFICATION,
-                        Flag.SKIP_OWNERSHIP_CHECK,
-                        Flag.SKIP_SIZE_OPTIMIZATION,
-                        Flag.SKIP_XSITE_BACKUP)
-                .cacheEntrySet().stream()
-                .filter(CacheFilters.predicate((key, value, metadata) -> key.startsWith("0")))
-                .toList();
-        bh.consume(entries); // 1042 ns
+//        List<CacheEntry<String, String>> entries = cache.getAdvancedCache()
+//                .withFlags(
+//                        Flag.SKIP_CACHE_LOAD, Flag.SKIP_CACHE_STORE,
+//                        Flag.SKIP_INDEXING, Flag.SKIP_INDEX_CLEANUP,
+//                        Flag.SKIP_LOCKING, Flag.SKIP_REMOTE_LOOKUP,
+//                        Flag.SKIP_STATISTICS, Flag.SKIP_LISTENER_NOTIFICATION,
+//                        Flag.SKIP_OWNERSHIP_CHECK,
+//                        Flag.SKIP_SIZE_OPTIMIZATION,
+//                        Flag.SKIP_XSITE_BACKUP)
+//                .cacheEntrySet().stream()
+//                .filter(CacheFilters.predicate((key, value, metadata) -> key.startsWith("0")))
+//                .toList();
+//        bh.consume(entries); // 1042 ns
+
+        for (Map.Entry<String, String> e : cache.entrySet()) { // 347 ns
+            if (e == null) {
+                throw new IllegalStateException();
+            }
+        }
 
 //        Object o = cache.get("01"); // 54 ns
 //        bh.consume(o);

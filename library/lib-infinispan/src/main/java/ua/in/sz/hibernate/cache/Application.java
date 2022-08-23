@@ -2,6 +2,7 @@ package ua.in.sz.hibernate.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.infinispan.Cache;
+import org.infinispan.commons.util.CloseableIterator;
 import org.infinispan.manager.DefaultCacheManager;
 
 import java.io.IOException;
@@ -16,12 +17,22 @@ public class Application {
 		cache.put("1", "One");
 		cache.put("2", "Two");
 
-		for (int i = 0; i < 1_000_000; i++) {
+/*		for (int i = 0; i < 1_000_000; i++) {
 			List<Map.Entry<String, String>> entities = cache.entrySet().stream().toList();
 			if (entities.isEmpty()) {
 				throw new IllegalStateException();
 			}
+		}*/
+
+		for (int i = 0; i < 10_000_000; i++) {
+			for (Map.Entry<String, String> e : cache.entrySet()) {
+				if (e == null) {
+					throw new IllegalStateException();
+				}
+			}
+
 		}
-		log.info("1={}", cache.get("1"));
+
+		log.info("end");
 	}
 }
