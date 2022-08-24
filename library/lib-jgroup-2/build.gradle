@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.in.sz.jgroup'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jgroups:jgroups:5.2.6.Final'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // test
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
