@@ -11,7 +11,7 @@ public class Application {
 	@SneakyThrows
 	public static void main(String[] args) {
 		JAXRSServerFactoryBean factoryBean = new JAXRSServerFactoryBean();
-		factoryBean.setResourceClasses(SimpleRepository.class);
+//		factoryBean.setResourceClasses(SimpleRepository.class);
 		factoryBean.setResourceProvider(new SingletonResourceProvider(new SimpleRepository()));
 		factoryBean.setProvider(new SimpleExceptionMapper());
 
@@ -19,10 +19,10 @@ public class Application {
 		Server server = factoryBean.create();
 
 		log.info("Server ready...");
-		Thread.sleep(60 * 1000);
+		Thread.sleep(Long.MAX_VALUE);
 
-		log.info("Server exiting");
-		server.destroy();
-		System.exit(0);
+//		log.info("Server exiting");
+//		server.destroy();
+//		System.exit(0);
 	}
 }
