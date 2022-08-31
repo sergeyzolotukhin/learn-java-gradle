@@ -7,7 +7,7 @@
 
     <!-- Framework -->
     <logger name="org.eclipse.jetty" level="warn" />
-    <logger name="org.apache.cxf" level="debug" />
+    <logger name="org.apache.cxf" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
