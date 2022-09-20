@@ -10,7 +10,7 @@
         xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/jgroups.xsd"
 >
     <TCP bind_addr="${jgroups.bind_addr:LOOPBACK}"
-         bind_port="${jgroups.bind_port:7800}"
+         bind_port="${jgroups.bind_port:7801}"
          port_range="${jgroups.tcp.port_range:0}"
          external_addr="${jgroups.external_addr}"
          external_port="${jgroups.external_port}"
