@@ -19,7 +19,7 @@ public class Main implements Receiver {
     }
 
     private void start() throws Exception {
-        channel = new JChannel();
+        channel = new JChannel("main-tcp.xml");
         channel.setReceiver(this);
         channel.connect("ChatCluster");
         eventLoop();

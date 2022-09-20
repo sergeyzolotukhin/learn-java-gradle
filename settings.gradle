@@ -38,7 +38,7 @@
 //include 'library:lib-togglz'
 //include 'library:lib-camel'
 //include 'library:lib-cxf'
-include 'library:lib-cxf-rs'
+//include 'library:lib-cxf-rs'
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
@@ -46,8 +46,8 @@ include 'library:lib-cxf-rs'
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'
-//include 'library:lib-jgroup'
-//include 'library:lib-jgroup-2'
+include 'library:lib-jgroup'
+include 'library:lib-jgroup-2'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
