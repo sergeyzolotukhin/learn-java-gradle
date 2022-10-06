@@ -17,8 +17,6 @@ public class Main {
         cmd.addArgument("/c");
         cmd.addArguments(mvn.toStrings(), true);
 
-        log.info("CMD:{}", Arrays.asList(cmd.toStrings()));
-
         DefaultExecutor executor = new DefaultExecutor();
         int exitCode = executor.execute(cmd);
 
