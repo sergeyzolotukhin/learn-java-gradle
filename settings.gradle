@@ -46,8 +46,9 @@
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'
-include 'library:lib-jgroup'
-include 'library:lib-jgroup-2'
+//include 'library:lib-jgroup'
+//include 'library:lib-jgroup-2'
+include 'library:lib-apache-exec'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
