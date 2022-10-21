@@ -5,10 +5,15 @@ import org.apache.commons.dbcp2.*;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 @Slf4j
 public class Main {
@@ -16,12 +21,53 @@ public class Main {
         String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
         setupDriver(url);
 
-        lofMetadata();
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        List<Callable<String>> callables = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            callables.add(Main::queryConnection);
+        }
+
+        List<Future<String>> futures = executorService.invokeAll(callables);
+        for (Future<String> future : futures) {
+            log.info("future.get = " + future.get());
+        }
+
+        executorService.shutdown();
 
         destroyDriver();
     }
 
-    private static void lofMetadata() throws SQLException {
+    private static String queryConnection() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
+
+        StringBuilder sb = new StringBuilder();
+
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT count(*) FROM pg_stat_activity where backend_type in ('client backend')");
+        while (rs.next()) {
+            sb.append(rs.getLong("backend_type"));
+        }
+        rs.close();
+        st.close();
+
+        con.close();
+
+        return sb.toString();
+    }
+
+    private static String queryMetadata() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
+
+        DatabaseMetaData meta = con.getMetaData();
+        String name = meta.getDatabaseProductName();
+
+        con.close();
+
+        return "Server name: " + name;
+    }
+
+    private static void logMetadata() throws SQLException {
         Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
 
         DatabaseMetaData meta = con.getMetaData();
