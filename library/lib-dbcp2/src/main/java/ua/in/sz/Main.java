@@ -20,10 +20,10 @@ public class Main {
         String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
         setupDriver(url);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        ExecutorService executorService = Executors.newFixedThreadPool(50);
         List<Callable<String>> callables = new ArrayList<>();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             callables.add(Main::queryConnection);
         }
 
@@ -62,6 +62,8 @@ public class Main {
         st.close();
 
         con.close();
+
+        sb.append(" : [").append(Thread.currentThread().getName()).append("]");
 
         return sb.toString();
     }
@@ -106,7 +108,7 @@ public class Main {
         PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, null);
 
         GenericObjectPoolConfig<PoolableConnection> config = new GenericObjectPoolConfig<>();
-        config.setMaxTotal(20);
+        config.setMaxTotal(50);
         ObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf, config);
         pcf.setPool(op);
 
