@@ -18,7 +18,7 @@ public class Main {
         log.info("start");
         String url = "jdbc:postgresql://127.0.0.1:5432/postgres?user=postgres&password=postgres";
 
-        DataSource dateSource = createDateSource(url);
+        BasicDataSource dateSource = createDateSource(url);
 
         ExecutorService executorService = Executors.newFixedThreadPool(20);
         List<Callable<String>> callables = new ArrayList<>();
@@ -40,6 +40,8 @@ public class Main {
         } finally {
             executorService.shutdown();
         }
+
+        dateSource.close();
 
         log.info("end");
     }
@@ -64,7 +66,7 @@ public class Main {
         return sb.toString();
     }
 
-    private static DataSource createDateSource(String url) {
+    private static BasicDataSource createDateSource(String url) {
         // https://commons.apache.org/proper/commons-dbcp/configuration.html
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
