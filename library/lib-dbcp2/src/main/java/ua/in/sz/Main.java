@@ -115,8 +115,6 @@ public class Main {
     private static DataSource createDateSource(String url) {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
-//        dataSource.setUsername("root");
-//        dataSource.setPassword("root");
 
         dataSource.setInitialSize(20);
         dataSource.setMinIdle(20);
@@ -125,6 +123,10 @@ public class Main {
 
         return dataSource;
     }
+
+    // ================================================================================================================
+    //
+    // ================================================================================================================
 
     public static void setupDriver(String url) throws Exception {
         ConnectionFactory cf = new DriverManagerConnectionFactory(url);
