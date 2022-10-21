@@ -1,15 +1,14 @@
 package ua.in.sz;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.dbcp2.*;
-import org.apache.commons.pool2.ObjectPool;
-import org.apache.commons.pool2.impl.GenericObjectPool;
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -18,7 +17,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         log.info("start");
         String url = "jdbc:postgresql://127.0.0.1:5432/postgres?user=postgres&password=postgres";
-//        setupDriver(url);
 
         DataSource dateSource = createDateSource(url);
 
@@ -36,7 +34,6 @@ public class Main {
                     future.get();
                 } catch (InterruptedException | ExecutionException e) {
                     log.info("exception : " + e.getMessage());
-//                    log.error("exception : ",  e);
                 }
 
             }
@@ -44,21 +41,10 @@ public class Main {
             executorService.shutdown();
         }
 
-
-//        destroyDriver();
         log.info("end");
     }
 
-    private static String getCount(Future<String> future) {
-        try {
-            return future.get();
-        } catch (InterruptedException | ExecutionException e) {
-            return e.getMessage();
-        }
-    }
-
     private static String queryConnection(DataSource dateSource) throws SQLException {
-//        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
         Connection con = dateSource.getConnection();
 
         StringBuilder sb = new StringBuilder();
@@ -78,91 +64,19 @@ public class Main {
         return sb.toString();
     }
 
-    private static String queryMetadata() throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
-
-        DatabaseMetaData meta = con.getMetaData();
-        String name = meta.getDatabaseProductName();
-
-        con.close();
-
-        return "Server name: " + name;
-    }
-
-    private static void logMetadata() throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
-
-        DatabaseMetaData meta = con.getMetaData();
-        log.info("Database Connection Info: ");
-        log.info("   Server name: " + meta.getDatabaseProductName());
-        log.info("   Server version: " + meta.getDatabaseProductVersion());
-        log.info("   Driver name: " + meta.getDriverName());
-        log.info("   Driver version: " + meta.getDriverVersion());
-        log.info("   JDBC major version: " + meta.getJDBCMajorVersion());
-        log.info("   JDBC minor version: " + meta.getJDBCMinorVersion());
-
-        con.close();
-    }
-
-    public static void logStatistics() throws Exception {
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-        ObjectPool<? extends Connection> op = driver.getConnectionPool("HyPool");
-        log.info("DBCP PoolingDriver Info: ");
-        log.info("   Active Connections: " + op.getNumActive());
-        log.info("   Idle Connections: " + op.getNumIdle());
-    }
-
     private static DataSource createDateSource(String url) {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
 
-        dataSource.setInitialSize(20);
-        dataSource.setMinIdle(20);
-        dataSource.setMaxIdle(30);
-        dataSource.setMaxTotal(50);
+        dataSource.setInitialSize(70);
+        dataSource.setMinIdle(70);
+        dataSource.setMaxIdle(80);
+        dataSource.setMaxTotal(90);
+        dataSource.setValidationQuery("SELECT 1");
+        dataSource.setTestOnCreate(true);
+//        dataSource.setTestOnBorrow(true);
+        dataSource.setTestWhileIdle(true);
 
         return dataSource;
-    }
-
-    // ================================================================================================================
-    //
-    // ================================================================================================================
-
-    public static void setupDriver(String url) throws Exception {
-        ConnectionFactory cf = new DriverManagerConnectionFactory(url);
-
-        PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, null);
-        pcf.setValidationQuery("SELECT 1");
-        pcf.setMaxConnLifetimeMillis(60000);
-        pcf.setFastFailValidation(true);
-        pcf.setValidationQueryTimeout(1000);
-
-
-
-        GenericObjectPoolConfig<PoolableConnection> config = new GenericObjectPoolConfig<>();
-
-        config.setMinIdle(20);
-        config.setMaxIdle(30);
-        config.setMaxTotal(50);
-        config.setTestOnBorrow(true);
-        config.setTestOnCreate(true);
-        config.setTestOnReturn(true);
-        config.setTestWhileIdle(true);
-
-        GenericObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf, config);
-//        op.setMinIdle(20);
-
-//        op.setTestOnBorrow(true);
-
-        pcf.setPool(op);
-
-        Class.forName("org.apache.commons.dbcp2.PoolingDriver");
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-        driver.registerPool("HyPool", op);
-    }
-
-    public static void destroyDriver() throws Exception {
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-        driver.closePool("HyPool");
     }
 }
