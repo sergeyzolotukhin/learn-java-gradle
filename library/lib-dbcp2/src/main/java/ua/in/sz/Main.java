@@ -20,10 +20,10 @@ public class Main {
 
         BasicDataSource dateSource = createDateSource(url);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        ExecutorService executorService = Executors.newFixedThreadPool(50);
         List<Callable<String>> callables = new ArrayList<>();
 
-        for (int i = 0; i < 200000; i++) {
+        for (int i = 0; i < 20000; i++) {
             callables.add(() -> queryConnection(dateSource));
         }
 
