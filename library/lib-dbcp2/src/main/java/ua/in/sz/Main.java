@@ -6,6 +6,7 @@ import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,26 +17,35 @@ import java.util.concurrent.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         log.info("start");
-        String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
-        setupDriver(url);
+        String url = "jdbc:postgresql://127.0.0.1:5432/postgres?user=postgres&password=postgres";
+//        setupDriver(url);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(50);
+        DataSource dateSource = createDateSource(url);
+
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
         List<Callable<String>> callables = new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) {
-            callables.add(Main::queryConnection);
+        for (int i = 0; i < 200; i++) {
+            callables.add(() -> queryConnection(dateSource));
         }
 
         try {
             List<Future<String>> futures = executorService.invokeAll(callables);
             for (Future<String> future : futures) {
-                log.info("future.get = " + getCount(future));
+                try {
+                    future.get();
+                } catch (InterruptedException | ExecutionException e) {
+                    log.info("exception : " + e.getMessage());
+//                    log.error("exception : ",  e);
+                }
+
             }
         } finally {
             executorService.shutdown();
         }
 
-        destroyDriver();
+
+//        destroyDriver();
         log.info("end");
     }
 
@@ -47,8 +57,9 @@ public class Main {
         }
     }
 
-    private static String queryConnection() throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
+    private static String queryConnection(DataSource dateSource) throws SQLException {
+//        Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
+        Connection con = dateSource.getConnection();
 
         StringBuilder sb = new StringBuilder();
 
@@ -101,14 +112,46 @@ public class Main {
         log.info("   Idle Connections: " + op.getNumIdle());
     }
 
+    private static DataSource createDateSource(String url) {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setUrl(url);
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("root");
+
+        dataSource.setInitialSize(20);
+        dataSource.setMinIdle(20);
+        dataSource.setMaxIdle(30);
+        dataSource.setMaxTotal(50);
+
+        return dataSource;
+    }
+
     public static void setupDriver(String url) throws Exception {
         ConnectionFactory cf = new DriverManagerConnectionFactory(url);
 
         PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, null);
+        pcf.setValidationQuery("SELECT 1");
+        pcf.setMaxConnLifetimeMillis(60000);
+        pcf.setFastFailValidation(true);
+        pcf.setValidationQueryTimeout(1000);
+
+
 
         GenericObjectPoolConfig<PoolableConnection> config = new GenericObjectPoolConfig<>();
+
+        config.setMinIdle(20);
+        config.setMaxIdle(30);
         config.setMaxTotal(50);
-        ObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf, config);
+        config.setTestOnBorrow(true);
+        config.setTestOnCreate(true);
+        config.setTestOnReturn(true);
+        config.setTestWhileIdle(true);
+
+        GenericObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf, config);
+//        op.setMinIdle(20);
+
+//        op.setTestOnBorrow(true);
+
         pcf.setPool(op);
 
         Class.forName("org.apache.commons.dbcp2.PoolingDriver");
