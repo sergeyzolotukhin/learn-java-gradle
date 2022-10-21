@@ -4,20 +4,19 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.dbcp2.*;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 @Slf4j
 public class Main {
     public static void main(String[] args) throws Exception {
+        log.info("start");
         String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
         setupDriver(url);
 
@@ -28,14 +27,25 @@ public class Main {
             callables.add(Main::queryConnection);
         }
 
-        List<Future<String>> futures = executorService.invokeAll(callables);
-        for (Future<String> future : futures) {
-            log.info("future.get = " + future.get());
+        try {
+            List<Future<String>> futures = executorService.invokeAll(callables);
+            for (Future<String> future : futures) {
+                log.info("future.get = " + getCount(future));
+            }
+        } finally {
+            executorService.shutdown();
         }
 
-        executorService.shutdown();
-
         destroyDriver();
+        log.info("end");
+    }
+
+    private static String getCount(Future<String> future) {
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            return e.getMessage();
+        }
     }
 
     private static String queryConnection() throws SQLException {
@@ -44,9 +54,9 @@ public class Main {
         StringBuilder sb = new StringBuilder();
 
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT count(*) FROM pg_stat_activity where backend_type in ('client backend')");
+        ResultSet rs = st.executeQuery("SELECT count(*) as connection_count FROM pg_stat_activity where backend_type in ('client backend')");
         while (rs.next()) {
-            sb.append(rs.getLong("backend_type"));
+            sb.append(rs.getLong("connection_count"));
         }
         rs.close();
         st.close();
@@ -92,9 +102,12 @@ public class Main {
 
     public static void setupDriver(String url) throws Exception {
         ConnectionFactory cf = new DriverManagerConnectionFactory(url);
+
         PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, null);
 
-        ObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf);
+        GenericObjectPoolConfig<PoolableConnection> config = new GenericObjectPoolConfig<>();
+        config.setMaxTotal(20);
+        ObjectPool<PoolableConnection> op = new GenericObjectPool<>(pcf, config);
         pcf.setPool(op);
 
         Class.forName("org.apache.commons.dbcp2.PoolingDriver");
