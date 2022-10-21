@@ -20,10 +20,10 @@ public class Main {
 
         BasicDataSource dateSource = createDateSource(url);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
         List<Callable<String>> callables = new ArrayList<>();
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 200000; i++) {
             callables.add(() -> queryConnection(dateSource));
         }
 
@@ -71,10 +71,10 @@ public class Main {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
 
-        dataSource.setInitialSize(70);
-        dataSource.setMinIdle(70);
-        dataSource.setMaxIdle(80);
-        dataSource.setMaxTotal(90);
+        dataSource.setInitialSize(50);
+        dataSource.setMinIdle(50);
+        dataSource.setMaxIdle(50);
+        dataSource.setMaxTotal(50);
         dataSource.setValidationQuery("SELECT 1");
         dataSource.setTestOnCreate(true);
 //        dataSource.setTestOnBorrow(true);
