@@ -8,28 +8,32 @@ import org.apache.commons.pool2.impl.GenericObjectPool;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @Slf4j
 public class Main {
     public static void main(String[] args) throws Exception {
         String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
-
         setupDriver(url);
 
+        lofMetadata();
+
+        destroyDriver();
+    }
+
+    private static void lofMetadata() throws SQLException {
         Connection con = DriverManager.getConnection("jdbc:apache:commons:dbcp:HyPool");
 
         DatabaseMetaData meta = con.getMetaData();
         log.info("Database Connection Info: ");
-        log.info("   Server name: "+meta.getDatabaseProductName());
-        log.info("   Server version: "+meta.getDatabaseProductVersion());
-        log.info("   Driver name: "+ meta.getDriverName());
-        log.info("   Driver version: "+ meta.getDriverVersion());
-        log.info("   JDBC major version: "+ meta.getJDBCMajorVersion());
-        log.info("   JDBC minor version: "+ meta.getJDBCMinorVersion());
+        log.info("   Server name: " + meta.getDatabaseProductName());
+        log.info("   Server version: " + meta.getDatabaseProductVersion());
+        log.info("   Driver name: " + meta.getDriverName());
+        log.info("   Driver version: " + meta.getDriverVersion());
+        log.info("   JDBC major version: " + meta.getJDBCMajorVersion());
+        log.info("   JDBC minor version: " + meta.getJDBCMinorVersion());
 
         con.close();
-
-        destroyDriver();
     }
 
     public static void logStatistics() throws Exception {
