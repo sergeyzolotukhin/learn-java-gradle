@@ -65,6 +65,7 @@ public class Main {
     }
 
     private static DataSource createDateSource(String url) {
+        // https://commons.apache.org/proper/commons-dbcp/configuration.html
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
 
