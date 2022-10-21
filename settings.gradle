@@ -87,4 +87,6 @@ include 'library:lib-apache-exec'
 //include 'house'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
+include 'library:lib-dbcp2'
+findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
 
