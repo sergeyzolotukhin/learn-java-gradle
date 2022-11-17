@@ -19,7 +19,7 @@ import java.util.Locale;
 public class Application {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
-		MessageSource messageSource = ctx.getBean(ReloadableResourceBundleMessageSource.class);
+		MessageSource messageSource = ctx.getBean("messageSource", MessageSource.class);
 		Object[] arguments = new Object[]{BigDecimal.valueOf(1.2224), LocalDate.now()};
 		String message = messageSource.getMessage("message.1", arguments, Locale.getDefault());
 		log.info("{}", message);
