@@ -2,6 +2,7 @@ package ua.in.sz.spring;
 
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
+import javax.annotation.Nonnull;
 import java.text.FieldPosition;
 import java.text.Format;
 import java.text.MessageFormat;
@@ -10,7 +11,8 @@ import java.util.Locale;
 
 public class EntsoeReloadableResourceBundleMessageSource extends ReloadableResourceBundleMessageSource {
     @Override
-    protected MessageFormat createMessageFormat(String msg, Locale locale) {
+    @Nonnull
+    protected MessageFormat createMessageFormat(@Nonnull String msg, @Nonnull Locale locale) {
         MessageFormat format = super.createMessageFormat(msg, locale);
 
         Format[] formats = format.getFormats();
@@ -26,13 +28,13 @@ public class EntsoeReloadableResourceBundleMessageSource extends ReloadableResou
 
     private static class DefaultFormat extends Format {
         @Override
-        public StringBuffer format(Object o, StringBuffer stringBuffer, FieldPosition fieldPosition) {
-            return stringBuffer.append("...").append(o).append("...");
+        public StringBuffer format(Object value, StringBuffer buffer, @Nonnull FieldPosition fieldPosition) {
+            return buffer.append("...").append(value).append("...");
         }
 
         @Override
-        public Object parseObject(String s, ParsePosition parsePosition) {
-            return null;
+        public Object parseObject(String text, @Nonnull ParsePosition parsePosition) {
+            throw new UnsupportedOperationException();
         }
     }
 }
