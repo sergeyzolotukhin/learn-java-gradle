@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="messageSource" class="ua.in.sz.spring.ExtendedReloadableResourceBundleMessageSource">
+    <bean id="messageSource" class="ua.in.sz.spring.EntsoeReloadableResourceBundleMessageSource">
         <property name="basename" value="classpath:messages" />
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
