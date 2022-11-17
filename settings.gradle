@@ -18,6 +18,7 @@
 //include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
 //include 'spring:spring-thymeleaf'
+include 'spring:spring-message-source'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
@@ -42,7 +43,7 @@
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
-include 'library:lib-logback'
+//include 'library:lib-logback'
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'

@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE'
+    }
+}
+
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "2.7.5"
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // logging
+//    implementation 'ch.qos.logback:logback-classic:1.4.4'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
