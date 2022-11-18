@@ -18,7 +18,7 @@
 //include 'spring:spring-cxf'
 //include 'spring:spring-web-xml'
 //include 'spring:spring-thymeleaf'
-include 'spring:spring-message-source'
+//include 'spring:spring-message-source'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
@@ -81,6 +81,7 @@ include 'spring:spring-message-source'
 //include 'java-core:java-14'
 //include 'java-core:java-big-decimal'
 //include 'java-core:eclipse-collections'
+include 'java-core:java-jaxb'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
