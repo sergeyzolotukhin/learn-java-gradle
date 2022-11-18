@@ -76,8 +76,8 @@
 // java core features
 // ====================================================================================================================
 //include 'java-core:java-swing'
-//include 'java-core:java-jdbc'
-//include 'java-core:java-predicate'
+include 'java-core:java-jdbc'
+include 'java-core:java-predicate'
 //include 'java-core:java-14'
 //include 'java-core:java-big-decimal'
 //include 'java-core:eclipse-collections'
