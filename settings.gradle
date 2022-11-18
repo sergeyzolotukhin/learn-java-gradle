@@ -91,7 +91,7 @@ include 'java-core:java-jaxb'
 //include 'code-gen-javac-test'
 //include 'library:lib-dbcp2'
 //findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
-
+// ====================================================================================================================
 // Sharing dependency versions between projects
 // https://docs.gradle.org/current/userguide/platforms.html
 dependencyResolutionManagement {
