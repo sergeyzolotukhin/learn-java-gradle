@@ -17,13 +17,13 @@ dependencies {
     implementation 'com.sun.xml.bind:jaxb-impl:3.0.0'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.4.4'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
 }

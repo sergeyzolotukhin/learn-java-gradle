@@ -92,3 +92,11 @@ include 'java-core:java-jaxb'
 //include 'library:lib-dbcp2'
 //findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            version('lombok', '1.18.24')
+            library('lombok', 'org.projectlombok', 'lombok').versionRef('lombok')
+        }
+    }
+}
