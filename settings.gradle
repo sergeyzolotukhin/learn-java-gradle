@@ -97,8 +97,7 @@ include 'java-core:java-jaxb'
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
-            version('lombok', '1.18.24')
-            library('lombok', 'org.projectlombok', 'lombok').versionRef('lombok')
+            library('lombok', 'org.projectlombok:lombok:1.18.24')
         }
     }
 }
