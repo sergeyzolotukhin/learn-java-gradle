@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "com.dorongold.task-tree" version "2.1.0"
+}
+
+group 'ua.in.sz.house'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 16
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // experimental
+
+    // development
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    // testing
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+}
+targetCompatibility = JavaVersion.VERSION_16
