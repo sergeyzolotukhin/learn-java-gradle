@@ -22,7 +22,7 @@ dependencies {
     annotationProcessor libs.lombok
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.2.9'
+    implementation libs.logback
 
     // testing
     testCompileOnly libs.lombok
