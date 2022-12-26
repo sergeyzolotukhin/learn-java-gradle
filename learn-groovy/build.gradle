@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.in.sz.house'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // experimental
+    implementation group: 'org.apache.groovy', name: 'groovy-all', version: '4.0.7'
+
+    // development
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    // logging
+    implementation libs.logback
+
+    // testing
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
+    testImplementation libs.junit
+}
+
