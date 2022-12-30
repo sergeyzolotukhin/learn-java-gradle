@@ -47,7 +47,8 @@ public class Main {
             Row row = sheet.createRow(r++);
 
             int column = 0;
-            row.createCell(column++);
+            Cell name = row.createCell(column++);
+            name.setCellValue("Row " + i);
             for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
                 Cell cell = row.createCell(column++);
                 cell.setCellValue(1);
