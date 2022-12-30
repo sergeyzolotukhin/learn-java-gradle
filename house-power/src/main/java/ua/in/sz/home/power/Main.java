@@ -9,24 +9,53 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Slf4j
 public class Main {
+    private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
+
     public static void main(String[] args) throws IOException {
+        LocalDateTime start = LocalDate.now().atStartOfDay();
+        LocalDateTime end = start.plusDays(1);
+
+        createWorkbook(start, end);
+    }
+
+    private static void createWorkbook(LocalDateTime start, LocalDateTime end) throws IOException {
         Workbook workbook = new XSSFWorkbook();
 
-        Sheet sheet = workbook.createSheet("Persons");
-        Row row = sheet.createRow(0);
-        Cell cell = row.createCell(0);
-        cell.setCellValue("Name");
+        Sheet sheet = workbook.createSheet("Schedule");
 
-        cell = row.createCell(1);
-        cell.setCellValue("Age");
+        int r = 0;
+        // header
+        {
+            Row row = sheet.createRow(r++);
+
+            int column = 0;
+            row.createCell(column++);
+            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+                Cell cell = row.createCell(column++);
+                cell.setCellValue(HH_MM.format(date));
+            }
+        }
+
+        // data
+        for (int i = 0; i < 20; i++) {
+            Row row = sheet.createRow(r++);
+
+            int column = 0;
+            row.createCell(column++);
+            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+                Cell cell = row.createCell(column++);
+                cell.setCellValue(1);
+            }
+        }
 
         FileOutputStream outputStream = new FileOutputStream("house-power/build/house-power.xlsx");
         workbook.write(outputStream);
         workbook.close();
-
-        log.info("Hello world!");
     }
 }
