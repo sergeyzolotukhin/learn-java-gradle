@@ -10,26 +10,35 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Period;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.TimeZone;
 
 @Slf4j
 public class Main {
     private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
+    private static final DateTimeFormatter DD_MM_YY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args) throws IOException {
-        LocalDateTime start = LocalDate.now().atStartOfDay();
-        LocalDateTime end = start.plusDays(1);
+        ZonedDateTime start = ZonedDateTime.of(2023, 3, 26,
+                0,  0, 0, 0,
+                TimeZone.getDefault().toZoneId());
+        ZonedDateTime end = start.plusDays(1);
 
+//        LocalDateTime start = LocalDate.of(2023, 3, 26).atStartOfDay();
+//        LocalDateTime end = start.plusDays(1);
+
+        log.info("[{}]", TimeZone.getDefault().getID());;
 //        createWorkbook(start, end);
         print(start, end);
     }
 
-    private static void print(LocalDateTime start, LocalDateTime end) {
+    private static void print(ZonedDateTime start, ZonedDateTime end) {
         StringBuilder sb = new StringBuilder();
-        for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+        sb.append(DD_MM_YY.format(start)).append(" | ");
+        for (ZonedDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+//            sb.append(date).append(" | ");
             sb.append(HH_MM.format(date)).append(" | ");
         }
         log.info("{}", sb);
@@ -37,7 +46,7 @@ public class Main {
         for (int i = 0; i < 20; i++) {
             sb = new StringBuilder();
             sb.append("Row ").append(i).append(" | ");
-            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(Duration.ofHours(1).toMinutes())) {
+            for (ZonedDateTime date = start; date.isBefore(end); date = date.plusMinutes(Duration.ofHours(1).toMinutes())) {
                 sb.append(1).append(" | ");
             }
             log.info("{}", sb);
