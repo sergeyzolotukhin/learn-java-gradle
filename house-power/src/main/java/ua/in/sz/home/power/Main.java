@@ -9,8 +9,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 @Slf4j
@@ -35,7 +37,7 @@ public class Main {
         for (int i = 0; i < 20; i++) {
             sb = new StringBuilder();
             sb.append("Row ").append(i).append(" | ");
-            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(Duration.ofHours(1).toMinutes())) {
                 sb.append(1).append(" | ");
             }
             log.info("{}", sb);
