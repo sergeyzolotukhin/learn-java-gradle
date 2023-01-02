@@ -21,7 +21,25 @@ public class Main {
         LocalDateTime start = LocalDate.now().atStartOfDay();
         LocalDateTime end = start.plusDays(1);
 
-        createWorkbook(start, end);
+//        createWorkbook(start, end);
+        print(start, end);
+    }
+
+    private static void print(LocalDateTime start, LocalDateTime end) {
+        StringBuilder sb = new StringBuilder();
+        for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+            sb.append(HH_MM.format(date)).append(" | ");
+        }
+        log.info("{}", sb);
+
+        for (int i = 0; i < 20; i++) {
+            sb = new StringBuilder();
+            sb.append("Row ").append(i).append(" | ");
+            for (LocalDateTime date = start; date.isBefore(end); date = date.plusMinutes(60)) {
+                sb.append(1).append(" | ");
+            }
+            log.info("{}", sb);
+        }
     }
 
     private static void createWorkbook(LocalDateTime start, LocalDateTime end) throws IOException {
