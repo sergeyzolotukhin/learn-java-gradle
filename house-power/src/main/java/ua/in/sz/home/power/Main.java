@@ -17,6 +17,7 @@ import java.util.TimeZone;
 
 // https://javadevblog.com/polnoe-rukovodstvo-po-java-8-date-time-api-primery-localdate-instant-localdatetime-parse-i-format.html
 // https://jcp.org/aboutJava/communityprocess/pfd/jsr310/JSR-310-guide.html
+// https://www.baeldung.com/java-zoneddatetime-offsetdatetime
 @Slf4j
 public class Main {
     private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
