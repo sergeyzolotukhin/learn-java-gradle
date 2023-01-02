@@ -15,6 +15,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
+// https://javadevblog.com/polnoe-rukovodstvo-po-java-8-date-time-api-primery-localdate-instant-localdatetime-parse-i-format.html
 // https://jcp.org/aboutJava/communityprocess/pfd/jsr310/JSR-310-guide.html
 @Slf4j
 public class Main {
@@ -44,7 +45,7 @@ public class Main {
         }
         log.info("{}", sb);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 0; i++) {
             sb = new StringBuilder();
             sb.append("Row ").append(i).append(" | ");
             for (ZonedDateTime date = start; date.isBefore(end); date = date.plusMinutes(Duration.ofHours(1).toMinutes())) {
