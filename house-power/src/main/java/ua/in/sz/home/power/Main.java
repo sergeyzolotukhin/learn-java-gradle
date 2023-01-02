@@ -15,6 +15,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
+// https://jcp.org/aboutJava/communityprocess/pfd/jsr310/JSR-310-guide.html
 @Slf4j
 public class Main {
     private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
