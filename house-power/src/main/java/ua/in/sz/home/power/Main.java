@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
@@ -25,6 +26,8 @@ public class Main {
     private static final DateTimeFormatter DD_MM_YY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args) throws IOException {
+        OffsetDateTime start1;
+
         ZonedDateTime start = ZonedDateTime.of(2023, 3, 26,
                 0,  0, 0, 0,
                 TimeZone.getDefault().toZoneId());
