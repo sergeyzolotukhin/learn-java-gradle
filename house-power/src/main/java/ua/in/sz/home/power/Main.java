@@ -17,12 +17,23 @@ import java.util.TimeZone;
 // https://jcp.org/aboutJava/communityprocess/pfd/jsr310/JSR-310-guide.html
 // https://www.baeldung.com/java-zoneddatetime-offsetdatetime
 // https://lurninghut.com/localdatetime-vs-zoneddatetime/
+
+// https://dzone.com/articles/how-watch-next-coming-leap
 @Slf4j
 public class Main {
     private static final DateTimeFormatter HH_MM = DateTimeFormatter.ofPattern("HH:mm");
     private static final DateTimeFormatter DD_MM_YY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args) throws IOException {
+        ZonedDateTime start = ZonedDateTime.parse("1995-12-31T23:59:59Z");
+        log.info("{}", start);
+
+        ZonedDateTime d1 = start.plusSeconds(1);
+        log.info("{}", d1);
+//        extracted();
+    }
+
+    private static void extracted() {
         OffsetDateTime start1;
         log.info("{}", ZoneId.systemDefault());
 
@@ -30,13 +41,14 @@ public class Main {
         LocalDateTime d1 = LocalDate.parse("2023-03-26").atStartOfDay();
 
 //        ZonedDateTime start = ZonedDateTime.parse("2023-03-26T00:00:00Z");
-        ZonedDateTime start = ZonedDateTime.of(d1, ZoneId.of("Europe/Kiev") );
+        ZonedDateTime start = ZonedDateTime.of(d1, ZoneId.of("Europe/Kiev"));
         ZonedDateTime end = start.plusDays(1);
 
 //        LocalDateTime start = LocalDate.of(2023, 3, 26).atStartOfDay();
 //        LocalDateTime end = start.plusDays(1);
 
-        log.info("[{}|{}]", TimeZone.getDefault().getID(), start.getZone());;
+        log.info("[{}|{}]", TimeZone.getDefault().getID(), start.getZone());
+        ;
 //        createWorkbook(start, end);
         print(start, end);
     }
