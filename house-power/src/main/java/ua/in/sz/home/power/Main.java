@@ -9,10 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
@@ -27,16 +24,19 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         OffsetDateTime start1;
+        log.info("{}", ZoneId.systemDefault());
 
-        ZonedDateTime start = ZonedDateTime.of(2023, 3, 26,
-                0,  0, 0, 0,
-                TimeZone.getDefault().toZoneId());
+//        LocalDateTime d1 = LocalDateTime.parse("2023-03-26T00:00:00");
+        LocalDateTime d1 = LocalDate.parse("2023-03-26").atStartOfDay();
+
+//        ZonedDateTime start = ZonedDateTime.parse("2023-03-26T00:00:00Z");
+        ZonedDateTime start = ZonedDateTime.of(d1, ZoneId.of("Europe/Kiev") );
         ZonedDateTime end = start.plusDays(1);
 
 //        LocalDateTime start = LocalDate.of(2023, 3, 26).atStartOfDay();
 //        LocalDateTime end = start.plusDays(1);
 
-        log.info("[{}]", TimeZone.getDefault().getID());;
+        log.info("[{}|{}]", TimeZone.getDefault().getID(), start.getZone());;
 //        createWorkbook(start, end);
         print(start, end);
     }
