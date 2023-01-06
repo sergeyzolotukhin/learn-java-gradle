@@ -25,12 +25,12 @@ public class Main {
     private static final DateTimeFormatter DD_MM_YY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args) throws IOException {
-        ZonedDateTime start = ZonedDateTime.parse("1995-12-31T23:59:59Z");
-        log.info("{}", start);
+        ZonedDateTime start = ZonedDateTime.parse("2023-03-26T02:00:00+02:00[Europe/Kiev]");
+        log.info("{} - {}", start, start.getHour());
+        ZonedDateTime d1 = start.plusMinutes(60);
+        log.info("{} - {}", d1, d1.getHour());
 
-        ZonedDateTime d1 = start.plusSeconds(1);
-        log.info("{}", d1);
-//        extracted();
+
     }
 
     private static void extracted() {
