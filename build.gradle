@@ -1,20 +1,20 @@
-subprojects { subproject ->
-    subproject.apply plugin: 'java'
-}
+//subprojects { subproject ->
+//    subproject.apply plugin: 'java'
+//}
 
 subprojects {
     repositories {
         mavenCentral()
     }
 
-    dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
-    }
+//    dependencies {
+//        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+//        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+//    }
 
-    test {
-        useJUnitPlatform()
-    }
+//    test {
+//        useJUnitPlatform()
+//    }
 }
 
 

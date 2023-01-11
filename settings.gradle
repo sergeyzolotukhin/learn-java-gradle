@@ -85,14 +85,14 @@
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
-//include 'learn-gradle:api'
-//include 'learn-gradle:impl'
-//include 'learn-groovy'
+include 'learn-gradle:api'
+include 'learn-gradle:impl'
+//in clude 'learn-groovy'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
 //include 'house'
-include 'house-power'
+//include 'house-power'
 //include 'other'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
@@ -107,6 +107,7 @@ include 'house-power'
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
+            library('lombok', 'org.projectlombok:lombok:1.18.24')
             library('lombok', 'org.projectlombok:lombok:1.18.24')
             library('junit', 'org.junit.jupiter:junit-jupiter:5.5.1')
             library('logback', 'ch.qos.logback:logback-classic:1.2.9')

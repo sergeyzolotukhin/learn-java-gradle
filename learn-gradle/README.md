@@ -10,3 +10,9 @@ https://spring.io/guides/gs/multi-module/
 https://docs.gradle.org/current/userguide/multi_project_builds.html
 https://docs.gradle.org/current/userguide/intro_multi_project_builds.html
 https://docs.gradle.org/current/userguide/multi_project_builds.html?_ga=2.99717658.565926200.1668804013-563256538.1659293152#sec:depending_on_output_of_another_project
+
+#### dependencies 
+
+gradle learn-gradle:impl:dependencies --configuration implementation
+
+[Java Library plugin configurations](https://docs.gradle.org/current/userguide/java_library_plugin.html)

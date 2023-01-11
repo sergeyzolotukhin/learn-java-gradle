@@ -1,6 +1,5 @@
 plugins {
-    id 'java'
-    id "com.dorongold.task-tree" version "2.1.0"
+    id 'java-library'
 }
 
 group 'ua.in.sz.house'
@@ -15,6 +14,7 @@ repositories {
 
 dependencies {
     // experimental
+    api 'com.google.guava:guava:28.0-jre'
 
     // development
     compileOnly libs.lombok
@@ -22,10 +22,5 @@ dependencies {
 
     // logging
     implementation libs.logback
-
-    // testing
-    testCompileOnly libs.lombok
-    testAnnotationProcessor libs.lombok
-    testImplementation libs.junit
 }
 
