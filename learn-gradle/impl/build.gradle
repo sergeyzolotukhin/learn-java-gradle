@@ -16,6 +16,16 @@ dependencies {
     // experimental
     implementation project(':learn-gradle:api')
 
+    constraints {
+        implementation(libs.guava)
+//        implementation("com.google.guava:guava") {
+//            version {
+//                strictly("24.1-jre")
+//            }
+//            because("Guava 25.0-jre removed APIs used by Folsom")
+//        }
+    }
+
     // development
     compileOnly libs.lombok
     annotationProcessor libs.lombok
