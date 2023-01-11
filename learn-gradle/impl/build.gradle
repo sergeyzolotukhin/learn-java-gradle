@@ -15,11 +15,6 @@ repositories {
 dependencies {
     // experimental
     implementation project(':learn-gradle:api')
-    constraints {
-        implementation(libs.guava) {
-            because("Guava 25.0-jre removed APIs used by Folsom")
-        }
-    }
 
     // development
     compileOnly libs.lombok
