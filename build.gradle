@@ -16,17 +16,17 @@ subprojects {
 //    }
 }
 
-subprojects {
-    plugins.withType(JavaLibraryPlugin) {
-        dependencies {
-            constraints {
-                implementation(libs.guava) {
-                    because("Guava 25.0-jre removed APIs used by Folsom")
-                }
-            }
-        }
-    }
-}
+//subprojects {
+//    plugins.withType(JavaLibraryPlugin) {
+//        dependencies {
+//            constraints {
+//                implementation(libs.guava) {
+//                    because("Guava 25.0-jre removed APIs used by Folsom")
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 
