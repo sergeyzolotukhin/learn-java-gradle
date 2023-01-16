@@ -19,3 +19,13 @@ gradle learn-gradle:impl:dependencies --configuration implementation
 [The Java Platform Plugin](https://docs.gradle.org/current/userguide/java_platform_plugin.html)
 
 [Java Library plugin configurations](https://docs.gradle.org/current/userguide/java_library_plugin.html)
+
+#### 
+
+gradle learn-gradle:platform:dependencies --configuration api
+gradle learn-gradle:api:dependencies --configuration compileClasspath
+
+gradle learn-gradle:api:dependencyInsight --configuration api --dependency org.springframework:spring-core
+gradle learn-gradle:api:dependencyInsight --configuration compileClasspath --dependency org.springframework:spring-core
+
+https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html

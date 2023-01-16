@@ -85,6 +85,7 @@
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
+include 'learn-gradle:platform'
 include 'learn-gradle:api'
 include 'learn-gradle:impl'
 //in clude 'learn-groovy'
@@ -104,16 +105,16 @@ include 'learn-gradle:impl'
 // https://docs.gradle.org/current/userguide/platforms.html
 // https://docs.gradle.org/current/userguide/dependency_management.html
 // ====================================================================================================================
-dependencyResolutionManagement {
-    versionCatalogs {
-        libs {
-            library('guava', 'com.google.guava:guava:25.0-jre!!')
-            library('lombok', 'org.projectlombok:lombok:1.18.24')
-            library('junit', 'org.junit.jupiter:junit-jupiter:5.5.1')
-            library('logback', 'ch.qos.logback:logback-classic:1.2.9')
-        }
-    }
-}
+// dependencyResolutionManagement {
+//    versionCatalogs {
+//        libs {
+//            library('guava', 'com.google.guava:guava:25.0-jre!!')
+//            library('lombok', 'org.projectlombok:lombok:1.18.24')
+//            library('junit', 'org.junit.jupiter:junit-jupiter:5.5.1')
+//            library('logback', 'ch.qos.logback:logback-classic:1.2.9')
+//        }
+//    }
+//}
 // ====================================================================================================================
 
 
