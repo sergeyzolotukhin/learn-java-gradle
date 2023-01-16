@@ -29,3 +29,9 @@ gradle learn-gradle:api:dependencyInsight --configuration api --dependency org.s
 gradle learn-gradle:api:dependencyInsight --configuration compileClasspath --dependency org.springframework:spring-core
 
 https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+https://docs.gradle.org/current/userguide/java_plugin.html
+https://docs.gradle.org/current/userguide/declaring_dependencies.html
+https://www.baeldung.com/gradle-6-features
+https://docs.gradle.org/current/userguide/java_platform_plugin.html
+https://docs.gradle.org/current/userguide/single_versions.html
+https://docs.gradle.org/current/userguide/platforms.html
