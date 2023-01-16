@@ -15,4 +15,5 @@ https://docs.gradle.org/current/userguide/multi_project_builds.html?_ga=2.997176
 
 gradle learn-gradle:impl:dependencies --configuration implementation
 
+[Platform](https://www.baeldung.com/gradle-6-features)
 [Java Library plugin configurations](https://docs.gradle.org/current/userguide/java_library_plugin.html)
