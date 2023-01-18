@@ -35,3 +35,7 @@ https://www.baeldung.com/gradle-6-features
 https://docs.gradle.org/current/userguide/java_platform_plugin.html
 https://docs.gradle.org/current/userguide/single_versions.html
 https://docs.gradle.org/current/userguide/platforms.html
+
+#### Gradle alias
+
+https://stackoverflow.com/questions/72852329/define-alias-for-gradle-task-with-custom-argument
