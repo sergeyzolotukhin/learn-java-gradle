@@ -15,12 +15,15 @@ repositories {
 dependencies {
     // experimental
     implementation(platform(project(':learn-gradle:platform')))
+    annotationProcessor(platform(project(':learn-gradle:platform')))
     implementation(project(':learn-gradle:api'))
 
+    implementation('com.google.guava:guava')
+
     // development
-//    compileOnly libs.lombok
-//    annotationProcessor libs.lombok
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
 
     // logging
-//    implementation libs.logback
+    implementation('ch.qos.logback:logback-classic')
 }

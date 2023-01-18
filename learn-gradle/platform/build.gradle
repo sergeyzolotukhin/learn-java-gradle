@@ -5,7 +5,9 @@ plugins {
 dependencies {
     constraints {
         api('org.springframework:spring-core:6.0.4')
+        api('org.projectlombok:lombok:1.18.24')
+        api('ch.qos.logback:logback-classic:1.2.9')
+        api('com.google.guava:guava:25.0-jre')
 //        runtime('org.springframework:spring-core:6.0.4')
-//        api 'com.google.guava:guava:25.0-jre'
     }
 }
