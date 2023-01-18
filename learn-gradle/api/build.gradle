@@ -3,12 +3,14 @@ plugins {
     id 'maven-publish'
 }
 
+// How to move this to common part? (duplication)
 group 'ua.in.sz.house'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
+// How to move repository to common part? (duplication)
 repositories {
     mavenCentral()
 }
@@ -19,6 +21,7 @@ dependencies {
     api('org.springframework:spring-core')
 }
 
+// How to move publication to common part? I don't want to have duplication.
 publishing {
     publications {
         mavenJava(MavenPublication) {
