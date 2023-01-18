@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     // experimental
-    api(platform(project(':learn-gradle:platform')))
-    implementation('org.springframework:spring-core')
+    implementation(platform(project(':learn-gradle:platform')))
+    api('org.springframework:spring-core')
 
     // development
 //    compileOnly libs.lombok
