@@ -1,0 +1,19 @@
+allprojects {
+    if (project.name == 'api') {
+        tasks.register('hello') {
+            doLast {
+                println 'Hello world!'
+            }
+        }
+    }
+
+
+//    hello.configure {
+//        onlyIf {
+//            println("project name${project.name}")
+//            return  project.name == 'api'
+//        }
+//    }
+
+//    println("name check:" + (project.name == 'api'))
+}

@@ -39,3 +39,5 @@ https://docs.gradle.org/current/userguide/platforms.html
 #### Gradle alias
 
 https://stackoverflow.com/questions/72852329/define-alias-for-gradle-task-with-custom-argument
+
+#### deprecation process ???
