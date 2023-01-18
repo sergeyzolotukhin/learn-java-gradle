@@ -17,22 +17,14 @@ dependencies {
     // experimental
     implementation(platform(project(':learn-gradle:platform')))
     api('org.springframework:spring-core')
-
-    // development
-//    compileOnly libs.lombok
-//    annotationProcessor libs.lombok
-
-    // logging
-//    implementation libs.logback
 }
 
-tasks.register('hello2') {
-    doLast {
-        println 'Hello world!'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
     }
 }
-//println(project.name)
-
-
 
 
