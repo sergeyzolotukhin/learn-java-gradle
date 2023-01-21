@@ -85,15 +85,15 @@
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
-include 'learn-gradle:platform'
-include 'learn-gradle:api'
-include 'learn-gradle:impl'
+//include 'learn-gradle:platform'
+//include 'learn-gradle:api'
+//include 'learn-gradle:impl'
 //in clude 'learn-groovy'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
 //include 'house'
-//include 'house-power'
+include 'house-power'
 //include 'other'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'

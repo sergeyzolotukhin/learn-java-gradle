@@ -40,8 +40,8 @@ public class Main2 {
                 .build();
     }
 
-    private static <T> Schedule.Value<Object> value(LocalDateTime start, Duration duration, T value) {
-        return Schedule.Value.builder()
+    private static <T> Value<Object> value(LocalDateTime start, Duration duration, T value) {
+        return Value.builder()
                 .start(start)
                 .end(start.plus(duration))
                 .value(value)
