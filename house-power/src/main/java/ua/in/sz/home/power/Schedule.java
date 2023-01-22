@@ -18,9 +18,10 @@ public class Schedule {
     @Getter
     private List<Value<Object>> values;
 
-    Schedule(LocalDateTime start, LocalDateTime end, List<Value<Object>> values) {
+    Schedule(LocalDateTime start, LocalDateTime end, Duration duration, List<Value<Object>> values) {
         this.start = start;
         this.end = end;
+        this.duration = duration;
         this.values = values;
     }
 

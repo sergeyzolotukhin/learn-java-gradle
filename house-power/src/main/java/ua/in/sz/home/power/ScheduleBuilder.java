@@ -51,7 +51,7 @@ public class ScheduleBuilder {
     }
 
     public Schedule build() {
-        return new Schedule(start, end, values);
+        return new Schedule(start, end, duration, values);
     }
 
     public String toString() {

@@ -38,6 +38,8 @@ public class Main2 {
                         .map(d -> value(d, duration, value2))
                         .toList())
                 .build();
+
+        print(schedule);
     }
 
     private static <T> Value<Object> value(LocalDateTime start, Duration duration, T value) {
@@ -59,18 +61,16 @@ public class Main2 {
     private static void print(Schedule schedule) {
         StringBuilder sb = new StringBuilder();
         sb.append(DD_MM_YY.format(schedule.getStart())).append(" | ");
-        for (LocalDateTime date = schedule.getStart(); date.isBefore(schedule.getEnd()); date = date.plusMinutes(60)) {
+        for (LocalDateTime date = schedule.getStart(); date.isBefore(schedule.getEnd()); date = date.plus(schedule.getDuration())) {
             sb.append(HH_MM.format(date)).append(" | ");
         }
         log.info("{}", sb);
 
-        for (int i = 0; i < 0; i++) {
-            sb = new StringBuilder();
-            sb.append("Row ").append(i).append(" | ");
-            for (LocalDateTime date = schedule.getStart(); date.isBefore(schedule.getEnd()); date = date.plusMinutes(Duration.ofHours(1).toMinutes())) {
-                sb.append(1).append(" | ");
-            }
-            log.info("{}", sb);
+        sb = new StringBuilder();
+        sb.append("Row ").append(" | ");
+        for (LocalDateTime date = schedule.getStart(); date.isBefore(schedule.getEnd()); date = date.plus(schedule.getDuration())) {
+            sb.append(1).append(" | ");
         }
+        log.info("{}", sb);
     }
 }
