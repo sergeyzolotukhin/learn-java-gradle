@@ -8,15 +8,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+@Getter
 public class Schedule {
-    @Getter
-    private LocalDateTime start;
-    @Getter
-    private LocalDateTime end;
-    @Getter
-    private Duration duration;
-    @Getter
-    private List<Value<Object>> values;
+    private final LocalDateTime start;
+    private final LocalDateTime end;
+    private final Duration duration;
+    private final List<Value<Object>> values;
 
     Schedule(LocalDateTime start, LocalDateTime end, Duration duration, List<Value<Object>> values) {
         this.start = start;
