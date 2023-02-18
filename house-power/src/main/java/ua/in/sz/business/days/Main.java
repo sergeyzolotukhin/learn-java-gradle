@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
         LocalDateTime date = LocalDateTime.now();
-        int second = date.getSecond();
-        long bit = (1L << second) - 1L;
+        int day = date.getDayOfMonth();
+        long bit = (1L << day) - 1L;
 
         String str = Long.toHexString(bit);
         int count = Long.bitCount(bit);
-        log.info("[{}] - {} = {}", str, second, count);
+        log.info("[{}] - {} = {}", str, day, count);
     }
 }
 
