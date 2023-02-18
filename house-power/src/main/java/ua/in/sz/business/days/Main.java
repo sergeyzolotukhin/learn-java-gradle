@@ -7,8 +7,9 @@ import java.time.LocalDateTime;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        LocalDateTime date = LocalDateTime.now();
-        int day = date.getDayOfMonth();
+        LocalDateTime start = LocalDateTime.now();
+        LocalDateTime end = start.plusMonths(1);
+        int day = start.getDayOfMonth();
         long bit = (1L << day) - 1L;
 
         String str = Long.toHexString(bit);
