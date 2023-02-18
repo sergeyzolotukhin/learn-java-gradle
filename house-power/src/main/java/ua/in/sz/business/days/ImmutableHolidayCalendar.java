@@ -8,6 +8,7 @@ import java.util.SortedSet;
 
 /**
  * <a href="https://github.com/OpenGamma/Strata/blob/main/modules/basics/src/main/java/com/opengamma/strata/basics/date/ImmutableHolidayCalendar.java">Source code</a>
+ * <a href="https://github.com/yusuke/businessCalendar4J">Business Calendar library for Java</a>
  */
 public class ImmutableHolidayCalendar {
     private int startYear;
