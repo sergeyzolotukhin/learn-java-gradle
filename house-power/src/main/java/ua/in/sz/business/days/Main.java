@@ -12,7 +12,8 @@ public class Main {
         long bit = (1L << second) - 1L;
 
         String str = Long.toHexString(bit);
-        log.info("[{}] - {}", str, second);
+        int count = Long.bitCount(bit);
+        log.info("[{}] - {} = {}", str, second, count);
     }
 }
 
