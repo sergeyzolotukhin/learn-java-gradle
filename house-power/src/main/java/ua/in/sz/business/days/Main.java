@@ -1,6 +1,7 @@
 package ua.in.sz.business.days;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +13,19 @@ public class Main {
         int day = start.getDayOfMonth();
         long bit = (1L << day) - 1L;
 
-        String str = Long.toHexString(bit);
+        String str = StringUtils.leftPad(Long.toBinaryString(bit), 32, "0");
+
+        char[] chars = str.toCharArray();
+        char[] result = new char[chars.length + chars.length / 4];
+        int j = 0;
+        for (int i = 0; i < chars.length; i++) {
+            if (i % 8 == 0 && i != 0) result[j++] = ' ';
+            result[j++] = chars[i];
+        }
+        String s = new String(result, 0, j);
+
         int count = Long.bitCount(bit);
-        log.info("[{}] - {} = {}", str, day, count);
+        log.info("[{}] - {} = {}", s, day, count);
     }
 }
 
