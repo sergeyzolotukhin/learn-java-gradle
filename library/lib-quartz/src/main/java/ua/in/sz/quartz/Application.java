@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
