@@ -1,35 +1,61 @@
 package ua.in.sz.business.days;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import java.time.LocalDateTime;
+import java.io.*;
 
 @Slf4j
 public class Main {
-    public static void main(String[] args) {
-        LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = start.plusMonths(1);
-        int day = start.getDayOfMonth();
-        long bit = (1L << day) - 1L;
+    public static void main(String[] args) throws Exception {
+        Dto source = new Dto("Name 1");
+        source.setDescription("Description 1");
 
-        String str = StringUtils.leftPad(Long.toBinaryString(bit), 32, "0");
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(buffer);
+        out.writeObject(source);
+        out.close();
+        buffer.close();
+        byte[] buf = buffer.toByteArray();
 
-        char[] chars = str.toCharArray();
-        char[] result = new char[chars.length + chars.length / 4];
-        int j = 0;
-        for (int i = 0; i < chars.length; i++) {
-            if (i % 8 == 0 && i != 0) result[j++] = ' ';
-            result[j++] = chars[i];
+
+        ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buf));
+        Dto target = (Dto)in.readObject();
+        in.close();
+
+        log.info("DTO source: {}", source);
+        log.info("DTO target: {}", target);
+    }
+
+    @Setter
+    @Getter
+    private static class Dto implements Serializable {
+        private String name;
+        private transient String description;
+
+        public Dto(String name) {
+            this.name = name;
         }
-        String s = new String(result, 0, j);
 
-        int count = Long.bitCount(bit);
-        log.info("[{}] - {} = {}", s, day, count);
+        @Override
+        public String toString() {
+            return "Dto{" +
+                    "name='" + name + '\'' +
+                    ", description='" + description + '\'' +
+                    '}';
+        }
+
+        @Serial
+        private void writeObject(ObjectOutputStream out) throws IOException {
+            out.writeUTF(name + " from serialization");
+        }
+
+        @Serial
+        private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+            name = in.readUTF();
+            description = "Description from serialization";
+        }
     }
 }
-
-// [11111111111111111111111111111111]
-//  [1111111111111111111111111111111]
-// 8 + 8 + 8 + 8 + 7
-// [7f ff ff ff ff] - 39
