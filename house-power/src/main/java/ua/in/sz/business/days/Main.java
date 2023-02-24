@@ -3,7 +3,6 @@ package ua.in.sz.business.days;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 
@@ -13,17 +12,22 @@ public class Main {
         Dto source = new Dto("Name 1");
         source.setDescription("Description 1");
 
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        ObjectOutputStream out = new ObjectOutputStream(buffer);
-        out.writeObject(source);
-        out.close();
-        buffer.close();
-        byte[] buf = buffer.toByteArray();
+        byte[] buf;
 
+        try (
+                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                ObjectOutputStream out = new ObjectOutputStream(buffer)
+        ) {
+            out.writeObject(source);
+            buf = buffer.toByteArray();
+        }
 
-        ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buf));
-        Dto target = (Dto)in.readObject();
-        in.close();
+        Dto target;
+        try (
+                ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buf))
+        ) {
+            target = (Dto) in.readObject();
+        }
 
         log.info("DTO source: {}", source);
         log.info("DTO target: {}", target);
