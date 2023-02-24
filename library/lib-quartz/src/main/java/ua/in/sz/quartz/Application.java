@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
@@ -19,10 +20,10 @@ public class Application {
 
 		String baseCalendarName = "my-base=calendar";
 		Calendar baseCalendar = new TraceCalendar(baseCalendarName);
-//		scheduler.addCalendar(baseCalendarName, baseCalendar, true, true);
+		scheduler.addCalendar(baseCalendarName, baseCalendar, true, true);
 
 		String calendarName = "my-calendar";
-		Calendar calendar = new TraceCalendar(calendarName, baseCalendar);
+		Calendar calendar = new TraceCalendar(calendarName, baseCalendarName);
 		scheduler.addCalendar(calendarName, calendar, true, true);
 
 		JobDetail job = JobBuilder.newJob(MyJob.class)
