@@ -40,6 +40,9 @@ public class Application {
 
 		scheduler.scheduleJob(job, trigger);
 
+		Calendar otherBaseCalendar = new TraceCalendar("my-other-base=calendar");
+		scheduler.addCalendar(baseCalendarName, otherBaseCalendar, true, true);
+
 		Thread.sleep(10_000);
 
 		scheduler.shutdown(true);
