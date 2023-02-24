@@ -2,17 +2,7 @@ package ua.in.sz.quartz;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.quartz.DisallowConcurrentExecution;
-import org.quartz.Job;
-import org.quartz.JobBuilder;
-import org.quartz.JobDetail;
-import org.quartz.JobExecutionContext;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.SchedulerFactory;
-import org.quartz.SimpleScheduleBuilder;
-import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
+import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,6 +17,14 @@ public class Application {
 
 		scheduler.start();
 
+		String baseCalendarName = "my-base=calendar";
+		Calendar baseCalendar = new TraceCalendar(baseCalendarName);
+//		scheduler.addCalendar(baseCalendarName, baseCalendar, true, true);
+
+		String calendarName = "my-calendar";
+		Calendar calendar = new TraceCalendar(calendarName, baseCalendar);
+		scheduler.addCalendar(calendarName, calendar, true, true);
+
 		JobDetail job = JobBuilder.newJob(MyJob.class)
 				.withIdentity("myJob", "group1")
 				.build();
@@ -37,6 +35,7 @@ public class Application {
 				.withSchedule(SimpleScheduleBuilder.simpleSchedule()
 						.withIntervalInSeconds(2)
 						.withRepeatCount(4))
+				.modifiedByCalendar(calendarName)
 				.build();
 
 		scheduler.scheduleJob(job, trigger);
