@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.NANOSECONDS)
+@BenchmarkMode(Mode.Throughput)
+@OutputTimeUnit(TimeUnit.SECONDS)
 @State(Scope.Benchmark)
 @Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G"})
 //@Warmup(iterations = 0)
@@ -25,8 +25,15 @@ public class BenchmarkLoop {
 //    private int N;
 
     private int baseYear;
+    private int [] holidays;
+
+    private long baseMillis;
 
     public static void main(String[] args) throws RunnerException {
+//        BenchmarkLoop b = new BenchmarkLoop();
+//        b.setup();
+//        b.isHolidayByDayNo(1672531200000L);
+
         Options opt = new OptionsBuilder()
                 .include(BenchmarkLoop.class.getSimpleName())
                 .forks(1)
@@ -37,13 +44,39 @@ public class BenchmarkLoop {
 
     @Setup
     public void setup() {
-        baseYear = baseYear();
+        baseYear = 2020;
+        holidays = new int[10 * 12];
+        baseMillis = 1577836800000L;  // 1 January 2020 г., 0:00:00
     }
 
     @Benchmark
-    public void loopFor(Blackhole bh) {
+    public void holidayByCalendar(Blackhole bh) {
+        long millis = 1677882762000L;
+
+        boolean holiday = isHoliday(millis);
+
+        bh.consume(holiday);
+    }
+
+    @Benchmark
+    public void holidayByDayNo(Blackhole bh) {
+        long millis = 1677882762000L;
+
+        boolean holiday = isHolidayByDayNo(millis);
+
+        bh.consume(holiday);
+    }
+
+    private boolean isHolidayByDayNo(long millis) {
+        int day = (int)((millis - baseMillis) / 86400000);
+        int index = day / 32;
+        int offset = day % 32;
+        return ((0x1 << offset) & holidays[index]) > 0;
+    }
+
+    private boolean isHoliday(long millis) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(1677882762);
+        calendar.setTimeInMillis(millis);
         calendar.set(Calendar.MILLISECOND, 0);
 
         int year = calendar.get(Calendar.YEAR);
@@ -51,17 +84,17 @@ public class BenchmarkLoop {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         int monthIndex = (year - baseYear) * 12 + month;
-
-        bh.consume(monthIndex);
-        bh.consume(day);
+        return ((0x1 << day) & holidays[monthIndex]) > 0;
     }
 
-    private int baseYear() {
-//        List<String> data = new ArrayList<>();
-//        for (int i = 0; i < N; i++) {
-//            data.add("Number : " + i);
-//        }
-        return 2020;
-    }
+    /*
+Benchmark                        Mode  Cnt    Score   Error  Units
+BenchmarkLoop.holidayByCalendar  avgt    5  129.009 � 1.732  ns/op
+BenchmarkLoop.holidayByDayNo     avgt    5    1.083 � 0.110  ns/op
+
+BenchmarkLoop.holidayByCalendar  thrpt    5    7 629 421.714 �   194980.219  ops/s
+BenchmarkLoop.holidayByDayNo     thrpt    5  929 667 622.308 � 84336041.667  ops/s
+     */
+
 
 }
