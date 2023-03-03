@@ -67,10 +67,26 @@ public class BenchmarkLoop {
         bh.consume(holiday);
     }
 
+    @Benchmark
+    public void holidayByDayNoWithoutDivision(Blackhole bh) {
+        long millis = 1677882762000L;
+
+        boolean holiday = isHolidayByDayNoWithoutDivision(millis);
+
+        bh.consume(holiday);
+    }
+
     private boolean isHolidayByDayNo(long millis) {
         int day = (int)((millis - baseMillis) / 86400000);
         int index = day / 32;
         int offset = day % 32;
+        return ((0x1 << offset) & holidays[index]) > 0;
+    }
+
+    private boolean isHolidayByDayNoWithoutDivision(long millis) {
+        int day = (int)((millis - baseMillis) / 86400000);
+        int index = day >> 5;
+        int offset = day & 0b11111;
         return ((0x1 << offset) & holidays[index]) > 0;
     }
 
@@ -92,8 +108,9 @@ Benchmark                        Mode  Cnt    Score   Error  Units
 BenchmarkLoop.holidayByCalendar  avgt    5  129.009 � 1.732  ns/op
 BenchmarkLoop.holidayByDayNo     avgt    5    1.083 � 0.110  ns/op
 
-BenchmarkLoop.holidayByCalendar  thrpt    5    7 629 421.714 �   194980.219  ops/s
-BenchmarkLoop.holidayByDayNo     thrpt    5  929 667 622.308 � 84336041.667  ops/s
+BenchmarkLoop.holidayByCalendar  thrpt    5      7 629 421.714 �   194980.219  ops/s
+BenchmarkLoop.holidayByDayNo     thrpt    5    929 667 622.308 � 84336041.667  ops/s
+BenchmarkLoop.holidayByDayNoWith thrpt    5  1 195 616 977.168 � 41995966.847  ops/s
      */
 
 
