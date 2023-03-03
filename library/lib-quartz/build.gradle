@@ -17,6 +17,7 @@ dependencies {
 //    implementation 'org.terracotta.quartz:quartz-terracotta-ee:2.3.10'
     implementation 'com.h2database:h2:1.4.200'
 
+
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'org.apache.commons:commons-text:1.7'
@@ -35,4 +36,6 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+    testImplementation 'org.openjdk.jmh:jmh-core:1.36'
+    testAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
 }
