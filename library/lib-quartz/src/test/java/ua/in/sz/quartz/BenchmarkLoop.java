@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@BenchmarkMode(Mode.Throughput)
-@OutputTimeUnit(TimeUnit.SECONDS)
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 @Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G"})
 //@Warmup(iterations = 0)
@@ -107,6 +107,7 @@ public class BenchmarkLoop {
 Benchmark                        Mode  Cnt    Score   Error  Units
 BenchmarkLoop.holidayByCalendar  avgt    5  129.009 � 1.732  ns/op
 BenchmarkLoop.holidayByDayNo     avgt    5    1.083 � 0.110  ns/op
+BenchmarkLoop.holidayByDayNoWith avgt    5    0.820 � 0.013  ns/op
 
 BenchmarkLoop.holidayByCalendar  thrpt    5      7 629 421.714 �   194980.219  ops/s
 BenchmarkLoop.holidayByDayNo     thrpt    5    929 667 622.308 � 84336041.667  ops/s
