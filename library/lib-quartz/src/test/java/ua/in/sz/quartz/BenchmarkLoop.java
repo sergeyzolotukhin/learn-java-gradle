@@ -105,8 +105,4 @@ public class BenchmarkLoop {
         int monthIndex = (year - baseYear) * 12 + month;
         return ((0x1 << day) & holidays[monthIndex]) > 0;
     }
-
-
-
-
 }
