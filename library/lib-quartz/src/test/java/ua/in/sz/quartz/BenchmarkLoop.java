@@ -13,10 +13,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/*
+https://medium.com/codex/method-inlining-in-java-84caec9b3e18
+ */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
-@Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G"})
+//@Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G", "-XX:+Inline", "-XX:MaxInlineSize=50", "-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining"})
+@Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G", "-XX:+Inline", "-XX:MaxInlineSize=50"})
 //@Warmup(iterations = 0)
 //@Measurement(iterations = 1, time = 1)
 public class BenchmarkLoop {
@@ -49,7 +53,7 @@ public class BenchmarkLoop {
         baseMillis = 1577836800000L;  // 1 January 2020 г., 0:00:00
     }
 
-    @Benchmark
+//    @Benchmark
     public void holidayByCalendar(Blackhole bh) {
         long millis = 1677882762000L;
 
@@ -58,7 +62,7 @@ public class BenchmarkLoop {
         bh.consume(holiday);
     }
 
-    @Benchmark
+//    @Benchmark
     public void holidayByDayNo(Blackhole bh) {
         long millis = 1677882762000L;
 
