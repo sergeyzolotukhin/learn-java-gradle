@@ -87,6 +87,7 @@ public class BenchmarkLoop {
         return ((0x1 << offset) & holidays[index]) > 0;
     }
 
+    // $ java -XX:CompileThreshold=1 -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -XX:CompileCommand="compileonly pac/kage/MyClass myMethod" MyClass
     private boolean isHolidayByDayNoWithoutDivision(long millis) {
         int day = (int)((millis - baseMillis) / 86400000);
         int index = day >> 5;
