@@ -116,5 +116,6 @@ include 'library:lib-quartz'
 //    }
 //}
 // ====================================================================================================================
-
+include 'library:lib-snakeyaml'
+findProject(':library:lib-snakeyaml')?.name = 'lib-snakeyaml'
 

@@ -1,0 +1,16 @@
+---
+name: "Derivation Name 1"
+description: "Derivation description 1"
+attributes:
+  - type: "mobile"
+    number: 123456789
+  - type: "landline"
+    number: 456786868
+---
+name: "Derivation Name 2"
+description: "Derivation description 2"
+attributes:
+  - type: "mobile"
+    number: 21
+  - type: "landline"
+    number: 22
