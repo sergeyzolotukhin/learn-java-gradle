@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.Map;
 
+// https://albert-kuo.blogspot.com/2018/04/snakeyaml-how-to-hide-bean-type-in.html
 @Slf4j
 public class Main {
     @SneakyThrows
