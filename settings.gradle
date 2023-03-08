@@ -32,7 +32,7 @@
 //include 'library:lib-antlr'
 //include 'library:lib-jcurses'
 //include 'library:lib-jackson'
-include 'library:lib-quartz'
+//include 'library:lib-quartz'
 //include 'library:lib-viber'
 //include 'library:lib-drool'
 //include 'library:lib-bean-validation'
@@ -50,6 +50,8 @@ include 'library:lib-quartz'
 //include 'library:lib-jgroup'
 //include 'library:lib-jgroup-2'
 //include 'library:lib-apache-exec'
+//include 'library:lib-snakeyaml'
+include 'library:lib-jsch'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
@@ -116,6 +118,8 @@ include 'library:lib-quartz'
 //    }
 //}
 // ====================================================================================================================
-include 'library:lib-snakeyaml'
-findProject(':library:lib-snakeyaml')?.name = 'lib-snakeyaml'
+
+//findProject(':library:lib-snakeyaml')?.name = 'lib-snakeyaml'
+
+//findProject(':library:lib-jsch')?.name = 'lib-jsch'
 
