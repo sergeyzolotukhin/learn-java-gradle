@@ -19,6 +19,7 @@ public class Main {
         String password = "postgres";
 
         StringBuilder commands = new StringBuilder();
+        // create database dump
 //        commands.append("rm -rf ETSE-0001;");
 //        commands.append("mkdir ETSE-0001;");
 //        commands.append("cd ETSE-0001;");
@@ -27,6 +28,7 @@ public class Main {
 //        commands.append("cd ~;");
 //        commands.append("ls -l;");
 
+        // restore database dump
         commands.append("cd ETSE-0001;");
         commands.append("export PGPASSWORD='postgres';");
         commands.append("psql -c 'create database database_name';");
