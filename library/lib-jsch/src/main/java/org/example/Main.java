@@ -19,13 +19,18 @@ public class Main {
         String password = "postgres";
 
         StringBuilder commands = new StringBuilder();
-        commands.append("rm -rf ETSE-0001;");
-        commands.append("mkdir ETSE-0001;");
+//        commands.append("rm -rf ETSE-0001;");
+//        commands.append("mkdir ETSE-0001;");
+//        commands.append("cd ETSE-0001;");
+//        commands.append("export PGPASSWORD='postgres';");
+//        commands.append("pg_dump -F t database_name > database_name.tar;");
+//        commands.append("cd ~;");
+//        commands.append("ls -l;");
+
         commands.append("cd ETSE-0001;");
         commands.append("export PGPASSWORD='postgres';");
-        commands.append("pg_dump -F t database_name > database_name.tar;");
-        commands.append("cd ~;");
-        commands.append("ls -l;");
+        commands.append("psql -c 'create database database_name';");
+        commands.append("pg_restore -Ft -d database_name < database_name.tar;");
 
         try {
             java.util.Properties config = new java.util.Properties();
