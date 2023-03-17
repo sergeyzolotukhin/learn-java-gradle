@@ -1,5 +1,6 @@
 package ua.in.sz.logging;
 
+import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import static org.fusesource.jansi.Ansi.Color.GREEN;
@@ -12,7 +13,8 @@ public class JansiMain {
         System.setProperty("jansi.passthrough", "true");
         AnsiConsole.systemInstall();
 
-        System.out.println( ansi().fg(RED).a("Hello").fg(GREEN).a(" World").reset() );
+        Ansi ansi = ansi().fg(RED).a("Hello").fg(GREEN).a(" World").reset();
+        System.out.println(ansi.toString());
 
         AnsiConsole.systemUninstall();
     }
