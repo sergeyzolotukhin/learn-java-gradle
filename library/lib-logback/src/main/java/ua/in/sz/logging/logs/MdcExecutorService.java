@@ -1,22 +1,31 @@
 package ua.in.sz.logging.logs;
 
-import com.google.common.util.concurrent.ForwardingExecutorService;
 import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
-public class MdcExecutorService extends ForwardingExecutorService {
+public class MdcExecutorService {
 	private final ExecutorService delegate;
 
-	@Override
+
 	protected ExecutorService delegate() {
 		return delegate;
 	}
 
-	@Override
+
 	public Future<?> submit(Runnable task) {
-		return super.submit(new MdcRunnable(task));
+		return delegate.submit(new MdcRunnable(task));
+	}
+
+	public void shutdown() {
+		delegate.shutdown();
+	}
+
+
+	public void awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
+		delegate.awaitTermination(timeout, unit);
 	}
 }

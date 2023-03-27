@@ -43,7 +43,7 @@
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
-//include 'library:lib-logback'
+include 'library:lib-logback'
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'
@@ -52,7 +52,7 @@
 //include 'library:lib-apache-exec'
 //include 'library:lib-snakeyaml'
 //include 'library:lib-jsch'
-include 'library:maven-invoker'
+//include 'library:maven-invoker'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================

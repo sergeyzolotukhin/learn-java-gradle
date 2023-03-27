@@ -6,7 +6,6 @@ import ua.in.sz.logging.logs.MdcExecutorService;
 import ua.in.sz.logging.tasks.DebugDecorator;
 import ua.in.sz.logging.tasks.SecurityDecorator;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +14,7 @@ public class Application {
 	public static void main(String[] args) throws InterruptedException {
 		log.info("start execution");
 
-		ExecutorService executor = new MdcExecutorService(
+		MdcExecutorService executor = new MdcExecutorService(
 				Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()));
 
 		Mdc.put().feature("HBM-00001");
