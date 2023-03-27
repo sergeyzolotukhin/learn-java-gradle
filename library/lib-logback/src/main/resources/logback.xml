@@ -4,11 +4,11 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+<!--    <logger name="org.quartz" level="warn" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

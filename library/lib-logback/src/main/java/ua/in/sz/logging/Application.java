@@ -20,8 +20,10 @@ public class Application {
 		Mdc.put().feature("HBM-00001");
 		log.info("add tasks");
 		for (int i = 0; i < 3; i++) {
+			Mdc.put().task(String.format("TASK-%d", i));
 			executor.submit(DebugDecorator.decorate(() -> log.info("Execute task")));
 			executor.submit(SecurityDecorator.decorate(() -> log.info("Execute task")));
+			Mdc.remove().task();
 		}
 		Mdc.remove().feature();
 
