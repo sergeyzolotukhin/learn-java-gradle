@@ -1,0 +1,4 @@
+<included>
+    <logger name="ua.in.sz.logging.tasks.DebugDecorator" level="debug"/>
+    <logger name="ua.in.sz.logging" level="warn"/>
+</included>

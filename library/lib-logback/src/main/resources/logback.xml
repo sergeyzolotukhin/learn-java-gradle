@@ -8,7 +8,7 @@
         </encoder>
     </appender>
 
-<!--    <logger name="org.quartz" level="warn" />-->
+    <include file="library/lib-logback/src/main/resources/logback-debug.xml"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
