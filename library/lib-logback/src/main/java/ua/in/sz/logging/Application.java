@@ -9,6 +9,7 @@ import ua.in.sz.logging.tasks.SecurityDecorator;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+// https://logback.qos.ch/manual/onJoran.html
 @Slf4j
 public class Application {
 	public static void main(String[] args) throws InterruptedException {
