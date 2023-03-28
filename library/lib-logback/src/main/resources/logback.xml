@@ -5,7 +5,7 @@
         <prefix>My OS NAME : </prefix>
     </define>
 
-    <if condition="property(&quot;AUTHOR&quot;).equals(&quot;Serhij Zolotukhin&quot;)">
+    <if condition="ua.in.sz.logging.StaticChecker.isTrue()">
         <then>
             <variable name="IF_VAR" value="IF" />
         </then>
