@@ -1,10 +1,13 @@
 <configuration>
+
+    <variable file="library/lib-logback/src/main/resources/log_variables.properties" />
+
     <evaluator name="hideEmptyException" class="ua.in.sz.logging.MyEventEvaluator">
     </evaluator>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+                <pattern>${AUTHOR} %green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
         </encoder>
     </appender>
 
