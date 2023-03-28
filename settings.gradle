@@ -44,6 +44,7 @@
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
 include 'library:lib-logback'
+//include 'library:lib-janino'
 //include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'
@@ -119,6 +120,4 @@ include 'library:lib-logback'
 //    }
 //}
 // ====================================================================================================================
-include 'library:lib-janino'
-findProject(':library:lib-janino')?.name = 'lib-janino'
 
