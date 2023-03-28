@@ -119,4 +119,6 @@ include 'library:lib-logback'
 //    }
 //}
 // ====================================================================================================================
+include 'library:lib-janino'
+findProject(':library:lib-janino')?.name = 'lib-janino'
 
