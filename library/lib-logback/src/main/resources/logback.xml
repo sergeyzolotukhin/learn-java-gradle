@@ -1,16 +1,16 @@
 <configuration>
 
-    <variable file="library/lib-logback/src/main/resources/log_variables.properties" />
+    <variable file="library/lib-logback/src/main/resources/log_variables.properties"/>
     <define name="ROOT_DIR" class="ua.in.sz.logging.NyPropertyDefiner">
-        <prefix>My OS NAME : </prefix>
+        <prefix>My OS NAME :</prefix>
     </define>
 
     <if condition="ua.in.sz.logging.StaticChecker.isTrue()">
         <then>
-            <variable name="IF_VAR" value="IF" />
+            <variable name="IF_VAR" value="IF"/>
         </then>
         <else>
-            <variable name="IF_VAR" value="ELSE" />
+            <variable name="IF_VAR" value="ELSE"/>
         </else>
     </if>
 
@@ -19,13 +19,13 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-                <pattern>${AUTHOR} ${IF_VAR} %green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
         </encoder>
     </appender>
 
     <include file="library/lib-logback/src/main/resources/logback-debug.xml"/>
 
     <root level="INFO">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
