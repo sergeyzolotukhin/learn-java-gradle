@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     // experimental
     implementation 'org.fusesource.jansi:jansi:2.4.0'
@@ -20,7 +24,7 @@ dependencies {
 //    implementation 'org.apache.commons:commons-text:1.10.0'
 //    implementation 'org.apache.commons:commons-lang3:3.10'
 //    implementation 'org.apache.commons:commons-collections4:4.4'
-//    implementation 'commons-io:commons-io:2.7'
+    implementation 'commons-io:commons-io:2.11.0'
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -31,7 +35,7 @@ dependencies {
     implementation 'org.codehaus.janino:janino:3.1.9'
 
     // testing
-//    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-//    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-//    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
 }
