@@ -9,7 +9,7 @@
 
     <if condition='p("AUTHOR").equals("Serhij Zolotukhin")'>
         <then>
-            <include resource="logback-debug.xml"/>
+            <include optional="true" resource="logback-debug.xml" />
         </then>
     </if>
 
