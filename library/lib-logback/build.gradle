@@ -15,9 +15,25 @@ test {
     useJUnitPlatform()
 }
 
+// https://docs.gradle.org/current/userguide/dependency_management.html
+//task printClasspath {
+//    doLast {
+//        configurations.each { Configuration configuration ->
+//            try {
+//                println configuration
+                configuration.each { println it }
+//            } catch (Exception e){
+//                println "Error getting details of $configuration"
+//            }
+//        }
+//    }
+//}
+
 dependencies {
     // experimental
     implementation 'org.fusesource.jansi:jansi:2.4.0'
+//    implementation project(':other')
+//    implementation 'ua.in.sz.pattern:other:1.0-SNAPSHOT'
 
     // common utils
 //    implementation 'com.google.guava:guava:31.1-jre'

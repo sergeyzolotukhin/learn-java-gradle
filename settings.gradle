@@ -92,7 +92,7 @@ include 'library:lib-logback'
 //include 'learn-gradle:platform'
 //include 'learn-gradle:api'
 //include 'learn-gradle:impl'
-//in clude 'learn-groovy'
+//include 'learn-groovy'
 // ====================================================================================================================
 // other
 // ====================================================================================================================
