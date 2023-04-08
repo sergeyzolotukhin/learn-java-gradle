@@ -43,9 +43,8 @@
 //include 'library:lib-guava-cache'
 //include 'library:lib-ehcache'
 //include 'library:lib-ehcache-2.6'
-include 'library:lib-logback'
+//include 'library:lib-logback'
 //include 'library:lib-janino'
-//include 'library:lib-junit-hamcrest'
 //include 'library:lib-opencsv'
 //include 'library:lib-infinispan'
 //include 'library:lib-jgroup'
@@ -54,6 +53,9 @@ include 'library:lib-logback'
 //include 'library:lib-snakeyaml'
 //include 'library:lib-jsch'
 //include 'library:maven-invoker'
+
+include 'library:lib-junit5-extension'
+//include 'library:lib-junit-hamcrest'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
@@ -120,4 +122,6 @@ include 'library:lib-logback'
 //    }
 //}
 // ====================================================================================================================
+
+//findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 

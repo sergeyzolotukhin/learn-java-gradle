@@ -21,7 +21,7 @@ test {
 //        configurations.each { Configuration configuration ->
 //            try {
 //                println configuration
-                configuration.each { println it }
+//                configuration.each { println it }
 //            } catch (Exception e){
 //                println "Error getting details of $configuration"
 //            }
