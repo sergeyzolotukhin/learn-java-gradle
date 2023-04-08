@@ -1,0 +1,1 @@
+https://junit.org/junit5/docs/snapshot/user-guide/#extensions-test-templates
