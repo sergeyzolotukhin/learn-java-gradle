@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'ua.in.sz.h2'
+version = 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // experimental
+    //noinspection VulnerableLibrariesLocal
+    implementation 'com.h2database:h2:2.1.214'
+
+    // common utils
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.4.6'
+    implementation 'org.codehaus.janino:janino:3.1.9'
+
+    // testing
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+//    testImplementation platform('org.junit:junit-bom:5.9.1')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+//test {
+//    useJUnitPlatform()
+//}
