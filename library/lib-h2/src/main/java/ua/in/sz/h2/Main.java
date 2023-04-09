@@ -20,8 +20,8 @@ public class Main {
             StopWatch sw = StopWatch.createStarted();
 
             stm.execute("CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255)) "
-                            +
-                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
+//                    +
+//                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
             );
 
 //            String sql = "insert into TEST (ID, NAME) values (?, ?)";
@@ -37,8 +37,21 @@ public class Main {
 //            }
 //            con.commit();
 
-            // batch insert: Database creation took 00:00:00.274
-            // csv load: Database creation took 00:00:00.217
+            // insert one by one
+            String sql = "insert into TEST (ID, NAME) values (?, ?)";
+            con.setAutoCommit(false);
+            for (int i = 3; i < 100_000; i++) {
+                try (var ps = con.prepareStatement(sql)) {
+                    ps.setInt(1, i);
+                    ps.setString(2, String.format("Name_%d", i));
+                    ps.execute();
+                }
+            }
+            con.commit();
+
+            // batch insert:    00:00:00.274
+            // csv load:        00:00:00.217
+            // insert:          00:00:00.279
 
             log.info("Database creation took {}", sw);
 
