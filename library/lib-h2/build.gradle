@@ -13,6 +13,7 @@ dependencies {
     // experimental
     //noinspection VulnerableLibrariesLocal
     implementation 'com.h2database:h2:2.1.214'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 
     // common utils
 
