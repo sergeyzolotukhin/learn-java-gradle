@@ -36,7 +36,9 @@ public class Main {
                 ps.clearBatch();
             }
             con.commit();
-            // Database creation took 00:00:00.27
+
+            // batch insert: Database creation took 00:00:00.274
+            // csv load:
 
             log.info("Database creation took {}", sw);
 
