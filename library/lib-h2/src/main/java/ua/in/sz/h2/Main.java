@@ -20,25 +20,25 @@ public class Main {
             StopWatch sw = StopWatch.createStarted();
 
             stm.execute("CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255)) "
-//                            +
-//                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
+                            +
+                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
             );
 
-            String sql = "insert into TEST (ID, NAME) values (?, ?)";
-            con.setAutoCommit(false);
-            try (var ps = con.prepareStatement(sql)) {
-                for (int i = 3; i < 100_000; i++) {
-                    ps.setInt(1, i);
-                    ps.setString(2, String.format("Name_%d", i));
-                    ps.addBatch();
-                }
-                ps.executeBatch();
-                ps.clearBatch();
-            }
-            con.commit();
+//            String sql = "insert into TEST (ID, NAME) values (?, ?)";
+//            con.setAutoCommit(false);
+//            try (var ps = con.prepareStatement(sql)) {
+//                for (int i = 3; i < 100_000; i++) {
+//                    ps.setInt(1, i);
+//                    ps.setString(2, String.format("Name_%d", i));
+//                    ps.addBatch();
+//                }
+//                ps.executeBatch();
+//                ps.clearBatch();
+//            }
+//            con.commit();
 
             // batch insert: Database creation took 00:00:00.274
-            // csv load:
+            // csv load: Database creation took 00:00:00.217
 
             log.info("Database creation took {}", sw);
 
