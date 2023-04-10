@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
         var url = "jdbc:h2:mem:";
+//        var url = "jdbc:h2:mem:;TRACE_LEVEL_FILE=4";
 
         try (var con = DriverManager.getConnection(url)) {
             var stm = con.createStatement();
@@ -20,8 +21,8 @@ public class Main {
             StopWatch sw = StopWatch.createStarted();
 
             stm.execute("CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255)) "
-                    +
-                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
+//                    +
+//                    "AS SELECT * FROM CSVREAD('D:/projects-java/_learn_framework/patterns/library/lib-h2/src/main/resources/test.csv')"
             );
 
             // bulk insert
@@ -49,6 +50,18 @@ public class Main {
 //                }
 //            }
 //            con.commit();
+
+            // insert one by one
+            String sql = "insert into TEST (ID, NAME) values (?, ?)";
+            con.setAutoCommit(false);
+            try (var ps = con.prepareStatement(sql)) {
+                ps.setInt(1, 5);
+                ps.setString(2, String.format("Name_%d", 5));
+                log.info("Starting ...");
+                ps.execute();
+                log.info("End ...");
+            }
+            con.commit();
 
             // batch insert:    00:00:00.274
             // csv load:        00:00:00.217

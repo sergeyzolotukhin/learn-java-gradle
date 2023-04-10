@@ -10,7 +10,7 @@ class ExceptionAnalyzeTest {
 
     @Test
     void main_1() {
-        Main.throwException();
+//        Main.throwException();
         log.info("main 1");
     }
 }

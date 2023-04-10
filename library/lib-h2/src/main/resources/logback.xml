@@ -2,11 +2,13 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-40.40logger{36} - %msg%n</pattern>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-10.10thread] %highlight(%-5level) | %-60.60logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <root level="INFO">
+    <logger name="h2database" level="trace" />
+
+    <root level="trace">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
