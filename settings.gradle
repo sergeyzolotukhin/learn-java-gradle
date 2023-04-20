@@ -54,10 +54,11 @@
 //include 'library:lib-jsch'
 //include 'library:maven-invoker'
 
-include 'library:lib-junit5-extension'
+//include 'library:lib-junit5-extension'
 //include 'library:lib-junit-hamcrest'
+include 'library:lib-junit-mockito'
 
-include 'library:lib-h2'
+//include 'library:lib-h2'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
