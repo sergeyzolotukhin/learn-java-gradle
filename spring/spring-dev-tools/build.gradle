@@ -15,6 +15,10 @@ plugins {
 
 apply plugin: "io.spring.dependency-management"
 
+repositories {
+    mavenCentral()
+}
+
 configurations {
     developmentOnly
     runtimeClasspath {
@@ -32,13 +36,13 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.20'
-    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
     developmentOnly "org.springframework.boot:spring-boot-devtools"
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.20'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.7'
 
 }
