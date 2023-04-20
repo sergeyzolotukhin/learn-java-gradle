@@ -188,6 +188,9 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 
     http://logback.qos.ch/manual/filters.html
 
+#### Spring Boot Dockerize
+
+    https://crowdsalat.github.io/technotes/spring/spring-boot-docker/
 ==== IP TV
 
 - X96
