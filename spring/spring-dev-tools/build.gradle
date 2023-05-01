@@ -10,7 +10,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.5.4'
+    id 'org.springframework.boot' version '2.5.11'
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -43,6 +43,6 @@ dependencies {
     // testing
     testCompileOnly 'org.projectlombok:lombok:1.18.26'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.7'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.11'
 
 }
