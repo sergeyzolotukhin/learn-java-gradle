@@ -16,6 +16,9 @@ class ApplicationTest {
 
 	@Test
 	void zonedDateTime() {
+		String userDirectory = System.getProperty("user.dir");
+		log.info("Work dir: [{}]", userDirectory);
+
 		log.info("Timezone: [{}]", format(TimeZone.getDefault()));
 
 		ZonedDateTime dateTime = ZonedDateTime.now();
