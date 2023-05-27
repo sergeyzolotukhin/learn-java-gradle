@@ -98,4 +98,6 @@ Bank
 =======================================================================================================================
 
 Logging in Action by Phil Wilkins
+Logging/Logging and Log Management_ The Authoritative Guide to Undeanagement - Anton Chuvakin & Kevin Schmidt & Chris Phillips.pdf
+O'Reilly Media.I Heart Logs.Jay Kreps.2014.pdf
 
