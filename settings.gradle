@@ -55,7 +55,7 @@
 //include 'library:maven-invoker'
 
 //include 'library:lib-junit5-extension'
-//include 'library:lib-junit-hamcrest'
+include 'library:lib-junit-hamcrest'
 //include 'library:lib-junit-mockito'
 
 //include 'library:lib-h2'
@@ -103,7 +103,7 @@
 // ====================================================================================================================
 //include 'house'
 //include 'house-power'
-include 'other'
+//include 'other'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
 //include 'library:lib-dbcp2'
