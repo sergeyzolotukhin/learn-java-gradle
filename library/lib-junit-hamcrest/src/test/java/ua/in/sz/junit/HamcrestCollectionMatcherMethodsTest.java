@@ -39,21 +39,21 @@ class HamcrestCollectionMatcherMethodsTest {
 	void listIsEqualInAnyOrder() {
 		List<String> titles = bookService.findTitles();
 
-		assertThat(titles, Matchers.containsInAnyOrder("3", "1", "2"));
+		assertThat(titles, containsInAnyOrder("3", "1", "2"));
 	}
 
 	@Test
 	void listContainsItems() {
 		List<String> titles = bookService.findTitles();
 
-		assertThat(titles, Matchers.hasItems("1", "2"));
+		assertThat(titles, hasItems("1", "2"));
 	}
 
 	@Test
 	void hasSizeThree() {
 		List<String> titles = bookService.findTitles();
 
-		assertThat(titles, Matchers.hasSize(3));
+		assertThat(titles, hasSize(3));
 	}
 
 	// ================================================================================================================
@@ -97,7 +97,7 @@ class HamcrestCollectionMatcherMethodsTest {
 
 		BookVO expected = BookVO.builder().title("T2").description("D5").build();
 
-		assertThat(books, hasItem(Matchers.samePropertyValuesAs(expected)));
+		assertThat(books, hasItem(samePropertyValuesAs(expected)));
 	}
 
 	@Test
@@ -106,7 +106,7 @@ class HamcrestCollectionMatcherMethodsTest {
 
 		BookVO expected = BookVO.builder().title("T2").build();
 
-		assertThat(books, hasItem(Matchers.samePropertyValuesAs(expected, BookVO.Fields.description)));
+		assertThat(books, hasItem(samePropertyValuesAs(expected, BookVO.Fields.description)));
 	}
 
 	// ================================================================================================================
