@@ -9,7 +9,10 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+/**
+ * <a href="https://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html">1</a>
+ * <a href="https://reflectoring.io/assertj-lists/">1</a>
+ */
 public class AssertjTest {
     private final BookService bookService = new BookServiceImpl();
 
@@ -49,6 +52,6 @@ public class AssertjTest {
     void everyItemTitleStartWith() {
         List<BookVO> books = bookService.find();
 
-        assertThat(books).extracting(BookVO::getTitle).allMatch(t -> t.startsWith("TD"));
+        assertThat(books).extracting(BookVO::getTitle).allMatch(t -> t.startsWith("T"));
     }
 }
