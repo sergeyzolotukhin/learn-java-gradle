@@ -38,6 +38,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:5.3.1'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.skyscreamer:jsonassert:1.5.1'
+    testImplementation "org.assertj:assertj-core:3.11.1"
 
     testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
