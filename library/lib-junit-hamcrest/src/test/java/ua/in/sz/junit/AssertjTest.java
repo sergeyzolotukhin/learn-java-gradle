@@ -1,5 +1,6 @@
 package ua.in.sz.junit;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import ua.in.sz.junit.service.BookService;
 import ua.in.sz.junit.service.BookServiceImpl;
@@ -53,5 +54,12 @@ public class AssertjTest {
         List<BookVO> books = bookService.find();
 
         assertThat(books).extracting(BookVO::getTitle).allMatch(t -> t.startsWith("T"));
+    }
+
+    @RepeatedTest(4)
+    void repeatedTest(){
+        List<String> titles = bookService.findTitles();
+
+        assertThat(titles).hasSize(3);
     }
 }
