@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HamcrestCollectionMatcherMethodsTest {
 
-	private BookService bookService = new BookServiceImpl();
+	private final BookService bookService = new BookServiceImpl();
 
 	// ================================================================================================================
 	// Hamcrest collection on simple types
