@@ -29,14 +29,14 @@ class ApplicationTest {
 	void groupingBy() {
 		Map<Integer, List<Dto>> index = Stream.of(dtos).collect(Collectors.groupingBy(Dto::getCode));
 
-		index.forEach((key, value) -> System.out.println(String.format("%s=%s", key, value.size())));
+		index.forEach((key, value) -> System.out.printf("%s=%s%n", key, value.size()));
 	}
 
 	@Test
 	void partitioningBy() {
 		Map<Boolean, List<Dto>> partitions = Stream.of(dtos).collect(Collectors.partitioningBy(i -> i.getCode() <= 2));
 
-		partitions.forEach((key, value) -> System.out.println(String.format("%s=%s", key, value.size())));
+		partitions.forEach((key, value) -> System.out.printf("%s=%s%n", key, value.size()));
 	}
 
 	@Test
@@ -54,6 +54,6 @@ class ApplicationTest {
 				.collect(Collectors.groupingBy(it -> counter.getAndIncrement() / 2))
 				.values();
 
-		partitions.forEach((values) -> System.out.println(String.format("%s", values.size())));
+		partitions.forEach((values) -> System.out.printf("%s%n", values.size()));
 	}
 }
