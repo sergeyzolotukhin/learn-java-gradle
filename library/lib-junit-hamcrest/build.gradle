@@ -13,7 +13,10 @@ repositories {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform{
+//        includeTags 'smock'
+//        includeTags 'integration'
+    }
 }
 
 dependencies {

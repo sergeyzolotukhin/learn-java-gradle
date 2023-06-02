@@ -1,6 +1,7 @@
 package ua.in.sz.junit;
 
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ua.in.sz.junit.service.BookService;
 import ua.in.sz.junit.service.BookServiceImpl;
@@ -18,6 +19,8 @@ public class AssertjTest {
     private final BookService bookService = new BookServiceImpl();
 
     @Test
+    @Tag("smock")
+    @Tag("integration")
     void containsOne() {
         List<String> titles = bookService.findTitles();
 
@@ -25,6 +28,7 @@ public class AssertjTest {
     }
 
     @Test
+    @Tag("integration")
     void containsSeveral() {
         List<String> titles = bookService.findTitles();
 
@@ -32,6 +36,7 @@ public class AssertjTest {
     }
 
     @Test
+    @Tag("smock")
     void containsOnly() {
         List<String> titles = bookService.findTitles();
 
