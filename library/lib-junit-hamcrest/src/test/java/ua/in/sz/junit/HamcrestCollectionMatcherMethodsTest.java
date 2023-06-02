@@ -25,7 +25,7 @@ class HamcrestCollectionMatcherMethodsTest {
 	void hasAtLeastOneItem() {
 		List<String> titles = bookService.findTitles();
 
-		assertThat(titles, Matchers.hasItem("1"));
+		assertThat(titles, hasItem("1"));
 	}
 
 	@Test
