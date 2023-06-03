@@ -1,5 +1,6 @@
 package ua.in.sz.junit;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -58,14 +59,29 @@ public class AssertjTest {
     void everyItemTitleStartWith() {
         List<BookVO> books = bookService.find();
 
-        assertThat(books).extracting(BookVO::getTitle).allMatch(t -> t.startsWith("T"));
+        assertThat(books)
+                .extracting(BookVO::getTitle)
+                .allMatch(t -> t.startsWith("T"));
+    }
+
+    @Test
+    void tuple() {
+        List<BookVO> books = bookService.find();
+
+        assertThat(books)
+                .extracting(BookVO::getTitle, BookVO::getDescription)
+                .contains(
+                        Assertions.tuple("T3", "D6"),
+                        Assertions.tuple("T2", "D5")
+                );
     }
 
     @RepeatedTest(4)
     void repeatedTest(){
         List<String> titles = bookService.findTitles();
 
-        assertThat(titles).hasSize(3);
+        assertThat(titles)
+                .hasSize(3);
     }
 
     @Test
