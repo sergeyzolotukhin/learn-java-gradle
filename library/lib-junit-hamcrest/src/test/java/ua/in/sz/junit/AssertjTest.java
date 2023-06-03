@@ -10,7 +10,6 @@ import ua.in.sz.junit.service.BookVO;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.from;
 
 /**
  * <a href="https://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html">1</a>
