@@ -16,6 +16,7 @@
 //include 'spring:spring-bean-validation'
 //include 'spring:spring-cache'
 //include 'spring:spring-cxf'
+include 'spring:spring-jersey'
 //include 'spring:spring-web-xml'
 //include 'spring:spring-thymeleaf'
 //include 'spring:spring-message-source'
@@ -55,8 +56,8 @@
 //include 'library:maven-invoker'
 
 //include 'library:lib-junit5-extension'
-include 'library:lib-junit-assertj'
-include 'library:lib-junit-hamcrest'
+//include 'library:lib-junit-assertj'
+//include 'library:lib-junit-hamcrest'
 //include 'library:lib-junit-mockito'
 
 //include 'library:lib-h2'

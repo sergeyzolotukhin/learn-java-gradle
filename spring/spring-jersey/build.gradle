@@ -1,0 +1,54 @@
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        classpath 'io.spring.gradle:dependency-management-plugin:1.0.15.RELEASE'
+//    }
+//}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+//apply plugin: "io.spring.dependency-management"
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+//    implementation 'org.apache.cxf:cxf-spring-boot-starter-jaxrs'
+    implementation 'org.springframework.boot:spring-boot-starter-jersey'
+//    implementation 'jakarta.ws.rs:jakarta.ws.rs-api:3.1.0'
+//    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+//    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+
+//    implementation 'javax.xml.ws:jaxws-api:2.3.1'
+
+// common utils
+//    implementation 'com.google.guava:guava:32.0.0-jre'
+//    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    // logging
+//    implementation 'ch.qos.logback:logback-classic:1.4.7'
+
+    // development
+//    compileOnly 'org.projectlombok:lombok:1.18.28'
+//    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+//    testImplementation "org.assertj:assertj-core:3.11.1"
+
+//    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+//    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+}
