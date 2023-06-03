@@ -55,6 +55,7 @@
 //include 'library:maven-invoker'
 
 //include 'library:lib-junit5-extension'
+include 'library:lib-junit-assertj'
 include 'library:lib-junit-hamcrest'
 //include 'library:lib-junit-mockito'
 
