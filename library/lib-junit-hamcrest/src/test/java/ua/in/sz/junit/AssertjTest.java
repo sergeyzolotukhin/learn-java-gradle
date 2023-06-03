@@ -10,6 +10,7 @@ import ua.in.sz.junit.service.BookVO;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.from;
 
 /**
  * <a href="https://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html">1</a>
@@ -66,5 +67,17 @@ public class AssertjTest {
         List<String> titles = bookService.findTitles();
 
         assertThat(titles).hasSize(3);
+    }
+
+    @Test
+    void returnsTest(){
+        BookVO book = BookVO.builder()
+                .title("T")
+                .description("D")
+                .build();
+
+        assertThat(book)
+                .returns("T", BookVO::getTitle)
+                .returns("D", BookVO::getDescription);
     }
 }
