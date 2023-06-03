@@ -51,6 +51,13 @@ public class AssertjTest {
         assertThat(titles).containsExactly("1", "2", "3");
     }
 
+    @Test
+    void containsExactlyVO() {
+        List<BookVO> books = bookService.find();
+
+        assertThat(books).contains(BookVO.builder().title("T2").description("D5").build());
+    }
+
     // ================================================================================================================
     // Collection of bean
     // ================================================================================================================
@@ -59,9 +66,7 @@ public class AssertjTest {
     void everyItemTitleStartWith() {
         List<BookVO> books = bookService.find();
 
-        assertThat(books)
-                .extracting(BookVO::getTitle)
-                .allMatch(t -> t.startsWith("T"));
+        assertThat(books).extracting(BookVO::getTitle).allMatch(t -> t.startsWith("T"));
     }
 
     @Test
@@ -76,20 +81,18 @@ public class AssertjTest {
                 );
     }
 
+
+
     @RepeatedTest(4)
-    void repeatedTest(){
+    void repeatedTest() {
         List<String> titles = bookService.findTitles();
 
-        assertThat(titles)
-                .hasSize(3);
+        assertThat(titles).hasSize(3);
     }
 
     @Test
-    void returnsTest(){
-        BookVO book = BookVO.builder()
-                .title("T")
-                .description("D")
-                .build();
+    void returnsTest() {
+        BookVO book = BookVO.builder().title("T").description("D").build();
 
         assertThat(book)
                 .returns("T", BookVO::getTitle)
