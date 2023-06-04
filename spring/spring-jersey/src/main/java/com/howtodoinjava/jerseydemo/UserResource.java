@@ -16,12 +16,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "users")
 @Path("/users")
 public class UserResource {
     private static final Map<Integer, User> DB = new HashMap<>();
