@@ -24,7 +24,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "users")
 @Path("/users")
 public class UserResource {
-    private static Map<Integer, User> DB = new HashMap<>();
+    private static final Map<Integer, User> DB = new HashMap<>();
 
     @GET
     @Produces("application/json")
