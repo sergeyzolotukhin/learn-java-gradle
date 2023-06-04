@@ -1,5 +1,6 @@
-package com.howtodoinjava.jerseydemo;
+package ua.in.sz.jersey;
 
+import ua.in.sz.jersey.domain.UserResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.howtodoinjava.jerseydemo;
+package ua.in.sz.jersey.domain;
 
 
 import java.net.URI;
@@ -16,6 +16,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
+import ua.in.sz.jersey.domain.model.User;
+import ua.in.sz.jersey.domain.model.Users;
 
 @Path("/users")
 public class UserResource {

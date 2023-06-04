@@ -1,4 +1,4 @@
-package com.howtodoinjava.jerseydemo;
+package ua.in.sz.jersey.domain.model;
 
 import java.io.Serializable;
 

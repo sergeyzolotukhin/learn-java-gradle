@@ -1,4 +1,6 @@
-package com.howtodoinjava.jerseydemo;
+package ua.in.sz.jersey.domain.model;
+
+import ua.in.sz.jersey.domain.model.User;
 
 import java.util.ArrayList;
 
