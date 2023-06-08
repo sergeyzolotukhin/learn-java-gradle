@@ -28,8 +28,17 @@ public class WorkdayCalendar extends BaseCalendar implements Calendar, Serializa
 
     public boolean isTimeIncluded(long timeStamp) {
         LocalDate date = Instant.ofEpochMilli(timeStamp).atZone(ZoneId.systemDefault()).toLocalDate();
-        int dayOfMonth = date.getDayOfMonth() - 1;
-        int mask = 1 << dayOfMonth;
+
+        int workingDay = 0;
+        for (int i = 0; i < date.getDayOfMonth(); i++) {
+            LocalDate d = date.plusDays(i);
+            long m = d.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+            if (getBaseCalendar().isTimeIncluded(m)) {
+                workingDay ++;
+            }
+        }
+
+        int mask = 1 << workingDay;
         int result = holiday & mask;
 //        log.info("mask: [{}] result [{}]", Integer.toBinaryString(mask), Integer.toBinaryString(result));
         return result > 0;
