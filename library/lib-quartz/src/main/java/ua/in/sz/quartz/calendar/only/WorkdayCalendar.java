@@ -27,21 +27,29 @@ public class WorkdayCalendar extends BaseCalendar implements Calendar, Serializa
     }
 
     public boolean isTimeIncluded(long timeStamp) {
+        if (!getBaseCalendar().isTimeIncluded(timeStamp)) {
+            return false;
+        }
+
         LocalDate date = Instant.ofEpochMilli(timeStamp).atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate d1 = date.withDayOfMonth(1);
 
         int workingDay = 0;
         for (int i = 0; i < date.getDayOfMonth(); i++) {
-            LocalDate d = date.plusDays(i);
+            LocalDate d = d1.plusDays(i);
+//            log.info("d of m {}", d);
             long m = d.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
             if (getBaseCalendar().isTimeIncluded(m)) {
                 workingDay ++;
             }
         }
 
-        int mask = 1 << workingDay;
+//        log.info("work day no {} {}", date,  workingDay);
+
+        int mask = 1 << (workingDay-1);
         int result = holiday & mask;
 //        log.info("mask: [{}] result [{}]", Integer.toBinaryString(mask), Integer.toBinaryString(result));
-        return result > 0;
+        return result <= 0;
     }
 
     private int buildExpression(String expression) {
@@ -54,13 +62,12 @@ public class WorkdayCalendar extends BaseCalendar implements Calendar, Serializa
             int to = Integer.parseInt(bounds[1]);
 
             for (int i = from; i <= to; i++) {
-                holiday |= 1 << i;
+                holiday |= 1 << (i - 1);
 //                log.info("Range {} -> {}", rage, i);
             }
         }
 
-//        String str = String.format("%32s", Integer.toBinaryString(holiday)).replaceAll(" ", "0");
-//        log.info("{}", str);
+        log.info("{}", String.format("%32s", Integer.toBinaryString(holiday)).replaceAll(" ", "0"));
 
         return holiday;
     }

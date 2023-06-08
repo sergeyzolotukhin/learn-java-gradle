@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 public class AppCalendarOnly {
     public static void main(String[] args) throws Exception {
         CronCalendar calendar = new CronCalendar("0 0 0 ? * SAT-SUN");
-        WorkdayCalendar workdayCalendar = new WorkdayCalendar("2-4,6-8", calendar);
+        WorkdayCalendar workdayCalendar = new WorkdayCalendar("2-4,7-8", calendar);
 
         log.info("expression: [{}]", workdayCalendar.getExpression());
 
