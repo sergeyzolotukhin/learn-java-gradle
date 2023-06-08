@@ -19,10 +19,10 @@ public class Application {
 
 		String baseCalendarName = "my-base=calendar";
 		Calendar baseCalendar = new TraceCalendar(baseCalendarName);
-		scheduler.addCalendar(baseCalendarName, baseCalendar, true, true);
+//		scheduler.addCalendar(baseCalendarName, baseCalendar, true, true);
 
 		String calendarName = "my-calendar";
-		Calendar calendar = new TraceCalendar(calendarName, baseCalendarName);
+		Calendar calendar = new TraceCalendar(calendarName, baseCalendar);
 		scheduler.addCalendar(calendarName, calendar, true, true);
 
 		JobDetail job = JobBuilder.newJob(MyJob.class)
@@ -33,15 +33,15 @@ public class Application {
 				.withIdentity("myTrigger", "group1")
 				.startNow()
 				.withSchedule(SimpleScheduleBuilder.simpleSchedule()
-						.withIntervalInSeconds(2)
-						.withRepeatCount(4))
+						.withIntervalInSeconds(4)
+						.withRepeatCount(2))
 				.modifiedByCalendar(calendarName)
 				.build();
 
 		scheduler.scheduleJob(job, trigger);
 
-		Calendar otherBaseCalendar = new TraceCalendar("my-other-base=calendar");
-		scheduler.addCalendar(baseCalendarName, otherBaseCalendar, true, true);
+//		Calendar otherBaseCalendar = new TraceCalendar("my-other-base=calendar");
+//		scheduler.addCalendar(baseCalendarName, otherBaseCalendar, true, true);
 
 		Thread.sleep(10_000);
 
