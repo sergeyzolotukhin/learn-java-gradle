@@ -1,8 +1,9 @@
-package ua.in.sz.quartz;
+package ua.in.sz.quartz.calendar.whole;
 
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.Calendar;
 import org.quartz.impl.calendar.BaseCalendar;
+import ua.in.sz.quartz.calendar.whole.BaseCalendarReference;
 
 @Slf4j
 public class TraceCalendar extends BaseCalendar implements BaseCalendarReference {
