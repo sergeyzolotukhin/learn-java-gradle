@@ -28,6 +28,7 @@ public class Application {
 
 		JobDetail job = JobBuilder.newJob(MyJob.class)
 				.withIdentity("myJob", "group1")
+//				.usingJobData("", "")
 				.build();
 
 		Trigger trigger = TriggerBuilder.newTrigger()
@@ -37,8 +38,12 @@ public class Application {
 						.withIntervalInSeconds(4)
 						.withRepeatCount(2))
 				.modifiedByCalendar(calendarName)
+//				.usingJobData("", "")
+//				.forJob(job)
 				.build();
 
+//		scheduler.addJob(job, false);
+//		scheduler.scheduleJob(trigger);
 		scheduler.scheduleJob(job, trigger);
 
 //		Calendar otherBaseCalendar = new TraceCalendar("my-other-base=calendar");
