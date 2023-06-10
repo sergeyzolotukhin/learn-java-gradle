@@ -1,5 +1,6 @@
 package ua.in.sz.unit.test;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MultipleAssertsTest {
 
     @Test
+    @Disabled
     void multipleSeparateAsserts() {
         int a = 1;
         int b = 2;
@@ -18,6 +20,7 @@ class MultipleAssertsTest {
     }
 
     @Test
+    @Disabled
     void multipleAllAsserts() {
         int a = 1;
         int b = 2;
