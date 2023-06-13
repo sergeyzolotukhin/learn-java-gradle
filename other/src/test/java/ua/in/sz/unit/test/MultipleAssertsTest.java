@@ -42,6 +42,10 @@ class MultipleAssertsTest {
         );
     }
 
+    /*
+    https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-display-names
+     */
+
     @MethodSource
     @ParameterizedTest(name = "Parametrized test name other [{0}], [{1}]")
     void testParametrized(String name, boolean expected) {
