@@ -3,8 +3,11 @@ package ua.in.sz.unit.test;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ArgumentsProvider;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -69,5 +72,22 @@ class MultipleAssertsTest {
 
     private static Stream<String> testWithArgument() {
         return Stream.of(null, "", "  ");
+    }
+
+    @ParameterizedTest
+    @ArgumentsSource(BlankStringsArgumentsProvider.class)
+    void isBlank_ShouldReturnTrueForNullOrBlankStringsArgProvider(String name) {
+        log.info("[{}]", name);
+    }
+
+    static class BlankStringsArgumentsProvider implements ArgumentsProvider {
+        @Override
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+            return Stream.of(
+                    Arguments.of((String) null),
+                    Arguments.of(""),
+                    Arguments.of("   ")
+            );
+        }
     }
 }
