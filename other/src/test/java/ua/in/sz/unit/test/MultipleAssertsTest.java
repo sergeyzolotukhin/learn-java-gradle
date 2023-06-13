@@ -90,4 +90,17 @@ class MultipleAssertsTest {
             );
         }
     }
+
+    static Stream<Arguments> arguments = Stream.of(
+            Arguments.of(null, true), // null strings should be considered blank
+            Arguments.of("", true),
+            Arguments.of("  ", true),
+            Arguments.of("not blank", false)
+    );
+
+    @ParameterizedTest
+    @VariableSource("arguments")
+    void isBlank_ShouldReturnTrueForNullOrBlankStringsVariableSource(String name, boolean expected) {
+        log.info("[{}] [{}]", name, expected);
+    }
 }
