@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.*;
 
@@ -107,5 +108,16 @@ class MultipleAssertsTest {
     @CsvSource({"2018/12/25,2018", "2019/02/11,2019"})
     void getYear_ShouldWorkAsExpected(@ConvertWith(SlashyDateConverter.class) LocalDate date, int expected) {
         log.info("[{}] [{}]", date, expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"Isaac,,Newton,Isaac Newton", "Charles,Robert,Darwin,Charles Robert Darwin"})
+    void fullName_ShouldGenerateTheExpectedFullName(ArgumentsAccessor argumentsAccessor) {
+        String firstName = argumentsAccessor.getString(0);
+        String middleName = (String) argumentsAccessor.get(1);
+        String lastName = argumentsAccessor.get(2, String.class);
+        String expectedFullName = argumentsAccessor.getString(3);
+
+        log.info("[{}] [{}] [{}] [{}]", firstName, middleName, lastName, expectedFullName);
     }
 }
