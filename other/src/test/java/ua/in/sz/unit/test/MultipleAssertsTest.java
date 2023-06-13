@@ -5,11 +5,10 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.ArgumentsProvider;
-import org.junit.jupiter.params.provider.ArgumentsSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.converter.ConvertWith;
+import org.junit.jupiter.params.provider.*;
 
+import java.time.LocalDate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -102,5 +101,11 @@ class MultipleAssertsTest {
     @VariableSource("arguments")
     void isBlank_ShouldReturnTrueForNullOrBlankStringsVariableSource(String name, boolean expected) {
         log.info("[{}] [{}]", name, expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2018/12/25,2018", "2019/02/11,2019"})
+    void getYear_ShouldWorkAsExpected(@ConvertWith(SlashyDateConverter.class) LocalDate date, int expected) {
+        log.info("[{}] [{}]", date, expected);
     }
 }
