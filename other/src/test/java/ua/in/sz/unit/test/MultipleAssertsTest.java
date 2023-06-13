@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.AggregateWith;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.*;
@@ -111,13 +112,25 @@ class MultipleAssertsTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"Isaac,,Newton,Isaac Newton", "Charles,Robert,Darwin,Charles Robert Darwin"})
-    void fullName_ShouldGenerateTheExpectedFullName(ArgumentsAccessor argumentsAccessor) {
+    @CsvSource({
+            "Isaac,,Newton,Isaac Newton",
+            "Charles,Robert,Darwin,Charles Robert Darwin"})
+    void fullName_ShouldGenerateTheExpectedFullName_1(ArgumentsAccessor argumentsAccessor) {
         String firstName = argumentsAccessor.getString(0);
         String middleName = (String) argumentsAccessor.get(1);
         String lastName = argumentsAccessor.get(2, String.class);
         String expectedFullName = argumentsAccessor.getString(3);
 
-        log.info("[{}] [{}] [{}] [{}]", firstName, middleName, lastName, expectedFullName);
+        log.info("2 [{}] [{}] [{}] [{}]", firstName, middleName, lastName, expectedFullName);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Isaac Newton,Isaac,,Newton",
+            "Charles Robert Darwin,Charles,Robert,Darwin"})
+    void fullName_ShouldGenerateTheExpectedFullName_2(
+            String expectedFullName, @AggregateWith(PersonAggregator.class) Person person) {
+
+        log.info("1 [{}] [{}]", expectedFullName, person.getFirstName());
     }
 }
