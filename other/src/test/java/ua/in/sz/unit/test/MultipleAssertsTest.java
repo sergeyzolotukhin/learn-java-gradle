@@ -42,8 +42,8 @@ class MultipleAssertsTest {
         );
     }
 
-    @ParameterizedTest
     @MethodSource
+    @ParameterizedTest(name = "Parametrized test name other [{0}], [{1}]")
     void testParametrized(String name, boolean expected) {
         log.info("[{}] [{}]", name, expected);
     }
@@ -57,8 +57,8 @@ class MultipleAssertsTest {
         );
     }
 
-    @ParameterizedTest
     @MethodSource
+    @ParameterizedTest(name = "Parametrized test name [{0}]")
     void testWithArgument(String name) {
         log.info("[{}]", name);
     }
