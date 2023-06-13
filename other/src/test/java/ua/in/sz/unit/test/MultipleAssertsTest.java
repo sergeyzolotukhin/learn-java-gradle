@@ -43,17 +43,27 @@ class MultipleAssertsTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideStringsForIsBlank")
+    @MethodSource
     void testParametrized(String name, boolean expected) {
         log.info("[{}] [{}]", name, expected);
     }
 
-    private static Stream<Arguments> provideStringsForIsBlank() {
+    private static Stream<Arguments> testParametrized() {
         return Stream.of(
                 Arguments.of(null, true),
                 Arguments.of("", true),
                 Arguments.of("  ", true),
                 Arguments.of("not blank", false)
         );
+    }
+
+    @ParameterizedTest
+    @MethodSource
+    void testWithArgument(String name) {
+        log.info("[{}]", name);
+    }
+
+    private static Stream<String> testWithArgument() {
+        return Stream.of(null, "", "  ");
     }
 }
