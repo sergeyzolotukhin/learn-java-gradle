@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// https://nipafx.dev/junit-5-extension-model/
 @Slf4j
 class MultipleAssertsTest {
 
