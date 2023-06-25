@@ -26,7 +26,5 @@ public class ScheduleService {
 		String text = IOUtils.toString(resource.getInputStream(), UTF_8.name());
 		String result = scheduleValueService.execute();
 		log.info("Executed: [{}], [{}]", text, result);
-
-		log.warn("End");
 	}
 }
