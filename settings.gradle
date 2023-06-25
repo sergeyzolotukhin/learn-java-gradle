@@ -1,7 +1,7 @@
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
-//include 'spring:spring-dev-tools'
+include 'spring:spring-dev-tools'
 //include 'spring:spring-shell'
 //include 'spring:spring-quartz'
 //include 'spring:spring-aspect'
@@ -105,7 +105,7 @@
 // ====================================================================================================================
 //include 'house'
 //include 'house-power'
-include 'other'
+//include 'other'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
 //include 'library:lib-dbcp2'
