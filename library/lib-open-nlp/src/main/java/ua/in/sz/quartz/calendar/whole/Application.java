@@ -19,7 +19,7 @@ public class Application {
         TokenizerME tokenizer = new TokenizerME(model);
         String[] tokens = tokenizer.tokenize("In the previous section, you learned about volumes as a mechanism " +
                 "to swap out mutable data of a container to store it separately from its " +
-                "own container. ");
+                "own container");
 
         for (String token : tokens) {
             log.info("{}", token);
