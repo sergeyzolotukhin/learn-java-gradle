@@ -1,7 +1,7 @@
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
-include 'spring:spring-dev-tools'
+//include 'spring:spring-dev-tools'
 //include 'spring:spring-shell'
 //include 'spring:spring-quartz'
 //include 'spring:spring-aspect'
@@ -54,6 +54,7 @@ include 'spring:spring-dev-tools'
 //include 'library:lib-snakeyaml'
 //include 'library:lib-jsch'
 //include 'library:maven-invoker'
+include 'library:lib-lucene'
 
 //include 'library:lib-junit5-extension'
 //include 'library:lib-junit-assertj'
