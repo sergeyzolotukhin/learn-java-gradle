@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
+/**
+ * <a href="https://www.geeksforgeeks.org/natural-language-processing-nlp-tutorial/">...</a>
+ */
 @Slf4j
 public class App2 {
 
