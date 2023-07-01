@@ -54,7 +54,8 @@
 //include 'library:lib-snakeyaml'
 //include 'library:lib-jsch'
 //include 'library:maven-invoker'
-include 'library:lib-lucene'
+//include 'library:lib-lucene'
+include 'library:lib-open-nlp'
 
 //include 'library:lib-junit5-extension'
 //include 'library:lib-junit-assertj'
