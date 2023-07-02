@@ -57,7 +57,8 @@
 //include 'library:maven-invoker'
 //include 'library:lib-lucene'
 //include 'library:lib-open-nlp'
-include 'library:lib-rxjava2'
+//include 'library:lib-rxjava2'
+include 'library:lib-rxjava3'
 
 //include 'library:lib-junit5-extension'
 //include 'library:lib-junit-assertj'
