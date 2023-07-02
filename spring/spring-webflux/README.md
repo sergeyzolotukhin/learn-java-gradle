@@ -1,0 +1,2 @@
+https://www.baeldung.com/spring-webflux
+https://github.com/eugenp/tutorials/blob/master/spring-reactive-modules/spring-reactive/src/main/java/com/baeldung/reactive/webflux/annotation/EmployeeSpringApplication.java
