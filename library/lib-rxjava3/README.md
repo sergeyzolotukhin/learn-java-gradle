@@ -8,3 +8,6 @@ https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-9-ne
 
 #### Full Stack Reactive with Spring WebFlux, WebSockets, and React
 https://developer.okta.com/blog/2018/09/25/spring-webflux-websockets-react
+
+#### How do you read and print a chunked HTTP response using java.net.http as chunks arrive?
+https://stackoverflow.com/questions/52669764/how-do-you-read-and-print-a-chunked-http-response-using-java-net-http-as-chunks
