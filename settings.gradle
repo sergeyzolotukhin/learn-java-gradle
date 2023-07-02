@@ -18,7 +18,7 @@
 //include 'spring:spring-cxf'
 //include 'spring:spring-jersey'
 //include 'spring:spring-web-xml'
-include 'spring:spring-webflux'
+//include 'spring:spring-webflux'
 //include 'spring:spring-thymeleaf'
 //include 'spring:spring-message-source'
 // ====================================================================================================================
@@ -57,6 +57,7 @@ include 'spring:spring-webflux'
 //include 'library:maven-invoker'
 //include 'library:lib-lucene'
 //include 'library:lib-open-nlp'
+include 'library:lib-rxjava2'
 
 //include 'library:lib-junit5-extension'
 //include 'library:lib-junit-assertj'
