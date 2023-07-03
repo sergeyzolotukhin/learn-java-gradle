@@ -1,3 +1,10 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
@@ -135,4 +142,5 @@ include 'library:lib-rxjava3'
 
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 //findProject(':library:lib-h2')?.name = 'lib-h2'
+
 
