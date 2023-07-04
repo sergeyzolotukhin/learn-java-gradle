@@ -30,6 +30,9 @@ import java.io.*;
  *
  * Two of the most popular stemming algorithms are the Porter and Snowball stem-
  * mers.
+ *
+ * Lane H., Howard C., Hapke H.M. - Natural Language Processing in Action - 2019.pdf
+ *
  */
 @SuppressWarnings("JavadocBlankLines")
 @Slf4j
