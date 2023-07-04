@@ -45,9 +45,9 @@ venv1/
 
 #### Drool IDEA tools
 
-library/lib-drool/lib/
+learn-java/library/lib-drool/lib/
 
 #### Antlr
 
-library/lib-antlr/src/main/gen/
+learn-java/library/lib-antlr/src/main/gen/
 

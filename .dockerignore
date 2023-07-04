@@ -1,7 +1,7 @@
 # https://docs.docker.com/engine/reference/builder/#dockerignore-file
 *
-!library/lib-open-nlp/src
-!library/lib-open-nlp/build.gradle
+!learn-java/library/lib-open-nlp/src
+!learn-java/library/lib-open-nlp/build.gradle
 !gradle
 !gradlew
 !gradle.properties
