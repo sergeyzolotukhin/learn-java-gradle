@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     // experimental
-    implementation(platform(project(':learn-gradle:platform')))
+    implementation(platform(project(':learn-gradle:multi-project:platform')))
     api('org.springframework:spring-core')
 }
 

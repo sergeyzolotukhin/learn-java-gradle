@@ -14,9 +14,9 @@ repositories {
 
 dependencies {
     // experimental
-    implementation(platform(project(':learn-gradle:platform')))
-    annotationProcessor(platform(project(':learn-gradle:platform')))
-    implementation(project(':learn-gradle:api'))
+    implementation(platform(project(':learn-gradle:multi-project:platform')))
+    annotationProcessor(platform(project(':learn-gradle:multi-project:platform')))
+    implementation(project(':learn-gradle:multi-project:api'))
 
     implementation('com.google.guava:guava')
 

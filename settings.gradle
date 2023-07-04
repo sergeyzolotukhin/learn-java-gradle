@@ -65,7 +65,7 @@ pluginManagement {
 //include 'library:lib-lucene'
 //include 'library:lib-open-nlp'
 //include 'library:lib-rxjava2'
-include 'library:lib-rxjava3'
+//include 'library:lib-rxjava3'
 
 //include 'library:lib-junit5-extension'
 //include 'library:lib-junit-assertj'
@@ -108,9 +108,10 @@ include 'library:lib-rxjava3'
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
-//include 'learn-gradle:platform'
-//include 'learn-gradle:api'
-//include 'learn-gradle:impl'
+include 'learn-gradle:multi-project:platform'
+include 'learn-gradle:multi-project:api'
+include 'learn-gradle:multi-project:impl'
+
 //include 'learn-groovy'
 // ====================================================================================================================
 // other
