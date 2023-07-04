@@ -14,10 +14,7 @@ repositories {
 
 dependencies {
     // experimental
-    implementation(platform(project(':learn-gradle:multi-project:platform')))
-    annotationProcessor(platform(project(':learn-gradle:multi-project:platform')))
     implementation(project(':learn-gradle:multi-project:api'))
-
     implementation('com.google.guava:guava')
 
     // development
@@ -26,4 +23,9 @@ dependencies {
 
     // logging
     implementation('ch.qos.logback:logback-classic')
+
+    // dependency versions
+    // https://docs.gradle.org/current/userguide/platforms.html#sub:using-platform-to-control-transitive-deps
+    implementation(platform(project(':learn-gradle:multi-project:platform')))
+    annotationProcessor(platform(project(':learn-gradle:multi-project:platform')))
 }
