@@ -108,9 +108,12 @@ pluginManagement {
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
-include 'learn-gradle:multi-project:platform'
-include 'learn-gradle:multi-project:api'
-include 'learn-gradle:multi-project:impl'
+//include 'learn-gradle:multi-project:platform'
+//include 'learn-gradle:multi-project:api'
+//include 'learn-gradle:multi-project:impl'
+
+include 'learn-gradle:custom-plugin:plugin'
+include 'learn-gradle:custom-plugin:use'
 
 //include 'learn-groovy'
 // ====================================================================================================================

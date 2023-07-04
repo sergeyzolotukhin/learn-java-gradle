@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'ua.in.sz.geadle.java-library-extended' version '1.0.0'
+}
+
+group 'ua.in.sz.pattern'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // experimental
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+
+    // testing
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+}

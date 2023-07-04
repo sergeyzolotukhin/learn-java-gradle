@@ -1,0 +1,20 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group = 'ua.in.sz.geadle'
+version = '1.0.0'
+
+repositories {
+    jcenter()
+}
+
+gradlePlugin {
+    plugins {
+        extendedJavaLibraryPlugin {
+            id = 'ua.in.sz.geadle.java-library-extended'
+            implementationClass = 'ua.in.sz.geadle.custom.plugin.ExtendedJavaLibraryPlugin'
+        }
+    }
+}
