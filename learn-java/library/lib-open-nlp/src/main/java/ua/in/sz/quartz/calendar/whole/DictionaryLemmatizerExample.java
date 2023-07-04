@@ -15,16 +15,23 @@ import java.io.*;
  * <a href="https://stackoverflow.com/questions/55391121/opennlp-unable-to-locate-the-model-file-for-lemmatizer">
  * OpenNLP: Unable to locate the model file for Lemmatizer
  * </a>
+ *
  * <a href="https://opennlp.apache.org/docs/1.8.0/manual/opennlp.html#tools.cli.lemmatizer.LemmatizerME">
  * Chapter 7. Lemmatizer
  * </a>
+ *
  * <a href="https://opennlp.sourceforge.net/models-1.5/">
  * Use the links in the table below to download the pre-trained models for the OpenNLP 1.5 series
  * </a>
+ *
  * <a href="https://subscription.packtpub.com/book/web-development/9781789801156/1/ch01lvl1sec08/training-an-opennlp-lemmatization-model">
  * Training an OpenNLP lemmatization model
  * </a>
+ *
+ * Two of the most popular stemming algorithms are the Porter and Snowball stem-
+ * mers.
  */
+@SuppressWarnings("JavadocBlankLines")
 @Slf4j
 public class DictionaryLemmatizerExample {
     public static void main(String[] args) throws Exception {
