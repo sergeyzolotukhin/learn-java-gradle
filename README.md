@@ -1,4 +1,5 @@
-I am using this repository to learn a different aspect of programming.
+I am using this repository to learn a different aspect of programming in the Java programming language.
+I am using the Gradle build tool here.
 
 ### Java
 
