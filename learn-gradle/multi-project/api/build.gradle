@@ -17,8 +17,10 @@ repositories {
 
 dependencies {
     // experimental
-    implementation(platform(project(':learn-gradle:multi-project:platform')))
     api('org.springframework:spring-core')
+
+    // dependency versions
+    implementation(platform(project(':learn-gradle:multi-project:platform')))
 }
 
 // How to move publication to common part? I don't want to have duplication.
