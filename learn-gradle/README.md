@@ -41,3 +41,7 @@ https://docs.gradle.org/current/userguide/platforms.html
 https://stackoverflow.com/questions/72852329/define-alias-for-gradle-task-with-custom-argument
 
 #### deprecation process ???
+
+#### How to use gradle local store?
+https://stackoverflow.com/questions/10834111/where-does-gradle-store-downloaded-jars-on-the-local-file-system
+https://docs.gradle.org/current/userguide/directory_layout.html
