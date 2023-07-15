@@ -41,7 +41,7 @@ pluginManagement {
 //include 'learn-java:library:lib-antlr'
 //include 'learn-java:library:lib-jcurses'
 //include 'learn-java:library:lib-jackson'
-//include 'learn-java:library:lib-quartz'
+include 'learn-java:library:lib-quartz'
 //include 'learn-java:library:lib-viber'
 //include 'learn-java:library:lib-drool'
 //include 'learn-java:library:lib-bean-validation'
@@ -63,7 +63,7 @@ pluginManagement {
 //include 'learn-java:library:lib-jsch'
 //include 'learn-java:library:maven-invoker'
 //include 'learn-java:library:lib-lucene'
-include 'learn-java:library:lib-open-nlp'
+//include 'learn-java:library:lib-open-nlp'
 //include 'learn-java:library:lib-rxjava2'
 //include 'learn-java:library:lib-rxjava3'
 
