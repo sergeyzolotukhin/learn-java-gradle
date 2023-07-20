@@ -11,11 +11,20 @@ import lombok.extern.slf4j.Slf4j;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 public class CronMain {
     public static void main(String[] args) throws Exception {
+//        List<Integer> collect = Stream.of(1, 2, 3, 4, 5, 6)
+//                .skip(2)
+//                .limit(1)
+//                .collect(Collectors.toList());
+//        log.info("{}", collect);
+
         CronDefinition cronDefinition = CronDefinitionBuilder.instanceDefinitionFor(CronType.QUARTZ);
         CronParser parser = new CronParser(cronDefinition);
         Cron cron = parser.parse("0 0 12 ? * 4#1");
