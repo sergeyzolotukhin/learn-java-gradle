@@ -42,6 +42,7 @@ On
 Execution Time
 =======================================================================================================================
 ExecutionTime forCron(Cron cron)
+ExecutionTimeBuilder
 
 SingleExecutionTime
     CronField daysOfWeekCronField;
