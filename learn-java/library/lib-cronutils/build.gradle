@@ -9,12 +9,13 @@ sourceCompatibility = JavaVersion.VERSION_20
 targetCompatibility = JavaVersion.VERSION_20
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     // experimental
-    implementation 'com.cronutils:cron-utils:9.2.1'
+    implementation 'com.cronutils:cron-utils:9.2.2-SNAPSHOT'
 
     // development
     compileOnly 'org.projectlombok:lombok:1.18.28'
