@@ -1,5 +1,6 @@
 package ua.in.sz.quartz;
 
+import com.cronutils.Function;
 import com.cronutils.model.Cron;
 import com.cronutils.model.CronType;
 import com.cronutils.model.SingleCron;
@@ -14,6 +15,7 @@ import com.cronutils.model.field.value.IntegerFieldValue;
 import com.cronutils.model.field.value.SpecialChar;
 import com.cronutils.model.field.value.SpecialCharFieldValue;
 import com.cronutils.parser.CronParser;
+import com.google.common.collect.ImmutableMap;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,6 +24,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class CronReplaceMain {
+    private static final Map<CronFieldName, Function<CronField, CronField>> normalizers =
+            ImmutableMap.<CronFieldName, Function<CronField, CronField>>builder()
+                    .put(CronFieldName.DAY_OF_WEEK, CronReplaceMain::normalizeDayOfWeekField)
+                    .build();
+
     @SneakyThrows
     public static void main(String[] args) {
         CronDefinition cronDefinition = CronDefinitionBuilder.instanceDefinitionFor(CronType.QUARTZ);
@@ -35,25 +42,13 @@ public class CronReplaceMain {
 
     private static SingleCron normalize(Cron cron) {
         List<CronField> fields = cron.retrieveFieldsAsMap().values().stream()
-                .map(CronReplaceMain::normalizeField)
+                .map(field -> normalizers.getOrDefault(field.getField(), f -> f).apply(field))
                 .collect(Collectors.toList());
 
         return new SingleCron(cron.getCronDefinition(), fields);
     }
 
-    private static CronField normalizeField(CronField field) {
-        if (CronFieldName.DAY_OF_WEEK.equals(field.getField())) {
-            return normalizeDayOfWeekField(field);
-        } else {
-            return field;
-        }
-    }
-
-    private static CronField normalizeDayOfWeekField(CronField field) {
-        if (!CronFieldName.DAY_OF_WEEK.equals(field.getField())) {
-            throw new IllegalArgumentException(String.format("Unsupported field type %s", field.getField()));
-        }
-
+    public static CronField normalizeDayOfWeekField(CronField field) {
         FieldExpression expression = field.getExpression().accept(new NthNormalizeVisitor());
         return new CronField(field.getField(), expression, field.getConstraints());
     }
