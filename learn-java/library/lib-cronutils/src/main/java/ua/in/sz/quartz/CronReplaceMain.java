@@ -35,15 +35,23 @@ public class CronReplaceMain {
 
     private static SingleCron normalize(Cron cron) {
         List<CronField> fields = cron.retrieveFieldsAsMap().values().stream()
-                .map(CronReplaceMain::normalizeDayOfWeekField)
+                .map(CronReplaceMain::normalizeField)
                 .collect(Collectors.toList());
 
         return new SingleCron(cron.getCronDefinition(), fields);
     }
 
+    private static CronField normalizeField(CronField field) {
+        if (CronFieldName.DAY_OF_WEEK.equals(field.getField())) {
+            return normalizeDayOfWeekField(field);
+        } else {
+            return field;
+        }
+    }
+
     private static CronField normalizeDayOfWeekField(CronField field) {
         if (!CronFieldName.DAY_OF_WEEK.equals(field.getField())) {
-            return field;
+            throw new IllegalArgumentException(String.format("Unsupported field type %s", field.getField()));
         }
 
         FieldExpression expression = field.getExpression().accept(new NthNormalizeVisitor());
