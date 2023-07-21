@@ -16,6 +16,13 @@ class EventCronParserTest {
     }
 
     @Test
+    void parseSeveralWithNthDay() {
+        CronParser parser = new EventCronParser();
+        Cron cron = parser.parse("0 0 12 ? * 1#4,2#4");
+        assertEquals("0 0 12 ? * 1,2", cron.asString());
+    }
+
+    @Test
     void parseWithoutNthDay() {
         CronParser parser = new EventCronParser();
         Cron cron = parser.parse("0 0 12 ? * 1");
