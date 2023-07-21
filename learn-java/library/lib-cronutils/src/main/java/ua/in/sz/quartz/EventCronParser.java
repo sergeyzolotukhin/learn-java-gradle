@@ -36,7 +36,7 @@ public class EventCronParser extends CronParser {
     public Cron parse(String expression) {
         Cron cron = super.parse(expression);
         SingleCron normalizeCron = normalize(cron);
-        log.debug("{} -> {}", cron.asString(), normalizeCron.asString());
+        log.info("Cron expression [{}] is normalized to [{}]", cron.asString(), normalizeCron.asString());
         return normalizeCron;
     }
 
