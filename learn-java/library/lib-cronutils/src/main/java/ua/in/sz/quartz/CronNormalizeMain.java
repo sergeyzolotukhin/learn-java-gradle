@@ -37,7 +37,7 @@ public class CronNormalizeMain {
         CronDefinition cronDefinition = CronDefinitionBuilder.instanceDefinitionFor(CronType.QUARTZ);
         CronParser parser = new CronParser(cronDefinition);
 
-        Cron cron = parser.parse("0 0 12 * * ?");
+        Cron cron = parser.parse("0 0 12 ? * 1#4,2#3");
         CronField field = cron.retrieve(CronFieldName.DAY_OF_WEEK);
         FieldExpression expression = field.getExpression();
 
