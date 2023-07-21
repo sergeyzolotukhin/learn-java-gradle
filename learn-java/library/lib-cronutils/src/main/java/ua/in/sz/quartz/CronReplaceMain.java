@@ -11,9 +11,7 @@ public class CronReplaceMain {
     @SneakyThrows
     public static void main(String[] args) {
         CronParser parser = new EventCronParser();
-
         Cron cron = parser.parse("0 0 12 ? * 1#4");
-
         log.info("{}", cron.asString());
     }
 }
