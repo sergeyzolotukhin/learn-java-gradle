@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 
+// http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 @Slf4j
 public class CronMain {
     private static final Map<Class<?>, Function<FieldExpression, FieldExpression>> convertors =
