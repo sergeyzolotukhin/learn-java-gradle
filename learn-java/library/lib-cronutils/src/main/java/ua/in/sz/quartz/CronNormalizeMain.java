@@ -48,6 +48,10 @@ public class CronNormalizeMain {
         log.info("================================================");
     }
 
+    // ================================================================================================================
+    //
+    // ================================================================================================================
+
     private static FieldExpression normalize(FieldExpression expression) {
         return convertors.getOrDefault(expression.getClass(), CronNormalizeMain::unsupportedExpression)
                 .apply(expression);
