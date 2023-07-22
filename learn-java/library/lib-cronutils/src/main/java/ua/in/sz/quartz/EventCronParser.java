@@ -95,6 +95,4 @@ public class EventCronParser extends CronParser {
             return new On(on.getTime(), new SpecialCharFieldValue(SpecialChar.NONE), new IntegerFieldValue(-1));
         }
     }
-
-
 }
