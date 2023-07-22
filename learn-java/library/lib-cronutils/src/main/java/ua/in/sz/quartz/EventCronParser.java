@@ -39,7 +39,7 @@ public class EventCronParser extends CronParser {
     public Cron parse(String expression) {
         Cron origenCron = super.parse(expression);
         Cron resultCron = translate(origenCron);
-        log.info("Cron expression [{}] is normalized to [{}]", origenCron.asString(), resultCron.asString());
+        log.info("Cron expression [{}] is translated to [{}]", origenCron.asString(), resultCron.asString());
         return resultCron;
     }
 
