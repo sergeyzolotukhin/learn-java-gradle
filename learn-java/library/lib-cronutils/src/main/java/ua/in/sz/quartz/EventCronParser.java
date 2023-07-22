@@ -63,7 +63,7 @@ public class EventCronParser extends CronParser {
 
     private static class ListOfDayOfWeekCronConstraint extends CronConstraint {
         public ListOfDayOfWeekCronConstraint() {
-            super("A day=of-week does not support ','");
+            super("A day-of-week does not support ','");
         }
 
         @Override
