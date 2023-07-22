@@ -4,35 +4,47 @@ import com.cronutils.model.Cron;
 import com.cronutils.parser.CronParser;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EventCronParserTest {
 
     @Test
-    void parseWithNthDay() {
+    void dayOfMonthShouldSupportDay() {
         CronParser parser = new EventCronParser();
-        Cron cron = parser.parse("0 0 12 ? * 1#4");
-        assertEquals("0 0 12 ? * 1", cron.asString());
+        Cron cron = parser.parse("0 0 0 ? * 1");
+        assertEquals("0 0 0 ? * 1", cron.asString());
     }
 
     @Test
-    void parseSeveralWithNthDay() {
+    void dayOfMonthShouldSupportNthDay() {
         CronParser parser = new EventCronParser();
-        Cron cron = parser.parse("0 0 12 ? * 1#4,2#4");
-        assertEquals("0 0 12 ? * 1,2", cron.asString());
+        Cron cron = parser.parse("0 0 0 ? * 1#4");
+        assertEquals("0 0 0 ? * 1", cron.asString());
+    }
+
+    // ================================================================================================================
+    // negative scenarios
+    // ================================================================================================================
+
+    @Test
+    void dayOfMonthShouldShouldNotListOfValues() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            CronParser parser = new EventCronParser();
+            parser.parse("0 0 0 ? * 1,2");
+        });
+
+        assertThat(thrown.getMessage()).contains("A day=of-week does not support ','");
     }
 
     @Test
-    void parseWithoutNthDay() {
-        CronParser parser = new EventCronParser();
-        Cron cron = parser.parse("0 0 12 ? * 1");
-        assertEquals("0 0 12 ? * 1", cron.asString());
-    }
+    void dayOfMonthShouldShouldNotListOfValuesWithHash() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            CronParser parser = new EventCronParser();
+            parser.parse("0 0 0 ? * 1#4,2#4");
+        });
 
-    @Test
-    void parseSeveralWithoutNthDay() {
-        CronParser parser = new EventCronParser();
-        Cron cron = parser.parse("0 0 12 ? * 1,2");
-        assertEquals("0 0 12 ? * 1,2", cron.asString());
+        assertThat(thrown.getMessage()).contains("A day=of-week does not support ','");
     }
 }
