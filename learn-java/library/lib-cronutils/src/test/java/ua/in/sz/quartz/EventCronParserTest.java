@@ -35,7 +35,7 @@ class EventCronParserTest {
             parser.parse("0 0 0 ? * 1,2");
         });
 
-        assertThat(thrown.getMessage()).contains("A day=of-week does not support ','");
+        assertThat(thrown.getMessage()).contains("A day-of-week does not support ','");
     }
 
     @Test
@@ -45,6 +45,6 @@ class EventCronParserTest {
             parser.parse("0 0 0 ? * 1#4,2#4");
         });
 
-        assertThat(thrown.getMessage()).contains("A day=of-week does not support ','");
+        assertThat(thrown.getMessage()).contains("A day-of-week does not support ','");
     }
 }

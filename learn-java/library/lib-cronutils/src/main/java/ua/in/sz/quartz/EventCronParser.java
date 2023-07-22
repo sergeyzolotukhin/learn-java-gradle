@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class EventCronParser extends CronParser {
-    private static final Map<CronFieldName, Function<CronField, CronField>> normalizers =
+    private static final Map<CronFieldName, Function<CronField, CronField>> translators =
             ImmutableMap.<CronFieldName, Function<CronField, CronField>>builder()
-                    .put(CronFieldName.DAY_OF_WEEK, EventCronParser::normalizeDayOfWeekField)
+                    .put(CronFieldName.DAY_OF_WEEK, EventCronParser::translateDayOfWeekField)
                     .build();
 
     public EventCronParser() {
@@ -37,10 +37,10 @@ public class EventCronParser extends CronParser {
 
     @Override
     public Cron parse(String expression) {
-        Cron cron = super.parse(expression);
-        SingleCron normalizeCron = normalize(cron);
-        log.info("Cron expression [{}] is normalized to [{}]", cron.asString(), normalizeCron.asString());
-        return normalizeCron;
+        Cron origenCron = super.parse(expression);
+        Cron resultCron = translate(origenCron);
+        log.info("Cron expression [{}] is normalized to [{}]", origenCron.asString(), resultCron.asString());
+        return resultCron;
     }
 
     // ================================================================================================================
@@ -77,20 +77,20 @@ public class EventCronParser extends CronParser {
     // private methods for expression normalization
     // ================================================================================================================
 
-    private static SingleCron normalize(Cron cron) {
+    private static SingleCron translate(Cron cron) {
         List<CronField> fields = cron.retrieveFieldsAsMap().values().stream()
-                .map(field -> normalizers.getOrDefault(field.getField(), f -> f).apply(field))
+                .map(field -> translators.getOrDefault(field.getField(), f -> f).apply(field))
                 .collect(Collectors.toList());
 
         return new SingleCron(cron.getCronDefinition(), fields);
     }
 
-    private static CronField normalizeDayOfWeekField(CronField field) {
-        FieldExpression expression = field.getExpression().accept(new NthNormalizeVisitor());
+    private static CronField translateDayOfWeekField(CronField field) {
+        FieldExpression expression = field.getExpression().accept(new NthTranslatorVisitor());
         return new CronField(field.getField(), expression, field.getConstraints());
     }
 
-    private static class NthNormalizeVisitor extends FieldExpressionVisitorAdaptor {
+    private static class NthTranslatorVisitor extends FieldExpressionVisitorAdaptor {
         public FieldExpression visit(On on) {
             return new On(on.getTime(), new SpecialCharFieldValue(SpecialChar.NONE), new IntegerFieldValue(-1));
         }
