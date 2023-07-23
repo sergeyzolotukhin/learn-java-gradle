@@ -3,6 +3,7 @@ package ua.in.sz.quartz;
 import com.cronutils.model.Cron;
 import com.cronutils.model.time.ExecutionTime;
 import com.cronutils.parser.CronParser;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.time.ZonedDateTime;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Slf4j
 public class ExecutionTimeTest {
     @Test
     void dayOfMonthShouldSupportDay() {
