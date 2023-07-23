@@ -18,8 +18,8 @@ public class ExecutionTimeTest {
         ExecutionTime executionTime = ExecutionTime.forCron(cron);
 
         ZonedDateTime start = ZonedDateTime.parse("2023-07-23T00:00:00Z");
-        Optional<ZonedDateTime> last = executionTime.lastExecution(start);
+        Optional<ZonedDateTime> last = executionTime.nextExecution(start);
 
-        assertEquals(Optional.of(ZonedDateTime.parse("2023-07-19T00:00:00Z")), last);
+        assertEquals(Optional.of(ZonedDateTime.parse("2023-07-26T00:00:00Z")), last);
     }
 }
