@@ -18,6 +18,7 @@ import com.cronutils.model.field.value.SpecialChar;
 import com.cronutils.model.field.value.SpecialCharFieldValue;
 import com.cronutils.parser.CronParser;
 import com.google.common.collect.ImmutableMap;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -92,7 +93,16 @@ public class EventCronParser extends CronParser {
 
     private static class NthTranslatorVisitor extends FieldExpressionVisitorAdaptor {
         public FieldExpression visit(On on) {
-            return new On(on.getTime(), new SpecialCharFieldValue(SpecialChar.NONE), new IntegerFieldValue(-1));
+            return new RelativeOn(on.getTime(), on.getNth());
+        }
+    }
+
+    @Getter
+    private static class RelativeOn extends On {
+        private final IntegerFieldValue relativeNth;
+        public RelativeOn(IntegerFieldValue time, IntegerFieldValue relativeNth) {
+            super(time, new SpecialCharFieldValue(SpecialChar.NONE), new IntegerFieldValue(-1));
+            this.relativeNth = relativeNth;
         }
     }
 }
