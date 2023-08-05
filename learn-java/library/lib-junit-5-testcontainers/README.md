@@ -38,6 +38,7 @@ https://www.baeldung.com/ops/docker-private-registry
 
 ###  data pollution between tests
 https://github.com/testcontainers/testcontainers-java/discussions/4845
+https://www.reddit.com/r/PostgreSQL/comments/ex4q40/comment/fg68q59/
 
 ###  Other
 
