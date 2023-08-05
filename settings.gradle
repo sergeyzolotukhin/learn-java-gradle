@@ -69,6 +69,7 @@ include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:library:lib-open-nlp'
 //include 'learn-java:library:lib-rxjava2'
 //include 'learn-java:library:lib-rxjava3'
+include 'learn-java:library:lib-http-client'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
