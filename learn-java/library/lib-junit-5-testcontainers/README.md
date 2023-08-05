@@ -13,6 +13,12 @@ https://java.testcontainers.org/features/configuration/
 https://kb.synology.com/ru-ru/DSM/tutorial/Whether_TCP_port_is_open_or_closed
 telnet 127.0.0.1 2375
 
+### Configure remote access for Docker daemon
+https://docs.docker.com/config/daemon/remote-access/
+
+### Ryuk the Resource Reaper
+https://blog.worldline.tech/2023/01/04/ryuk.html
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
