@@ -36,6 +36,9 @@ https://docs.docker.com/registry/deploying/
 https://habr.com/ru/articles/709988/
 https://www.baeldung.com/ops/docker-private-registry
 
+###  data pollution between tests
+https://github.com/testcontainers/testcontainers-java/discussions/4845
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
