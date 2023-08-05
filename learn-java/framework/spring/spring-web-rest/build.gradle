@@ -1,0 +1,28 @@
+plugins {
+    id 'org.springframework.boot' version '3.1.2'
+    id 'java'
+}
+
+group 'ua.in.sz.spring-web'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.1.2'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.4.6'
+    implementation 'org.codehaus.janino:janino:3.1.9'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
