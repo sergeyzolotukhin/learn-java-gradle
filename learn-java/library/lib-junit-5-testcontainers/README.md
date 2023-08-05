@@ -24,6 +24,9 @@ https://github.com/docker-java/docker-java
 https://www.baeldung.com/docker-java-api
 https://docs.docker.com/engine/api/sdk/
 
+### Gradle-Docker-Plugin
+
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
