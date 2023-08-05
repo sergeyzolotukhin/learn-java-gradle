@@ -12,10 +12,6 @@ git checkout -b main-a origin-a/main
 git checkout main
 git checkout main-a
 
-012345678901234
-Trunc@teT@ble58
-Tejtn@utT@eby58
-Tejt5n@utT@eb8y
 =======================================================================================================================
 git checkout --track origin/main
 git switch -
