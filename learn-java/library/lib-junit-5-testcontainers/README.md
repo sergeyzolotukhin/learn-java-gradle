@@ -31,6 +31,7 @@ https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsing
 ### Deploy a registry server
 https://docs.docker.com/registry/deploying/
 https://habr.com/ru/articles/709988/
+https://www.baeldung.com/ops/docker-private-registry
 
 ###  Other
 
