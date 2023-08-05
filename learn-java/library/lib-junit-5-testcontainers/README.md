@@ -26,6 +26,7 @@ https://docs.docker.com/engine/api/sdk/
 
 ### Gradle-Docker-Plugin
 https://spring.io/guides/topicals/spring-boot-docker/
+https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
 
 ###  Other
 
