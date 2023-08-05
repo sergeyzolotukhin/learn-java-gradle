@@ -40,6 +40,9 @@ https://www.baeldung.com/ops/docker-private-registry
 https://github.com/testcontainers/testcontainers-java/discussions/4845
 https://www.reddit.com/r/PostgreSQL/comments/ex4q40/comment/fg68q59/
 
+### How to run Postgres for testing in Docker 
+https://marcopeg.com/how-to-run-postgres-for-testing-in-docker/
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
