@@ -19,6 +19,9 @@ https://docs.docker.com/config/daemon/remote-access/
 ### Ryuk the Resource Reaper
 https://blog.worldline.tech/2023/01/04/ryuk.html
 
+### Java API client for Docker
+https://github.com/docker-java/docker-java
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
