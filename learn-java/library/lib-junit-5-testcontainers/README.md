@@ -28,6 +28,9 @@ https://docs.docker.com/engine/api/sdk/
 https://spring.io/guides/topicals/spring-boot-docker/
 https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
 
+### Deploy a registry server
+https://docs.docker.com/registry/deploying/
+
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
