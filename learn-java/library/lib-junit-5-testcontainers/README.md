@@ -1,0 +1,18 @@
+### This project is based on the following tutorial
+
+https://java.testcontainers.org/quickstart/junit_5_quickstart/
+
+### Configure TestContainers to Use Remote Docker hosts
+
+https://datmt.com/backend/configure-testcontainers-to-use-remote-docker-hosts/
+
+### Testcontainers Custom configuration
+https://java.testcontainers.org/features/configuration/
+
+### How to check port is open or close on windows
+https://kb.synology.com/ru-ru/DSM/tutorial/Whether_TCP_port_is_open_or_closed
+telnet 127.0.0.1 2375
+
+###  Other
+
+https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host

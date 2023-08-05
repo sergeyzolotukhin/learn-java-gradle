@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.in.sz.junit5'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_20
+targetCompatibility = JavaVersion.VERSION_20
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // experimental
+//    testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
+    testImplementation "org.testcontainers:testcontainers:1.18.3"
+    testImplementation "org.testcontainers:junit-jupiter:1.18.3"
+
+    // common utils
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.4.8'
+    implementation 'org.codehaus.janino:janino:3.1.10'
+
+    // testing
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation(platform('org.junit:junit-bom:5.9.3'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+}
