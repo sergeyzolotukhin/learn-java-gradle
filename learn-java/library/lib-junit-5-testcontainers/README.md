@@ -2,6 +2,9 @@
 
 https://java.testcontainers.org/quickstart/junit_5_quickstart/
 
+### Getting started with Testcontainers
+https://callistaenterprise.se/blogg/teknik/2020/10/08/getting-started-with-testcontainers/
+
 ### Configure TestContainers to Use Remote Docker hosts
 
 https://datmt.com/backend/configure-testcontainers-to-use-remote-docker-hosts/
