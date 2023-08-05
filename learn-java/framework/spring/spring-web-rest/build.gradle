@@ -15,6 +15,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_20
 }
 
+bootJar {
+    archiveFileName = 'application.jar'
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.1.2'
 
