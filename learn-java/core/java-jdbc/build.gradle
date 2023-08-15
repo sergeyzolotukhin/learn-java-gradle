@@ -23,14 +23,14 @@ dependencies {
     implementation 'commons-io:commons-io:2.6'
 
     // development
-    compileOnly libs.lombok
-    annotationProcessor libs.lombok
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // testing
-    testCompileOnly libs.lombok
-    testAnnotationProcessor libs.lombok
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
 }

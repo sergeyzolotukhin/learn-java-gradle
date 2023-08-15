@@ -5,7 +5,10 @@ plugins {
 group 'ua.in.sz.pattern'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+java {
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
+}
 
 repositories {
     mavenCentral()
@@ -17,13 +20,13 @@ dependencies {
     implementation 'com.sun.xml.bind:jaxb-impl:3.0.0'
 
     // development
-    compileOnly libs.lombok
-    annotationProcessor libs.lombok
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.4.4'
 
     // testing
-    testCompileOnly libs.lombok
-    testAnnotationProcessor libs.lombok
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
 }

@@ -77,7 +77,7 @@ include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:library:lib-junit-assertj'
 //include 'learn-java:library:lib-junit-hamcrest'
 //include 'learn-java:library:lib-junit-mockito'
-include 'learn-java:library:lib-junit-5-testcontainers'
+//include 'learn-java:library:lib-junit-5-testcontainers'
 
 //include 'library:lib-h2'
 // ====================================================================================================================
@@ -105,13 +105,13 @@ include 'learn-java:library:lib-junit-5-testcontainers'
 // ====================================================================================================================
 // java core features
 // ====================================================================================================================
-//include 'java-core:java-swing'
-//include 'java-core:java-jdbc'
-//include 'java-core:java-predicate'
-//include 'java-core:java-14'
-//include 'java-core:java-big-decimal'
-//include 'java-core:eclipse-collections'
-//include 'java-core:java-jaxb'
+//include 'learn-java:core:java-swing'
+//include 'learn-java:core:java-jdbc'
+//include 'learn-java:core:java-predicate'
+//include 'learn-java:core:java-14'
+//include 'learn-java:core:java-big-decimal'
+//include 'learn-java:core:eclipse-collections'
+include 'learn-java:core:java-jaxb'
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
