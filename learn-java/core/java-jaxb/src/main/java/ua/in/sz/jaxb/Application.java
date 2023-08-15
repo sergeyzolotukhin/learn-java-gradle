@@ -18,6 +18,10 @@ public class Application {
         o.setId(1);
         o.setName("Banana");
         o.setSalary(1.125f);
+        Description d = new Description();
+        d.setId(1);
+        d.setName("Description 1");
+        o.setDescription(d);
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		marshaller.marshal(o, out);

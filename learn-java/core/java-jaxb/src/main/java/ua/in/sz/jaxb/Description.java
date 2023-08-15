@@ -9,9 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @XmlRootElement
-public class Employee {
+public class Description {
     private int id;
     private String name;
-    private float salary;
-    private Description description;
 }
