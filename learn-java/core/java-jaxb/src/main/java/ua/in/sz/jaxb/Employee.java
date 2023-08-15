@@ -1,17 +1,32 @@
 package ua.in.sz.jaxb;
 
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
-    private int id;
+    @XmlAttribute
+    @XmlID
+    private String id;
+
+    @XmlAttribute
     private String name;
-    private float salary;
-    private Description description;
+
+    @XmlIDREF
+    private Employee manager;
+
+    @XmlElement(name="report")
+    @XmlIDREF
+    private List<Employee> reports;
+
+    public Employee() {
+        reports = new ArrayList<>();
+    }
 }
