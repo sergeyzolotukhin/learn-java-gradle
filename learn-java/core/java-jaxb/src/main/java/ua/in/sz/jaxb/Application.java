@@ -3,8 +3,10 @@ package ua.in.sz.jaxb;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 @Slf4j
@@ -39,5 +41,9 @@ public class Application {
 		marshaller.marshal(company, out);
 
 		log.info("Result: [\n{}]", out);
+
+        Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
+        Company employee = (Company) jaxbUnmarshaller.unmarshal( new ByteArrayInputStream(out.toByteArray()) );
+        log.info("unmarshal: {}", employee);
     }
 }
