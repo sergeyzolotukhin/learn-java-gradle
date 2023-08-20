@@ -29,6 +29,7 @@ import com.bmuschko.gradle.docker.tasks.image.*
 
 // Use task types
 task buildDockerImage(type: DockerBuildImage) {
+    dependsOn assemble
     inputDir = project.projectDir
     images.add('szolotukhin/spring-boot-web-rest:latest')
 }
