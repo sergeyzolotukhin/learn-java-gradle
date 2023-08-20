@@ -13,7 +13,7 @@ class MainTest {
 
     @Container
     public GenericContainer application = new GenericContainer(DockerImageName.parse("spring-boot-web-rest:latest"))
-            .withExposedPorts(8081);
+            .withExposedPorts(8080);
 
     @Test
     void main_1() {
