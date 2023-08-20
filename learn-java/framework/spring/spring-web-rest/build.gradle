@@ -1,4 +1,5 @@
 plugins {
+    id 'com.bmuschko.docker-remote-api' version '9.3.2'
     id 'org.springframework.boot' version '3.1.2'
     id 'java'
 }
@@ -17,6 +18,19 @@ java {
 
 bootJar {
     archiveFileName = 'application.jar'
+}
+
+docker {
+    url = 'tcp://192.168.56.2:2375'
+}
+
+// Import task types
+import com.bmuschko.gradle.docker.tasks.image.*
+
+// Use task types
+task buildDockerImage(type: DockerBuildImage) {
+    inputDir = project.projectDir
+    images.add('szolotukhin/spring-boot-web-rest:latest')
 }
 
 dependencies {
