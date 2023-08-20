@@ -12,3 +12,7 @@ https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-con
 https://github.com/bmuschko/gradle-docker-plugin
 https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/
 https://bmuschko.com/blog/dockerized-spring-boot-app/
+
+### How to run the Vagrant form the Gradle 
+
+https://github.com/bmuschko/gradle-vagrant-plugin
