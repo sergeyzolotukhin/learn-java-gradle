@@ -1,3 +1,10 @@
+### How to run this test
+
+1. Сорy to user home testcontainers.properties
+2. Run docker engine on VM: D:\projects-java\infrastructure\docker-engine-shell\Vagrantfile
+2. Build container with application: learn-java\framework\spring\spring-web-rest\Dockerfile
+3. Run test.
+
 ### This project is based on the following tutorial
 
 https://java.testcontainers.org/quickstart/junit_5_quickstart/
