@@ -25,7 +25,7 @@ pluginManagement {
 //include 'learn-java:framework:spring:spring-cxf'
 //include 'learn-java:framework:spring:spring-jersey'
 //include 'learn-java:framework:spring:spring-web-xml'
-include 'learn-java:framework:spring:spring-web-rest'
+//include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:framework:spring:spring-webflux'
 //include 'learn-java:framework:spring:spring-thymeleaf'
 //include 'learn-java:framework:spring:spring-message-source'
@@ -70,6 +70,7 @@ include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:library:lib-rxjava2'
 //include 'learn-java:library:lib-rxjava3'
 //include 'learn-java:library:lib-http-client'
+include 'learn-java:library:jenkins-rest'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
@@ -77,7 +78,7 @@ include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:library:lib-junit-assertj'
 //include 'learn-java:library:lib-junit-hamcrest'
 //include 'learn-java:library:lib-junit-mockito'
-include 'learn-java:library:lib-junit-5-testcontainers'
+//include 'learn-java:library:lib-junit-5-testcontainers'
 
 //include 'library:lib-h2'
 // ====================================================================================================================
@@ -154,4 +155,5 @@ include 'learn-java:library:lib-junit-5-testcontainers'
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 //findProject(':library:lib-h2')?.name = 'lib-h2'
 
+//findProject(':learn-java:library:jenkins-rest')?.name = 'jenkins-rest'
 
