@@ -159,4 +159,6 @@ include 'learn-java:library:lib-docker-java'
 //findProject(':learn-java:library:jenkins-rest')?.name = 'jenkins-rest'
 
 //findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
+include 'learn-java:library:lib-artifactory-java-client'
+findProject(':learn-java:library:lib-artifactory-java-client')?.name = 'lib-artifactory-java-client'
 
