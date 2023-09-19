@@ -70,7 +70,8 @@ pluginManagement {
 //include 'learn-java:library:lib-rxjava2'
 //include 'learn-java:library:lib-rxjava3'
 //include 'learn-java:library:lib-http-client'
-include 'learn-java:library:jenkins-rest'
+//include 'learn-java:library:jenkins-rest'
+include 'learn-java:library:lib-docker-java'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
@@ -156,4 +157,6 @@ include 'learn-java:library:jenkins-rest'
 //findProject(':library:lib-h2')?.name = 'lib-h2'
 
 //findProject(':learn-java:library:jenkins-rest')?.name = 'jenkins-rest'
+
+//findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
 
