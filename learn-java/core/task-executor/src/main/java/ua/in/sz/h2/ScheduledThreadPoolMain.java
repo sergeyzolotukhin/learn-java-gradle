@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.concurrent.*;
 
 @Slf4j
-public class Main {
+public class ScheduledThreadPoolMain {
     public static void main(String[] args) {
         log.info("Start");
 
-        try (ExecutorService service = Executors.newFixedThreadPool(2)) {
+        try (ScheduledExecutorService service = Executors.newScheduledThreadPool(2)) {
             List<Future<String>> list = new ArrayList<>();
 
             for (int i = 0; i < 4; i++) {
                 final int no = i;
 
-                Future<String> result = service.submit(new Callable<String>() {
+                Future<String> result = service.schedule(new Callable<String>() {
                     @Override
                     public String call() throws Exception {
                         log.info("Starting {}", no);
@@ -26,14 +26,18 @@ public class Main {
 
                         return String.format("Result: %s", no);
                     }
-                });
+                }, 5, TimeUnit.SECONDS);
                 list.add(result);
             }
 
             log.info("Submitted");
 
             for (Future<String> l : list) {
-                log.info("Info: {}", l.get());
+                try {
+                    log.info("Info: {}", l.get(3, TimeUnit.SECONDS));
+                } catch (TimeoutException e) {
+                    log.info("I can not wait a finish");
+                }
             }
 
             log.info("Received");
