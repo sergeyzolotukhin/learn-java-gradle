@@ -20,6 +20,9 @@ public class ThreadPoolExecutorMain {
         for (int i = 0; i < 6; i++) {
             final int no = i;
             try {
+                executor.execute(() -> { });
+//                executor.invokeAny(Collections.emptyList());
+//                executor.invokeAll(Collections.emptyList());
                 Future<?> future = executor.submit(new Runnable() {
                     @SneakyThrows
                     @Override
