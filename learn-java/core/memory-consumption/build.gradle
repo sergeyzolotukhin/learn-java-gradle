@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'ua.in.sz.h2'
+version = 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    // common utils
+    implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'org.apache.commons:commons-text:1.7'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'commons-io:commons-io:2.6'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    // testing
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+}
