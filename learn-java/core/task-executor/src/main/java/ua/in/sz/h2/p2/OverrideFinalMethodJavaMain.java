@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OverrideFinalMethodJavaMain {
     public static void main(String[] args) throws Exception {
-//        overrideGetName();
+        overrideGetName();
 
         ChildClass childClass = new ChildClass();
         childClass.setName("Base Name");
