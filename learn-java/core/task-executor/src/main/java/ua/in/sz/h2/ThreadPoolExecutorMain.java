@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 public class ThreadPoolExecutorMain {
@@ -13,8 +14,10 @@ public class ThreadPoolExecutorMain {
         try (ThreadPoolExecutor executor = new ThreadPoolExecutor(
                 1, 2,
                 10, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(2))) {
-
+                new ArrayBlockingQueue<>(2),
+                new MyThreadFactory()
+        )
+        ) {
 
             List<Future<?>> list = new ArrayList<>();
 
@@ -29,9 +32,17 @@ public class ThreadPoolExecutorMain {
                         @SneakyThrows
                         @Override
                         public void run() {
-                            log.info("Run {}", no);
-                            TimeUnit.SECONDS.sleep(no);
-                            log.info("Ran {}", no);
+                            String originName = Thread.currentThread().getName();
+
+                            try {
+                                Thread.currentThread().setName("My name");
+                                log.info("Run {}", no);
+                                TimeUnit.SECONDS.sleep(no);
+                                log.info("Ran {}", no);
+                            } finally {
+                                Thread.currentThread().setName(originName);
+                            }
+
                         }
                     });
                     list.add(future);
@@ -55,6 +66,43 @@ public class ThreadPoolExecutorMain {
             log.info("End");
 
             executor.shutdown();
+        }
+    }
+
+    private static class MyThreadFactory implements ThreadFactory {
+        private static final AtomicInteger poolNumber = new AtomicInteger(1);
+        private final ThreadGroup group;
+        private final AtomicInteger threadNumber = new AtomicInteger(1);
+        private final String namePrefix;
+
+        @SuppressWarnings("removal")
+        MyThreadFactory() {
+            SecurityManager s = System.getSecurityManager();
+            group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+            namePrefix = "pool-" + poolNumber.getAndIncrement() + "-thread-";
+        }
+
+        public Thread newThread(Runnable runnable) {
+            Thread t = new MyThread(group, runnable,
+                    namePrefix + threadNumber.getAndIncrement(),
+                    0);
+
+            if (t.isDaemon()) {
+                t.setDaemon(false);
+            }
+
+            if (t.getPriority() != Thread.NORM_PRIORITY) {
+                t.setPriority(Thread.NORM_PRIORITY);
+            }
+
+            return t;
+        }
+    }
+
+
+    public static class MyThread extends Thread {
+        public MyThread(ThreadGroup group, Runnable task, String name, long stackSize) {
+            super(group, task, name, stackSize);
         }
     }
 }

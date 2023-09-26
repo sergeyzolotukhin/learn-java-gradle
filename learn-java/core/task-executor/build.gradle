@@ -14,6 +14,8 @@ test {
 }
 
 dependencies {
+    // experimental
+    implementation 'org.javassist:javassist:3.29.2-GA'
 
     // common utils
     implementation 'com.google.guava:guava:28.0-jre'
