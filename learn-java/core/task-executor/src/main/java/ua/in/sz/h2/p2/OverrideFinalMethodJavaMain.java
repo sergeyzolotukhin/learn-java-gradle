@@ -2,17 +2,16 @@ package ua.in.sz.h2.p2;
 
 import javassist.*;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.h2.p2.ChildClass;
 
 @Slf4j
 public class OverrideFinalMethodJavaMain {
     public static void main(String[] args) throws Exception {
 //        overrideGetName();
 
-        ChildClass t = new ChildClass();
-        t.setName("Base Name");
+        ChildClass childClass = new ChildClass();
+        childClass.setName("Base Name");
 
-        log.info("Get name: {}", t.getName());
+        log.info("Get name: {}", childClass.getName());
     }
 
     private static void overrideGetName() throws NotFoundException, CannotCompileException {
