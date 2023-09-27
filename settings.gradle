@@ -73,9 +73,10 @@ pluginManagement {
 //include 'learn-java:library:jenkins-rest'
 //include 'learn-java:library:lib-docker-java'
 //include 'learn-java:library:lib-artifactory-java-client'
+include 'learn-java:library:lib-javassist'
 
 //include 'learn-java:library:lib-junit5-extension'
-//include 'learn-java:library:lib-junit-5'
+include 'learn-java:library:lib-junit-5'
 //include 'learn-java:library:lib-junit-4'
 //include 'learn-java:library:lib-junit-assertj'
 //include 'learn-java:library:lib-junit-hamcrest'
@@ -116,6 +117,7 @@ pluginManagement {
 //include 'learn-java:core:eclipse-collections'
 //include 'learn-java:core:java-jaxb'
 include 'learn-java:core:task-executor'
+//include 'learn-java:core:memory-consumption'
 // ====================================================================================================================
 // gradle
 // ====================================================================================================================
@@ -156,13 +158,6 @@ include 'learn-java:core:task-executor'
 // ====================================================================================================================
 
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
-//findProject(':library:lib-h2')?.name = 'lib-h2'
-
-//findProject(':learn-java:library:jenkins-rest')?.name = 'jenkins-rest'
-
 //findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
-//findProject(':learn-java:library:lib-artifactory-java-client')?.name = 'lib-artifactory-java-client'
-//findProject(':learn-java:core:task-executor')?.name = 'task-executor'
-include 'learn-java:core:memory-consumption'
-findProject(':learn-java:core:memory-consumption')?.name = 'memory-consumption'
+
 
