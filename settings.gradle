@@ -73,10 +73,10 @@ pluginManagement {
 //include 'learn-java:library:jenkins-rest'
 //include 'learn-java:library:lib-docker-java'
 //include 'learn-java:library:lib-artifactory-java-client'
-include 'learn-java:library:lib-javassist'
+//include 'learn-java:library:lib-javassist'
 
 //include 'learn-java:library:lib-junit5-extension'
-include 'learn-java:library:lib-junit-5'
+//include 'learn-java:library:lib-junit-5'
 //include 'learn-java:library:lib-junit-4'
 //include 'learn-java:library:lib-junit-assertj'
 //include 'learn-java:library:lib-junit-hamcrest'
