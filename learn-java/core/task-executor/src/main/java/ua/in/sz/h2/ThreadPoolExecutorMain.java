@@ -4,7 +4,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,8 +26,6 @@ public class ThreadPoolExecutorMain {
                 try {
                     executor.execute(() -> {
                     });
-//                    Object o = executor.invokeAny(Collections.emptyList());
-//                    List<Future<Object>> futures = executor.invokeAll(Collections.emptyList());
                     Future<?> future = executor.submit(new Runnable() {
                         @SneakyThrows
                         @Override
@@ -49,8 +46,6 @@ public class ThreadPoolExecutorMain {
                     list.add(future);
                 } catch (RejectedExecutionException r) {
                     log.info("Rejected {}", no);
-                } catch (InterruptedException e) {
-                    log.info("Interrupted {}", no);
                 }
             }
 
