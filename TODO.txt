@@ -101,3 +101,5 @@ Logging/Logging and Log Management_ The Authoritative Guide to Undeanagement - A
 O'Reilly Media.I Heart Logs.Jay Kreps.2014.pdf
 
 https://cloud.google.com/translate/docs/setup?csw=1#java
+=======================================================================================================================
+sd 273 58 01
