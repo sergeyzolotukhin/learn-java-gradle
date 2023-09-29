@@ -9,8 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 @Setter
 public class BusinessService {
     private String myName;
+    private String mySecondName;
 
     void print() {
-        log.info("Hello [{}] !", myName);
+        log.info("Hello [{}] ! Second name [{}] !", myName, mySecondName);
     }
 }

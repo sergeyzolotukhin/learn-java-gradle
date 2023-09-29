@@ -6,24 +6,10 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 ">
-
-    <!--    <bean id="propertyConfigurer"-->
-    <!--          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-    <!--        <property name="location" value="/application.properties" />-->
-    <!--    </bean>-->
-
-<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
-<!--        &lt;!&ndash;        <property name="ignoreUnresolvablePlaceholders" value="true" />&ndash;&gt;-->
-<!--        <property name="locations">-->
-<!--            <list>-->
-<!--                <value>classpath:application.properties</value>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
-
-    <context:property-placeholder location="classpath:application.properties" />
+    <context:property-placeholder location="classpath:application.properties,second-application.properties" />
 
     <bean id="businessService" class="ua.in.sz.h2.BusinessService">
         <property name="myName" value="${my.name}"/>
+        <property name="mySecondName" value="${my.second.name}"/>
     </bean>
 </beans>
