@@ -12,6 +12,5 @@ public class Main {
         businessService.print();
 
         context.close();
-        log.info("Hello world!");
     }
 }
