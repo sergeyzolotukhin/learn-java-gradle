@@ -6,10 +6,10 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 ">
-    <context:property-placeholder location="classpath:application.properties,second-application.properties" />
+    <context:property-placeholder />
 
     <bean id="businessService" class="ua.in.sz.h2.BusinessService">
-        <property name="myName" value="${my.name}"/>
-        <property name="mySecondName" value="${my.second.name}"/>
+        <property name="myName" value="${my_name}"/>
+        <property name="mySecondName" value="${my_second_name}"/>
     </bean>
 </beans>
