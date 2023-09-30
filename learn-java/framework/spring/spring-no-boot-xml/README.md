@@ -22,3 +22,5 @@ PropertySourcesPlaceholderConfigurer
 https://stackoverflow.com/questions/11415711/programmatic-access-to-properties-created-by-property-placeholder
 
 https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html
+
+AnnotationConfigApplicationContext
