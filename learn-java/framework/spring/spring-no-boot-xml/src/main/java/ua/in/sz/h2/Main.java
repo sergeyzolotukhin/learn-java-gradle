@@ -6,10 +6,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
+import org.springframework.core.io.support.ResourcePropertySource;
+
+import java.io.IOException;
+import java.util.Map;
 
 @Slf4j
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 
         ConfigurableEnvironment environment = context.getBean(ConfigurableEnvironment.class);
@@ -24,6 +28,13 @@ public class Main {
         String propertyValue = environment.resolvePlaceholders("${my.name}");
         log.info("my.name = [{}]", propertyValue);
 
+        PropertySource<Map<String, Object>> propertySource = new ResourcePropertySource("classpath:application.properties");
+        Object value = propertySource.getProperty("my.name");
+        log.info("1 my.name = [{}]", value);
+
+        environment.getPropertySources().addLast(propertySource);
+        String value2 = environment.getProperty("my.name");
+        log.info("2 my.name = [{}]", value2);
 
 //        for (String name : context.getBeanDefinitionNames()) {
 //            log.info("Bean: [{}] {}", name, context.getBeanDefinitionCount());
