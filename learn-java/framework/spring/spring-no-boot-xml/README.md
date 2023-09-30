@@ -16,4 +16,7 @@ PropertySourcesPlaceholderConfigurer
         -> PlaceholderConfigurerSupport
             -> PropertyResourceConfigurer - BeanFactoryPostProcessor
                 -> PropertiesLoaderSupport
-                    
+
+
+### Programmatic access to properties created by property-placeholder
+https://stackoverflow.com/questions/11415711/programmatic-access-to-properties-created-by-property-placeholder
