@@ -15,10 +15,9 @@ import java.util.Map;
 
 @Slf4j
 @Configuration
-//@ComponentScan
 @PropertySource({"classpath:application.properties", "classpath:second-application.properties"})
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.scan("ua.in.sz.h2");
         context.refresh();
