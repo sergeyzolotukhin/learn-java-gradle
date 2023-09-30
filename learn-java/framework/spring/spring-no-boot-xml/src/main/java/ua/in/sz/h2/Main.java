@@ -1,10 +1,8 @@
 package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.support.ResourcePropertySource;
 
@@ -19,31 +17,14 @@ public class Main {
         ConfigurableEnvironment environment = context.getBean(ConfigurableEnvironment.class);
         log.info("environment: {}", environment);
 
-//        environment.getPropertySources();
-        for (PropertySource<?> propertySource : environment.getPropertySources()) {
-            log.info("propertySource: {}", propertySource);
-        }
-
-//        String propertyValue = environment.getProperty("my.name");
-        String propertyValue = environment.resolvePlaceholders("${my.name}");
-        log.info("my.name = [{}]", propertyValue);
-
         PropertySource<Map<String, Object>> propertySource = new ResourcePropertySource("classpath:application.properties");
-        Object value = propertySource.getProperty("my.name");
-        log.info("1 my.name = [{}]", value);
 
         environment.getPropertySources().addLast(propertySource);
+
+        String value1 = environment.resolvePlaceholders("${my.name}");
         String value2 = environment.getProperty("my.name");
-        log.info("2 my.name = [{}]", value2);
-
-//        for (String name : context.getBeanDefinitionNames()) {
-//            log.info("Bean: [{}] {}", name, context.getBeanDefinitionCount());
-//        }
-
-//        ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-//        for (String name : beanFactory.getSingletonNames()) {
-//            log.info("2Bean: [{}] {}", name, beanFactory.getSingletonCount());
-//        }
+        log.info("1: my.name = [{}]", value1);
+        log.info("2: my.name = [{}]", value2);
 
         BusinessService businessService = context.getBean(BusinessService.class);
         businessService.print();
