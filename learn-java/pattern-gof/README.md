@@ -29,3 +29,6 @@
 - [ ] Strategy — Стратегия
 - [x] Template method — Шаблонный метод
 - [x] **Visitor — Посетитель**
+
+
+https://www.baeldung.com/java-currying
