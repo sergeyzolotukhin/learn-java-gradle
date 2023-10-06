@@ -1,6 +1,12 @@
+### Documentation
+
+http://codehaus-plexus.github.io/guides/developer-guide/configuration/component-descriptor.html
+
+
 Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1
 Maven: org.codehaus.plexus:plexus-classworlds:2.6.0
 Maven: org.codehaus.plexus:plexus-utils:3.3.0
+
 
 Maven: org.codehaus.plexus:plexus-component-annotations:1.7.1
 Maven: org.codehaus.plexus:plexus-interactivity-api:1.1
