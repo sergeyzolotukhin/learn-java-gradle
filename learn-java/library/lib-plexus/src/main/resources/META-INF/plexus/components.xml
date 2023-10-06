@@ -1,0 +1,9 @@
+<component-set>
+    <components>
+        <component>
+            <role>ua.in.sz.h2.Cheese</role>
+            <role-hint>parmesan</role-hint>
+            <implementation>ua.in.sz.h2.ParmesanCheese</implementation>
+        </component>
+    </components>
+</component-set>

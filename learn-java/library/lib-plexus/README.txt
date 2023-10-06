@@ -1,7 +1,10 @@
+Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1
 Maven: org.codehaus.plexus:plexus-classworlds:2.6.0
-Maven: org.codehaus.plexus:plexus-component-annotations:2.1.0
-Maven: org.codehaus.plexus:plexus-interpolation:1.25
-Maven: org.codehaus.plexus:plexus-utils:3.2.1
+Maven: org.codehaus.plexus:plexus-utils:3.3.0
 
-Maven: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4
-Maven: org.eclipse.sisu:org.eclipse.sisu.plexus:0.3.4
+Maven: org.codehaus.plexus:plexus-component-annotations:1.7.1
+Maven: org.codehaus.plexus:plexus-interactivity-api:1.1
+Maven: org.codehaus.plexus:plexus-interpolation:1.25
+
+Maven: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.3
+Maven: org.eclipse.sisu:org.eclipse.sisu.plexus:0.3.5
