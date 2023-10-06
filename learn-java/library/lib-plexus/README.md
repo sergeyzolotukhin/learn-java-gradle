@@ -10,6 +10,7 @@ https://codehaus-plexus.github.io/plexus-maven-plugin/
 ### Plexus :: Component Metadata (Maven Plugin) (deprecated)
 
 https://codehaus-plexus.github.io/plexus-containers/plexus-component-metadata/
+https://maven.apache.org/plugin-developers/cookbook/plexus-plugin-upgrade.html
 
 #### Tutorial
 
