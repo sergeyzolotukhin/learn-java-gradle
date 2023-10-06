@@ -87,7 +87,8 @@ pluginManagement {
 //include 'learn-java:library:lib-junit-5-testcontainers'
 
 //include 'learn-java:library:lib-h2'
-include 'learn-java:library:lib-plexus'
+//include 'learn-java:library:lib-plexus'
+include 'learn-java:library:lib-guice'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
