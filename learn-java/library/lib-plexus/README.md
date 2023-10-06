@@ -31,3 +31,7 @@ Maven: org.codehaus.plexus:plexus-interpolation:1.25
 
 Maven: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.3
 Maven: org.eclipse.sisu:org.eclipse.sisu.plexus:0.3.5
+
+#### Read next
+
+https://maven.apache.org/maven-jsr330.html
