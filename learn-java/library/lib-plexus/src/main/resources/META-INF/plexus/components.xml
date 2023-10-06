@@ -4,6 +4,18 @@
             <role>ua.in.sz.h2.Cheese</role>
             <role-hint>parmesan</role-hint>
             <implementation>ua.in.sz.h2.ParmesanCheese</implementation>
+            <requirements>
+                <requirement>
+                    <role>ua.in.sz.h2.Second</role>
+                    <role-hint>second-1</role-hint>
+                    <field-name>second</field-name>
+                </requirement>
+                <requirement>
+                    <role>ua.in.sz.h2.Second</role>
+                    <role-hint>other-second-1</role-hint>
+                    <field-name>other</field-name>
+                </requirement>
+            </requirements>
         </component>
 
         <component>
