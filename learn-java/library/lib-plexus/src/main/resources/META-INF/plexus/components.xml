@@ -5,5 +5,17 @@
             <role-hint>parmesan</role-hint>
             <implementation>ua.in.sz.h2.ParmesanCheese</implementation>
         </component>
+
+        <component>
+            <role>ua.in.sz.h2.Second</role>
+            <role-hint>second-1</role-hint>
+            <implementation>ua.in.sz.h2.DefaultSecond</implementation>
+        </component>
+
+        <component>
+            <role>ua.in.sz.h2.Second</role>
+            <role-hint>other-second-1</role-hint>
+            <implementation>ua.in.sz.h2.OtherDefaultSecond</implementation>
+        </component>
     </components>
 </component-set>

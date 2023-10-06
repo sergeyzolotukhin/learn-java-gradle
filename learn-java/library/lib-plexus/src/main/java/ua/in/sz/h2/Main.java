@@ -12,6 +12,12 @@ public class Main {
         Cheese cheese = (Cheese) container.lookup( Cheese.ROLE, "parmesan" );
         cheese.print();
 
+        Second second = (Second) container.lookup( Second.ROLE, "second-1" );
+        second.print();
+
+        Second other = (Second) container.lookup( Second.ROLE, "other-second-1" );
+        other.print();
+
         container.dispose();
     }
 }
