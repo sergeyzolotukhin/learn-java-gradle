@@ -31,7 +31,7 @@ pluginManagement {
 //include 'learn-java:framework:spring:spring-message-source'
 //include 'learn-java:framework:spring:spring-no-boot-xml'
 //include 'learn-java:framework:spring:spring-no-boot-annotation'
-include 'learn-java:framework:spring:spring-boot'
+//include 'learn-java:framework:spring:spring-boot'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
@@ -86,7 +86,8 @@ include 'learn-java:framework:spring:spring-boot'
 //include 'learn-java:library:lib-junit-mockito'
 //include 'learn-java:library:lib-junit-5-testcontainers'
 
-//include 'library:lib-h2'
+//include 'learn-java:library:lib-h2'
+include 'learn-java:library:lib-plexus'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================
