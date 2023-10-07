@@ -9,6 +9,6 @@ https://github.com/google/guice/wiki/GettingStarted
 
 #### Open questions
 
-What is sisu 
-
-eclipse.sisu
+What is difference?
+//import jakarta.inject.Singleton;
+//@Singleton
