@@ -9,8 +9,4 @@ https://github.com/google/guice/wiki/GettingStarted
 
 #### Open questions
 
-What is different ?
-
-import jakarta.inject.Inject;
-//import javax.inject.Inject;
-//import com.google.inject.Inject;
+What is sisu 
