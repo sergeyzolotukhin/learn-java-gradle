@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Singleton
-public class EmailMessageService implements MessageService {
+public class NoopMessageService implements MessageService {
     public void sendMessage(String msg, String receipient) {
-        log.info("Email Message sent to {} with message={}", receipient, msg);
+        log.info("Noop Message sent to {} with message={}", receipient, msg);
     }
 }

@@ -1,17 +1,14 @@
 package ua.in.sz.guice.service;
 
-//import javax.inject.Inject;
-
-//import com.google.inject.Inject;
-
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 public class ApplicationService {
 
     private final MessageService service;
 
     @Inject
-    public ApplicationService(MessageService service) {
+    public ApplicationService(@Named("email") MessageService service) {
         this.service = service;
     }
 
