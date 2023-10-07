@@ -14,7 +14,7 @@ dependencies {
     // experimental
     implementation 'com.google.inject:guice:7.0.0'
 //    implementation 'com.google.inject:guice:3.0'
-    implementation 'javax.inject:javax.inject:1'
+//    implementation 'javax.inject:javax.inject:1'
 
     // common utils
     implementation 'org.apache.commons:commons-lang3:3.12.0'
