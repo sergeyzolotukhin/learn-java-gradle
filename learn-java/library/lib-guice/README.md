@@ -11,6 +11,6 @@ https://github.com/google/guice/wiki/GettingStarted
 
 What is different ?
 
+import jakarta.inject.Inject;
 //import javax.inject.Inject;
 //import com.google.inject.Inject;
-import jakarta.inject.Inject;
