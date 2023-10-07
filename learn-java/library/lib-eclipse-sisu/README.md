@@ -8,3 +8,19 @@ https://github.com/google/guice/wiki/GettingStarted
 https://stackoverflow.com/questions/62668983/is-there-a-jsr-330-equivalent-of-springs-bean-or-guices-provides-annotation
 
 #### Open questions
+
+#### Versions
+
+org.eclipse.sisu » org.eclipse.sisu.inject
+    0.3.5 -> Sep 13, 2021
+
+Java
+    Java SE 14 -> 17th March 2020
+    Java SE 15 -> 16th September 2020
+    Java SE 16 -> 16th March 2021
+
+Maven
+    3.9.5
+        -> sisu -> 0.3.5
+        -> guice -> 5.1.0
+        -> javaVersion -> 8
