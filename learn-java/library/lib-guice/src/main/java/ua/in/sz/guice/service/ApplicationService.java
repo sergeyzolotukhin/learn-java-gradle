@@ -2,7 +2,9 @@ package ua.in.sz.guice.service;
 
 //import javax.inject.Inject;
 
-import com.google.inject.Inject;
+//import com.google.inject.Inject;
+
+import jakarta.inject.Inject;
 
 public class ApplicationService {
 
