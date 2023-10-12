@@ -7,13 +7,6 @@
     </bean>
 
     <!--  Service layer  -->
-
-    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <property name="corePoolSize" value="5"/>
-        <property name="maxPoolSize" value="10"/>
-        <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
-    </bean>
-
     <!--  Web layer  -->
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,7 +15,6 @@
     </bean>
 
     <bean name="/welcome.htm" class="ua.in.sz.spring.HelloWorldController">
-        <property name="taskExecutor" ref="taskExecutor"/>
         <property name="helloWorldDao" ref="helloWorldDao"/>
     </bean>
 </beans>
