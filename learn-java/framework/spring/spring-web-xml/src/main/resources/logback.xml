@@ -1,17 +1,14 @@
-<configuration>
+<configuration scan="true" scanPeriod="30 seconds">
 
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${JBOSS_LOG_DIR}/application.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>7</maxHistory>
-        </rollingPolicy>
-
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-10.10thread] %highlight(%-5level) | %-60.60logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
+    <!--    <logger name="Sisu" level="INFO" />-->
+
     <root level="INFO">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
