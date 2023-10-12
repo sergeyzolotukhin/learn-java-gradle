@@ -1,19 +1,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-
-
-    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:jboss/datasources/ExampleDS"/>
-    </bean>
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <bean name="helloWorldDao" class="ua.in.sz.spring.HelloWorldDaoImpl">
-        <!--suppress InjectionValueTypeInspection -->
-        <property name="dataSource" ref="dbDataSource"/>
     </bean>
 
     <!--  Service layer  -->
@@ -23,15 +13,6 @@
         <property name="maxPoolSize" value="10"/>
         <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
     </bean>
-
-    <tx:annotation-driven/>
-
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!--suppress InjectionValueTypeInspection -->
-        <property name="dataSource" ref="dbDataSource" />
-    </bean>
-
-<!--    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>-->
 
     <!--  Web layer  -->
 

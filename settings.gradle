@@ -24,7 +24,7 @@ pluginManagement {
 //include 'learn-java:framework:spring:spring-cache'
 //include 'learn-java:framework:spring:spring-cxf'
 //include 'learn-java:framework:spring:spring-jersey'
-//include 'learn-java:framework:spring:spring-web-xml'
+include 'learn-java:framework:spring:spring-web-xml'
 //include 'learn-java:framework:spring:spring-web-rest'
 //include 'learn-java:framework:spring:spring-webflux'
 //include 'learn-java:framework:spring:spring-thymeleaf'
@@ -89,7 +89,7 @@ pluginManagement {
 //include 'learn-java:library:lib-h2'
 //include 'learn-java:library:lib-plexus'
 //include 'learn-java:library:lib-guice'
-include 'learn-java:library:lib-eclipse-sisu'
+//include 'learn-java:library:lib-eclipse-sisu'
 // ====================================================================================================================
 // infrastructure
 // ====================================================================================================================

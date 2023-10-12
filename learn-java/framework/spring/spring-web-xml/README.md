@@ -14,3 +14,5 @@ http://localhost:8080/spring-web-xml/welcome.htm
 
     service:jmx:remoting-jmx://localhost:8080
     service:jmx:remote://localhost:4447
+
+CATALINA_HOME=c:\soft\apache-tomcat-10.1.14 

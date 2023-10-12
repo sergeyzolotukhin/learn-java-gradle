@@ -1,23 +1,9 @@
 package ua.in.sz.spring;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 @Slf4j
-@Transactional
 public class HelloWorldDaoImpl implements HelloWorldDao {
-
-    private DataSource dataSource;
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     @Override
     public void doTask() {
@@ -38,15 +24,7 @@ public class HelloWorldDaoImpl implements HelloWorldDao {
 
     }
 
-    private long countEmployee() throws SQLException {
-        try (
-                Connection connection = dataSource.getConnection();
-                Statement statement = connection.createStatement();
-
-                ResultSet resultSet = statement.executeQuery("select count(*) from employee");
-        ) {
-            resultSet.next();
-            return resultSet.getLong(1);
-        }
+    private long countEmployee() {
+        return 1L;
     }
 }
