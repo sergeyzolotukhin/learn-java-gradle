@@ -6,7 +6,6 @@
     <bean name="helloWorldDao" class="ua.in.sz.spring.HelloWorldDaoImpl">
     </bean>
 
-    <!--  Service layer  -->
     <!--  Web layer  -->
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
