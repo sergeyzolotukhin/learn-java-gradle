@@ -16,3 +16,12 @@ http://localhost:8080/spring-web-xml/welcome.htm
     service:jmx:remote://localhost:4447
 
 CATALINA_HOME=c:\soft\apache-tomcat-10.1.14 
+
+### 
+
+Caused by: 
+    org.springframework.beans.factory.NoSuchBeanDefinitionException: 
+        No bean named 'mvcHandlerMappingIntrospector' available: 
+        A Bean named mvcHandlerMappingIntrospector of type org.springframework.web.servlet.handler.HandlerMappingIntrospector 
+is required to use MvcRequestMatcher. 
+Please ensure Spring Security & Spring MVC are configured in a shared ApplicationContext.
