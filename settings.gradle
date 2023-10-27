@@ -167,4 +167,6 @@ include 'learn-java:framework:spring:spring-cxf'
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 //findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
 //findProject(':learn-java:framework:spring:spring-no-boot-xml')?.name = 'spring-no-boot-xml'
+include 'learn-java:framework:spring:spring-undertow'
+findProject(':learn-java:framework:spring:spring-undertow')?.name = 'spring-undertow'
 
