@@ -22,7 +22,7 @@ pluginManagement {
 //include 'learn-java:framework:spring:spring-transactional'
 //include 'learn-java:framework:spring:spring-bean-validation'
 //include 'learn-java:framework:spring:spring-cache'
-include 'learn-java:framework:spring:spring-cxf'
+//include 'learn-java:framework:spring:spring-cxf'
 //include 'learn-java:framework:spring:spring-jersey'
 //include 'learn-java:framework:spring:spring-web-xml'
 //include 'learn-java:framework:spring:spring-web-rest'
@@ -32,6 +32,7 @@ include 'learn-java:framework:spring:spring-cxf'
 //include 'learn-java:framework:spring:spring-no-boot-xml'
 //include 'learn-java:framework:spring:spring-no-boot-annotation'
 //include 'learn-java:framework:spring:spring-boot'
+include 'learn-java:framework:spring:spring-undertow'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
@@ -167,6 +168,5 @@ include 'learn-java:framework:spring:spring-cxf'
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 //findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
 //findProject(':learn-java:framework:spring:spring-no-boot-xml')?.name = 'spring-no-boot-xml'
-include 'learn-java:framework:spring:spring-undertow'
-findProject(':learn-java:framework:spring:spring-undertow')?.name = 'spring-undertow'
+
 
