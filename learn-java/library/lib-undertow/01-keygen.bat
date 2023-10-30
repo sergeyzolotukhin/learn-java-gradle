@@ -18,7 +18,7 @@ rem     When dname is provided, it is used as the subject of the generated certi
 %JAVA_BIN%\keytool -genkey ^
     -alias pomochatserver ^
     -keyalg RSA ^
-    -keystore my-keystore.jks ^
+    -keystore server.keystore.jks ^
     -dname "cn=localhost, ou=IT, o=Continuent, c=US" ^
-    -storepass password1 ^
-    -keypass password2
+    -storepass password ^
+    -keypass password

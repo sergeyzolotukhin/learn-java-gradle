@@ -8,6 +8,6 @@ rem     The new name, -exportcert, is preferred going forward.
 
 %JAVA_BIN%\keytool -export ^
     -alias pomochatserver ^
-    -file my-client.cer ^
-    -keystore my-keystore.jks ^
-    -storepass password1
+    -keystore server.keystore.jks ^
+    -file server.cer ^
+    -storepass password
