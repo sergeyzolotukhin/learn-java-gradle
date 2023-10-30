@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'ua.in.sz.undertow'
+version = 'unspecified'
+
+repositories{
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
+}
+
+dependencies {
+    // experimental
+    implementation 'io.undertow:undertow-core:2.3.10.Final'
+    implementation 'io.undertow:undertow-servlet:2.3.10.Final'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+
+    // development
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}

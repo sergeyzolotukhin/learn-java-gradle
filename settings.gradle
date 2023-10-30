@@ -32,7 +32,7 @@ pluginManagement {
 //include 'learn-java:framework:spring:spring-no-boot-xml'
 //include 'learn-java:framework:spring:spring-no-boot-annotation'
 //include 'learn-java:framework:spring:spring-boot'
-include 'learn-java:framework:spring:spring-undertow'
+//include 'learn-java:framework:spring:spring-undertow'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
@@ -78,6 +78,7 @@ include 'learn-java:framework:spring:spring-undertow'
 //include 'learn-java:library:lib-docker-java'
 //include 'learn-java:library:lib-artifactory-java-client'
 //include 'learn-java:library:lib-javassist'
+include 'learn-java:library:lib-undertow'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
