@@ -11,3 +11,6 @@ https://www.educative.io/answers/keystore-vs-truststore
 
 ### URL
 https://view-localhost:8443
+
+### Other
+https://medium.com/@psvtrajan/how-browsers-validate-ssl-certificates-c0e9d5bd568d
