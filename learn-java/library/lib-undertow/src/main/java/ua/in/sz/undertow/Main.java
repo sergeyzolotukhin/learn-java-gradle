@@ -49,7 +49,7 @@ public class Main {
         );
 
         Undertow server = Undertow.builder()
-                .addHttpsListener(8443, "localhost", sslContext)
+                .addHttpsListener(8443, "view-localhost", sslContext)
 //                .addHttpListener(8080, "localhost")
                 .setHandler(handler)
                 .setHandler(httpsHandler).build();

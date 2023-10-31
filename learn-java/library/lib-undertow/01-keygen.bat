@@ -19,6 +19,6 @@ rem     When dname is provided, it is used as the subject of the generated certi
     -alias pomochatserver ^
     -keyalg RSA ^
     -keystore server.keystore.jks ^
-    -dname "cn=localhost, ou=IT, o=Continuent, c=US" ^
+    -dname "cn=view-localhost, ou=IT, o=Continuent, c=US" ^
     -storepass password ^
     -keypass password
