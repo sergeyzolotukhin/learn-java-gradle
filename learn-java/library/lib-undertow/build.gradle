@@ -1,9 +1,11 @@
 plugins {
-    id 'java'
+//    id 'java'
+    id 'application'
 }
 
 group = 'ua.in.sz.undertow'
 version = 'unspecified'
+//archivesBaseName = 'app'
 
 repositories{
     mavenLocal()
@@ -15,6 +17,18 @@ java {
     sourceCompatibility = JavaVersion.VERSION_20
     targetCompatibility = JavaVersion.VERSION_20
 }
+
+application {
+    mainClass = 'ua.in.sz.undertow.Main'
+}
+
+//jar {
+//    manifest {
+//        attributes(
+//                'Main-Class': 'ua.in.sz.undertow.Main'
+//        )
+//    }
+//}
 
 dependencies {
     // experimental
