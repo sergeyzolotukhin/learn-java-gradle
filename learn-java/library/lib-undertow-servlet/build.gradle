@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'ua.in.sz.undertow'
+group = 'ua.in.sz.undertow.servlet'
 version = 'unspecified'
 
 repositories{
@@ -19,6 +19,7 @@ java {
 dependencies {
     // experimental
     implementation 'io.undertow:undertow-core:2.3.10.Final'
+    implementation 'io.undertow:undertow-servlet:2.3.10.Final'
 
     // logging
     implementation 'ch.qos.logback:logback-classic:1.4.11'

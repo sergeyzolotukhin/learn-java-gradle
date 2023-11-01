@@ -79,6 +79,7 @@ pluginManagement {
 //include 'learn-java:library:lib-artifactory-java-client'
 //include 'learn-java:library:lib-javassist'
 include 'learn-java:library:lib-undertow'
+include 'learn-java:library:lib-undertow-servlet'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
