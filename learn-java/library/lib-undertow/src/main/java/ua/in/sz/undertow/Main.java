@@ -7,8 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Main {
-    private static final char[] STORE_PASSWORD = "password".toCharArray();
-
     public static void main(String[] args) throws Exception {
         HttpHandler httpHandler = exchange -> {
             log.info("get via http");
