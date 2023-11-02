@@ -12,7 +12,7 @@ public class AppCalendarOnly {
     public static void main(String[] args) throws Exception {
         CronCalendar calendar = new CronCalendar("0 0 0 ? * SAT-SUN");
         WorkdayCalendar workdayCalendar = new WorkdayCalendar("2-10,18-22", calendar);
-        CronCalendar wn = new CronCalendar(workdayCalendar,"0 0 0 ? * MON-TUE,THU-SUN");
+        CronCalendar wn = new CronCalendar(workdayCalendar, "0 0 0 ? * MON-TUE,THU-SUN");
 
         log.info("expression: [{}]", workdayCalendar.getExpression());
 
@@ -24,17 +24,16 @@ public class AppCalendarOnly {
             long tm = zdt.toInstant().toEpochMilli();
             boolean workDay = calendar.isTimeIncluded(tm);
             if (workDay) {
-                workdayNo ++;
+                workdayNo++;
             }
             boolean timeIncluded = wn.isTimeIncluded(tm);
 
             log.info("{} => {} {} <= {}", localDate.toLocalDate(),
                     workDay ? "1" : "0",
-                    timeIncluded? "1" : "0",
+                    timeIncluded ? "1" : "0",
                     workDay ? workdayNo : " "
             );
         }
-
 
 //        calendar.isTimeIncluded()
     }
