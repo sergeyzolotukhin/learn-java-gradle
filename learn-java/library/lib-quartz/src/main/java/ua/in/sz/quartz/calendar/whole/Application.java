@@ -4,7 +4,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-import ua.in.sz.quartz.calendar.whole.TraceCalendar;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
