@@ -18,24 +18,28 @@ test {
 }
 
 dependencies {
+    implementation platform(project(':platform'))
+    annotationProcessor platform(project(':platform'))
+    testAnnotationProcessor platform(project(':platform'))
+
     // experimental
     implementation 'com.cronutils:cron-utils:9.2.2-SNAPSHOT'
 
     // common utils
-    implementation 'com.google.guava:guava:32.0.0-jre'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-lang3'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'ch.qos.logback:logback-classic'
 
     // test
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-    testImplementation 'org.assertj:assertj-core:3.24.2'
-    testCompileOnly 'org.projectlombok:lombok:1.18.28'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.assertj:assertj-core'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
