@@ -5,7 +5,7 @@ plugins {
 group = 'ua.in.sz.undertow'
 version = 'unspecified'
 
-repositories{
+repositories {
     mavenLocal()
     jcenter()
     mavenCentral()
@@ -17,13 +17,17 @@ java {
 }
 
 dependencies {
+    implementation platform(project(':platform'))
+    annotationProcessor platform(project(':platform'))
+    testAnnotationProcessor platform(project(':platform'))
+
     // experimental
     implementation 'io.undertow:undertow-core:2.3.10.Final'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'ch.qos.logback:logback-classic'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
