@@ -13,32 +13,34 @@ repositories {
 }
 
 dependencies {
+    implementation platform(project(':platform'))
+    annotationProcessor platform(project(':platform'))
+    testAnnotationProcessor platform(project(':platform'))
+
     // experimental
-//    implementation 'org.quartz-scheduler:quartz:2.1.7'
     implementation 'org.quartz-scheduler:quartz:2.3.2'
-//    implementation 'org.terracotta.quartz:quartz-terracotta-ee:2.3.10'
     implementation 'com.h2database:h2:2.2.224'
 
-
     // common utils
-    implementation 'com.google.guava:guava:32.1.3-jre'
-    implementation 'org.apache.commons:commons-text:1.11.0'
-    implementation 'org.apache.commons:commons-lang3:3.13.0'
-    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'commons-io:commons-io:2.15.0'
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-text'
+    implementation 'org.apache.commons:commons-lang3'
+    implementation 'org.apache.commons:commons-collections4'
+    implementation 'commons-io:commons-io'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'ch.qos.logback:logback-classic'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.30'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
     // performance testing
-    testImplementation 'org.openjdk.jmh:jmh-core:1.37'
-    testAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+    testImplementation 'org.openjdk.jmh:jmh-core'
+    testAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess'
 }

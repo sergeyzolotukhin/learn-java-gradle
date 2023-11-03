@@ -1,0 +1,29 @@
+plugins {
+    id 'java-platform'
+}
+
+// https://github.com/gregwhitaker/gradle-platformbom-example
+// https://docs.gradle.org/current/userguide/java_platform_plugin.html#java_platform_plugin
+dependencies {
+    constraints {
+        // common utils
+        api 'com.google.guava:guava:32.1.3-jre'
+        api 'org.apache.commons:commons-text:1.11.0'
+        api 'org.apache.commons:commons-lang3:3.13.0'
+        api 'org.apache.commons:commons-collections4:4.4'
+        api 'commons-io:commons-io:2.15.0'
+
+        // development
+        api 'org.projectlombok:lombok:1.18.30'
+
+        // logging
+        api 'ch.qos.logback:logback-classic:1.4.11'
+
+        // testing
+        api 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+        // performance testing
+        api 'org.openjdk.jmh:jmh-core:1.37'
+        api 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+    }
+}
