@@ -6,7 +6,11 @@ plugins {
 // https://docs.gradle.org/current/userguide/java_platform_plugin.html#java_platform_plugin
 dependencies {
     constraints {
+
+        api 'jakarta.ws.rs:jakarta.ws.rs-api:3.1.0'
+
         // Apache CXF
+        api 'org.apache.cxf:cxf-rt-frontend-jaxrs:4.0.3'
         api 'org.apache.cxf:cxf-rt-frontend-jaxws:4.0.3'
         api 'org.apache.cxf:cxf-rt-transports-http:4.0.3'
         api 'org.apache.cxf:cxf-rt-transports-http-jetty:4.0.3'

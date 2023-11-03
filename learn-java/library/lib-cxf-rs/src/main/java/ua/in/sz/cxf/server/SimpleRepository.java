@@ -1,9 +1,8 @@
 package ua.in.sz.cxf.server;
 
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 import lombok.extern.slf4j.Slf4j;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 
 @Slf4j
 @Path("hello")
