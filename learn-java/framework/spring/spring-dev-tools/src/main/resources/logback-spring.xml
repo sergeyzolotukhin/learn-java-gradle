@@ -11,6 +11,7 @@
         </encoder>
     </appender>
 
+    <logger name="ua.in.sz.spring.Application" level="WARN"/>
     <logger name="ua.in.sz.spring" level="INFO"/>
 
     <root level="WARN">

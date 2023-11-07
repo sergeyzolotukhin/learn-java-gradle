@@ -14,7 +14,7 @@ public class DevScheduleValueService implements ScheduleValueService {
 
 	@PostConstruct
 	public void init() {
-		log.info("Init");
+		log.trace("Init");
 	}
 
 	@Override
