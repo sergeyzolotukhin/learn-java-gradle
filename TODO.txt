@@ -105,3 +105,5 @@ https://cloud.google.com/translate/docs/setup?csw=1#java
 org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.processBeanDefinition
 
 org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionElement(org.w3c.dom.Element, org.springframework.beans.factory.config.BeanDefinition)
+
+https://github.com/bigdaz/buildsrc-task
