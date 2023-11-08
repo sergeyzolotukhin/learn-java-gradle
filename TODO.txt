@@ -1,4 +1,6 @@
 https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins
+https://stackoverflow.com/questions/34502101/how-can-i-use-third-party-dependencies-in-custom-task-under-buildsrc-in-gradle
+
 =======================================================================================================================
 git init
 git remote add origin https://github.com/multiple-git-remotes/main.git
