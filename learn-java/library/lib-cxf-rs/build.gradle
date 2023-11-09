@@ -1,11 +1,5 @@
 plugins {
-    id 'java'
-}
-
-repositories{
-    mavenLocal()
-    jcenter()
-    mavenCentral()
+    id 'ua.in.sz.java-library'
 }
 
 sourceCompatibility = JavaVersion.VERSION_20
@@ -13,10 +7,6 @@ targetCompatibility = JavaVersion.VERSION_20
 
 
 dependencies {
-    implementation platform(project(':platform'))
-    annotationProcessor platform(project(':platform'))
-    testAnnotationProcessor platform(project(':platform'))
-
     // SOAP
     implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs'
     implementation 'org.apache.cxf:cxf-rt-transports-http'
