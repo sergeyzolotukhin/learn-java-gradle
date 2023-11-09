@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'ua.in.sz.java-library'
 }
 
 group 'ua.in.sz.pattern'
@@ -8,20 +8,11 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_20
 targetCompatibility = JavaVersion.VERSION_20
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 test {
     useJUnitPlatform()
 }
 
 dependencies {
-    implementation platform(project(':platform'))
-    annotationProcessor platform(project(':platform'))
-    testAnnotationProcessor platform(project(':platform'))
-
     // experimental
     implementation 'com.cronutils:cron-utils:9.2.2-SNAPSHOT'
 
