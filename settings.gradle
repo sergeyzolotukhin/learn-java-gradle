@@ -10,7 +10,7 @@ include 'platform'
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
-include 'learn-java:framework:spring:spring-dev-tools'
+//include 'learn-java:framework:spring:spring-dev-tools'
 //include 'learn-java:framework:spring:spring-shell'
 //include 'learn-java:framework:spring:spring-quartz'
 //include 'learn-java:framework:spring:spring-aspect'
@@ -56,7 +56,7 @@ include 'learn-java:framework:spring:spring-dev-tools'
 //include 'learn-java:library:lib-bean-validation'
 //include 'learn-java:library:lib-togglz'
 //include 'learn-java:library:lib-camel'
-//include 'learn-java:library:lib-cxf'
+include 'learn-java:library:lib-cxf'
 //include 'learn-java:library:lib-cxf-rs'
 //include 'learn-java:library:lib-guava-cache'
 //include 'learn-java:library:lib-ehcache'

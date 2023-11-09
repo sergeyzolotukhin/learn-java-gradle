@@ -1,18 +1,8 @@
 plugins {
-    id 'java'
-}
-
-repositories{
-    mavenLocal()
-    jcenter()
-    mavenCentral()
+    id 'ua.in.sz.java-library'
 }
 
 dependencies {
-    implementation platform(project(':platform'))
-    annotationProcessor platform(project(':platform'))
-    testAnnotationProcessor platform(project(':platform'))
-
     // SOAP
     implementation 'org.apache.cxf:cxf-rt-frontend-jaxws'
     implementation 'org.apache.cxf:cxf-rt-transports-http'
