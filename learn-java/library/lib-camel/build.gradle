@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'ua.in.sz.java-library'
 }
 
 group 'ua.in.sz.pattern'
@@ -7,30 +7,26 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     // experimental
     implementation 'org.apache.camel:camel-core:3.1.0'
 
     // common utils
-    implementation 'com.google.guava:guava:28.0-jre'
-    implementation 'org.apache.commons:commons-text:1.7'
-    implementation 'org.apache.commons:commons-lang3:3.9'
-    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'commons-io:commons-io:2.6'
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-text'
+    implementation 'org.apache.commons:commons-lang3'
+    implementation 'org.apache.commons:commons-collections4'
+    implementation 'commons-io:commons-io'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-classic'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.8'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
 }
