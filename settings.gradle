@@ -83,6 +83,7 @@ include 'learn-java:library:lib-cxf-rs'
 //include 'learn-java:library:lib-undertow'
 //include 'learn-java:library:lib-undertow-https'
 //include 'learn-java:library:lib-undertow-servlet'
+include 'learn-java:library:lib-dbcp2'
 
 //include 'learn-java:library:lib-junit5-extension'
 //include 'learn-java:library:lib-junit-5'
@@ -150,7 +151,7 @@ include 'learn-java:library:lib-cxf-rs'
 //include 'other'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
-//include 'library:lib-dbcp2'
+
 //findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
 
 // ====================================================================================================================
