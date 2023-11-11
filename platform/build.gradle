@@ -27,6 +27,7 @@ dependencies {
 
         // logging
         api 'ch.qos.logback:logback-classic:1.4.11'
+        api 'org.codehaus.janino:janino:3.1.10'
 
         // testing
         api 'org.junit.jupiter:junit-jupiter:5.10.0'

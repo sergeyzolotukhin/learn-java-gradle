@@ -1,13 +1,9 @@
 plugins {
-    id 'java'
+    id 'ua.in.sz.java-library'
 }
 
 group = 'ua.in.sz.h2'
 version = 'unspecified'
-
-repositories {
-    mavenCentral()
-}
 
 test {
     useJUnitPlatform()
@@ -18,16 +14,16 @@ dependencies {
     implementation 'org.jfrog.artifactory.client:artifactory-java-client-services:2.15.0'
 
     // development
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.8'
-    implementation 'org.codehaus.janino:janino:3.1.10'
+    implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.codehaus.janino:janino'
 
     // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.28'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation(platform('org.junit:junit-bom:5.9.3'))
     testImplementation('org.junit.jupiter:junit-jupiter')
 }
