@@ -46,7 +46,7 @@ include 'platform'
 // Libraries
 // ====================================================================================================================
 //include 'learn-java:library:lib-flowable'
-//include 'learn-java:library:lib-antlr'
+include 'learn-java:library:lib-antlr'
 //include 'learn-java:library:lib-jcurses'
 //include 'learn-java:library:lib-jackson'
 //include 'learn-java:library:lib-quartz'
