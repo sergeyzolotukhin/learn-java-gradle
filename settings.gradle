@@ -10,16 +10,17 @@ include 'platform'
 // ====================================================================================================================
 // java core features
 // ====================================================================================================================
-//include 'learn-java:core:java-swing'
+//include 'learn-java:core:java-14'
+include 'learn-java:core:java-bi-function'
+//include 'learn-java:core:java-big-decimal'
+//include 'learn-java:core:java-jaxb'
 //include 'learn-java:core:java-jdbc'
 //include 'learn-java:core:java-predicate'
-//include 'learn-java:core:java-14'
-//include 'learn-java:core:java-big-decimal'
-//include 'learn-java:core:eclipse-collections'
-//include 'learn-java:core:java-jaxb'
+//include 'learn-java:core:java-swing'
 //include 'learn-java:core:memory-consumption'
-//include 'learn-java:core:java-bi-function'
 include 'learn-java:core:task-executor'
+
+//include 'learn-java:core:eclipse-collections'
 
 // ====================================================================================================================
 // serhij_zolotukhin
