@@ -1,35 +1,8 @@
 plugins {
-    id 'java'
-}
-
-group 'ua.in.sz.pattern'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+    id 'ua.in.sz.java-common-library'
 }
 
 dependencies {
     // experimental
-
-    // common utils
-    implementation 'com.google.guava:guava:29.0-jre'
-    implementation 'org.apache.commons:commons-text:1.8'
-    implementation 'org.apache.commons:commons-lang3:3.10'
-    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'commons-io:commons-io:2.6'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
-
-    // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+    implementation 'com.google.guava:guava'
 }
