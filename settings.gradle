@@ -136,7 +136,7 @@ include 'learn-java:library:lib-dbcp2'
 //include 'pattern-gof:pattern-gof-visitor'
 //include 'pattern-gof:pattern-gof-template-method'
 //include 'pattern-gof:pattern-gof-proxy'
-//include 'pattern-gof:pattern-gof-chain-of-responsibility'
+include 'learn-java:pattern-gof:pattern-gof-chain-of-responsibility'
 
 // ====================================================================================================================
 // gradle
