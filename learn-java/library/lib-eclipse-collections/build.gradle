@@ -1,0 +1,9 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // experimental
+    implementation 'org.eclipse.collections:eclipse-collections-api:11.0.0'
+    implementation 'org.eclipse.collections:eclipse-collections:11.0.0'
+}

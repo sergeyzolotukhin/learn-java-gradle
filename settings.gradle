@@ -20,12 +20,13 @@ include 'learn-java:core:java-swing'
 include 'learn-java:core:memory-consumption'
 include 'learn-java:core:task-executor'
 
-//include 'learn-java:core:eclipse-collections'
+
 
 // ====================================================================================================================
 // serhij_zolotukhin
 // Libraries
 // ====================================================================================================================
+include 'learn-java:library:lib-eclipse-collections'
 //include 'learn-java:library:lib-flowable'
 include 'learn-java:library:lib-antlr'
 //include 'learn-java:library:lib-jcurses'
