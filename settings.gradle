@@ -132,7 +132,7 @@ include 'learn-java:library:lib-dbcp2'
 // pattern gof
 // ====================================================================================================================
 //include 'pattern-gof:pattern-gof-adapter'
-//include 'pattern-gof:pattern-gof-composite'
+include 'learn-java:pattern-gof:pattern-gof-composite'
 //include 'pattern-gof:pattern-gof-visitor'
 //include 'pattern-gof:pattern-gof-template-method'
 //include 'pattern-gof:pattern-gof-proxy'
