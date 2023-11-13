@@ -1,39 +1,7 @@
 plugins {
-    id 'java'
-}
-
-group = 'ua.in.sz.h2'
-version = 'unspecified'
-
-repositories {
-    mavenLocal()
-    mavenCentral()
+    id 'ua.in.sz.java-common-library'
 }
 
 dependencies {
-    // experimental
-    //noinspection VulnerableLibrariesLocal
-    implementation 'com.h2database:h2:2.2.219-SNAPSHOT'
-//    implementation 'com.h2database:h2:2.1.214'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-
-    // common utils
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.6'
-    implementation 'org.codehaus.janino:janino:3.1.9'
-
-    // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-//    testImplementation platform('org.junit:junit-bom:5.9.1')
-//    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.h2database:h2:2.2.224'
 }
-
-//test {
-//    useJUnitPlatform()
-//}
