@@ -16,7 +16,7 @@ include 'learn-java:core:java-big-decimal'
 include 'learn-java:core:java-jaxb'
 include 'learn-java:core:java-jdbc'
 include 'learn-java:core:java-predicate'
-//include 'learn-java:core:java-swing'
+include 'learn-java:core:java-swing'
 include 'learn-java:core:memory-consumption'
 include 'learn-java:core:task-executor'
 
