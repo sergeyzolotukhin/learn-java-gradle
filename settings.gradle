@@ -77,7 +77,7 @@ include 'learn-java:library:lib-dbcp2'
 
 include 'learn-java:library:lib-h2'
 //include 'learn-java:library:lib-plexus'
-//include 'learn-java:library:lib-guice'
+include 'learn-java:library:lib-guice'
 include 'learn-java:library:lib-eclipse-sisu'
 
 // ====================================================================================================================
