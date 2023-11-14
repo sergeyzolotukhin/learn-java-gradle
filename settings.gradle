@@ -63,7 +63,7 @@ include 'learn-java:library:jenkins-rest'
 include 'learn-java:library:lib-artifactory-java-client'
 //include 'learn-java:library:lib-javassist'
 include 'learn-java:library:lib-undertow'
-//include 'learn-java:library:lib-undertow-https'
+include 'learn-java:library:lib-undertow-https'
 include 'learn-java:library:lib-undertow-servlet'
 include 'learn-java:library:lib-dbcp2'
 
