@@ -1,33 +1,6 @@
 plugins {
-    id 'java'
+    id 'ua.in.sz.java-common-library'
 }
-
-group 'ua.in.sz.pattern'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-test {
-    useJUnitPlatform()
-}
-
-// https://docs.gradle.org/current/userguide/dependency_management.html
-//task printClasspath {
-//    doLast {
-//        configurations.each { Configuration configuration ->
-//            try {
-//                println configuration
-//                configuration.each { println it }
-//            } catch (Exception e){
-//                println "Error getting details of $configuration"
-//            }
-//        }
-//    }
-//}
 
 dependencies {
     // experimental
@@ -35,23 +8,4 @@ dependencies {
 //    implementation project(':other')
 //    implementation 'ua.in.sz.pattern:other:1.0-SNAPSHOT'
 
-    // common utils
-//    implementation 'com.google.guava:guava:31.1-jre'
-//    implementation 'org.apache.commons:commons-text:1.10.0'
-//    implementation 'org.apache.commons:commons-lang3:3.10'
-//    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'commons-io:commons-io:2.11.0'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.6'
-    implementation 'org.codehaus.janino:janino:3.1.9'
-
-    // testing
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
 }
