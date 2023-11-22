@@ -1,0 +1,14 @@
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-10.10thread] %highlight(%-5level) | %-60.60logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    <logger name="Sisu" level="INFO" />-->
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

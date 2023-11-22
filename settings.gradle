@@ -161,6 +161,11 @@ include 'learn-java:pattern-gof:pattern-gof-chain-of-responsibility'
 //findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
 
 // ====================================================================================================================
+// proof of concept
+// ====================================================================================================================
+include 'proof-of-concept:maven-as-submodule'
+
+// ====================================================================================================================
 // Sharing dependency versions between projects
 // https://docs.gradle.org/current/userguide/platforms.html
 // https://docs.gradle.org/current/userguide/dependency_management.html
