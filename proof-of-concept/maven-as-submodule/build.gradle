@@ -8,3 +8,5 @@ version '1.0-SNAPSHOT'
 tasks.register('mvn-clean-install', Exec) {
     commandLine "mvn.cmd", "clean", "install"
 }
+
+tasks.build.dependsOn("mvn-clean-install")
