@@ -6,6 +6,5 @@ group 'ua.in.sz.pattern'
 version '1.0-SNAPSHOT'
 
 tasks.register('mvn-clean-install', Exec) {
-//    workingDir rootProject.getProjectDir().getAbsolutePath() + "/proof-of-concept/maven-as-submodule"
     commandLine "mvn.cmd", "clean", "install"
 }
