@@ -1,0 +1,36 @@
+plugins {
+    id 'ua.in.sz.java-library'
+//    id 'io.spring.dependency-management'
+//    id 'io.spring.gradle:dependency-management-plugin'
+    id 'org.springframework.boot'
+}
+
+group = 'ua.in.szolotukhin'
+version = '0.0.1-SNAPSHOT'
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // common utils
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-text'
+    implementation 'org.apache.commons:commons-lang3'
+    implementation 'org.apache.commons:commons-collections4:'
+    implementation 'commons-io:commons-io:'
+
+    // development
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic'
+
+    // testing
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}

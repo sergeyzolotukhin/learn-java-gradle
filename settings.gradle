@@ -1,6 +1,19 @@
 pluginManagement {
+    plugins {
+//        id 'io.spring.dependency-management' version '1.1.4'
+//        id 'io.spring.gradle:dependency-management-plugin' version '1.1.4'
+        id 'org.springframework.boot' version '3.2.0'
+    }
+//    resolutionStrategy {
+//        eachPlugin {
+//            if (requested.id.namespace == 'io.spring.dependency-management') {
+//                useModule('io.spring.gradle:dependency-management-plugin:1.1.4')
+//            }
+//        }
+//    }
     repositories {
         mavenLocal()
+        mavenCentral()
         gradlePluginPortal()
     }
 }
@@ -90,30 +103,30 @@ include 'learn-java:framework:spring:spring-no-boot-annotation'
 // ====================================================================================================================
 // spring boot
 // ====================================================================================================================
-//include 'learn-java:framework:spring:spring-dev-tools'
-//include 'learn-java:framework:spring:spring-shell'
-//include 'learn-java:framework:spring:spring-quartz'
-//include 'learn-java:framework:spring:spring-aspect'
-//include 'learn-java:framework:spring:spring-xml'
-//include 'learn-java:framework:spring:spring-hibernate-search'
-//include 'learn-java:framework:spring:spring-hibernate-cache'
-//include 'learn-java:framework:spring:spring-hibernate-thread'
-//include 'learn-java:framework:spring:spring-property'
-//include 'learn-java:framework:spring:spring-camel'
-//include 'learn-java:framework:spring:spring-swagger'
-//include 'learn-java:framework:spring:spring-transactional'
-//include 'learn-java:framework:spring:spring-bean-validation'
-//include 'learn-java:framework:spring:spring-cache'
-//include 'learn-java:framework:spring:spring-cxf'
-//include 'learn-java:framework:spring:spring-jersey'
-//include 'learn-java:framework:spring:spring-web-xml'
-//include 'learn-java:framework:spring:spring-web-rest'
-//include 'learn-java:framework:spring:spring-webflux'
-//include 'learn-java:framework:spring:spring-thymeleaf'
-//include 'learn-java:framework:spring:spring-message-source'
+include 'learn-java:framework:spring-boot:spring-boot'
+//include 'learn-java:framework:spring-boot:spring-dev-tools'
+//include 'learn-java:framework:spring-boot:spring-shell'
+//include 'learn-java:framework:spring-boot:spring-quartz'
+//include 'learn-java:framework:spring-boot:spring-aspect'
+//include 'learn-java:framework:spring-boot:spring-xml'
+//include 'learn-java:framework:spring-boot:spring-hibernate-search'
+//include 'learn-java:framework:spring-boot:spring-hibernate-cache'
+//include 'learn-java:framework:spring-boot:spring-hibernate-thread'
+//include 'learn-java:framework:spring-boot:spring-property'
+//include 'learn-java:framework:spring-boot:spring-camel'
+//include 'learn-java:framework:spring-boot:spring-swagger'
+//include 'learn-java:framework:spring-boot:spring-transactional'
+//include 'learn-java:framework:spring-boot:spring-bean-validation'
+//include 'learn-java:framework:spring-boot:spring-cache'
+//include 'learn-java:framework:spring-boot:spring-cxf'
+//include 'learn-java:framework:spring-boot:spring-jersey'
+//include 'learn-java:framework:spring-boot:spring-web-xml'
+//include 'learn-java:framework:spring-boot:spring-web-rest'
+//include 'learn-java:framework:spring-boot:spring-webflux'
+//include 'learn-java:framework:spring-boot:spring-thymeleaf'
+//include 'learn-java:framework:spring-boot:spring-message-source'
+//include 'learn-java:framework:spring-boot:spring-undertow'
 
-//include 'learn-java:framework:spring:spring-boot'
-//include 'learn-java:framework:spring:spring-undertow'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
