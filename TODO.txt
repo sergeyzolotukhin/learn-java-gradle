@@ -110,3 +110,5 @@ org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.proces
 
 org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionElement(org.w3c.dom.Element, org.springframework.beans.factory.config.BeanDefinition)
 
+UML:
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/
