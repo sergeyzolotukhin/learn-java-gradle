@@ -90,6 +90,8 @@ include 'learn-java:framework:spring:spring-no-boot-annotation'
 // ====================================================================================================================
 // spring boot
 // ====================================================================================================================
+include 'learn-java:framework:spring-boot:spring-boot'
+
 //include 'learn-java:framework:spring:spring-dev-tools'
 //include 'learn-java:framework:spring:spring-shell'
 //include 'learn-java:framework:spring:spring-quartz'
@@ -112,7 +114,6 @@ include 'learn-java:framework:spring:spring-no-boot-annotation'
 //include 'learn-java:framework:spring:spring-thymeleaf'
 //include 'learn-java:framework:spring:spring-message-source'
 
-//include 'learn-java:framework:spring:spring-boot'
 //include 'learn-java:framework:spring:spring-undertow'
 // ====================================================================================================================
 // Hibernate
