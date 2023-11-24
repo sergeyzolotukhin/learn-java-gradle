@@ -11,3 +11,7 @@ https://docs.gradle.org/current/userguide/java_platform_plugin.html
 https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import
 
 https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import
+
+#### org.springframework.boot   Spring Boot Gradle plugin
+
+https://gradlehero.com/unleashing-the-spring-boot-gradle-plugin/
