@@ -20,6 +20,9 @@ dependencies {
     // common utils
     implementation 'javax.annotation:javax.annotation-api'
 
+    // development
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
+
     // testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
