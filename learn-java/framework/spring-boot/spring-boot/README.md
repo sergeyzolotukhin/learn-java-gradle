@@ -1,0 +1,13 @@
+#### io.spring.dependency-management
+
+https://nexocode.com/blog/posts/spring-dependencies-in-gradle/
+
+https://github.com/spring-projects/spring-boot/issues/21723
+
+https://stackoverflow.com/questions/72468537/is-io-spring-dependency-management-plugin-required-when-using-spring-boot-2-3-a
+
+https://docs.gradle.org/current/userguide/java_platform_plugin.html
+
+https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import
+
+https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import
