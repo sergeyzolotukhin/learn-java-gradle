@@ -2,7 +2,7 @@ plugins {
     id 'ua.in.sz.java-library'
     id 'org.springframework.boot' version '3.2.0'
 }
-
+// https://docs.gradle.org/current/userguide/plugins.html?ref=rigel.dev#sec:plugin_management
 configurations {
     developmentOnly
     runtimeClasspath {
