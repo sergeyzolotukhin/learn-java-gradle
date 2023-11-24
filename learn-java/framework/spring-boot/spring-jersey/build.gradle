@@ -1,22 +1,13 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.1.0'
-    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-}
-
-repositories {
-    mavenCentral()
-}
-
-test {
-    useJUnitPlatform()
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jersey'
 
     // testing
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-    testImplementation 'org.apache.httpcomponents:httpclient:4.5.14'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.apache.httpcomponents:httpclient'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
