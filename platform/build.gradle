@@ -2,9 +2,15 @@ plugins {
     id 'java-platform'
 }
 
+javaPlatform {
+    allowDependencies()
+}
+
 // https://github.com/gregwhitaker/gradle-platformbom-example
 // https://docs.gradle.org/current/userguide/java_platform_plugin.html#java_platform_plugin
 dependencies {
+    api platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
+
     constraints {
 
         api 'jakarta.ws.rs:jakarta.ws.rs-api:3.1.0'
