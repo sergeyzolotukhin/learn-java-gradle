@@ -1,7 +1,8 @@
 plugins {
-    id 'ua.in.sz.java-library'
-    id 'org.springframework.boot' version '3.2.0'
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
 }
+
 // https://docs.gradle.org/current/userguide/plugins.html?ref=rigel.dev#sec:plugin_management
 configurations {
     developmentOnly
@@ -17,16 +18,8 @@ dependencies {
     runtimeOnly files('config')
 
     // common utils
-    implementation 'commons-io:commons-io'
     implementation 'javax.annotation:javax.annotation-api'
 
-    // development
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    developmentOnly "org.springframework.boot:spring-boot-devtools"
-
     // testing
-    testCompileOnly 'org.projectlombok:lombok'
-    testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

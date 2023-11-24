@@ -1,19 +1,9 @@
 plugins {
-    id 'ua.in.sz.java-library'
-    id 'org.springframework.boot' version '3.2.0'
-}
-
-repositories {
-    mavenCentral()
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
 }
 
 dependencies {
+    // spring
     implementation 'org.springframework.boot:spring-boot-starter'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic'
-
-    // development
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
 }
