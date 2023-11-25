@@ -97,7 +97,7 @@ include 'learn-java:framework:spring-boot:spring-boot'
 include 'learn-java:framework:spring-boot:spring-dev-tools'
 
 //include 'learn-java:framework:spring-boot:spring-shell'
-//include 'learn-java:framework:spring-boot:spring-quartz'
+include 'learn-java:framework:spring-boot:spring-quartz'
 include 'learn-java:framework:spring-boot:spring-aspect'
 //include 'learn-java:framework:spring-boot:spring-xml'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'
