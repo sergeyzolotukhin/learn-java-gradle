@@ -2,8 +2,8 @@ package ua.in.sz.spring;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import ua.in.sz.spring.lib.ValueService;
 
 import javax.annotation.PostConstruct;
 
@@ -19,6 +19,8 @@ public class DevScheduleValueService implements ScheduleValueService {
 
 	@Override
 	public String execute() {
+		new ValueService().print();
+
 		return "Dev";
 	}
 }

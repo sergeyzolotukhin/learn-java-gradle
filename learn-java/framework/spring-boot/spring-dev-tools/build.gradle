@@ -13,6 +13,7 @@ configurations {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation project(":learn-java:framework:spring-boot:spring-dev-tools-lib")
 
     // runtime
     runtimeOnly files('config')

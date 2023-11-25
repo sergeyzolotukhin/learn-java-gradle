@@ -95,6 +95,7 @@ include 'learn-java:framework:spring:spring-no-boot-annotation'
 // ====================================================================================================================
 include 'learn-java:framework:spring-boot:spring-boot'
 include 'learn-java:framework:spring-boot:spring-dev-tools'
+include 'learn-java:framework:spring-boot:spring-dev-tools-lib'
 
 //include 'learn-java:framework:spring-boot:spring-shell'
 include 'learn-java:framework:spring-boot:spring-quartz'

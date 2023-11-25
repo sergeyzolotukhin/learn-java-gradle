@@ -1,0 +1,16 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+// https://docs.gradle.org/current/userguide/plugins.html?ref=rigel.dev#sec:plugin_management
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    // common utils
+    implementation 'javax.annotation:javax.annotation-api'
+}
