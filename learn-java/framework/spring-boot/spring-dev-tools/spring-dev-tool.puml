@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+FileSystemWatcher -> Watcher: start new thread
+
+@enduml
