@@ -12,6 +12,8 @@ configurations {
 }
 
 dependencies {
+    developmentOnly platform(project(':platform'))
+
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation project(":learn-java:framework:spring-boot:spring-dev-tools-lib")
 
@@ -22,7 +24,7 @@ dependencies {
     implementation 'javax.annotation:javax.annotation-api'
 
     // development
-    developmentOnly "org.springframework.boot:spring-boot-devtools:3.2.0"
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
 
     // testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
