@@ -27,3 +27,4 @@ C:\Users\szolotukhin\.gradle\caches\modules-2\files-2.1\org.apache.commons\commo
 #### developmentOnly  -> org.springframework.boot
 
 https://stackoverflow.com/questions/59252470/gradle-spring-boot-devtools-developmentonly-and-runtimeclasspath
+https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/html/using-boot-devtools.html
