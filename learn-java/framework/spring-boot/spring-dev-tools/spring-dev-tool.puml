@@ -3,6 +3,7 @@
 
 autonumber
 
+ClassPathFileSystemWatcher -> FileSystemWatcher
 FileSystemWatcher -> Watcher: start new thread
 
 @enduml
