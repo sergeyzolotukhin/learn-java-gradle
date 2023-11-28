@@ -1,9 +1,32 @@
 @startuml
+
+title __Simple__ **communication** example
+
 'https://plantuml.com/sequence-diagram
 
-autonumber
+participant RestartApplicationListener << Entry point >>
+participant Restarter
+participant RestartLauncher << Thread >>
+participant LeakSafeThread << Thread >>
+participant Application <<My class>>
+
+RestartApplicationListener -> Restarter
+LeakSafeThread -> Restarter : start
+Restarter -> RestartClassLoader ** : create
+Restarter -> RestartLauncher ** :create \n start \n set class loader
+RestartLauncher -> Application : main
+
 
 ClassPathFileSystemWatcher -> FileSystemWatcher
 FileSystemWatcher -> Watcher: start new thread
+
+@enduml
+
+@startuml
+
+participant "Famous Bob" as Bob << Generated >>
+participant Alice << (C,#ADD1B2) Testable >>
+
+Bob->Alice: First message
 
 @enduml
