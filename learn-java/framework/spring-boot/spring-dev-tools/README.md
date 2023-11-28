@@ -1,3 +1,19 @@
+#### Use case
+    IDEA -> Run Configuration -> bootRun
+
+    update class in the subproject
+    Ctrl+F5
+
+    update class in the subproject
+    Ctrl+F5
+    
+    ... 
+
+05:36:02 PM: Executing 'bootRun'...
+17:36:08.608 [main] INFO ua.in.sz.spring.Application -- path: [D:\projects-java\_learn-java-gradle\learn-java\framework\spring-boot\spring-dev-tools\build\classes\java\main]
+
+Each iteration should took 6 seconds.
+
 #### Spring Admin Console
 
     [Spring Admin](https://habr.com/ru/post/479954/)

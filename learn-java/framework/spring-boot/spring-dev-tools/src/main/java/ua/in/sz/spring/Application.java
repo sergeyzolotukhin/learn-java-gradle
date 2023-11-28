@@ -16,7 +16,7 @@ public class Application {
 		String[] classpathEntries = classpath.split(File.pathSeparator);
 
 		for (String classpathEntry : classpathEntries) {
-			log.info("path: [{}]", classpathEntry);
+			log.trace("path: [{}]", classpathEntry);
 		}
 
 		// Just a comment
