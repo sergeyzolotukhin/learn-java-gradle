@@ -13,7 +13,7 @@ participant LeakSafeThread << Thread >>
 
 == Run an application with a RestartClassLoader ==
 
-Application -> SpringApplication
+Application -> SpringApplication : run
 SpringApplication -> RestartApplicationListener : ApplicationStartingEvent
 RestartApplicationListener -> Restarter ** : initialize
 Restarter -> LeakSafeThread ** :
