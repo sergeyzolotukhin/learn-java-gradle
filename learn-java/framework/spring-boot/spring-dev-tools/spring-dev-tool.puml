@@ -1,32 +1,50 @@
+'https://plantuml.com/sequence-diagram
+
 @startuml
 
 title __Simple__ **communication** example
 
-'https://plantuml.com/sequence-diagram
-
+actor Application <<My class>>
+participant SpringApplication << Spring boot>>
 participant RestartApplicationListener << Entry point >>
 participant Restarter
 participant RestartLauncher << Thread >>
 participant LeakSafeThread << Thread >>
-participant Application <<My class>>
 
-RestartApplicationListener -> Restarter
+== Run an application with a RestartClassLoader ==
+
+Application -> SpringApplication
+SpringApplication -> RestartApplicationListener : ApplicationStartingEvent
+RestartApplicationListener -> Restarter ** : initialize
+Restarter -> LeakSafeThread ** :
+Restarter -> LeakSafeThread : callAndWait
 LeakSafeThread -> Restarter : start
 Restarter -> RestartClassLoader ** : create
-Restarter -> RestartLauncher ** :create \n start \n set class loader
+Restarter -> RestartLauncher ** : create
+Restarter -> RestartLauncher :  set class loader
+Restarter -> RestartLauncher :  start
+Restarter -> RestartLauncher :  join
 RestartLauncher -> Application : main
-
-
-ClassPathFileSystemWatcher -> FileSystemWatcher
-FileSystemWatcher -> Watcher: start new thread
 
 @enduml
 
 @startuml
 
-participant "Famous Bob" as Bob << Generated >>
-participant Alice << (C,#ADD1B2) Testable >>
+== Watch file change ==
 
-Bob->Alice: First message
+'SpringApplication -> FileSystemWatcher **
+'SpringApplication -> ClassPathFileSystemWatcher **
+'SpringApplication -> RestartingClassPathChangeChangedEventListener **
+'RestartingClassPathChangeChangedEventListener -> FileWatchingFailureHandler **
+FileSystemWatcher -> Watcher **
+FileSystemWatcher -> Thread ** : watcher
+FileSystemWatcher -> Thread : start
+
+
+'RestartingClassPathChangeChangedEventListener -> Restarter : restart
+'ClassPathFileSystemWatcher -> FileSystemWatcher
+'FileSystemWatcher -> Watcher: start new thread
 
 @enduml
+
+
