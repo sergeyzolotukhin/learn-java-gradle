@@ -112,3 +112,9 @@ org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefi
 
 UML:
 https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/
+
+org.gradle.logging.level=(quiet,warn,info,debug)
+org.gradle.logging.level=quiet
+When set to quiet, warn, info, or debug, Gradle will use this log level. The values are not case-sensitive.
+
+Default is lifecycle level.

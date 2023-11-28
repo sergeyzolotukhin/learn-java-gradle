@@ -10,3 +10,11 @@ I am using the Gradle build tool here.
 ### Gradle
 
 #### learn-gradle - The learn-gradle directory contains everything which relates to the Gradle build tool
+
+#### How to make a gradle silent
+
+Uncomment the following line
+org.gradle.logging.level=quiet
+
+Copy the gradle.properties into the following location:
+c:\Users\szolotukhin\.gradle
