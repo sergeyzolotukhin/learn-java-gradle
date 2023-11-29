@@ -99,7 +99,7 @@ include 'learn-java:framework:spring-boot:spring-quartz'
 include 'learn-java:framework:spring-boot:spring-aspect'
 //include 'learn-java:framework:spring-boot:spring-xml'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'
-//include 'learn-java:framework:spring-boot:spring-hibernate-cache'
+include 'learn-java:framework:spring-boot:spring-hibernate-cache'
 //include 'learn-java:framework:spring-boot:spring-hibernate-thread'
 //include 'learn-java:framework:spring-boot:spring-property'
 //include 'learn-java:framework:spring-boot:spring-camel'
@@ -120,7 +120,7 @@ include 'learn-java:framework:spring-boot:spring-jersey'
 // Hibernate
 // ====================================================================================================================
 //include 'library:lib-hibernate'
-//include 'hibernate:hibernate-xml-mapping'
+include 'learn-java:framework:hibernate:hibernate-xml-mapping'
 //include 'hibernate:tabular-format'
 
 // ====================================================================================================================

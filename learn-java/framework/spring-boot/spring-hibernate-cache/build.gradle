@@ -4,32 +4,38 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.1.3'
     }
 }
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'org.springframework.boot' version '3.2.0'
     id "com.github.ben-manes.versions" version "0.28.0"
 }
 
 apply plugin: "io.spring.dependency-management"
 
-dependencyUpdates {
-    def blackList = file("dependancy.back.list").collect()
-    logger.lifecycle("Black list: $blackList")
-
-    rejectVersionIf {
-        String artifact = "${it.candidate.group}.${it.candidate.module}.${it.candidate.version}"
-        if (blackList.contains(artifact)) {
-            logger.lifecycle("Skipped black list dependancy [${artifact}]")
-            return true
-        }
-
-        return false;
-    }
+repositories{
+    mavenLocal()
+    jcenter()
+    mavenCentral()
 }
+
+//dependencyUpdates {
+//    def blackList = file("dependancy.back.list").collect()
+//    logger.lifecycle("Black list: $blackList")
+//
+//    rejectVersionIf {
+//        String artifact = "${it.candidate.group}.${it.candidate.module}.${it.candidate.version}"
+//        if (blackList.contains(artifact)) {
+//            logger.lifecycle("Skipped black list dependancy [${artifact}]")
+//            return true
+//        }
+//
+//        return false;
+//    }
+//}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'

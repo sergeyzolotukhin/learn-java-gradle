@@ -8,7 +8,7 @@ repositories{
     jcenter()
     mavenCentral()
     maven {
-        url "http://nexus.saas.hand-china.com/content/repositories/rdc/"
+        url "https://nexus.saas.hand-china.com/content/repositories/rdc/"
     }
 }
 
