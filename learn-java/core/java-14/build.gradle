@@ -3,4 +3,6 @@ plugins {
     id "ua.in.sz.plugin.greeting"
 }
 
-//apply plugin: ua.in.sz.plugin.GreetingPlugin
+greeting {
+    message = "Hi from an extension"
+}
