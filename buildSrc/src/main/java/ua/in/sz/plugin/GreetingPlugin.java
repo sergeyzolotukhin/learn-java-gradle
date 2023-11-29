@@ -8,6 +8,7 @@ public class GreetingPlugin implements Plugin<Project> {
     @Override
     public void apply(@NotNull Project project) {
         project.getExtensions().create("greeting", GreetingPluginExtension.class);
-        project.getTasks().create("hello", GreetingTask.class);
+        GreetingTask hello = project.getTasks().create("hello", GreetingTask.class);
+        hello.setGroup("ge");
     }
 }
