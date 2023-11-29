@@ -1,5 +1,5 @@
 plugins {
-    id('groovy-gradle-plugin')
+    id 'groovy-gradle-plugin'
     id 'java-gradle-plugin'
 }
 
@@ -12,6 +12,12 @@ gradlePlugin {
     }
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencies {
     implementation gradleApi()
+    implementation 'org.apache.commons:commons-lang3:3.13.0'
 }

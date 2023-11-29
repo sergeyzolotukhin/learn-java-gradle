@@ -1,5 +1,6 @@
 package ua.in.sz.plugin;
 
+import org.apache.commons.lang3.StringUtils;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 
@@ -11,6 +12,6 @@ public class GreetingTask extends DefaultTask {
         GreetingPluginExtension extension = Optional.ofNullable(getProject().getExtensions().findByType(GreetingPluginExtension.class))
                 .orElse(new GreetingPluginExtension());
 
-        getLogger().lifecycle("I am releasing build too! {}", extension.getMessage());
+        getLogger().lifecycle("I am plugin. I have a message for you: [{}]", StringUtils.reverse(extension.getMessage()));
     }
 }
