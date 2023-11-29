@@ -7,6 +7,6 @@ import org.jetbrains.annotations.NotNull;
 public class GreetingPlugin implements Plugin<Project> {
     @Override
     public void apply(@NotNull Project project) {
-        project.getLogger().lifecycle("I am releasing build too!");
+        project.getTasks().create("hello", GreetingTask.class);
     }
 }
