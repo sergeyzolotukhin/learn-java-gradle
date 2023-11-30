@@ -57,6 +57,7 @@ include 'learn-java:library:lib-undertow'
 include 'learn-java:library:jenkins-rest'
 include 'learn-java:library:lib-rxjava2'
 include 'learn-java:library:lib-lucene'
+include 'learn-java:library:lib-liquebase'
 //include 'learn-java:library:lib-flowable'
 //include 'learn-java:library:lib-jcurses'
 //include 'learn-java:library:lib-infinispan'
@@ -166,8 +167,6 @@ include 'learn-java:pattern-gof:pattern-gof-composite'
 //include 'code-gen-javac'
 //include 'code-gen-javac-test'
 
-//findProject(':library:lib-dbcp2')?.name = 'lib-dbcp2'
-
 // ====================================================================================================================
 // proof of concept
 // ====================================================================================================================
@@ -191,7 +190,4 @@ include 'proof-of-concept:maven-as-submodule'
 // ====================================================================================================================
 
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
-//findProject(':learn-java:library:lib-docker-java')?.name = 'lib-docker-java'
-//findProject(':learn-java:framework:spring:spring-no-boot-xml')?.name = 'spring-no-boot-xml'
-
 
