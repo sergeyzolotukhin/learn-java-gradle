@@ -5,3 +5,5 @@ https://contribute.liquibase.com/extensions-integrations/extensions-overview/you
 https://contribute.liquibase.com/extensions-integrations/extensions-overview/
 
 https://contribute.liquibase.com/extensions-integrations/directory/integration-docs/gradle/
+
+https://github.com/liquibase/liquibase/pull/2871/files
