@@ -1,8 +1,28 @@
 plugins {
     id 'ua.in.sz.java-common-library'
+    id 'org.liquibase.gradle' version '2.2.1'
+}
+
+liquibase {
+    activities {
+        main {
+            changelogFile "liquibase/changelog.yaml"
+            url "jdbc:postgresql://localhost/postgres"
+            username "postgres"
+            password "postgres"
+        }
+    }
 }
 
 dependencies {
+    liquibaseRuntime platform(project(':platform'))
+
+    // database
+    liquibaseRuntime 'org.liquibase:liquibase-core'
+    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl'
+    liquibaseRuntime 'info.picocli:picocli'
+    liquibaseRuntime 'org.yaml:snakeyaml'
+    liquibaseRuntime 'org.postgresql:postgresql'
 
     // runtime
     runtimeOnly files('config')

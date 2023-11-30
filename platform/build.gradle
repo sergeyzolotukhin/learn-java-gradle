@@ -21,6 +21,13 @@ dependencies {
         api 'io.reactivex.rxjava3:rxjava:3.1.8'
         api 'javax.annotation:javax.annotation-api:1.3.2'
 
+        // database
+        api 'org.postgresql:postgresql:42.7.0'
+        api 'org.liquibase:liquibase-core:4.25.0'
+        api 'org.liquibase:liquibase-groovy-dsl:3.0.3'
+        api 'info.picocli:picocli:4.7.5'
+        api 'org.yaml:snakeyaml:2.2'
+
         // spring
         api 'org.springframework:spring-context:6.1.0'
 
