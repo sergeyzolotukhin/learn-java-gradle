@@ -4,6 +4,7 @@ plugins {
 }
 
 liquibase {
+    logging.captureStandardOutput LogLevel.INFO
     activities {
         //noinspection GroovyAssignabilityCheck
         main {
@@ -13,6 +14,7 @@ liquibase {
             password "postgres"
             logLevel "warning"
             showBanner "false"
+//            showSummary "off"
         }
     }
 }
@@ -26,6 +28,11 @@ dependencies {
     liquibaseRuntime 'info.picocli:picocli'
     liquibaseRuntime 'org.yaml:snakeyaml'
     liquibaseRuntime 'org.postgresql:postgresql'
+    // log liquibase
+//    liquibaseRuntime 'com.mattbertolini:liquibase-slf4j:5.0.0'
+//    liquibaseRuntime 'ch.qos.logback:logback-classic'
+//    liquibaseRuntime files('config')
+
 
     // runtime
     runtimeOnly files('config')
