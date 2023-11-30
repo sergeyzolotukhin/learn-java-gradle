@@ -5,6 +5,7 @@ plugins {
 
 liquibase {
     activities {
+        //noinspection GroovyAssignabilityCheck
         main {
             changelogFile "liquibase/changelog.yaml"
             url "jdbc:postgresql://localhost/postgres"
