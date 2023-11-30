@@ -118,3 +118,5 @@ org.gradle.logging.level=quiet
 When set to quiet, warn, info, or debug, Gradle will use this log level. The values are not case-sensitive.
 
 Default is lifecycle level.
+
+https://pedrorijo.com/blog/java-service-loader/
