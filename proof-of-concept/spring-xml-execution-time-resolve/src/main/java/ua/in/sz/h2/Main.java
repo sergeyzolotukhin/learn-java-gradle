@@ -1,7 +1,6 @@
 package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.Period;
@@ -13,18 +12,8 @@ public class Main {
 
         Period step = Period.ofDays(5);
 
-        ObjectProvider<ExecutionTimeResolver> beanProvider = context.getBeanProvider(ExecutionTimeResolver.class);
+        context.getBean(ExecutionTimeResolverFactory.class).create(step);
 
-        for (ExecutionTimeResolver resolver : beanProvider) {
-            log.info("Class: {}", resolver.getClass());
-
-            if (resolver instanceof ExecutionTimeResolver.StepAware w) {
-                w.withStep(step);
-                log.info("Set property step");
-            }
-
-            resolver.resolve(Period.ofMonths(1)).forEach(d -> log.info("Date: {}", d));
-        }
 
         context.close();
     }
