@@ -13,7 +13,7 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
 
         PaymentService paymentService = context.getBean(PaymentService.class);
-        Optional<PaymentPlugin> paymentPlugin = paymentService.choosePaymentMethod(PaymentMethod.PAYPAL);
+        Optional<PaymentPlugin> paymentPlugin = paymentService.choosePaymentMethod(PaymentMethod.CARD);
         paymentPlugin.ifPresent(p -> p.pay(10));
 
         context.close();
