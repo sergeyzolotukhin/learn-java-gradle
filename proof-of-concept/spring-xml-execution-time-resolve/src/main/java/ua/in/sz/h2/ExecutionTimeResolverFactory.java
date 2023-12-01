@@ -17,14 +17,10 @@ public class ExecutionTimeResolverFactory {
 
     public Optional<ExecutionTimeResolver> create(Period step) {
         return executionTimeResolvers.orderedStream()
-                .peek(this::trace)
                 .peek(withStepIfNecessary(step))
+                .peek(this::trace)
                 .filter(this::isSupport)
                 .findFirst();
-    }
-
-    private void trace(ExecutionTimeResolver resolver) {
-        log.info("Class: {}", resolver);
     }
 
     private static Consumer<ExecutionTimeResolver> withStepIfNecessary(Period step) {
@@ -36,5 +32,11 @@ public class ExecutionTimeResolverFactory {
     private boolean isSupport(ExecutionTimeResolver resolver) {
         return !(resolver instanceof WithConditional conditional)
                 || conditional.isSupport();
+    }
+
+    private void trace(ExecutionTimeResolver resolver) {
+        if (log.isTraceEnabled()) {
+            log.info("Class: {}", resolver);
+        }
     }
 }
