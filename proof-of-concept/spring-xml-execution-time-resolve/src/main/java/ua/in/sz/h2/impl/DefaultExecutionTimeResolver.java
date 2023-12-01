@@ -1,6 +1,8 @@
 package ua.in.sz.h2.impl;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.h2.ExecutionTimeResolver;
 
@@ -10,9 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RequiredArgsConstructor
+@Setter
+@Getter
 public class DefaultExecutionTimeResolver implements ExecutionTimeResolver {
-    private final Period step;
+    private Period step;
 
     @Override
     public List<LocalDate> resolve(Period period) {

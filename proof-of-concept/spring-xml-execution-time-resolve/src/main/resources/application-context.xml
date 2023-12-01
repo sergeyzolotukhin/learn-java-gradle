@@ -9,5 +9,6 @@
 
     <bean id="defaultExecutionTimeResolver" class="ua.in.sz.h2.impl.DefaultExecutionTimeResolver" scope="prototype"/>
     <bean id="singleExecutionTimeResolver" class="ua.in.sz.h2.impl.SingleExecutionTimeResolver" scope="prototype"/>
+    <bean id="nowExecutionTimeResolver" class="ua.in.sz.h2.impl.NowExecutionTimeResolver" scope="prototype"/>
 
 </beans>

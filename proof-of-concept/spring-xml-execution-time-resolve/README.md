@@ -7,3 +7,5 @@ I need to call with parameters
 
 We should use xml base configuration
 
+#### Injecting Prototype Beans
+https://www.baeldung.com/spring-inject-prototype-bean-into-singleton
