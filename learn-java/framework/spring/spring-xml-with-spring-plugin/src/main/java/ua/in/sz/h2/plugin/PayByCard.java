@@ -9,7 +9,7 @@ public class PayByCard implements PaymentPlugin {
 
     @Override
     public void pay(int paymentAmount) {
-        log.info("Paid by card, amount: " + paymentAmount);
+        log.info("Paid by card, amount: {}, {}", paymentAmount, this);
     }
 
     @Override
