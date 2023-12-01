@@ -1,7 +1,8 @@
-package ua.in.sz.h2;
+package ua.in.sz.h2.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.h2.ExecutionTimeResolver;
 
 import java.time.LocalDate;
 import java.time.Period;

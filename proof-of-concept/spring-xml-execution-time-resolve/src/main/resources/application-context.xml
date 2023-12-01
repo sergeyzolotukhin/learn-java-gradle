@@ -7,6 +7,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 ">
 
-    <bean id="defaultExecutionTimeResolver" class="ua.in.sz.h2.DefaultExecutionTimeResolver" scope="prototype"/>
+    <bean id="defaultExecutionTimeResolver" class="ua.in.sz.h2.impl.DefaultExecutionTimeResolver" scope="prototype"/>
+    <bean id="singleExecutionTimeResolver" class="ua.in.sz.h2.impl.SingleExecutionTimeResolver" scope="prototype"/>
 
 </beans>
