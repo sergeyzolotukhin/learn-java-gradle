@@ -16,7 +16,7 @@ public class Main {
         Optional<PaymentPlugin> paymentPlugin = paymentService.choosePaymentMethod(PaymentMethod.CARD);
         paymentPlugin.ifPresent(p -> p.pay(10));
 
-        Optional<PaymentPlugin> paymentPlugin2 = paymentService.choosePaymentMethod(PaymentMethod.CARD);
+        Optional<PaymentPlugin> paymentPlugin2 = paymentService.choosePaymentMethod(PaymentMethod.PAYPAL);
         paymentPlugin2.ifPresent(p -> p.pay(10));
 
         context.close();

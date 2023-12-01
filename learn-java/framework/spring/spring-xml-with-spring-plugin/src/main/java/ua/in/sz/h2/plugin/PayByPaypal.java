@@ -8,7 +8,7 @@ import ua.in.sz.h2.spi.PaymentPlugin;
 public class PayByPaypal implements PaymentPlugin {
     @Override
     public void pay(int paymentAmount) {
-        log.info("Paid by paypal, amount: " + paymentAmount);
+        log.info("Paid by paypal, amount: {}. {}", paymentAmount, this);
     }
 
     @Override

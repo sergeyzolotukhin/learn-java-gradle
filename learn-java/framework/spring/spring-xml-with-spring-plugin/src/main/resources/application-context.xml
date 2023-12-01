@@ -11,7 +11,7 @@
         <property name="pluginRegistry" ref="pluginRegistry" />
     </bean>
 
-    <bean id="payByCard" class="ua.in.sz.h2.plugin.PayByCard"/>
-    <bean id="payByPaypal" class="ua.in.sz.h2.plugin.PayByPaypal"/>
+    <bean class="ua.in.sz.h2.plugin.PayByCard"/>
+    <bean class="ua.in.sz.h2.plugin.PayByPaypal"/>
 
 </beans>
