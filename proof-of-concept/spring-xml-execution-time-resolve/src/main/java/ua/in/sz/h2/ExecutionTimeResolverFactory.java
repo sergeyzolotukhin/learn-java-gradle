@@ -17,21 +17,19 @@ public class ExecutionTimeResolverFactory {
 
     public Optional<ExecutionTimeResolver> create(Period step) {
         return executionTimeResolvers.orderedStream()
-                .peek(trace())
+                .peek(this::trace)
                 .peek(withStepIfNecessary(step))
                 .filter(this::isSupport)
                 .findFirst();
     }
 
-    private static Consumer<ExecutionTimeResolver> trace() {
-        return resolver -> log.info("Class: {}", resolver);
+    private void trace(ExecutionTimeResolver resolver) {
+        log.info("Class: {}", resolver);
     }
 
     private static Consumer<ExecutionTimeResolver> withStepIfNecessary(Period step) {
         return resolver -> {
-            if (resolver instanceof WithStep withStep) {
-                withStep.setStep(step);
-            }
+            if (resolver instanceof WithStep withStep) withStep.setStep(step);
         };
     }
 
