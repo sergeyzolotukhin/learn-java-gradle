@@ -14,7 +14,6 @@ public class Main {
 
         context.getBean(ExecutionTimeResolverFactory.class).create(step);
 
-
         context.close();
     }
 }
