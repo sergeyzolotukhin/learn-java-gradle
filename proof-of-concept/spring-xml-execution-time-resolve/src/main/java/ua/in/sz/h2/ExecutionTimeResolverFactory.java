@@ -1,13 +1,16 @@
 package ua.in.sz.h2;
 
+import com.google.common.collect.MoreCollectors;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
-import ua.in.sz.h2.ExecutionTimeResolver.WithConditional;
+import ua.in.sz.h2.ExecutionTimeResolver.WithCondition;
 import ua.in.sz.h2.ExecutionTimeResolver.WithStep;
+import ua.in.sz.h2.ExecutionTimeResolver.WithTimeUnit;
 
 import java.time.Period;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 @Slf4j
@@ -15,12 +18,13 @@ public class ExecutionTimeResolverFactory {
     @Setter
     private ObjectProvider<ExecutionTimeResolver> executionTimeResolvers;
 
-    public Optional<ExecutionTimeResolver> create(Period step) {
+    public Optional<ExecutionTimeResolver> create(Period step, TimeUnit timeUnit) {
         return executionTimeResolvers.orderedStream()
                 .peek(withStepIfNecessary(step))
-                .peek(this::trace)
+                .peek(withTimeUnitIfNecessary(timeUnit))
+                .peek(this::debug)
                 .filter(this::isSupport)
-                .findFirst();
+                .collect(MoreCollectors.toOptional());
     }
 
     private static Consumer<ExecutionTimeResolver> withStepIfNecessary(Period step) {
@@ -29,14 +33,20 @@ public class ExecutionTimeResolverFactory {
         };
     }
 
+    private static Consumer<ExecutionTimeResolver> withTimeUnitIfNecessary(TimeUnit timeUnit) {
+        return resolver -> {
+            if (resolver instanceof WithTimeUnit withTimeUnit) withTimeUnit.setTimeUnit(timeUnit);
+        };
+    }
+
     private boolean isSupport(ExecutionTimeResolver resolver) {
-        return !(resolver instanceof WithConditional conditional)
+        return !(resolver instanceof WithCondition conditional)
                 || conditional.isSupport();
     }
 
-    private void trace(ExecutionTimeResolver resolver) {
-        if (log.isTraceEnabled()) {
-            log.info("Class: {}", resolver);
+    private void debug(ExecutionTimeResolver resolver) {
+        if (log.isDebugEnabled()) {
+            log.debug("Class: {}", resolver);
         }
     }
 }

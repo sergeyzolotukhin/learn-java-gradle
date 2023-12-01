@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+    <logger name="ua.in.sz.h2.ExecutionTimeResolverFactory" level="debug" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

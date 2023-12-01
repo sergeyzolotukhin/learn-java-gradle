@@ -8,7 +8,7 @@
     <!--suppress SpringXmlAutowiringInspection, SpringXmlAutowireExplicitlyInspection -->
     <bean class="ua.in.sz.h2.ExecutionTimeResolverFactory" autowire="byType" />
 
-    <bean class="ua.in.sz.h2.impl.DefaultExecutionTimeResolver" scope="prototype"/>
+    <bean class="ua.in.sz.h2.impl.EachDaysExecutionTimeResolver" scope="prototype"/>
     <bean class="ua.in.sz.h2.impl.SingleExecutionTimeResolver" scope="prototype"/>
     <bean class="ua.in.sz.h2.impl.NowExecutionTimeResolver" scope="prototype"/>
 
