@@ -3,6 +3,7 @@ package ua.in.sz.h2;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
+import ua.in.sz.h2.ExecutionTimeResolver.WithConditional;
 
 import java.time.Period;
 import java.util.Optional;
@@ -30,10 +31,7 @@ public class ExecutionTimeResolverFactory {
     }
 
     private boolean isSupport(ExecutionTimeResolver s) {
-        if (s instanceof ExecutionTimeResolver.WithConditional w) {
-            return w.isSupport();
-        } else {
-            return true;
-        }
+        return !(s instanceof WithConditional w)
+                || w.isSupport();
     }
 }
