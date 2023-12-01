@@ -1,0 +1,14 @@
+plugins {
+    id 'ua.in.sz.java-spring-library'
+}
+
+group = 'ua.in.sz.h2'
+version = 'unspecified'
+
+dependencies {
+    implementation 'org.springframework.plugin:spring-plugin-core'
+//    implementation 'org.springframework.plugin:spring-plugin-metadata'
+
+    // runtime
+    runtimeOnly files('config')
+}
