@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Setter
-@Getter
-public class SingleExecutionTimeResolver implements ExecutionTimeResolver {
+public class SingleExecutionTimeResolver implements ExecutionTimeResolver, ExecutionTimeResolver.StepAware {
     private Period step;
+
+    @Override
+    public void withStep(Period step) {
+        this.step = step;
+    }
 
     @Override
     public List<LocalDate> resolve(Period period) {

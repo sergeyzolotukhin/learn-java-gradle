@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ExecutionTimeResolver {
     List<LocalDate> resolve(Period period);
+
+    interface StepAware {
+        void withStep(Period step);
+    }
 }
