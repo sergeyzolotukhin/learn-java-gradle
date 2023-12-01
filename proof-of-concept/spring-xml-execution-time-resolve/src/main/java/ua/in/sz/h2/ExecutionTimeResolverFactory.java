@@ -4,6 +4,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
 import ua.in.sz.h2.ExecutionTimeResolver.WithConditional;
+import ua.in.sz.h2.ExecutionTimeResolver.WithStep;
 
 import java.time.Period;
 import java.util.Optional;
@@ -16,22 +17,26 @@ public class ExecutionTimeResolverFactory {
 
     public Optional<ExecutionTimeResolver> create(Period step) {
         return executionTimeResolvers.orderedStream()
-                .peek(s -> log.info("Class: {}", s))
+                .peek(trace())
                 .peek(withStepIfNecessary(step))
                 .filter(this::isSupport)
                 .findFirst();
     }
 
+    private static Consumer<ExecutionTimeResolver> trace() {
+        return resolver -> log.info("Class: {}", resolver);
+    }
+
     private static Consumer<ExecutionTimeResolver> withStepIfNecessary(Period step) {
-        return s -> {
-            if (s instanceof ExecutionTimeResolver.WithStep w) {
-                w.setStep(step);
+        return resolver -> {
+            if (resolver instanceof WithStep withStep) {
+                withStep.setStep(step);
             }
         };
     }
 
-    private boolean isSupport(ExecutionTimeResolver s) {
-        return !(s instanceof WithConditional w)
-                || w.isSupport();
+    private boolean isSupport(ExecutionTimeResolver resolver) {
+        return !(resolver instanceof WithConditional conditional)
+                || conditional.isSupport();
     }
 }

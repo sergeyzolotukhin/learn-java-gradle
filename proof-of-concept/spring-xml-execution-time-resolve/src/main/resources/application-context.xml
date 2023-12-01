@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
 
-    <!--suppress SpringXmlAutowiringInspection -->
+    <!--suppress SpringXmlAutowiringInspection, SpringXmlAutowireExplicitlyInspection -->
     <bean class="ua.in.sz.h2.ExecutionTimeResolverFactory" autowire="byType" />
 
     <bean class="ua.in.sz.h2.impl.DefaultExecutionTimeResolver" scope="prototype"/>
