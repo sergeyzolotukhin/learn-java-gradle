@@ -4,12 +4,6 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
-
-    <bean id="pluginList" class="ua.in.sz.h2.support.BeanListFactoryBean">
-        <property name="type" value="ua.in.sz.h2.plugin.BussinessPlugin"/>
-    </bean>
-
-    <bean class="ua.in.sz.h2.BusinessService">
-        <property name="plugins" ref="pluginList" />
-    </bean>
+    <bean class="ua.in.sz.h2.plugin.DefaultBussinessPlugin" />
+    <bean class="ua.in.sz.h2.plugin.CustomBussinessPlugin" />
 </beans>
