@@ -1,9 +1,10 @@
 package ua.in.sz.h2.impl;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import ua.in.sz.h2.ExecutionTimeResolver;
+import ua.in.sz.h2.ExecutionTimeResolver.WithStep;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,13 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class DefaultExecutionTimeResolver implements ExecutionTimeResolver, ExecutionTimeResolver.StepAware {
+@Setter
+@Getter
+public class DefaultExecutionTimeResolver implements ExecutionTimeResolver, WithStep {
     private Period step;
-
-    @Override
-    public void withStep(Period step) {
-        this.step = step;
-    }
 
     @Override
     public List<LocalDate> resolve(Period period) {
