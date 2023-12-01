@@ -14,18 +14,19 @@ public class ExecutionTimeResolverFactory {
     public ExecutionTimeResolver create(Period step) {
 
         log.info("Autowire by type");
-        for (ExecutionTimeResolver s : executionTimeResolvers) {
-            log.info("Class: {}", s);
-            if (s instanceof ExecutionTimeResolver.StepAware w) {
-                w.withStep(step);
-            }
-            s.resolve(Period.ofMonths(1)).forEach(d -> log.info("Date: {}", d));
-        }
 
-        log.info("Second pass");
-        for (ExecutionTimeResolver e : executionTimeResolvers) {
-            log.info("Class: {}", e);
-        }
+        executionTimeResolvers.orderedStream()
+                .peek(s -> {
+                    log.info("Class: {}", s);
+                })
+                .peek(s -> {
+                    if (s instanceof ExecutionTimeResolver.StepAware w) {
+                        w.withStep(step);
+                    }
+                })
+                .forEach(s -> {
+                    s.resolve(Period.ofMonths(1)).forEach(d -> log.info("Date: {}", d));
+                });
 
         return null;
     }

@@ -1,20 +1,22 @@
 package ua.in.sz.h2.impl;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
 import ua.in.sz.h2.ExecutionTimeResolver;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
-public class SingleExecutionTimeResolver implements ExecutionTimeResolver, ExecutionTimeResolver.StepAware {
+public class SingleExecutionTimeResolver implements ExecutionTimeResolver, ExecutionTimeResolver.StepAware, Ordered {
     private Period step;
+
+    @Override
+    public int getOrder() {
+        return 0;
+    }
 
     @Override
     public void withStep(Period step) {

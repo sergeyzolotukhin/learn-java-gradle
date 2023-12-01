@@ -1,6 +1,8 @@
 package ua.in.sz.h2.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import ua.in.sz.h2.ExecutionTimeResolver;
 
 import java.time.LocalDate;
