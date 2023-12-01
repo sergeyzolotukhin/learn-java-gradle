@@ -8,3 +8,4 @@
 https://www.baeldung.com/spring-inject-prototype-bean-into-singleton
 
 https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-autowire.html
+https://github.com/spring-projects/spring-plugin

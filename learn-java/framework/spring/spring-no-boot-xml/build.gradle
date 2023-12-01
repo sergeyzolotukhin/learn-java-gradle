@@ -4,3 +4,8 @@ plugins {
 
 group = 'ua.in.sz.h2'
 version = 'unspecified'
+
+dependencies {
+    // runtime
+    runtimeOnly files('config')
+}
