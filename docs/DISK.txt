@@ -1,0 +1,122 @@
+https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins
+https://stackoverflow.com/questions/34502101/how-can-i-use-third-party-dependencies-in-custom-task-under-buildsrc-in-gradle
+
+=======================================================================================================================
+git init
+git remote add origin https://github.com/multiple-git-remotes/main.git
+git remote add origin-a https://github.com/multiple-git-remotes/module-a.git
+git remote add origin-b https://github.com/multiple-git-remotes/module-b.git
+
+git fetch origin
+git fetch origin-a
+git fetch origin-b
+
+git checkout --track origin/main
+git checkout -b main-a origin-a/main
+git checkout main
+git checkout main-a
+
+=======================================================================================================================
+git checkout --track origin/main
+git switch -
+git pull origin main
+git checkout -b main origin/main
+
+git checkout --track origin/serverfix
+
+jfrog artifactory
+=======================================================================================================================
+M2
+    1 500 GB - Disk 6 - C - M2 OS
+    2 500 GB - Disk 7 - D - M2 Work
+    3 500 GB - Disk 8 -
+SSD
+    1 256 GB - Disk 4
+    2 256 GB - Disk 5
+HDD
+    1 2 TB - Disk 0 - H - install , M - media
+    2 1 TB - Disk 1 - ?
+    3 1 TB - Disk 2 - G - HDD book
+    4 1 TB - Disk 3 - E - HDD download, F - HDD vm
+USB HDD
+    1 1 TB - orange
+    2 2 TB - a-data black
+=======================================================================================================================
+C: M2 1 os (backup) - 500 GB total - disk image via acronis, copy to USB HDD
+    operation system - 100 GB
+    software (installed) - 6 GB
+
+D: M2 2 programming (no backup) - 500 GB total
+    maven repository - 10 GB
+    java projects source code (build/target) - 1 GB -> github backup
+
+E: HDD download (no backup) - 500 GB
+    torrent - 10 GB
+    chrome download - 20 GB
+    game
+    others
+F: HDD vm (no backup) - 500 GB
+    virtual machines (running/created/halt) - 10 GB per images - vagrant recreate -> 200 GB
+    docker images
+    database data
+
+G: HDD book (backup) - 1 TB - sync with USB HDD
+    books - 100 GB used -> 500 GB
+
+H: HDD home (backup) - 1 TB - sync with USB HDD
+    photo (family)
+    home ( documentations / photo )
+    work ( luxoft / GE )
+
+I: HDD media (no backup) - 1 TB - download from internet
+    films - 150 GB used -> 1 TB
+    musics - 1 GB
+J: HDD install (no backup) - 1 TB - download from internet
+    software (install) - 200 GB
+    os images - 2 GB per iso
+=======================================================================================================================
+USB HDD orange - 1 TB
+    password/certificate - security
+    work backup (luxoft/GE)
+    home backup -> 15 GB
+    photo -> 100 MB
+    book backup -> 530 GB
+    film (movable to TV) -> 320 GB
+
+USB HDD black - 2 TB
+    photo - 15 GB
+    3d max - 38 GB
+    book - 30 GB
+    home 3d backup - 3 GB
+    java backup - 500 MB
+    films (movable) - 12 GB
+=======================================================================================================================
+=======================================================================================================================
+Bank
+=======================================================================================================================
+067 618 97 91 - Наталья - Заказ налички
+067 321 43 30
+
+067 615 42 84 - Инна - Согласования снятия
+=======================================================================================================================
+
+Logging in Action by Phil Wilkins
+Logging/Logging and Log Management_ The Authoritative Guide to Undeanagement - Anton Chuvakin & Kevin Schmidt & Chris Phillips.pdf
+O'Reilly Media.I Heart Logs.Jay Kreps.2014.pdf
+
+https://cloud.google.com/translate/docs/setup?csw=1#java
+=======================================================================================================================
+org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.processBeanDefinition
+
+org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseBeanDefinitionElement(org.w3c.dom.Element, org.springframework.beans.factory.config.BeanDefinition)
+
+UML:
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/
+
+org.gradle.logging.level=(quiet,warn,info,debug)
+org.gradle.logging.level=quiet
+When set to quiet, warn, info, or debug, Gradle will use this log level. The values are not case-sensitive.
+
+Default is lifecycle level.
+
+https://pedrorijo.com/blog/java-service-loader/
