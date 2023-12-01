@@ -84,9 +84,9 @@ include 'learn-java:library:lib-guice'
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
-include 'learn-java:framework:spring:spring-no-boot-xml'
+include 'learn-java:framework:spring:spring-xml-property'
 include 'learn-java:framework:spring:spring-xml-property-path'
-include 'learn-java:framework:spring:spring-no-boot-annotation'
+include 'learn-java:framework:spring:spring-annotation'
 include 'learn-java:framework:spring:spring-xml-plugable'
 
 // ====================================================================================================================
