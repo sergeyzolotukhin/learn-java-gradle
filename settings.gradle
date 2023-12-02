@@ -90,6 +90,7 @@ include 'learn-java:framework:spring:spring-xml-property-path'
 include 'learn-java:framework:spring:spring-annotation'
 include 'learn-java:framework:spring:spring-xml-plugable'
 include 'learn-java:framework:spring:spring-xml-with-spring-plugin'
+include 'learn-java:framework:spring:spring-xml-factory-bean'
 
 // ====================================================================================================================
 // spring boot
