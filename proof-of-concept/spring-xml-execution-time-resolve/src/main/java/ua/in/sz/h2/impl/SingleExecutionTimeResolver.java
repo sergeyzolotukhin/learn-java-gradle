@@ -6,8 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.h2.ExecutionTimeResolver;
 import ua.in.sz.h2.ExecutionTimeResolver.WithCondition;
 import ua.in.sz.h2.ExecutionTimeResolver.WithOrder;
-import ua.in.sz.h2.ExecutionTimeResolver.WithStep;
-import ua.in.sz.h2.ExecutionTimeResolver.WithTimeUnit;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -18,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Getter
 @Setter
-public class SingleExecutionTimeResolver implements ExecutionTimeResolver, WithStep, WithCondition, WithOrder, WithTimeUnit {
+public class SingleExecutionTimeResolver implements ExecutionTimeResolver, WithCondition, WithOrder {
     private Period step;
     private final int order = 0;
     private TimeUnit timeUnit;

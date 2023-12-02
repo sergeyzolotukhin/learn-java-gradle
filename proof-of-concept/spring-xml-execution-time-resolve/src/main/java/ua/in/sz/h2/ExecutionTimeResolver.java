@@ -8,15 +8,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public interface ExecutionTimeResolver {
+    String STEP = "step";
+    String TIME_UNIT = "timeUnit";
+
     List<LocalDate> resolve(Period period);
-
-    interface WithStep {
-        void setStep(Period step);
-    }
-
-    interface WithTimeUnit {
-        void setTimeUnit(TimeUnit timeUnit);
-    }
 
     interface WithCondition {
         boolean isSupport();

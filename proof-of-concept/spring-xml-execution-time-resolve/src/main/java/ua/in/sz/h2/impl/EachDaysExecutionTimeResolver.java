@@ -5,8 +5,6 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.h2.ExecutionTimeResolver;
 import ua.in.sz.h2.ExecutionTimeResolver.WithCondition;
-import ua.in.sz.h2.ExecutionTimeResolver.WithStep;
-import ua.in.sz.h2.ExecutionTimeResolver.WithTimeUnit;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -17,7 +15,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Setter
 @Getter
-public class EachDaysExecutionTimeResolver implements ExecutionTimeResolver, WithStep, WithTimeUnit, WithCondition {
+public class EachDaysExecutionTimeResolver implements ExecutionTimeResolver, WithCondition {
     private Period step;
     private TimeUnit timeUnit;
 
