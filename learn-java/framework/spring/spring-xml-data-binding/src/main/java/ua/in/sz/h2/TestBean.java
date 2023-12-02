@@ -7,4 +7,10 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 public class TestBean {
     private int anInt;
+    private SecondBean second;
+
+    @Data
+    public static class SecondBean {
+        private String name;
+    }
 }

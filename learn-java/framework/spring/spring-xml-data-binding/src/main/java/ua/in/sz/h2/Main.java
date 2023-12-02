@@ -9,7 +9,8 @@ import org.springframework.validation.DataBinder;
 public class Main {
     public static void main(String[] args) {
         MutablePropertyValues mpv = new MutablePropertyValues();
-        mpv.add(TestBean.FIELDS.AN_INT, "10");
+        mpv.add(TestBean.FIELDS.AN_INT, 10);
+        mpv.add(TestBean.FIELDS.SECOND, new TestBean.SecondBean());
 
         TestBean testBean = new TestBean();
         DataBinder db = new DataBinder(testBean, "testBean");
