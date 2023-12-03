@@ -18,3 +18,10 @@ org.gradle.logging.level=quiet
 
 Copy the gradle.properties into the following location:
 c:\Users\szolotukhin\.gradle
+
+#### Gradle slow start up
+
+https://stackoverflow.com/questions/71559269/why-does-gradle-initializing-sometimes-take-very-long
+
+org.gradle.logging.level=quiet
+org.gradle.vfs.watch=true
