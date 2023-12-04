@@ -151,7 +151,7 @@ public abstract class AbstractTypeAwareSupport<T>
 
         @NonNull
         @SuppressWarnings({"rawtypes", "unchecked"})
-        public synchronized Object getTarget() throws Exception {
+        public synchronized Object getTarget() {
 
             Collection<Object> components = this.components == null //
                     ? getBeansOfTypeExcept(type, exclusions) //
@@ -164,7 +164,7 @@ public abstract class AbstractTypeAwareSupport<T>
             return new ArrayList(components);
         }
 
-        public void releaseTarget(Object target) throws Exception {
+        public void releaseTarget(Object target) {
         }
 
         private Collection<Object> getBeansOfTypeExcept(Class<?> type, Collection<Class<?>> exceptions) {
