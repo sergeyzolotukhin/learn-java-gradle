@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+<!--    <logger name="ua.in.sz.swing" level="warn" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

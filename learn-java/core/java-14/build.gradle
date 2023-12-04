@@ -6,3 +6,8 @@ plugins {
 greeting {
     message = "Hi from an extension"
 }
+
+dependencies {
+    // runtime
+    runtimeOnly files('config')
+}
