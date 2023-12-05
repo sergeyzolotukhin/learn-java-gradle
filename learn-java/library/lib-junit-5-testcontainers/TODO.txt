@@ -1,2 +1,4 @@
 * Create dependency from spring-web-rest (gradle)
 * Run test via gradle
+
+https://java.testcontainers.org/features/creating_images/
