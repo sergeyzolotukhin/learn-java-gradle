@@ -20,6 +20,13 @@ public class ApplicationRecord {
                                 (sum, n) -> sum / n
                         ));
         log.info("Sum / n = {}", collect);
+
+        String text = """
+                {
+                    "name" : "serhij"
+                }
+                """;
+        log.info("Text: {}", text);
     }
 
     public record Person(String name, int age) {
