@@ -12,3 +12,4 @@ https://github.com/donhk/vbox-sdk-sample/tree/master
 https://github.com/alexec/maven-vbox-plugin
 
 https://github.com/grv87/gradle-packer-plugin
+https://www.virtualbox.org/sdkref/
