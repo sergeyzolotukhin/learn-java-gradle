@@ -6,16 +6,16 @@ import java.util.Arrays;
 
 @Slf4j
 public class MyBigInteger {
-    private static long bitsPerDigit[] = { 0, 0,
+    private static final long[] bitsPerDigit = { 0, 0,
             1024, 1624, 2048, 2378, 2648, 2875, 3072, 3247, 3402 /*10*/, 3543, 3672,
             3790, 3899, 4001, 4096, 4186, 4271, 4350, 4426, 4498, 4567, 4633,
             4696, 4756, 4814, 4870, 4923, 4975, 5025, 5074, 5120, 5166, 5210,
             5253, 5295};
-    private static int digitsPerInt[] = {0, 0,
+    private static final int[] digitsPerInt = {0, 0,
             30, 19, 15, 13, 11, 11, 10, 9, 9 /* 10 */, 8, 8,
             8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6,
             6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5};
-    private static int intRadix[] = {0, 0,
+    private static final int[] intRadix = {0, 0,
             0x40000000, 0x4546b3db, 0x40000000, 0x48c27395, 0x159fd800,
             0x75db9c97, 0x40000000, 0x17179149, 0x3b9aca00 /* 10 */, 0xcc6db61,
             0x19a10000, 0x309f1021, 0x57f6c100, 0xa2f1b6f,  0x10000000,
@@ -138,7 +138,7 @@ public class MyBigInteger {
         }
     }
 
-    private static int[] trustedStripLeadingZeroInts(int val[]) {
+    private static int[] trustedStripLeadingZeroInts(int[] val) {
         int vlen = val.length;
         int keep;
 
@@ -160,10 +160,9 @@ public class MyBigInteger {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("MyBigInteger{");
-        sb.append("signum=").append(signum);
-        sb.append(", mag=").append(Arrays.toString(mag));
-        sb.append('}');
-        return sb.toString();
+        String sb = "MyBigInteger{" + "signum=" + signum +
+                ", mag=" + Arrays.toString(mag) +
+                '}';
+        return sb;
     }
 }

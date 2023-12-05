@@ -49,7 +49,7 @@ public class MyExpressionVisitor extends ExpressionBaseVisitor<Integer> {
 
 	@Override
 	public Integer visitParens(ExpressionParser.ParensContext ctx) {
-		final Integer value = visit(ctx.expression());;
+		final Integer value = visit(ctx.expression());
 
 		log.trace("({}) => {}", ctx.expression().getText(), value);
 		return value;

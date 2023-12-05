@@ -7,7 +7,7 @@ import ua.in.sz.quartz.calendar.whole.BaseCalendarReference;
 
 @Slf4j
 public class TraceCalendar extends BaseCalendar implements BaseCalendarReference {
-    private String name;
+    private final String name;
     private String baseCalendarName;
 
     public TraceCalendar(String name) {

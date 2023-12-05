@@ -2,7 +2,6 @@ package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.MutablePropertyValues;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.validation.DataBinder;
 
 @Slf4j

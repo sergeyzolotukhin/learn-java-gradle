@@ -2,7 +2,6 @@ package ua.in.sz;
 
 import org.apache.commons.lang3.NotImplementedException;
 
-import java.math.BigInteger;
 import java.math.RoundingMode;
 
 public class MyBigDecimal {

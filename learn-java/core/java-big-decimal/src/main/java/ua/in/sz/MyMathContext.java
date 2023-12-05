@@ -1,8 +1,5 @@
 package ua.in.sz;
 
-import java.math.MathContext;
-import java.math.RoundingMode;
-
 public class MyMathContext {
     public static final MyMathContext UNLIMITED =
             new MyMathContext(0, MyRoundingMode.HALF_UP);

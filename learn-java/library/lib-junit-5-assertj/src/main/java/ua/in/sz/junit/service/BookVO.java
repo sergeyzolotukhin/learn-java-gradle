@@ -3,7 +3,6 @@ package ua.in.sz.junit.service;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldNameConstants;
 

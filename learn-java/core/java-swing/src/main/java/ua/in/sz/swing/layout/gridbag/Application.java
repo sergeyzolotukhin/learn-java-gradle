@@ -3,7 +3,6 @@ package ua.in.sz.swing.layout.gridbag;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * https://ipsoftware.ru/posts/gridbaglayout/

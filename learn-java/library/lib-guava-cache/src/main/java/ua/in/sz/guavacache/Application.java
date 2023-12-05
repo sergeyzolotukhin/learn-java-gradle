@@ -34,6 +34,6 @@ public class Application {
 
 		cache.invalidateAll();
 
-		log.info("Stats: {}, execution time: {}", cache.stats().toString(), sw);
+		log.info("Stats: {}, execution time: {}", cache.stats(), sw);
 	}
 }

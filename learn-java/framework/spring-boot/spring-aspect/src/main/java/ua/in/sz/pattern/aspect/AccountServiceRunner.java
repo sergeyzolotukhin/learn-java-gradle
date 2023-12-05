@@ -10,7 +10,7 @@ import ua.in.sz.pattern.aspect.service.AccountService;
 @Component
 public class AccountServiceRunner implements CommandLineRunner {
 
-	private AccountService accountService;
+	private final AccountService accountService;
 
 	@Autowired
 	public AccountServiceRunner(AccountService accountService) {
