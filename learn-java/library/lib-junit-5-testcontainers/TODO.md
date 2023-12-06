@@ -14,3 +14,6 @@ https://github.com/alexec/maven-vbox-plugin
 https://github.com/grv87/gradle-packer-plugin
 https://www.virtualbox.org/sdkref/
 https://www.virtualbox.org/wiki/Download_Old_Builds_7_0
+
+
+https://plugins.gradle.org/plugin/com.bmuschko.vagrant
