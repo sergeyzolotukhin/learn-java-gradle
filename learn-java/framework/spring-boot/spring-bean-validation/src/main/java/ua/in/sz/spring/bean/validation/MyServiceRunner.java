@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import ua.in.sz.spring.bean.validation.service.MyService;
 import ua.in.sz.spring.bean.validation.service.Rect;
 
-import javax.validation.ConstraintViolationException;
+import jakarta.validation.ConstraintViolationException;
 
 @Slf4j
 @Component
