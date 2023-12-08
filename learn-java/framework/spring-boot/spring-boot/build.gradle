@@ -6,4 +6,7 @@ plugins {
 dependencies {
     // spring
     implementation 'org.springframework.boot:spring-boot-starter'
+
+    // runtime
+    runtimeOnly files('config')
 }
