@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 @Configuration
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-    private Environment env;
+    private final Environment env;
 
     @Autowired
     public Application(Environment env) {
