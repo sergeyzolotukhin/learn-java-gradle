@@ -1,0 +1,1 @@
+https://spring.io/blog/2022/10/21/introducing-spring-modulith
