@@ -5,7 +5,6 @@ plugins {
 
 repositories{
     mavenLocal()
-    jcenter()
     mavenCentral()
     maven {
         url "http://nexus.saas.hand-china.com/content/repositories/rdc/"
