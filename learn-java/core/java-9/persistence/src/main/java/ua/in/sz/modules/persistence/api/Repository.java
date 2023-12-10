@@ -1,4 +1,4 @@
-package ua.in.sz.modules.persistence;
+package ua.in.sz.modules.persistence.api;
 
 import lombok.extern.slf4j.Slf4j;
 

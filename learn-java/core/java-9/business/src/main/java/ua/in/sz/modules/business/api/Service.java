@@ -1,7 +1,7 @@
-package ua.in.sz.modules.business;
+package ua.in.sz.modules.business.api;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.modules.persistence.Repository;
+import ua.in.sz.modules.persistence.api.Repository;
 
 @Slf4j
 public class Service {

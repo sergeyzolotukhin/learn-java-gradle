@@ -1,7 +1,7 @@
-package ua.in.sz.modules.presentation;
+package ua.in.sz.modules.presentation.api;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.modules.business.Service;
+import ua.in.sz.modules.business.api.Service;
 
 @Slf4j
 public class Controller {
