@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     // experimental
-    implementation 'net.sf.ehcache:ehcache:2.6.11'
+    implementation 'net.sf.ehcache:ehcache:2.10.9.2'
 }
