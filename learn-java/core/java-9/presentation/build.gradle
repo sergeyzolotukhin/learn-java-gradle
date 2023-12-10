@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     // runtime
-    runtimeOnly files('config')
+    runtimeOnly files('../config')
 }

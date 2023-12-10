@@ -13,7 +13,7 @@ include 'platform'
 // ====================================================================================================================
 // java core features
 // ====================================================================================================================
-include 'learn-java:core:java-9'
+include 'learn-java:core:java-9:presentation'
 include 'learn-java:core:java-14'
 include 'learn-java:core:java-15'
 include 'learn-java:core:java-bi-function'
