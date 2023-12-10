@@ -1,4 +1,6 @@
 module ua.in.sz.modules.persistence {
-    requires static lombok;
+    exports ua.in.sz.modules.persistence;
+
     requires org.slf4j;
+    requires static lombok;
 }

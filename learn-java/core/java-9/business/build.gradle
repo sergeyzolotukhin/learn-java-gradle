@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation project(":learn-java:core:java-9:persistence")
+
     // runtime
     runtimeOnly files('../config')
 }
