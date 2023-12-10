@@ -1,3 +1,3 @@
 ### What is new in the Jave 15 ?
 
-Records (JEP 384)
+https://docs.oracle.com/javase/9/docs/specs/jar/jar.html#Modular
