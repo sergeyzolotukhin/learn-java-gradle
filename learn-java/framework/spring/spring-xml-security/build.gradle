@@ -1,0 +1,10 @@
+plugins {
+    id 'ua.in.sz.java-spring-library'
+}
+
+version = 'unspecified'
+
+dependencies {
+    // runtime
+    runtimeOnly files('config')
+}
