@@ -1,0 +1,2 @@
+* Run docker container via gradle
+* Create dependency from vagrant task or not?
