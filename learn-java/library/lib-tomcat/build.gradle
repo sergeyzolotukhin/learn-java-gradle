@@ -2,16 +2,6 @@ plugins {
     id 'ua.in.sz.java-common-library'
 }
 
-configurations.all {
-    resolutionStrategy {
-        force "org.apache.tomcat.embed:tomcat-embed-core:10.1.16"
-        force "org.apache.tomcat.embed:tomcat-embed-jasper:10.1.16"
-        force "org.apache.tomcat:tomcat-jasper:10.1.16"
-        force "org.apache.tomcat:tomcat-jasper-el:10.1.16"
-        force "org.apache.tomcat:tomcat-jsp-api:10.1.16"
-    }
-}
-
 dependencies {
     // experimental
     implementation "org.apache.tomcat.embed:tomcat-embed-core:10.1.16"
@@ -19,4 +9,7 @@ dependencies {
     implementation "org.apache.tomcat:tomcat-jasper:10.1.16"
     implementation "org.apache.tomcat:tomcat-jasper-el:10.1.16"
     implementation "org.apache.tomcat:tomcat-jsp-api:10.1.16"
+
+    implementation 'org.apache.tomcat:tomcat-juli:10.1.16'
+    implementation 'org.slf4j:jul-to-slf4j:2.0.9'
 }
