@@ -10,6 +10,10 @@ dependencies {
     implementation "org.apache.tomcat:tomcat-jasper-el:10.1.16"
     implementation "org.apache.tomcat:tomcat-jsp-api:10.1.16"
 
+    // logging
     implementation 'org.apache.tomcat:tomcat-juli:10.1.16'
     implementation 'org.slf4j:jul-to-slf4j:2.0.9'
+
+    // runtime
+    runtimeOnly files('config')
 }

@@ -41,7 +41,7 @@ public class Main {
         };
 
         String servletName = "Servlet1";
-        String urlPattern = "/go";
+        String urlPattern = "/";
 
         tomcat.addServlet(contextPath, servletName, servlet);
         context.addServletMappingDecoded(urlPattern, servletName);
