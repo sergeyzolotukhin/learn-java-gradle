@@ -1,14 +1,13 @@
 package ua.in.sz.undertow;
 
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,6 +18,7 @@ public class Main {
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir(".tomcat");
         tomcat.setPort(8080);
+        tomcat.getConnector();
 
         String contextPath = "/";
         String docBase = new File(".").getAbsolutePath();
@@ -27,8 +27,7 @@ public class Main {
 
         HttpServlet servlet = new HttpServlet() {
             @Override
-            protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-                    throws ServletException, IOException {
+            protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
                 PrintWriter writer = resp.getWriter();
 
                 writer.println("<html><title>Welcome</title><body>");
