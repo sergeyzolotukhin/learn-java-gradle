@@ -1,47 +1,11 @@
 plugins {
-    id 'com.bmuschko.docker-remote-api' version '9.3.2'
-    id 'org.springframework.boot' version '3.1.2'
-    id 'java'
-}
-
-group 'ua.in.sz.spring-web'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_20
-    targetCompatibility = JavaVersion.VERSION_20
-}
-
-bootJar {
-    archiveFileName = 'application.jar'
-}
-
-docker {
-    url = 'tcp://192.168.56.2:2375'
-}
-
-// Import task types
-import com.bmuschko.gradle.docker.tasks.image.*
-
-// Use task types
-task buildDockerImage(type: DockerBuildImage) {
-    dependsOn assemble
-    inputDir = project.projectDir
-    images.add('szolotukhin/spring-boot-web-rest:latest')
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.1.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.6'
-    implementation 'org.codehaus.janino:janino:3.1.9'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    // runtime
+    runtimeOnly files('config')
 }
