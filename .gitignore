@@ -53,3 +53,7 @@ learn-java/library/lib-antlr/src/main/gen/
 
 #### Maven
 target/
+
+#### Tomcat
+.tomcat
+

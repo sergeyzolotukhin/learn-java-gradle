@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 public class Main {
     public static void main(String[] args) throws Exception {
         Tomcat tomcat = new Tomcat();
-        tomcat.setBaseDir("temp");
+        tomcat.setBaseDir(".tomcat");
         tomcat.setPort(8080);
 
         String contextPath = "/";
@@ -32,7 +32,7 @@ public class Main {
                 PrintWriter writer = resp.getWriter();
 
                 writer.println("<html><title>Welcome</title><body>");
-                writer.println("<h1>Have a Great Day!</h1>");
+                writer.println("<h1>Have a Great Day! Serhij</h1>");
                 writer.println("</body></html>");
             }
         };
