@@ -28,3 +28,10 @@ dependencies {
     // testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+task welcome {
+    doLast {
+        println 'Welcome in the Baeldung!' + sourceSets.main.output.classesDirs
+        sourceSets.main.output.each { println it }
+    }
+}
