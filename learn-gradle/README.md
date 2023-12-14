@@ -45,3 +45,9 @@ https://stackoverflow.com/questions/72852329/define-alias-for-gradle-task-with-c
 #### How to use gradle local store?
 https://stackoverflow.com/questions/10834111/where-does-gradle-store-downloaded-jars-on-the-local-file-system
 https://docs.gradle.org/current/userguide/directory_layout.html
+
+#### Configuration
+
+https://dev.to/autonomousapps/configuration-roles-and-the-blogging-industrial-complex-21mn
+https://docs.gradle.org/current/userguide/java_library_plugin.html#java_library_plugin
+https://docs.gradle.org/current/userguide/java_plugin.html
