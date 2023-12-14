@@ -1,0 +1,14 @@
+plugins {
+    id('java-library')
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform(project(':platform'))
+    annotationProcessor platform(project(':platform'))
+    testAnnotationProcessor platform(project(':platform'))
+}
