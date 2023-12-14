@@ -49,5 +49,7 @@ https://docs.gradle.org/current/userguide/directory_layout.html
 #### Configuration
 
 https://dev.to/autonomousapps/configuration-roles-and-the-blogging-industrial-complex-21mn
+https://github.com/autonomousapps/blog-configuration-roles/blob/main/build-logic/configuration-roles/src/main/kotlin/mutual/aid/ProducerTask.kt
+
 https://docs.gradle.org/current/userguide/java_library_plugin.html#java_library_plugin
 https://docs.gradle.org/current/userguide/java_plugin.html
