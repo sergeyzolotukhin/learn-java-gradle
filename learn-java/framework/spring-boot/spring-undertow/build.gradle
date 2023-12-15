@@ -18,6 +18,7 @@ repositories {
 }
 
 java {
+// https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_source_sets
     sourceCompatibility = JavaVersion.VERSION_20
     targetCompatibility = JavaVersion.VERSION_20
 }
