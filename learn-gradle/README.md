@@ -60,4 +60,5 @@ https://docs.gradle.org/current/userguide/java_library_plugin.html#java_library_
 https://docs.gradle.org/current/userguide/java_plugin.html
 
 https://plugins.gradle.org/docs/publish-plugin
+https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
 
