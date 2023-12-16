@@ -11,3 +11,23 @@ dependencies {
     // runtime
     runtimeOnly files('config')
 }
+
+task welcome {
+    doLast {
+        println "Size: " + project.files().size()
+
+        project.files().each {
+            println 'Welcome in the Baeldung!' + it
+        }
+    }
+}
+
+task someTask(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+//    classpath = configurations.runtimeClasspath
+    mainClass = 'ua.in.sz.swing.Application'
+//    args = ['something', 'somethingelse']
+//    jvmArgs = ['-Xmx12G', '-Xms1G']
+//    environment "LD_LIBRARY_PATH", "/usr/local/lib"
+//    systemProperties = [ "some.prop": "some.value", "some.other.prop": "some.other.value" ]
+}
