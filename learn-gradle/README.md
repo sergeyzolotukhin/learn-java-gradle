@@ -58,3 +58,6 @@ https://medium.com/agorapulse-stories/gradle-configurations-explained-4b9608dd5e
 
 https://docs.gradle.org/current/userguide/java_library_plugin.html#java_library_plugin
 https://docs.gradle.org/current/userguide/java_plugin.html
+
+https://plugins.gradle.org/docs/publish-plugin
+
