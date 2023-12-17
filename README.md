@@ -25,3 +25,8 @@ https://stackoverflow.com/questions/71559269/why-does-gradle-initializing-someti
 
 org.gradle.logging.level=quiet
 org.gradle.vfs.watch=true
+
+#### Github Markdown
+
+https://docs.github.com/ru/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+https://docs.github.com/ru/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
