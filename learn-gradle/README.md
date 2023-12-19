@@ -62,3 +62,21 @@ https://docs.gradle.org/current/userguide/java_plugin.html
 https://plugins.gradle.org/docs/publish-plugin
 https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
 
+### Gradle: Building a distribution from source !!!!
+To create a Gradle distribution from the source tree you can run either of the following:
+
+    ./gradlew :distributions-full:binDistributionZip
+
+This will create a minimal distribution at `subprojects/distributions-full/build/distributions/gradle-<version>-bin.zip`, just what's needed to run Gradle (i.e. no sources nor docs).
+
+You can then use it as a Gradle Wrapper local distribution in a Gradle based project by using a `file:/` URL pointing to the built distribution:
+
+    ./gradlew wrapper --gradle-distribution-url=file:/path/to/gradle-<version>-bin.zip
+
+To create a full distribution (includes sources and docs):
+
+    ./gradlew :distributions-full:allDistributionZip
+
+The full distribution will be created at `subprojects/distributions-full/build/distributions/gradle-<version>-all.zip`. You can then use it as a Gradle Wrapper local distribution:
+
+    ./gradlew wrapper --gradle-distribution-url=file:/path/to/gradle-<version>-all.zip
