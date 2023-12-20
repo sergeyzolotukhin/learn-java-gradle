@@ -9,7 +9,7 @@
     </appender>
 
     <logger name="ua.in.sz.spring.Application" level="WARN"/>
-    <logger name="ua.in.sz.spring.lib" level="WARN"/>
+    <logger name="ua.in.sz.spring.lib" level="INFO"/>
     <logger name="ua.in.sz.spring" level="INFO"/>
 
     <root level="WARN">
