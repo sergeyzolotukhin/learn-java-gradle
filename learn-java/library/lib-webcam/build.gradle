@@ -1,0 +1,36 @@
+plugins {
+    id 'ua.in.sz.java-library'
+}
+
+group 'ua.in.sz.pattern'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_20
+targetCompatibility = JavaVersion.VERSION_20
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // experimental
+    implementation 'com.github.sarxos:webcam-capture:0.3.12'
+
+    // common utils
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-lang3'
+
+    // development
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic'
+
+    // test
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.assertj:assertj-core'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
