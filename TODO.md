@@ -20,3 +20,5 @@ ConfigurableEnvironment
 
 https://blog.aspose.com/barcode/scan-qr-code-in-java/
 https://stackoverflow.com/questions/18863466/reading-qrcode-with-zxing-in-java
+https://www.callicoder.com/qr-code-reader-scanner-in-java-using-zxing/
+https://www.dynamsoft.com/codepool/java-barcode-command-line-gui-web.html
