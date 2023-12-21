@@ -14,3 +14,8 @@ ConfigurableEnvironment
     MutablePropertySources
         CompositePropertySource
             SimpleCommandLinePropertySource
+
+
+### QR code
+
+https://blog.aspose.com/barcode/scan-qr-code-in-java/
