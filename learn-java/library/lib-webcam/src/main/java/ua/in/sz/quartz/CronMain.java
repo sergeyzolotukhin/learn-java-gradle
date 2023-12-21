@@ -1,26 +1,24 @@
 package ua.in.sz.quartz;
 
 import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
+import com.github.sarxos.webcam.util.ImageUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 @Slf4j
 public class CronMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Webcam webcam = Webcam.getDefault();
         webcam.setViewSize(WebcamResolution.VGA.getSize());
+        webcam.open();
 
-        WebcamPanel panel = new WebcamPanel(webcam);
-        panel.setImageSizeDisplayed(true);
+        BufferedImage image = webcam.getImage();
 
-        JFrame window = new JFrame("Webcam");
-        window.add(panel);
-        window.setResizable(true);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.pack();
-        window.setVisible(true);
+        ImageIO.write(image, ImageUtils.FORMAT_JPG, new File("selfie.jpg"));
     }
 }
