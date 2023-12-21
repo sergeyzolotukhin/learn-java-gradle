@@ -19,3 +19,4 @@ ConfigurableEnvironment
 ### QR code
 
 https://blog.aspose.com/barcode/scan-qr-code-in-java/
+https://stackoverflow.com/questions/18863466/reading-qrcode-with-zxing-in-java
