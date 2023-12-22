@@ -7,6 +7,9 @@ pluginManagement {
         id 'org.springframework.boot' version '3.2.0'
     }
 }
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
+}
 
 include 'platform'
 
@@ -204,4 +207,5 @@ include 'proof-of-concept:spring-xml-execution-time-resolve'
 // ====================================================================================================================
 
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
+include 'core'
 
