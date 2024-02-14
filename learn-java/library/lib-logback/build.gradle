@@ -5,6 +5,7 @@ plugins {
 dependencies {
     // experimental
     implementation 'org.fusesource.jansi:jansi:2.4.0'
+    implementation 'org.codehaus.janino:janino:3.1.12'
 //    implementation project(':other')
 //    implementation 'ua.in.sz.pattern:other:1.0-SNAPSHOT'
 
