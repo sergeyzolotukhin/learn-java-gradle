@@ -45,4 +45,21 @@ class HelloWorldControllerTest {
             assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
         }
     }
+
+    @Test
+    @SneakyThrows
+    void findByPublishedAccessDenied() {
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+            HttpUriRequest request = RequestBuilder.get()
+                    .setUri("http://localhost:8080/hello")
+                    .setHeader(HttpHeaders.ACCEPT, "application/json")
+                    .build();
+
+            HttpResponse httpResponse = client.execute(request);
+            assertEquals(401, httpResponse.getStatusLine().getStatusCode());
+
+            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            assertEquals("", result);
+        }
+    }
 }
