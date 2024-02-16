@@ -1,6 +1,7 @@
 package ua.in.sz.spring;
 
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +12,8 @@ import java.util.List;
 @RestController
 public class HelloWorldController {
     @GetMapping("/hello")
-    public List<String> findByPublished() {
-        log.info("A get request has received");
+    public List<String> findByPublished(HttpSession session) {
+        log.info("A get request has received: [{}]", session.getId());
         return List.of("Hello", "Serhij", "Zolotukhin");
     }
 }
