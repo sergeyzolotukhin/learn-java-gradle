@@ -13,6 +13,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Base64;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -33,6 +35,7 @@ class HelloWorldControllerTest {
             HttpUriRequest request = RequestBuilder.get()
                     .setUri("http://localhost:8080/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
+                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
 
             HttpResponse httpResponse = client.execute(request);
