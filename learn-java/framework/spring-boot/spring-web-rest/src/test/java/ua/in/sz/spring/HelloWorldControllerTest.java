@@ -1,0 +1,45 @@
+package ua.in.sz.spring;
+
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.http.HttpHeaders;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@Slf4j
+class HelloWorldControllerTest {
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
+
+    @Test
+    @SneakyThrows
+    void findByPublished() {
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+            HttpUriRequest request = RequestBuilder.get()
+                    .setUri("http://localhost:8080/hello")
+                    .setHeader(HttpHeaders.ACCEPT, "application/json")
+                    .build();
+
+            HttpResponse httpResponse = client.execute(request);
+            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+
+            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+        }
+    }
+}

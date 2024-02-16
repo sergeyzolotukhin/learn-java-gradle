@@ -6,6 +6,9 @@ plugins {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // tests
+    testImplementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
     // runtime
     runtimeOnly files('config')
 }
