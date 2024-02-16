@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -37,6 +38,22 @@ class HelloWorldControllerTest {
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
+
+            HttpResponse httpResponse = client.execute(request);
+            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+
+            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+        }
+    }
+
+    @Test
+    @SneakyThrows
+    void findByPublishedHttpGet() {
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+            HttpGet request = new HttpGet("http://localhost:8080/hello");
+            request.addHeader(HttpHeaders.ACCEPT, "application/json");
+            request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
             HttpResponse httpResponse = client.execute(request);
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
