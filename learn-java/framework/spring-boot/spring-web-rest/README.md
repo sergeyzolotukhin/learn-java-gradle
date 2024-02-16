@@ -21,6 +21,7 @@ https://www.baeldung.com/integration-testing-a-rest-api
 
 REST Assured
 https://rest-assured.io/
+https://github.com/rest-assured/rest-assured/wiki/Usage
 
 OkHttp
 https://square.github.io/okhttp/
