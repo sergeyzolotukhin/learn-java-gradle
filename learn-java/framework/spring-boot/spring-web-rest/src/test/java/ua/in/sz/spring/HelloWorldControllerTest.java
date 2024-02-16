@@ -2,14 +2,11 @@ package ua.in.sz.spring;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
@@ -17,10 +14,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Base64;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 class HelloWorldControllerTest {
@@ -87,10 +83,7 @@ class HelloWorldControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedSession() {
-//        CookieStore cookieStore = new BasicCookieStore();
-        try (CloseableHttpClient client = HttpClientBuilder.create()
-//                .setDefaultCookieStore(cookieStore)
-                .build()){
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
             HttpUriRequest request1 = RequestBuilder.get()
                     .setUri("http://localhost:8080/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
@@ -100,20 +93,10 @@ class HelloWorldControllerTest {
             HttpResponse httpResponse1 = client.execute(request1);
             assertEquals(200, httpResponse1.getStatusLine().getStatusCode());
 
-//            cookieStore.getCookies().stream().forEach(c -> log.info("Cooke: {}", c));
-
-//            Header header = httpResponse1.getFirstHeader("Set-Cookie");
-//            log.info("Header: {}", header);
-
-//            Arrays.asList(httpResponse1.getAllHeaders()).stream()
-//                    .forEach(h -> log.info("{}", h));
-
 
             HttpUriRequest request2 = RequestBuilder.get()
                     .setUri("http://localhost:8080/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
-//                    .addHeader("JSESSIONID", header.getValue())
-                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
             HttpResponse httpResponse2 = client.execute(request2);
             assertEquals(200, httpResponse2.getStatusLine().getStatusCode());
