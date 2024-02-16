@@ -3,12 +3,19 @@ package ua.in.sz.spring;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,6 +63,30 @@ class HelloWorldControllerTest {
             request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
             HttpResponse httpResponse = client.execute(request);
+            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+
+            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+        }
+    }
+
+    @Test
+    @SneakyThrows
+    void findByPublishedHttpGet_CredentialsProvider() {
+        HttpHost targetHost = HttpHost.create("http://localhost:8080");
+        BasicCredentialsProvider provider = new BasicCredentialsProvider();
+        AuthScope authScope = new AuthScope(targetHost);
+        provider.setCredentials(authScope, new UsernamePasswordCredentials("admin", "admin"));
+
+        try (CloseableHttpClient client = HttpClientBuilder.create()
+                .setDefaultCredentialsProvider(provider)
+                .build()
+        ){
+            HttpGet request = new HttpGet("http://localhost:8080/hello");
+            request.addHeader(HttpHeaders.ACCEPT, "application/json");
+
+            HttpContext context = new BasicHttpContext();
+            HttpResponse httpResponse = client.execute(request, context);
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
 
             String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
