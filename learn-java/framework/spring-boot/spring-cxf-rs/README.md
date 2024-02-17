@@ -21,7 +21,7 @@ https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-wit
 #### Questions
 
 * Add auth via bean post processor
-* Add auth via xml (providers)
+* Add auth via xml (providers or conduit)
   https://cxf.apache.org/docs/jax-ws-configuration.html
 
 ####
