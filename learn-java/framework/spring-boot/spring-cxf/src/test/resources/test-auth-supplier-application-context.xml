@@ -18,9 +18,7 @@
 
     <bean id="authMy" class="ua.in.sz.pattern.spring.camel.MyBasicAuthSupplier" />
 
-<!--   {http://camel.spring.pattern.sz.in.ua/}WebServiceService.http-conduit  -->
     <http-conf:conduit name="*.http-conduit"
-                       xmlns:sec="http://cxf.apache.org/configuration/security"
                        xmlns="http://cxf.apache.org/transports/http/configuration">
         <http-conf:authSupplier bean="authMy"/>
     </http-conf:conduit>
