@@ -28,7 +28,10 @@ https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-wit
 #### Questions
 
 * How to integrate Auth into JUnit test ?
-* Junit extension -> Autowire 
-* Junit extension -> read annotation 
+  * Junit extension -> Autowire 
+  * Junit extension -> read annotation 
+  * HttpClient without spring + custom auth
+  * WS client without spring + custom auth 
+  * WS client with spring + custom auth
 
 ####
