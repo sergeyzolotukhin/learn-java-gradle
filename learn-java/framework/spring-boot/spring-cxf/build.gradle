@@ -7,6 +7,11 @@ dependencies {
     //noinspection VulnerableLibrariesLocal
     implementation 'org.apache.cxf:cxf-spring-boot-starter-jaxws'
 
+    // testing
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+//    testImplementation 'org.apache.httpcomponents:httpclient'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     // runtime
     runtimeOnly files('config')
 }
