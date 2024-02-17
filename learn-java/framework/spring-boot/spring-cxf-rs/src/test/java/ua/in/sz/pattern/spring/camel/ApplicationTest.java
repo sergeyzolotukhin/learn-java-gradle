@@ -31,7 +31,9 @@ class ApplicationTest {
     @Test
     void endpoint_2() {
         String result = ClientBuilder.newClient()
-                .target("http://localhost:8080/ws/api/hello/message")
+                .target("http://localhost:8080/ws/api/hello")
+                .path("{message}")
+                .resolveTemplate("message", "My Message")
                 .request(MediaType.TEXT_PLAIN)
                 .header("Authorization", "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                 .get(String.class);
