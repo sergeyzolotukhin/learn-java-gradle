@@ -1,0 +1,15 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.apache.cxf:cxf-spring-boot-starter-jaxrs'
+
+    // testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // runtime
+    runtimeOnly files('config')
+}
