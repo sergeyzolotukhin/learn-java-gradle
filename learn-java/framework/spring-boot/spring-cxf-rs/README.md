@@ -18,6 +18,12 @@ https://stackoverflow.com/questions/55511943/apache-cxf-authentication-spring-se
 
 https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-within-web-container
 
+#### Questions
+
+* Add auth via bean post processor
+* Add auth via xml (providers)
+  https://cxf.apache.org/docs/jax-ws-configuration.html
+
 ####
 
 client.getClass().getInterfaces()
@@ -27,3 +33,9 @@ client.getClass().getInterfaces()
     interface java.io.Closeable
 
     interface ua.in.sz.pattern.spring.camel.WebRsService
+
+interface org.apache.cxf.endpoint.Client"
+interface jakarta.xml.ws.BindingProvider"
+interface java.io.Closeable"
+
+interface ua.in.sz.pattern.spring.camel.WebService"
