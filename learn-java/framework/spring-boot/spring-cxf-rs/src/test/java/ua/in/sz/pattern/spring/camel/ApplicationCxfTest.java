@@ -1,7 +1,5 @@
 package ua.in.sz.pattern.spring.camel;
 
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.core.MediaType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cxf.jaxrs.client.Client;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
@@ -11,11 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Base64;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-class ApplicationTest {
+class ApplicationCxfTest {
 
     @Test
     void endpoint() {
@@ -26,20 +24,5 @@ class ApplicationTest {
         String result = proxy.sayHi("Serhij Zolotukhin");
         log.info("RESULT: {}", result);
         assertEquals("Hello Serhij Zolotukhin", result);
-    }
-
-    @Test
-    void endpoint_2() {
-        try (jakarta.ws.rs.client.Client client = ClientBuilder.newClient()) {
-            String result = client
-                    .target("http://localhost:8080/ws/api/hello")
-                    .path("{message}")
-                    .resolveTemplate("message", "My Message")
-                    .request(MediaType.TEXT_PLAIN)
-                    .header("Authorization", "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
-                    .get(String.class);
-
-            log.info("RESULT: {}", result);
-        }
     }
 }
