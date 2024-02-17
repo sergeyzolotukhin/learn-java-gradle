@@ -28,6 +28,13 @@ public class Application  {
 	}
 
 	@Bean
+	public Endpoint secondEndpoint() {
+		EndpointImpl endpoint = new EndpointImpl(bus, new SecondWebServiceImpl());
+		endpoint.publish("/second/Hello");
+		return endpoint;
+	}
+
+	@Bean
 	public ServletRegistrationBean<CXFServlet> cxfServlet() {
 		CXFServlet cxfServlet = new CXFServlet();
 		ServletRegistrationBean<CXFServlet> servletDef = new ServletRegistrationBean<>(cxfServlet, "/ws/*");
