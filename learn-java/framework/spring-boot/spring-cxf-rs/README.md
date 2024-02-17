@@ -18,43 +18,13 @@ https://stackoverflow.com/questions/55511943/apache-cxf-authentication-spring-se
 
 https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-within-web-container
 
-#### Questions
+#### How to add custom auth supplier into the CXF
 
-* Add auth via bean post processor
-* Add auth via xml (providers or conduit)
+* Add auth via xml (providers or conduit) DONE
   https://cxf.apache.org/docs/jax-ws-configuration.html
   https://learningviacode.blogspot.com/2013/07/conduits-in-cxf.html
   https://cxf.apache.org/docs/client-http-transport-including-ssl-support.html
 
-
-
-####
-
-client.getClass().getInterfaces()
-
-    interface org.apache.cxf.jaxrs.client.Client
-    interface org.apache.cxf.jaxrs.client.InvocationHandlerAware
-    interface java.io.Closeable
-
-    interface ua.in.sz.pattern.spring.camel.WebRsService
-
-interface org.apache.cxf.endpoint.Client"
-interface jakarta.xml.ws.BindingProvider"
-interface java.io.Closeable"
-
-interface ua.in.sz.pattern.spring.camel.WebService"
+#### Questions
 
 ####
-
-                <xs:element ref="http-conf:authSupplier" 
-                			minOccurs="0" maxOccurs="1">
-                   <xs:annotation>
-                     <xs:documentation>
-                       Holds the bean reference or class name
-                       of an object that supplies Auth information
-                       both preemptively and in response to a 401 HTTP
-                       Challenge. This class must extend the abstract class 
-                       org.apache.cxf.transport.http.HttpBasicAuthSupplier.
-                     </xs:documentation>
-                   </xs:annotation>
-                </xs:element>
