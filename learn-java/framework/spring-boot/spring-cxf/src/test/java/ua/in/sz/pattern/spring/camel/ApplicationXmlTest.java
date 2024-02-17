@@ -1,20 +1,11 @@
 package ua.in.sz.pattern.spring.camel;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.cxf.configuration.security.AuthorizationPolicy;
-import org.apache.cxf.endpoint.Client;
-import org.apache.cxf.frontend.ClientProxy;
-import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.apache.cxf.transport.http.HTTPConduit;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import javax.xml.namespace.QName;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,22 +21,9 @@ class ApplicationXmlTest {
 
     @Test
     void endpoint() {
-        AuthorizationPolicy authorizationPolicy = new AuthorizationPolicy();
-        authorizationPolicy.setUserName("admin");
-        authorizationPolicy.setPassword("admin");
-        authorizationPolicy.setAuthorizationType("Basic");
-
-        Client client = ClientProxy.getClient(testClient);
-        HTTPConduit conduit = (HTTPConduit)client.getConduit();
-        conduit.setAuthorization(authorizationPolicy);
-
         String result = testClient.sayHi("General Kenobi");
         log.info("soap response: [{}]", result);
         assertEquals("Hello General Kenobi", result);
-
-        Client client2 = ClientProxy.getClient(testSecondClient);
-        HTTPConduit conduit2 = (HTTPConduit)client2.getConduit();
-        conduit2.setAuthorization(authorizationPolicy);
 
         String result2 = testSecondClient.sayHi("General Kenobi");
         log.info("soap response: [{}]", result2);
