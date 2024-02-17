@@ -27,4 +27,6 @@ https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-wit
 
 #### Questions
 
+* How to integrate into JUnit  test
+
 ####
