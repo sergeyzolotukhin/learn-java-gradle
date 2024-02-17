@@ -19,6 +19,21 @@ import java.util.Base64;
 class ApplicationJaxRsTest {
 
     @Test
+    void endpoint_1() {
+        try (jakarta.ws.rs.client.Client client = ClientBuilder.newClient()) {
+            String result = client
+                    .target("http://localhost:8080/ws/api/hello")
+                    .path("{message}")
+                    .resolveTemplate("message", "My Message")
+                    .request(MediaType.TEXT_PLAIN)
+                    .header("Authorization", "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
+                    .get(String.class);
+
+            log.info("RESULT: {}", result);
+        }
+    }
+
+    @Test
     void endpoint_2() {
         try (jakarta.ws.rs.client.Client client = ClientBuilder.newClient()) {
             String result = client
@@ -27,7 +42,6 @@ class ApplicationJaxRsTest {
                     .path("{message}")
                     .resolveTemplate("message", "My Message")
                     .request(MediaType.TEXT_PLAIN)
-//                    .header("Authorization", "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .get(String.class);
 
             log.info("RESULT: {}", result);
