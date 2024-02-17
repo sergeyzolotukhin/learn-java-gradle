@@ -9,4 +9,8 @@
     <jaxws:client id="testClient"
                   serviceClass="ua.in.sz.pattern.spring.camel.WebService"
                   address="http://localhost:8080/ws/Hello"/>
+
+    <jaxws:client id="testSecondClient"
+                  serviceClass="ua.in.sz.pattern.spring.camel.SecondWebService"
+                  address="http://localhost:8080/ws/second/Hello"/>
 </beans>

@@ -8,6 +8,6 @@ public class SecondWebServiceImpl implements SecondWebService {
 	public String sayHi(String text) {
 		log.info("sayHi called");
 
-		return "Hello " + text;
+		return "Hello second: " + text;
 	}
 }

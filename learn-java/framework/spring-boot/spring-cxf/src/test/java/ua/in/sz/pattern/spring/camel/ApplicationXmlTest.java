@@ -21,11 +21,17 @@ class ApplicationXmlTest {
 
     @Autowired
     private WebService testClient;
+    @Autowired
+    private SecondWebService testSecondClient;
 
     @Test
     void endpoint() {
         String result = testClient.sayHi("General Kenobi");
         log.info("soap response: [{}]", result);
         assertEquals("Hello General Kenobi", result);
+
+        String result2 = testSecondClient.sayHi("General Kenobi");
+        log.info("soap response: [{}]", result2);
+        assertEquals("Hello second: General Kenobi", result2);
     }
 }
