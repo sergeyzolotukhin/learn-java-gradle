@@ -15,3 +15,13 @@ https://medium.com/turkcell/consuming-soap-service-with-apache-cxf-and-spring-5d
 
 ### jaxrs + security
 https://stackoverflow.com/questions/55511943/apache-cxf-authentication-spring-security
+
+####
+
+client.getClass().getInterfaces()
+
+    interface org.apache.cxf.jaxrs.client.Client
+    interface org.apache.cxf.jaxrs.client.InvocationHandlerAware
+    interface java.io.Closeable
+
+    interface ua.in.sz.pattern.spring.camel.WebRsService
