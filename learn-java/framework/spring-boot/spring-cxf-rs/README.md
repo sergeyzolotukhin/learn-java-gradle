@@ -43,3 +43,18 @@ interface jakarta.xml.ws.BindingProvider"
 interface java.io.Closeable"
 
 interface ua.in.sz.pattern.spring.camel.WebService"
+
+####
+
+                <xs:element ref="http-conf:authSupplier" 
+                			minOccurs="0" maxOccurs="1">
+                   <xs:annotation>
+                     <xs:documentation>
+                       Holds the bean reference or class name
+                       of an object that supplies Auth information
+                       both preemptively and in response to a 401 HTTP
+                       Challenge. This class must extend the abstract class 
+                       org.apache.cxf.transport.http.HttpBasicAuthSupplier.
+                     </xs:documentation>
+                   </xs:annotation>
+                </xs:element>
