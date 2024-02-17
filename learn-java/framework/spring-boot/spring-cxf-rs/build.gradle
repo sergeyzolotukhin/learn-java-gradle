@@ -4,8 +4,9 @@ plugins {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.apache.cxf:cxf-spring-boot-starter-jaxrs'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     // testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

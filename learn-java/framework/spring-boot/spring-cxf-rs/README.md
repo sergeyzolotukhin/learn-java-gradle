@@ -12,3 +12,6 @@ https://medium.com/callibrity/jax-rs-integration-testing-with-apache-cxf-7248c90
 
 ### jaxws
 https://medium.com/turkcell/consuming-soap-service-with-apache-cxf-and-spring-5dce25a553
+
+### jaxrs + security
+https://stackoverflow.com/questions/55511943/apache-cxf-authentication-spring-security
