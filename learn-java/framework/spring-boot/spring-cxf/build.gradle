@@ -6,8 +6,6 @@ plugins {
 dependencies {
     //noinspection VulnerableLibrariesLocal
     implementation 'org.apache.cxf:cxf-spring-boot-starter-jaxws'
-//    implementation 'javax.xml.ws:jaxws-api:2.3.1'
-//    implementation 'javax.jws:javax.jws-api:1.1'
 
     // runtime
     runtimeOnly files('config')

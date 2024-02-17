@@ -9,3 +9,6 @@ https://cxf.apache.org/docs/servlet-transport.html#ServletTransport-Usingtheserv
 ### 
 
 https://medium.com/callibrity/jax-rs-integration-testing-with-apache-cxf-7248c90274ee
+
+### jaxws
+https://medium.com/turkcell/consuming-soap-service-with-apache-cxf-and-spring-5dce25a553
