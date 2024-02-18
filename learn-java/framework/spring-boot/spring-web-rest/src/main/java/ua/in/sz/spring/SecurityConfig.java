@@ -1,5 +1,6 @@
 package ua.in.sz.spring;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -17,6 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -28,6 +30,13 @@ public class SecurityConfig {
         http.csrf(csrf -> {
                     csrf.disable();
                 })
+//                .securityMatcher(new RequestMatcher() {
+//                    @Override
+//                    public boolean matches(HttpServletRequest request) {
+//                        new IllegalStateException().printStackTrace();
+//                        return true;
+//                    }
+//                })
                 .securityMatcher("/api/external/**")
                 .authorizeHttpRequests(authorize -> {
                     authorize.anyRequest().authenticated();
@@ -47,7 +56,15 @@ public class SecurityConfig {
         http.csrf(csrf -> {
                     csrf.disable();
                 })
+//                .securityMatcher(new RequestMatcher() {
+//                    @Override
+//                    public boolean matches(HttpServletRequest request) {
+//                        new IllegalStateException().printStackTrace();
+//                        return true;
+//                    }
+//                })
                 .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers("/error").permitAll();
                     authorize.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults());
