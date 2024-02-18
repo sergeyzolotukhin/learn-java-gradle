@@ -119,7 +119,7 @@ include 'learn-java:framework:spring-boot:spring-cache'
 include 'learn-java:framework:spring-boot:spring-property'
 include 'learn-java:framework:spring-boot:spring-web-rest'
 include 'learn-java:framework:spring-boot:spring-security'
-include 'learn-java:framework:spring-boot:spring-cxf'
+include 'learn-java:framework:spring-boot:spring-cxf-ws'
 include 'learn-java:framework:spring-boot:spring-cxf-rs'
 
 //include 'learn-java:framework:spring-boot:spring-shell'
