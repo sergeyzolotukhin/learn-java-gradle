@@ -13,6 +13,12 @@ https://dzone.com/articles/7-awesome-libraries-for-java-unit-amp-integration
 https://medium.com/javarevisited/10-test-automation-libraries-for-java-developers-e40cb61dcd49
 https://medium.com/javarevisited/6-best-rest-api-tools-for-testing-design-and-development-1c5f69ed1f22
 
+### Login via Angular
+https://spring.io/guides/tutorials/spring-security-and-angular-js
+
+### Default Spring login form
+https://howtodoinjava.com/spring-security/login-form-example/
+
 ### library
 
 Apache HTTPClient:
