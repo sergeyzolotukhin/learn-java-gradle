@@ -29,7 +29,11 @@ https://www.ibm.com/docs/en/was-zos/9.0.5?topic=applications-securing-jax-rs-wit
 
 * How to integrate Auth into JUnit test ?
   * Junit extension -> Autowire 
-  * Junit extension -> read annotation 
+  * Junit extension -> read annotation
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
+https://github.com/junit-team/junit5/blob/r5.10.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TempDirectory.java
+  * 
+  
   * HttpClient without spring + custom auth
   * WS client without spring + custom auth 
   * WS client with spring + custom auth
