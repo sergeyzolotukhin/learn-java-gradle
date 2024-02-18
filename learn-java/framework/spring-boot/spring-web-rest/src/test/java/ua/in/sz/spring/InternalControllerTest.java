@@ -79,7 +79,7 @@ class InternalControllerTest {
 
         try (CloseableHttpClient client = HttpClientBuilder.create()
                 .setDefaultCredentialsProvider(provider)
-                .addInterceptorFirst(new PreemptiveAuthInterceptor())
+//                .addInterceptorFirst(new PreemptiveAuthInterceptor())
                 .addInterceptorLast(new LoggingRequestInterceptor())
                 .addInterceptorFirst(new LoggingResponseInterceptor())
                 .build()

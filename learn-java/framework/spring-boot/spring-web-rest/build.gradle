@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.slf4j:jcl-over-slf4j:2.0.12'
 
     // tests
     testImplementation 'org.apache.httpcomponents:httpclient:4.5.13'

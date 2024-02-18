@@ -32,28 +32,29 @@ public class SecurityConfig {
                     authorize.anyRequest().authenticated();
                 })
                 .httpBasic(withDefaults())
-                .exceptionHandling(exception -> exception.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)));
+//                .exceptionHandling(exception -> exception.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
+        ;
 
         http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
 
         return http.build();
     }
 
-    @Bean
-    @Order(2)
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> {
-                    csrf.disable();
-                })
-                .authorizeHttpRequests(authorize -> {
-                    authorize.anyRequest().authenticated();
-                })
-                .formLogin(withDefaults());
-
-        http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
-
-        return http.build();
-    }
+//    @Bean
+//    @Order(2)
+//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.csrf(csrf -> {
+//                    csrf.disable();
+//                })
+//                .authorizeHttpRequests(authorize -> {
+//                    authorize.anyRequest().authenticated();
+//                })
+//                .formLogin(withDefaults());
+//
+//        http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
+//
+//        return http.build();
+//    }
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
