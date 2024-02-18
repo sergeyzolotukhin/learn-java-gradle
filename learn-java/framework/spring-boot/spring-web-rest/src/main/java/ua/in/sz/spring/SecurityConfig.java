@@ -42,7 +42,6 @@ public class SecurityConfig {
                     csrf.disable();
                 })
                 .authorizeHttpRequests(authorize -> {
-                    authorize.requestMatchers("/error").permitAll();
                     authorize.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults());
