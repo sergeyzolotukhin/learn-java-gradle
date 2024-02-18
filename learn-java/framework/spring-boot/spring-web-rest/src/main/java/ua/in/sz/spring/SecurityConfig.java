@@ -15,6 +15,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -32,7 +33,7 @@ public class SecurityConfig {
                     authorize.anyRequest().authenticated();
                 })
                 .httpBasic(withDefaults())
-//                .exceptionHandling(exception -> exception.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
+                .exceptionHandling(exception -> exception.authenticationEntryPoint(new BasicAuthenticationEntryPoint()))
         ;
 
         http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
@@ -40,21 +41,21 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    @Order(2)
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.csrf(csrf -> {
-//                    csrf.disable();
-//                })
-//                .authorizeHttpRequests(authorize -> {
-//                    authorize.anyRequest().authenticated();
-//                })
-//                .formLogin(withDefaults());
-//
-//        http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
-//
-//        return http.build();
-//    }
+    @Bean
+    @Order(2)
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> {
+                    csrf.disable();
+                })
+                .authorizeHttpRequests(authorize -> {
+                    authorize.anyRequest().authenticated();
+                })
+                .formLogin(withDefaults());
+
+        http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
+
+        return http.build();
+    }
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
