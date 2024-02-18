@@ -75,10 +75,13 @@ class InternalControllerTest {
         HttpHost targetHost = HttpHost.create("http://localhost:8080");
         BasicCredentialsProvider provider = new BasicCredentialsProvider();
         AuthScope authScope = new AuthScope(targetHost);
-        provider.setCredentials(authScope, new UsernamePasswordCredentials("admin", "admin"));
+        provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("admin", "admin"));
 
         try (CloseableHttpClient client = HttpClientBuilder.create()
                 .setDefaultCredentialsProvider(provider)
+                .addInterceptorFirst(new PreemptiveAuthInterceptor())
+                .addInterceptorLast(new LoggingRequestInterceptor())
+                .addInterceptorFirst(new LoggingResponseInterceptor())
                 .build()
         ){
             HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
