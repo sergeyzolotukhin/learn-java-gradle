@@ -25,7 +25,7 @@ import java.util.Base64;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
-class HelloWorldControllerTest {
+class InternalControllerTest {
 
     @BeforeEach
     void setUp() {
@@ -40,7 +40,7 @@ class HelloWorldControllerTest {
     void findByPublished() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()){
             HttpUriRequest request = RequestBuilder.get()
-                    .setUri("http://localhost:8080/hello")
+                    .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
@@ -49,7 +49,7 @@ class HelloWorldControllerTest {
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
 
             String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
-            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+            assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
         }
     }
 
@@ -57,7 +57,7 @@ class HelloWorldControllerTest {
     @SneakyThrows
     void findByPublishedHttpGet() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()){
-            HttpGet request = new HttpGet("http://localhost:8080/hello");
+            HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
             request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
@@ -65,7 +65,7 @@ class HelloWorldControllerTest {
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
 
             String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
-            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+            assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
         }
     }
 
@@ -81,7 +81,7 @@ class HelloWorldControllerTest {
                 .setDefaultCredentialsProvider(provider)
                 .build()
         ){
-            HttpGet request = new HttpGet("http://localhost:8080/hello");
+            HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
 
             HttpContext context = new BasicHttpContext();
@@ -89,7 +89,7 @@ class HelloWorldControllerTest {
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
 
             String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
-            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+            assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
         }
     }
 
@@ -98,7 +98,7 @@ class HelloWorldControllerTest {
     void findByPublishedAccessDenied() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()){
             HttpUriRequest request = RequestBuilder.get()
-                    .setUri("http://localhost:8080/hello")
+                    .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .build();
 
@@ -115,7 +115,7 @@ class HelloWorldControllerTest {
     void findByPublishedSession() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()){
             HttpUriRequest request1 = RequestBuilder.get()
-                    .setUri("http://localhost:8080/hello")
+                    .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
@@ -125,14 +125,14 @@ class HelloWorldControllerTest {
 
 
             HttpUriRequest request2 = RequestBuilder.get()
-                    .setUri("http://localhost:8080/hello")
+                    .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .build();
             HttpResponse httpResponse2 = client.execute(request2);
             assertEquals(200, httpResponse2.getStatusLine().getStatusCode());
 
             String result = EntityUtils.toString(httpResponse2.getEntity(), "UTF-8");
-            assertEquals("[\"Hello\",\"Serhij\",\"Zolotukhin\"]", result);
+            assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
         }
     }
 }

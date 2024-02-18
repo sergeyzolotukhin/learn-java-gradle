@@ -14,14 +14,14 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public FilterRegistrationBean<RequestDumperFilter> requestDumperFilterRegistration() {
-        FilterRegistrationBean<RequestDumperFilter> registration = new FilterRegistrationBean<>();
-        registration.setFilter(new RequestDumperFilter());
-        registration.addUrlPatterns("/*");
-        registration.setName("someFilter");
-        registration.setOrder(1);
-
-        return registration;
-    }
+//    @Bean
+//    public FilterRegistrationBean<RequestDumperFilter> requestDumperFilterRegistration() {
+//        FilterRegistrationBean<RequestDumperFilter> registration = new FilterRegistrationBean<>();
+//        registration.setFilter(new RequestDumperFilter());
+//        registration.addUrlPatterns("/*");
+//        registration.setName("someFilter");
+//        registration.setOrder(1);
+//
+//        return registration;
+//    }
 }
