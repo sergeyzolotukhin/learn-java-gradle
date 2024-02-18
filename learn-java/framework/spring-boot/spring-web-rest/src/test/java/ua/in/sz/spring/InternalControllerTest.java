@@ -3,7 +3,6 @@ package ua.in.sz.spring;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
-import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -62,16 +61,11 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedHttpGet_CredentialsProvider() {
-        HttpHost targetHost = HttpHost.create("http://localhost:8080");
         BasicCredentialsProvider provider = new BasicCredentialsProvider();
-        AuthScope authScope = new AuthScope(targetHost);
         provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("admin", "admin"));
 
         try (CloseableHttpClient client = HttpClientBuilder.create()
                 .setDefaultCredentialsProvider(provider)
-//                .addInterceptorFirst(new PreemptiveAuthInterceptor())
-                .addInterceptorLast(new LoggingRequestInterceptor())
-                .addInterceptorFirst(new LoggingResponseInterceptor())
                 .build()
         ){
             HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
