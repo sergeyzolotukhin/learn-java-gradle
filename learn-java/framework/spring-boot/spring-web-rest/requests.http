@@ -1,6 +1,6 @@
 ###
 GET http://localhost:8080/api/external/hello
-#Authorization: Basic admin admin
+Authorization: Basic admin admin
 
 ###
 POST http://localhost:8080/login
