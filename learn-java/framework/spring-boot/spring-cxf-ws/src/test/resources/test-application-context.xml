@@ -16,7 +16,6 @@
                   serviceClass="ua.in.sz.pattern.spring.camel.SecondWebService"
                   address="http://localhost:8080/ws/second/Hello"/>
 
-<!--   {http://camel.spring.pattern.sz.in.ua/}WebServiceService.http-conduit  -->
     <http-conf:conduit name="*.http-conduit"
                        xmlns:sec="http://cxf.apache.org/configuration/security"
                        xmlns="http://cxf.apache.org/transports/http/configuration">
