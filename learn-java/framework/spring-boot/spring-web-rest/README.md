@@ -41,3 +41,5 @@ JMeter
 
 Karate
 https://semaphoreci.com/community/tutorials/testing-a-java-spring-boot-rest-api-with-karate
+
+WWW-Authenticate: Basic realm="Realm"
