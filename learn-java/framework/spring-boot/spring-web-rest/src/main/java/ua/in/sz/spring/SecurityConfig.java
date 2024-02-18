@@ -50,19 +50,6 @@ public class SecurityConfig {
                 })
                 .formLogin(withDefaults());
 
-//        http.authorizeRequests()
-//                .requestMatchers("/login").permitAll()
-//                .requestMatchers("/**").authenticated()
-//                .and()
-//                .formLogin(Customizer.withDefaults()).permitAll();
-//
-//        http
-//                .authorizeHttpRequests((authorize) -> {
-//                    authorize.requestMatchers("/login").permitAll();
-//                    authorize.anyRequest().authenticated();
-//                })
-//                .httpBasic(Customizer.withDefaults());
-
         http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
 
         return http.build();
