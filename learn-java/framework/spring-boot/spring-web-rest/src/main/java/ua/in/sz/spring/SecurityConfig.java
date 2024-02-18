@@ -1,30 +1,17 @@
 package ua.in.sz.spring;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.security.web.util.matcher.RequestMatcher;
-
-import java.io.IOException;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -36,50 +23,24 @@ public class SecurityConfig {
         http.csrf(csrf -> {
                     csrf.disable();
                 })
-//                .securityMatcher(new RequestMatcher() {
-//                    @Override
-//                    public boolean matches(HttpServletRequest request) {
-//                        new IllegalStateException().printStackTrace();
-//                        return true;
-//                    }
-//                })
                 .securityMatcher("/api/external/**")
                 .authorizeHttpRequests(authorize -> {
                     authorize.anyRequest().authenticated();
                 })
                 .httpBasic(withDefaults())
-//                .exceptionHandling(exception -> exception.authenticationEntryPoint(new BasicAuthenticationEntryPoint()))
-//                .exceptionHandling(exception -> exception.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
-                .exceptionHandling(exception -> exception.authenticationEntryPoint(new MyBasicAuthenticationEntryPoint()))
-        ;
+                .exceptionHandling(exception -> exception.authenticationEntryPoint(new RequestBasicAuthenticationEntryPoint()));
 
         http.sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
 
         return http.build();
     }
 
-    private static class MyBasicAuthenticationEntryPoint implements AuthenticationEntryPoint {
-
-        @Override
-        public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-            response.setHeader("WWW-Authenticate", "Basic realm=\"Realm\"");
-            response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        }
-    }
-
-//    @Bean
-//    @Order(2)
+    @Bean
+    @Order(2)
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> {
                     csrf.disable();
                 })
-//                .securityMatcher(new RequestMatcher() {
-//                    @Override
-//                    public boolean matches(HttpServletRequest request) {
-//                        new IllegalStateException().printStackTrace();
-//                        return true;
-//                    }
-//                })
                 .authorizeHttpRequests(authorize -> {
                     authorize.requestMatchers("/error").permitAll();
                     authorize.anyRequest().authenticated();
