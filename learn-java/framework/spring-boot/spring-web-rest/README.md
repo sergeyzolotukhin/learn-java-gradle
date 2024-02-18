@@ -3,6 +3,7 @@
 ### Urls:
 
 https://medium.com/@saswatraj/under-the-hood-of-http-clients-32a68279c5dd
+https://www.baeldung.com/apache-httpclient-vs-closeablehttpclient
 
 https://springjava.com/spring-boot/spring-security-basic-authentication-spring-boot
 https://www.baeldung.com/httpclient-basic-authentication
@@ -48,3 +49,7 @@ WWW-Authenticate: Basic realm="Realm"
 
 # 
 Tomcat /error 
+
+# CSRF
+
+https://stackoverflow.com/questions/74811673/spring-security-not-sending-csrf-token-in-rest-application

@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.XorCsrfTokenRequestAttributeHandler;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -21,7 +22,8 @@ public class SecurityConfig {
     @Order(1)
     SecurityFilterChain externalSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> {
-                    csrf.disable();
+                        csrf.csrfTokenRequestHandler(new XorCsrfTokenRequestAttributeHandler());
+//                    csrf.disable();
                 })
                 .securityMatcher("/api/external/**")
                 .authorizeHttpRequests(authorize -> {
@@ -39,9 +41,11 @@ public class SecurityConfig {
     @Order(2)
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> {
-                    csrf.disable();
+                    csrf.csrfTokenRequestHandler(new XorCsrfTokenRequestAttributeHandler());
+//                    csrf.disable();
                 })
                 .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers("/csrf").permitAll();
                     authorize.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults());
