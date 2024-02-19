@@ -10,8 +10,7 @@ import java.net.URI;
 
 @Slf4j
 public class MyBasicAuthSupplier implements HttpAuthSupplier {
-    private static final String ENCODE_BASIC_AUTH_WITH_ISO8859 = "encode.basicauth.with.iso8859";
-
+    @Override
     public boolean requiresRequestCaching() {
         return false;
     }
