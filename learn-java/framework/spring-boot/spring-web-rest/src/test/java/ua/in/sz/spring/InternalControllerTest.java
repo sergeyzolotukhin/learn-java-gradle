@@ -27,11 +27,11 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublished() {
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
-                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
+                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
 
             HttpResponse httpResponse = client.execute(request);
@@ -45,10 +45,10 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedHttpGet() {
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
-            request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
+            request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
             HttpResponse httpResponse = client.execute(request);
             assertEquals(200, httpResponse.getStatusLine().getStatusCode());
@@ -67,7 +67,7 @@ class InternalControllerTest {
         try (CloseableHttpClient client = HttpClientBuilder.create()
                 .setDefaultCredentialsProvider(provider)
                 .build()
-        ){
+        ) {
             HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
 
@@ -83,7 +83,7 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedAccessDenied() {
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
@@ -100,11 +100,11 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedSession() {
-        try (CloseableHttpClient client = HttpClientBuilder.create().build()){
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request1 = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
-                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " +  Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
+                    .addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()))
                     .build();
 
             HttpResponse httpResponse1 = client.execute(request1);
@@ -121,5 +121,28 @@ class InternalControllerTest {
             String result = EntityUtils.toString(httpResponse2.getEntity(), "UTF-8");
             assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
         }
+    }
+
+    @Test
+    @SneakyThrows
+    void findByPublishedConnectionClose() {
+        CloseableHttpClient client = HttpClientBuilder.create()
+//                .setMaxConnTotal(100)
+//                .setMaxConnPerRoute(100)
+                .build();
+
+        for (int i = 0; i < 20; i++) {
+            HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
+            request.addHeader(HttpHeaders.ACCEPT, "application/json");
+            request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
+
+            log.info("execution {}", i);
+            HttpResponse httpResponse = client.execute(request);
+            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+
+            EntityUtils.consume(httpResponse.getEntity());
+        }
+
+        client.close();
     }
 }
