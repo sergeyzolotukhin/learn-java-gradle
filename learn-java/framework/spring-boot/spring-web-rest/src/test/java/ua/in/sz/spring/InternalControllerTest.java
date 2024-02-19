@@ -6,6 +6,7 @@ import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
@@ -126,23 +127,23 @@ class InternalControllerTest {
     @Test
     @SneakyThrows
     void findByPublishedConnectionClose() {
-        CloseableHttpClient client = HttpClientBuilder.create()
+        try (CloseableHttpClient client = HttpClientBuilder.create()
 //                .setMaxConnTotal(100)
 //                .setMaxConnPerRoute(100)
                 .build();
+        ) {
+            for (int i = 0; i < 20; i++) {
+                HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
+                request.addHeader(HttpHeaders.ACCEPT, "application/json");
+                request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
-        for (int i = 0; i < 20; i++) {
-            HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
-            request.addHeader(HttpHeaders.ACCEPT, "application/json");
-            request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
+                log.info("execution {}", i);
+                try (CloseableHttpResponse httpResponse = client.execute(request)) {
+                    assertEquals(200, httpResponse.getStatusLine().getStatusCode());
 
-            log.info("execution {}", i);
-            HttpResponse httpResponse = client.execute(request);
-            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
-
-            EntityUtils.consume(httpResponse.getEntity());
+                    EntityUtils.consume(httpResponse.getEntity());
+                }
+            }
         }
-
-        client.close();
     }
 }
