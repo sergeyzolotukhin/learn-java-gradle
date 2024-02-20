@@ -13,3 +13,5 @@ https://medium.com/callibrity/jax-rs-integration-testing-with-apache-cxf-7248c90
 ### jaxws
 https://medium.com/turkcell/consuming-soap-service-with-apache-cxf-and-spring-5dce25a553
 https://itpfdoc.hitachi.co.jp/manuals/3020/30203Y2310e/EY230045.HTM
+
+-Dorg.apache.cxf.Logger=org.apache.cxf.common.logging.Slf4jLogger
