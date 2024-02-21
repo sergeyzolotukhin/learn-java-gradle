@@ -25,9 +25,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Slf4j
 class InternalControllerTest {
 
+    /**
+     * We can use RequestBuilder to get a data
+     */
     @Test
     @SneakyThrows
-    void findByPublished() {
+    void getDataViaRequestBuilder() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
@@ -43,9 +46,12 @@ class InternalControllerTest {
         }
     }
 
+    /**
+     * We can use HttpGet to get a data
+     */
     @Test
     @SneakyThrows
-    void findByPublishedHttpGet() {
+    void getDataViaHttpGet() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
@@ -59,9 +65,12 @@ class InternalControllerTest {
         }
     }
 
+    /**
+     * We can use credential provider for authentication
+     */
     @Test
     @SneakyThrows
-    void findByPublishedHttpGet_CredentialsProvider() {
+    void getDataWithCredentialsProvider() {
         BasicCredentialsProvider provider = new BasicCredentialsProvider();
         provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("admin", "admin"));
 
@@ -73,11 +82,13 @@ class InternalControllerTest {
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
 
             HttpContext context = new BasicHttpContext();
-            HttpResponse httpResponse = client.execute(request, context);
-            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+            HttpResponse response = client.execute(request, context);
+            assertEquals(200, response.getStatusLine().getStatusCode());
 
-            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            String result = EntityUtils.toString(response.getEntity(), "UTF-8");
             assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
+
+            EntityUtils.consume(response.getEntity());
         }
     }
 
