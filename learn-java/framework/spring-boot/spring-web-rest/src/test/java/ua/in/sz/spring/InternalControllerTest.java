@@ -98,9 +98,12 @@ class InternalControllerTest {
         }
     }
 
+    /**
+     * We can get data without username and password by session id
+     */
     @Test
     @SneakyThrows
-    void findByPublishedSession() {
+    void getDataBySessionIdOnly() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request1 = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
@@ -110,28 +113,28 @@ class InternalControllerTest {
 
             HttpResponse httpResponse1 = client.execute(request1);
             assertEquals(200, httpResponse1.getStatusLine().getStatusCode());
+            EntityUtils.consume(httpResponse1.getEntity());
 
-
-            HttpUriRequest request2 = RequestBuilder.get()
+            HttpUriRequest requestBySession = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .build();
-            HttpResponse httpResponse2 = client.execute(request2);
-            assertEquals(200, httpResponse2.getStatusLine().getStatusCode());
+            HttpResponse responseBySession = client.execute(requestBySession);
+            assertEquals(200, responseBySession.getStatusLine().getStatusCode());
 
-            String result = EntityUtils.toString(httpResponse2.getEntity(), "UTF-8");
+            String result = EntityUtils.toString(responseBySession.getEntity(), "UTF-8");
             assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
+            EntityUtils.consume(responseBySession.getEntity());
         }
     }
 
+    /**
+     * We can make a lot of request when we close resource properly
+     */
     @Test
     @SneakyThrows
-    void findByPublishedConnectionClose() {
-        try (CloseableHttpClient client = HttpClientBuilder.create()
-//                .setMaxConnTotal(100)
-//                .setMaxConnPerRoute(100)
-                .build();
-        ) {
+    void getDataALotOfTimeInSingleClient() {
+        try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             for (int i = 0; i < 20; i++) {
                 HttpGet request = new HttpGet("http://localhost:8080/api/external/hello");
                 request.addHeader(HttpHeaders.ACCEPT, "application/json");
