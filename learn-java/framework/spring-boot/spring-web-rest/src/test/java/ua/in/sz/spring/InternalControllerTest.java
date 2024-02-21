@@ -81,20 +81,25 @@ class InternalControllerTest {
         }
     }
 
+    /**
+     * We can not get data without username and password
+     */
     @Test
     @SneakyThrows
-    void findByPublishedAccessDenied() {
+    void doNotGetDataWithoutUsernameAndPassword() {
         try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
             HttpUriRequest request = RequestBuilder.get()
                     .setUri("http://localhost:8080/api/external/hello")
                     .setHeader(HttpHeaders.ACCEPT, "application/json")
                     .build();
 
-            HttpResponse httpResponse = client.execute(request);
-            assertEquals(401, httpResponse.getStatusLine().getStatusCode());
+            HttpResponse response = client.execute(request);
+            assertEquals(401, response.getStatusLine().getStatusCode());
 
-            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            String result = EntityUtils.toString(response.getEntity(), "UTF-8");
             assertEquals("", result);
+
+            EntityUtils.consume(response.getEntity());
         }
     }
 
