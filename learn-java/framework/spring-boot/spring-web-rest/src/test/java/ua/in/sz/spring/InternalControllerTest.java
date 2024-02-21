@@ -57,11 +57,13 @@ class InternalControllerTest {
             request.addHeader(HttpHeaders.ACCEPT, "application/json");
             request.addHeader(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(("admin:admin").getBytes()));
 
-            HttpResponse httpResponse = client.execute(request);
-            assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+            HttpResponse response = client.execute(request);
+            assertEquals(200, response.getStatusLine().getStatusCode());
 
-            String result = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+            String result = EntityUtils.toString(response.getEntity(), "UTF-8");
             assertEquals("[\"Hello external\",\"Serhij\",\"Zolotukhin\"]", result);
+
+            EntityUtils.consume(response.getEntity());
         }
     }
 
