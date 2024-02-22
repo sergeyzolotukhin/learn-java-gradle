@@ -1,2 +1,4 @@
 * Run docker container via gradle
 * Create dependency from vagrant task or not?
+
+https://stackoverflow.com/questions/47708983/build-docker-image-without-docker-installed
