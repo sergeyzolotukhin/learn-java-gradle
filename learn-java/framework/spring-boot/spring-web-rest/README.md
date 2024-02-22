@@ -53,3 +53,7 @@ Tomcat /error
 # CSRF
 
 https://stackoverflow.com/questions/74811673/spring-security-not-sending-csrf-token-in-rest-application
+
+### Spring Security to CXF integration
+
+https://github.com/veithen/cxf-spring-security/tree/master
