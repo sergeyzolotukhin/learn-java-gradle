@@ -1,17 +1,17 @@
 plugins {
     id 'ua.in.sz.java-common-library'
     id 'org.springframework.boot'
-//    id("com.google.cloud.tools.jib") version "3.4.0"
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
-//jib {
-//    from {
-//        image = "azul/zulu-openjdk:17-jre"
-//    }
-//    to {
-//        image = "${project.name}:${version}"
-//    }
-//}
+jib {
+    from {
+        image = "azul/zulu-openjdk:17-jre"
+    }
+    to {
+        image = "${project.name}:${version}"
+    }
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
