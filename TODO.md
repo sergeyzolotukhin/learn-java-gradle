@@ -30,3 +30,7 @@ https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/boot-featu
 ### How to Use the Postgres Docker Official Image
 
 https://habr.com/ru/articles/578744/
+
+### Docker data-only-container
+
+https://medium.com/@rasheedamir/docker-good-bye-data-only-container-pattern-a28f90493a5a
