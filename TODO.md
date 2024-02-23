@@ -26,3 +26,7 @@ https://www.dynamsoft.com/codepool/java-barcode-command-line-gui-web.html
 ### 44. Creating your own auto-configuration
 
 https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/boot-features-developing-auto-configuration.html
+
+### How to Use the Postgres Docker Official Image
+
+https://habr.com/ru/articles/578744/
