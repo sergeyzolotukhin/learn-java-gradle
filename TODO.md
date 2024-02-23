@@ -34,3 +34,4 @@ https://habr.com/ru/articles/578744/
 ### Docker data-only-container
 
 https://medium.com/@rasheedamir/docker-good-bye-data-only-container-pattern-a28f90493a5a
+https://stackoverflow.com/questions/40090232/create-a-pure-data-image-in-docker
