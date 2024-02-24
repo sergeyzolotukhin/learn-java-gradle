@@ -2,6 +2,7 @@ package ua.in.sz;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import com.zaxxer.hikari.HikariPoolMXBean;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
@@ -16,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class Main {
@@ -25,19 +27,35 @@ public class Main {
 
         HikariDataSource dateSource = createDateSource(url);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(50);
-        List<Callable<String>> callables = new ArrayList<>();
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        List<Callable<Void>> callables = new ArrayList<>();
 
-        for (int i = 0; i < 2; i++) {
-            callables.add(() -> queryConnection(dateSource));
+        for (int i = 0; i < 20; i++) {
+            callables.add(() -> {
+                queryConnection(dateSource);
+                return null;
+            });
+
+            if (i == 10) {
+                callables.add(() -> {
+
+                    HikariPoolMXBean hikariPoolMXBean = dateSource.getHikariPoolMXBean();
+                    hikariPoolMXBean.suspendPool();
+                    log.info("suspendPool");
+                    TimeUnit.SECONDS.sleep(10);
+                    log.info("resumePool");
+                    hikariPoolMXBean.resumePool();
+
+                    return null;
+                });
+            }
         }
 
         try {
-            List<Future<String>> futures = executorService.invokeAll(callables);
-            for (Future<String> future : futures) {
+            List<Future<Void>> futures = executorService.invokeAll(callables);
+            for (Future<Void> future : futures) {
                 try {
-                    String result = future.get();
-                    log.info("Get result: {}", result);
+                    future.get();
                 } catch (InterruptedException | ExecutionException e) {
                     log.info("exception : " + e.getMessage());
                 }
@@ -52,34 +70,25 @@ public class Main {
         log.info("end");
     }
 
-    private static String queryConnection(DataSource dateSource) throws SQLException {
+    private static void queryConnection(DataSource dateSource) throws SQLException {
         Connection con = dateSource.getConnection();
-
-        StringBuilder sb = new StringBuilder();
 
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("SELECT count(*) as connection_count FROM pg_stat_activity where backend_type in ('client backend')");
         while (rs.next()) {
-            sb.append(rs.getLong("connection_count"));
+            long connectionCount = rs.getLong("connection_count");
+            log.info("connection count: {}", connectionCount);
         }
         rs.close();
         st.close();
 
         con.close();
-
-        sb.append(" : [").append(Thread.currentThread().getName()).append("]");
-
-        return sb.toString();
     }
 
     private static HikariDataSource createDateSource(String url) {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(url);
-//        config.setUsername( "database_username" );
-//        config.setPassword( "database_password" );
-//        config.addDataSourceProperty("cachePrepStmts", "true");
-//        config.addDataSourceProperty("prepStmtCacheSize", "250");
-//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.setAllowPoolSuspension(true);
 
         return new HikariDataSource(config);
     }
