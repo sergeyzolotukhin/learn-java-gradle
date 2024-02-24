@@ -17,3 +17,8 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_7_0
 
 
 https://plugins.gradle.org/plugin/com.bmuschko.vagrant
+
+### Populate a database with TestContainers in a SpringBoot integration test
+
+https://stackoverflow.com/questions/74645915/could-not-init-postgres-with-a-dump-file
+https://stackoverflow.com/questions/53078306/populate-a-database-with-testcontainers-in-a-springboot-integration-test
