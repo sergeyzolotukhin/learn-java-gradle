@@ -15,7 +15,7 @@ dependencies {
     // data store
     implementation 'org.hibernate:hibernate-core:5.4.15.Final'
     implementation 'org.hibernate:hibernate-hikaricp:5.4.15.Final'
-    implementation 'com.zaxxer:HikariCP:3.4.4'
+    implementation 'com.zaxxer:HikariCP:5.1.0'
     implementation 'org.liquibase:liquibase-core:3.8.9'
     implementation 'com.oracle:ojdbc7:12.1.0.2'
 

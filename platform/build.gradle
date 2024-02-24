@@ -20,7 +20,7 @@ dependencies {
         api 'jakarta.validation:jakarta.validation-api:3.0.2'
 
         // database
-        api 'org.postgresql:postgresql:42.7.0'
+        api 'org.postgresql:postgresql:42.7.2'
         api 'org.liquibase:liquibase-core:4.25.0'
         api 'org.liquibase:liquibase-groovy-dsl:3.0.3'
         api 'info.picocli:picocli:4.7.5'

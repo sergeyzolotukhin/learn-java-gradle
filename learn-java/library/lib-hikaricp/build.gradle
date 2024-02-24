@@ -1,0 +1,28 @@
+plugins {
+    id 'ua.in.sz.java-library'
+}
+
+group 'ua.in.sz'
+version 'unspecified'
+
+dependencies {
+    implementation 'com.zaxxer:HikariCP'
+    implementation 'org.postgresql:postgresql'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic'
+
+    // development
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
