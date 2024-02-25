@@ -27,7 +27,7 @@ public class ParentChildApplication {
 	public static void main(String[] args) throws Exception {
 		log.info("start application");
 
-		ProcessEngine engine = createEngine(false);
+		ProcessEngine engine = createEngine(true);
 
 		deployProcess(engine, CHILD_PATH);
 		String processDefinitionKey = deployProcess(engine, PARENT_PATH);

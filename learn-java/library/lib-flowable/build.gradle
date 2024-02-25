@@ -1,31 +1,17 @@
 plugins {
-    id 'java'
+    id 'ua.in.sz.java-common-library'
 }
 
 group 'ua.in.szolotukhin'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
     implementation 'org.flowable:flowable-engine:6.4.1'
 
-    implementation 'com.h2database:h2:1.4.199'
-    implementation 'org.projectlombok:lombok:1.18.8'
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
-    implementation 'postgresql:postgresql:9.1-901-1.jdbc4'
-    implementation files('libs/ojdbc8-12.2.0.1.0.jar')
+    implementation 'com.h2database:h2'
+    implementation 'org.postgresql:postgresql'
+//    implementation files('libs/ojdbc8-12.2.0.1.0.jar')
 
     implementation 'joda-time:joda-time:2.1'
     implementation 'org.jadira.usertype:usertype.core:7.0.0.CR1'
-
-    compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
-
-    testImplementation 'junit:junit:4.12'
 }

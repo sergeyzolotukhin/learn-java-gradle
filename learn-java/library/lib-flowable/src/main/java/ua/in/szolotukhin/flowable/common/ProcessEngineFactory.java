@@ -20,6 +20,7 @@ public class ProcessEngineFactory {
 		StandaloneProcessEngineConfiguration cfg = new TraceStandaloneProcessEngineConfiguration();
 
         if (HOME) {
+//            cfg.setJdbcUrl("jdbc:h2:mem:");
             cfg.setJdbcUrl("jdbc:postgresql://localhost/flowable")
                     .setJdbcUsername("flowable")
                     .setJdbcPassword("flowable")

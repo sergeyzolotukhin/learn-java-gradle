@@ -36,6 +36,9 @@ A conversion pattern is composed of literal text and format control expressions 
 <!--  Other  -->
     <logger name="org.flowable" level="warn"/>
     <logger name="org.apache.ibatis" level="info"/>
+<!--    <logger name="org.flowable.common.engine.impl.interceptor.LogInterceptor" level="DEBUG"/>-->
+<!--    <logger name="org.flowable.idm.engine.impl.db.IdmDbSchemaManager" level="DEBUG"/>-->
+<!--    <logger name="org.flowable.job.service.impl.db.JobDbSchemaManager" level="DEBUG"/>-->
 
 <!--    <logger name="org.flowable.engine.impl.interceptor.LoggingExecutionTreeCommandInvoker" level="info"/>-->
 <!--    <logger name="org.flowable.job.service.impl.asyncexecutor.AcquireAsyncJobsDueRunnable" level="warn"/>-->
