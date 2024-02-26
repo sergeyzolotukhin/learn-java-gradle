@@ -1,7 +1,6 @@
 package ua.in.sz.pattern.spring.property;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplicationRunListener;
