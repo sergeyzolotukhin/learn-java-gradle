@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplicationHook;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.source.ConfigurationPropertySource;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
@@ -30,19 +32,11 @@ public class Application implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.withHook(
-                application -> myPropertySourceRunListener(),
-                () -> SpringApplication.run(Application.class, args)
-        );
-    }
-
-    private static SpringApplicationRunListener myPropertySourceRunListener() {
-        return new SpringApplicationRunListener() {
-            @Override
-            public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
-                environment.getPropertySources().addLast(new LocalInstalationKitPropertySource());
-            }
-        };
+        SpringApplication application = new SpringApplication(Application.class);
+        application.addInitializers(context -> context.getEnvironment()
+                .getPropertySources()
+                .addLast(new LocalInstalationKitPropertySource()));
+        application.run(args);
     }
 
     @Override
