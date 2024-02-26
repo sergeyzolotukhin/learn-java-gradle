@@ -1,9 +1,13 @@
 package ua.in.sz.pattern.spring.property;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringApplicationHook;
+import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.source.ConfigurationPropertySource;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +15,8 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
+
+import java.util.Map;
 
 @Slf4j
 @Configuration
@@ -24,7 +30,19 @@ public class Application implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.withHook(
+                application -> myPropertySourceRunListener(),
+                () -> SpringApplication.run(Application.class, args)
+        );
+    }
+
+    private static SpringApplicationRunListener myPropertySourceRunListener() {
+        return new SpringApplicationRunListener() {
+            @Override
+            public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
+                environment.getPropertySources().addLast(new LocalInstalationKitPropertySource());
+            }
+        };
     }
 
     @Override
@@ -33,10 +51,26 @@ public class Application implements CommandLineRunner {
         log.info("Execute build in: [{}]", env.getProperty("pattern.build.in.text"));
         log.info("Execute profile in: [{}]", env.getProperty("pattern.profile.dev.text"));
         log.info("Execute sz in: [{}]", env.getProperty("szprop"));
+        log.info("Execute sz in: [{}]", env.getProperty("szprop-local"));
 
         MutablePropertySources propertySources = env.getPropertySources();
         for (PropertySource<?> propertySource : propertySources) {
             log.info("Property sources: {}", propertySource);
+        }
+    }
+
+    private static class LocalInstalationKitPropertySource extends PropertySource<String> {
+        private static final Map<String, String> PROPS = ImmutableMap.<String, String>builder()
+                .put("szprop-local", "szvalue-local")
+                .build() ;
+
+        public LocalInstalationKitPropertySource() {
+            super("local-installation-kit-property-source");
+        }
+
+        @Override
+        public Object getProperty(String name) {
+            return PROPS.get(name);
         }
     }
 }
