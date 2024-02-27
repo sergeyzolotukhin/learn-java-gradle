@@ -3,3 +3,5 @@
 
 https://stackoverflow.com/questions/47708983/build-docker-image-without-docker-installed
 https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin
+
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/java/com/bmuschko/gradle/docker/tasks/image/DockerLoadImage.java
