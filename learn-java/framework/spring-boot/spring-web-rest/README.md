@@ -57,3 +57,7 @@ https://stackoverflow.com/questions/74811673/spring-security-not-sending-csrf-to
 ### Spring Security to CXF integration
 
 https://github.com/veithen/cxf-spring-security/tree/master
+
+###
+
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/java/com/bmuschko/gradle/docker/tasks/image/DockerLoadImage.java
