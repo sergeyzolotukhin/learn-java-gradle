@@ -30,3 +30,8 @@ org.gradle.vfs.watch=true
 
 https://docs.github.com/ru/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 https://docs.github.com/ru/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+
+#### Hot Swap
+
+https://plugins.jetbrains.com/plugin/9552-hotswapagent
+http://hotswapagent.org/
