@@ -35,3 +35,5 @@ https://docs.github.com/ru/get-started/writing-on-github/working-with-advanced-f
 
 https://plugins.jetbrains.com/plugin/9552-hotswapagent
 http://hotswapagent.org/
+
+https://medium.com/javarevisited/jdk-17-with-dcevm-and-hotswapagent-4fee7095617a
