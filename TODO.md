@@ -39,3 +39,22 @@ https://stackoverflow.com/questions/40090232/create-a-pure-data-image-in-docker
 #### ActiveMQ Artemis Docker images.
 
 https://activemq.apache.org/components/artemis/documentation/latest/docker.html
+
+#### Postgres on Docker. How can I create a database and a user?
+
+https://stackoverflow.com/questions/26201274/postgres-on-docker-how-can-i-create-a-database-and-a-user
+
+FROM postgres
+USER postgres
+RUN /etc/init.d/postgresql start &&\
+psql --command "CREATE USER user WITH SUPERUSER PASSWORD 'user';" &&\
+createdb -O user app
+
+Use pg_ctl with the -w flag so the command will finish when the server has started. No more wondering about whether we have waited long enough. And we can actually stop the server the same way
+
+sudo -u postgres pg_ctl start -w -D ${PGDATA}
+
+sudo -u postgres psql --command "CREATE USER user WITH SUPERUSER PASSWORD 'user';" &&\
+sudo -u postgres createdb -O user app
+
+sudo -u postgres pg_ctl stop -w
