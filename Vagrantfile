@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
         end
 
         d.vm.provision "shell", path: "provision/root-login-enable.sh"
+        # d.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/id_rsa.pub"
 
         # Install Docker Engine
         d.vm.provision :docker
