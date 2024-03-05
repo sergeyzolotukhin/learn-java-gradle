@@ -61,3 +61,8 @@ sudo -u postgres pg_ctl stop -w
 
 https://dev.to/aws-builders/restore-postgresql-database-in-a-docker-container-3h85
 https://www.postgresql.org/docs/current/server-start.html
+
+#### Enable TCP port 2375 for external connection to Docker
+
+https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f
+https://developer.hashicorp.com/vagrant/docs/provisioning/docker
