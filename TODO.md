@@ -60,3 +60,4 @@ sudo -u postgres createdb -O user app
 sudo -u postgres pg_ctl stop -w
 
 https://dev.to/aws-builders/restore-postgresql-database-in-a-docker-container-3h85
+https://www.postgresql.org/docs/current/server-start.html
