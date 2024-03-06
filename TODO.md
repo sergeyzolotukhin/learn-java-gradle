@@ -68,3 +68,6 @@ https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f
 https://developer.hashicorp.com/vagrant/docs/provisioning/docker
 
 #### How to use all CPU and RAM on the VM ?
+
+#### Vagrant DNS
+https://github.com/vagrant-landrush/landrush/blob/master/README.adoc
