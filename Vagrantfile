@@ -9,7 +9,8 @@ Vagrant.configure("2") do |config|
 
         d.vm.provider "virtualbox" do |vb|
             vb.name = "docker-engine-learn-java-1"
-            vb.memory = "4048"
+            vb.memory = "16384"
+            vb.cpus = 8
             vb.gui = true
         end
 
