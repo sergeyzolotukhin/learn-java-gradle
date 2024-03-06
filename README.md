@@ -48,3 +48,5 @@ https://docs.gradle.org/current/userguide/performance.html
 https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache
 https://www.grammarly.com/blog/engineering/build-optimization-mechanisms-gitlab-gradle-docker/
 https://github.com/gradle/gradle/issues/17511
+
+https://www.jenkins.io/doc/book/pipeline/docker/
