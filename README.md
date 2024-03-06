@@ -46,3 +46,4 @@ https://docs.gradle.org/current/userguide/dependency_resolution.html#sub:cache_c
 
 https://docs.gradle.org/current/userguide/performance.html
 https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache
+https://www.grammarly.com/blog/engineering/build-optimization-mechanisms-gitlab-gradle-docker/
