@@ -71,3 +71,5 @@ https://developer.hashicorp.com/vagrant/docs/provisioning/docker
 
 #### Vagrant DNS
 https://github.com/vagrant-landrush/landrush/blob/master/README.adoc
+
+https://zwischenzugs.com/2017/10/27/ten-things-i-wish-id-known-before-using-vagrant/
