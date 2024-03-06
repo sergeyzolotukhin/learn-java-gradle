@@ -37,3 +37,9 @@ https://plugins.jetbrains.com/plugin/9552-hotswapagent
 http://hotswapagent.org/
 
 https://medium.com/javarevisited/jdk-17-with-dcevm-and-hotswapagent-4fee7095617a
+
+#### Gradle: Caching the Downloaded Dependencies
+
+https://www.thoughtworks.com/insights/blog/platforms/gradle-build-optimization-pt1
+https://docs.gradle.org/current/userguide/dependency_resolution.html#sec:dependency_cache
+https://docs.gradle.org/current/userguide/dependency_resolution.html#sub:cache_copy
