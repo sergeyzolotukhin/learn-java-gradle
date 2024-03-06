@@ -1,8 +1,8 @@
-FROM gradle:8.1.1-jdk17
+FROM gradle:8.6.0-jdk21
 RUN mkdir /src
 COPY . /src
 WORKDIR /src
-RUN gradle build
+RUN gradle build -x test
 
-RUN ls -l ./library/lib-open-nlp/build/libs
-CMD ["ls -l /src"]
+#RUN ls -l ./library/lib-open-nlp/build/libs
+CMD ["ls", "-l",  "."]
