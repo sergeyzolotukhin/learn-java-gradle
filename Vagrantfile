@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
 
         # Install Docker Engine
         d.vm.provision :docker
+        d.vm.provision "shell", path: "provision/docker-engine.sh"
 
         # Install Docker Compose
         # First, install required plugin https://github.com/leighmcculloch/vagrant-docker-compose:
