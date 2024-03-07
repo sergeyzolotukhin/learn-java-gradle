@@ -52,3 +52,12 @@ https://github.com/gradle/gradle/issues/17511
 #### Jenkins - Using Docker with Pipeline
 
 https://www.jenkins.io/doc/book/pipeline/docker/
+
+#### The guest additions on this VM do not match the installed version of  VirtualBox!
+
+vagrant plugin install vagrant-vbguest
+vagrant plugin uninstall vagrant-vbguest
+
+vagrant box update
+vagrant box list
+
