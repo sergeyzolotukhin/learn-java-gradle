@@ -3,6 +3,8 @@
 
 Vagrant.configure("2") do |config|
     config.vm.define "docker-engine-1" do |d|
+        # Ubuntu 24.04 LTS - Noble Numbat
+        # d.vm.box = "ubuntu/noble64"
         # Ubuntu 22.04.2 LTS - Jammy Jellyfish
         d.vm.box = "ubuntu/jammy64"
         d.vm.network :private_network, ip: "192.168.56.2"
