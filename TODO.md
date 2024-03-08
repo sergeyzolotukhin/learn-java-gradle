@@ -78,6 +78,7 @@ docker image save root-docker-file:latest > root-docker-file.tar
 
 #### How to download dependencies in gradle
 
+https://proandroiddev.com/gradle-cache-your-builds-best-friend-4970ad32420e
 https://github.com/zwbetz-gh/reuse-the-gradle-dependency-cache-with-docker
 
 gradle dependencies
@@ -88,3 +89,5 @@ https://stackoverflow.com/questions/23025433/how-to-clear-gradle-cache
 https://www.baeldung.com/gradle-offline-mode
 
 https://github.com/keeganwitt/docker-gradle
+
+GRADLE_HOME
