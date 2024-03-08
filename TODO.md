@@ -75,3 +75,12 @@ https://github.com/vagrant-landrush/landrush/blob/master/README.adoc
 https://zwischenzugs.com/2017/10/27/ten-things-i-wish-id-known-before-using-vagrant/
 
 docker image save root-docker-file:latest > root-docker-file.tar
+
+#### How to download dependencies in gradle
+
+gradle dependencies
+https://discuss.gradle.org/t/force-resolving-and-downloading-all-dependencies/35942
+https://discuss.gradle.org/t/replacement-of-gradle-offline-dependencies-plugin/36159/2
+https://stackoverflow.com/questions/23025433/how-to-clear-gradle-cache
+
+https://www.baeldung.com/gradle-offline-mode
