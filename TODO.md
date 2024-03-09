@@ -110,3 +110,7 @@ https://www.baeldung.com/ops/running-docker-containers-indefinitely
 https://docs.gradle.com/build-cache-node/
 https://hub.docker.com/r/gradle/build-cache-node
 https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote
+
+#### Using Gradle to Build and Deploy Docker Containers
+
+https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
