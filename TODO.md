@@ -91,3 +91,6 @@ https://www.baeldung.com/gradle-offline-mode
 https://github.com/keeganwitt/docker-gradle
 
 GRADLE_HOME
+
+https://kodekloud.com/blog/keep-docker-container-running/#:~:text=%231%20Using%20the%20sleep%20infinity%20command,-A%20straightforward%20method&text=The%20sleep%20command%20is%20designed,is%20always%20an%20active%20process.
+https://www.baeldung.com/ops/running-docker-containers-indefinitely
