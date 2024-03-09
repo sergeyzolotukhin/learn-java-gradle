@@ -1,3 +1,13 @@
+#### Tasks
+
+* create remote gradle cache
+* build app from scratch with remote cache
+
+* copy jenkins docker
+* create build agent
+* run simple job on agent
+* 
+
 https://spring.io/blog/2022/10/21/introducing-spring-modulith
 
 ### Spring - 24. Externalized Configuration
