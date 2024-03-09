@@ -115,3 +115,4 @@ https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_confi
 
 https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
 https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/
+https://github.com/bmuschko/gradle-docker-plugin
