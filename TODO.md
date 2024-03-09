@@ -121,3 +121,8 @@ https://tomgregory.com/gradle/automating-docker-builds-with-gradle/
 
 
 https://codeal.medium.com/guide-simple-and-powerful-integration-tests-with-gradle-and-docker-compose-7a27bd06a0cd
+
+#### Docker build context
+
+https://www.cloudbees.com/blog/3-different-ways-to-provide-docker-build-context
+https://docs.docker.com/build/building/context/
