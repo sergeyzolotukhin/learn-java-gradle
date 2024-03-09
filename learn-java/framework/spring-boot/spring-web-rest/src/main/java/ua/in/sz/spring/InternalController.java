@@ -15,7 +15,7 @@ import java.util.List;
 public class InternalController {
     @GetMapping("/hello")
     public List<String> findByPublished(HttpSession session) {
-        log.info("A get request has received: [{}]", session.getId());
+        log.info("A get request has received 123: [{}]", session.getId());
         return List.of("Hello internal", "Serhij", "Zolotukhin");
     }
 }
