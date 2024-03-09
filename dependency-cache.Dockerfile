@@ -1,8 +1,8 @@
-FROM gradle:8.6.0-jdk21 as builder
-#RUN mkdir /src
+FROM gradle:8.6.0-jdk21
+#USER gradle
+ENV GRADLE_USER_HOME=/root
 COPY . /src
 WORKDIR /src
-RUN gradle build -x test --no-daemon
+RUN gradle build -x test --no-daemon --build-cache
 
-FROM gradle:8.6.0-jdk21
-COPY --from=builder /root/.gradle /root/.gradle
+# https://proandroiddev.com/gradle-cache-your-builds-best-friend-4970ad32420e
