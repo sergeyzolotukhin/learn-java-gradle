@@ -118,3 +118,6 @@ https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/
 https://github.com/bmuschko/gradle-docker-plugin
 https://tomgregory.com/gradle/bmuschko-docker-gradle-plugin-review/
 https://tomgregory.com/gradle/automating-docker-builds-with-gradle/
+
+
+https://codeal.medium.com/guide-simple-and-powerful-integration-tests-with-gradle-and-docker-compose-7a27bd06a0cd
