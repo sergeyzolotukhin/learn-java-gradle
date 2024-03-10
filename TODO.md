@@ -115,13 +115,18 @@ https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_confi
 
 https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
 https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/
-https://github.com/bmuschko/gradle-docker-plugin
 https://tomgregory.com/gradle/bmuschko-docker-gradle-plugin-review/
 https://tomgregory.com/gradle/automating-docker-builds-with-gradle/
 https://janetalkscode.wordpress.com/2018/05/06/docker-adventures-palantir-docker-plugin/
 
-
 https://codeal.medium.com/guide-simple-and-powerful-integration-tests-with-gradle-and-docker-compose-7a27bd06a0cd
+
+#### Gradle Docker plugins
+
+https://github.com/bmuschko/gradle-docker-plugin
+https://github.com/palantir/gradle-docker
+https://github.com/Transmode/gradle-docker
+
 
 #### Docker build context
 
