@@ -136,3 +136,7 @@ https://docs.docker.com/build/building/context/
 #### Git server
 https://railsware.com/blog/taming-the-git-daemon-to-quickly-share-git-repository/
 https://github.com/sdelrio/git-daemon
+
+https://linuxhint.com/setup_git_http_server_docker/
+
+GitLab, Gitea, Bitbucket or Gogs
