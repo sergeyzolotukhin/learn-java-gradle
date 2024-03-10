@@ -132,3 +132,7 @@ https://github.com/Transmode/gradle-docker
 
 https://www.cloudbees.com/blog/3-different-ways-to-provide-docker-build-context
 https://docs.docker.com/build/building/context/
+
+#### Git server
+https://railsware.com/blog/taming-the-git-daemon-to-quickly-share-git-repository/
+https://github.com/sdelrio/git-daemon
