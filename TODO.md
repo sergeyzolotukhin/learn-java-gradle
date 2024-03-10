@@ -136,6 +136,7 @@ https://docs.docker.com/build/building/context/
 #### Git server
 https://railsware.com/blog/taming-the-git-daemon-to-quickly-share-git-repository/
 https://github.com/sdelrio/git-daemon
+https://www.thegeekdiary.com/git-daemon-a-really-simple-server-for-git-repositories/
 
 https://github.com/jkarlosb/git-server-docker
 
