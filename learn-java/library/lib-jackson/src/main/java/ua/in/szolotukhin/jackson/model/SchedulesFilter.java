@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -22,6 +23,7 @@ import java.util.List;
 public class SchedulesFilter {
 	private List<String> scheduleTypes;
 	private Boolean activeVersion;
+	private LocalDate startDate;
 
 	public static SchedulesFilter activeOnly() {
 		SchedulesFilter filter = new SchedulesFilter();

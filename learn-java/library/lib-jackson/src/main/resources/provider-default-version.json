@@ -3,6 +3,7 @@
   "filter": {
     "scheduleTypes": [
       "RTBM"
-    ]
+    ],
+    "startDate": "2015-03-01"
   }
 }
