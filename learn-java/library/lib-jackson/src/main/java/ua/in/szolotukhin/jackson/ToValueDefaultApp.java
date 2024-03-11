@@ -18,7 +18,7 @@ public class ToValueDefaultApp {
 	public static final String DEFAULT = "provider-default-version.json";
 
 	public static void main(String[] args) throws IOException {
-		log.info("Working directory: {}", System.getProperty("user.dir"));
+		log.trace("Working directory: {}", System.getProperty("user.dir"));
 		ObjectMapper mapper = MapperFactory.createMapper();
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));

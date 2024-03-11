@@ -24,6 +24,7 @@ public class SchedulesFilter {
 	private List<String> scheduleTypes;
 	private Boolean activeVersion;
 	private LocalDate startDate;
+	private LocalDate endDate;
 
 	public static SchedulesFilter activeOnly() {
 		SchedulesFilter filter = new SchedulesFilter();
