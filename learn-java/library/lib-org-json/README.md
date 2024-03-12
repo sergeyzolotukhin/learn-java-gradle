@@ -1,5 +1,6 @@
 https://www.baeldung.com/java-json-binding-api
 https://cowtowncoder.medium.com/jackson-2-11-features-40cdc1d2bdf3
+https://www.baeldung.com/java-json-binding-api
 
 #### Java API for JSON Processing
 https://javaee.github.io/jsonp/
@@ -21,3 +22,10 @@ JSON Processing (JSON-P) is a Java API to process (for e.g. parse, generate, tra
 It produces and consumes JSON text in a streaming fashion (similar to StAX API for XML) 
 and allows to build a Java object model for JSON text using API classes (similar to DOM API for XML).
 
+#### jar
+
+JSR 374 (JSON Processing) API -> Relocated → jakarta.json » jakarta.json-api
+https://mvnrepository.com/artifact/javax.json
+
+Jakarta JSON Processing API
+https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api
