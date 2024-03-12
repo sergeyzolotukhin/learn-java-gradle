@@ -143,3 +143,8 @@ https://github.com/jkarlosb/git-server-docker
 https://linuxhint.com/setup_git_http_server_docker/
 
 GitLab, Gitea, Bitbucket or Gogs
+
+#### Composite build
+
+https://github.com/AlexMAS/gradle-composite-build-example/tree/master
+https://github.com/gradle/multi-project-composite-gradle-plugins-builds
