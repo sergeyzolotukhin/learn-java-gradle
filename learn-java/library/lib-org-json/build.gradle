@@ -10,7 +10,9 @@ dependencies {
     // JSR-367 Java API for JSON Binding (JSON-B)
 //    implementation 'jakarta.json.bind:jakarta.json.bind-api:3.0.0'
 
-
+    // Eclipse Yasson is a Java framework which provides a standard binding layer between Java classes and JSON documents.
+    // This is similar to what JAXB is doing in the XML world.
+    // Yasson is an official reference implementation of JSON Binding.
     implementation 'org.eclipse:yasson:1.0.1'
     //  “jsonp” is the reference implementation for Java JSON Processing API.
     implementation 'org.glassfish:javax.json:1.1.2'
