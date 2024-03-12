@@ -12,5 +12,6 @@ dependencies {
 
 
     implementation 'org.eclipse:yasson:1.0.1'
+    //  “jsonp” is the reference implementation for Java JSON Processing API.
     implementation 'org.glassfish:javax.json:1.1.2'
 }
