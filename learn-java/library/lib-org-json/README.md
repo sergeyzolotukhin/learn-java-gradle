@@ -29,3 +29,6 @@ https://mvnrepository.com/artifact/javax.json
 
 Jakarta JSON Processing API
 https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api
+
+JSR-367 Java API for JSON Binding (JSON-B)
+https://mvnrepository.com/artifact/jakarta.json.bind/jakarta.json.bind-api
