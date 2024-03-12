@@ -1,6 +1,7 @@
 https://www.baeldung.com/java-json-binding-api
 https://cowtowncoder.medium.com/jackson-2-11-features-40cdc1d2bdf3
 https://www.baeldung.com/java-json-binding-api
+https://stackoverflow.com/questions/56048893/why-is-javax-json-from-glassfish-needed-as-a-dependency-when-using-yasson-with-j
 
 #### Java API for JSON Processing
 https://javaee.github.io/jsonp/
