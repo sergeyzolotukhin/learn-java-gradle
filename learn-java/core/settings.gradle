@@ -1,0 +1,20 @@
+pluginManagement {
+    includeBuild '../../buildSrc'
+}
+
+// ====================================================================================================================
+// java core features
+// ====================================================================================================================
+include 'java-9:presentation'
+include 'java-9:persistence'
+include 'java-9:business'
+include 'java-14'
+include 'java-15'
+include 'java-bi-function'
+include 'java-big-decimal'
+include 'java-jaxb'
+include 'java-jdbc'
+include 'java-predicate'
+include 'java-swing'
+include 'memory-consumption'
+include 'task-executor'
