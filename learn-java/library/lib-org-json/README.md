@@ -36,3 +36,14 @@ https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api
 
 JSR-367 Java API for JSON Binding (JSON-B)
 https://mvnrepository.com/artifact/jakarta.json.bind/jakarta.json.bind-api
+
+#### implementations
+Apache Johnzon is a project providing an implementation of JsonProcessing (aka JSR-353)
+https://johnzon.apache.org/
+
+Glassfish - Reference Implementation
+https://javaee.github.io/jsonp/download.html
+https://javaee.github.io/jsonp/
+
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.json</artifactId>
