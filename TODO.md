@@ -149,3 +149,4 @@ GitLab, Gitea, Bitbucket or Gogs
 https://github.com/AlexMAS/gradle-composite-build-example/tree/master
 https://github.com/gradle/multi-project-composite-gradle-plugins-builds
 https://docs.gradle.org/current/userguide/composite_builds.html
+https://ncorti.com/blog/gradle-plugins-and-composite-builds
