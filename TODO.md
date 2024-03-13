@@ -156,3 +156,4 @@ daemon.json -> {“log-driver”:“json-file”,“log-opt”:[{“max-size”:
 
 #### Session expire
 https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html
+https://spring.io/guides/tutorials/spring-security-and-angular-js
