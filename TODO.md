@@ -153,3 +153,6 @@ https://ncorti.com/blog/gradle-plugins-and-composite-builds
 
 #### Docker log limit
 daemon.json -> {“log-driver”:“json-file”,“log-opt”:[{“max-size”:“2m”},{“max-file”:“5”}],“log-level”:“info”}
+
+#### Session expire
+https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html
