@@ -150,6 +150,7 @@ https://github.com/AlexMAS/gradle-composite-build-example/tree/master
 https://github.com/gradle/multi-project-composite-gradle-plugins-builds
 https://docs.gradle.org/current/userguide/composite_builds.html
 https://ncorti.com/blog/gradle-plugins-and-composite-builds
+https://medium.com/codequest/gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b
 
 https://github.com/square/gradle-dependencies-sorter/tree/main
 
