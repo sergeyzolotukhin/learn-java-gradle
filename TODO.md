@@ -146,6 +146,8 @@ GitLab, Gitea, Bitbucket or Gogs
 
 #### Composite build
 
+https://docs.gradle.org/current/userguide/resolution_rules.html
+
 https://github.com/AlexMAS/gradle-composite-build-example/tree/master
 https://github.com/gradle/multi-project-composite-gradle-plugins-builds
 https://docs.gradle.org/current/userguide/composite_builds.html
