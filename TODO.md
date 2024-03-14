@@ -151,6 +151,8 @@ https://github.com/gradle/multi-project-composite-gradle-plugins-builds
 https://docs.gradle.org/current/userguide/composite_builds.html
 https://ncorti.com/blog/gradle-plugins-and-composite-builds
 
+https://github.com/square/gradle-dependencies-sorter/tree/main
+
 #### Docker log limit
 daemon.json -> {“log-driver”:“json-file”,“log-opt”:[{“max-size”:“2m”},{“max-file”:“5”}],“log-level”:“info”}
 
