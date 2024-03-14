@@ -4,3 +4,6 @@ https://github.com/flowable/flowable-engine/tree/master/modules
 asyncExecutorResetExpiredJobsMaxTimeout
 
 org/flowable/idm/db/create/flowable.h2.create.identity.sql
+
+#### Handling Asynchronous Operations with Flowable
+https://www.flowable.com/blog/engineering/handling-asynchronous-operations-with-flowable-part-4-evolution-of-the-async-executor
