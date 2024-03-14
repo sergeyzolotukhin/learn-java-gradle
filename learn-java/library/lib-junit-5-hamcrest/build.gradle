@@ -1,0 +1,16 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // json
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2'
+
+    // testing
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.3.1'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.1'
+    testImplementation "org.assertj:assertj-core:3.11.1"
+}
