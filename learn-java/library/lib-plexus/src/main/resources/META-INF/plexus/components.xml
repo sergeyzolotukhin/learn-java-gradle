@@ -3,7 +3,7 @@
         <component>
             <role>ua.in.sz.h2.Cheese</role>
             <role-hint>parmesan</role-hint>
-            <implementation>ua.in.sz.h2.ParmesanCheese</implementation>
+            <implementation>ua.in.sz.h2.impl.ParmesanCheese</implementation>
             <requirements>
                 <requirement>
                     <role>ua.in.sz.h2.Second</role>
@@ -21,13 +21,13 @@
         <component>
             <role>ua.in.sz.h2.Second</role>
             <role-hint>second-1</role-hint>
-            <implementation>ua.in.sz.h2.DefaultSecond</implementation>
+            <implementation>ua.in.sz.h2.impl.DefaultSecond</implementation>
         </component>
 
         <component>
             <role>ua.in.sz.h2.Second</role>
             <role-hint>other-second-1</role-hint>
-            <implementation>ua.in.sz.h2.OtherDefaultSecond</implementation>
+            <implementation>ua.in.sz.h2.impl.OtherDefaultSecond</implementation>
         </component>
     </components>
 </component-set>

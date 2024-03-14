@@ -1,31 +1,8 @@
 plugins {
-    id 'java'
-}
-
-group = 'ua.in.sz.h2'
-version = 'unspecified'
-
-repositories {
-    mavenLocal()
-    mavenCentral()
+    id 'ua.in.sz.java-common-library'
 }
 
 dependencies {
     // experimental
     implementation 'org.codehaus.plexus:plexus-container-default:2.1.1'
-
-    // common utils
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.6'
-    implementation 'org.codehaus.janino:janino:3.1.9'
-
-    // test development
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
