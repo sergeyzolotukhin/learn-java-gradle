@@ -1,16 +1,21 @@
 <configuration scan="true" scanPeriod="30 seconds">
 
-<!--
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ua.in.sz.logging.KeyPairFilter">
+            <key>key</key>
+            <value>key_2</value>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %kvp %n</pattern>
         </encoder>
     </appender>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
--->
 
 
 <!--
@@ -20,6 +25,7 @@
     </appender>
 -->
 
+<!--
 
     <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
@@ -33,6 +39,8 @@
             </jsonGeneratorDecorator>
         </encoder>
     </appender>
+-->
+
 
     <root level="INFO">
         <appender-ref ref="jsonConsoleAppender"/>
