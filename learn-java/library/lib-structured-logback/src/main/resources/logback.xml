@@ -1,0 +1,40 @@
+<configuration scan="true" scanPeriod="30 seconds">
+
+<!--
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+-->
+
+
+<!--
+    <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+        </encoder>
+    </appender>
+-->
+
+
+    <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeCallerData>true</includeCallerData>
+            <jsonGeneratorDecorator class="net.logstash.logback.decorate.CompositeJsonGeneratorDecorator">
+                <decorator class="net.logstash.logback.decorate.PrettyPrintingJsonGeneratorDecorator"/>
+                <decorator class="net.logstash.logback.mask.MaskingJsonGeneratorDecorator">
+                    <defaultMask>XXXX</defaultMask>
+                    <path>password</path>
+                </decorator>
+            </jsonGeneratorDecorator>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="jsonConsoleAppender"/>
+    </root>
+</configuration>
