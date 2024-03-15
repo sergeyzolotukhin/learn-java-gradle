@@ -5,6 +5,11 @@ plugins {
 dependencies {
     // experimental
     implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
+    implementation 'ch.qos.logback.db:logback-classic-db:1.2.11.1'
+    implementation 'org.postgresql:postgresql:42.5.1'
+    implementation 'ch.qos.logback:logback-core:1.4.11:tests'
+
+
 //    implementation 'org.fusesource.jansi:jansi:2.4.0'
 //    implementation 'org.codehaus.janino:janino:3.1.12'
 

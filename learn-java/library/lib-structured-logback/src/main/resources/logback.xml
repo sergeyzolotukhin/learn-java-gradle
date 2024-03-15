@@ -13,8 +13,18 @@
         </encoder>
     </appender>
 
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>org.postgresql.Driver</driverClass>
+            <url>jdbc:postgresql://localhost:5432/postgres</url>
+            <user>postgres</user>
+            <password>postgres</password>
+        </connectionSource>
+    </appender>
+
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DB" />
     </root>
 
 
