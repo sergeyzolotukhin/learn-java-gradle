@@ -6,6 +6,7 @@ import ch.qos.logback.core.spi.FilterReply;
 import lombok.Getter;
 import lombok.Setter;
 
+// https://logback.qos.ch/manual/filters.html
 @Setter
 @Getter
 public class KeyPairFilter extends AbstractMatcherFilter<ILoggingEvent> {
