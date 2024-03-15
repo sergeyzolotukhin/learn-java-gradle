@@ -13,6 +13,7 @@
         </encoder>
     </appender>
 
+<!--  https://logback.qos.ch/manual/appenders.html  -->
     <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <driverClass>org.postgresql.Driver</driverClass>
