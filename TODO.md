@@ -170,3 +170,7 @@ https://www.atlassian.com/git/tutorials/refs-and-the-reflog#:~:text=A%20refspec%
 #### Jenkins
 
 https://argus-sec.com/blog/engineering-blog/how-you-can-use-git-reference-repository-to-reduce-jenkins-disk-space/
+https://www.jenkins.io/doc/book/pipeline/docker/
+https://www.jenkins.io/doc/book/pipeline/syntax/#agent
+https://plugins.jenkins.io/git/
+
