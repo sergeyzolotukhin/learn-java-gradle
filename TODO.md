@@ -182,3 +182,5 @@ https://plugins.jenkins.io/git/
 #### limit of a Docker container
 
 https://www.quora.com/What-is-the-maximum-size-limit-of-a-Docker-container#:~:text=Docker%20container%20has%20a%20default,%22storage%2Dopt%22%20flag.
+https://docs.docker.com/reference/cli/docker/container/run/#storage-opt
+
