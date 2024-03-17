@@ -198,3 +198,7 @@ https://www.baeldung.com/linux/docker-fix-no-space-error
 
 https://developer.hashicorp.com/vagrant/docs/disks/virtualbox/common-issues
 https://stackoverflow.com/questions/45038248/vagrant-detach-vdi-file-before-destroy-or-just-dont-remove-it
+
+#### linux LVM
+
+https://dev.to/shankarsurya035/how-to-create-lvm-partition-in-linux-dgo
