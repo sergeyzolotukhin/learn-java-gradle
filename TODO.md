@@ -169,7 +169,12 @@ https://www.atlassian.com/git/tutorials/refs-and-the-reflog#:~:text=A%20refspec%
 
 #### Jenkins
 
+https://code-partners.com/understanding-cloudbees-workspace-caching-in-jenkins-pipelines/
 https://argus-sec.com/blog/engineering-blog/how-you-can-use-git-reference-repository-to-reduce-jenkins-disk-space/
+https://www.jenkins.io/projects/gsoc/2020/project-ideas/git-plugin-caching/
+https://plugins.jenkins.io/jobcacher/
+https://www.aviator.co/blog/how-to-optimize-jenkins-pipeline-performance/
+
 https://www.jenkins.io/doc/book/pipeline/docker/
 https://www.jenkins.io/doc/book/pipeline/syntax/#agent
 https://plugins.jenkins.io/git/
