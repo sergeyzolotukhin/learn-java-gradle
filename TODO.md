@@ -193,3 +193,8 @@ https://docs.docker.com/reference/cli/docker/volume/create/
 
 https://opvizor.com/blog/prevent-docker-host-to-run-out-of-disk-space
 https://www.baeldung.com/linux/docker-fix-no-space-error
+
+#### Vagrant disk
+
+https://developer.hashicorp.com/vagrant/docs/disks/virtualbox/common-issues
+https://stackoverflow.com/questions/45038248/vagrant-detach-vdi-file-before-destroy-or-just-dont-remove-it
