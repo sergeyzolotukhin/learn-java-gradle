@@ -166,3 +166,7 @@ https://spring.io/guides/tutorials/spring-security-and-angular-js
 #### Git 
 
 https://www.atlassian.com/git/tutorials/refs-and-the-reflog#:~:text=A%20refspec%20maps%20a%20branch,push%20and%20git%20fetch%20behavior.
+
+#### Jenkins
+
+https://argus-sec.com/blog/engineering-blog/how-you-can-use-git-reference-repository-to-reduce-jenkins-disk-space/
