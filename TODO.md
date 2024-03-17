@@ -202,3 +202,7 @@ https://stackoverflow.com/questions/45038248/vagrant-detach-vdi-file-before-dest
 #### linux LVM
 
 https://dev.to/shankarsurya035/how-to-create-lvm-partition-in-linux-dgo
+
+#### Maven in dicker
+
+https://github.com/carlossg/docker-maven
