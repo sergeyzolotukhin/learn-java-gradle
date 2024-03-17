@@ -184,3 +184,7 @@ https://plugins.jenkins.io/git/
 https://www.quora.com/What-is-the-maximum-size-limit-of-a-Docker-container#:~:text=Docker%20container%20has%20a%20default,%22storage%2Dopt%22%20flag.
 https://docs.docker.com/reference/cli/docker/container/run/#storage-opt
 
+##### docker volume with limited size
+
+https://stackoverflow.com/questions/52089499/create-docker-volume-with-limited-size
+https://docs.docker.com/reference/cli/docker/volume/create/
