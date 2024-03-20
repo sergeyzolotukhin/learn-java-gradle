@@ -24,7 +24,7 @@ public class ScheduledEmployeeNamePrinter implements Runnable {
 
 	@Override
 	@SneakyThrows
-	@Scheduled(initialDelay = 1_000,fixedDelay = 60_000)
+	@Scheduled(initialDelay = 1_000,fixedDelay = 5_000)
 	@Transactional
 	public void run() {
 		assertAutoCommitDisabled();
