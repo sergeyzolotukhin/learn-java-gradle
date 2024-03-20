@@ -144,7 +144,7 @@ include 'learn-java:framework:spring-boot:spring-transactional'
 // ====================================================================================================================
 //include 'library:lib-hibernate'
 //include 'hibernate:hibernate-xml-mapping'
-//include 'hibernate:tabular-format'
+
 
 // ====================================================================================================================
 // infrastructure
@@ -194,6 +194,7 @@ include 'learn-java:pattern-gof:pattern-gof-composite'
 // ====================================================================================================================
 //include 'proof-of-concept:maven-as-submodule'
 include 'proof-of-concept:spring-xml-execution-time-resolve'
+include 'proof-of-concept:tabular-format'
 
 // ====================================================================================================================
 // Kotlin

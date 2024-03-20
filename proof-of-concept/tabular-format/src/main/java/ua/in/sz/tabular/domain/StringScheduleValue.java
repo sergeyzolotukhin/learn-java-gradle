@@ -2,17 +2,15 @@ package ua.in.sz.tabular.domain;
 
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
-import java.math.BigDecimal;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 @SuperBuilder
 @NoArgsConstructor
-public class NumberScheduleValue extends ScheduleValue<BigDecimal> {
+public class StringScheduleValue extends ScheduleValue<String> {
 
     @Override
     public boolean equals(Object that) {
-        return that instanceof NumberScheduleValue && super.equals(that);
+        return that instanceof StringScheduleValue && super.equals(that);
     }
 
     @Override
