@@ -61,3 +61,7 @@ https://github.com/veithen/cxf-spring-security/tree/master
 ###
 
 https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/java/com/bmuschko/gradle/docker/tasks/image/DockerLoadImage.java
+
+###
+
+https://medium.com/nerd-for-tech/jenkins-and-jib-build-and-upload-images-to-private-docker-repo-ecba60696f84

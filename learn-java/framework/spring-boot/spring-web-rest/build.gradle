@@ -1,7 +1,7 @@
 plugins {
     id 'ua.in.sz.java-common-library'
     id 'org.springframework.boot'
-    id("com.google.cloud.tools.jib") version "3.4.0"
+    id("com.google.cloud.tools.jib") version "3.4.1"
     id "ua.in.sz.plugin.greeting"
 }
 
@@ -10,7 +10,12 @@ jib {
         image = "azul/zulu-openjdk:17-jre"
     }
     to {
-        image = "${project.name}:${version}"
+        image = "szolotukhin/spring-web-rest:${version}"
+        auth {
+//            ~/.gradle/gradle.properties
+            username = "$dockerHubUsername"
+            password = "$dockerHubPassword"
+        }
     }
 }
 
