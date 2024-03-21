@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 class MainTest {
 
     @Container
-    public GenericContainer application = new GenericContainer(DockerImageName.parse("spring-boot-web-rest:latest"))
+    public GenericContainer application = new GenericContainer(DockerImageName.parse("szolotukhin/spring-web-rest:0.0.1-SNAPSHOT"))
             .withExposedPorts(8080);
 
     @Test
