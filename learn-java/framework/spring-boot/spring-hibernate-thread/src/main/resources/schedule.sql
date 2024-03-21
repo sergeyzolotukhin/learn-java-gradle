@@ -1,13 +1,14 @@
 CREATE TABLE schedule
 (
     ID   INT,
+    action_id   INT,
     NAME varchar(256),
     PRIMARY KEY (ID)
 );
 
 delete from schedule;
-insert into SCHEDULE (ID, NAME) values ( -1, 'Name 1' );
-insert into SCHEDULE (ID, NAME) values ( -2, 'Name 2' );
+insert into SCHEDULE (ID, NAME, action_id) values ( -1, 'Name 1', -1 );
+insert into SCHEDULE (ID, NAME, action_id) values ( -2, 'Name 2', null );
 
 select *
 from schedule
