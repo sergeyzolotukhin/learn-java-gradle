@@ -6,4 +6,6 @@ dependencies {
     // experimental
     testImplementation "org.testcontainers:testcontainers:1.18.3"
     testImplementation "org.testcontainers:junit-jupiter:1.18.3"
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+
 }

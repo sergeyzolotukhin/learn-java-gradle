@@ -1,13 +1,15 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-70.70logger{70} - %msg %n</pattern>
         </encoder>
     </appender>
 
     <!-- Framework -->
     <logger name="com.github.dockerjava" level="info" />
-    <logger name="org.testcontainers" level="info" />
+    <logger name="org.testcontainers" level="warn" />
+    <logger name="tc.testcontainers" level="warn" />
+    <logger name="tc.szolotukhin" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
