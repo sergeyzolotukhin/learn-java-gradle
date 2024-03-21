@@ -3,8 +3,10 @@ package ua.in.sz.spring.initialize.entity;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -36,6 +38,8 @@ public class InitializeScheduleEntity {
 	private String name;
 	@OneToOne
 	private InitializeActionEntity action;
+//	@OneToMany(fetch = FetchType.EAGER)
 	@OneToMany
+	@JoinColumn(name="SCHEDULE_id")
 	private List<InitializeActionEntity> actions = new ArrayList<>();
 }
