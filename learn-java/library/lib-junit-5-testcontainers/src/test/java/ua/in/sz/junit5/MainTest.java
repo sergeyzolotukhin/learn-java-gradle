@@ -12,6 +12,7 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.List;
 
+@SuppressWarnings("rawtypes")
 @Slf4j
 @Testcontainers
 class MainTest {
