@@ -5,16 +5,18 @@
         </encoder>
     </appender>
 
-    <turboFilter class="ua.in.sz.spring.thread.ShowSqlFeatureFilter">
-        <Value>run query 2</Value>
-    </turboFilter>
+<!--    <turboFilter class="ua.in.sz.spring.thread.ShowSqlFeatureFilter">-->
+<!--        <Value>run query 2</Value>-->
+<!--    </turboFilter>-->
 
-    <turboFilter class="ua.in.sz.spring.thread.FeatureFilter">
-        <MDCKey>feature</MDCKey>
-        <Value>run query 2</Value>
-        <onMismatch>DENY</onMismatch>
-    </turboFilter>
+<!--    <turboFilter class="ua.in.sz.spring.thread.FeatureFilter">-->
+<!--        <MDCKey>feature</MDCKey>-->
+<!--        <Value>run query 2</Value>-->
+<!--        <onMismatch>DENY</onMismatch>-->
+<!--    </turboFilter>-->
 
+<!--    <logger name="org.springframework.transaction" level="DEBUG" />-->
+<!--    <logger name="org.springframework.orm.hibernate5" level="DEBUG" />-->
     <logger name="org.hibernate.SQL" level="DEBUG" />
 
     <logger name="org.springframework" level="warn" />

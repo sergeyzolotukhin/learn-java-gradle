@@ -5,6 +5,8 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.in.sz.spring.transaction.readonly.entity.TxReadOnlyScheduleEntity;
@@ -29,7 +31,7 @@ public class TxReadOnlyService {
         for (TxReadOnlyScheduleEntity entity : entities) {
             log.info("Entity with name: [{}]", entity.getName());
 
-            entity.setName(entity.getName().trim() + " +2");
+            entity.setName(entity.getName() + " +2");
         }
     }
 }
