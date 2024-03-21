@@ -18,3 +18,9 @@ GET http://localhost:8080/
 
 ###
 GET http://localhost:8080/api/internal/hello
+
+###
+GET http://192.168.56.2:8080/api/internal/hello
+
+###
+GET http://192.168.56.2:8080/api/external/hello

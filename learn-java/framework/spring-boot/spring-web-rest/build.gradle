@@ -7,7 +7,7 @@ plugins {
 
 jib {
     from {
-        image = "azul/zulu-openjdk:17-jre"
+        image = "azul/zulu-openjdk:20-jre"
     }
     to {
         image = "szolotukhin/spring-web-rest:${version}"
@@ -17,11 +17,16 @@ jib {
             password = "$dockerHubPassword"
         }
     }
+    container {
+        jvmFlags = ['-Xms512m', '-Xdebug']
+        mainClass = 'ua.in.sz.spring.Application'
+        args = []
+        ports = ['8080/tcp']
+    }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.slf4j:jcl-over-slf4j:2.0.12'
 
     // tests

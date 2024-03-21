@@ -65,3 +65,8 @@ https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/java/com/b
 ###
 
 https://medium.com/nerd-for-tech/jenkins-and-jib-build-and-upload-images-to-private-docker-repo-ecba60696f84
+
+### How to run application
+
+docker pull szolotukhin/spring-web-rest:0.0.1-SNAPSHOT
+docker run -p8080:8080 szolotukhin/spring-web-rest:0.0.1-SNAPSHOT
