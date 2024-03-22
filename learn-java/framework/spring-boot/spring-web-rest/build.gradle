@@ -41,6 +41,7 @@ docker {
 }
 // task dependency
 // https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
+// https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
 tasks.register('createAppContainer', DockerCreateContainer) {
     imageId="szolotukhin/spring-web-rest:${version}"
     containerName='app-container'
