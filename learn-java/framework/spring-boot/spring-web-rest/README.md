@@ -71,7 +71,9 @@ https://medium.com/nerd-for-tech/jenkins-and-jib-build-and-upload-images-to-priv
 docker pull szolotukhin/spring-web-rest:0.0.1-SNAPSHOT
 docker run -p8080:8080 szolotukhin/spring-web-rest:0.0.1-SNAPSHOT
 
-#### 
+#### Docker CLI
 
 https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin/src/main/java/com/google/cloud/tools/jib/gradle/JibExtension.java
 https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin/src/main/java/com/google/cloud/tools/jib/gradle/DockerClientParameters.java
+
+https://gist.github.com/kekru/4e6d49b4290a4eebc7b597c07eaf61f2#set-env-var-linux-mac-windows
