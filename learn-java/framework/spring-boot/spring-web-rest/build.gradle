@@ -39,7 +39,8 @@ jib {
 docker {
     url = 'tcp://192.168.56.2:2375'
 }
-
+// task dependency
+// https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
 tasks.register('createAppContainer', DockerCreateContainer) {
     imageId="szolotukhin/spring-web-rest:${version}"
     containerName='app-container'
