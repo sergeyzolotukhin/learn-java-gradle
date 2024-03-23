@@ -86,3 +86,8 @@ https://www.baeldung.com/gradle-custom-task
 
 #### Gradle profile build
 https://dev.to/autonomousapps/reducing-my-gradle-plugin-s-impact-on-configuration-time-a-journey-32h2
+
+#### Gradle task dependency
+https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
+https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
+https://bmuschko.com/blog/docker-integration-testing/
