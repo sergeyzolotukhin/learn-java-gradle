@@ -77,3 +77,7 @@ https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin/src/ma
 https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin/src/main/java/com/google/cloud/tools/jib/gradle/DockerClientParameters.java
 
 https://gist.github.com/kekru/4e6d49b4290a4eebc7b597c07eaf61f2#set-env-var-linux-mac-windows
+
+#### Gradle Tasks
+https://docs.gradle.org/current/userguide/task_configuration_avoidance.html#task_configuration_avoidance
+https://docs.gradle.org/current/userguide/more_about_tasks.html#more_about_tasks
