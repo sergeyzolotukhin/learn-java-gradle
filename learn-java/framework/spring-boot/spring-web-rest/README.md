@@ -92,3 +92,6 @@ https://github.com/gradle/gradle-profiler
 https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
 https://medium.com/@AlexanderObregon/using-gradle-to-build-and-deploy-docker-containers-d4738cada039
 https://bmuschko.com/blog/docker-integration-testing/
+
+#### Docker Compose
+https://github.com/docker/awesome-compose/tree/master
