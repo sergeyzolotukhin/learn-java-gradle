@@ -215,3 +215,6 @@ https://www.engineyard.com/blog/building-a-vagrant-box-from-start-to-finish/
 #### Java Agent
 
 https://www.baeldung.com/java-instrumentation
+
+#### Gradle vagrant
+https://github.com/bmuschko/gradle-vagrant-plugin
