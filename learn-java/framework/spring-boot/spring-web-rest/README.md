@@ -81,3 +81,8 @@ https://gist.github.com/kekru/4e6d49b4290a4eebc7b597c07eaf61f2#set-env-var-linux
 #### Gradle Tasks
 https://docs.gradle.org/current/userguide/task_configuration_avoidance.html#task_configuration_avoidance
 https://docs.gradle.org/current/userguide/more_about_tasks.html#more_about_tasks
+https://docs.gradle.org/current/userguide/custom_tasks.html
+https://www.baeldung.com/gradle-custom-task
+
+#### Gradle profile build
+https://dev.to/autonomousapps/reducing-my-gradle-plugin-s-impact-on-configuration-time-a-journey-32h2
