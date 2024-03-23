@@ -222,3 +222,4 @@ https://linchpiner.github.io/gradle-devops-plugins.html
 
 #### Gradle Build Hooks
 https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
+https://docs.gradle.org/current/userguide/init_scripts.html
