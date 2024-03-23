@@ -2,7 +2,7 @@ https://plantuml.com/ru/preprocessing
 https://crashedmind.github.io/PlantUMLHitchhikersGuide/PlantUMLSpriteLibraries/plantuml_sprites.html
 
 #### master build
-Use case: 
+Use case: we will use it for checking that it is a live
 
 * populate remote grade cache
 * create database docker image
@@ -18,7 +18,7 @@ Use case: I will use it to check a PR before I will merge it to the master
 * run integration tests
 
 #### local build
-Use case: 
+Use case: I will use it for developing
 
 * easy as possible (single click)
 * fast as possible (incremental build)
