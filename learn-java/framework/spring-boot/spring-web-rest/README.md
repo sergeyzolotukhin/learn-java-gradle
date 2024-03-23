@@ -86,6 +86,7 @@ https://www.baeldung.com/gradle-custom-task
 
 #### Gradle profile build
 https://dev.to/autonomousapps/reducing-my-gradle-plugin-s-impact-on-configuration-time-a-journey-32h2
+https://github.com/gradle/gradle-profiler
 
 #### Gradle task dependency
 https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
