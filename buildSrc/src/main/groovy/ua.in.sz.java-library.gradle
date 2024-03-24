@@ -1,10 +1,32 @@
 plugins {
     id('java')
+    id 'maven-publish'
 }
 
 repositories {
 //    mavenLocal()
     mavenCentral()
+}
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/sergeyzolotukhin/learn-java-gradle")
+            credentials(HttpHeaderCredentials) {
+                name = "Authorization"
+                value = "token " + "$gitHubToken"
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
 }
 
 dependencies {
