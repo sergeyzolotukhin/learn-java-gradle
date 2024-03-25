@@ -95,3 +95,8 @@ https://bmuschko.com/blog/docker-integration-testing/
 
 #### Docker Compose
 https://github.com/docker/awesome-compose/tree/master
+
+#### How to push images to GitHub Packages using GITHUB_TOKEN secret with Maven Jib plugin?
+
+https://stackoverflow.com/questions/61802277/how-to-push-images-to-github-packages-using-github-token-secret-with-maven-jib-p
+https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-docker-registry
