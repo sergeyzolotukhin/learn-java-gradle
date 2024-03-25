@@ -1,0 +1,13 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // experimental
+    testImplementation "org.testcontainers:testcontainers:1.18.3"
+    testImplementation "org.testcontainers:junit-jupiter:1.18.3"
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+//    testImplementation 'com.influxdb:influxdb-client-java:2.7.5'
+    testImplementation 'com.influxdb:influxdb-client-java:7.0.0'
+
+}
