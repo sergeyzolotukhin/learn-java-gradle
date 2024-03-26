@@ -18,9 +18,7 @@ import com.influxdb.exceptions.InfluxException;
 import com.influxdb.query.FluxRecord;
 import com.influxdb.query.FluxTable;
 import com.influxdb.client.DeleteApi;
-import lombok.extern.slf4j.Slf4j;
 
-//@Slf4j
 public class InfluxDBConnectionClass {
 
     private String token;
@@ -35,14 +33,6 @@ public class InfluxDBConnectionClass {
         setOrg(org);
         setUrl(url);
         return InfluxDBClientFactory.create(getUrl(), getToken().toCharArray(), getOrg(), getBucket());
-    }
-
-    public InfluxDBClient buildConnection(String url, String username, String password, String bucket, String org) {
-        setToken(token);
-        setBucket(bucket);
-        setOrg(org);
-        setUrl(url);
-        return InfluxDBClientFactory.createV1(getUrl(), username, password.toCharArray(), "database", null);
     }
 
     public String getToken() {
@@ -82,7 +72,9 @@ public class InfluxDBConnectionClass {
         try {
             WriteApiBlocking writeApi = influxDBClient.getWriteApiBlocking();
 
-            Point point = Point.measurement("sensor").addTag("sensor_id", "TLM0100").addField("location", "Main Lobby")
+            Point point = Point.measurement("sensor")
+                    .addTag("sensor_id", "TLM0100")
+                    .addField("location", "Main Lobby")
                     .addField("model_number", "TLM89092A")
                     .time(Instant.parse("2021-10-11T15:18:15.117484Z"), WritePrecision.MS);
 
@@ -99,15 +91,21 @@ public class InfluxDBConnectionClass {
         try {
             WriteApiBlocking writeApi = influxDBClient.getWriteApiBlocking();
 
-            Point point1 = Point.measurement("sensor").addTag("sensor_id", "TLM0103")
-                    .addField("location", "Mechanical Room").addField("model_number", "TLM90012Z")
+            Point point1 = Point.measurement("sensor")
+                    .addTag("sensor_id", "TLM0103")
+                    .addField("location", "Mechanical Room")
+                    .addField("model_number", "TLM90012Z")
                     .time(Instant.parse("2021-10-11T20:18:15.117480Z"), WritePrecision.MS);
 
-            Point point2 = Point.measurement("sensor").addTag("sensor_id", "TLM0200")
-                    .addField("location", "Conference Room").addField("model_number", "TLM89092B")
+            Point point2 = Point.measurement("sensor")
+                    .addTag("sensor_id", "TLM0200")
+                    .addField("location", "Conference Room")
+                    .addField("model_number", "TLM89092B")
                     .time(Instant.parse("2021-10-11T10:10:15.117484Z"), WritePrecision.MS);
 
-            Point point3 = Point.measurement("sensor").addTag("sensor_id", "TLM0201").addField("location", "Room 390")
+            Point point3 = Point.measurement("sensor")
+                    .addTag("sensor_id", "TLM0201")
+                    .addField("location", "Room 390")
                     .addField("model_number", "TLM89102B")
                     .time(Instant.parse("2021-10-11T04:04:15.117484Z"), WritePrecision.MS);
 
@@ -139,9 +137,7 @@ public class InfluxDBConnectionClass {
 
             writeApi.writeMeasurement(WritePrecision.MS, sensor);
             flag = true;
-        } catch (
-
-                InfluxException e) {
+        } catch (InfluxException e) {
             System.out.println("Exception!!" + e.getMessage());
         }
         return flag;
@@ -149,22 +145,24 @@ public class InfluxDBConnectionClass {
 
     @Measurement(name = "sensor")
     private static class Sensor {
-
         @Column(tag = true)
         String sensor_id;
-
         @Column
         String location;
-
         @Column
         String model_number;
-
         @Column(timestamp = true)
         Instant last_inspected;
     }
 
     public void queryData(InfluxDBClient influxDBClient) {
-        String flux = "from(bucket:\"myFirstBucket\") |> range(start:0) |> filter(fn: (r) => r[\"_measurement\"] == \"sensor\") |> filter(fn: (r) => r[\"sensor_id\"] == \"TLM0100\"or r[\"sensor_id\"] == \"TLM0101\" or r[\"sensor_id\"] == \"TLM0103\" or r[\"sensor_id\"] == \"TLM0200\") |> sort() |> yield(name: \"sort\")";
+        String flux = "from(bucket:\"myFirstBucket\") |> " +
+                "range(start:0) |> " +
+                "filter(fn: (r) => r[\"_measurement\"] == \"sensor\") |> " +
+                "filter(fn: (r) => r[\"sensor_id\"] == \"TLM0100\"or r[\"sensor_id\"] == \"TLM0101\" or r[\"sensor_id\"] == \"TLM0103\" or r[\"sensor_id\"] == \"TLM0200\") |> " +
+                "sort() |> " +
+                "yield(name: \"sort\")";
+
         // from(bucket: "myFirstBucket")
         // |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
         // |> filter(fn: (r) => r["_measurement"] == "sensor")
