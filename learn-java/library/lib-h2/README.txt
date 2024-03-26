@@ -29,3 +29,5 @@ Page
     <- NonLeaf
          PageReference<K,V>[] children;
 
+
+https://www.h2database.com/html/performance.html#fast_import
