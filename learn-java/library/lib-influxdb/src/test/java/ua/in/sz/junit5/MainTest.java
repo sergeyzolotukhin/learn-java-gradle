@@ -11,13 +11,12 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
-@SuppressWarnings("rawtypes")
 @Slf4j
 @Testcontainers
 class MainTest {
 
     @Container
-    public GenericContainer application = new GenericContainer(DockerImageName.parse("influxdb:2.7.5"))
+    public GenericContainer<?> application = new GenericContainer<>(DockerImageName.parse("influxdb:2.7.5"))
             .withEnv("DOCKER_INFLUXDB_INIT_MODE", "setup")
             .withEnv("DOCKER_INFLUXDB_INIT_USERNAME", "immerfroehlich")
             .withEnv("DOCKER_INFLUXDB_INIT_PASSWORD", "immerfroehlich")
@@ -56,7 +55,6 @@ class MainTest {
         }
 
         // Write using POJO
-
         boolean resultPOJO = inConn.writePointbyPOJO(influxDBClient);
         if (resultPOJO) {
             log.info("Writey POJO done");

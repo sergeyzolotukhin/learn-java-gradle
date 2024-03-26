@@ -18,21 +18,24 @@ import com.influxdb.exceptions.InfluxException;
 import com.influxdb.query.FluxRecord;
 import com.influxdb.query.FluxTable;
 import com.influxdb.client.DeleteApi;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InfluxDBConnectionClass {
 
     private String token;
     private String bucket;
-    private String org;
+    private String organization;
 
     private String url;
 
     public InfluxDBClient buildConnection(String url, String token, String bucket, String org) {
+        log.info("connect {}", url);
         setToken(token);
         setBucket(bucket);
-        setOrg(org);
+        setOrganization(org);
         setUrl(url);
-        return InfluxDBClientFactory.create(getUrl(), getToken().toCharArray(), getOrg(), getBucket());
+        return InfluxDBClientFactory.create(getUrl(), getToken().toCharArray(), getOrganization(), getBucket());
     }
 
     public String getToken() {
@@ -51,12 +54,12 @@ public class InfluxDBConnectionClass {
         this.bucket = bucket;
     }
 
-    public String getOrg() {
-        return org;
+    public String getOrganization() {
+        return organization;
     }
 
-    public void setOrg(String org) {
-        this.org = org;
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 
     public String getUrl() {
@@ -159,7 +162,12 @@ public class InfluxDBConnectionClass {
         String flux = "from(bucket:\"myFirstBucket\") |> " +
                 "range(start:0) |> " +
                 "filter(fn: (r) => r[\"_measurement\"] == \"sensor\") |> " +
-                "filter(fn: (r) => r[\"sensor_id\"] == \"TLM0100\"or r[\"sensor_id\"] == \"TLM0101\" or r[\"sensor_id\"] == \"TLM0103\" or r[\"sensor_id\"] == \"TLM0200\") |> " +
+                "filter(fn: (r) => " +
+                "r[\"sensor_id\"] == \"TLM0100\"" +
+                "or r[\"sensor_id\"] == \"TLM0101\" " +
+                "or r[\"sensor_id\"] == \"TLM0103\" " +
+                "or r[\"sensor_id\"] == \"TLM0200\"" +
+                ") |> " +
                 "sort() |> " +
                 "yield(name: \"sort\")";
 
