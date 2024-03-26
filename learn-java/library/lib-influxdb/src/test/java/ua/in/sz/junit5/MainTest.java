@@ -37,15 +37,12 @@ class MainTest {
         log.info("{}",  toStringConsumer.toUtf8String());
 
         String token = "5dskc69ENfbtnF_g99CZgI4yDxTrZK45WbDSeY1kuz82uJFclYeEmnHyJxYRUcXVVB4O48rkn9e6p7g525wevQ==";
-        String username = "immerfroehlich";
-        String password = "immerfroehlich";
         String bucket = "myFirstBucket";
         String org = "TestOrg";
         String url = "http://" + application.getHost() + ":" + application.getFirstMappedPort();
 
         InfluxDBConnectionClass inConn = new InfluxDBConnectionClass();
         InfluxDBClient influxDBClient = inConn.buildConnection(url, token, bucket, org);
-//        InfluxDBClient influxDBClient = inConn.buildConnection(url, token, username, password, org);
 
         boolean resultSingle = inConn.singlePointWrite(influxDBClient);
         if (resultSingle) {
