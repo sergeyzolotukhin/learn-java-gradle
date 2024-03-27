@@ -14,7 +14,7 @@ test {
 
 dependencies {
     // experimental
-    implementation 'com.cronutils:cron-utils:9.2.2-SNAPSHOT'
+    implementation 'com.cronutils:cron-utils:9.2.1'
 
     // common utils
     implementation 'com.google.guava:guava'
