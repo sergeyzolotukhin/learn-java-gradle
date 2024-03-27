@@ -63,11 +63,11 @@ public class Application {
 		q1.setCacheable(true);
 		List<Schedule> l1 = q1.list();
 
-		NativeQuery<Object> nq1 = session.createNativeQuery("select * from SCHEDULE", Object.class);
+		NativeQuery<Schedule> nq1 = session.createNativeQuery("select * from SCHEDULE", Schedule.class);
 		nq1.addSynchronizedQuerySpace("f");
 		nq1.setCacheable(true);
 		nq1.setCacheRegion("f");
-		List<Object> nl1 = nq1.list();
+		List<Schedule> nl1 = nq1.list();
 
 	}
 }

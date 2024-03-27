@@ -143,7 +143,7 @@ include 'learn-java:framework:spring-boot:spring-xml'
 // ====================================================================================================================
 // Hibernate
 // ====================================================================================================================
-//include 'library:lib-hibernate'
+include 'learn-java:library:lib-hibernate'
 //include 'hibernate:hibernate-xml-mapping'
 
 
