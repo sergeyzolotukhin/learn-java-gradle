@@ -2,11 +2,9 @@ package ua.in.sz.hibernate.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.infinispan.Cache;
-import org.infinispan.commons.util.CloseableIterator;
 import org.infinispan.manager.DefaultCacheManager;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
