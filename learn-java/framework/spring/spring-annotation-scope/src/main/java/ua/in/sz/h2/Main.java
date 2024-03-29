@@ -22,6 +22,16 @@ public class Main {
         context.getBean(PrototypeService.class).print();
         context.getBean(PrototypeService.class).print();
 
+        log.info("custom");
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+        context.getBean(TenantService.class).print();
+
         context.close();
     }
 }
