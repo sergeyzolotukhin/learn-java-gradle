@@ -25,7 +25,7 @@ public class Application {
 			}
 		}*/
 
-		for (int i = 0; i < 100_000; i++) {
+		for (int i = 0; i < 100; i++) {
 			for (Map.Entry<String, String> e : cache.entrySet()) {
 				if (e == null) {
 					throw new IllegalStateException();
