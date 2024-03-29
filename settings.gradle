@@ -98,10 +98,11 @@ include 'learn-java:library:lib-junit-5-testcontainers'
 // ====================================================================================================================
 // spring
 // ====================================================================================================================
+include 'learn-java:framework:spring:spring-annotation'
+include 'learn-java:framework:spring:spring-annotation-scope'
 include 'learn-java:framework:spring:spring-xml-minimal'
 include 'learn-java:framework:spring:spring-xml-property'
 include 'learn-java:framework:spring:spring-xml-property-path'
-include 'learn-java:framework:spring:spring-annotation'
 include 'learn-java:framework:spring:spring-xml-plugable'
 include 'learn-java:framework:spring:spring-xml-factory-bean'
 include 'learn-java:framework:spring:spring-xml-data-binding'
