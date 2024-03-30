@@ -130,6 +130,7 @@ include 'learn-java:framework:spring-boot:spring-cxf-ws'
 include 'learn-java:framework:spring-boot:spring-cxf-rs'
 include 'learn-java:framework:spring-boot:spring-transactional'
 include 'learn-java:framework:spring-boot:spring-xml'
+include 'learn-java:framework:spring-boot:spring-undertow'
 
 //include 'learn-java:framework:spring-boot:spring-shell'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'
@@ -139,7 +140,6 @@ include 'learn-java:framework:spring-boot:spring-xml'
 //include 'learn-java:framework:spring-boot:spring-web-xml'
 //include 'learn-java:framework:spring-boot:spring-webflux'
 //include 'learn-java:framework:spring-boot:spring-thymeleaf'
-//include 'learn-java:framework:spring:spring-undertow'
 
 // ====================================================================================================================
 // Hibernate
