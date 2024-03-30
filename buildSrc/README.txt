@@ -1,3 +1,6 @@
+https://discuss.gradle.org/t/how-to-create-custom-gradle-task-type-and-not-have-to-specify-full-path-to-type-in-build-gradle/6059/3
+
+
 https://docs.gradle.org/current/userguide/custom_plugins.html
 https://github.com/eugenp/tutorials/tree/master/gradle-modules/gradle/plugin
 https://docs.gradle.org/current/userguide/custom_plugins.html
