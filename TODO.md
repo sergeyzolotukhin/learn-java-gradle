@@ -223,3 +223,8 @@ https://linchpiner.github.io/gradle-devops-plugins.html
 #### Gradle Build Hooks
 https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
 https://docs.gradle.org/current/userguide/init_scripts.html
+
+#### Gradle Using local gradle plugin in a composite build
+https://stackoverflow.com/questions/72733760/using-local-gradle-plugin-in-a-composite-build-using-groovy-convention-scripts
+
+
