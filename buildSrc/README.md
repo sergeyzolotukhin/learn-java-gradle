@@ -11,3 +11,4 @@ https://stefma.medium.com/streamline-your-development-process-with-a-convenient-
 
 https://discuss.gradle.org/t/best-ways-of-extending-a-plugin/14273
 https://stackoverflow.com/questions/27318144/how-to-apply-a-gradle-plugin-from-another-plugin
+https://marcelkliemannel.com/articles/2022/common-gradle-plugin-mistakes-and-good-practices/#dont-apply-other-plugins
