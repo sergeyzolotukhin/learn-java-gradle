@@ -16,3 +16,4 @@ https://marcelkliemannel.com/articles/2022/common-gradle-plugin-mistakes-and-goo
 #### Gradle Plugin input <--> output
 https://tomgregory.com/gradle/gradle-task-inputs-and-outputs/#2-linking-task-inputs-and-outputs
 https://github.com/gradle-hero/gradle-tutorials/blob/master/task-inputs-and-outputs/linking-tasks/build.gradle.kts
+https://docs.gradle.org/current/userguide/lazy_configuration.html
