@@ -226,5 +226,6 @@ https://docs.gradle.org/current/userguide/init_scripts.html
 
 #### Gradle Using local gradle plugin in a composite build
 https://stackoverflow.com/questions/72733760/using-local-gradle-plugin-in-a-composite-build-using-groovy-convention-scripts
+https://docs.gradle.org/current/samples/sample_sharing_convention_plugins_with_build_logic.html
 
 
