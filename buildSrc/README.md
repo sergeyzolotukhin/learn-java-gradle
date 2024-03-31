@@ -26,3 +26,7 @@ https://github.com/Seb35/git-cache
 https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/how-to-create-and-use-a-git-reference-repository
 https://randyfay.com/content/reference-cache-repositories-speed-clones-git-clone-reference
 https://git-scm.com/docs/git-clone
+
+#### Jenkins: Locks and Latches plugin
+https://www.jenkins.io/blog/2016/10/16/stage-lock-milestone/
+https://plugins.jenkins.io/lockable-resources/
