@@ -30,3 +30,4 @@ https://git-scm.com/docs/git-clone
 #### Jenkins: Locks and Latches plugin
 https://www.jenkins.io/blog/2016/10/16/stage-lock-milestone/
 https://plugins.jenkins.io/lockable-resources/
+https://www.youtube.com/watch?v=y_z8mqV8G68&ab_channel=CloudBeesTV
