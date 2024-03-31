@@ -8,6 +8,8 @@ plugins {
 
 import com.bmuschko.gradle.docker.tasks.container.*
 
+import java.nio.file.Files
+
 jib {
     from {
         image = "azul/zulu-openjdk:20-jre"
@@ -41,16 +43,59 @@ docker {
 }
 
 tasks.register('createAppContainer', DockerCreateContainer) {
+    group = "docker"
     imageId="szolotukhin/spring-web-rest:${version}"
     containerName='app-container'
 }
 
 tasks.register('startAppContainer', DockerStartContainer) {
-    containerId='app-container'
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
 }
 
 tasks.register('stopAppContainer', DockerStopContainer) {
-    containerId='app-container'
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
+}
+
+tasks.register('removeAppContainer', DockerRemoveContainer) {
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
+}
+
+tasks.register('startAppContainerById', DockerStartContainer) {
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
+}
+
+tasks.register('printAppContainerId') {
+    group = "docker"
+    inputs.files(tasks.named("createAppContainer"))
+    doLast {
+        //  class org.gradle.api.internal.file.DefaultFilePropertyFactory$DefaultRegularFileVar
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().getClass()
+
+        // class org.gradle.api.internal.provider.MappingProvider
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().getAsFile().getClass()
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().getAsFile().getType().getClass().getSimpleName()
+
+        // class java.io.File
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().get().getAsFile().getClass()
+        // class sun.nio.fs.WindowsPath
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().get().getAsFile().toPath().getClass()
+
+
+//        println 'Task 1: ' + Files.readString(tasks.getByName("createAppContainer").getContainerIdFile().get().getAsFile().toPath())
+
+
+//        println 'Task 2: ' + createAppContainer.containerIdFile.asFile.readText
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().getAsFile().toPath().getClass()
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().get().getClass()
+
+        // class org.gradle.api.internal.file.DefaultFilePropertyFactory$FixedFile
+//        println 'Task: ' + tasks.getByName("createAppContainer").getContainerIdFile().get().getClass()
+        println inputs.files.singleFile.text
+    }
 }
 
 dependencies {
