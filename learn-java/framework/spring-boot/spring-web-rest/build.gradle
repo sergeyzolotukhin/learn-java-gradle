@@ -8,8 +8,6 @@ plugins {
 
 import com.bmuschko.gradle.docker.tasks.container.*
 
-import java.nio.file.Files
-
 jib {
     from {
         image = "azul/zulu-openjdk:20-jre"
