@@ -23,3 +23,4 @@ https://habr.com/ru/companies/yota/articles/575874/
 #### Git clone optimization
 
 https://github.com/Seb35/git-cache
+https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/how-to-create-and-use-a-git-reference-repository
