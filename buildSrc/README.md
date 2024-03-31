@@ -19,3 +19,7 @@ https://github.com/gradle-hero/gradle-tutorials/blob/master/task-inputs-and-outp
 https://docs.gradle.org/current/userguide/lazy_configuration.html
 https://docs.gradle.org/current/userguide/custom_tasks.html
 https://habr.com/ru/companies/yota/articles/575874/
+
+#### Git clone optimization
+
+https://github.com/Seb35/git-cache
