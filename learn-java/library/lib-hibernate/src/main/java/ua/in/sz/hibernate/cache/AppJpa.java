@@ -7,14 +7,12 @@ import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.Workspace;
 
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import ua.in.sz.hibernate.cache.impl.Schedule_;
 
 @Slf4j
 public class AppJpa {
@@ -45,7 +43,7 @@ public class AppJpa {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
 		Root<Schedule> from = cq.from(Schedule.class);
-		cq.where(cb.equal(from.get(Schedule_.name), "Schedule 2"));
+//		cq.where(cb.equal(from.get(Schedule_.name), "Schedule 2"));
 		CriteriaQuery<Schedule> select = cq.select(from);
 		List<Schedule> schedules = em.createQuery(select).getResultList();
 
