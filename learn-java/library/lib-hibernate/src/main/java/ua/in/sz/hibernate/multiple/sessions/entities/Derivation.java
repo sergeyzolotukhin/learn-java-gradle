@@ -39,7 +39,7 @@ public class Derivation {
 	@EqualsAndHashCode.Include
 	private String name;
 
-	@OneToMany(mappedBy = "derivation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "derivation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Builder.Default
 	@Setter(AccessLevel.NONE)
 	protected Set<Attribute> attributes = new HashSet<>();

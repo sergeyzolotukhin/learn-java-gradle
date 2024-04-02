@@ -11,6 +11,7 @@ import ua.in.sz.hibernate.multiple.sessions.entities.Attribute;
 import ua.in.sz.hibernate.multiple.sessions.entities.Derivation;
 
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 public class AppHibernate {
@@ -26,9 +27,17 @@ public class AppHibernate {
             Long derivationId = insertDerivation(sessionFactory);
 
             Session session = sessionFactory.openSession();
+//            session.getTransaction().begin();
             Derivation derivation = session.get(Derivation.class, derivationId);
             log.info("Derivation: {}, clazz: {}", derivation, derivation.getAttributes().getClass());
+//            session.getTransaction().commit();
+//            session.clear();
             session.close();
+            log.info("Session closed");
+
+            for (Attribute attribute : derivation.getAttributes()) {
+                log.info("Attributes: {}", attribute);
+            }
 
         } catch (Exception e) {
             log.error("Error: ", e);
