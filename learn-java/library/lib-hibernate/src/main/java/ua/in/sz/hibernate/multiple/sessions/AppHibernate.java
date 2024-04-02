@@ -23,14 +23,13 @@ public class AppHibernate {
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
+            Long derivationId = insertDerivation(sessionFactory);
+
             Session session = sessionFactory.openSession();
-
-            Query<Derivation> q1 = session.createQuery("select m from Derivation m", Derivation.class);
-            List<Derivation> l1 = q1.list();
-
-            log.info("Schedule: {}", l1);
-
+            Derivation derivation = session.get(Derivation.class, derivationId);
+            log.info("Derivation: {}, clazz: {}", derivation, derivation.getAttributes().getClass());
             session.close();
+
         } catch (Exception e) {
             log.error("Error: ", e);
             // The registry would be destroyed by the SessionFactory, but we
@@ -38,5 +37,28 @@ public class AppHibernate {
             StandardServiceRegistryBuilder.destroy(registry);
 
         }
+    }
+
+    private static Long insertDerivation(SessionFactory sessionFactory) {
+        Session em = sessionFactory.openSession();
+
+        // model
+        Derivation workspace = Derivation.builder().name("Derivation 1").build();
+        workspace.add(Attribute.builder().name("Attribute 1").build());
+        workspace.add(Attribute.builder().name("Attribute 2").build());
+
+        log.info("persist");
+        em.getTransaction().begin();
+        em.persist(workspace);
+        em.getTransaction().commit();
+        em.clear();
+
+        em.close();
+
+        Long id = workspace.getId();
+
+        log.info("ID: {}", id);
+
+        return id;
     }
 }

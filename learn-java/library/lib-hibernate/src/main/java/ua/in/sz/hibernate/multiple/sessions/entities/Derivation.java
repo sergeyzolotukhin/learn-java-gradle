@@ -18,7 +18,6 @@ import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,9 +50,5 @@ public class Derivation {
 
 	public void remove(Attribute attribute) {
 		attribute.setDerivation(null);
-	}
-
-	public Set<Attribute> getAttributes() {
-		return Collections.unmodifiableSet(attributes);
 	}
 }
