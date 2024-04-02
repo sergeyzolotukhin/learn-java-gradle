@@ -10,7 +10,6 @@ import ua.in.sz.hibernate.cache.impl.Workspace;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +17,7 @@ import java.util.stream.Collectors;
 import ua.in.sz.hibernate.cache.impl.Schedule_;
 
 @Slf4j
-public class Application {
+public class AppJpa {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
 		EntityManager em = emf.createEntityManager();
