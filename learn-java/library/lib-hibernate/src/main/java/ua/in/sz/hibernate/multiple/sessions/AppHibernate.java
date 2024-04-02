@@ -6,10 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.slf4j.Logger;
 import ua.in.sz.hibernate.multiple.sessions.entities.Attribute;
 import ua.in.sz.hibernate.multiple.sessions.entities.Derivation;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 import java.util.Set;
 
 @Slf4j
@@ -34,14 +36,18 @@ public class AppHibernate {
 
             log.info("Nested session is started");
             Session nestedSession = sessionFactory.openSession();
-            Derivation nestedDerivation = nestedSession.get(Derivation.class, derivationId);
-//            Set<Attribute> nestedAttributes = nestedDerivation.getAttributes();
+//            Derivation nestedDerivation = nestedSession.get(Derivation.class, derivationId);
+            Derivation nestedDerivation = new Derivation();
+            Set<Attribute> nestedAttributes = nestedDerivation.getAttributes();
 
             Field attributesField = Derivation.class.getDeclaredField("attributes");
             attributesField.setAccessible(true);
             attributesField.set(nestedDerivation, attributes);
 
-            Set<Attribute> nestedAttributes = nestedDerivation.getAttributes();
+            nestedDerivation.add(Attribute.builder().name("Attribute 1").build());
+            nestedDerivation.add(Attribute.builder().name("Attribute 2").build());
+
+//            Set<Attribute> nestedAttributes = nestedDerivation.getAttributes();
             log.info("Nested attributes: {}", defaultToString(nestedAttributes));
 
             nestedSession.merge(nestedDerivation);
@@ -67,26 +73,34 @@ public class AppHibernate {
     }
 
     public static String defaultToString(Object o) {
-        return o.getClass().getName() + "@" + Integer.toHexString(o.hashCode());
+        return Objects.toIdentityString(o);
+    }
+
+    private static final Logger breakpointLog = org.slf4j.LoggerFactory.getLogger("debug-breakpoint");
+
+    public static boolean logBrackpoint(Object o) {
+        breakpointLog.info("close session: [{}]", java.util.Objects.toIdentityString(o));
+        return true;
     }
 
     private static Long insertDerivation(SessionFactory sessionFactory) {
+        log.info("insert");
         Session em = sessionFactory.openSession();
 
         // model
-        Derivation workspace = Derivation.builder().name("Derivation 1").build();
-        workspace.add(Attribute.builder().name("Attribute 1").build());
-        workspace.add(Attribute.builder().name("Attribute 2").build());
+        Derivation derivation = Derivation.builder().name("Derivation 1").build();
+        derivation.add(Attribute.builder().name("Attribute 1").build());
+        derivation.add(Attribute.builder().name("Attribute 2").build());
 
 //        log.info("persist");
         em.getTransaction().begin();
-        em.persist(workspace);
+        em.persist(derivation);
         em.getTransaction().commit();
         em.clear();
 
         em.close();
 
-        Long id = workspace.getId();
+        Long id = derivation.getId();
 
 //        log.info("ID: {}", id);
 
