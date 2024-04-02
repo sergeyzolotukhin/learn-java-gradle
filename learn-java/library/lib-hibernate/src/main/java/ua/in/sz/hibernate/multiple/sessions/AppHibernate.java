@@ -6,12 +6,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
 import ua.in.sz.hibernate.multiple.sessions.entities.Attribute;
 import ua.in.sz.hibernate.multiple.sessions.entities.Derivation;
 
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Set;
 
 @Slf4j
