@@ -27,14 +27,11 @@ public class AppHibernate {
             Long derivationId = insertDerivation(sessionFactory);
 
             Session session = sessionFactory.openSession();
-//            session.getTransaction().begin();
             Derivation derivation = session.get(Derivation.class, derivationId);
             log.info("Derivation: {}, clazz: {}", derivation, derivation.getAttributes().getClass());
-//            session.getTransaction().commit();
-//            session.clear();
             session.close();
-            log.info("Session closed");
 
+            log.info("Session closed");
             for (Attribute attribute : derivation.getAttributes()) {
                 log.info("Attributes: {}", attribute);
             }
