@@ -178,8 +178,7 @@ include 'learn-java:pattern-gof:pattern-gof-composite'
 //include 'learn-gradle:multi-project:api'
 //include 'learn-gradle:multi-project:impl'
 
-//include 'learn-gradle:custom-plugin:plugin'
-//include 'learn-gradle:custom-plugin:use'
+includeBuild 'learn-gradle'
 
 //include 'learn-groovy'
 // ====================================================================================================================
