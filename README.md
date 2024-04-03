@@ -61,3 +61,7 @@ vagrant plugin uninstall vagrant-vbguest
 vagrant box update
 vagrant box list
 
+#### composite build - platform
+
+https://github.com/ndru83/gradle-composite-build-error/tree/master
+
