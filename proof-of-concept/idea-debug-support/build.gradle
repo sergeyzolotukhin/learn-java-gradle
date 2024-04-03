@@ -1,0 +1,7 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    implementation(runtimeOnly project(":learn-java:library:lib-hibernate"))
+}

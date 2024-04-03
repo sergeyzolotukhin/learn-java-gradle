@@ -9,6 +9,8 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.2.10'
 
     // development
+    runtimeOnly project(":proof-of-concept:idea-debug-support")
+
     compileOnly 'org.projectlombok:lombok:1.18.8'
     compileOnly 'org.hibernate:hibernate-jpamodelgen:5.4.13.Final'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
