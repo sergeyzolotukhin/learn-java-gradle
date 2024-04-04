@@ -1,5 +1,7 @@
 <configuration scan="true" scanPeriod="30 seconds">
 
+    <conversionRule conversionWord="kv" converterClass="ua.in.sz.logging.KVPConverter"/>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ua.in.sz.logging.KeyPairFilter">
             <key>key</key>
@@ -9,11 +11,13 @@
         </filter>
 
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %kvp %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-10.10kv{key} | %-40.40logger{36} - %msg %kvp %n</pattern>
         </encoder>
     </appender>
 
 <!--  https://logback.qos.ch/manual/appenders.html  -->
+
+<!--
     <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <driverClass>org.postgresql.Driver</driverClass>
@@ -22,10 +26,11 @@
             <password>postgres</password>
         </connectionSource>
     </appender>
+-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="DB" />
+<!--        <appender-ref ref="DB" />-->
     </root>
 
 
