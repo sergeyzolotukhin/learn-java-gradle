@@ -14,3 +14,6 @@ https://reflectoring.io/logging-format-logback/
 https://github.com/thombergs/descriptive-logger
 https://github.com/qqq-tech/anthavio-spring/blob/6d0fb057efb30174ed80b42f93d188b4eceebfce/src/main/java/net/anthavio/logback/SpringTxMdcFilter.java
 https://github.com/qos-ch/slf4j/blob/master/slf4j-ext/src/main/java/org/slf4j/NDC.java
+
+https://www.slf4j.org/faq.html#marker
+https://logback.qos.ch/manual/appenders.html#OnMarkerEvaluator
