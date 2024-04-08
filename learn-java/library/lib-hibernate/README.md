@@ -38,6 +38,7 @@ TimescaleDB is an open-source database designed to make SQL scalable for time-se
 https://github.com/timescale/timescaledb
 https://medium.com/@SaiParvathaneni/a-complete-guide-for-postgres-timescale-db-ae75a4d45b8d
 https://www.timescale.com/blog/timescaledb-vs-influxdb-for-time-series-data-timescale-influx-sql-nosql-36489299877/
+https://medium.datadriveninvestor.com/sql-and-timescaledb-e4676aac38a9
 
 PipelineDB is a PostgreSQL extension for high-performance time-series aggregation, 
     designed to power realtime reporting and analytics applications.
