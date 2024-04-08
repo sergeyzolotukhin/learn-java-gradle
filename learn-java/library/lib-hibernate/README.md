@@ -30,3 +30,12 @@ https://www.postgresql.org/docs/8.1/datatype.html#DATATYPE-NUMERIC-DECIMAL
 pg_column_size(any)	int	    Number of bytes used to store a particular value (possibly compressed)
 
 https://www.postgresql.org/docs/9.4/functions-admin.html
+
+#### PostgreSQL extension for time-series
+
+TimescaleDB is an open-source database designed to make SQL scalable for time-series data. 
+    It is engineered up from PostgreSQL and packaged as a PostgreSQL extension
+https://github.com/timescale/timescaledb
+
+PipelineDB is a PostgreSQL extension for high-performance time-series aggregation, 
+    designed to power realtime reporting and analytics applications.
