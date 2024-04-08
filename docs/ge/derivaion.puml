@@ -3,29 +3,30 @@
 
 'left to right direction
 
-'together {
+rectangle r <<daily>> {
     collections dailyScheduleA
     collections dailyScheduleB
-'}
-
+}
 dailyScheduleA -up[hidden]-> dailyScheduleB
 
-'together {
-    process primaryDerivationA
-    process primaryDerivationB
-'}
+rectangle p {
+process primaryDerivationA
+process primaryDerivationB
+}
 
-process derivationB
+primaryDerivationA -up[hidden]-> primaryDerivationB
+dailyScheduleA -> primaryDerivationA
+dailyScheduleB -> primaryDerivationB
+
+'process derivationB
 process derivationC
+process derivationD
+process derivationE
 
+primaryDerivationA -> derivationC
+primaryDerivationB -> derivationC
 
-
-dailyScheduleA --> primaryDerivationA
-dailyScheduleB --> primaryDerivationB
-
-primaryDerivationA -> derivationB
-primaryDerivationB -> derivationB
-
-
+derivationC -> derivationD
+derivationD -> derivationE
 
 @enduml
