@@ -42,3 +42,8 @@ https://medium.datadriveninvestor.com/sql-and-timescaledb-e4676aac38a9
 
 PipelineDB is a PostgreSQL extension for high-performance time-series aggregation, 
     designed to power realtime reporting and analytics applications.
+
+#### PostgreSQL caching
+shared_buffers - The default is typically 128 megabytes (128MB)
+Each cache entry points to an 8KB block (sometimes called a page) of data
+https://klouddb.io/postgres-os-cache-monitoring-blog-final/
