@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+'left to right direction
+
+'together {
+    collections dailyScheduleA
+    collections dailyScheduleB
+'}
+
+dailyScheduleA -up[hidden]-> dailyScheduleB
+
+'together {
+    process primaryDerivationA
+    process primaryDerivationB
+'}
+
+process derivationB
+process derivationC
+
+
+
+dailyScheduleA --> primaryDerivationA
+dailyScheduleB --> primaryDerivationB
+
+primaryDerivationA -> derivationB
+primaryDerivationB -> derivationB
+
+
+
+@enduml
