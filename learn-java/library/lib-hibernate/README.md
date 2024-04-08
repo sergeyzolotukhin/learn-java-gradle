@@ -36,6 +36,7 @@ https://www.postgresql.org/docs/9.4/functions-admin.html
 TimescaleDB is an open-source database designed to make SQL scalable for time-series data. 
     It is engineered up from PostgreSQL and packaged as a PostgreSQL extension
 https://github.com/timescale/timescaledb
+https://medium.com/@SaiParvathaneni/a-complete-guide-for-postgres-timescale-db-ae75a4d45b8d
 
 PipelineDB is a PostgreSQL extension for high-performance time-series aggregation, 
     designed to power realtime reporting and analytics applications.
