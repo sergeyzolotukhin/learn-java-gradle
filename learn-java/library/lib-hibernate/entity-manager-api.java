@@ -102,10 +102,26 @@ public interface EntityManager extends AutoCloseable {
 
     // =============================================================================================================
 
-    public <T> T merge(T entity);
+    public boolean contains(Object entity);
 
+    /**
+     * Make an instance managed and persistent.
+     * @param entity  entity instance
+     * @throws EntityExistsException if the entity already exists.
+     * (If the entity already exists, the <code>EntityExistsException</code> may
+     * be thrown when the persist operation is invoked, or the
+     * <code>EntityExistsException</code> or another <code>PersistenceException</code> may be
+     * thrown at flush or commit time.)
+     * @throws IllegalArgumentException if the instance is not an
+     *         entity
+     * @throws TransactionRequiredException if there is no transaction when
+     *         invoked on a container-managed entity manager of that is of type
+     *         <code>PersistenceContextType.TRANSACTION</code>
+     */
     public void persist(Object entity);
+    public <T> T merge(T entity);
     public void remove(Object entity);
+
     public void clear();
     public void detach(Object entity);
     public void flush();
@@ -113,7 +129,6 @@ public interface EntityManager extends AutoCloseable {
     public FlushModeType getFlushMode();
     public void lock(Object entity, LockModeType lockMode);
     public void lock(Object entity, LockModeType lockMode, Map<String, Object> properties);
-    public boolean contains(Object entity);
     public LockModeType getLockMode(Object entity);
     public void setProperty(String propertyName, Object value);
     public Map<String, Object> getProperties();
