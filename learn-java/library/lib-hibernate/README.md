@@ -52,3 +52,6 @@ https://madusudanan.com/blog/understanding-postgres-caching-in-depth/
 #### Batch Insert/Update with Hibernate/JPA
 
 https://www.baeldung.com/jpa-hibernate-batch-insert-update
+https://medium.com/@jerolba/persisting-fast-in-database-1af4a281e3a
+https://docs.jboss.org/hibernate/orm/4.1/manual/en-US/html/ch15.html
+
