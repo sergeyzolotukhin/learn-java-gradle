@@ -18,3 +18,5 @@ https://medium.com/code-science/convert-java-object-to-map-edfb9080834d
 https://thorben-janssen.com/jpa-attribute-converter/
 https://hantsy.blogspot.com/2013/12/jpa-21-attribute-converter.html
 
+#### Hibernate Reactive
+https://github.com/hibernate/hibernate-reactive/blob/main/documentation/src/main/asciidoc/reference/introduction.adoc
