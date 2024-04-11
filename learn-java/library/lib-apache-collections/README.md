@@ -10,3 +10,6 @@ https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#v
 
 #### Spring
 ObjectToMapTransformer
+
+#### Jackson
+https://medium.com/code-science/convert-java-object-to-map-edfb9080834d
