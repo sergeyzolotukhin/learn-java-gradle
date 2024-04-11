@@ -13,3 +13,8 @@ ObjectToMapTransformer
 
 #### Jackson
 https://medium.com/code-science/convert-java-object-to-map-edfb9080834d
+
+#### Hibernate - How to implement an AttributeConverter to support custom types
+https://thorben-janssen.com/jpa-attribute-converter/
+https://hantsy.blogspot.com/2013/12/jpa-21-attribute-converter.html
+
