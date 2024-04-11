@@ -20,6 +20,7 @@ https://hantsy.blogspot.com/2013/12/jpa-21-attribute-converter.html
 UserType, DynamicParameterizedType
 @Entity
 @EntityListeners(class = FooEntityListener.class)
+https://stackoverflow.com/questions/12155632/injecting-a-spring-dependency-into-a-jpa-entitylistener
 
 #### Hibernate Reactive
 https://github.com/hibernate/hibernate-reactive/blob/main/documentation/src/main/asciidoc/reference/introduction.adoc
