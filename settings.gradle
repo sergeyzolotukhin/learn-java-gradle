@@ -34,6 +34,7 @@ include 'learn-java:core:task-executor'
 // Libraries
 // ====================================================================================================================
 include 'learn-java:library:lib-eclipse-collections'
+include 'learn-java:library:lib-apache-collections'
 include 'learn-java:library:lib-jackson'
 include 'learn-java:library:lib-org-json'
 include 'learn-java:library:lib-antlr'
