@@ -1,6 +1,5 @@
 plugins {
     id 'ua.in.sz.java-library'
-//    id 'distribution'
 }
 
 group 'ua.in.sz.jgroup'
@@ -10,7 +9,6 @@ jar {
     manifest {
         attributes(
                 'Main-Class': 'ua.in.sz.jgroup.Main',
-//                'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' ')
         )
     }
 
