@@ -1,9 +1,25 @@
 plugins {
     id 'ua.in.sz.java-library'
+//    id 'distribution'
 }
 
 group 'ua.in.sz.jgroup'
 version '1.0'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ua.in.sz.jgroup.Main',
+//                'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' ')
+        )
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
 dependencies {
     implementation 'org.apache.commons:commons-exec:1.3'
