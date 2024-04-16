@@ -2,6 +2,7 @@ package ua.in.sz;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.Objects;
@@ -13,6 +14,8 @@ public class ToString {
         log.info("to string apache: {}", ToStringBuilder.reflectionToString(m1));
         log.info("to string: {}", m1);
         log.info("system to string: {}", Objects.toIdentityString(m1));
+        log.info("util to string: {}", ObjectUtils.identityToString(m1));
+
     }
 
     @AllArgsConstructor
