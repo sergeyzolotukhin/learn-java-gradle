@@ -7,7 +7,7 @@ import org.springframework.asm.FieldVisitor;
 import org.springframework.asm.Opcodes;
 
 @Slf4j
-public class Application {
+public class AppAsm {
 	public static void main(String[] args) throws Exception {
 		ClassReader cr = new ClassReader("ua.in.sz.guavacache.Scannee");
 		cr.accept(new AnnotationScanner(Opcodes.ASM4),0);
