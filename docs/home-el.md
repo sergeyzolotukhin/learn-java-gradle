@@ -23,3 +23,7 @@
 
 ПуГВ-6
 ПуГВ-10
+
+Hager Volta 
+Hager Golf
+Hager Univers 24 x 5
