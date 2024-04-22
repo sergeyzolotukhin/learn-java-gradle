@@ -48,3 +48,4 @@ Hager Golf
 Hager Univers 24 x 5
 
 пилосос Bosch Professional GAS 15 PS - 1.1 kWt
+Оливний обігрівач Dragon 4 TRD41025T TESCO радіатор - 2.5 kWt
