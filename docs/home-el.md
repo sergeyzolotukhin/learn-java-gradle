@@ -42,3 +42,4 @@ Hager Volta
 Hager Golf
 Hager Univers 24 x 5
 
+пилосос Bosch Professional GAS 15 PS - 1.1 kWt
