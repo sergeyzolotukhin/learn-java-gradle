@@ -222,6 +222,9 @@ include 'learn-kotlin:core'
 //}
 // ====================================================================================================================
 
+// https://d9n.github.io/trypp/series/understanding_gradle/projects/
+rootProject.name='learn-java-gradle'
+
 //findProject(':library:lib-junit5-extension')?.name = 'lib-junit5-extension'
 
 
