@@ -33,3 +33,8 @@ https://plugins.jenkins.io/lockable-resources/
 https://www.youtube.com/watch?v=y_z8mqV8G68&ab_channel=CloudBeesTV
 
 https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories
+
+##### Gradle Platform
+
+https://docs.gradle.org/current/userguide/platforms.html#sub:using-platform-to-control-transitive-deps
+https://docs.gradle.org/current/userguide/dependency_management_terminology.html#sub::terminology_platform
