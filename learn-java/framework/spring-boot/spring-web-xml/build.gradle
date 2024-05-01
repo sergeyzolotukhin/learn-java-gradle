@@ -1,20 +1,9 @@
 plugins {
+    id 'ua.in.sz.java-common-library'
     id 'war'
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
 }
 
 dependencies {
     implementation 'org.springframework:spring-webmvc:6.0.12'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
-
-    // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
-
-    // development
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
