@@ -7,3 +7,7 @@ https://stackoverflow.com/questions/7229977/why-it-is-implied-that-objects-are-e
 
 Java 8:     java.util.Comparator.comparing()
 Apache:     org.apache.commons.lang3.builder.CompareToBuilder
+
+#### Other
+
+https://www.baeldung.com/java-comparator-comparable
