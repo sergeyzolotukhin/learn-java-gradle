@@ -2,3 +2,8 @@
 
 https://dzone.com/articles/the-hidden-contract-between-equals-and-comparable
 https://stackoverflow.com/questions/7229977/why-it-is-implied-that-objects-are-equal-if-compareto-returns-0
+
+#### Java comparable builder
+
+Java 8:     java.util.Comparator.comparing()
+Apache:     org.apache.commons.lang3.builder.CompareToBuilder
