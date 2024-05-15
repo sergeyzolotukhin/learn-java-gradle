@@ -230,3 +230,6 @@ https://docs.gradle.org/current/samples/sample_sharing_convention_plugins_with_b
 
 #### gradle standalone plugin
 https://docs.gradle.org/current/userguide/plugins.html
+
+#### Gradle Docker
+https://stackoverflow.com/questions/58441158/persisting-gradle-daemon-after-docker-exec-it-container-name-gradle-build
