@@ -3,6 +3,7 @@ plugins {
 }
 
 tasks.register("test-my-tag", Test) {
+    group = 'verification'
     useJUnitPlatform {
         includeTags "my-tag"
     }
