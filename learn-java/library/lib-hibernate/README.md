@@ -59,3 +59,11 @@ https://stackoverflow.com/questions/1507758/how-to-map-dynamically-created-table
 https://stackoverflow.com/questions/22493344/in-hibernate-what-the-entity-name-property-does
 https://docs.jboss.org/hibernate/orm/3.6/reference/en-US/html/mapping.html#mapping-entityname
 https://stackoverflow.com/questions/12741857/is-it-possible-to-provide-more-than-one-mapping-for-a-particular-persistent-clas
+
+#### Embeddable 
+
+Embeddable
+CompositeUserType
+
+https://www.baeldung.com/hibernate-custom-types
+https://javatutor.net/articles/hibernate-types-udt
