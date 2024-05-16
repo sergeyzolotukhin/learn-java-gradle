@@ -17,3 +17,5 @@ https://github.com/qos-ch/slf4j/blob/master/slf4j-ext/src/main/java/org/slf4j/ND
 
 https://www.slf4j.org/faq.html#marker
 https://logback.qos.ch/manual/appenders.html#OnMarkerEvaluator
+
+https://logback.qos.ch/manual/configuration.html
