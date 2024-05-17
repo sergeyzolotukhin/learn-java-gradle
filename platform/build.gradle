@@ -55,9 +55,9 @@ dependencies {
         api 'org.codehaus.janino:janino:3.1.10'
 
         // testing
-        api 'org.junit.jupiter:junit-jupiter:5.10.0'
-        api 'org.junit.jupiter:junit-jupiter-api:5.10.0'
-        api 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+        api 'org.junit.jupiter:junit-jupiter:5.10.1'
+        api 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+        api 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
         api 'org.assertj:assertj-core:3.24.2'
         api 'org.mockito:mockito-junit-jupiter:5.8.0'
         api 'org.apache.httpcomponents:httpclient:4.5.14'

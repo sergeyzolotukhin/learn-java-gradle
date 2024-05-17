@@ -217,7 +217,7 @@ include 'learn-kotlin:core'
 //        libs {
 //            library('guava', 'com.google.guava:guava:25.0-jre!!')
 //            library('lombok', 'org.projectlombok:lombok:1.18.24')
-//            library('junit', 'org.junit.jupiter:junit-jupiter:5.5.1')
+//            library('junit', 'org.junit.jupiter:junit-jupiter:5.10.1')
 //            library('logback', 'ch.qos.logback:logback-classic:1.2.9')
 //        }
 //    }
