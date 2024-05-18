@@ -30,3 +30,6 @@ Maven
 https://maven.apache.org/maven-jsr330.html#how-to-use-jsr-330
 https://eclipse.dev/sisu/docs/api/org.eclipse.sisu.mojos/plugin-info.html
 https://github.com/eclipse/sisu.mojos/tree/master
+
+#### Maven extensions
+https://github.com/cstamas/maven-logback-logging/tree/master
