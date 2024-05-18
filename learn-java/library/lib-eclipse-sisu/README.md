@@ -34,3 +34,4 @@ https://github.com/eclipse/sisu.mojos/tree/master
 #### Maven extensions
 https://github.com/cstamas/maven-logback-logging/tree/master
 https://github.com/rmannibucau/maven-log-configurer-extension
+https://github.com/takari/concurrent-build-logger

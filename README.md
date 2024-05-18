@@ -65,3 +65,5 @@ vagrant box list
 
 https://github.com/ndru83/gradle-composite-build-error/tree/master
 
+#### Vagrant maven plugin
+https://github.com/nicoulaj/vagrant-maven-plugin/tree/master
