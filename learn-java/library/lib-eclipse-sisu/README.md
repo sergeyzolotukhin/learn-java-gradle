@@ -24,3 +24,9 @@ Maven
         -> sisu -> 0.3.5
         -> guice -> 5.1.0
         -> javaVersion -> 8
+
+#### Index susi
+
+https://maven.apache.org/maven-jsr330.html#how-to-use-jsr-330
+https://eclipse.dev/sisu/docs/api/org.eclipse.sisu.mojos/plugin-info.html
+https://github.com/eclipse/sisu.mojos/tree/master
