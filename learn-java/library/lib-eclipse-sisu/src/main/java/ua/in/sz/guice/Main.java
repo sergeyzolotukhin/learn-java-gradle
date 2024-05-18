@@ -9,7 +9,10 @@ import org.eclipse.sisu.EagerSingleton;
 import org.eclipse.sisu.space.SpaceModule;
 import org.eclipse.sisu.space.URLClassSpace;
 import org.eclipse.sisu.wire.WireModule;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 import ua.in.sz.guice.service.ApplicationService;
+
+import java.util.logging.Logger;
 
 @Slf4j
 @Named
@@ -22,6 +25,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // Logger.getLogger("com.google.inject").addHandler(new SLF4JBridgeHandler());
+
         log.info("start main");
 
         ClassLoader classloader = Main.class.getClassLoader();
