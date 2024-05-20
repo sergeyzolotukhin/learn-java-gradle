@@ -7,3 +7,5 @@ https://stackoverflow.com/questions/36220889/whats-the-purpose-of-the-junit-5-ne
 https://www.baeldung.com/junit-5-extensions
 
 https://blog.gradle.org/stop-rerunning-tests
+
+https://www.educative.io/courses/java-unit-testing-with-junit-5/junit-5-architecture
