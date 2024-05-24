@@ -2,7 +2,9 @@
 
 https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
 
-#### InfluxDB v2.x
+#### InfluxDB 3.x
+
+#### InfluxDB 2.x
 
 * An [organization] is a workspace for a group of users. 
 * * All dashboards, tasks, buckets, members, etc., belong to an organization.
@@ -45,7 +47,7 @@ All points with the same retention policy, measurement, and tagset are members o
 * * how many copies of those points are stored in the cluster (replication factor), 
 * * and the time range covered by [shard groups] (shard group duration).
 
-#### InfluxDB v1.x
+#### InfluxDB 1.x
 
 * A [database] is a container for
 * * users,
