@@ -2,12 +2,13 @@
 
 https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
 
-InfluxDB
+#### InfluxDB v2.x
 
-* A [database] is a container for
-* * users,
-* * points
-* * retention policies,
+* An [organization] is a workspace for a group of users. 
+* * All dashboards, tasks, buckets, members, etc., belong to an organization.
+
+* A [bucket] is a named location    where time series data is stored
+
 
 * A [series] is simply a shortcut for saying
 * * measurement
@@ -37,6 +38,15 @@ The serialization format for points is defined by the [line protocol]
 * * how many copies of those points are stored in the cluster (replication factor), 
 * * and the time range covered by [shard groups] (shard group duration).
 
+#### InfluxDB v1.x
+
+* A [database] is a container for
+* * users,
+* * points
+* * retention policies,
+
+1.x had "databases" while 2.x instead has "buckets" and "organizations"
+
 ##### Questions
 
 * write ahead log (WAL)
@@ -46,3 +56,4 @@ The serialization format for points is defined by the [line protocol]
 ##### URL
 
 https://stackoverflow.com/questions/44971676/influxdb-data-structure-database-model
+https://stackoverflow.com/questions/58190272/what-are-series-and-bucket-in-influxdb
