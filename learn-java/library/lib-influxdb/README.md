@@ -61,6 +61,7 @@ All points with the same retention policy, measurement, and tagset are members o
 * write ahead log (WAL)
 * TSM files, TSM file layout
 * The TSM format is based heavily on log-structured merge-trees.
+* Log Structured Merge Tree
 
 ##### URL
 
