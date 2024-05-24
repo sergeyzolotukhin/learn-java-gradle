@@ -9,10 +9,22 @@ https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-po
 
 * A [bucket] is a named location    where time series data is stored
 
+####
+
 * A [Measurement] acts as a container for 
 * * tags, 
 * * fields,  
 * * timestamps. 
+
+* The [tagset] is a dictionary of key-value pairs to store metadata with a point.
+* The [fieldset] is a set of typed scalar values—the data being recorded by the point.
+
+####
+
+* A [series] is simply a shortcut for saying
+* * measurement
+* * tagset
+* * retention policy
 
 * A [point] has four components: 
 * * a measurement, ?
@@ -20,17 +32,11 @@ https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-po
 * * a fieldset, 
 * * a timestamp
 
-* The [tagset] is a dictionary of key-value pairs to store metadata with a point.
-* The [fieldset] is a set of typed scalar values—the data being recorded by the point.
-
 #### 
 
 The serialization format for points is defined by the [line protocol] 
 
-* A [series] is simply a shortcut for saying
-* * measurement
-* * tagset
-* * retention policy
+
 
 All points with the same retention policy, measurement, and tagset are members of the same series.
 
