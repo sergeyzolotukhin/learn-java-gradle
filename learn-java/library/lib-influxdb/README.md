@@ -64,3 +64,4 @@ All points with the same retention policy, measurement, and tagset are members o
 
 https://stackoverflow.com/questions/44971676/influxdb-data-structure-database-model
 https://stackoverflow.com/questions/58190272/what-are-series-and-bucket-in-influxdb
+https://docs.influxdata.com/influxdb/cloud-serverless/write-data/best-practices/schema-design/
