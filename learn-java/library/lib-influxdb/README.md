@@ -62,6 +62,9 @@ All points with the same retention policy, measurement, and tagset are members o
 * TSM files, TSM file layout
 * The TSM format is based heavily on log-structured merge-trees.
 * Log Structured Merge Tree
+https://medium.com/@dwivedi.ankit21/lsm-trees-the-go-to-data-structure-for-databases-search-engines-and-more-c3a48fa469d2
+* * SSTables
+https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
 
 ##### URL
 
