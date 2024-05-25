@@ -61,15 +61,24 @@ All points with the same retention policy, measurement, and tagset are members o
 * write ahead log (WAL)
 * TSM files, TSM file layout
 * The TSM format is based heavily on log-structured merge-trees.
+https://docs.influxdata.com/influxdb/v1/concepts/storage_engine/
 * Log Structured Merge Tree
 https://medium.com/@dwivedi.ankit21/lsm-trees-the-go-to-data-structure-for-databases-search-engines-and-more-c3a48fa469d2
+https://tmsvr.com/how-a-log-structured-merge-tree-database-engine-works/
 * * SSTables
 https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
-* * merges SSTables
+* * * merges SSTables
 https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/dml/dmlHowDataMaintain.html
+* * * sorting merged
+* * * Bloom Filters
 
 ##### URL
 
 https://stackoverflow.com/questions/44971676/influxdb-data-structure-database-model
 https://stackoverflow.com/questions/58190272/what-are-series-and-bucket-in-influxdb
 https://docs.influxdata.com/influxdb/cloud-serverless/write-data/best-practices/schema-design/
+
+#####
+
+font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+font-size: 20px;
