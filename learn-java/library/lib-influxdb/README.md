@@ -65,6 +65,8 @@ All points with the same retention policy, measurement, and tagset are members o
 https://medium.com/@dwivedi.ankit21/lsm-trees-the-go-to-data-structure-for-databases-search-engines-and-more-c3a48fa469d2
 * * SSTables
 https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
+* * merges SSTables
+https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/dml/dmlHowDataMaintain.html
 
 ##### URL
 
