@@ -53,3 +53,5 @@ https://marcopeg.com/how-to-run-postgres-for-testing-in-docker/
 ###  Other
 
 https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-different-host
+
+org.testcontainers.utility.TestcontainersConfiguration.loadConfiguration
