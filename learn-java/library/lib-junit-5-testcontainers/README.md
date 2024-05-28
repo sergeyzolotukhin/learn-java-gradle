@@ -56,3 +56,4 @@ https://stackoverflow.com/questions/62298539/how-to-run-testcontainers-on-a-diff
 
 org.testcontainers.utility.TestcontainersConfiguration.loadConfiguration
 org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy
+org.testcontainers.utility.TestcontainersConfiguration.readProperties
