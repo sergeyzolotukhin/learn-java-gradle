@@ -28,7 +28,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     // logging
-    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
 
     // testing
     testCompileOnly 'org.projectlombok:lombok:1.18.28'

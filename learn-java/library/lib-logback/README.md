@@ -22,9 +22,13 @@ https://logback.qos.ch/manual/configuration.html
 
 ##### Per-Environment Logging with Plain Java and Spring Boot
 
-https://logback.qos.ch/manual/loggingSeparation.html#contextSelectors
-
 https://stackoverflow.com/questions/35651241/configure-logback-using-several-profiles
 https://docs.spring.io/spring-boot/docs/2.1.1.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration
 https://stackoverflow.com/questions/35651241/configure-logback-using-several-profiles
 https://reflectoring.io/profile-specific-logging-spring-boot/
+
+https://logback.qos.ch/manual/loggingSeparation.html#contextSelectors
+
+#####
+
+LoggerContext -|> ILoggerFactory -> getLogger
