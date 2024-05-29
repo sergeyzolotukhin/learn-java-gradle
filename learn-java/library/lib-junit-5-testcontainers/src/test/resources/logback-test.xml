@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.testcontainers.dockerclient.DockerClientProviderStrategy" level="debug" />
+<!--    <logger name="org.testcontainers.dockerclient.DockerClientProviderStrategy" level="debug" />-->
 
     <!-- Framework -->
     <logger name="com.github.dockerjava" level="info" />
