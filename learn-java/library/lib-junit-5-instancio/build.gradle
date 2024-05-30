@@ -1,8 +1,16 @@
 plugins {
     id 'ua.in.sz.java-common-library'
+    id 'me.champeau.jmh' version '0.7.2'
 }
 
 dependencies {
     testImplementation 'org.instancio:instancio-junit:4.7.0'
+
+    // test
+    implementation 'org.openjdk.jmh:jmh-core:1.37'
+    implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+
+    // development
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
 }
 
