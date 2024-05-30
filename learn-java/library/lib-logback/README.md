@@ -32,3 +32,9 @@ https://logback.qos.ch/manual/loggingSeparation.html#contextSelectors
 #####
 
 LoggerContext -|> ILoggerFactory -> getLogger
+
+##### 
+
+ch.qos.logback.classic.util.ContextInitializer.autoConfig(java.lang.ClassLoader)
+    ClassicEnvUtil.loadFromServiceLoader
+ch.qos.logback.classic.util.DefaultJoranConfigurator

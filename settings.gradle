@@ -95,6 +95,7 @@ include 'learn-java:library:lib-junit-5-extension'
 include 'learn-java:library:lib-junit-5-assertj'
 include 'learn-java:library:lib-junit-5-mockito'
 include 'learn-java:library:lib-junit-5-hamcrest'
+include 'learn-java:library:lib-junit-5-instancio'
 include 'learn-java:library:lib-junit-5-testcontainers'
 
 //include 'learn-java:library:lib-junit-4'
