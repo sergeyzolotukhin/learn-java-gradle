@@ -237,3 +237,4 @@ https://stackoverflow.com/questions/58441158/persisting-gradle-daemon-after-dock
 #### How can i checkout particular commit from the git scm from jenkins pipeline
 
 https://stackoverflow.com/questions/68892532/how-can-i-checkout-particular-commit-from-the-git-scm-from-jenkins-pipeline
+https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-last-push-in-pull-requests
