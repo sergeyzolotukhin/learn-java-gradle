@@ -233,3 +233,7 @@ https://docs.gradle.org/current/userguide/plugins.html
 
 #### Gradle Docker
 https://stackoverflow.com/questions/58441158/persisting-gradle-daemon-after-docker-exec-it-container-name-gradle-build
+
+#### How can i checkout particular commit from the git scm from jenkins pipeline
+
+https://stackoverflow.com/questions/68892532/how-can-i-checkout-particular-commit-from-the-git-scm-from-jenkins-pipeline
