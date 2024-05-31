@@ -38,3 +38,21 @@ LoggerContext -|> ILoggerFactory -> getLogger
 ch.qos.logback.classic.util.ContextInitializer.autoConfig(java.lang.ClassLoader)
     ClassicEnvUtil.loadFromServiceLoader
 ch.qos.logback.classic.util.DefaultJoranConfigurator
+
+#### How to check if class is exists in a logback
+
+ch.qos.logback.core.model.processor.conditional.IfModelHandler
+ch.qos.logback.core.joran.conditional.PropertyEvalScriptBuilder
+
+org.springframework.boot\spring-boot\3.2.0
+spring-boot-3.2.0.jar
+\META-INF\services\ch.qos.logback.classic.spi.Configurator
+
+org.springframework.boot.logging.logback.RootLogLevelConfigurator
+org.springframework.boot.logging.logback.SpringBootJoranConfigurator
+
+org.springframework.boot\spring-boot\3.2.0
+spring-boot-3.2.0.jar
+\META-INF\spring.factories
+
+org.springframework.boot.logging.logback.LogbackLoggingSystem
