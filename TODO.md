@@ -238,3 +238,9 @@ https://stackoverflow.com/questions/58441158/persisting-gradle-daemon-after-dock
 
 https://stackoverflow.com/questions/68892532/how-can-i-checkout-particular-commit-from-the-git-scm-from-jenkins-pipeline
 https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-last-push-in-pull-requests
+
+
+#### This plugin allows containers to be dynamically provisioned as Jenkins nodes using Docker. It is a Jenkins Cloud plugin for Docker.
+
+https://github.com/jenkinsci/docker-plugin
+https://github.com/jenkinsci/ssh-agents-plugin/blob/main/doc/CONFIGURE.md
