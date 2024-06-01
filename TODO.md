@@ -244,6 +244,7 @@ https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-
 
 https://github.com/jenkinsci/docker-plugin
 https://github.com/jenkinsci/ssh-agents-plugin/blob/main/doc/CONFIGURE.md
+https://github.com/jenkinsci/agent-setup-plugin
 https://github.com/jenkinsci/docker-ssh-agent
 https://github.com/jenkinsci/docker-commons-plugin
 https://github.com/jenkinsci/docker-workflow-plugin
@@ -270,3 +271,4 @@ https://github.com/jenkinsci/groovy-plugin
 https://github.com/jenkinsci/allure-plugin
 https://github.com/jenkinsci/ansicolor-plugin
 https://github.com/jenkinsci/parallel-test-executor-plugin
+https://github.com/jenkinsci/winrm-client-plugin
