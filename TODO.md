@@ -244,3 +244,12 @@ https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-
 
 https://github.com/jenkinsci/docker-plugin
 https://github.com/jenkinsci/ssh-agents-plugin/blob/main/doc/CONFIGURE.md
+https://github.com/jenkinsci/docker-commons-plugin
+https://github.com/jenkinsci/docker-workflow-plugin
+https://github.com/jenkinsci/docker-agent
+https://github.com/jenkinsci/docker
+
+#### Git Jenkins
+https://github.com/jenkinsci/git-plugin
+https://github.com/jenkinsci/git-client-plugin
+https://github.com/jenkinsci/git-server-plugin
