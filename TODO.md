@@ -267,3 +267,6 @@ https://github.com/jenkinsci/database-plugin
 https://github.com/jenkinsci/parameterized-trigger-plugin
 https://github.com/jenkinsci/plugin-installation-manager-tool
 https://github.com/jenkinsci/groovy-plugin
+https://github.com/jenkinsci/allure-plugin
+https://github.com/jenkinsci/ansicolor-plugin
+https://github.com/jenkinsci/parallel-test-executor-plugin
