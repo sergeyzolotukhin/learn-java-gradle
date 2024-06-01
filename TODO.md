@@ -242,6 +242,8 @@ https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-
 
 #### This plugin allows containers to be dynamically provisioned as Jenkins nodes using Docker. It is a Jenkins Cloud plugin for Docker.
 
+https://www.jenkins.io/doc/book/installing/docker/
+
 https://github.com/jenkinsci/docker-plugin
 https://github.com/jenkinsci/ssh-agents-plugin/blob/main/doc/CONFIGURE.md
 https://github.com/jenkinsci/agent-setup-plugin
