@@ -244,12 +244,26 @@ https://stackoverflow.com/questions/62926385/jenkins-git-get-all-commits-in-the-
 
 https://github.com/jenkinsci/docker-plugin
 https://github.com/jenkinsci/ssh-agents-plugin/blob/main/doc/CONFIGURE.md
+https://github.com/jenkinsci/docker-ssh-agent
 https://github.com/jenkinsci/docker-commons-plugin
 https://github.com/jenkinsci/docker-workflow-plugin
 https://github.com/jenkinsci/docker-agent
 https://github.com/jenkinsci/docker
+https://github.com/jenkinsci/docker-build-step-plugin
+https://github.com/jenkinsci/docker-fixtures
 
 #### Git Jenkins
 https://github.com/jenkinsci/git-plugin
 https://github.com/jenkinsci/git-client-plugin
 https://github.com/jenkinsci/git-server-plugin
+
+#####
+
+https://github.com/jenkinsci/junit-realtime-test-reporter-plugin
+https://github.com/jenkinsci/dark-theme-plugin
+https://github.com/jenkinsci/ansible-plugin
+https://github.com/jenkinsci/gradle-plugin
+https://github.com/jenkinsci/database-plugin
+https://github.com/jenkinsci/parameterized-trigger-plugin
+https://github.com/jenkinsci/plugin-installation-manager-tool
+https://github.com/jenkinsci/groovy-plugin
