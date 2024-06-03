@@ -12,3 +12,22 @@ https://maxrohde.com/2010/12/12/smartgwt-and-ext-gwtgxt-or-the-question-of-the-g
 
 https://freemarker.apache.org/docs/pgui_quickstart.html
 https://www.vogella.com/tutorials/FreeMarker/article.html
+
+#### java benchmarks
+
+jmh
+https://www.retit.de/continuous-benchmarking-with-jmh-and-junit-2/
+https://github.com/openjdk/jmh
+
+JUnitPerf
+https://github.com/noconnor/JUnitPerf
+
+stress-test
+https://github.com/jupiter-tools/stress-test/tree/master
+https://github.com/authorjapps/zerocode#zerocode
+
+JMeter
+https://jmeter.apache.org/
+
+JUnitBenchmarks
+http://labs.carrotsearch.com/junit-benchmarks-integration.html
