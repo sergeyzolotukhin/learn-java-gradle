@@ -16,6 +16,7 @@ https://www.vogella.com/tutorials/FreeMarker/article.html
 #### java benchmarks
 
 jmh
+https://stackoverflow.com/questions/42071804/jmh-returning-the-benchmark-results-as-a-json-object
 https://www.retit.de/continuous-benchmarking-with-jmh-and-junit-2/
 https://github.com/openjdk/jmh
 jmh-visualizer
