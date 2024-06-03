@@ -39,3 +39,7 @@ https://github.com/encircled/jPut
 
 Useful url
 https://www.jrebel.com/blog/best-java-performance-testing-tools-and-technologies
+
+#### Junit fast
+
+https://semaphoreci.com/community/tutorials/how-to-split-junit-tests-in-a-continuous-integration-environment
