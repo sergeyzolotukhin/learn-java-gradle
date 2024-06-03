@@ -41,6 +41,7 @@ Useful url
 https://www.jrebel.com/blog/best-java-performance-testing-tools-and-technologies
 https://www.testscenario.com/best-java-testing-framework/
 https://www.javatpoint.com/performance-testing-tools
+https://stackify.com/ultimate-guide-performance-testing-and-software-testing/
 
 #### Junit fast
 
