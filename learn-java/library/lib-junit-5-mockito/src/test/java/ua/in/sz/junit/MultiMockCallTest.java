@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 import java.util.List;
 
@@ -48,5 +50,15 @@ public class MultiMockCallTest {
         log.info("get by index: [{}]", mockedList.get(0));
         log.info("get by index: [{}]", mockedList.get(0));
         log.info("get by index: [{}]", mockedList.get(0));
+    }
+
+    @Test
+    void multiWhen_4() {
+        Mockito.when(mockedList.get(Mockito.anyInt())).then(invocation -> "value-" + invocation.getArgument(0));
+
+        log.info("get by index: [{}]", mockedList.get(0));
+        log.info("get by index: [{}]", mockedList.get(1));
+        log.info("get by index: [{}]", mockedList.get(2));
+        log.info("get by index: [{}]", mockedList.get(3));
     }
 }
