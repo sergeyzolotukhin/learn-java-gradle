@@ -61,4 +61,16 @@ public class MultiMockCallTest {
         log.info("get by index: [{}]", mockedList.get(2));
         log.info("get by index: [{}]", mockedList.get(3));
     }
+
+    @Test
+    void multiWhen_5() {
+        Mockito.when(mockedList.indexOf("111")).thenReturn(5);
+        Mockito.when(mockedList.indexOf("222")).thenReturn(10);
+        Mockito.when(mockedList.indexOf("333")).thenReturn(15);
+
+        log.info("get by index: [{}]", mockedList.indexOf("222"));
+        log.info("get by index: [{}]", mockedList.indexOf("111"));
+        log.info("get by index: [{}]", mockedList.indexOf("333"));
+        log.info("get by index: [{}]", mockedList.indexOf("444"));
+    }
 }
