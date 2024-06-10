@@ -1,0 +1,8 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // experimental
+    implementation 'net.bytebuddy:byte-buddy:1.14.17'
+}
