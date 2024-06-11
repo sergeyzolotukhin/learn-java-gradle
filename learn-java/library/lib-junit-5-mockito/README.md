@@ -43,4 +43,8 @@ List mockedList = Mockito.mock(List.class);
 3. set MockMethodInterceptor in mock. each mock has own instance of mock interceptor
 
 Mockito.when(mockedList.get(0))
-4. Prepare response for mock via MockHandlerImpl
+* create invocation matcher
+* store at invocation container for this mock
+? 
+
+thenReturn("first")
