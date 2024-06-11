@@ -37,6 +37,12 @@ InvocationContainerImpl
 DoAnswerStyleStubbing
     List<Answer<?>> answers
 
+ThreadLocal<MockingProgress> MOCKING_PROGRESS_PROVIDER
+
+MockingProgressImpl
+    ArgumentMatcherStorage argumentMatcherStorage = new ArgumentMatcherStorageImpl()
+        Stack<LocalizedMatcher> matcherStack
+
 ArgumentMatcher
 
 =======================================================================================================================
