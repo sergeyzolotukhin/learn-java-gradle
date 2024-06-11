@@ -36,6 +36,9 @@ InvocationContainerImpl
 
 DoAnswerStyleStubbing
     List<Answer<?>> answers
+
+ArgumentMatcher
+
 =======================================================================================================================
 List mockedList = Mockito.mock(List.class);
 1. generate class at runtime
