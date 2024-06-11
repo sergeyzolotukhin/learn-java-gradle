@@ -10,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @ExtendWith(MockitoExtension.class)
@@ -72,5 +73,17 @@ public class MultiMockCallTest {
         log.info("get by index: [{}]", mockedList.indexOf("111"));
         log.info("get by index: [{}]", mockedList.indexOf("333"));
         log.info("get by index: [{}]", mockedList.indexOf("444"));
+    }
+
+    @Test
+    void multiWhen_6() {
+        Map<String, String> map = Mockito.mock(Map.class);
+        Mockito.when(map.get(Mockito.anyString())).thenReturn("I don't know that string");
+        Mockito.when(map.get("A")).thenReturn("A-1");
+        Mockito.when(map.get("B")).thenReturn("B-1");
+
+        log.info("get: [{}]", map.get("A"));
+        log.info("get: [{}]", map.get("B"));
+        log.info("get: [{}]", map.get("C"));
     }
 }
