@@ -23,7 +23,24 @@ MockMethodInterceptor
         -> NullResultGuardian<T> implements MockHandler
             -> MockHandlerImpl<T> implements MockHandler<T>
 =======================================================================================================================
+MockHandlerImpl
+    - MatchersBinder
+    - InvocationContainerImpl
+=======================================================================================================================
+InterceptedInvocation -> Invocation
+=======================================================================================================================
+InvocationContainerImpl
+    DoAnswerStyleStubbing
+    DefaultRegisteredInvocations
+    LinkedList<StubbedInvocationMatcher> stubbed
+
+DoAnswerStyleStubbing
+    List<Answer<?>> answers
+=======================================================================================================================
+List mockedList = Mockito.mock(List.class);
 1. generate class at runtime
 2. create instance of class
-3. set MockMethodInterceptor in mock
+3. set MockMethodInterceptor in mock. each mock has own instance of mock interceptor
+
+Mockito.when(mockedList.get(0))
 4. Prepare response for mock via MockHandlerImpl
