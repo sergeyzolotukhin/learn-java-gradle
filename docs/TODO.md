@@ -19,3 +19,17 @@ Ubuntu-Server 17.04 "Zesty Zapus" - Release amd64
 Empty
 Empty
 Win 8.1
+
+#### Monitor
+https://hard.rozetka.com.ua/ua/dell-210-begy/p375525255/characteristics/
+
+DisplayPort
+2 x HDMI
+
+#### Video card
+
+GTX 750 Ti
+
+DVI
+DisplayPort
+HDMI
