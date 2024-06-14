@@ -3,7 +3,10 @@ The Identity and Access Management (IAM)
 * authorization
 
 #### Authentication
-* users 
+* users
+    A user can authenticate with  
+        * password 
+        * access key
 * roles
 
 Roles authenticate an EC2 instance; a user should be used for everything else.
