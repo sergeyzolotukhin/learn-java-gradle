@@ -26,5 +26,5 @@ A statement can either allow or deny specific actions on specific resources
 Deny overrides Allow
 
 There are two types of policies
-* Managed policy
-* Inline policy
+* Managed policy    - policies that can be reused
+* Inline policy     - A policy that belongs to a certain IAM role, user, or group
