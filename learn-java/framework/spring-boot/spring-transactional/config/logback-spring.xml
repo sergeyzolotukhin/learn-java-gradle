@@ -13,8 +13,10 @@
 
     <!-- Spring transaction -->
 
-<!--    <logger name="org.springframework.transaction" level="TRACE"/>-->
-    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="DEBUG"/>
+    <logger name="org.springframework.transaction" level="TRACE"/>
+    <logger name="org.springframework.transaction.interceptor" level="TRACE"/>
+    <logger name="org.springframework.jdbc" level="TRACE"/>
+<!--    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="DEBUG"/>-->
 
     <!--  Third party libraries  -->
 
@@ -27,7 +29,7 @@
     <logger name="jdbc.sqlonly" level="WARN"/>
 -->
 
-<!--    <logger name="com.zaxxer.hikari" level="WARN"/>-->
+    <logger name="com.zaxxer.hikari" level="WARN"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
