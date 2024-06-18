@@ -40,3 +40,9 @@ https://data-flair.training/blogs/aws-management-tools/
 
 ...
 https://medium.com/@pratiksharuthe/the-top-10-security-tools-for-your-aws-environment-ed898d595e7d
+
+=======================================================================================================================
+
+#### IDEA + AWS
+
+https://blog.jetbrains.com/idea/2022/02/aws-in-intellij-idea/
