@@ -18,3 +18,7 @@ Virtual Private Cloud (VPC) -?
 #### region
 
 What is a default regin ?
+
+#### Other
+
+What is a Session Manager ?
