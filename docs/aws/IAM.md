@@ -31,3 +31,5 @@ Deny overrides Allow
 There are two types of policies
 * Managed policy    - policies that can be reused
 * Inline policy     - A policy that belongs to a certain IAM role, user, or group
+
+#### How to use a groups ?
