@@ -14,3 +14,7 @@ https://medium.com/boltops/gentle-introduction-to-how-aws-ecs-works-with-example
 Virtual Private Cloud (VPC) -? 
 * Subnet ?
 * namespace 
+
+#### region
+
+What is a default regin ?
