@@ -18,6 +18,8 @@ Virtual Private Cloud (VPC) -?
 #### region
 
 What is a default regin ?
+https://www.linkedin.com/pulse/aws-region-how-choosing-right-cloud-jefferson-gandolfi/
+https://aws.amazon.com/ru/blogs/architecture/what-to-consider-when-selecting-a-region-for-your-workloads/
 
 #### Other
 
