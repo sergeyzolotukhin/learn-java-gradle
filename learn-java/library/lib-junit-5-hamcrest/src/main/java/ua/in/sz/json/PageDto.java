@@ -1,26 +1,21 @@
 package ua.in.sz.json;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @Slf4j
 @Getter
 @AllArgsConstructor(staticName = "of")
 @NoArgsConstructor
 @Setter
-public class BookDto {
-	private String name;
-	private Date date;
-	private List<PageDto> pages = Arrays.asList(
-			PageDto.of("Title-1", "Text-1"),
-			PageDto.of("Title-2", "Text-2")
-	);
+@Data
+public class PageDto {
+	private String title;
+	private String content;
 }
