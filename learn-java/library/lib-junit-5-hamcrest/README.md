@@ -46,3 +46,6 @@ https://www.baeldung.com/jackson-serialize-field-custom-criteria
 https://www.logicbig.com/tutorials/misc/jackson/json-include-customized.html
 https://www.baeldung.com/jackson-annotations
 
+https://github.com/FasterXML/jackson-docs
+
+
