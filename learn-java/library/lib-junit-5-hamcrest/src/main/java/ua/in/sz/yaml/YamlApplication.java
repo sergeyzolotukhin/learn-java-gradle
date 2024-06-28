@@ -41,7 +41,10 @@ public class YamlApplication {
 		);
 
         final List<BookDto> books = Arrays.asList(bookDto, bookDto2);
-        log.info("to yaml:[\n{}]", mapper.writeValueAsString(books));
+
+		log.info("to yaml start");
+		String actual = mapper.writeValueAsString(books);
+		log.info("to yaml:[\n{}]", actual);
 
 //		BookDto bookDto1 = mapper.readValue("{ name: Book - 1, date: 11-11-2019 }", BookDto.class);
 //		log.info("from yaml: [{}]", bookDto1.getDate());
