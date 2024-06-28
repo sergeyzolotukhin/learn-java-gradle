@@ -16,8 +16,8 @@ import java.util.List;
 @Getter
 @AllArgsConstructor(staticName = "of")
 @Setter
-@JsonFilter("myFilter")
-//@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+//@JsonFilter("myFilter")
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class BookDto {
 	private String name;
 	private Date date;

@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @AllArgsConstructor(staticName = "of")
 @Setter
-@JsonFilter("myFilter")
-//@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+//@JsonFilter("myFilter")
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class PageDto {
 	private String title;
 	private String content;

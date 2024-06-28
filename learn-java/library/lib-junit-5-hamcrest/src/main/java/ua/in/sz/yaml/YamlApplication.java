@@ -34,9 +34,8 @@ public class YamlApplication {
                 .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
                 .build();
 
-        FilterProvider filters = new SimpleFilterProvider().addFilter("myFilter", filter());
         ObjectMapper mapper = new ObjectMapper(factory)
-//                .setSerializationInclusion(JsonInclude.Include.NON_DEFAULT)
+                .setSerializationInclusion(JsonInclude.Include.NON_DEFAULT)
                 ;
         mapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
 
@@ -54,7 +53,7 @@ public class YamlApplication {
         final List<BookDto> books = Arrays.asList(bookDto, bookDto2);
 
         log.info("to yaml start");
-        String actual = mapper.writer(filters).writeValueAsString(books);
+        String actual = mapper.writeValueAsString(books);
         log.info("to yaml:[\n{}]", actual);
 
 //		BookDto bookDto1 = mapper.readValue("{ name: Book - 1, date: 11-11-2019 }", BookDto.class);
@@ -64,38 +63,5 @@ public class YamlApplication {
 //		Path path = Paths.get("src/main/resources", "books.yaml");
 //		List<BookDto> list = Arrays.asList(mapper.readValue(Files.newInputStream(path), BookDto[].class));
 //		list.forEach(book -> log.info("{}", book.getName()));
-    }
-
-    public static PropertyFilter filter() {
-        PropertyFilter theFilter = new SimpleBeanPropertyFilter() {
-            @Override
-            public void serializeAsField(Object pojo, JsonGenerator jgen, SerializerProvider provider, PropertyWriter writer) throws Exception {
-                if (include(writer)) {
-                    if (!writer.getName().equals("size")) {
-                        writer.serializeAsField(pojo, jgen, provider);
-                        return;
-                    }
-
-                    int size = ((PageDto) pojo).getSize();
-                    if (size >= 10) {
-                        writer.serializeAsField(pojo, jgen, provider);
-                    }
-                } else if (!jgen.canOmitFields()) { // since 2.3
-                    writer.serializeAsOmittedField(pojo, jgen, provider);
-                }
-            }
-
-            @Override
-            protected boolean include(BeanPropertyWriter writer) {
-                return true;
-            }
-
-            @Override
-            protected boolean include(PropertyWriter writer) {
-                return true;
-            }
-        };
-
-        return theFilter;
     }
 }
