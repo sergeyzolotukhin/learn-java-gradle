@@ -36,3 +36,5 @@ ObjectMapper -> DefaultSerializerProvider
 
 =======================================================================================================================
 ObjectMapper -> writeValueAsString -> serialize -> create serializer -> serialize -> create serializer -> ...
+=======================================================================================================================
+https://www.baeldung.com/jackson-serialize-field-custom-criteria
