@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.sz.yaml.YamlCustomApplication;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -21,10 +22,12 @@ import java.util.List;
 public class BookDto {
 	private String name;
 	private Date date;
-	private List<PageDto> pages = Arrays.asList(
-			PageDto.of("Title-1", "Text-1", 7),
-			PageDto.of("Title-2", "Text-2", 9)
-	);
+//	@JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter = YamlCustomApplication.PageListFilter.class)
+	private List<PageDto> pages;
+//	private List<PageDto> pages = Arrays.asList(
+//			PageDto.of("Title-1", "Text-1", 7),
+//			PageDto.of("Title-2", "Text-2", 9)
+//	);
 
 	public BookDto() {
 		log.info("BookDto constructor");
