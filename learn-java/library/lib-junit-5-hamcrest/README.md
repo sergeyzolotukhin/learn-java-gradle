@@ -12,6 +12,11 @@ com.fasterxml.jackson.databind.ObjectMapper
 -> writeValueAsString
     com.fasterxml.jackson.databind.ser.DefaultSerializerProvider
         -> serializeValue(com.fasterxml.jackson.core.JsonGenerator, java.lang.Object)
+            -> JsonSerializer<Object> ser = findTypedValueSerializer(cls, true, null);
+                -> TypeSerializer typeSer = _serializerFactory.createTypeSerializer(_config, _config.constructType(valueType));
+            -> ser.serialize(value, gen, this);
+
+=======================================================================================================================
 
 com.fasterxml.jackson.databind.ser.BeanSerializerFactory
 -> findBeanProperties
