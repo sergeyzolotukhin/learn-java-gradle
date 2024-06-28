@@ -22,7 +22,7 @@ import java.util.List;
 public class BookDto {
 	private String name;
 	private Date date;
-//	@JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter = YamlCustomApplication.PageListFilter.class)
+	@JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter = YamlCustomApplication.PageListFilter.class)
 	private List<PageDto> pages;
 //	private List<PageDto> pages = Arrays.asList(
 //			PageDto.of("Title-1", "Text-1", 7),
