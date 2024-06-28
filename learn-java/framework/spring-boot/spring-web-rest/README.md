@@ -101,3 +101,7 @@ https://github.com/docker/awesome-compose/tree/master
 https://stackoverflow.com/questions/61802277/how-to-push-images-to-github-packages-using-github-token-secret-with-maven-jib-p
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-docker-registry
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+
+#### 
+
+https://www.baeldung.com/spring-mvc-json-param-mapping
