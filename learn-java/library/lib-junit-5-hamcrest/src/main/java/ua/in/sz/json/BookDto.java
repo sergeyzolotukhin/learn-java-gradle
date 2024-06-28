@@ -1,5 +1,6 @@
 package ua.in.sz.json;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,13 +16,14 @@ import java.util.List;
 @Getter
 @AllArgsConstructor(staticName = "of")
 @Setter
-@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@JsonFilter("myFilter")
+//@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class BookDto {
 	private String name;
 	private Date date;
 	private List<PageDto> pages = Arrays.asList(
-			PageDto.of("Title-1", "Text-1"),
-			PageDto.of("Title-2", "Text-2")
+			PageDto.of("Title-1", "Text-1", 7),
+			PageDto.of("Title-2", "Text-2", 9)
 	);
 
 	public BookDto() {

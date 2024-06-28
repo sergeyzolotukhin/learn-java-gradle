@@ -1,5 +1,6 @@
 package ua.in.sz.json;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +12,12 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @AllArgsConstructor(staticName = "of")
 @Setter
-@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+@JsonFilter("myFilter")
+//@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class PageDto {
 	private String title;
 	private String content;
+	private int size;
 
 	public PageDto() {
 		log.info("PageDto constructor");
