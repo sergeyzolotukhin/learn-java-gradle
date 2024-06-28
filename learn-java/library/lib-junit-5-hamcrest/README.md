@@ -28,3 +28,11 @@ ObjectMapper -> DefaultSerializerProvider
 -> PropertySerializerMap 
 -> DefaultSerializerProvider
 -> BeanSerializerFactory -> PropertyBuilder -> BasicBeanDescription -> AnnotatedConstructor -> constructor
+
+=======================================================================================================================
+
+ObjectMapper -> DefaultSerializerProvider
+-> IndexedListSerializer -> BeanSerializer -> BeanPropertyWriter -> equal
+
+=======================================================================================================================
+ObjectMapper -> writeValueAsString -> serialize -> create serializer -> serialize -> create serializer -> ...
