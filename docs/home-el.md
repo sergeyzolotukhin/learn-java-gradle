@@ -70,3 +70,5 @@ Konner&Sohnen                           Japan
 Craftsman (Stanley Black & Decker)       USA  
 Generac                                  USA
 Champion                                 USA
+
+https://powerequipment.honda.com/generators/models/eu7000is#Manuals
