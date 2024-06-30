@@ -67,8 +67,19 @@ Westinghouse
 Honda                                   Japan
 Matari                                  Japan
 Konner&Sohnen                           Japan
+Scheppach                               germany
+  SG3400i
+  SG7100x
+Genergy                                 Spanish
+  Genergy Creta ATS   7200W   68dB – 74dB / 97dB    69 990 uah
+  Genergy Limited 2000i
+AYERBE                                  Spanish
+CAMPEON                                 Spanish
+Bruno                                   Italy
+  Bruno G5000KMP
 Craftsman (Stanley Black & Decker)       USA  
 Generac                                  USA
 Champion                                 USA
 
 https://powerequipment.honda.com/generators/models/eu7000is#Manuals
+https://www.hondaoutdoors.co.nz/eu30is
