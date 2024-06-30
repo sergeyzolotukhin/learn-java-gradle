@@ -71,15 +71,29 @@ Konner&Sohnen                           Japan
 Scheppach                               germany
   SG3400i
   SG7100x
+Bruno                                   Italy
+Bruno G5000KMP
+YorPower                                British
+YorPower YP9900PE 6.2 кВт
+===== Spanish =========================================================================================================
 Genergy                                 Spanish
-  Genergy Creta ATS   7200W   68dB – 74dB / 97dB    69 990 uah
-  Genergy Limited 2000i
+    Genergy Creta ATS   7200W   68dB – 74dB / 97dB    69 990 uah
+    GENERGY LIMITED 7000, 6,5кВт
+    GENERGY LIMITED 2000i 2 кВт
+    GENERGY MULHACEN ATS, 7,0кВт
+    GENERGY TURBO 2800, 2,8кВт,
+    GENERGY ISASA 1 кВт
+    GENERGY ESTRELA NEW 3,3 кВт
+    GENERGY BAQUIERA "S"-7000 7 кВт
+    GENERGY IBIZA 0,9 кВт
+    GENERGY NATURA 3000 3/2,6 кВт
+    GENERGY ANETO 5,5 кВт
+    GENERGY LIMITED 3000D, 3,0кВт
+    GENERGY MONCAYO 4,5 кВт
+    GENERGY GORBEA 2,8 кВт
 AYERBE                                  Spanish
 CAMPEON                                 Spanish
-Bruno                                   Italy
-  Bruno G5000KMP
-YorPower                                British
-  YorPower YP9900PE 6.2 кВт
+
 ===== USA =============================================================================================================
 Craftsman (Stanley Black & Decker)       USA  
 Generac                                  USA
