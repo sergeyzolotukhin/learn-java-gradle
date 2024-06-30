@@ -79,9 +79,13 @@ Bruno                                   Italy
   Bruno G5000KMP
 YorPower                                British
   YorPower YP9900PE 6.2 кВт
+===== USA =============================================================================================================
 Craftsman (Stanley Black & Decker)       USA  
 Generac                                  USA
 Champion                                 USA
-  CHAMPION C3500iES DF    36 800 uah
+  CHAMPION C3500iES DF  3.2 kWt  59 dBA   36 800 uah
+Briggs & Stratton
+  PowerSmart Series™ P4500  61 dBA        143 500 uah
 https://powerequipment.honda.com/generators/models/eu7000is#Manuals
 https://www.hondaoutdoors.co.nz/eu30is
+https://www.championpowerequipment.com/products/generators/portable-generators/?fwp_portable_generator_filter_inverter=traditional%2Copen-frame&fwp_paged=2
