@@ -65,6 +65,7 @@ ETI EDB-415 4p 125A (15 виходів) - 133 - 8x
 
 Westinghouse
 Honda                                   Japan
+  Honda EU3000IS
 Matari                                  Japan
 Konner&Sohnen                           Japan
 Scheppach                               germany
