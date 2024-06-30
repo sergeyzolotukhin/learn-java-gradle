@@ -77,9 +77,11 @@ AYERBE                                  Spanish
 CAMPEON                                 Spanish
 Bruno                                   Italy
   Bruno G5000KMP
+YorPower                                British
+  YorPower YP9900PE 6.2 кВт
 Craftsman (Stanley Black & Decker)       USA  
 Generac                                  USA
 Champion                                 USA
-
+  CHAMPION C3500iES DF    36 800 uah
 https://powerequipment.honda.com/generators/models/eu7000is#Manuals
 https://www.hondaoutdoors.co.nz/eu30is
