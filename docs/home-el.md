@@ -89,3 +89,4 @@ Briggs & Stratton
 https://powerequipment.honda.com/generators/models/eu7000is#Manuals
 https://www.hondaoutdoors.co.nz/eu30is
 https://www.championpowerequipment.com/products/generators/portable-generators/?fwp_portable_generator_filter_inverter=traditional%2Copen-frame&fwp_paged=2
+https://www.electricrate.com/silent-generators-for-rv/
