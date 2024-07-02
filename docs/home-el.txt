@@ -66,9 +66,11 @@ ETI EDB-415 4p 125A (15 виходів) - 133 - 8x
 
 Honda                                   Japan
 EU Super Quiet
-  EU3000IS
+  EU10is    0.9-1 kWt       67-87 db     71 400
+  EU22is    1.8-2.2         72-90 dB    100 200
   EU30IS    2.6-3 kWt       74-91 dB    120 000
-  EU70is    5500 - 7000 Wt  76-90 dB    265 000 Uah
+  EU70is    5.5-7 kWt       76-90 dB    265 000 Uah
+  EU3000IS
 EM Deluxe Series
   EM30G
 EG Economy
