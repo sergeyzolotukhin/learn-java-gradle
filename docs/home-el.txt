@@ -65,7 +65,9 @@ ETI EDB-415 4p 125A (15 виходів) - 133 - 8x
 
 Westinghouse
 Honda                                   Japan
-  Honda EU3000IS
+  EU3000IS
+  EU30IS    2.6-3 kWt       74-91 dB    120 000
+  EU70is    5500 - 7000 Wt  76-90 dB    265 000 Uah
 Matari                                  Japan
 Konner&Sohnen                           Japan
 Scheppach                               germany
