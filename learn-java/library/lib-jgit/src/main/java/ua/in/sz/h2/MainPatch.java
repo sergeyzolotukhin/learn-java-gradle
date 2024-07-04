@@ -34,14 +34,19 @@ public class MainPatch {
         for (RevCommit commit : gitLog) {
             log.info("{}", commit.getId().getName());
 
-
             RevWalk walk = new RevWalk(repository);
             RevCommit parent = walk.parseCommit(commit.getParent(0).getId());
 
             List<DiffEntry> diffs = getDiff(repository, commit.getId().getName(), parent.getId().getName());
 
+            DiffFormatter df = new DiffFormatter(System.out);
+            df.setRepository(repository);
+            df.setDiffComparator(RawTextComparator.DEFAULT);
+            df.setDetectRenames(true);
+
+
             for (DiffEntry diff : diffs) {
-                log.info("{} {}", diff.getChangeType().name(), diff.getNewPath());
+                df.format(diff);
             }
 
             log.info("");
@@ -52,16 +57,14 @@ public class MainPatch {
     }
 
     private static List<DiffEntry> getDiff(Repository repository, String after, String before) throws IOException, GitAPIException {
-
         Git git = new Git(repository);
-        return git.diff().setOldTree(prepareTreeParser(repository, before))
+        return git.diff()
+                .setOldTree(prepareTreeParser(repository, before))
                 .setNewTree(prepareTreeParser(repository, after))
                 .call();
     }
 
     private static AbstractTreeIterator prepareTreeParser(Repository repository, String objectId) throws IOException {
-        // from the commit we can build the tree which allows us to construct the TreeParser
-        //noinspection Duplicates
         try (RevWalk walk = new RevWalk(repository)) {
             RevCommit commit = walk.parseCommit(repository.resolve(objectId));
             RevTree tree = walk.parseTree(commit.getTree().getId());
