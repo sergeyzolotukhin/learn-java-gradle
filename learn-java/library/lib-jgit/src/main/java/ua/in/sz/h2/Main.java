@@ -2,13 +2,17 @@ package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffFormatter;
+import org.eclipse.jgit.diff.RawTextComparator;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevTree;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
-import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.util.io.DisabledOutputStream;
 
 import java.io.File;
+import java.util.List;
 
 @Slf4j
 public class Main {
@@ -19,24 +23,25 @@ public class Main {
         Repository repository = builder.setGitDir(new File(".\\.git")).setMustExist(true).build();
         Git git = new Git(repository);
         Iterable<RevCommit> logg = git.log()
-                .setMaxCount(1)
+                .setMaxCount(2)
                 .call();
-        for (RevCommit rev : logg) {
+        for (RevCommit commit : logg) {
+            log.info("{}", commit.getId().getName());
 
-            log.info("{}", rev.getId().getName());
 
-            RevTree tree = rev.getTree();
+            RevWalk rw = new RevWalk(repository);
+            RevCommit parent = rw.parseCommit(commit.getParent(0).getId());
+            DiffFormatter df = new DiffFormatter(DisabledOutputStream.INSTANCE);
+            df.setRepository(repository);
+            df.setDiffComparator(RawTextComparator.DEFAULT);
+            df.setDetectRenames(true);
 
-            try (TreeWalk treeWalk = new TreeWalk(repository)) {
-                treeWalk.addTree(tree);
-                treeWalk.setRecursive(false);
-                treeWalk.setPostOrderTraversal(false);
-
-                while(treeWalk.next()) {
-                    log.info("path: {}", treeWalk.getPathString());
-                }
+            List<DiffEntry> diffs = df.scan(parent.getTree(), commit.getTree());
+            for (DiffEntry diff : diffs) {
+                log.info("{} {}", diff.getChangeType().name(), diff.getNewPath());
             }
 
+            log.info("");
         }
         git.close();
 
