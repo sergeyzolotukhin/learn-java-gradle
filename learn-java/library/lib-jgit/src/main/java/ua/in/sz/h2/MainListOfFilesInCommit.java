@@ -46,6 +46,8 @@ public class MainListOfFilesInCommit {
         }
         git.close();
 
+        log.info("Add message");
+
         log.info("Ending Git");
     }
 }
