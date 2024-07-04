@@ -4,7 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.TreeWalk;
 
 import java.io.File;
 
@@ -14,16 +16,27 @@ public class Main {
         log.info("Starting Git");
 
         FileRepositoryBuilder builder = new FileRepositoryBuilder();
-        Repository repo = builder.setGitDir(new File(".\\.git")).setMustExist(true).build();
-        Git git = new Git(repo);
-        Iterable<RevCommit> logg = git.log().call();
-        int i = 5;
+        Repository repository = builder.setGitDir(new File(".\\.git")).setMustExist(true).build();
+        Git git = new Git(repository);
+        Iterable<RevCommit> logg = git.log()
+                .setMaxCount(1)
+                .call();
         for (RevCommit rev : logg) {
-            log.info("{}", rev.getFullMessage());
-            i--;
-            if (i <= 0) {
-                break;
+
+            log.info("{}", rev.getId().getName());
+
+            RevTree tree = rev.getTree();
+
+            try (TreeWalk treeWalk = new TreeWalk(repository)) {
+                treeWalk.addTree(tree);
+                treeWalk.setRecursive(false);
+                treeWalk.setPostOrderTraversal(false);
+
+                while(treeWalk.next()) {
+                    log.info("path: {}", treeWalk.getPathString());
+                }
             }
+
         }
         git.close();
 

@@ -1,0 +1,1 @@
+https://github.com/centic9/jgit-cookbook/
