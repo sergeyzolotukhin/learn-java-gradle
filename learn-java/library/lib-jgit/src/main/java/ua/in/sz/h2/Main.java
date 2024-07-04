@@ -31,6 +31,7 @@ public class Main {
 
             RevWalk rw = new RevWalk(repository);
             RevCommit parent = rw.parseCommit(commit.getParent(0).getId());
+
             DiffFormatter df = new DiffFormatter(DisabledOutputStream.INSTANCE);
             df.setRepository(repository);
             df.setDiffComparator(RawTextComparator.DEFAULT);
