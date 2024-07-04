@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.List;
 
 @Slf4j
-public class Main {
+public class MainListOfFilesInCommit {
     public static void main(String[] args) throws Exception {
         log.info("Starting Git");
 
