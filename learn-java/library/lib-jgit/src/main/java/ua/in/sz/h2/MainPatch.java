@@ -29,7 +29,7 @@ public class MainPatch {
         Repository repository = builder.setGitDir(new File(".\\.git")).setMustExist(true).build();
         Git git = new Git(repository);
         Iterable<RevCommit> gitLog = git.log()
-                .setMaxCount(2)
+                .setMaxCount(1)
                 .call();
         for (RevCommit commit : gitLog) {
             log.info("{}", commit.getId().getName());
