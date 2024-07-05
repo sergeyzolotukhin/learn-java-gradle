@@ -67,3 +67,6 @@ https://github.com/ndru83/gradle-composite-build-error/tree/master
 
 #### Vagrant maven plugin
 https://github.com/nicoulaj/vagrant-maven-plugin/tree/master
+
+#### Remote development overview 
+https://www.jetbrains.com/help/idea/remote-development-overview.html#workflow
