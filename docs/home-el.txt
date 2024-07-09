@@ -84,18 +84,14 @@ EG Economy
   H 4000
   HK 5500MS
   HK 7500MS 5.5 - 6.0      103-104 db    74 000
+====  germany =========================================================================================================
+Konner&Sohnen                           germany
+    KS 5500iEG S    5 кВт       65 000
+    KS 4000iEG S    3,5 кВт     52 300
 =======================================================================================================================
-A-iPower                                China
-    SUA2000iV
-    SUA2000i    1.6-2       63 db   22 000
-    SC3250i     3-3.25      61 db   27 000 uah
-=======================================================================================================================
-
-
 Westinghouse
 Matari                                  Japan
-Konner&Sohnen                           germany
-    KS 5500iEG S    5 кВт   65 000 kWt
+=======================================================================================================================
 Scheppach                               germany
   SG3400i
   SG7100x
@@ -133,3 +129,9 @@ https://powerequipment.honda.com/generators/models/eu7000is#Manuals
 https://www.hondaoutdoors.co.nz/eu30is
 https://www.championpowerequipment.com/products/generators/portable-generators/?fwp_portable_generator_filter_inverter=traditional%2Copen-frame&fwp_paged=2
 https://www.electricrate.com/silent-generators-for-rv/
+
+=======================================================================================================================
+A-iPower                                China
+    SUA2000iV
+    SUA2000i    1.6-2       63 db   22 000
+    SC3250i     3-3.25      61 db   27 000 uah
