@@ -94,7 +94,8 @@ A-iPower                                China
 
 Westinghouse
 Matari                                  Japan
-Konner&Sohnen                           Japan
+Konner&Sohnen                           germany
+    KS 5500iEG S    5 кВт   65 000 kWt
 Scheppach                               germany
   SG3400i
   SG7100x
