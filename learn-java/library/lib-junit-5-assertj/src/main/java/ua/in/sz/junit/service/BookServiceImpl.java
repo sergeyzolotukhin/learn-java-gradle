@@ -27,6 +27,13 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
+	public List<BookVO> find(String name) {
+		return find().stream()
+				.filter(b -> name.equals(b.getTitle()))
+				.toList();
+	}
+
+	@Override
 	public BookVO get() {
 		return BookVO.builder().title("T1").description("D4")
 						.authors(Lists.newArrayList(

@@ -7,5 +7,7 @@ public interface BookService {
 
 	List<BookVO> find();
 
+	List<BookVO> find(String name);
+
 	BookVO get();
 }

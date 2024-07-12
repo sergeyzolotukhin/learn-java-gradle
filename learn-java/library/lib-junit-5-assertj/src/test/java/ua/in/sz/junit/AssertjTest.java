@@ -82,6 +82,16 @@ public class AssertjTest {
                 );
     }
 
+    @Test
+    void singleElement() {
+        List<BookVO> books = bookService.find("T1");
+
+        assertThat(books)
+                .singleElement()
+                .extracting(BookVO::getDescription)
+                .isEqualTo("D4");
+    }
+
 
 
     @RepeatedTest(4)
