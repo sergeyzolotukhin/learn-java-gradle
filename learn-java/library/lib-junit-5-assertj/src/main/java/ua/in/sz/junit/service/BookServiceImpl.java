@@ -25,4 +25,13 @@ public class BookServiceImpl implements BookService {
 				BookVO.builder().title("T3").description("D6").build()
 		);
 	}
+
+	@Override
+	public BookVO get() {
+		return BookVO.builder().title("T1").description("D4")
+						.authors(Lists.newArrayList(
+								AuthorVO.builder().name("A1").surname("S3").build(),
+								AuthorVO.builder().name("A2").surname("S4").build()
+						)).build();
+	}
 }

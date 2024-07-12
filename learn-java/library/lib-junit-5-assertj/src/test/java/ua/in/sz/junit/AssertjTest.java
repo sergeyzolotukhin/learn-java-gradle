@@ -1,6 +1,7 @@
 package ua.in.sz.junit;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -97,5 +98,15 @@ public class AssertjTest {
         assertThat(book)
                 .returns("T", BookVO::getTitle)
                 .returns("D", BookVO::getDescription);
+    }
+
+    @Test
+    void assertSoftlyTest() {
+        BookVO book = bookService.get();
+
+        SoftAssertions.assertSoftly(softAssertions -> {
+            softAssertions.assertThat(book.getTitle()).isEqualTo("T1");
+            softAssertions.assertThat(book.getDescription()).isEqualTo("D4");
+        });
     }
 }
