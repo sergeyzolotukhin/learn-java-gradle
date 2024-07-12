@@ -89,6 +89,7 @@ public class AssertjTest {
         assertThat(books)
                 .singleElement()
                 .extracting(BookVO::getDescription)
+                .describedAs("The problem is %s", books.stream().map(BookVO::getTitle).toList())
                 .isEqualTo("D4");
     }
 
