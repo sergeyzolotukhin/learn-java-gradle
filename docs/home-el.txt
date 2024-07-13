@@ -89,7 +89,7 @@ Konner&Sohnen                           germany
     KS 4000iEG S        3,5 кВт     52 300
     KS 4000iE S ATS     3,5 кВт
     KS 5500iEG S        5 кВт       65 000
-    KS 6000iE S ATS     5 кВт       64 400
+    KS 6000iE S ATS     5 кВт       64 400      70 - 95 dB
     KS 8100iEG          7.2         71 400
     KS 8100iE   ATSR    8.5кВт      64 000
 =======================================================================================================================
@@ -139,3 +139,5 @@ A-iPower                                China
     SUA2000iV
     SUA2000i    1.6-2       63 db   22 000
     SC3250i     3-3.25      61 db   27 000 uah
+
+https://learnmetrics.com/quietest-generators/
