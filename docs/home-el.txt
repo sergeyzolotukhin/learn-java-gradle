@@ -63,7 +63,8 @@ ETI EDB-411 4p 125A (11 виходів) - 100 - 6x
 ETI EDB-415 4p 125A (15 виходів) - 133 - 8x
 =======================================================================================================================
 Pulsar 9500 Watt Super Quiet
-EcoFlow Smart Generator Dual Fuel  597×300×475 mm
+EcoFlow Smart Generator Dual Fuel   597 300 475 mm
+Scheppach IXES IX-IVG-2500          270 440 520 мм
 
 Honda                                   Japan
 EU Super Quiet
@@ -88,7 +89,7 @@ EG Economy
 ====  germany =========================================================================================================
 Konner&Sohnen                           germany
     KS 4000iEG S        3,5 кВт     52 300
-    KS 4000iE S ATS     3,5 кВт                 66 - 91 dB
+    KS 4000iE S ATS     3,5 кВт                 66 - 91 dB       630 х 475 х 570
     KS 5500iEG S        5 кВт       65 000      66 - 91 dB
     KS 6000iE S ATS     5 кВт       64 400      70 - 95 dB
     KS 8100iEG          7.2         71 400
