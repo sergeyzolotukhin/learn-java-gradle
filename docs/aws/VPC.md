@@ -17,5 +17,10 @@ VPC - Virtual Private Cloud
 * * Elastic IP
 * * private (internal) IP address
 
-* an internet gateway 
+* gateway
+* * an internet gateway
+* * AWS Transit Gateway
+* * NAT gateway (private / public connection)
+
 * security groups
+
