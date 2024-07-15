@@ -26,7 +26,7 @@ VPC - Virtual Private Cloud
 
 * route tables
 
-* ACL Access Control List 
+* NACL Network Access Control List 
 
 #### Question 
 Route 53 ?
