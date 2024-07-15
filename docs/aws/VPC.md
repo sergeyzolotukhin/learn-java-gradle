@@ -24,3 +24,9 @@ VPC - Virtual Private Cloud
 
 * security groups
 
+* route tables
+
+* ACL Access Control List 
+
+#### Question 
+Route 53 ?
