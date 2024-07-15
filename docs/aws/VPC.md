@@ -10,5 +10,12 @@ The [security group] acts as a virtual [firewall].
 
 VPC - Virtual Private Cloud
 * subnets 
+* * Public subnets
+* * private subnets
+
+* * public IPv4
+* * Elastic IP
+* * private (internal) IP address
+
 * an internet gateway 
 * security groups
