@@ -6,3 +6,7 @@ You can create additional security groups for a VPC, each with their own [inboun
 You can specify the source, port range, and protocol for each [inbound rule]. 
 You can specify the destination, port range, and protocol for each [outbound rule].
 
+VPC
+* subnets 
+* an internet gateway 
+* security groups
