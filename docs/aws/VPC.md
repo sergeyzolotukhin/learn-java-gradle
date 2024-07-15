@@ -9,7 +9,15 @@ You can specify the destination, port range, and protocol for each [outbound rul
 The [security group] acts as a virtual [firewall].
 
 VPC - Virtual Private Cloud
-* subnets 
+* gateway
+* * an internet gateway
+* * AWS Transit Gateway
+* * NAT gateway (private / public connection)
+
+
+* route tables
+
+* subnets
 * * Public subnets
 * * private subnets
 
@@ -17,15 +25,9 @@ VPC - Virtual Private Cloud
 * * Elastic IP
 * * private (internal) IP address
 
-* gateway
-* * an internet gateway
-* * AWS Transit Gateway
-* * NAT gateway (private / public connection)
 
 * security groups
-
-* route tables
-
+ 
 * NACL Network Access Control List 
 
 #### Question 
