@@ -28,7 +28,8 @@ VPC - Virtual Private Cloud
 Security groups and NACLs act as virtual firewalls.
 * security groups - A security group acts as a virtual [firewall for EC2 instances] to control the inbound and outbound traffic based on some defined rules. 
     It ensures [instance-level security].
-* NACL Network Access Control List 
+* NACL Network Access Control List - NACL stands for Network Access Control List, 
+  and it [controls the traffic to or from a subnet] according to some defined rules
 
 #### Question 
 Route 53 ?
