@@ -11,7 +11,7 @@ The [security group] acts as a virtual [firewall].
 VPC - Virtual Private Cloud
 * gateway
 * * an internet gateway
-* * AWS Transit Gateway
+* * Transit Gateway
 * * NAT gateway (private / public connection)
 
 
