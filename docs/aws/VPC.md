@@ -25,9 +25,8 @@ VPC - Virtual Private Cloud
 * * Elastic IP
 * * private (internal) IP address
 
-
+Security groups and NACLs act as virtual firewalls.
 * security groups
- 
 * NACL Network Access Control List 
 
 #### Question 
