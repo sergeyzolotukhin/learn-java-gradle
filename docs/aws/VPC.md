@@ -15,8 +15,6 @@ VPC - Virtual Private Cloud
 * * NAT gateway (private / public connection)
 
 
-* route tables
-
 * subnets
 * * Public subnets
 * * private subnets
@@ -24,6 +22,8 @@ VPC - Virtual Private Cloud
 * * public IPv4
 * * Elastic IP
 * * private (internal) IP address
+
+* route tables
 
 Security groups and NACLs act as virtual firewalls.
 * security groups - A security group acts as a virtual [firewall for EC2 instances] to control the inbound and outbound traffic based on some defined rules. 
