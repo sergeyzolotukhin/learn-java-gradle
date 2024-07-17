@@ -1,0 +1,17 @@
+plugins {
+    id 'ua.in.sz.java-library'
+}
+
+group 'ua.in.sz.jgroup'
+version '1.0'
+
+dependencies {
+    implementation 'net.sourceforge.tess4j:tess4j:5.12.0'
+
+    // logging
+    implementation 'ch.qos.logback:logback-classic'
+
+    // development
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
