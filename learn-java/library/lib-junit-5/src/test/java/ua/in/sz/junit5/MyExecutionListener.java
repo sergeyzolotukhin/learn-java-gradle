@@ -8,11 +8,11 @@ import org.junit.platform.launcher.TestPlan;
 public class MyExecutionListener implements TestExecutionListener {
     @Override
     public void testPlanExecutionStarted(TestPlan testPlan) {
-        log.error("Executing testPlan: {}", testPlan);
+        log.debug("Executing testPlan: {}", testPlan);
     }
 
     @Override
     public void testPlanExecutionFinished(TestPlan testPlan) {
-        log.error("Finished testPlan: {}", testPlan);
+        log.debug("Finished testPlan: {}", testPlan);
     }
 }

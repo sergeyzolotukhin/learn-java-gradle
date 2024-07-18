@@ -1,6 +1,7 @@
 package ua.in.sz.junit5;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
@@ -12,6 +13,7 @@ class MainTest {
 
     @Test
     void main_1() {
+        Assumptions.assumeTrue(false, "Assumptions");
         log.info("main 1 {}", this);
     }
 
