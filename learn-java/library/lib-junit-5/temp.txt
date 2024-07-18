@@ -1,0 +1,11 @@
+Executing testIdentifier: TestIdentifier [
+    uniqueId = [engine:junit-jupiter]/[class:ua.in.sz.junit5.JunitParameterizedTest]/[test-template:isOdd_ShouldReturnTrueForOddNumbers(int)]/[test-template-invocation:#6],
+    parentId = [engine:junit-jupiter]/[class:ua.in.sz.junit5.JunitParameterizedTest]/[test-template:isOdd_ShouldReturnTrueForOddNumbers(int)],
+    displayName = '[6] 2147483647',
+    legacyReportingName = 'isOdd_ShouldReturnTrueForOddNumbers(int)[6]',
+    source = MethodSource [
+        className = 'ua.in.sz.junit5.JunitParameterizedTest',
+        methodName = 'isOdd_ShouldReturnTrueForOddNumbers',
+        methodParameterTypes = 'int'],
+        tags = [],
+        type = TEST]
