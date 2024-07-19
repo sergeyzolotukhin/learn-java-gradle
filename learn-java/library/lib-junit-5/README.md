@@ -24,3 +24,5 @@ https://www.baeldung.com/junit-src-test-resources-directory-path
 https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#workingDirectory
 https://stackoverflow.com/questions/35985090/meaning-of-project-basedir-in-pom-xml
 https://stackoverflow.com/questions/4146638/maven-variable-for-reactor-root
+
+https://github.com/apache/camel/tree/main/components/camel-bindy/src/test/data
