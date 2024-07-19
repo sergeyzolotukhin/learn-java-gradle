@@ -32,4 +32,8 @@ Security groups and NACLs act as virtual firewalls.
   and it [controls the traffic to or from a subnet] according to some defined rules
 
 #### Question 
-Route 53 ?
+Route 53 - DNS
+    record type
+        A
+        C
+        NS
