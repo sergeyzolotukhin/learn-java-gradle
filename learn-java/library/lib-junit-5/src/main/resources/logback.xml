@@ -6,6 +6,8 @@
         </encoder>
     </appender>
 
+    <logger name="ua.in.sz.junit5.MyExecutionListener" level="WARN" />
+
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>

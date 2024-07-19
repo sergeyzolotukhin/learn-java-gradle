@@ -19,6 +19,7 @@ https://softwareengineering.stackexchange.com/questions/332035/where-do-data-fil
 #### Access to test data from unit test (maven)
 
 https://www.baeldung.com/junit-src-test-resources-directory-path
+https://www.baeldung.com/junit-src-test-resources-directory-path
 
 https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#workingDirectory
 https://stackoverflow.com/questions/35985090/meaning-of-project-basedir-in-pom-xml
