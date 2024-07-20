@@ -6,10 +6,10 @@ SNS
 
 CloudTrail - audit
 
-AWS Health Dashboard
+AWS Health Dashboard - notification area - required actions
 
 Cost Explorer 
 
-Trusted Adviser
+Trusted Adviser - recomebdation about security, law, performance and cost
 
 Lambda Basics
