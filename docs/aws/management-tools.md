@@ -20,3 +20,5 @@ Lambda Basics
 
 CloudFront - web site (CDN + DDoS protection) AWS Shield, secure content by location 
 AWS Secret Manager- secret manager
+
+GuardDuty - guard for account, monitor workload and activity - antivirus, scanner
