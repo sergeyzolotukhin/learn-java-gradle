@@ -16,3 +16,7 @@ Trusted Adviser - recommendation about security, law, performance and cost
 
 Lambda Basics
 
+#### security tools
+
+CloudFront
+AWS Secret Manager- secret manager
