@@ -22,3 +22,5 @@ CloudFront - web site (CDN + DDoS protection) AWS Shield, secure content by loca
 AWS Secret Manager- secret manager
 
 GuardDuty - guard for account, monitor workload and activity - antivirus, scanner
+
+Security Hub - best practices checker - security
