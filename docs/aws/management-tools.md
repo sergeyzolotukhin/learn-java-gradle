@@ -10,6 +10,6 @@ AWS Health Dashboard - notification area - required actions
 
 Cost Explorer 
 
-Trusted Adviser - recomebdation about security, law, performance and cost
+Trusted Adviser - recommendation about security, law, performance and cost
 
 Lambda Basics
