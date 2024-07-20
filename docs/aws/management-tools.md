@@ -2,7 +2,9 @@ CloudWatch - monitoring
     Metrics
     Alarms
 
-SNS
+SNS simple notification service (event driven) - like JMS
+    App-to-Person
+    App-To-App
 
 CloudTrail - audit
 
