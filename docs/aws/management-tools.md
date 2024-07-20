@@ -18,5 +18,5 @@ Lambda Basics
 
 #### security tools
 
-CloudFront
+CloudFront - web site (CDN + DDoS protection) AWS Shield, secure content by location 
 AWS Secret Manager- secret manager
