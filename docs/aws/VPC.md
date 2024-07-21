@@ -31,9 +31,12 @@ Security groups and NACLs act as virtual firewalls.
 * NACL Network Access Control List - NACL stands for Network Access Control List, 
   and it [controls the traffic to or from a subnet] according to some defined rules
 
-#### Question 
 Route 53 - DNS
     record type
         A
         C
         NS
+
+#### Availability Zones
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones
