@@ -19,9 +19,9 @@ VPC - Virtual Private Cloud
 * * Public subnets
 * * private subnets
 
-* * public IPv4
-* * Elastic IP
-* * private (internal) IP address
+* * public IPv4 - public dynamic IP (changed when restart)
+* * Elastic IP  - public dynamic IP (limit 5 per account)
+* * private (internal) IP address - private IP (dynamic ??? )
 
 * route tables
 
