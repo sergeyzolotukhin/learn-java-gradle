@@ -35,3 +35,7 @@ There are two types of policies
 #### Questions
 How to use a groups ?
 How to use a role ?
+
+role is similar to a user with permission policy
+role is temporal
+We should prefer role via hardcoded credential
