@@ -24,3 +24,4 @@ https://aws.amazon.com/ru/blogs/architecture/what-to-consider-when-selecting-a-r
 #### Other
 
 What is a Session Manager ?
+Shared responsibility model ?
