@@ -25,3 +25,5 @@ https://aws.amazon.com/ru/blogs/architecture/what-to-consider-when-selecting-a-r
 
 What is a Session Manager ?
 Shared responsibility model ?
+AWS Whitepapers $ Guide ?
+Well Architected Framework ?  Please read !!!
