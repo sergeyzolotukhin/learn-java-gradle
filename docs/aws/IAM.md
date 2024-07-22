@@ -1,4 +1,4 @@
-The Identity and Access Management (IAM)
+The Identity and Access Management (IAM) - works on global level (not region )
 * authentication 
 * authorization
 
