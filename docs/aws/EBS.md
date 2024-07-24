@@ -26,3 +26,6 @@ Snapshot
 ---
 stored on s3
 incremental
+
+excude caches can be
+consistent - recommended stop instance 
