@@ -10,7 +10,17 @@ Target Groups
 Resources groups
 Tagging
 
-Placement group 
+Placement group - 
+* Cluster – Packs instances close together inside an Availability Zone
+* Partition – Spreads your instances across logical partitions 
+such that groups of instances in one partition 
+do not share the underlying hardware with groups of instances in different partitions.
+* Spread – Strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
+
+Placement groups are optional. 
+If you don't launch your instances into a placement group, 
+EC2 tries to place the instances in such a way 
+that all of your instances are spread out across the underlying hardware to minimize correlated failures. 
 
 Bootstrap script - run when first start instance under root
 
