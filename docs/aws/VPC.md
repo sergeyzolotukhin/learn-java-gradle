@@ -7,6 +7,7 @@ You can specify the source, port range, and protocol for each [inbound rule].
 You can specify the destination, port range, and protocol for each [outbound rule].
 
 The [security group] acts as a virtual [firewall].
+by default, all is disabled
 
 VPC - Virtual Private Cloud
 * gateway
