@@ -27,7 +27,7 @@ Snapshot
 stored on s3
 incremental
 
-excude caches can be
+exclude caches can be
 consistent - recommended stop instance 
 share across same regin
 encrypted if ebs is encrypted
@@ -37,3 +37,4 @@ EBS in same AZ as a EC2 instance
 Clone instance in another region
 ---
 volume -> snapshot -> copy to target region -> create image (AMI) - launch instance 
+copy unencrypted snapshot can be encrypted
