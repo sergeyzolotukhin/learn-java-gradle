@@ -31,3 +31,4 @@ https://github.com/apache/camel/tree/main/components/camel-bindy/src/test/data
 #### Run JUnit Test Cases From the Command Line
 
 https://www.baeldung.com/junit-run-from-command-line
+https://junit.org/junit5/docs/5.7.0-M1/user-guide/index.html#running-tests-console-launcher
