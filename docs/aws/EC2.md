@@ -28,8 +28,9 @@ Bootstrap script - run when first start instance under root
 Network options (virtual network cards)
 ----
 ENI -  Elastic Network Interfaces - for day=to-day
-Enhancement Networking - SE-IOV - high performance
-EFA -  Elastic Fabric Adapter
+Enhancement Networking - SE-IOV - high performance - 10 Gb - 100 Gb
+EFA -  Elastic Fabric Adapter - high performance for machine learning
+VF - virtual function interface (old)
 
 ENA vs VF
 
