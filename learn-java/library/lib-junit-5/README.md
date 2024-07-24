@@ -26,3 +26,8 @@ https://stackoverflow.com/questions/35985090/meaning-of-project-basedir-in-pom-x
 https://stackoverflow.com/questions/4146638/maven-variable-for-reactor-root
 
 https://github.com/apache/camel/tree/main/components/camel-bindy/src/test/data
+
+
+#### Run JUnit Test Cases From the Command Line
+
+https://www.baeldung.com/junit-run-from-command-line
