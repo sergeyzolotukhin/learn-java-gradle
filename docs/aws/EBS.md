@@ -3,7 +3,7 @@ EBS - Elastic Block Store
 SSD - Solid state drive
 
 General Purpose SSD volumes
-* gp2 - default (OS, boot disk)
+* gp2 - default (OS, boot disk/ root device)
 * gp3 - high performance - for database, virtual desktops, hadoop - 4 time faster	
 
 Provisioned IOPS SSD volumes
@@ -21,3 +21,8 @@ Cold HDD volumes
 ---
 Automatic replicate within a single AZ 
 Dynamicy increase, change volume type, with no downtime and performance impact 
+
+Snapshot
+---
+stored on s3
+incremental
