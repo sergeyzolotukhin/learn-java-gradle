@@ -10,6 +10,8 @@ The [security group] acts as a virtual [firewall].
 by default, all is disabled
 take effect immediately
 
+security group <--many-to-many--> EC2 instance 
+
 VPC - Virtual Private Cloud
 * gateway
 * * an internet gateway
