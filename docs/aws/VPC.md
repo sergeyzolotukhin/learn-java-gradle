@@ -7,7 +7,8 @@ You can specify the source, port range, and protocol for each [inbound rule].
 You can specify the destination, port range, and protocol for each [outbound rule].
 
 The [security group] acts as a virtual [firewall].
-by default, all is disabled
+by default, all inbound is disabled
+by default, all outbound is allowed
 take effect immediately
 
 security group <--many-to-many--> EC2 instance 
