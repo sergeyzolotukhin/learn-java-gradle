@@ -10,7 +10,8 @@ Target Groups
 Resources groups
 Tagging
 
-Placement group - 
+Placement group
+---
 * Cluster – Packs instances close together inside an Availability Zone
 * Partition – Spreads your instances across logical partitions 
 such that groups of instances in one partition 
@@ -24,6 +25,15 @@ that all of your instances are spread out across the underlying hardware to mini
 
 Bootstrap script - run when first start instance under root
 
+Network options (virtual network cards)
 ----
+ENI -  Elastic Network Interfaces - for day=to-day
+Enhancement Networking - SE-IOV - high performance
+EFA -  Elastic Fabric Adapter
+
+ENA vs VF
+
+Other
+---
 https://hkcodeblogs.medium.com/aws-ec2-create-and-connect-to-instance-via-ssh-354a0c1909f
 https://www.clickittech.com/aws/connect-ec2-instance-using-ssh/
