@@ -38,3 +38,7 @@ Clone instance in another region
 ---
 volume -> snapshot -> copy to target region -> create image (AMI) - launch instance 
 copy unencrypted snapshot can be encrypted
+
+How to encrypted volume
+---
+volume -> snapshot -> copy with encryption -> create image (AMI) - launch instance 
