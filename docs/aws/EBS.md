@@ -29,3 +29,5 @@ incremental
 
 excude caches can be
 consistent - recommended stop instance 
+share across same regin
+encrypted if ebs is encrypted
