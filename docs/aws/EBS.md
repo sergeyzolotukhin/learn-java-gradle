@@ -42,3 +42,5 @@ copy unencrypted snapshot can be encrypted
 How to encrypted volume
 ---
 volume -> snapshot -> copy with encryption -> create image (AMI) - launch instance 
+
+data moving from volume to EC2 instance is encrypted if volume is encrypted
