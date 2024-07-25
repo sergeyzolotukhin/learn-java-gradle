@@ -1,6 +1,8 @@
 Launch Configuration Template
 Auto Scale Group
 
+The key difference between stopping and terminating an instance is that the attached bootable EBS volume will not be deleted
+
 Elastic Load Balancers
 * Application
 * Network
