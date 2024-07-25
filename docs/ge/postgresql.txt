@@ -1,3 +1,4 @@
 
 https://blog.logto.io/implement-multi-tenancy/
 https://medium.com/stackpulse/strategies-for-using-postgresql-as-a-database-for-multi-tenant-services-f2a2ba187414
+https://abdulrahmanka.medium.com/multi-tenancy-approach-in-postgresql-be5005697494
