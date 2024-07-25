@@ -50,3 +50,17 @@ Hibernate
 fast boot
 store ram
 no more 60 days
+
+AMI - Amazon Machine Images
+--- 
+
+AMI are categorize as either backed by:
+* Amazon EBS        - root device EBS create from AMI
+can be stop / reboot
+we do not lose data, if it is stopped
+By default the root device will be deleted on terminate  
+* Instance store    - root device create from template on S3 - ephemeral store - 
+cannot be stopped - if host fails you will lost your data
+can reboot without lost data
+
+The key difference between stopping and terminating an instance is that the attached bootable EBS volume will not be deleted
