@@ -1,7 +1,18 @@
 package ua.in.sz.yaml;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.KeyDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.cfg.HandlerInstantiator;
+import com.fasterxml.jackson.databind.cfg.MapperConfig;
+import com.fasterxml.jackson.databind.introspect.Annotated;
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+import com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +38,7 @@ public class YamlCustomApplication {
                 .setSerializationInclusion(JsonInclude.Include.NON_DEFAULT)
                 ;
         mapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
-
+        mapper.setHandlerInstantiator(new MyHandlerInstantiator());
 
         BookDto bookDto = BookDto.of("Book - 1", new Date(),
                 Collections.singletonList(PageDto.of("Title-1", "Text-1", 5)));
@@ -46,11 +57,16 @@ public class YamlCustomApplication {
         log.info("to yaml:[\n{}]", actual);
     }
 
+    @Slf4j
     public static class PageListFilter {
         private static final List<PageDto> DEFAULT_PAGES = Arrays.asList(
                 PageDto.of("Title-1", "Text-1", 15),
                 PageDto.of("Title-2", "Text-2", 3)
         );
+
+        public PageListFilter() {
+            log.info("PageListFilter");
+        }
 
         @Override
         public boolean equals(Object other) {

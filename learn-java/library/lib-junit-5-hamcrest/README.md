@@ -49,4 +49,7 @@ https://www.baeldung.com/jackson-advanced-annotations
 
 https://github.com/FasterXML/jackson-docs
 
+=======================================================================================================================
+https://stackoverflow.com/questions/28393599/autowiring-in-jsondeserializer-springbeanautowiringsupport-vs-handlerinstantiat
+
 
