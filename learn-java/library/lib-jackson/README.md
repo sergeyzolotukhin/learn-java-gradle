@@ -12,3 +12,6 @@ https://guillaumeblanchet.medium.com/three-ways-to-validate-json-in-java-4b38d95
 https://www.baeldung.com/java-object-validation-deserialization
 https://www.baeldung.com/java-validate-json-string
 json-schema-validator
+
+
+lib-junit-5-hamcrest
