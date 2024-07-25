@@ -36,6 +36,10 @@ VF - virtual function interface (old)
 
 ENA vs VF
 
+Spot
+---
+
+
 Other
 ---
 https://hkcodeblogs.medium.com/aws-ec2-create-and-connect-to-instance-via-ssh-354a0c1909f
