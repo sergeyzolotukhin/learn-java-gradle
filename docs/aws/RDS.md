@@ -15,4 +15,8 @@ Use
 ---
 OLTP
 
+Not use
+---
+OLAP
+
 Redshift - data warehouse - OLAP
