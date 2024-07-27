@@ -50,6 +50,7 @@ Custom NACL denies all
 Each subnet should have NACL , only one is allowed
 We can block IP addresses via NACL - not a security groups. 
 Rules checked in ordered way, start from lowest
+Ephemeral ports !!!
 
 Route 53 - DNS
 ---
