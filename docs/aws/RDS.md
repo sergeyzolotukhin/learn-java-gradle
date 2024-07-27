@@ -29,6 +29,26 @@ read replica can be promoted to separate database
 required automatic backup is enable 
 we can heve up to 5 Read replicas 
 
+Aurora
+---
+Performance 3~5 faster MySQL and PostgreSQL 
+store auto scaling
+auto scale 
+2 copy of DV in each AZ, minimum 3 AZ
+Aurora Serverless vs Aurora ???
+Snapshot can be share across account 
+
+DynamoDB
+---
+NoSQL 
+
+store on SSD 
+support Document and key-value data model
+spread across 3 data centers in different region
+eventually (by default) and strong consistency read 
+
+DAX - DynamoDB Accelerator - is a cache service
+
 Other
 ---
 Redshift - data warehouse - OLAP
