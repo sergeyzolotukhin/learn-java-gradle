@@ -42,6 +42,10 @@ security group is stateful !!!
 
 security group <--many-to-many--> EC2 instance
 
+NACL - Network Access Control list
+---
+NACL is stateless !!!
+
 Route 53 - DNS
 ---
 record type
