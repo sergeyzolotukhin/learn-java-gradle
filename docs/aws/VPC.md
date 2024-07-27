@@ -38,6 +38,7 @@ The [security group] acts as a virtual [firewall].
 by default, all inbound is disabled
 by default, all outbound is allowed
 take effect immediately
+security group is stateful !!!
 
 security group <--many-to-many--> EC2 instance
 
