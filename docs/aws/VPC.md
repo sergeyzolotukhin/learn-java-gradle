@@ -45,6 +45,11 @@ security group <--many-to-many--> EC2 instance
 NACL - Network Access Control list
 ---
 NACL is stateless !!!
+Default NACL allow all
+Custom NACL denies all
+Each subnet should have NACL , only one is allowed
+We can block IP addresses via NACL - not a security groups. 
+Rules checked in ordered way, start from lowest
 
 Route 53 - DNS
 ---
