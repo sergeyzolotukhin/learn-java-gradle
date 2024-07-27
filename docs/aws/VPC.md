@@ -20,15 +20,18 @@ VPC - Virtual Private Cloud
 * * NAT gateway (private / public connection)
 
 
-* subnets
+subnets
+---
 * * Public subnets
 * * private subnets
+One subnet can be at one AZ
 
 * * public IPv4 - public dynamic IP (changed when restart)
 * * Elastic IP  - public dynamic IP (limit 5 per account)
 * * private (internal) IP address - private IP (dynamic ??? )
 
-* route tables
+route tables
+---
 
 Security groups and NACLs act as virtual firewalls.
 * security groups - A security group acts as a virtual [firewall for EC2 instances] to control the inbound and outbound traffic based on some defined rules. 
