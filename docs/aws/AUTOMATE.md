@@ -35,7 +35,9 @@ immutable architecture ???
 
 AWS Elastic Beanstalk
 ---
-
+PaaS for
+* Java, Node.js, ...
+* Tomcat, Docker ...
 
 System Manager
 ---
