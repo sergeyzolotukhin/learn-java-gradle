@@ -55,6 +55,7 @@ Ephemeral ports !!!
 Endpoints
 ---
 ???
+https://www.youtube.com/watch?v=jo3X_aay4Vs&ab_channel=BeABetterDev
 
 Route 53 - DNS
 ---
