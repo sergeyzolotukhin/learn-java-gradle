@@ -21,3 +21,7 @@ Network Load Balancing
 Classic Load Balancing
 ---
 
+layer 7 or 4
+X-Forwarded-For header http - client IP address (source)
+sticky session
+gateway timeout return 504
