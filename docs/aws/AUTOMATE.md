@@ -41,3 +41,7 @@ PaaS for
 
 System Manager
 ---
+It is like a Jenkins 
+SSM Agent - on your PC
+Session Manager - secure connection for you PC (not SSH or RDP)
+Parameter Store - 
