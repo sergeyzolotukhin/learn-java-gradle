@@ -52,6 +52,10 @@ We can block IP addresses via NACL - not a security groups.
 Rules checked in ordered way, start from lowest
 Ephemeral ports !!!
 
+Endpoints
+---
+???
+
 Route 53 - DNS
 ---
 record type
