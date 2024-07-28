@@ -54,7 +54,8 @@ Ephemeral ports !!!
 
 Endpoints
 ---
-???
+It allow access to AWS services (S3 for example) from private network (directly without internet)
+
 https://www.youtube.com/watch?v=jo3X_aay4Vs&ab_channel=BeABetterDev
 
 Route 53 - DNS
