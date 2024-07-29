@@ -39,14 +39,14 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         if (url == null) {
             throw new IllegalArgumentException("URL argument cannot be null");
         }
+
         final String urlString = url.toString();
         if (urlString.endsWith("xml")) {
             JoranConfigurator configurator = new JoranConfigurator();
             configurator.setContext(context);
             configurator.doConfigure(url);
         } else {
-            throw new LogbackException(
-                    "Unexpected filename extension of file [" + url.toString() + "]. Should be .xml");
+            throw new LogbackException("Unexpected filename extension of file [" + url + "]. Should be .xml");
         }
     }
 
@@ -64,7 +64,7 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         if (url == null) {
             sm.add(new InfoStatus("Could NOT find resource [" + resourceName + "]", context));
         } else {
-            sm.add(new InfoStatus("Found resource [" + resourceName + "] at [" + url.toString() + "]", context));
+            sm.add(new InfoStatus("Found resource [" + resourceName + "] at [" + url + "]", context));
             multiplicityWarning(resourceName, classLoader);
         }
     }
