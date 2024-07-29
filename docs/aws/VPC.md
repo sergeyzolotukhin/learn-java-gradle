@@ -56,6 +56,19 @@ Endpoints
 ---
 It allow access to AWS services (S3 for example) from private network (directly without internet)
 
+Peering
+---
+It allow connect one VPC to another
+Transitive peering is not supported
+We can not overlapping CIDR address ranges
+
+PrivateLink
+---
+It allow connect one VPC to another
+required Load Balancer on service VPC
+required Elastic Network Interface on client VPC
+
+
 https://www.youtube.com/watch?v=jo3X_aay4Vs&ab_channel=BeABetterDev
 
 Route 53 - DNS
