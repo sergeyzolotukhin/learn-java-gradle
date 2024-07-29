@@ -17,6 +17,7 @@ import java.util.Set;
 public class MyConfigurator extends ContextAwareBase implements Configurator {
     private final static String MY_AUTOCONFIG_FILE_01 = "logback-01.xml";
 
+    @SuppressWarnings("CallToPrintStackTrace")
     @Override
     public ExecutionStatus configure(LoggerContext context) {
         ClassLoader myClassLoader = Loader.getClassLoaderOfObject(this);
@@ -49,6 +50,7 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         }
     }
 
+    @SuppressWarnings("SameParameterValue")
     private URL getResource(String filename, ClassLoader myClassLoader, boolean updateStatus) {
         URL url = Loader.getResource(filename, myClassLoader);
         if (updateStatus) {
@@ -67,6 +69,7 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         }
     }
 
+    @SuppressWarnings("UrlHashCode")
     private void multiplicityWarning(String resourceName, ClassLoader classLoader) {
         Set<URL> urlSet = null;
         try {
@@ -74,6 +77,7 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         } catch (IOException e) {
             addError("Failed to get url list for resource [" + resourceName + "]", e);
         }
+
         if (urlSet != null && urlSet.size() > 1) {
             addWarn("Resource [" + resourceName + "] occurs multiple times on the classpath.");
             for (URL url : urlSet) {
