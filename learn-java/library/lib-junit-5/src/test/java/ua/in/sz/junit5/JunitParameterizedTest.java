@@ -15,7 +15,7 @@ public class JunitParameterizedTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 3, 5, -3, 15, Integer.MAX_VALUE})
     void isOdd_ShouldReturnTrueForOddNumbers(int number) {
-        TimeUnit.SECONDS.sleep(1);
+//        TimeUnit.SECONDS.sleep(1);
         log.info("Hello {}", number);
     }
 }
