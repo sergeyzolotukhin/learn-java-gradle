@@ -14,4 +14,4 @@ default
 
 custom
 * Memory
-* ESB - sorage capacity
+* ESB - storage capacity
