@@ -32,3 +32,8 @@ https://github.com/apache/camel/tree/main/components/camel-bindy/src/test/data
 
 https://www.baeldung.com/junit-run-from-command-line
 https://junit.org/junit5/docs/5.7.0-M1/user-guide/index.html#running-tests-console-launcher
+
+#### Test resources
+
+https://github.com/hosuaby/inject-resources
+https://hosuaby.github.io/inject-resources/0.3.4/asciidoc/#inject-resources-junit-jupiter
