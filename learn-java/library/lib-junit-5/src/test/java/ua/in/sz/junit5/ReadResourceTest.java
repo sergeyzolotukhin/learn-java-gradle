@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import com.google.common.io.Resources;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,7 @@ import java.util.Objects;
 
 @Slf4j
 @TestWithResources
+@ExtendWith(ResourceParameterResolver.class)
 class ReadResourceTest {
 
     @GivenTextResource("resource.txt")
@@ -37,6 +39,11 @@ class ReadResourceTest {
             String text = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
             log.info("TEXT: {}", text);
         }
+    }
+
+    @Test
+    public void testIt(@ResourceFile("resource-3.txt") String text) {
+        log.info("TEXT: {}", text);
     }
 
     @SneakyThrows
