@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import com.google.common.io.Resources;
 
-import java.net.URL;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 @Slf4j
 @TestWithResources
@@ -28,9 +30,17 @@ class ReadResourceTest {
         log.info("TEXT: {}", actual);
     }
 
+    @Test
+    @SneakyThrows
+    void weCanAccessToFilePlainJava() {
+        try (InputStream inputStream = Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resource-2.txt"))){
+            String text = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            log.info("TEXT: {}", text);
+        }
+    }
+
     @SneakyThrows
     public static String asString(String resource) {
-        URL url = Resources.getResource(resource);
-        return Resources.toString(url, Charsets.UTF_8);
+        return Resources.toString(Resources.getResource(resource), Charsets.UTF_8);
     }
 }

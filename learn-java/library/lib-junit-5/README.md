@@ -37,3 +37,4 @@ https://junit.org/junit5/docs/5.7.0-M1/user-guide/index.html#running-tests-conso
 
 https://github.com/hosuaby/inject-resources
 https://hosuaby.github.io/inject-resources/0.3.4/asciidoc/#inject-resources-junit-jupiter
+https://medium.com/swlh/a-convenient-way-to-load-and-parse-resources-in-java-4061681f68bd
