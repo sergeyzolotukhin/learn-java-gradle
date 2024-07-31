@@ -80,3 +80,6 @@ To create a full distribution (includes sources and docs):
 The full distribution will be created at `subprojects/distributions-full/build/distributions/gradle-<version>-all.zip`. You can then use it as a Gradle Wrapper local distribution:
 
     ./gradlew wrapper --gradle-distribution-url=file:/path/to/gradle-<version>-all.zip
+
+#### Gradle dependencies
+https://github.com/StubbornJava/StubbornJava/blob/master/build.gradle
