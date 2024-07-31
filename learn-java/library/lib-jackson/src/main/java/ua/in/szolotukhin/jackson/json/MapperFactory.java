@@ -1,6 +1,7 @@
 package ua.in.szolotukhin.jackson.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import ua.in.szolotukhin.jackson.model.NoopRowDataProvider;
@@ -14,6 +15,7 @@ public final class MapperFactory {
 		mapper.writerWithDefaultPrettyPrinter();
 		mapper.registerSubtypes(namedTypes());
 		mapper.registerModule(new JavaTimeModule());
+		mapper.enable(SerializationFeature.INDENT_OUTPUT);
 		mapper.addMixIn(SchedulesFilter.class, SchedulesFilterMixIn.class);
 		return mapper;
 	}

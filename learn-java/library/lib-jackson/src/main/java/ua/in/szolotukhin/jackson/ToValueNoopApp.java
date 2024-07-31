@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 @Slf4j
 public class ToValueNoopApp {
 
-	public static final String BASE_PATH = "lib-jackson/src/main/resources";
+	public static final String BASE_PATH = "learn-java/library/lib-jackson/src/main/resources";
 
 	public static void main(String[] args) throws IOException {
 		ObjectMapper mapper = MapperFactory.createMapper();

@@ -14,7 +14,7 @@ import java.util.Objects;
 @Slf4j
 public class ToValueIntervalsApp {
 
-	public static final String BASE_PATH = "lib-jackson/src/main/resources";
+	public static final String BASE_PATH = "learn-java/library/lib-jackson/src/main/resources";
 	public static final String DEFAULT = "provider-intervals.json";
 
 	public static void main(String[] args) throws IOException {
