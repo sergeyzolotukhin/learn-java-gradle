@@ -9,3 +9,5 @@ https://medium.com/@kj187/using-the-jenkins-job-dashboard-widget-part-three-e411
 
 https://www.jenkins.io/doc/developer/tutorial/extend/
 https://www.jenkins.io/doc/developer/architecture/web/
+
+https://github.com/liatrio/pipeline-developer/tree/master
