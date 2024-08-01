@@ -1,0 +1,10 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    implementation ('commons-jelly:commons-jelly:1.0') {
+        exclude group: 'commons-discovery', module: 'commons-discovery'
+    }
+    implementation 'commons-discovery:commons-discovery:20040218.194635'
+}
