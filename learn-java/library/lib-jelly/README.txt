@@ -1,3 +1,3 @@
 https://commons.apache.org/proper/commons-jelly/tutorial.html
 
-SAXNotRecognizedException: unrecognized feature external-general-entities
+https://medium.com/@aakashgarg3108/introduction-to-servicenow-jelly-scripting-509a51c64147
