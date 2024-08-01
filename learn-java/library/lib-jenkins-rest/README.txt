@@ -1,5 +1,6 @@
 https://plugins.jenkins.io/dashboard-view/
 https://plugins.jenkins.io/sectioned-view/
+https://wiki.jenkins.io/display/JENKINS/Basic+guide+to+Jelly+usage+in+Jenkins
 
 https://commons.apache.org/proper/commons-jelly/index.html
 https://github.com/jenkinsci/stapler
