@@ -12,3 +12,5 @@ https://www.jenkins.io/doc/developer/tutorial/extend/
 https://www.jenkins.io/doc/developer/architecture/web/
 
 https://github.com/liatrio/pipeline-developer/tree/master
+
+https://github.com/jenkinsci/helm-charts/issues/28
