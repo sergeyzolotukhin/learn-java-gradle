@@ -14,3 +14,4 @@ https://www.jenkins.io/doc/developer/architecture/web/
 https://github.com/liatrio/pipeline-developer/tree/master
 
 https://github.com/jenkinsci/helm-charts/issues/28
+https://ragin.medium.com/jenkins-jenkins-configuration-as-code-jcasc-together-with-jobdsl-on-kubernetes-2f5a173491ab
