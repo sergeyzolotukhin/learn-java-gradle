@@ -275,3 +275,7 @@ https://github.com/jenkinsci/allure-plugin
 https://github.com/jenkinsci/ansicolor-plugin
 https://github.com/jenkinsci/parallel-test-executor-plugin
 https://github.com/jenkinsci/winrm-client-plugin
+
+#### Window Task Scheduler
+
+https://stackoverflow.com/questions/39745154/how-to-create-a-scheduler-task-in-window-task-scheduler-using-java
