@@ -215,7 +215,8 @@ https://levelup.gitconnected.com/how-to-differentiate-business-and-service-layer
 https://labs.madisoft.it/folder-structure-for-big-projects-package-by-type-layer-or-feature/
 
 Microservice Architecture
-https://github.com/Muddz/StructurebyFeatureTmpl 
+https://github.com/Muddz/StructurebyFeatureTmpl
+https://www.springfuse.com/java-microservices-project-structure-essentials/
 
 Microservices Monorepo vs. Polyrepo
 https://www.linkedin.com/pulse/simplifying-microservices-management-monorepo-vs-polyrepo-miqbal/
