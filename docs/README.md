@@ -198,3 +198,11 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 - X95 android
 
 - Xiomy
+
+#### Project Layout
+
+Clean Architecture
+https://www.milanjovanovic.tech/blog/clean-architecture-folder-structure
+
+Layered Architecture
+https://levelup.gitconnected.com/how-to-differentiate-business-and-service-layers-in-layered-architecture-912123b2ccf1
