@@ -221,3 +221,6 @@ https://www.springfuse.com/java-microservices-project-structure-essentials/
 Microservices Monorepo vs. Polyrepo
 https://www.linkedin.com/pulse/simplifying-microservices-management-monorepo-vs-polyrepo-miqbal/
 https://circleci.com/blog/monorepo-dev-practices/
+
+Shared libraries in microservices
+https://medium.com/@shanthi.shyju/shared-libraries-in-microservices-avoiding-an-antipattern-c9a3161276e
