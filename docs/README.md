@@ -207,6 +207,7 @@ https://medium.com/@abel.ncm/monolithic-modular-architecture-modular-folder-orga
 
 Clean Architecture
 https://www.milanjovanovic.tech/blog/clean-architecture-folder-structure
+https://medium.com/@viniciusromualdobusiness/clean-architecture-with-spring-boot-a-good-idea-d6f97e450130
 
 Layered Architecture
 https://levelup.gitconnected.com/how-to-differentiate-business-and-service-layers-in-layered-architecture-912123b2ccf1
