@@ -214,3 +214,7 @@ https://labs.madisoft.it/folder-structure-for-big-projects-package-by-type-layer
 
 Microservice Architecture
 https://github.com/Muddz/StructurebyFeatureTmpl 
+
+Microservices Monorepo vs. Polyrepo
+https://www.linkedin.com/pulse/simplifying-microservices-management-monorepo-vs-polyrepo-miqbal/
+https://circleci.com/blog/monorepo-dev-practices/
