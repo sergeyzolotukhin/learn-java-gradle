@@ -201,6 +201,10 @@ https://dou.ua/lenta/articles/rails-tutorial-docker-2/
 
 #### Project Layout
 
+Monolithic Modular Architecture
+https://medium.com/@abel.ncm/monolithic-modular-architecture-modular-folder-organization-4cbf97175ab4
+
+
 Clean Architecture
 https://www.milanjovanovic.tech/blog/clean-architecture-folder-structure
 
@@ -208,3 +212,5 @@ Layered Architecture
 https://levelup.gitconnected.com/how-to-differentiate-business-and-service-layers-in-layered-architecture-912123b2ccf1
 https://labs.madisoft.it/folder-structure-for-big-projects-package-by-type-layer-or-feature/
 
+Microservice Architecture
+https://github.com/Muddz/StructurebyFeatureTmpl 
