@@ -7,10 +7,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
 
     // data store
-    // https://docs.spring.io/spring-security/reference/features/integrations/data.html
-//    implementation 'org.springframework.security:spring-security-data:6.3.1'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.postgresql:postgresql'
     implementation 'com.h2database:h2'
+
+    // row level security
+
+    // https://dzone.com/articles/row-level-security-in-hibernate-using-filter
+    // https://docs.spring.io/spring-security/reference/features/integrations/data.html
+//    implementation 'org.springframework.security:spring-security-data:6.3.1'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
