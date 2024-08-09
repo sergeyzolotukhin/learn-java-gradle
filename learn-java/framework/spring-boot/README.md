@@ -14,3 +14,7 @@ https://rieckpil.de/improve-build-times-with-context-caching-from-spring-test/
 
 https://rieckpil.de/spring-boot-test-slices-overview-and-usage/
 https://www.baeldung.com/spring-componentscan-filter-type
+
+#### Bootstrapping the TestContext Framework
+
+https://docs.spring.io/spring-framework/reference/testing/testcontext-framework/bootstrapping.html
