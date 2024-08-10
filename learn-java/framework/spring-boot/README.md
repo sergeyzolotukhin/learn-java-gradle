@@ -18,3 +18,5 @@ https://www.baeldung.com/spring-componentscan-filter-type
 #### Bootstrapping the TestContext Framework
 
 https://docs.spring.io/spring-framework/reference/testing/testcontext-framework/bootstrapping.html
+
+https://medium.com/@venkivenki4b6/spring-dynamically-register-beans-in-4-ways-at-run-time-c1dc45dcbeb9
