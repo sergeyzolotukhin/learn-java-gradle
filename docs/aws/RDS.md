@@ -53,6 +53,9 @@ ACID
 Backup
 Point in time recovery (35 days)
 
+Global table - replicate - based on stream
+Streams - 
+
 DAX - DynamoDB Accelerator - is a cache service
 
 Other
