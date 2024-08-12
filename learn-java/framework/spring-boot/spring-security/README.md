@@ -10,6 +10,7 @@ HttpSecurity - builder
 https://www.baeldung.com/spring-boot-custom-auto-configuration
 https://www.baeldung.com/spring-security-registered-filters
 https://kasunprageethdissanayake.medium.com/spring-security-the-security-filter-chain-2e399a1cb8e3
+https://docs.spring.io/spring-framework/reference/web/websocket/stomp/message-flow.html
 
 org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.getCandidateConfigurations
 org.springframework.boot.context.annotation.ImportCandidates.load
