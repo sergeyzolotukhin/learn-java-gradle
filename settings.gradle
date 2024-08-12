@@ -120,7 +120,7 @@ include 'learn-java:framework:spring:spring-xml-factory-bean'
 include 'learn-java:framework:spring:spring-xml-data-binding'
 
 //include 'learn-java:framework:spring:spring-xml-with-spring-plugin'
-//include 'learn-java:framework:spring:spring-xml-security'
+include 'learn-java:framework:spring:spring-xml-security'
 
 // ====================================================================================================================
 // spring boot
