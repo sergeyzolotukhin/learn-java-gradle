@@ -45,7 +45,10 @@ NoSQL
 store on SSD 
 support Document and key-value data model
 spread across 3 data centers in different region
-eventually (by default) and strong consistency read 
+eventually (by default) and strong consistency read
+transaction should be enabled 
+one or more table in single account and region
+ACID
 
 DAX - DynamoDB Accelerator - is a cache service
 
