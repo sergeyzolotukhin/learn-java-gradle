@@ -54,7 +54,7 @@ Backup
 Point in time recovery (35 days)
 
 Global table - replicate - based on stream
-Streams - 
+Streams - is used in reapplication and in lambda
 
 DAX - DynamoDB Accelerator - is a cache service
 
