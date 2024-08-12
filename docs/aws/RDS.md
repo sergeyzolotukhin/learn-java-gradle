@@ -50,6 +50,9 @@ transaction should be enabled
 one or more table in single account and region
 ACID
 
+Backup
+Point in time recovery (35 days)
+
 DAX - DynamoDB Accelerator - is a cache service
 
 Other
