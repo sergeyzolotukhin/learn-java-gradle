@@ -58,6 +58,16 @@ Streams - is used in reapplication and in lambda
 
 DAX - DynamoDB Accelerator - is a cache service
 
+DocumentDB
+---
+MongoDB - document model
+DocumentDB is same as mongodb
+
+Keyspaces
+---
+Cassandra
+Keyspaces is same as Cassandra
+
 Other
 ---
 Redshift - data warehouse - OLAP
