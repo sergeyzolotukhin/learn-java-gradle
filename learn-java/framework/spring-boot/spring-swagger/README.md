@@ -44,3 +44,7 @@ annotations
 // @RequestParam - spring mvc
 // @Parameter - swagger parameter
 // @QueryParam - JAX-RS specification
+
+Json to Map
+---
+org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
