@@ -16,6 +16,8 @@ https://www.baeldung.com/openapi-json-query-parameters
 https://www.bezkoder.com/swagger-3-annotations/
 https://swagger.io/docs/specification/data-models/
 https://tyk.io/learning-center/openapi-json-schema/
+https://stackoverflow.com/questions/49574086/spring-boot-using-json-as-request-parameters-instead-of-an-entity-model
+
 
 swagger annotation
 ---
