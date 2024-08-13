@@ -1,39 +1,12 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.1.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-//    id "org.openapi.generator" version "4.2.2"
-    id 'java'
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
 }
-
-repositories {
-    mavenCentral()
-}
-
-bootJar {
-    archiveBaseName = 'gs-rest-service'
-    archiveVersion = '0.1.0'
-}
-
-//openApiGenerate {
-//    generatorName = "spring"
-//
-//    inputSpec = "$rootDir/K:\\projects\\_patterns\\spring-swagger\\src\\main\\resources\\api.yml".toString()
-//    outputDir = "$buildDir/generated".toString()
-//
-//    apiPackage = "ua.in.sz.swagger"
-//    invokerPackage.set("org.openapi.example.invoker")
-//    modelPackage.set("org.openapi.example.model")
-//
-//    configOptions.set(mapOf(
-//            "dateLibrary" to "java8"
-//    ))
-//}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springdoc:springdoc-openapi-core:1.1.49'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3'
 
-    // development
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    // runtime
+    runtimeOnly files('config')
 }
