@@ -17,7 +17,7 @@ https://www.bezkoder.com/swagger-3-annotations/
 https://swagger.io/docs/specification/data-models/
 https://tyk.io/learning-center/openapi-json-schema/
 https://stackoverflow.com/questions/49574086/spring-boot-using-json-as-request-parameters-instead-of-an-entity-model
-
+https://www.moesif.com/blog/technical/api-design/REST-API-Design-Best-Practices-for-Parameters-and-Query-String-Usage/
 
 swagger annotation
 ---
