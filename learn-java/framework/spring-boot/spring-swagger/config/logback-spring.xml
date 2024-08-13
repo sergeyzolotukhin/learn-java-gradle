@@ -8,6 +8,11 @@
         </encoder>
     </appender>
 
+    <!-- hide startup spam -->
+    <logger name="org.springframework.boot.web.embedded.tomcat" level="warn" />
+    <logger name="org.apache.catalina" level="warn" />
+    <logger name="org.springframework.boot.web.servlet.context" level="warn" />
+
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
