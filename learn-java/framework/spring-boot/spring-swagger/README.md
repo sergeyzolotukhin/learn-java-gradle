@@ -36,3 +36,9 @@ Rest controller
 ---
 org.springdoc.webmvc.api.OpenApiWebMvcResource.openapiJson
 org.springdoc.core.service.AbstractRequestService.build
+
+annotations
+---
+// @RequestParam - spring mvc
+// @Parameter - swagger parameter
+// @QueryParam - JAX-RS specification

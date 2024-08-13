@@ -12,6 +12,8 @@
     <logger name="org.springframework.boot.web.embedded.tomcat" level="warn" />
     <logger name="org.apache.catalina" level="warn" />
     <logger name="org.springframework.boot.web.servlet.context" level="warn" />
+    <logger name="org.springframework.web.servlet.DispatcherServlet" level="warn" />
+    <logger name="org.springdoc.api.AbstractOpenApiResource" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

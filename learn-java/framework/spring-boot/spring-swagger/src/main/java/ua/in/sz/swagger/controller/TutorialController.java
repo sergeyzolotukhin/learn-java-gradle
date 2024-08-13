@@ -30,14 +30,30 @@ public class TutorialController {
     @Operation(summary = "Retrieve all Tutorials", tags = {"Tutorial"})
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
-                    @Content(schema = @Schema(implementation = Tutorial.class), mediaType = "application/json")})
+                    @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Tutorial.class)
+                    )
+            })
     })
     @GetMapping
     public ResponseEntity<List<Tutorial>> getTutorials(
-            @RequestParam String title,
+            @Parameter(example = "Title-1")
+            @RequestParam
+            String title,
             @Parameter(name = "parameters", required = true,
-                    content = {@Content(schema = @Schema(type = "object"))})
-            @RequestParam(name = "parameters") Map<String, Object> parameters
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "object"))},
+                    example = """
+                            {
+                              "prop1": "PROP-1",
+                              "prop2": true,
+                              "prop3": 123
+                            }
+                            """
+            )
+            @RequestParam(name = "parameters")
+            Map<String, Object> parameters
     ) {
 
         log.info("Title: {}, parameters: {}", title, parameters);
@@ -49,8 +65,4 @@ public class TutorialController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-
-    // @RequestParam(required = false) String title - spring mvc
-    // @Parameter(description = "Filters", required = true, content = {@Content(schema = @Schema(type = "object"))}) - swagger parameter
-    // @QueryParam("parameters") Map<String, Object> parameters - @QueryParam annotation is part of the JAX-RS specification
 }
