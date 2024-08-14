@@ -50,3 +50,5 @@ annotations
 Json to Map
 ---
 org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+
+https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-annotations
