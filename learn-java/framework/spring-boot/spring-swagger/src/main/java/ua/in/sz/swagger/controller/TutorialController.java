@@ -37,7 +37,8 @@ public class TutorialController {
     })
     @GetMapping
     public ResponseEntity<List<Tutorial>> getTutorials(
-            @Parameter(example = "Title-1")
+            @Parameter(example = "Title-1",
+                    schema = @Schema(implementation = Title.class))
             @RequestParam
             String title,
             @Parameter(name = "parameters", required = true,
