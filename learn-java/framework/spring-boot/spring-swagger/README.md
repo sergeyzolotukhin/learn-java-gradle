@@ -53,3 +53,5 @@ org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 
 https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-annotations
 https://github.com/swagger-api/swagger-core/releases/tag/v2.2.19
+
+https://springfox.github.io/springfox/docs/current/
