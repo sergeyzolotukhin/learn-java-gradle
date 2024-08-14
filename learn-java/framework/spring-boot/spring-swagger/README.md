@@ -19,6 +19,8 @@ https://tyk.io/learning-center/openapi-json-schema/
 https://stackoverflow.com/questions/49574086/spring-boot-using-json-as-request-parameters-instead-of-an-entity-model
 https://www.moesif.com/blog/technical/api-design/REST-API-Design-Best-Practices-for-Parameters-and-Query-String-Usage/
 
+https://medium.com/isa-group/handling-inter-parameter-dependencies-in-rest-apis-with-idl4oas-e5489abac32f
+
 swagger annotation
 ---
 
