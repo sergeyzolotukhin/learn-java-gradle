@@ -51,3 +51,7 @@ https://stackify.com/ultimate-guide-performance-testing-and-software-testing/
 #### Junit fast
 
 https://semaphoreci.com/community/tutorials/how-to-split-junit-tests-in-a-continuous-integration-environment
+
+#### MyBatis
+
+https://www.baeldung.com/mybatis
