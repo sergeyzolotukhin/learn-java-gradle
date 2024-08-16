@@ -17,3 +17,4 @@ https://softwareengineering.stackexchange.com/questions/335985/acceptance-test-e
 https://softwareengineering.stackexchange.com/questions/436538/how-to-reset-state-of-exernal-services-when-running-acceptance-tests
 https://softwareengineering.stackexchange.com/questions/174745/isolating-test-data-in-acceptance-tests
 https://softwareengineering.stackexchange.com/questions/335985/acceptance-test-execution-strategies-for-heavy-first-time-setup-apps
+https://habr.com/ru/articles/433958/
