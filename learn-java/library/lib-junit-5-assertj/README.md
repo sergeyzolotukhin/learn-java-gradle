@@ -18,3 +18,6 @@ https://softwareengineering.stackexchange.com/questions/436538/how-to-reset-stat
 https://softwareengineering.stackexchange.com/questions/174745/isolating-test-data-in-acceptance-tests
 https://softwareengineering.stackexchange.com/questions/335985/acceptance-test-execution-strategies-for-heavy-first-time-setup-apps
 https://habr.com/ru/articles/433958/
+
+https://github.com/brettwooldridge/HikariCP/wiki/MBean-(JMX)-Monitoring-and-Management
+https://www.flowable.com/open-source/docs/bpmn/ch18-tooling
