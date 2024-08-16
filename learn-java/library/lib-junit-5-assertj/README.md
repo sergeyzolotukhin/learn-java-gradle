@@ -9,3 +9,5 @@ https://elvisciotti.medium.com/java-best-way-to-assert-json-in-tests-73548c8d19d
 https://github.com/lukas-krecan/JsonUnit/tree/master
 https://dzone.com/articles/lessons-learned-jsonunit
 https://docs.spring.io/spring-boot/docs/1.4.x/reference/html/boot-features-testing.html
+
+https://spring.io/blog/2023/10/16/runtime-efficiency-with-spring
