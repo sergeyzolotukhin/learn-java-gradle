@@ -17,3 +17,5 @@ https://github.com/liatrio/pipeline-developer/tree/master
 https://github.com/jenkinsci/helm-charts/issues/28
 https://ragin.medium.com/jenkins-jenkins-configuration-as-code-jcasc-together-with-jobdsl-on-kubernetes-2f5a173491ab
 https://www.happycoders.eu/devops/jenkins-tutorial-implementing-seed-job/
+
+https://medium.com/@rachit.k.agrawal/how-to-configure-plot-plugin-in-jenkins-5b7ba81ce112
