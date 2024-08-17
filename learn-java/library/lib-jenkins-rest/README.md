@@ -19,3 +19,4 @@ https://ragin.medium.com/jenkins-jenkins-configuration-as-code-jcasc-together-wi
 https://www.happycoders.eu/devops/jenkins-tutorial-implementing-seed-job/
 
 https://medium.com/@rachit.k.agrawal/how-to-configure-plot-plugin-in-jenkins-5b7ba81ce112
+https://stackoverflow.com/questions/12499912/plotting-arbitrary-data-for-repository
