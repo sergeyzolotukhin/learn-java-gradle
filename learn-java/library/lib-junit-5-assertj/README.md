@@ -21,3 +21,9 @@ https://habr.com/ru/articles/433958/
 
 https://github.com/brettwooldridge/HikariCP/wiki/MBean-(JMX)-Monitoring-and-Management
 https://www.flowable.com/open-source/docs/bpmn/ch18-tooling
+
+https://medium.com/@asuarezaceves/initializing-a-postgresql-database-with-a-dataset-using-docker-compose-a-step-by-step-guide-3feebd5b1545
+https://dev.to/aws-builders/restore-postgresql-database-in-a-docker-container-3h85
+https://hub.docker.com/_/postgres
+https://levelup.gitconnected.com/creating-and-filling-a-postgres-db-with-docker-compose-e1607f6f882f
+https://earthly.dev/blog/postgres-docker/
