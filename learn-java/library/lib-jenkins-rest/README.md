@@ -22,4 +22,5 @@ https://medium.com/@rachit.k.agrawal/how-to-configure-plot-plugin-in-jenkins-5b7
 https://stackoverflow.com/questions/12499912/plotting-arbitrary-data-for-repository
 
 https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/how-to-create-and-use-a-git-reference-repository
+https://stackoverflow.com/questions/29903800/force-jenkins-to-pull-from-git-on-master
 
