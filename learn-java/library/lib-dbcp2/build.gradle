@@ -11,6 +11,7 @@ dependencies {
 
     // logging
     implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.slf4j:jcl-over-slf4j:2.0.16'
 
     // development
     compileOnly 'org.projectlombok:lombok'
