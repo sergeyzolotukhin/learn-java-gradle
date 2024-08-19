@@ -6,3 +6,5 @@ https://medium.com/@dmitry.romanoff/how-to-measure-performance-of-postgresql-dat
 
 https://github.com/jdbc-observations/datasource-proxy
 https://medium.com/@hnasr/postgres-locks-a-deep-dive-9fc158a5641c
+https://pganalyze.com/blog/5mins-postgres-find-cause-locking-problems
+https://pganalyze.com/blog/postgres-lock-monitoring
