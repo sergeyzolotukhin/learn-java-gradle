@@ -10,3 +10,4 @@ https://pganalyze.com/blog/5mins-postgres-find-cause-locking-problems
 https://pganalyze.com/blog/postgres-lock-monitoring
 
 https://pganalyze.com/docs/install/self_managed/01_guided_setup
+https://pgdash.io/blog/slow-queries-postgres.html
