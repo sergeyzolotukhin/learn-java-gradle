@@ -1,7 +1,8 @@
 package ua.in.sz;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -22,7 +23,7 @@ public class PidMain {
         log.info("start");
         String url = "jdbc:postgresql://127.0.0.1:5432/postgres?user=postgres&password=postgres";
 
-        BasicDataSource dateSource = createDateSource(url);
+        HikariDataSource dateSource = createDateSource(url);
 
         ExecutorService executorService = Executors.newFixedThreadPool(50);
         List<Callable<String>> callables = new ArrayList<>();
@@ -75,22 +76,11 @@ public class PidMain {
         return sb.toString();
     }
 
-    private static BasicDataSource createDateSource(String url) {
-        // https://commons.apache.org/proper/commons-dbcp/configuration.html
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl(url);
+    private static HikariDataSource createDateSource(String url) {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(url);
+        config.setAllowPoolSuspension(true);
 
-        final int poolSize = 5;
-
-        dataSource.setInitialSize(poolSize);
-        dataSource.setMinIdle(poolSize);
-        dataSource.setMaxIdle(poolSize);
-        dataSource.setMaxTotal(poolSize);
-        dataSource.setValidationQuery("SELECT 1");
-        dataSource.setTestOnCreate(true);
-//        dataSource.setTestOnBorrow(true);
-        dataSource.setTestWhileIdle(true);
-
-        return dataSource;
+        return new HikariDataSource(config);
     }
 }
