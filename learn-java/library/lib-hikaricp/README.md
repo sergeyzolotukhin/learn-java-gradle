@@ -11,3 +11,4 @@ https://pganalyze.com/blog/postgres-lock-monitoring
 
 https://pganalyze.com/docs/install/self_managed/01_guided_setup
 https://pgdash.io/blog/slow-queries-postgres.html
+https://www.squash.io/identifying-the-query-holding-the-lock-in-postgres/
