@@ -13,3 +13,6 @@ https://pganalyze.com/docs/install/self_managed/01_guided_setup
 https://pgdash.io/blog/slow-queries-postgres.html
 https://www.squash.io/identifying-the-query-holding-the-lock-in-postgres/
 https://github.com/postgrespro/pg_wait_sampling
+https://www.postgresql.org/docs/current/monitoring-stats.html
+https://dev.to/aws-heroes/quick-on-wait-events-from-pgstatactivity-4dkm
+https://www.prisma.io/dataguide/postgresql/reading-and-querying-data/optimizing-postgresql
