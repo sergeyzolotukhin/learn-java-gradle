@@ -19,6 +19,7 @@ https://www.prisma.io/dataguide/postgresql/reading-and-querying-data/optimizing-
 https://zelark.github.io/exploring-query-locks-in-postgres/
 https://betterstack.com/community/guides/logging/how-to-start-logging-with-postgresql/
 https://www.2ndquadrant.com/en/blog/tracing-postgresql-perf/
+https://www.highgo.ca/2019/10/03/trace-query-processing-internals-with-debugger/
 
 pg_wait_sampling - https://github.com/postgrespro/pg_wait_sampling
 pg_activity - https://manpages.ubuntu.com/manpages/mantic/man1/pg_activity.1.html
@@ -27,3 +28,5 @@ PgHero is an open source PostgreSQL monitoring tool that was developed by Instac
 Connection tracing and wait event analysis are advanced techniques 
 that allow for a deeper understanding of what operations are causing delays. 
 By examining the wait events during query execution, one can pinpoint where the query is spending most of its time.
+
+https://stackoverflow.com/questions/26489244/how-to-detect-query-which-holds-the-lock-in-postgres
