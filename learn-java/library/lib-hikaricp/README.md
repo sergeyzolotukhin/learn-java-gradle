@@ -16,3 +16,12 @@ https://github.com/postgrespro/pg_wait_sampling
 https://www.postgresql.org/docs/current/monitoring-stats.html
 https://dev.to/aws-heroes/quick-on-wait-events-from-pgstatactivity-4dkm
 https://www.prisma.io/dataguide/postgresql/reading-and-querying-data/optimizing-postgresql
+https://zelark.github.io/exploring-query-locks-in-postgres/
+https://thinhdanggroup.github.io/pg-wait-events/
+
+pg_activity - https://manpages.ubuntu.com/manpages/mantic/man1/pg_activity.1.html
+PgHero is an open source PostgreSQL monitoring tool that was developed by Instacart.
+
+Connection tracing and wait event analysis are advanced techniques 
+that allow for a deeper understanding of what operations are causing delays. 
+By examining the wait events during query execution, one can pinpoint where the query is spending most of its time.
