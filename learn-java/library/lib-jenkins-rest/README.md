@@ -26,3 +26,6 @@ https://stackoverflow.com/questions/29903800/force-jenkins-to-pull-from-git-on-m
 
 https://stackoverflow.com/questions/59897948/is-the-jenkins-workspace-on-the-master-or-the-worker
 
+https://www.jenkins.io/blog/2022/12/27/run-jenkins-agent-as-a-service/
+https://stackoverflow.com/questions/37054864/intellij-output-console-info-colour
+
