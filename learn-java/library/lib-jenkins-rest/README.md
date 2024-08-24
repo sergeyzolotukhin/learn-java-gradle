@@ -28,4 +28,7 @@ https://stackoverflow.com/questions/59897948/is-the-jenkins-workspace-on-the-mas
 
 https://www.jenkins.io/blog/2022/12/27/run-jenkins-agent-as-a-service/
 https://stackoverflow.com/questions/37054864/intellij-output-console-info-colour
+https://wiki.jenkins-ci.org/display/JENKINS/Making+your+plugin+behave+in+distributed+Jenkins
+https://github.com/jenkinsci/remoting/blob/master/README.md
+https://wiki.jenkins-ci.org/display/JENKINS/Remoting
 
