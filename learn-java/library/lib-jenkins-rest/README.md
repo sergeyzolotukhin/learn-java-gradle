@@ -33,5 +33,7 @@ https://github.com/jenkinsci/remoting/blob/master/README.md
 https://wiki.jenkins-ci.org/display/JENKINS/Remoting
 https://dev.library.kiwix.org/content/stackoverflow_en_nopic_2021-08/questions/44422691/how-to-force-jenkins-to-reload-a-jenkinsfile
 https://stackoverflow.com/questions/53615192/how-to-refresh-the-job-configuration-from-pipeline-in-scm
+https://stackoverflow.com/questions/5216552/how-to-reload-hudson-configuration-without-restarting
+
 
 
