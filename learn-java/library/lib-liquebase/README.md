@@ -13,3 +13,6 @@ https://github.com/liquibase/liquibase-extension-example/tree/main
 https://contribute.liquibase.com/extensions-integrations/extensions-overview/your-first-extension/
 
 https://picocli.info/
+
+https://www.jetbrains.com/help/idea/compare-data.html#controls-of-the-difference-viewer-for-contents
+https://www.jetbrains.com/help/idea/schema-comparison-and-migration.html#migrate_changes_between_objects
