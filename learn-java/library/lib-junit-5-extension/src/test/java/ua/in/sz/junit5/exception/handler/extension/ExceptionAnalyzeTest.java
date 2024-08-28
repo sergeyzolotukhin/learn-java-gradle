@@ -1,4 +1,4 @@
-package ua.in.sz.junit5;
+package ua.in.sz.junit5.exception.handler.extension;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
