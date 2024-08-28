@@ -180,7 +180,7 @@ include 'learn-java:pattern-gof:pattern-gof-visitor'
 include 'learn-java:pattern-gof:pattern-gof-template-method'
 include 'learn-java:pattern-gof:pattern-gof-chain-of-responsibility'
 include 'learn-java:pattern-gof:pattern-gof-composite'
-//include 'pattern-gof:pattern-gof-proxy'
+include 'learn-java:pattern-gof:pattern-gof-proxy'
 //include 'pattern-gof:pattern-gof-adapter'
 
 // ====================================================================================================================
