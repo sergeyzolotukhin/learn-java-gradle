@@ -10,7 +10,6 @@ class ExceptionAnalyzeTest {
 
     @Test
     void main_1() {
-//        Main.throwException();
-        log.info("main 1");
+        throw new IllegalStateException("My exception");
     }
 }
