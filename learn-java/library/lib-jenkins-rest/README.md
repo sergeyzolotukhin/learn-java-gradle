@@ -39,6 +39,7 @@ https://www.jenkins.io/doc/book/managing/script-console/
 https://plugins.jenkins.io/scriptler/
 https://blog.sandra-parsick.de/2022/02/17/how-to-debug-jenkins-remotely/
 https://xanderx.com/post/run-jenkins-script-console-scripts-from-command-line-without-remoting/
+https://www.jenkins.io/doc/book/managing/cli/
 
 
 
