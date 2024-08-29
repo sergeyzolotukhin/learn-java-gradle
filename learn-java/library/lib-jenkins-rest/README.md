@@ -35,5 +35,7 @@ https://dev.library.kiwix.org/content/stackoverflow_en_nopic_2021-08/questions/4
 https://stackoverflow.com/questions/53615192/how-to-refresh-the-job-configuration-from-pipeline-in-scm
 https://stackoverflow.com/questions/5216552/how-to-reload-hudson-configuration-without-restarting
 
+https://www.jenkins.io/doc/book/managing/script-console/
+https://plugins.jenkins.io/scriptler/
 
 
