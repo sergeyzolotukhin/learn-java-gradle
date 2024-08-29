@@ -37,5 +37,6 @@ https://stackoverflow.com/questions/5216552/how-to-reload-hudson-configuration-w
 
 https://www.jenkins.io/doc/book/managing/script-console/
 https://plugins.jenkins.io/scriptler/
+https://blog.sandra-parsick.de/2022/02/17/how-to-debug-jenkins-remotely/
 
 
