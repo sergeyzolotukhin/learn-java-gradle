@@ -19,3 +19,4 @@ https://www.jetbrains.com/help/idea/schema-comparison-and-migration.html#migrate
 
 https://stackoverflow.com/questions/56187413/liquibase-writing-logs-to-stderr
 https://stackoverflow.com/questions/20880783/how-to-get-liquibase-to-log-using-slf4j
+https://docs.liquibase.com/parameters/home.html
