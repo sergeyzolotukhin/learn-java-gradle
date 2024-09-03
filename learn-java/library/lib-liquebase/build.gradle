@@ -29,9 +29,9 @@ dependencies {
     liquibaseRuntime 'org.yaml:snakeyaml'
     liquibaseRuntime 'org.postgresql:postgresql'
     // log liquibase
-//    liquibaseRuntime 'com.mattbertolini:liquibase-slf4j:5.0.0'
-//    liquibaseRuntime 'ch.qos.logback:logback-classic'
-//    liquibaseRuntime files('config')
+    liquibaseRuntime 'com.mattbertolini:liquibase-slf4j:5.0.0'
+    liquibaseRuntime 'ch.qos.logback:logback-classic'
+    liquibaseRuntime files('config')
 
 
     // runtime
