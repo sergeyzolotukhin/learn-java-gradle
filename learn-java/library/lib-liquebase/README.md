@@ -16,3 +16,6 @@ https://picocli.info/
 
 https://www.jetbrains.com/help/idea/compare-data.html#controls-of-the-difference-viewer-for-contents
 https://www.jetbrains.com/help/idea/schema-comparison-and-migration.html#migrate_changes_between_objects
+
+https://stackoverflow.com/questions/56187413/liquibase-writing-logs-to-stderr
+https://stackoverflow.com/questions/20880783/how-to-get-liquibase-to-log-using-slf4j
