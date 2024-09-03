@@ -10,7 +10,7 @@
 <!--    <logger name="org.hibernate.SQL" level="debug" />-->
 
     <!-- Framework -->
-    <logger name="org.jgroups" level="warn" />
+    <logger name="liquibase" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
