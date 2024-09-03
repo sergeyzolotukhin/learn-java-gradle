@@ -5,6 +5,7 @@ plugins {
 
 liquibase {
     logging.captureStandardOutput LogLevel.INFO
+//    logging.captureStandardError LogLevel.INFO
     activities {
         //noinspection GroovyAssignabilityCheck
         main {
@@ -23,12 +24,14 @@ dependencies {
     liquibaseRuntime platform(project(':platform'))
 
     // database
+//    implementation 'org.liquibase:liquibase-core'
     liquibaseRuntime 'org.liquibase:liquibase-core'
     liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl'
     liquibaseRuntime 'info.picocli:picocli'
     liquibaseRuntime 'org.yaml:snakeyaml'
     liquibaseRuntime 'org.postgresql:postgresql'
     // log liquibase
+//    liquibaseRuntime 'org.slf4j:jul-to-slf4j:2.0.16'
     liquibaseRuntime 'com.mattbertolini:liquibase-slf4j:5.0.0'
     liquibaseRuntime 'ch.qos.logback:logback-classic'
     liquibaseRuntime files('config')
