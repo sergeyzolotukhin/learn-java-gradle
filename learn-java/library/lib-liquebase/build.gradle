@@ -15,16 +15,19 @@ liquibase {
             password "postgres"
             logLevel "warning"
             showBanner "false"
+//            headless "true"
 //            showSummary "off"
         }
     }
 }
 
 dependencies {
+//    implementation 'org.liquibase:liquibase-core'
+//    implementation 'com.mattbertolini:liquibase-slf4j:5.0.0'
+
     liquibaseRuntime platform(project(':platform'))
 
     // database
-//    implementation 'org.liquibase:liquibase-core'
     liquibaseRuntime 'org.liquibase:liquibase-core'
     liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl'
     liquibaseRuntime 'info.picocli:picocli'
