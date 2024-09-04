@@ -40,6 +40,8 @@ https://plugins.jenkins.io/scriptler/
 https://blog.sandra-parsick.de/2022/02/17/how-to-debug-jenkins-remotely/
 https://xanderx.com/post/run-jenkins-script-console-scripts-from-command-line-without-remoting/
 https://www.jenkins.io/doc/book/managing/cli/
+https://community.jenkins.io/t/trigger-previous-stages-in-jenkins-blue-ocean-if-user-click-on-restart-stage-button/5980/2
+
 
 
 
