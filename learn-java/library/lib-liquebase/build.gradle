@@ -22,8 +22,11 @@ liquibase {
 }
 
 dependencies {
-//    implementation 'org.liquibase:liquibase-core'
-//    implementation 'com.mattbertolini:liquibase-slf4j:5.0.0'
+    // Embed Liquibase in Your Application
+    // https://contribute.liquibase.com/extensions-integrations/integration-guides/embedding-liquibase/
+    implementation 'org.liquibase:liquibase-core'
+    implementation 'com.mattbertolini:liquibase-slf4j:5.0.0'
+    implementation 'org.postgresql:postgresql'
 
     liquibaseRuntime platform(project(':platform'))
 
