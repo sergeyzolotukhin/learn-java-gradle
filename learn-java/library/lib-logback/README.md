@@ -60,3 +60,4 @@ org.springframework.boot.logging.logback.LogbackLoggingSystem
 https://stackoverflow.com/questions/5653062/how-can-i-configure-logback-to-log-different-levels-for-a-logger-to-different-de
 https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-message-in-a-logger
 https://dzone.com/articles/unit-testing-log-messages-made-easy
+https://skryvets.com/blog/2021/03/03/how-to-test-log-statements-in-spring/
