@@ -41,3 +41,4 @@ https://medium.com/swlh/a-convenient-way-to-load-and-parse-resources-in-java-406
 
 https://github.com/junit-pioneer/junit-pioneer
 https://github.com/database-rider/database-rider
+https://www.baeldung.com/java-dbunit
