@@ -40,3 +40,4 @@ https://hosuaby.github.io/inject-resources/0.3.4/asciidoc/#inject-resources-juni
 https://medium.com/swlh/a-convenient-way-to-load-and-parse-resources-in-java-4061681f68bd
 
 https://github.com/junit-pioneer/junit-pioneer
+https://github.com/database-rider/database-rider
