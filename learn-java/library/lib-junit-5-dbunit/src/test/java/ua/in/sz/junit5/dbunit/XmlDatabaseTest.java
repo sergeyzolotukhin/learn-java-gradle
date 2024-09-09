@@ -27,17 +27,18 @@ public class XmlDatabaseTest {
 
     @BeforeClass
     public static void createSchema() throws Exception {
-        RunScript.execute(JDBC_URL, USER, PASSWORD, "src/test/resources/dbunit/schema.sql", StandardCharsets.UTF_8, false);
+        RunScript.execute(JDBC_URL, USER, PASSWORD,
+                "src/test/resources/dbunit/schema.sql", StandardCharsets.UTF_8, false);
     }
 
     @Before
     public void importDataSet() throws Exception {
         IDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("src/test/resources/dbunit/data.xml"));
 
-        IDatabaseTester databaseTester = new JdbcDatabaseTester(JDBC_DRIVER, JDBC_URL, USER, PASSWORD);
-        databaseTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
-        databaseTester.setDataSet(dataSet);
-        databaseTester.onSetup();
+        IDatabaseTester tester = new JdbcDatabaseTester(JDBC_DRIVER, JDBC_URL, USER, PASSWORD);
+        tester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
+        tester.setDataSet(dataSet);
+        tester.onSetup();
     }
 
     @Test
