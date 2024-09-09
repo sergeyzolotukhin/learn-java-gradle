@@ -8,8 +8,6 @@ dependencies {
     testImplementation 'io.hosuaby:inject-resources-junit-jupiter:0.3.4'
     testImplementation 'com.google.guava:guava:33.2.1-jre'
 
-//    testImplementation 'dbunit:dbunit:2.2'
     testImplementation 'org.dbunit:dbunit:2.8.0'
     testImplementation 'com.h2database:h2'
-//    testImplementation 'org.dbunit:dbunit:${dbunit.version}'
 }
