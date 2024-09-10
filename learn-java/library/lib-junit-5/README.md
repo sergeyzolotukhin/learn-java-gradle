@@ -43,3 +43,5 @@ https://github.com/junit-pioneer/junit-pioneer
 https://github.com/database-rider/database-rider
 https://www.baeldung.com/java-dbunit
 https://www.dbunit.org/howto.html
+
+https://github.com/almondtools/testrecorder
