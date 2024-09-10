@@ -46,3 +46,4 @@ https://www.dbunit.org/howto.html
 
 https://github.com/almondtools/testrecorder
 https://kotest.io/docs/extensions/extensions.html
+https://www.petrikainulainen.net/programming/testing/introduction-to-junit-5-extensions/
