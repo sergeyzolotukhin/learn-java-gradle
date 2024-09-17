@@ -27,9 +27,15 @@ public class Application {
         TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 
+        TransactionTemplate nestedTransactionTemplate = new TransactionTemplate(transactionManager);
+//        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 
         transactionTemplate.execute(status -> {
-            jdbcTemplate.execute("SELECT 1");
+            nestedTransactionTemplate.execute(s -> {
+                jdbcTemplate.execute("SELECT 1");
+                return null;
+            });
             return null;
         });
 

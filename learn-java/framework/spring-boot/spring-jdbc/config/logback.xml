@@ -1,11 +1,11 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%white(%d{HH:mm:ss.SSS}) [%blue(%-20.20thread)] %highlight(%-5level) | %yellow(%-40.40logger{36}) - %msg %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
         </encoder>
     </appender>
 
-<!--    <logger name="org.quartz" level="warn" />-->
+    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="debug" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
