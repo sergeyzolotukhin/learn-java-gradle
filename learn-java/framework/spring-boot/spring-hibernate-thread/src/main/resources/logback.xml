@@ -17,7 +17,7 @@
 
 <!--    <logger name="org.springframework.transaction" level="DEBUG" />-->
 <!--    <logger name="org.springframework.orm.hibernate5" level="DEBUG" />-->
-    <logger name="org.hibernate.SQL" level="DEBUG" />
+<!--    <logger name="org.hibernate.SQL" level="DEBUG" />-->
 
     <logger name="org.springframework" level="warn" />
     <logger name="com.zaxxer" level="warn" />
