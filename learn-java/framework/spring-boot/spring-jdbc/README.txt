@@ -9,3 +9,7 @@ org.springframework.transaction.support.TransactionSynchronizationManager
     -> bindResource
         -> DataSource <-> ConnectionHolder
             -> SimpleConnectionHandle -> Connection
+
+
+https://dulajra.medium.com/spring-transaction-management-over-multiple-threads-dzone-java-b36a5bc342e5
+https://dzone.com/articles/spring-transaction-management-over-multiple-thread-1
