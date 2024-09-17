@@ -1,4 +1,4 @@
-package ua.in.sz.spring.initialize;
+package ua.in.sz.spring.initialize.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;

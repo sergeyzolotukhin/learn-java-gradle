@@ -1,4 +1,4 @@
-package ua.in.sz.spring.thread;
+package ua.in.sz.spring.thread.logback;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
