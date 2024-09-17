@@ -34,9 +34,9 @@ public class Application {
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 
         TransactionTemplate nestedTransactionTemplate = new TransactionTemplate(transactionManager);
-        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
+//        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
 //        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-//        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        nestedTransactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
