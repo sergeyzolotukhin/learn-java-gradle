@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.quartz" level="warn" />
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="trace" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

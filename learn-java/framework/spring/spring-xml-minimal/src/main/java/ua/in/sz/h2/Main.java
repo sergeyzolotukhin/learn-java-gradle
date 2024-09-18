@@ -10,7 +10,7 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[]{"application-context.xml", "second-application-context.xml"},
                 false);
-        context.setAllowBeanDefinitionOverriding(false);
+//        context.setAllowBeanDefinitionOverriding(false);
         context.refresh();
 
         printMetadata(context);
