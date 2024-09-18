@@ -5,5 +5,7 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
 
-    <bean id="businessService" class="ua.in.sz.h2.BusinessService" />
+    <bean id="businessService" class="ua.in.sz.h2.BusinessService">
+        <meta key="attribute-name" value="Hello Meta"/>
+    </bean>
 </beans>
