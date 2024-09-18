@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="debug" />
+<!--    <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="debug" />-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
