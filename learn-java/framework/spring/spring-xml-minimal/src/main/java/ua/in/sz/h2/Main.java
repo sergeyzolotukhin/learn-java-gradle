@@ -7,8 +7,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                new String[]{"application-context.xml", "second-application-context.xml"});
+//        context.setAllowBeanDefinitionOverriding(true);
+//        context.refresh();
 
+        printMetadata(context);
+
+        PrintService businessService = context.getBean(PrintService.class);
+        businessService.print();
+
+        context.close();
+    }
+
+    private static void printMetadata(ClassPathXmlApplicationContext context) {
         BeanDefinition beanDefinition = context.getBeanFactory().getBeanDefinition("businessService");
         Object attribute = beanDefinition.getAttribute("attribute-name");
         log.info("attribute-name={}", attribute);
@@ -20,10 +32,5 @@ public class Main {
         for (String beanDefinitionName : context.getBeanFactory().getBeanDefinitionNames()) {
             log.info("beanDefinitionName={}", beanDefinitionName);
         }
-
-        BusinessService businessService = context.getBean(BusinessService.class);
-        businessService.print();
-
-        context.close();
     }
 }

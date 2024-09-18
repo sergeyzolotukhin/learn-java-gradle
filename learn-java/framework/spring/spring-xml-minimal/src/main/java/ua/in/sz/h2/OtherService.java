@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 @Setter
-public class BusinessService implements PrintService {
+public class OtherService implements PrintService {
     @Override
     public void print() {
-        log.info("Hello");
+        log.info("Hello Other");
     }
 }
