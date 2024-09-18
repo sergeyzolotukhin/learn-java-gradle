@@ -12,3 +12,5 @@ scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0;
 autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; 
 initMethodNames=null; destroyMethodNames=null; 
 defined in class path resource [second-application-context.xml]]
+
+https://www.baeldung.com/spring-boot-bean-definition-override-exception
