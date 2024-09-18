@@ -7,7 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @Slf4j
 public class MyApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     @Override
-    public void initialize(ConfigurableApplicationContext applicationContext) {
+    public void initialize(ConfigurableApplicationContext context) {
         log.info("initialize -> ");
     }
 }
