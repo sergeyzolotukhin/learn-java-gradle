@@ -8,7 +8,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "application-context.xml", "second-application-context.xml");
+                new String[]{"application-context.xml", "second-application-context.xml"},
+                false);
+        context.setAllowBeanDefinitionOverriding(false);
+        context.refresh();
+
         printMetadata(context);
 
         PrintService businessService = context.getBean(PrintService.class);
