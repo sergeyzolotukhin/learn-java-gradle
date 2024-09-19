@@ -3,15 +3,17 @@ package ua.in.sz.h2;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Objects;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class ThreadPoolExecutorAfterExecuteMain {
+    private static final ThreadLocal<String> currentTransactionName =
+            new ThreadLocal<>();
+
     public static void main(String[] args) {
         log.info("Start");
 
@@ -20,6 +22,17 @@ public class ThreadPoolExecutorAfterExecuteMain {
                 100, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<>(20)
         )) {
+
+            executor.submit(new Runnable() {
+                @Override
+                @SneakyThrows
+                public void run() {
+                    currentTransactionName.set("Task First");
+                    TimeUnit.MILLISECONDS.sleep(1000);
+                    log.info("Set");
+//                    currentTransactionName.remove();
+                }
+            });
 
             for (int i = 0; i < 4; i++) {
                 executor.submit(new Runnable() {
@@ -50,7 +63,12 @@ public class ThreadPoolExecutorAfterExecuteMain {
         @Override
         protected void afterExecute(Runnable r, Throwable t) {
             super.afterExecute(r, t);
-            log.info("After execute");
+
+            if (Objects.nonNull(currentTransactionName.get())) {
+                log.error("After execute [{}]", currentTransactionName.get());
+            }
         }
     }
+
+    // TransactionSynchronizationManager
 }
