@@ -18,3 +18,5 @@ https://www.baeldung.com/spring-boot-bean-definition-override-exception
 ### Better application events in Spring Framework 4.2
 
 https://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-4-2
+
+https://medium.com/@alxkm/effective-use-of-threadlocal-in-java-applications-f4eb6a648d4a
