@@ -20,3 +20,4 @@ https://www.baeldung.com/spring-boot-bean-definition-override-exception
 https://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-4-2
 
 https://medium.com/@alxkm/effective-use-of-threadlocal-in-java-applications-f4eb6a648d4a
+https://www.alibabacloud.com/blog/java-development-practices-using-thread-pools-and-thread-variables-properly_600180
