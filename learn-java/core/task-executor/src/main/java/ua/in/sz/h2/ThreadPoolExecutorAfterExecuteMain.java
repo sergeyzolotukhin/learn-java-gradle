@@ -23,25 +23,17 @@ public class ThreadPoolExecutorAfterExecuteMain {
                 new ArrayBlockingQueue<>(20)
         )) {
 
-            executor.submit(new Runnable() {
-                @Override
-                @SneakyThrows
-                public void run() {
-                    currentTransactionName.set("Task First");
-                    TimeUnit.MILLISECONDS.sleep(1000);
-                    log.info("Set");
+            executor.submit(() -> {
+                currentTransactionName.set("Task First");
+                sleep(1000);
+                log.info("Set");
 //                    currentTransactionName.remove();
-                }
             });
 
             for (int i = 0; i < 4; i++) {
-                executor.submit(new Runnable() {
-                    @Override
-                    @SneakyThrows
-                    public void run() {
-                        TimeUnit.MILLISECONDS.sleep(1000);
-                        log.info("Run");
-                    }
+                executor.submit(() -> {
+                    sleep(1000);
+                    log.info("Run");
                 });
             }
 
@@ -54,10 +46,24 @@ public class ThreadPoolExecutorAfterExecuteMain {
         log.info("End");
     }
 
+    @SneakyThrows
+    private static void sleep(int timeout) {
+        TimeUnit.MILLISECONDS.sleep(timeout);
+    }
+
     public static class LoggedThreadPoolExecutor extends ThreadPoolExecutor {
 
         public LoggedThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
+        }
+
+        @Override
+        protected void beforeExecute(Thread t, Runnable r) {
+            super.beforeExecute(t, r);
+
+            if (Objects.nonNull(currentTransactionName.get())) {
+                log.error("before Execute [{}]", currentTransactionName.get());
+            }
         }
 
         @Override
