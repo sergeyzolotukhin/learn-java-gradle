@@ -6,15 +6,16 @@ import org.springframework.beans.BeanInfoFactory;
 import org.springframework.beans.ExtendedBeanInfoFactory;
 
 import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.lang.reflect.Method;
+import java.util.List;
 
 @Slf4j
 public class BeanInfoTest {
 
     @Test
-    void main() throws IntrospectionException {
+    void main() throws Exception {
         log.info("-------- using JDK Introspector --");
         BeanInfo beanInfo = Introspector.getBeanInfo(Person.class);
         printPropertyDescriptor(beanInfo.getPropertyDescriptors());
@@ -33,4 +34,22 @@ public class BeanInfoTest {
             log.info("");
         }
     }
+
+    @Test
+    void setValue() throws Exception {
+        Person person = new Person();
+
+        BeanInfo beanInfo = Introspector.getBeanInfo(Person.class);
+        for (PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
+            if ("descriptions".equals(pd.getName())) {
+                Method readMethod = pd.getReadMethod();
+                List<String> descriptions = (List<String>) readMethod.invoke(person);
+                descriptions.add("Text A");
+                descriptions.add("Text B");
+            }
+        }
+
+        log.info("Descriptions: {}", person.getDescriptions());
+    }
+
 }
