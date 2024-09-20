@@ -43,7 +43,7 @@ public class Person {
         factory.addAdvice(new MethodBeforeAdvice() {
             @Override
             public void before(Method method, Object[] args, Object target) throws Throwable {
-                log.info("before method invoke [{}] args [{}]", method.getName(), args);
+                log.info("before method invoke [{}] args {}", method.getName(), args);
             }
         });
 
