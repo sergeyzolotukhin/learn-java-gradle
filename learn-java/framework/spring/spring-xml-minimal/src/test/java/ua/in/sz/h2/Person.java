@@ -3,6 +3,10 @@ package ua.in.sz.h2;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.aopalliance.aop.Advice;
+import org.springframework.aop.AfterAdvice;
+import org.springframework.aop.MethodBeforeAdvice;
+import org.springframework.aop.framework.ProxyFactory;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -27,11 +31,24 @@ public class Person {
 
     }
 
-
     public List<String> getDescriptions() {
-        List<String> proxyInstance = createDescriptionsJavaProxy();
+//        List<String> proxy = createDescriptionsJavaProxy();
+        List<String> proxy = createDescriptiosSpringProxy();
+        return proxy;
+    }
 
-        return proxyInstance;
+    private List<String> createDescriptiosSpringProxy() {
+        ProxyFactory factory = new ProxyFactory(descriptions);
+        factory.addInterface(List.class);
+        factory.addAdvice(new MethodBeforeAdvice() {
+            @Override
+            public void before(Method method, Object[] args, Object target) throws Throwable {
+                log.info("before method invoke [{}] args [{}]", method.getName(), args);
+            }
+        });
+
+        List<String> proxy = (List<String>) factory.getProxy();
+        return proxy;
     }
 
     private List<String> createDescriptionsJavaProxy() {
