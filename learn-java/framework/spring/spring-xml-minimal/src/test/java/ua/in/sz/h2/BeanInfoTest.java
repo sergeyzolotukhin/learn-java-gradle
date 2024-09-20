@@ -15,7 +15,7 @@ import java.util.List;
 public class BeanInfoTest {
 
     @Test
-    void main() throws Exception {
+    void test_1() throws Exception {
         log.info("-------- using JDK Introspector --");
         BeanInfo beanInfo = Introspector.getBeanInfo(Person.class);
         printPropertyDescriptor(beanInfo.getPropertyDescriptors());
@@ -49,7 +49,7 @@ public class BeanInfoTest {
             }
         }
 
-        log.info("Descriptions: {}", person.getDescriptions());
+        log.info("Descriptions: {}", person.getDescriptions().toString());
     }
 
 }
