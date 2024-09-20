@@ -44,12 +44,6 @@ public class Person {
                         }
 
                         throw new UnsupportedOperationException(method.getName());
-//                        if (method.getName().equals("add")) {
-//
-//                        }
-//                        return descriptions;
-
-//                        log.info("invoke method {}", args);
                     }
                 });
 
