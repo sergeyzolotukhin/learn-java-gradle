@@ -3,8 +3,6 @@ package ua.in.sz.h2;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.aopalliance.aop.Advice;
-import org.springframework.aop.AfterAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.framework.ProxyFactory;
 
