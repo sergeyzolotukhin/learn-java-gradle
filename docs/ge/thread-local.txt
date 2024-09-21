@@ -1,3 +1,5 @@
 https://www.javaspecialists.eu/archive/Issue229-Cleaning-ThreadLocals.html
 
 Tomcat's WebappClassLoaderBase.checkThreadLocalsForLeaks will log this as a severe problem when you stop the web application.
+
+https://gurselgazii.medium.com/enhancing-spring-boot-rest-apis-with-threadlocal-6c13eb63da8c
