@@ -8,7 +8,14 @@ import org.junit.jupiter.api.Test;
 class MainTest {
 
     public MainTest() {
-        log.info("MainTest");
+//        log.info("MainTest");
+    }
+
+    @Test
+    void main_0() {
+        log.info("MainTest 1");
+        System.err.println("MainTest 2");
+        log.info("MainTest 3");
     }
 
     @Test
