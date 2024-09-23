@@ -22,17 +22,17 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
     public ExecutionStatus configure(LoggerContext context) {
         ClassLoader myClassLoader = Loader.getClassLoaderOfObject(this);
         URL url = getResource(MY_AUTOCONFIG_FILE_01, myClassLoader, true);
-        if (url != null) {
-            try {
-                configureByResource(url);
-            } catch (JoranException e) {
-                e.printStackTrace();
-            }
-            // You tried and that counts Mary.
-            return ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY;
-        } else {
+        if (url == null) {
             return ExecutionStatus.INVOKE_NEXT_IF_ANY;
         }
+
+        try {
+            configureByResource(url);
+        } catch (JoranException e) {
+            e.printStackTrace();
+        }
+
+        return ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY;
     }
 
     public void configureByResource(URL url) throws JoranException {
