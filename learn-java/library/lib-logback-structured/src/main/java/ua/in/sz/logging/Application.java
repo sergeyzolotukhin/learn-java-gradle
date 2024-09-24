@@ -30,6 +30,16 @@ public class Application {
 				.addKeyValue("exception_class", Application.class.getSimpleName())
 				.addKeyValue("error_message", "ex.getMessage()")
 				.log();
+
+		log.atWarn()
+				.setMessage("Error processing given user {} {} {}")
+				.addArgument(3)
+				.addArgument(4)
+				.addArgument(new Application("My Name 2", "My Description 2"))
+				.addKeyValue("key", "key_2")
+				.addKeyValue("exception_class", Application.class.getSimpleName())
+				.addKeyValue("error_message", "ex.getMessage()")
+				.log();
 	}
 
 	@Override
