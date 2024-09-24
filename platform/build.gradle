@@ -51,8 +51,9 @@ dependencies {
         api 'org.projectlombok:lombok:1.18.30'
 
         // logging
-        api 'ch.qos.logback:logback-classic:1.4.11'
+        api 'ch.qos.logback:logback-classic:1.5.8'
         api 'org.codehaus.janino:janino:3.1.10'
+        api 'org.slf4j:slf4j-api:2.0.16'
 
         // testing
         api 'org.junit.jupiter:junit-jupiter:5.10.1'
