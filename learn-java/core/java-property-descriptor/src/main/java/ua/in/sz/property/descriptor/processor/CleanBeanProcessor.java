@@ -25,13 +25,16 @@ public class CleanBeanProcessor {
     // ================================================================================================================
 
     @SneakyThrows
-    private void processProperty(Object parentBean, PropertyDescriptor pd) {
+    protected void processProperty(Object parentBean, PropertyDescriptor pd) {
         if (!isSupported(pd)) {
             return;
         }
 
         Object propertyValue = pd.getReadMethod().invoke(parentBean);
+        processObjectFromProperty(propertyValue);
+    }
 
+    protected void processObjectFromProperty(Object propertyValue) {
         if (Collection.class.isAssignableFrom(propertyValue.getClass())) {
             processCollection((Collection<Object>) propertyValue);
         } else {
@@ -41,8 +44,12 @@ public class CleanBeanProcessor {
 
     private void processCollection(Collection<?> collection) {
         for (Object object : collection) {
-            processObject(object);
+            processObjectFromCollection(object);
         }
+    }
+
+    protected void processObjectFromCollection(Object object) {
+        processObject(object);
     }
 
     @SneakyThrows

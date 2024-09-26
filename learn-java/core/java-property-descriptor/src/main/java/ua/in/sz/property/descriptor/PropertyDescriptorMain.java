@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.property.descriptor.model.Friend;
 import ua.in.sz.property.descriptor.model.Person;
 import ua.in.sz.property.descriptor.processor.CleanBeanProcessor;
+import ua.in.sz.property.descriptor.processor.MdcBeanProcessor;
 
 import java.util.Collections;
 import java.util.List;
@@ -53,6 +54,7 @@ public class PropertyDescriptorMain {
                 .toList();
 
 //        new BeanProcessor().process(personA);
-        new CleanBeanProcessor().process(personA);
+//        new CleanBeanProcessor().process(personA);
+        new MdcBeanProcessor().process(personA);
     }
 }

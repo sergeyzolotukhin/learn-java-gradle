@@ -7,6 +7,15 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 
 public class LogSupport {
+
+    public static void withMdcContext(String key, Object value, Runnable callable) {
+        withMdcContext(key, toStringNative(value), LogSupport::last, callable);
+    }
+
+    public static void withMdcContext(String key, String value, Runnable callable) {
+        withMdcContext(key, value, LogSupport::last, callable);
+    }
+
     @SneakyThrows
     public static void withMdcContext(String key, String value, BiFunction<String, String, String> provider, Runnable callable) {
         String oldValue = MDC.get(key);
