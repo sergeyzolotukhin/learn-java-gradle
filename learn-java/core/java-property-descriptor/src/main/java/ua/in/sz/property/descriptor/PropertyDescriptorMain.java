@@ -3,6 +3,7 @@ package ua.in.sz.property.descriptor;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.property.descriptor.model.Friend;
 import ua.in.sz.property.descriptor.model.Person;
+import ua.in.sz.property.descriptor.processor.CleanBeanProcessor;
 
 import java.util.Collections;
 import java.util.List;

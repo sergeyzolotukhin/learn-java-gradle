@@ -1,22 +1,25 @@
-package ua.in.sz.property.descriptor;
+package ua.in.sz.property.descriptor.processor;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
+import ua.in.sz.property.descriptor.LogSupport;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.Collection;
+import java.util.Optional;
 
 @Slf4j
 @SuppressWarnings("unchecked")
-public class BeanProcessor {
+public class CleanBeanProcessor {
 
     public void process(Object bean) {
         if (Collection.class.isAssignableFrom(bean.getClass())) {
-            processCollection((Collection<Object>) bean, null);
+            processCollection((Collection<Object>) bean);
         } else {
-            processObject(bean, null);
+            processObject(bean);
         }
     }
 
@@ -24,28 +27,6 @@ public class BeanProcessor {
     //
     // ================================================================================================================
 
-    private void processCollection(Collection<?> collection, PropertyDescriptor pd) {
-        for (Object object : collection) {
-            processObject(object, pd);
-        }
-    }
-
-    @SneakyThrows
-    private void processObject(Object bean, PropertyDescriptor propertyDescriptor) {
-        BeanInfo beanInfo = Introspector.getBeanInfo(bean.getClass());
-
-        for (PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
-            processProperty(bean, pd);
-        }
-
-        doProcessObject(bean);
-
-//        for (PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
-//            processProperty(bean, pd);
-//        }
-    }
-
-    @SuppressWarnings("unchecked")
     @SneakyThrows
     private void processProperty(Object bean, PropertyDescriptor pd) {
         if (!isSupported(pd)) {
@@ -54,12 +35,29 @@ public class BeanProcessor {
 
         Object propertyValue = pd.getReadMethod().invoke(bean);
 
-//        log.info("pd {}={}", pd.getName(), propertyValue);
         if (Collection.class.isAssignableFrom(propertyValue.getClass())) {
-            processCollection((Collection<Object>) propertyValue, pd);
+            processCollection((Collection<Object>) propertyValue);
         } else {
-            processObject(propertyValue, pd);
+            processObject(propertyValue);
         }
+    }
+
+    private void processCollection(Collection<?> collection) {
+        for (Object object : collection) {
+            processObject(object);
+        }
+    }
+
+    @SneakyThrows
+    private void processObject(Object bean) {
+        BeanInfo beanInfo = Introspector.getBeanInfo(bean.getClass());
+
+        for (PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
+            LogSupport.withMdcContext("propertyPath", pd.getName(),
+                    () -> processProperty(bean, pd));
+        }
+
+        doProcessObject(bean);
     }
 
     private void doProcessObject(Object bean) {
@@ -69,6 +67,8 @@ public class BeanProcessor {
     // ================================================================================================================
     // utils methods
     // ================================================================================================================
+
+
 
     private static boolean isSupported(PropertyDescriptor pd) {
         return !"class".equals(pd.getName())
