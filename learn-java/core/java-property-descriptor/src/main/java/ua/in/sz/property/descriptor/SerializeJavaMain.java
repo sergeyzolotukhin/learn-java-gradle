@@ -1,12 +1,15 @@
 package ua.in.sz.property.descriptor;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import ua.in.sz.property.descriptor.model.Friend;
 import ua.in.sz.property.descriptor.model.Person;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.Collections;
 
+@Slf4j
 public class SerializeJavaMain {
     public static void main(String[] args) throws Exception {
         Friend friendA = Friend.builder()
@@ -20,11 +23,9 @@ public class SerializeJavaMain {
                 .friends(Collections.singletonList(friendA))
                 .build();
 
-        FileOutputStream fileOutputStream = new FileOutputStream("yourfile.log");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(person);
-        objectOutputStream.flush();
-        objectOutputStream.close();
-
+//        ToStringStyle style = ToStringStyle.JSON_STYLE;
+        ToStringStyle style = new MultilineRecursiveToStringStyle();
+        String string = ReflectionToStringBuilder.toString(person, style, false, false);
+        log.info("value: {}", string);
     }
 }
