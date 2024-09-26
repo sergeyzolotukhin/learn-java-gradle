@@ -17,10 +17,10 @@ public class LogSupport {
     }
 
     @SneakyThrows
-    public static void withMdcContext(String key, String value, BiFunction<String, String, String> provider, Runnable callable) {
+    public static void withMdcContext(String key, String value, Resolver resolver, Runnable callable) {
         String oldValue = MDC.get(key);
         try {
-            MDC.put(key, provider.apply(oldValue, value));
+            MDC.put(key, resolver.apply(oldValue, value));
 
             callable.run();
         } finally {
@@ -36,6 +36,10 @@ public class LogSupport {
         return bean.getClass().getSimpleName() + "@" + System.identityHashCode(bean);
     }
 
+    public static String toIdentityHashCode(Object bean) {
+        return String.valueOf(System.identityHashCode(bean));
+    }
+
     public static String concatenate(String oldValue, String newValue) {
         return Optional.ofNullable(oldValue)
                 .map(o -> o + "." + newValue)
@@ -44,5 +48,10 @@ public class LogSupport {
 
     public static String last(String oldValue, String newValue) {
         return newValue;
+    }
+
+    @FunctionalInterface
+    public interface Resolver extends BiFunction<String, String, String> {
+
     }
 }
