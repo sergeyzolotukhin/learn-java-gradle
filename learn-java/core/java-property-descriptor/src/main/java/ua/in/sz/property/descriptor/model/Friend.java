@@ -1,4 +1,4 @@
-package ua.in.sz.h2.processor.model;
+package ua.in.sz.property.descriptor.model;
 
 import lombok.Builder;
 import lombok.Getter;

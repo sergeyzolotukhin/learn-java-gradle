@@ -1,4 +1,4 @@
-package ua.in.sz.h2.processor;
+package ua.in.sz.property.descriptor;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

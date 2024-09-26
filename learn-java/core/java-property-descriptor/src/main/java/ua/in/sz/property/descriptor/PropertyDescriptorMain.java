@@ -1,8 +1,8 @@
-package ua.in.sz.h2.processor;
+package ua.in.sz.property.descriptor;
 
 import lombok.extern.slf4j.Slf4j;
-import ua.in.sz.h2.processor.model.Friend;
-import ua.in.sz.h2.processor.model.Person;
+import ua.in.sz.property.descriptor.model.Friend;
+import ua.in.sz.property.descriptor.model.Person;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,6 +51,7 @@ public class PropertyDescriptorMain {
                                 .toString())
                 .toList();
 
-        new BeanProcessor().process(personA);
+//        new BeanProcessor().process(personA);
+        new CleanBeanProcessor().process(personA);
     }
 }
