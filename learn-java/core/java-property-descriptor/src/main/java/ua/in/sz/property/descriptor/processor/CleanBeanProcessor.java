@@ -2,14 +2,12 @@ package ua.in.sz.property.descriptor.processor;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import ua.in.sz.property.descriptor.LogSupport;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.Collection;
-import java.util.Optional;
 
 @Slf4j
 @SuppressWarnings("unchecked")
@@ -28,12 +26,12 @@ public class CleanBeanProcessor {
     // ================================================================================================================
 
     @SneakyThrows
-    private void processProperty(Object bean, PropertyDescriptor pd) {
+    private void processProperty(Object parentBean, PropertyDescriptor pd) {
         if (!isSupported(pd)) {
             return;
         }
 
-        Object propertyValue = pd.getReadMethod().invoke(bean);
+        Object propertyValue = pd.getReadMethod().invoke(parentBean);
 
         if (Collection.class.isAssignableFrom(propertyValue.getClass())) {
             processCollection((Collection<Object>) propertyValue);
