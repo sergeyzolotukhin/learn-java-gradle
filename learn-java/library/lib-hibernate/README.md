@@ -67,3 +67,10 @@ CompositeUserType
 
 https://www.baeldung.com/hibernate-custom-types
 https://javatutor.net/articles/hibernate-types-udt
+
+#### persist or merge
+
+https://stackoverflow.com/questions/44444524/how-spring-data-jpa-checks-whether-to-perform-update-or-save
+https://vladmihalcea.com/jpa-persist-and-merge/
+
+
