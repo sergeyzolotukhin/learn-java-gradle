@@ -95,6 +95,7 @@ public class AppHibernate {
 //        log.info("persist");
         em.getTransaction().begin();
         em.persist(derivation);
+        em.merge(derivation);
         em.getTransaction().commit();
         em.clear();
 
