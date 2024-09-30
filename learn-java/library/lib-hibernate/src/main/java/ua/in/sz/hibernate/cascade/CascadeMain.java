@@ -27,12 +27,20 @@ public class CascadeMain {
         ) {
             Long derivationId = insertDerivation(sessionFactory);
 
-            log.info("Session is started");
-            Session session = sessionFactory.openSession();
-            Definition dep = session.get(Definition.class, derivationId);
-            log.info("Dep: {}", dep);
+            Session s1 = sessionFactory.openSession();
+            s1.getTransaction().begin();
+            Definition dep = s1.get(Definition.class, derivationId);
+            log.info("Dep Step 1: {}", dep);
+            dep.getDependencies().clear();
+            s1.getTransaction().commit();
+            s1.clear();
+            s1.close();
 
-            session.close();
+            Session s2 = sessionFactory.openSession();
+            Definition dep2 = s2.get(Definition.class, derivationId);
+            log.info("Dep Step 2: {}", dep2);
+            s2.close();
+
             log.info("Session closed");
         } catch (Exception e) {
             log.error("Error: ", e);
