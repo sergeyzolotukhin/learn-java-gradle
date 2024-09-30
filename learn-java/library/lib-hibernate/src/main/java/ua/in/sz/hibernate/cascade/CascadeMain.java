@@ -38,14 +38,24 @@ public class CascadeMain {
             s1.close();
 
             Session s2 = sessionFactory.openSession();
+            s2.getTransaction().begin();
             Definition dep2 = s2.get(Definition.class, derivationId);
             log.info("Dep Step 2: {}", dep2);
+            s2.getTransaction().commit();
+            s2.clear();
             s2.close();
 
             Session s3 = sessionFactory.openSession();
+            s3.getTransaction().begin();
+            Query<Dependency> query1 = s3.createQuery("FROM Dependency", Dependency.class);
+            List<Dependency> result1 = query1.list();
+            log.info("Dep Step 3: {}", result1);
+
             Query<Configuration> query = s3.createQuery("FROM Configuration", Configuration.class);
             List<Configuration> result = query.list();
             log.info("Dep Step 3: {}", result);
+            s3.getTransaction().commit();
+            s3.clear();
             s3.close();
 
             log.info("Session closed");
