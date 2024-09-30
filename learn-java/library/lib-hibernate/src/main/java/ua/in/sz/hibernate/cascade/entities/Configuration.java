@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,10 +15,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Getter
 @Setter
@@ -33,6 +32,27 @@ public class Configuration {
     @Column(name = "NAME")
     private String name;
 
+    @Builder.Default
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "config", cascade = CascadeType.ALL)
-    private SortedSet<Parameter> parameters;
+    private SortedSet<Parameter> parameters = new TreeSet<>();
+
+    public Configuration(Long id, String name, SortedSet<Parameter> parameters) {
+        this.id = id;
+        this.name = name;
+        this.parameters = parameters;
+
+        this.parameters.forEach(p -> p.setConfig(this));
+    }
+
+
+    public static class ConfigurationBuilder {
+        public ConfigurationBuilder parameter(Parameter parameter) {
+            if (this.parameters$value == null) {
+                this.parameters$value = new TreeSet<>();
+            }
+            this.parameters$value.add(parameter);
+            this.parameters$set = true;
+            return this;
+        }
+    }
 }

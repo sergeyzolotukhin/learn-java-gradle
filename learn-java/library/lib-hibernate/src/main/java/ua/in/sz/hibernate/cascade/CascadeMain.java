@@ -14,7 +14,6 @@ import ua.in.sz.hibernate.cascade.entities.Parameter;
 
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 @Slf4j
 public class CascadeMain {
@@ -77,17 +76,12 @@ public class CascadeMain {
         Session em = sessionFactory.openSession();
 
         // model
-        Parameter paramA = Parameter.builder().name("Parameter A").build();
-        Parameter paramB = Parameter.builder().name("Parameter B").build();
-
-        Configuration confA = Configuration.builder().name("Configuration A").build();
-        paramA.setConfig(confA);
-        paramB.setConfig(confA);
-        TreeSet<Parameter> parameters = new TreeSet<>();
-        parameters.add(paramA);
-        parameters.add(paramB);
-        confA.setParameters(parameters);
-        Configuration confB = Configuration.builder().name("Configuration A").build();
+        Configuration confA = Configuration.builder().name("Configuration A")
+                .parameter(Parameter.builder().name("Parameter A").build())
+                .parameter(Parameter.builder().name("Parameter B").build())
+                .build();
+        Configuration confB = Configuration.builder().name("Configuration B")
+                .build();
 
         Dependency depA = Dependency.builder().name("Dependency A").build();
         depA.setConfigurations(List.of(confA, confB));
