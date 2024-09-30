@@ -10,9 +10,11 @@ import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
 import ua.in.sz.hibernate.cascade.entities.Definition;
+import ua.in.sz.hibernate.cascade.entities.Parameter;
 
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Slf4j
 public class CascadeMain {
@@ -20,6 +22,7 @@ public class CascadeMain {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();
         try (
                 SessionFactory sessionFactory = new MetadataSources(registry)
+                        .addAnnotatedClass(Parameter.class)
                         .addAnnotatedClass(Configuration.class)
                         .addAnnotatedClass(Dependency.class)
                         .addAnnotatedClass(Definition.class)
@@ -54,6 +57,10 @@ public class CascadeMain {
             Query<Configuration> query = s3.createQuery("FROM Configuration", Configuration.class);
             List<Configuration> result = query.list();
             log.info("Dep Step 3: {}", result);
+
+            Query<Parameter> query2 = s3.createQuery("FROM Parameter", Parameter.class);
+            List<Parameter> result2 = query2.list();
+            log.info("Dep Step 3: {}", result2);
             s3.getTransaction().commit();
             s3.clear();
             s3.close();
@@ -70,7 +77,16 @@ public class CascadeMain {
         Session em = sessionFactory.openSession();
 
         // model
+        Parameter paramA = Parameter.builder().name("Parameter A").build();
+        Parameter paramB = Parameter.builder().name("Parameter B").build();
+
         Configuration confA = Configuration.builder().name("Configuration A").build();
+        paramA.setConfig(confA);
+        paramB.setConfig(confA);
+        TreeSet<Parameter> parameters = new TreeSet<>();
+        parameters.add(paramA);
+        parameters.add(paramB);
+        confA.setParameters(parameters);
         Configuration confB = Configuration.builder().name("Configuration A").build();
 
         Dependency depA = Dependency.builder().name("Dependency A").build();
