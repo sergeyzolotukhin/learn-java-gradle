@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
 import ua.in.sz.hibernate.cascade.entities.Definition;
@@ -40,6 +41,12 @@ public class CascadeMain {
             Definition dep2 = s2.get(Definition.class, derivationId);
             log.info("Dep Step 2: {}", dep2);
             s2.close();
+
+            Session s3 = sessionFactory.openSession();
+            Query<Configuration> query = s3.createQuery("FROM Configuration", Configuration.class);
+            List<Configuration> result = query.list();
+            log.info("Dep Step 3: {}", result);
+            s3.close();
 
             log.info("Session closed");
         } catch (Exception e) {
