@@ -1,11 +1,19 @@
 package ua.in.sz.hibernate.cascade;
 
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.engine.spi.PersistenceContext;
+import org.hibernate.event.service.spi.EventListenerRegistry;
+import org.hibernate.event.spi.EventSource;
+import org.hibernate.event.spi.EventType;
+import org.hibernate.event.spi.FlushEvent;
+import org.hibernate.event.spi.FlushEventListener;
+import org.hibernate.internal.SessionFactoryImpl;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
@@ -28,6 +36,8 @@ public class CascadeMain {
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
+            eventListener((SessionFactoryImpl) sessionFactory);
+
             Long derivationId = insertDerivation(sessionFactory);
 
             Session s1 = sessionFactory.openSession();
@@ -69,6 +79,26 @@ public class CascadeMain {
             log.error("Error: ", e);
             StandardServiceRegistryBuilder.destroy(registry);
         }
+    }
+
+    private static void eventListener(SessionFactoryImpl sessionFactory) {
+        EventListenerRegistry eventListenerRegistry = sessionFactory
+                .getServiceRegistry().getService(EventListenerRegistry.class);
+        eventListenerRegistry.getEventListenerGroup(EventType.FLUSH)
+                .appendListener(new FlushEventListener() {
+                    @Override
+                    public void onFlush(FlushEvent event) throws HibernateException {
+                        final EventSource session = event.getSession();
+                        final PersistenceContext persistenceContext = session.getPersistenceContextInternal();
+
+                        persistenceContext.forEachCollectionEntry(
+                                (persistentCollection, collectionEntry) -> {
+                                    log.info("{} -> {}", persistentCollection, collectionEntry);
+                                }, true );
+
+                        log.info("Flush event: {}", event);
+                    }
+                });
     }
 
     private static Long insertDerivation(SessionFactory sessionFactory) {
