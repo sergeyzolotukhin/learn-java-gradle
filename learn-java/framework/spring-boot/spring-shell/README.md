@@ -5,3 +5,5 @@ https://medium.com/agency04/developing-cli-application-with-spring-shell-part-3-
 
 # Unable to create a system terminal
 https://youtrack.jetbrains.com/issue/IJPL-104659/JLine-falls-back-to-dumb-terminal-inside-IntelliJ-IDEA
+
+NonInteractiveShellRunner

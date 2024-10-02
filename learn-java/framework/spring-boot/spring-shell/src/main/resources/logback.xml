@@ -7,6 +7,9 @@
 
 <!--    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="trace" />-->
 
+    <!-- hide spam -->
+    <logger name="org.hibernate.validator.internal.util.Version" level="WARN" />
+
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
