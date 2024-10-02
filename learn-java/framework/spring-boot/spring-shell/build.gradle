@@ -1,50 +1,57 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.6.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
-    id 'distribution'
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
+//    id 'java'
 }
 
-configurations {
-    developmentOnly
-    runtimeClasspath {
-        extendsFrom developmentOnly
-    }
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+//plugins {
+//    id 'org.springframework.boot' version '2.2.6.RELEASE'
+//    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+//    id 'java'
+//    id 'distribution'
+//}
 
-repositories {
-    mavenCentral()
-}
+//configurations {
+//    developmentOnly
+//    runtimeClasspath {
+//        extendsFrom developmentOnly
+//    }
+//    compileOnly {
+//        extendsFrom annotationProcessor
+//    }
+//}
 
-bootJar {
-    archiveFileName = 'tool.jar'
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
+//repositories {
+//    mavenCentral()
+//}
 
-distributions {
+//bootJar {
+//    archiveFileName = 'tool.jar'
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//}
+
+//distributions {
     //noinspection GroovyAssignabilityCheck
-    main {
-        distributionBaseName = 'tool'
-        contents {
-            from bootJar
-            into "../../../.bin"
-        }
-    }
-}
+//    main {
+//        distributionBaseName = 'tool'
+//        contents {
+//            from bootJar
+//            into "../../../.bin"
+//        }
+//    }
+//}
 
-clean {
-    delete += "$rootDir/.bin"
-}
+//clean {
+//    delete += "$rootDir/.bin"
+//}
 
 dependencies {
-    implementation 'org.springframework.shell:spring-shell-starter:2.0.1.RELEASE'
+//    implementation 'org.springframework.shell:spring-shell-starter'
+    implementation 'org.springframework.shell:spring-shell-starter:3.3.1'
 
     // development
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
 }

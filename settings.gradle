@@ -150,7 +150,7 @@ include 'learn-java:framework:spring-boot:spring-xml'
 include 'learn-java:framework:spring-boot:spring-undertow'
 include 'learn-java:framework:spring-boot:spring-jdbc'
 
-//include 'learn-java:framework:spring-boot:spring-shell'
+include 'learn-java:framework:spring-boot:spring-shell'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'
 //include 'learn-java:framework:spring-boot:spring-hibernate-cache'
 //include 'learn-java:framework:spring-boot:spring-camel'
