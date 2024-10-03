@@ -18,3 +18,4 @@ lib-junit-5-hamcrest
 
 
 https://stackoverflow.com/questions/6834677/jackson-mapper-post-construct/6834831#6834831
+https://www.baeldung.com/java-json-schema-create-automatically
