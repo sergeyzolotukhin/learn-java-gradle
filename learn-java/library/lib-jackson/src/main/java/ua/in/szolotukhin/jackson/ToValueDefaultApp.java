@@ -1,6 +1,8 @@
 package ua.in.szolotukhin.jackson;
 
+import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.szolotukhin.jackson.json.MapperFactory;
 import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
@@ -19,7 +21,9 @@ public class ToValueDefaultApp {
 
 	public static void main(String[] args) throws IOException {
 		log.info("Working directory: {}", System.getProperty("user.dir"));
-		ObjectMapper mapper = MapperFactory.createMapper();
+		ObjectMapper mapper = MapperFactory.createMapper()
+				.addHandler(new ProblemHandler())
+				;
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));
 
@@ -27,5 +31,16 @@ public class ToValueDefaultApp {
 
 		Objects.requireNonNull(provider.getFilter().getActiveVersion(), "Active version should be not null");
 		log.info("{}", provider);
+	}
+
+	private static class ProblemHandler extends DeserializationProblemHandler {
+		public Object handleWeirdStringValue(DeserializationContext ctxt,
+											 Class<?> targetType, String valueToConvert,
+											 String failureMsg)
+				throws IOException
+		{
+			log.error("Weird string value to convert: {}", valueToConvert);
+			return null;
+		}
 	}
 }
