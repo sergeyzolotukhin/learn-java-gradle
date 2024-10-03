@@ -1,9 +1,14 @@
 package ua.in.szolotukhin.jackson;
 
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.deser.BeanDeserializerModifier;
 import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.szolotukhin.jackson.json.MapperFactory;
 import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
@@ -29,6 +34,16 @@ public class ToValueDefaultApp {
 		for (Module module : ObjectMapper.findModules()){
 			log.info("Module: {}", module);
 		}
+
+		SimpleModule module = new SimpleModule();
+		module.setDeserializerModifier(new BeanDeserializerModifier() {
+			@Override
+			public JsonDeserializer<?> modifyDeserializer(DeserializationConfig config, BeanDescription beanDescription,
+														  JsonDeserializer<?> originalDeserializer) {
+				return new CustomAnnotationsDeserializer(originalDeserializer, beanDescription);
+			}
+		});
+		mapper.registerModule(module);
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));
 
