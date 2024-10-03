@@ -1,6 +1,7 @@
 package ua.in.szolotukhin.jackson;
 
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,10 @@ public class ToValueDefaultApp {
 		ObjectMapper mapper = MapperFactory.createMapper()
 				.addHandler(new ProblemHandler())
 				;
+
+		for (Module module : ObjectMapper.findModules()){
+			log.info("Module: {}", module);
+		}
 
 		String json = Files.readString(Paths.get(BASE_PATH, DEFAULT));
 
