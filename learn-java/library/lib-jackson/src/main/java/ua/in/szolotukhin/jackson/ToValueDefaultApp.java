@@ -31,10 +31,6 @@ public class ToValueDefaultApp {
 				.addHandler(new ProblemHandler())
 				;
 
-		for (Module module : ObjectMapper.findModules()){
-			log.info("Module: {}", module);
-		}
-
 		SimpleModule module = new SimpleModule();
 		module.setDeserializerModifier(new BeanDeserializerModifier() {
 			@Override
