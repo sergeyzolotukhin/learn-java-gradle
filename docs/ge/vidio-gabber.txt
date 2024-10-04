@@ -3,6 +3,8 @@ https://www.avermedia.com/product-detail/GC573
 #### HDMI 2.0
 
 https://blog.semtech.com/esd-protection-for-hdmi-2.0
+https://www.eaton.com/us/en-us/products/backup-power-ups-surge-it-power-distribution/backup-power-ups-it-power-distribution-resources/cpdi-vertical-marketing/hdmi-explained.html
+https://www.intel.com/content/www/us/en/docs/programmable/683798/21-4-19-6-1/hdmi-overview.html
 
 TMDS -  transition minimized differential signaling
 
@@ -26,3 +28,7 @@ A +5V power line is used to supply power to the DDC bus
 Hot Plug Detection (HPD) and HDMI Ethernet Channel (HEC) Data+ share the same line.
     HPD allows a source to detect if any HDMI enabled device is connected or removed while in operation.
     HEC is used for Ethernet compatible data networking between devices.
+
+#### questions
+
+supports HDMI Pass-Through
