@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-public class MainPatch {
+public class ReadQRCodeMain {
     public static void main(String[] args) throws Exception {
         log.info("Starting Git");
 
