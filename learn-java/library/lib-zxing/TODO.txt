@@ -8,8 +8,7 @@ refresh site each second
 
 generate QR code on a linux terminal
 
--> create a video stream with several QR code
-ready frame from MP3
+-> ready frame from MP3
 read QR code from frame
 save test in the file
 
