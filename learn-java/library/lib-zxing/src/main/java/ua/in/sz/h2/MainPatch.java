@@ -20,6 +20,7 @@ public class MainPatch {
         log.info("Starting Git");
 
         String filePath = "D:\\projects-java\\_learn-java-gradle\\learn-java\\library\\lib-zxing\\src\\main\\resources\\qr.png";
+//            String filePath = "j:/_capute/RECentral/2024100513113276.png";
 
         String charset = "UTF-8";
         Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
