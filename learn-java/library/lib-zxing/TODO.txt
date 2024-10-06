@@ -8,9 +8,9 @@ refresh site each second
 
 generate QR code on a linux terminal
 
--> ready frame from MP3
-read QR code from frame
-save test in the file
+-> create separate project for POC
+-> read QR code from frame
+-> save text in the file
 
 #### Questions
 

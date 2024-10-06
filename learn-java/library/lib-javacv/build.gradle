@@ -1,0 +1,10 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    implementation 'org.bytedeco:javacv:1.5.7'
+    implementation 'org.bytedeco:javacv-platform:1.5.7'
+    implementation 'org.bytedeco:ffmpeg-platform:4.4-1.5.7'
+//    implementation 'uk.org.lidalia:sysout-over-slf4j:1.0.2'
+}
