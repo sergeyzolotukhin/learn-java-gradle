@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 @Slf4j
-public class ReadMp4FrameMain {
+public class CreateImageFromMp4FrameMain {
     public static void main(String[] args) throws Exception {
 
         log.info("Starting Git");
