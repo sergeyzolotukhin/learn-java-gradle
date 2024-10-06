@@ -11,3 +11,7 @@ https://github.com/bytedeco/javacpp-presets/tree/master/ffmpeg
 https://img.ly/blog/ultimate-guide-to-ffmpeg/
 
 https://www.reddit.com/r/ffmpeg/comments/pvtd1o/vsync_0_vs_vsync_2_for_getting_the_timestamps_of/
+
+#### QR code
+
+https://en.wikipedia.org/wiki/QR_code
