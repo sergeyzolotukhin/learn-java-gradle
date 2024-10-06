@@ -25,6 +25,7 @@ How can I read a video stream from device directly?
 https://stackoverflow.com/questions/1281353/use-java-ffmpeg-wrapper-or-simply-use-java-runtime-to-execute-ffmpeg/38831016
 https://medium.com/@fajrimoad/efficient-video-splitting-with-ffmpeg-and-javacv-b19692db438d
 https://github.com/kokorin/Jaffree
+https://stackoverflow.com/questions/59880414/grab-frame-from-video-using-javacv
 
 #### Libraries
 JavaCV
