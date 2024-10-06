@@ -4,4 +4,8 @@ https://github.com/zxing/zxing/blob/master/javase/src/main/java/com/google/zxing
 
 https://github.com/ShashankN/qrcode-terminal
 https://github.com/bytedeco/javacv
+
+#### FFmpeg
+
 https://github.com/bytedeco/javacpp-presets/tree/master/ffmpeg
+https://img.ly/blog/ultimate-guide-to-ffmpeg/

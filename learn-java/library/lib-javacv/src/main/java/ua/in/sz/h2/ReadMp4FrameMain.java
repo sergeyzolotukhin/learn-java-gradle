@@ -22,6 +22,7 @@ public class ReadMp4FrameMain {
         try (FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(filePath);
              Java2DFrameConverter bimConverter = new Java2DFrameConverter()
         ) {
+            grabber.setVideoFrameNumber(1);
             grabber.start();
 
             int i = 0;
