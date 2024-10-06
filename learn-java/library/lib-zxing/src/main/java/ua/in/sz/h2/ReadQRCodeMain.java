@@ -20,14 +20,15 @@ public class ReadQRCodeMain {
         log.info("Starting Git");
 
 //        String filePath = "D:\\projects-java\\_learn-java-gradle\\learn-java\\library\\lib-zxing\\src\\main\\resources\\qr.png";
-            String filePath = "j:\\_capute\\RECentral\\2024100513310259.png";
-//        String filePath = "D:\\projects-java\\_learn-java-gradle\\learn-java\\library\\lib-zxing\\JD.png";
+//            String filePath = "j:\\_capute\\RECentral\\2024100513310259.png";
+        String filePath = "D:\\projects-java\\_learn-java-gradle\\learn-java\\library\\lib-zxing\\JD.png";
 
         String charset = "UTF-8";
-        Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
-        hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+        Map<EncodeHintType, Object> hintMap = new HashMap<>();
+        hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+        hintMap.put(EncodeHintType.QR_VERSION, 40);
 
-        log.info( "QRCode output: {}", readQR(filePath, charset, hashMap));
+        log.info( "QRCode output: {}", readQR(filePath, charset, hintMap));
 
         log.info("Ending Git");
     }
