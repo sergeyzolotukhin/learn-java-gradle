@@ -28,6 +28,22 @@ public class GenerateQRCode {
                 you may generate a QR code on your phone and let your friend scan it using a camera, 
                 he or she will be able to get the url in just a few seconds, 
                 which is much faster than he or she types on the phone.
+                
+                QR codes, or Quick Response Codes, are two-dimensional barcodes 
+                that can be read by smartphones and other devices. 
+                They can be used to encode a variety of information, such as URLs, text, or other data. 
+                For example, if you want to share a long url with your friend, 
+                you may generate a QR code on your phone and let your friend scan it using a camera, 
+                he or she will be able to get the url in just a few seconds, 
+                which is much faster than he or she types on the phone.
+                
+                QR codes, or Quick Response Codes, are two-dimensional barcodes 
+                that can be read by smartphones and other devices. 
+                They can be used to encode a variety of information, such as URLs, text, or other data. 
+                For example, if you want to share a long url with your friend, 
+                you may generate a QR code on your phone and let your friend scan it using a camera, 
+                he or she will be able to get the url in just a few seconds, 
+                which is much faster than he or she types on the phone.
                 """;
         String filePath = "learn-java/library/lib-zxing/JD.png";
         int size = 1024;
