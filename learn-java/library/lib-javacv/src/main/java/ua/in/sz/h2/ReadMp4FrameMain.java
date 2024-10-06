@@ -22,11 +22,17 @@ public class ReadMp4FrameMain {
         try (FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(filePath)) {
             grabber.start();
 
+            int frameNumber = -1;
             int i=0;
             Frame frame;
             while ((frame = grabber.grabFrame()) != null) {
+                if (frameNumber == grabber.getFrameNumber()) {
+                    continue;
+                }
+                frameNumber = grabber.getFrameNumber();
+
                 i++;
-                log.info("Frame number: {} -> {}", grabber.getFrameNumber(), frame.pictType);
+                log.info("Frame number: {} -> {} -> {}", grabber.getFrameNumber(), frame.pictType, frame.timestamp);
             }
 
             log.info("Frame count: {}", i);
