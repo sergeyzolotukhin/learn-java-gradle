@@ -105,3 +105,5 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 #### 
 
 https://www.baeldung.com/spring-mvc-json-param-mapping
+
+https://www.mscharhag.com/spring/json-schema-validation-handlermethodargumentresolver
