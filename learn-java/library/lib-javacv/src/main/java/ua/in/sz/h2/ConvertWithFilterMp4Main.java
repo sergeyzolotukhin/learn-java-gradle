@@ -18,14 +18,16 @@ public class ConvertWithFilterMp4Main {
     public static void main(String[] args) throws Exception {
         avutil.av_log_set_level(avutil.AV_LOG_QUIET);
 
-        String filePath = "j:\\_capute\\qr-data\\2024100519372950.mp4";
-        Path outputFile = Paths.get("j:\\_capute\\qr-data\\2024100519372950-output.mp4");
+        String filePath = "j:\\_capute\\ge\\2024100914570536.mp4";
+        Path outputFile = Paths.get("j:\\_capute\\ge\\2024100914570536-crop-output.mp4");
 
         try (FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(filePath)) {
             grabber.start();
 
             try (FFmpegFrameFilter filter = new FFmpegFrameFilter(
-                    "fps=fps=1",
+                    // "crop=out_w:out_h:x:y"
+                    "crop=50:1000:1000:0",
+//                    "fps=fps=1",
                     grabber.getImageWidth(),
                     grabber.getImageHeight())) {
                 filter.start();
