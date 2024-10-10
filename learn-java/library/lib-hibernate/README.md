@@ -75,6 +75,19 @@ https://vladmihalcea.com/jpa-persist-and-merge/
 https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
 https://stackoverflow.com/questions/50997657/merge-with-nonexisting-id
 
-####
+#### Hibernate - identifier strategies
 
 https://stackoverflow.com/questions/10041938/how-to-choose-the-id-generation-strategy-when-using-jpa-and-hibernate
+https://vladmihalcea.com/the-hilo-algorithm/
+
+HiLoOptimizer
+PooledOptimizer
+
+IdentifierGenerator <|- PersistentIdentifierGenerator
+* IncrementGenerator                        -> select max() ...
+* TableGenerator                            -> select id from sequence_table where name = ?
+* CompositeNestedGeneratedValueGenerator    -> composite pattern
+* SequenceStyleGenerator                    -> select sequence.next_value from dual
+
+SequenceStructure
+TableStructure
