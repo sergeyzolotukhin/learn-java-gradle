@@ -8,6 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.identifiers.generated.entities.GenDerivation;
 
+import java.util.List;
+
 // org.hibernate.engine.jdbc.spi.SqlStatementLogger.logStatement(java.lang.String, org.hibernate.engine.jdbc.internal.Formatter)
 @Slf4j
 public class IdGeneratedMain {
@@ -19,7 +21,7 @@ public class IdGeneratedMain {
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
-            Long derivationId = insertDerivation(sessionFactory);
+            insertDerivation(sessionFactory);
         } catch (Exception e) {
             log.error("Error: ", e);
             // The registry would be destroyed by the SessionFactory, but we
@@ -29,21 +31,19 @@ public class IdGeneratedMain {
         }
     }
 
-    private static Long insertDerivation(SessionFactory sessionFactory) {
+    private static void insertDerivation(SessionFactory sessionFactory) {
         Session em = sessionFactory.openSession();
 
-        // model
-        GenDerivation derivation = GenDerivation.builder().name("Derivation 1").build();
-
         em.getTransaction().begin();
-        em.persist(derivation);
-        em.getTransaction().commit();
+
+        for (int i = 0; i < 3; i++) {
+            GenDerivation derivation = GenDerivation.builder()
+                    .name(String.format("Derivation %s", i))
+                    .build();
+            em.persist(derivation);
+        }
+
+        em.getTransaction().rollback();
         em.clear();
-
-        Long id = derivation.getId();
-
-        log.info("ID: {}", id);
-
-        return id;
     }
 }
