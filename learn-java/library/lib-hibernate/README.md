@@ -75,4 +75,6 @@ https://vladmihalcea.com/jpa-persist-and-merge/
 https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
 https://stackoverflow.com/questions/50997657/merge-with-nonexisting-id
 
+####
 
+https://stackoverflow.com/questions/10041938/how-to-choose-the-id-generation-strategy-when-using-jpa-and-hibernate

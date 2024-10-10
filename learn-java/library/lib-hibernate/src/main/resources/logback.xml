@@ -7,6 +7,8 @@
 
     <!-- Trace SQL -->
     <logger name="org.hibernate.SQL" level="debug" />
+    <!-- Trace SQL binding parameters -->
+    <logger name="org.hibernate.orm.jdbc.bind" level="trace" />
 
     <!-- Framework -->
     <logger name="org.hibernate" level="warn" />
