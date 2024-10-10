@@ -89,6 +89,7 @@ and this is why Hibernate supports the pooled optimizer.
 Hibernate pooled and pooled-lo identifier generators
 ---
 https://vladmihalcea.com/hibernate-hidden-gem-the-pooled-lo-optimizer/
+* The major advantage of the pooled optimizers is that they are interoperable with other external systems
 
 IdentifierGenerator <|- PersistentIdentifierGenerator
 * IncrementGenerator                        -> select max() ...

@@ -7,6 +7,7 @@
 
     <!--    -->
     <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />
+    <logger name="org.hibernate.id.enhanced.PooledOptimizer" level="trace" />
 
     <!-- Trace SQL -->
     <logger name="org.hibernate.SQL" level="debug" />
