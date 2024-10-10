@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,14 +42,20 @@ public class GenDerivation {
 
 	@Id
 	@GeneratedValue(generator = "sequence-generator-02")
+//	@SequenceGenerator(
+//			name = "sequence-generator-02",
+//			sequenceName = "user_sequence_02",
+//			initialValue = 100,
+//			allocationSize = 10
+//	)
 	@GenericGenerator(
 			name = "sequence-generator-02",
-			strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+			strategy = "sequence",
 			parameters = {
-					@Parameter(name = "sequence_name", value = "user_sequence_02"),
-					@Parameter(name = "initial_value", value = "100"),
-					@Parameter(name = "increment_size", value = "1")
-//					@Parameter(name = "optimizer", value = "pooled")
+					@Parameter(name = "sequence_name",  value = "user_sequence_02"),
+					@Parameter(name = "initial_value",  value = "100"),
+					@Parameter(name = "increment_size",  value = "10"),
+					@Parameter(name = "optimizer", value = "hilo")
 			}
 	)
 	@Column(name = "SUB_ID")

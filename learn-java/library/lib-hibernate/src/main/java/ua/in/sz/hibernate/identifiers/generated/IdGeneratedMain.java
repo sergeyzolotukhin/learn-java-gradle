@@ -36,7 +36,7 @@ public class IdGeneratedMain {
 
         em.getTransaction().begin();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 20; i++) {
             GenDerivation derivation = GenDerivation.builder()
                     .name(String.format("Derivation %s", i))
                     .build();
