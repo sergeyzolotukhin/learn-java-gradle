@@ -78,10 +78,17 @@ https://stackoverflow.com/questions/50997657/merge-with-nonexisting-id
 #### Hibernate - identifier strategies
 
 https://stackoverflow.com/questions/10041938/how-to-choose-the-id-generation-strategy-when-using-jpa-and-hibernate
-https://vladmihalcea.com/the-hilo-algorithm/
 
-HiLoOptimizer
-PooledOptimizer
+The hi/lo algorithm
+---
+https://vladmihalcea.com/the-hilo-algorithm/
+https://stackoverflow.com/questions/60072871/the-hibernate-hilo-strategy-does-not-generate-the-values-according-to-the-next-d
+* Hilo limitations - Hilo algorithm is not interoperable with systems that don't know the hilo allocations scheme, 
+and this is why Hibernate supports the pooled optimizer.
+
+Hibernate pooled and pooled-lo identifier generators
+---
+https://vladmihalcea.com/hibernate-hidden-gem-the-pooled-lo-optimizer/
 
 IdentifierGenerator <|- PersistentIdentifierGenerator
 * IncrementGenerator                        -> select max() ...
@@ -89,5 +96,9 @@ IdentifierGenerator <|- PersistentIdentifierGenerator
 * CompositeNestedGeneratedValueGenerator    -> composite pattern
 * SequenceStyleGenerator                    -> select sequence.next_value from dual
 
-SequenceStructure
-TableStructure
+HiLoOptimizer
+PooledOptimizer
+
+SequenceStructure   -> execute sql statement and get result (JDBC) 
+    -> return AccessCallback 
+TableStructure      -> 

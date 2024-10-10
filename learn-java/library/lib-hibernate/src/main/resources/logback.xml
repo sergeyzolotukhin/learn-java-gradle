@@ -5,6 +5,9 @@
         </encoder>
     </appender>
 
+    <!--    -->
+    <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />
+
     <!-- Trace SQL -->
     <logger name="org.hibernate.SQL" level="debug" />
     <!-- Trace SQL binding parameters -->

@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ua.in.sz.hibernate.identifiers.generated.entities.CompositeDerivation;
 import ua.in.sz.hibernate.identifiers.generated.entities.GenDerivation;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class IdGeneratedMain {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();
         try (
                 SessionFactory sessionFactory = new MetadataSources(registry)
-                        .addAnnotatedClass(GenDerivation.class)
+                        .addAnnotatedClass(CompositeDerivation.class)
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
@@ -37,7 +38,7 @@ public class IdGeneratedMain {
         em.getTransaction().begin();
 
         for (int i = 0; i < 20; i++) {
-            GenDerivation derivation = GenDerivation.builder()
+            CompositeDerivation derivation = CompositeDerivation.builder()
                     .name(String.format("Derivation %s", i))
                     .build();
             em.persist(derivation);
