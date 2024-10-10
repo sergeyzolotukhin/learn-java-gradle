@@ -7,13 +7,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.identifiers.generated.entities.CompositeDerivation;
-import ua.in.sz.hibernate.identifiers.generated.entities.GenDerivation;
-
-import java.util.List;
 
 // org.hibernate.engine.jdbc.spi.SqlStatementLogger.logStatement(java.lang.String, org.hibernate.engine.jdbc.internal.Formatter)
 @Slf4j
-public class IdGeneratedMain {
+public class CompositeMain {
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();
         try (
