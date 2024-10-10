@@ -91,6 +91,8 @@ Hibernate pooled and pooled-lo identifier generators
 https://vladmihalcea.com/hibernate-hidden-gem-the-pooled-lo-optimizer/
 * The major advantage of the pooled optimizers is that they are interoperable with other external systems
 
+pooled-lo: It’s similar to the pooled optimizer but the database sequence value is used as the current in-memory lowest boundary
+
 IdentifierGenerator <|- PersistentIdentifierGenerator
 * IncrementGenerator                        -> select max() ...
 * TableGenerator                            -> select id from sequence_table where name = ?
