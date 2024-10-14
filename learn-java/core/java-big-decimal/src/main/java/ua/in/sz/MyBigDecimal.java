@@ -1,9 +1,11 @@
 package ua.in.sz;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.math.RoundingMode;
 
+@Slf4j
 public class MyBigDecimal {
     private static final int MAX_COMPACT_DIGITS = 18;
 
@@ -109,6 +111,8 @@ public class MyBigDecimal {
                                 "Character " + c + " is neither a decimal digit number, decimal point, nor \"e\" notation exponential mark.");
                     }
                 }
+
+                log.info("prec {}, scl {}", prec, scl);
 
                 if (prec == 0) // no digits found
                     throw new NumberFormatException("No digits found.");
