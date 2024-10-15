@@ -1,0 +1,59 @@
+SequenceStructure
+    final int incrementSize;
+    boolean applyIncrementSizeToSourceValues;
+
+    void buildSequence(Database database)
+        -> new Sequence
+        -> namespace.createSequence(...)
+
+    config
+        -> buildDatabaseStructure
+
+Database
+    Map<Namespace.Name, Namespace> namespaceMap
+
+Namespace
+    catalogName
+    schemaName
+
+    Map<Identifier, Sequence> sequences
+
+    Sequence createSequence(
+
+Sequence
+    incrementSize
+
+    buildDatabaseStructure( ... )
+    buildSequenceStructure( incrementSize, ... )
+        -> new SequenceStructure
+
+SequenceStyleGenerator
+    DatabaseStructure databaseStructure; // SequenceStructure, TableStructure
+
+    configure( ... )
+        -> buildDatabaseStructure
+
+=======================================================================================================================
+InFlightMetadataCollectorImpl
+    for ( PersistentClass entityBinding : entityBindingMap.values() ) {
+        -> BasicValue -|> SimpleValue -> createGenerator ( .. )
+            -> IdentifierGeneratorUtil
+                -> StandardIdentifierGeneratorFactory
+                    -> create  SequenceStyleGenerator
+                    -> config
+                        -> new SequenceStructure
+
+        -> generator.registerExportables( ... )  : SequenceStyleGenerator
+            -> SequenceStructure -> registerExportables( ... )
+                -> buildSequence
+                    -> create
+                        -> new Sequence
+                        -> database put namespace
+                        -> namespace.createSequence(...)
+                    -> validate
+    }
+
+=======================================================================================================================
+Set breakpoint in the following place
+
+org.hibernate.id.enhanced.SequenceStructure.buildSequence
