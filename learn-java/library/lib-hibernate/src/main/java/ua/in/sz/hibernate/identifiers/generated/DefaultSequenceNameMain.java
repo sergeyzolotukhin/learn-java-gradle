@@ -17,6 +17,7 @@ public class DefaultSequenceNameMain {
                 SessionFactory sessionFactory = new MetadataSources(registry)
                         .addAnnotatedClass(DefaultSequenceNameDerivation.class)
                         .addAnnotatedClass(DefaultSequenceNameSecondDerivation.class)
+                        .addPackage("ua.in.sz.hibernate.identifiers.generated.entities")
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
