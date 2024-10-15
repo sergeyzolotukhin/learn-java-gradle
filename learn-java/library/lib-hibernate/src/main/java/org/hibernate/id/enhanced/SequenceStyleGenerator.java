@@ -209,8 +209,6 @@ public class SequenceStyleGenerator
 
     @Override
     public void configure(Type type, Properties parameters, ServiceRegistry serviceRegistry) throws MappingException {
-        log.error("Hello Serhij");
-
         final JdbcEnvironment jdbcEnvironment = serviceRegistry.requireService( JdbcEnvironment.class );
         final Dialect dialect = jdbcEnvironment.getDialect();
 
@@ -218,21 +216,23 @@ public class SequenceStyleGenerator
 
         final QualifiedName sequenceName = determineSequenceName( parameters, dialect, jdbcEnvironment, serviceRegistry );
         final int initialValue = determineInitialValue( parameters );
-        int incrementSize = determineIncrementSize( parameters );
-        final OptimizerDescriptor optimizationStrategy = determineOptimizationStrategy( parameters, incrementSize );
+        int origenIncrementSize = determineIncrementSize( parameters );
+        final OptimizerDescriptor optimizationStrategy = determineOptimizationStrategy( parameters, origenIncrementSize );
 
         boolean forceTableUse = getBoolean( FORCE_TBL_PARAM, parameters );
         final boolean physicalSequence = isPhysicalSequence( jdbcEnvironment, forceTableUse );
 
-        incrementSize = adjustIncrementSize(
+        int incrementSize = adjustIncrementSize(
                 jdbcEnvironment,
                 sequenceName,
-                incrementSize,
+                origenIncrementSize,
                 physicalSequence,
                 optimizationStrategy,
                 serviceRegistry,
                 determineContributor( parameters )
         );
+
+        log.info("origenIncrementSize {}, incrementSize {}", origenIncrementSize, incrementSize);
 
         if ( physicalSequence
                 && optimizationStrategy.isPooled()
