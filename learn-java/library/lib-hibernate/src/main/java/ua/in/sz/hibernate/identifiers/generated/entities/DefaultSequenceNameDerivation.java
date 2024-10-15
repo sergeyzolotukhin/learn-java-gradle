@@ -27,6 +27,7 @@ import lombok.experimental.FieldNameConstants;
 public class DefaultSequenceNameDerivation {
 	@Id
 	@GeneratedValue
+//	@SequenceGenerator(allocationSize = 25)
 	@Column(name = "ID")
 	private Long id;
 
