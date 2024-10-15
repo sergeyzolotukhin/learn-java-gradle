@@ -232,7 +232,8 @@ public class SequenceStyleGenerator
                 determineContributor( parameters )
         );
 
-        log.info("origenIncrementSize {}, incrementSize {}", origenIncrementSize, incrementSize);
+        log.info("origenIncrementSize {}, incrementSize {}, parameters {}, increment_size {}", origenIncrementSize, incrementSize,
+                parameters.get("entity_name"), parameters.get("increment_size"));
 
         if ( physicalSequence
                 && optimizationStrategy.isPooled()
