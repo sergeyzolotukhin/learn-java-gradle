@@ -105,3 +105,15 @@ PooledOptimizer
 SequenceStructure   -> execute sql statement and get result (JDBC) 
     -> return AccessCallback 
 TableStructure      -> 
+
+
+#### 
+
+https://sathiyakugan.medium.com/java-agent-a-powerful-tool-you-might-have-missed-fe6a85884481
+https://dzone.com/articles/java-agent-1
+https://medium.com/@bdamianchamel/java-agents-b3f3addd5d3e
+https://sathiyakugan.medium.com/java-agent-a-powerful-tool-you-might-have-missed-fe6a85884481
+https://dev.to/rubyshiv/java-instrumentation-a-simple-working-example-in-java-4adm
+
+
+ClassFileTransformer
