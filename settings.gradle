@@ -217,6 +217,7 @@ includeBuild 'learn-gradle'
 include 'proof-of-concept:spring-xml-execution-time-resolve'
 include 'proof-of-concept:tabular-format'
 include 'proof-of-concept:idea-debug-support'
+include 'proof-of-concept:saboteur'
 
 // ====================================================================================================================
 // Kotlin
