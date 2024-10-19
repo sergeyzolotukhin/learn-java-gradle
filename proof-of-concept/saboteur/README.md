@@ -2,6 +2,11 @@ https://sinclair.wiki.zxnet.co.uk/wiki/TR-DOS_filesystem
 https://sinclair.wiki.zxnet.co.uk/wiki/Example_TR-DOS_Basic_file
 http://fileformats.archiveteam.org/wiki/Sinclair_BASIC_tokenized_file
 
+https://github.com/Loxrie/fuse-emulator-utils/blob/master/listbasic.c
+https://retrocomputing.stackexchange.com/questions/5798/make-a-basic-tap-file-readable-on-linux
+
+https://en.wikipedia.org/wiki/ZX_Spectrum_character_set
+
 0000001000: 00 0A 1C 00 E7 31 0E 00 │ 00 01 00 00 3A DA 31 0E   ◙∟ ç1♫  ☺  :Ú1♫                                      
 0000001010: 00 00 01 00 00 3A FD B0 │ 22 32 34 37 39 39 22 0D    ☺  :ý°"24799"♪
 
@@ -9,6 +14,16 @@ http://fileformats.archiveteam.org/wiki/Sinclair_BASIC_tokenized_file
 <line number> 2 byte    
 1C 00 -> 16 + 12 = 28 
 <length of this line>
+
+E7 -> BORDER
+0E -> <number> + 5 bytes
+3A -> :
+
+DA -> PAPER ? <number + 5 bytes> :
+FD -> CLEAR
+B0 -> VAL
+
+10 BORDER <number> : CLEAR VAL "24799"
 
 0000001000:             E7 31 0E 00 │ 00 01 00 00 3A DA 31 0E   ◙∟ ç1♫  ☺  :Ú1♫                                      
 0000001010: 00 00 01 00 00 3A FD B0 │ 22 32 34 37 39 39 22 0D   ☺  :ý°"24799"♪
@@ -44,14 +59,14 @@ result:
 0000001050: 73 63 72 22 20 43 4F 44 │ 45 20 33 32 37 36 38 0D  scr" CODE 32768♪  
 
 F9 -> RANDOMIZE
-C0 -> USR
-EA -> REM
+C0 -> USR 15619 <number> : 
+EA -> REM : LOAD "s2scr" CODE 32768
 
 length = 0x28
-30 RANDOMIZE USR ???
+30 RANDOMIZE USR 15619 <number> : REM : LOAD "s2scr" CODE 32768
 
 0000001060: 00 28 0E 00 F9 C0 33 32 │ 37 36 38 0E 00 00 00 80   (♫ ùÀ32768♫   €                    
-0000001070: 00 0D 00                │                           ♪ 2) ùÀ15619♫
+0000001070: 00 0D                   │                           ♪ 2) ùÀ15619♫
 
 F9 -> RANDOMIZE
 C0 -> USR
