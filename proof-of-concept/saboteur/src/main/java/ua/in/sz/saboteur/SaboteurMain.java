@@ -23,10 +23,10 @@ public class SaboteurMain {
                 int fileSize = ((bytes[nameIndex + 10] & 0xff) << 8) | (bytes[nameIndex + 9] & 0xff);
                 int variablesAreaStart = ((bytes[nameIndex + 12] & 0xff) << 8) | (bytes[nameIndex + 11] & 0xff);
 
-                int sectors = bytes[nameIndex + 13] & 0xff;
                 int startSector = bytes[nameIndex + 14] & 0xff;
+                int sectors = bytes[nameIndex + 13] & 0xff;
                 int track = bytes[nameIndex + 15] & 0xff;
-                log.info("Name: [{}.{}] | {} | {} | sector: {} | {} | track {}", filename, type, fileSize, variablesAreaStart,
+                log.info("Name: [{}.{}] | {} | {} | sector from: {} | {} | track {}", filename, type, fileSize, variablesAreaStart,
                         startSector, sectors, track);
 
             } else if ("C".equals(type)) {
