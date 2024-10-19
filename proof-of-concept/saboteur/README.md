@@ -7,6 +7,7 @@ https://retrocomputing.stackexchange.com/questions/5798/make-a-basic-tap-file-re
 
 https://en.wikipedia.org/wiki/ZX_Spectrum_character_set
 https://mdfs.net/Docs/Comp/Spectrum/SysVars
+https://nukpage.narod.ru/zx/contact/books/trdosman.htm
 
 0000001000: 00 0A 1C 00 E7 31 0E 00 │ 00 01 00 00 3A DA 31 0E   ◙∟ ç1♫  ☺  :Ú1♫                                      
 0000001010: 00 00 01 00 00 3A FD B0 │ 22 32 34 37 39 39 22 0D    ☺  :ý°"24799"♪
