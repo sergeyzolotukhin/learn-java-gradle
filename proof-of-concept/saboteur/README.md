@@ -17,7 +17,8 @@ https://en.wikipedia.org/wiki/ZX_Spectrum_character_set
 
 E7 -> BORDER
 0E -> <number> + 5 bytes
-3A -> :
+3A -> : -> A sentence is the simplest BASIC instruction (e.g. PRINT). 
+Sentences might contain ''arguments'' and can be separated by a ''colon'' (:) or by ''end of line''.
 
 DA -> PAPER ? <number + 5 bytes> :
 FD -> CLEAR
