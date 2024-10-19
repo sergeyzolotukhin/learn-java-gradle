@@ -24,7 +24,7 @@ DA -> PAPER ? <number + 5 bytes> :
 FD -> CLEAR
 B0 -> VAL
 
-10 BORDER <number> : CLEAR VAL "24799"
+10 BORDER 1 <number> : PAPER 1 <number> : CLEAR VAL "24799"
 
 0000001000:             E7 31 0E 00 │ 00 01 00 00 3A DA 31 0E   ◙∟ ç1♫  ☺  :Ú1♫                                      
 0000001010: 00 00 01 00 00 3A FD B0 │ 22 32 34 37 39 39 22 0D   ☺  :ý°"24799"♪
