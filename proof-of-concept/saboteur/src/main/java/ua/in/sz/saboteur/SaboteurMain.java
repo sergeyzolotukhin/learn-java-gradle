@@ -3,10 +3,47 @@ package ua.in.sz.saboteur;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+
 @Slf4j
 public class SaboteurMain {
     @SneakyThrows
     public static void main(String[] args) {
-        log.info("Hello World!");
+        Path path = Path.of("d:/projects-java/_learn-java-gradle/proof-of-concept/saboteur/data/saboteur2_128k.trd");
+        byte[] bytes = Files.readAllBytes(path);
+
+        for (int nameIndex = 0; nameIndex < (8 * 256); nameIndex += 16) {
+            String filename = new String(Arrays.copyOfRange(bytes, nameIndex, nameIndex + 8), StandardCharsets.UTF_8);
+            String type = new String(Arrays.copyOfRange(bytes, nameIndex + 8, nameIndex + 9), StandardCharsets.UTF_8);
+
+            if ("B".equals(type)) {
+                int fileSize = ((bytes[nameIndex + 10] & 0xff) << 8) | (bytes[nameIndex + 9] & 0xff);
+                int variablesAreaStart = ((bytes[nameIndex + 12] & 0xff) << 8) | (bytes[nameIndex + 11] & 0xff);
+
+                int sectors = bytes[nameIndex + 13] & 0xff;
+                int startSector = bytes[nameIndex + 14] & 0xff;
+                int track = bytes[nameIndex + 15] & 0xff;
+                log.info("Name: [{}.{}] | {} | {} | sector: {} | {} | track {}", filename, type, fileSize, variablesAreaStart,
+                        startSector, sectors, track);
+
+            } else if ("C".equals(type)) {
+                int loadAddress = ((bytes[nameIndex + 10] & 0xff) << 8) | (bytes[nameIndex + 9] & 0xff);
+                int fileSize = ((bytes[nameIndex + 12] & 0xff) << 8) | (bytes[nameIndex + 11] & 0xff);
+
+                int startSector = bytes[nameIndex + 13] & 0xff;
+                int sectors = bytes[nameIndex + 14] & 0xff;
+                int track = bytes[nameIndex + 15] & 0xff;
+
+                log.info("Name: [{}.{}] | address {} | {} | sector from: {} | {} | track {}", filename, type,
+                        loadAddress, fileSize, sectors, startSector, track);
+            } else {
+                log.info("Type: [{}], {}", type, nameIndex);
+            }
+
+        }
+
     }
 }

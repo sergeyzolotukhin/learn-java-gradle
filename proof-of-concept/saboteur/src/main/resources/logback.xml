@@ -1,22 +1,25 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="ua.in.sz.tabular.format.ScheduleLayout" >
-                <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
-
-                <headerPattern>%n</headerPattern>
-                <footerPattern>%n</footerPattern>
-            </layout>
-        </encoder>
-    </appender>
-
-<!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
         </encoder>
-    </appender>-->
+    </appender>
+
+    <!--    -->
+    <logger name="org.hibernate.id.enhanced.SequenceStyleGenerator" level="debug" />
+    <!--    <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />-->
+    <!--    <logger name="org.hibernate.id.enhanced.PooledOptimizer" level="trace" />-->
+
+    <!-- Trace SQL -->
+<!--    <logger name="org.hibernate.SQL" level="debug" />-->
+    <!-- Trace SQL binding parameters -->
+<!--    <logger name="org.hibernate.orm.jdbc.bind" level="trace" />-->
+
+    <!-- Framework -->
+    <logger name="org.hibernate" level="warn" />
+    <logger name="org.hibernate.orm.connections.pooling" level="ERROR" />
 
     <root level="INFO">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDOUT" />
     </root>
 </configuration>
