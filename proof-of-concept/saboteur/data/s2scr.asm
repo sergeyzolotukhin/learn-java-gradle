@@ -26,7 +26,7 @@
                     call      nc,$805b                      ;[802e] d4 5b 80
                     inc       bc                            ;[8031] 03
 :label_2            push      hl                            ;[8032] e5
-:label_7            ld        hl,$0000                      ;[8033] 21 00 00    -> label_7
+:label_7            ld        hl,$ffff                      ;[8033] 21 00 00    -> label_7      ; HL = DE - 1
                     add       hl,de                         ;[8036] 19                          HL <- HL + DE
                     ldir                                    ;[8037] ed b0                       (DE) <- (HL), DE <- DE+1, HL <- HL+1, BC <- BC-1} while (BC != 0)
                     pop       hl                            ;[8039] e1
@@ -39,7 +39,7 @@
                     inc       hl                            ;[8043] 23
                     rla                                     ;[8044] 17
 :label_4            call      nc,$805b                      ;[8045] d4 5b 80
-                    ldir                                    ;[8048] ed b0
+                    ldir                                    ;[8048] ed b0                 (DE) <- (HL), DE <- DE+1, HL <- HL+1, BC <- BC-1} while (BC != 0)
                     add       a                             ;[804a] 87
                     jr        c,$8012                       ;[804b] 38 c5       ->  label_1
                     inc       c                             ;[804d] 0c
@@ -48,15 +48,17 @@
                     ld        a,(hl)                        ;[8052] 7e
                     inc       hl                            ;[8053] 23
                     rla                                     ;[8054] 17
-:label_3            call      nc,$805b                      ;[8055] d4 5b 80
+:label_3            call      nc,$805b                      ;[8055] d4 5b 80             call subprogram
                     jp        $8032                         ;[8058] c3 32 80    -> label_2
 
 ; subprogram (read/write -> a, bc, hl)
+; Calculate length of copying. we place result in BC
                     add       a                             ;[805b] 87
                     rl        c                             ;[805c] cb 11
                     add       a                             ;[805e] 87
                     jr        nc,$805b                      ;[805f] 30 fa   -> subprogram
                     ret       nz                            ;[8061] c0
+
                     ld        a,(hl)                        ;[8062] 7e
                     inc       hl                            ;[8063] 23
                     rla                                     ;[8064] 17
@@ -77,15 +79,15 @@
                     add       a                             ;[8073] 87          a <- a + a
                     ret       c                             ;[8074] d8
 
-                    add       a                             ;[8075] 87
+:Label_8            add       a                             ;[8075] 87
                     rl        c                             ;[8076] cb 11
                     rl        b                             ;[8078] cb 10
                     add       a                             ;[807a] 87
-                    jr        nc,$8075                      ;[807b] 30 f8
+                    jr        nc,$8075                      ;[807b] 30 f8   -> Label_8
                     ret       nz                            ;[807d] c0
                     ld        a,(hl)                        ;[807e] 7e
                     inc       hl                            ;[807f] 23
                     rla                                     ;[8080] 17
-                    jr        nc,$8075                      ;[8081] 30 f2
+                    jr        nc,$8075                      ;[8081] 30 f2   -> Label_8
                     ret                                     ;[8083] c9
 
