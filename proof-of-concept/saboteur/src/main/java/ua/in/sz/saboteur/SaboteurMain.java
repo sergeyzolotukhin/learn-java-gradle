@@ -3,6 +3,7 @@ package ua.in.sz.saboteur;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,8 +40,20 @@ public class SaboteurMain {
 
                 log.info("Name: [{}.{}] | address {} | {} | sector from: {} | {} | track {}", filename, type,
                         loadAddress, fileSize, sectors, startSector, track);
+
+                if ("s2scr".equals(filename.trim())) {
+                    int s = 16 * 256 + 256 * sectors;
+                    int e = s + 256 * startSector;
+
+                    byte[] bytes1 = Arrays.copyOfRange(bytes, s, e);
+                    try (FileOutputStream fos = new FileOutputStream("d:/projects-java/_learn-java-gradle/proof-of-concept/saboteur/data/s2scr.c")) {
+                        fos.write(bytes1);
+                        //fos.close(); There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
+                    }
+                }
+
             } else {
-                log.info("Type: [{}], {}", type, nameIndex);
+                log.trace("Type: [{}], {}", type, nameIndex);
             }
 
         }
