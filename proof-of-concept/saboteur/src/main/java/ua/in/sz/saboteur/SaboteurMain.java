@@ -41,12 +41,12 @@ public class SaboteurMain {
                 log.info("Name: [{}.{}] | address {} | {} | sector from: {} | {} | track {}", filename, type,
                         loadAddress, fileSize, sectors, startSector, track);
 
-                if ("s2scr".equals(filename.trim())) {
+                if ("s2main".equals(filename.trim())) {
                     int s = 16 * 256 + 256 * sectors;
                     int e = s + 256 * startSector;
 
                     byte[] bytes1 = Arrays.copyOfRange(bytes, s, e);
-                    try (FileOutputStream fos = new FileOutputStream("d:/projects-java/_learn-java-gradle/proof-of-concept/saboteur/data/s2scr.tmp")) {
+                    try (FileOutputStream fos = new FileOutputStream("d:/projects-java/_learn-java-gradle/proof-of-concept/saboteur/data/s2main.c")) {
                         fos.write(bytes1);
                         //fos.close(); There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
                     }
