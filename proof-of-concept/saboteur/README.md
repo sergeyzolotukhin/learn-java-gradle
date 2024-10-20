@@ -14,6 +14,7 @@ https://github.com/z88dk/z88dk
 https://github.com/z88dk/z88dk/wiki/Tool-z88dk-dis
 
 https://github.com/jsanchezv/Z80Core
+https://github.com/pcbsd/pbi/tree/master/modules/emulators/fuse/resources/share/fuse
 
 0000001000: 00 0A 1C 00 E7 31 0E 00 │ 00 01 00 00 3A DA 31 0E   ◙∟ ç1♫  ☺  :Ú1♫                                      
 0000001010: 00 00 01 00 00 3A FD B0 │ 22 32 34 37 39 39 22 0D    ☺  :ý°"24799"♪
