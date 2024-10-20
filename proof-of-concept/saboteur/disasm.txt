@@ -1,0 +1,6 @@
+Z88DK_HOME=c:\soft\z88dk
+ZCCCFG=%Z88DK_HOME%\lib\config
+z88dk-dis -o 32768 s2scr.c > s2scr.asm
+
+32768 -> 0x8000
+16384 -> 0x4000
