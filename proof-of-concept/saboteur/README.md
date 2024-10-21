@@ -12,6 +12,8 @@ https://nukpage.narod.ru/zx/contact/books/trdosman.htm
 https://github.com/Christofoletti/Z80-Hacker/blob/master/z80.hacker/src/main/resources/z80-instructions-extended.dat
 https://github.com/z88dk/z88dk
 https://github.com/z88dk/z88dk/wiki/Tool-z88dk-dis
+https://www.oshonsoft.com/versionhistoryz80.php
+https://github.com/speccytools/z88dk-gdb-ide-test
 
 https://github.com/jsanchezv/Z80Core
 https://github.com/pcbsd/pbi/tree/master/modules/emulators/fuse/resources/share/fuse
