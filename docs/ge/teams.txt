@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/59371631/send-automated-messages-to-microsoft-teams-using-python
