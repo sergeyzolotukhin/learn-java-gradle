@@ -1,3 +1,7 @@
 plugins {
     id 'ua.in.sz.java-common-library'
 }
+
+dependencies {
+    testImplementation 'org.junit-pioneer:junit-pioneer:2.3.0'
+}
