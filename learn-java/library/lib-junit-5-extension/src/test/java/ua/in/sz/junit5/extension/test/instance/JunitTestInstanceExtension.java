@@ -4,13 +4,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestInstanceFactoryContext;
 import org.junit.jupiter.api.extension.TestInstancePostProcessor;
+import org.junit.jupiter.api.extension.TestInstancePreConstructCallback;
 import org.junit.jupiter.api.extension.TestInstancePreDestroyCallback;
 
 @Slf4j
 public class JunitTestInstanceExtension
         implements BeforeAllCallback, AfterAllCallback,
-        TestInstancePreDestroyCallback, TestInstancePostProcessor{
+        TestInstancePreConstructCallback,
+        TestInstancePostProcessor,
+        TestInstancePreDestroyCallback {
+
     @Override
     public void beforeAll(ExtensionContext context) {
         log.info("beforeAll");
@@ -29,5 +34,10 @@ public class JunitTestInstanceExtension
     @Override
     public void postProcessTestInstance(Object testInstance, ExtensionContext context) {
         log.info("postProcessTestInstance");
+    }
+
+    @Override
+    public void preConstructTestInstance(TestInstanceFactoryContext factoryContext, ExtensionContext context) throws Exception {
+        log.info("preConstructTestInstance");
     }
 }
