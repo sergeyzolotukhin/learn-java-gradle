@@ -1,4 +1,4 @@
-package ua.in.sz.junit5.extension.test.instance;
+package ua.in.sz.junit5.extension.test.instance.classpath;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @Slf4j
 @ExtendWith(JunitClasspathExtension.class)
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MainClasspathTestInstance {
 
     public MainClasspathTestInstance() {

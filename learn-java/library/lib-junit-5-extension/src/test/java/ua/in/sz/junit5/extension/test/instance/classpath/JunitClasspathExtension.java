@@ -1,4 +1,4 @@
-package ua.in.sz.junit5.extension.test.instance;
+package ua.in.sz.junit5.extension.test.instance.classpath;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.TestInstance;
@@ -17,11 +17,16 @@ public class JunitClasspathExtension
         TestInstancePostProcessor,
         TestInstancePreDestroyCallback {
 
+    private static final ExtensionContext.Namespace NAMESPACE = ExtensionContext.Namespace.create(JunitClasspathExtension.class);
+
+    private static final String KEY = "DefaultLocale";
+
     @Override
     public void beforeAll(ExtensionContext context) {
         if (context.getTestInstanceLifecycle().orElse(TestInstance.Lifecycle.PER_METHOD)
                 .equals(TestInstance.Lifecycle.PER_METHOD)) {
             log.info("set class path");
+            context.getStore(NAMESPACE).put(KEY, "beforeAll");
         }
     }
 
@@ -29,7 +34,8 @@ public class JunitClasspathExtension
     public void afterAll(ExtensionContext context) {
         if (context.getTestInstanceLifecycle().orElse(TestInstance.Lifecycle.PER_METHOD)
                 .equals(TestInstance.Lifecycle.PER_METHOD)) {
-            log.info("restore class path");
+            String value = context.getStore(NAMESPACE).get(KEY, String.class);
+            log.info("restore class path: {}", value);
         }
     }
 
@@ -38,6 +44,7 @@ public class JunitClasspathExtension
         if (context.getTestInstanceLifecycle().orElse(TestInstance.Lifecycle.PER_METHOD)
                 .equals(TestInstance.Lifecycle.PER_CLASS)) {
             log.info("set class path");
+            context.getStore(NAMESPACE).put(KEY, "preConstructTestInstance");
         }
     }
 
@@ -50,7 +57,8 @@ public class JunitClasspathExtension
     public void preDestroyTestInstance(ExtensionContext context) throws Exception {
         if (context.getTestInstanceLifecycle().orElse(TestInstance.Lifecycle.PER_METHOD)
                 .equals(TestInstance.Lifecycle.PER_CLASS)) {
-            log.info("restore class path");
+            String value = context.getStore(NAMESPACE).get(KEY, String.class);
+            log.info("restore class path: {}", value);
         }
     }
 
