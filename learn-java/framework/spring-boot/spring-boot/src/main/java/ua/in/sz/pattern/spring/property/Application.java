@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 @Slf4j
-@Configuration
-@SpringBootApplication
+//@Configuration
+//@SpringBootApplication
 public class Application implements CommandLineRunner {
     private final Environment env;
 
