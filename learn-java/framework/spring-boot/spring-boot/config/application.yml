@@ -1,0 +1,8 @@
+acme:
+  enable: true
+  security:
+    username: admin-name
+    password: admin-password
+    roles:
+      - USER
+      - ADMIN
