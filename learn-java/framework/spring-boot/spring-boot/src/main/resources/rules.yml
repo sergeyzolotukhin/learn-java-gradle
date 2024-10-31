@@ -4,5 +4,6 @@ acme:
     username: admin-name
     password: admin-password
     roles:
-      - USER
+      - USER-1
+      - USER-2
       - ADMIN
