@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.spring.property;
+package ua.in.sz.pattern.spring.autowired;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Getter
 @Setter
-public class DynamicService {
-    void print() {
+@Component
+public class RuleAService implements RuleService {
+    @Override
+    public void print() {
         log.info("Hello");
     }
 }
