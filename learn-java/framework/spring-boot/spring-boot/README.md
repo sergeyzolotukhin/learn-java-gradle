@@ -14,3 +14,5 @@ https://gradlehero.com/unleashing-the-spring-boot-gradle-plugin/
 #### Spring boot gradle plugin
 
 https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#running-your-application
+
+https://stackoverflow.com/questions/28374000/spring-programmatically-generate-a-set-of-beans
