@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import ua.in.sz.pattern.spring.property.BusinessService;
@@ -23,5 +24,10 @@ public class YamlApplication {
 
         YamlBusinessService bean = context.getBean(YamlBusinessService.class);
         bean.print();
+    }
+
+    @Bean
+    public YamlBusinessService yamlBusinessService(AcmeProperties properties) {
+        return new YamlBusinessService();
     }
 }

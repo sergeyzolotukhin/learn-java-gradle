@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class YamlBusinessService {
-    @Autowired
-    private AcmeProperties properties;
-
     void print() {
         log.info("Hello");
     }
