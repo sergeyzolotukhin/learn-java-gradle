@@ -9,6 +9,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
 import java.io.IOException;
 import java.util.Properties;
 
+@SuppressWarnings("ALL")
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
     @Override
