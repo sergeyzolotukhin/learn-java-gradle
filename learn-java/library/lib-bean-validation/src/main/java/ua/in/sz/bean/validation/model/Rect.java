@@ -1,12 +1,12 @@
 package ua.in.sz.bean.validation.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import ua.in.sz.bean.validation.validator.BigRect;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 @Builder
 @Getter
