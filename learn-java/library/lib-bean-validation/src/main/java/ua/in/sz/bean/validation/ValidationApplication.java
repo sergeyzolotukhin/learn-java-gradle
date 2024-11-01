@@ -9,6 +9,8 @@ import ua.in.sz.bean.validation.model.Rect;
 
 import java.util.Set;
 
+// https://docs.jboss.org/hibernate/validator/9.0/reference/en-US/html_single/#validator-gettingstarted
+
 @Slf4j
 public class ValidationApplication {
 	public static void main(String[] args) {
