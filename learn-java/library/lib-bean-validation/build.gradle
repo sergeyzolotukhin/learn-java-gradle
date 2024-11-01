@@ -4,16 +4,7 @@ plugins {
 
 dependencies {
     // experimental
-//    implementation 'javax.validation:validation-api:2.0.1.Final'
     implementation 'jakarta.validation:jakarta.validation-api:3.1.0'
-
     implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
-
-//    implementation 'org.glassfish:javax.el:3.0.1-b12'
-//    implementation 'org.hibernate.validator:hibernate-validator-annotation-processor:6.1.2.Final'
-
-//    implementation 'jakarta.el:jakarta.el-api:6.0.1'
     implementation 'org.glassfish.expressly:expressly:5.0.0'
-
-//    implementation 'javax.el:javax.el-api:2.2.4'
 }
