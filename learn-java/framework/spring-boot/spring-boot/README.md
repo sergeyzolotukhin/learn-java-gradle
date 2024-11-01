@@ -15,4 +15,6 @@ https://gradlehero.com/unleashing-the-spring-boot-gradle-plugin/
 
 https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#running-your-application
 
+#### autowire-candidate
 https://stackoverflow.com/questions/28374000/spring-programmatically-generate-a-set-of-beans
+https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/custom-autowire-configurer.html
