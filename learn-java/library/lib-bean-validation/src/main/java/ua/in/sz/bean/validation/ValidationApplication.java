@@ -14,7 +14,7 @@ public class ValidationApplication {
 	public static void main(String[] args) {
         try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory()) {
 			Validator validator = factory.getValidator();
-			Rect rect = Rect.builder().x(-10).y(-15).height(2000).width(-1).build();
+			Rect rect = Rect.builder().x(-10).y(-15).height(2000).name("1").width(-1).build();
 
 			Set<ConstraintViolation<Rect>> violations = validator.validate(rect);
 

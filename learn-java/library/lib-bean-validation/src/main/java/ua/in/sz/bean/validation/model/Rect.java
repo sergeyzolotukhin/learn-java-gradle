@@ -2,6 +2,7 @@ package ua.in.sz.bean.validation.model;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,4 +30,7 @@ public class Rect {
 	@Min(value = 0, message = "height should not be less than 0")
 	@Max(value = 1024, message = "height should not be greater than 1024")
 	private int height;
+
+	@Size(min = 2, max = 10, message = "Name size is not correct")
+	private String name;
 }
