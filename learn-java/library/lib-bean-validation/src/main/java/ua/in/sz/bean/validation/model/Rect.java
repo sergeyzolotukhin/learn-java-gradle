@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import ua.in.sz.bean.validation.validator.BigRect;
+import ua.in.sz.bean.validation.validator.UpdateGroup;
 
 
 @Builder
@@ -31,6 +32,6 @@ public class Rect {
 	@Max(value = 1024, message = "height should not be greater than 1024")
 	private int height;
 
-	@Size(min = 2, max = 10, message = "Name size is not correct")
+	@Size(min = 2, max = 10, message = "Name size is not correct", groups = UpdateGroup.class)
 	private String name;
 }
