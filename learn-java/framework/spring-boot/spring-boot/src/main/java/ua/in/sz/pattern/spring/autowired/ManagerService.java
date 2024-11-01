@@ -10,7 +10,7 @@ import java.util.List;
 @Slf4j
 @Getter
 @Setter
-@Component
+//@Component
 public class ManagerService {
 
     private final List<RuleService> rules;

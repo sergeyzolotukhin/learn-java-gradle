@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Getter
 @Setter
-@Component
+//@Component
 public class RuleBService implements RuleService {
     @Override
     public void print() {
