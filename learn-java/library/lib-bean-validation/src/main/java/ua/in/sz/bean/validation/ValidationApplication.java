@@ -11,6 +11,7 @@ import ua.in.sz.bean.validation.validator.UpdateGroup;
 import java.util.Set;
 
 // https://docs.jboss.org/hibernate/validator/9.0/reference/en-US/html_single/#validator-gettingstarted
+// https://medium.com/javarevisited/javax-validation-and-groups-acd9a1fb1091
 
 @Slf4j
 public class ValidationApplication {
