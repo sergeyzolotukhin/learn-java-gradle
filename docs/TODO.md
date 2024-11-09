@@ -41,3 +41,7 @@ Functional Reactive Programming (FRP)
 #### Benefits of Reactive Programming
 
 https://www.codemotion.com/magazine/backend/benefits-of-reactive-programming-codemotion-magazine/
+
+#### Quadrocopter
+
+https://drones.stackexchange.com/questions/615/what-is-rpm-filtering-in-betaflight
