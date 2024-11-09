@@ -49,3 +49,4 @@ https://oscarliang.com/custom-motor-output-mix-quadcopter/
 https://cookierobotics.com/066/
 https://ardupilot.org/plane/docs/apms-failsafe-function.html
 https://oscarliang.com/rates/
+https://medium.com/@squonk-/understanding-pid-controllers-stable-flight-in-drones-and-beyond-861b1471c026
