@@ -33,3 +33,7 @@ GTX 750 Ti
 DVI
 DisplayPort
 HDMI
+
+#### Questions
+
+Functional Reactive Programming (FRP)
