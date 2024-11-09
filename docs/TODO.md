@@ -37,3 +37,7 @@ HDMI
 #### Questions
 
 Functional Reactive Programming (FRP)
+
+#### Benefits of Reactive Programming
+
+https://www.codemotion.com/magazine/backend/benefits-of-reactive-programming-codemotion-magazine/
