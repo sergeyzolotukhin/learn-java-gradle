@@ -50,3 +50,5 @@ https://cookierobotics.com/066/
 https://ardupilot.org/plane/docs/apms-failsafe-function.html
 https://oscarliang.com/rates/
 https://medium.com/@squonk-/understanding-pid-controllers-stable-flight-in-drones-and-beyond-861b1471c026
+
+https://flymod.net/ru/item/stack_speedybee_f405_v4_bls_55a
