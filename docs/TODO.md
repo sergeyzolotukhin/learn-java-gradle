@@ -47,3 +47,4 @@ https://www.codemotion.com/magazine/backend/benefits-of-reactive-programming-cod
 https://drones.stackexchange.com/questions/615/what-is-rpm-filtering-in-betaflight
 https://oscarliang.com/custom-motor-output-mix-quadcopter/
 https://cookierobotics.com/066/
+https://ardupilot.org/plane/docs/apms-failsafe-function.html
