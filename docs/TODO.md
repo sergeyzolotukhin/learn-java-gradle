@@ -58,6 +58,9 @@ https://wlf.com.ua/freedom-7ru.html
 https://flymod.net/en/item/stack_speedybee_f405_v4_bls_55a?srsltid=AfmBOoofvY_ODeTKXyAfS3VFj3r3NZDg2aSbgZo8xu-c1JoebQ3RVt5Z
 
 TBS Tango 2, 
-Radiomaster Boxer, 
-TBS Mambo 
+Radiomaster Boxer,
 Radiomaster TX16S
+TBS Mambo 
+
+ExpressLRS
+TBS Crossfire
