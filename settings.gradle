@@ -36,6 +36,7 @@ include 'learn-java:core:task-executor'
 // ====================================================================================================================
 // Libraries
 // ====================================================================================================================
+include 'learn-java:library:lib-activemq-artemis'
 include 'learn-java:library:lib-eclipse-collections'
 include 'learn-java:library:lib-apache-collections'
 include 'learn-java:library:lib-jackson'

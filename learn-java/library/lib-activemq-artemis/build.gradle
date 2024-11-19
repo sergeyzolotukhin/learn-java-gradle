@@ -1,0 +1,8 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // experimental
+    implementation 'org.apache.activemq:artemis-jms-client-all:2.38.0'
+}
