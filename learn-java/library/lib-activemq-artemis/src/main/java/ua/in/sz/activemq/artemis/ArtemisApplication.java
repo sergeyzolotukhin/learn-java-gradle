@@ -24,7 +24,7 @@ public class ArtemisApplication {
 
         Queue orderQueue = ActiveMQJMSClient.createQueue("OrderQueue");
 
-        Connection connection = cf.createConnection();
+        Connection connection = cf.createConnection("admin", "admin");
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         MessageProducer producer = session.createProducer(orderQueue);
