@@ -1,23 +1,34 @@
 <configuration scan="true" scanPeriod="30 seconds">
+    <variable name="PROJECT_HOME" value="learn-java/library/lib-logback-additivity" />
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${AUTHOR} %red(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-9.9X{feature} | %-9.9X{task} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+            <pattern>%red(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>learn-java/library/lib-logback-additivity/application-other-logging.log</file>
+    <appender name="FILE-1" class="ch.qos.logback.core.FileAppender">
+        <file>${PROJECT_HOME}/application-1.log</file>
         <append>true</append>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-40.40logger{36} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-2" class="ch.qos.logback.core.FileAppender">
+        <file>${PROJECT_HOME}/application-2.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-40.40logger{36} - %msg %n</pattern>
         </encoder>
     </appender>
 
     <logger name="ua.in.sz.logging.diff.traget.OtherComponent" additivity="false">
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE-2"/>
     </logger>
 
     <root level="INFO">
+        <appender-ref ref="FILE-1"/>
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
