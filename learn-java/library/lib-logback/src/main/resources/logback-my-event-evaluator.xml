@@ -1,15 +1,15 @@
 <configuration>
-    <evaluator name="hideEmptyException" class="ua.in.sz.logging.MyEventEvaluator">
+    <evaluator name="hideEmptyException" class="ua.in.sz.logging.exceptions.evaluator.MyEventEvaluator">
     </evaluator>
 
     <evaluator name="InvalidLoginExceptionSuppressor">
-        <expression>throwable != null &amp;&amp; throwable instanceof ua.in.sz.logging.MyException</expression>
+        <expression>throwable != null &amp;&amp; throwable instanceof ua.in.sz.logging.exceptions.evaluator.MyException</expression>
     </evaluator>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!--            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg%n%ex{full,InvalidLoginExceptionSuppressor}</pattern>-->
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg%n%ex{full}</pattern>
         </encoder>
     </appender>
 

@@ -1,4 +1,4 @@
-package ua.in.sz.logging;
+package ua.in.sz.logging.exceptions.evaluator;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.ThrowableProxy;
@@ -6,6 +6,9 @@ import ch.qos.logback.core.boolex.EventEvaluatorBase;
 
 import java.util.Optional;
 
+/**
+ * <a href="https://logback.qos.ch/manual/layouts.html#Evaluators">...</a>
+ */
 public class MyEventEvaluator extends EventEvaluatorBase<ILoggingEvent> {
     /**
      * Do we need to hide stack trace?

@@ -5,6 +5,9 @@ import ch.qos.logback.core.pattern.color.ANSIConstants;
 import ch.qos.logback.core.pattern.color.RedCompositeConverter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * <a href="https://logback.qos.ch/manual/layouts.html#customConversionSpecifier">...</a>
+ */
 @Slf4j
 public class AddTaskConverter extends RedCompositeConverter<ILoggingEvent> {
 	@Override

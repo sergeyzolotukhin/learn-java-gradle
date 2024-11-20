@@ -1,4 +1,4 @@
-package ua.in.sz.logging;
+package ua.in.sz.logging.exceptions.evaluator;
 
 import lombok.extern.slf4j.Slf4j;
 
