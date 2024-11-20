@@ -1,4 +1,4 @@
-package ua.in.sz.logging;
+package ua.in.sz.jansi;
 
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
