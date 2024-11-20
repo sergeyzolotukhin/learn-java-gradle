@@ -2,7 +2,7 @@ package ua.in.sz.logging;
 
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.logging.logs.Mdc;
-import ua.in.sz.logging.logs.MdcExecutorService;
+import ua.in.sz.logging.service.MdcExecutorService;
 import ua.in.sz.logging.tasks.DebugDecorator;
 import ua.in.sz.logging.tasks.SecurityDecorator;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 // https://logback.qos.ch/manual/onJoran.html
 @Slf4j
-public class Application {
+public class MdcApplication {
 	public static void main(String[] args) throws InterruptedException {
 		log.info("start execution");
 

@@ -1,6 +1,7 @@
-package ua.in.sz.logging.logs;
+package ua.in.sz.logging.service;
 
 import lombok.RequiredArgsConstructor;
+import ua.in.sz.logging.logs.MdcRunnable;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
