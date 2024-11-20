@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Set;
 
 public class MyConfigurator extends ContextAwareBase implements Configurator {
-    private final static String MY_AUTOCONFIG_FILE_01 = "logback-01.xml";
+    private final static String MY_AUTOCONFIG_FILE_01 = "logback-debug.xml";
 
     @SuppressWarnings("CallToPrintStackTrace")
     @Override
@@ -64,7 +64,7 @@ public class MyConfigurator extends ContextAwareBase implements Configurator {
         if (url == null) {
             sm.add(new InfoStatus("Could NOT find resource [" + resourceName + "]", context));
         } else {
-            sm.add(new InfoStatus("Found resource [" + resourceName + "] at [" + url + "]", context));
+            sm.add(new InfoStatus("FOUND RESOURCE [" + resourceName + "] AT [" + url + "]", context));
             multiplicityWarning(resourceName, classLoader);
         }
     }
