@@ -1,0 +1,16 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <evaluator name="hideEmptyException"
+               class="ua.in.sz.logging.exceptions.evaluator.MyEventEvaluator">
+    </evaluator>
+
+    <!--    https://logback.qos.ch/manual/layouts.html#ex    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-40.40logger{36} - %msg%n%ex{full,hideEmptyException}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
