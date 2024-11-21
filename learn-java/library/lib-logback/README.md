@@ -62,4 +62,6 @@ https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-messag
 https://dzone.com/articles/unit-testing-log-messages-made-easy
 https://skryvets.com/blog/2021/03/03/how-to-test-log-statements-in-spring/
 https://signoz.io/blog/elk-alternatives/
+https://betterstack.com/community/guides/logging/how-to-start-logging-with-java/
+
 
