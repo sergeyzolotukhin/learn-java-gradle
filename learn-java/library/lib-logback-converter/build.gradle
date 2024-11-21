@@ -1,0 +1,10 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+}
+
+dependencies {
+    // experimental
+    implementation 'org.fusesource.jansi:jansi:2.4.0'
+    implementation 'org.codehaus.janino:janino:3.1.12'
+
+}
