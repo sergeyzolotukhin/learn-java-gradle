@@ -1,7 +1,13 @@
 <configuration scan="true" scanPeriod="30 seconds">
 
+
+<!--    <newRule pattern="configuration/formatter"
+              actionClass="ua.in.sz.logging.logs.FormatterAction"/>-->
+
+<!--    <formatter formatterClass="hello sehij" />-->
+
     <conversionRule conversionWord="exMsg"
-                    converterClass="ua.in.sz.logging.logs.ExtMessageConverter" />
+                    class="ua.in.sz.logging.logs.ExtMessageConverter" />
 
     <!--    https://logback.qos.ch/manual/layouts.html#ex    -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
