@@ -19,3 +19,5 @@ public void addElementSelectorAndActionAssociations(RuleStore ruleStore) {
 ch.qos.logback.core.joran.JoranConfiguratorBase
 ch.qos.logback.classic.joran.JoranConfigurator
 org.springframework.boot.logging.logback.SpringBootJoranConfigurator
+
+ch.qos.logback.classic.joran.JoranConfigurator
