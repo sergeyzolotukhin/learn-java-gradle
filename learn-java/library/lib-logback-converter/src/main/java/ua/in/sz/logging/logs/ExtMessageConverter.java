@@ -11,8 +11,8 @@ import java.util.List;
  */
 @Slf4j
 public class ExtMessageConverter extends MessageConverter {
-	public String convert(ILoggingEvent event) {
-		getContext();
+	@SuppressWarnings("unchecked")
+    public String convert(ILoggingEvent event) {
 		List<String> formatters = (List<String>) getContext().getObject(FormatterModelHandler.FORMATTER_REGISTRY);
 		return event.getFormattedMessage() + "\n formatters: " + formatters;
 	}
