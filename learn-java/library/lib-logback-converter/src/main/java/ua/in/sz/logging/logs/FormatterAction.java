@@ -1,24 +1,19 @@
 package ua.in.sz.logging.logs;
 
-import ch.qos.logback.core.joran.action.Action;
-import ch.qos.logback.core.joran.spi.ActionException;
+import ch.qos.logback.core.joran.action.BaseModelAction;
 import ch.qos.logback.core.joran.spi.SaxEventInterpretationContext;
+import ch.qos.logback.core.model.Model;
 import org.xml.sax.Attributes;
 
-public class FormatterAction extends Action {
-
-    public static final String FORMATTER_CLASS_ATTRIBUTE = "formatterClass";
+public class FormatterAction extends BaseModelAction {
+    public static final String FORMATTER_CLASS_ATTRIBUTE = "class";
 
     @Override
-    public void begin(SaxEventInterpretationContext context, String name, Attributes attributes) throws ActionException {
+    protected Model buildCurrentModel(SaxEventInterpretationContext interpretationContext, String name, Attributes attributes) {
         String formatterClass = attributes.getValue(FORMATTER_CLASS_ATTRIBUTE);
-        ExtMessageConverter.formatters.add(formatterClass);
 
-        context.pushModel(new FormatterModel());
-    }
-
-    @Override
-    public void end(SaxEventInterpretationContext context, String name) throws ActionException {
-        context.popModel();
+        FormatterModel model = new FormatterModel();
+        model.setClassName(formatterClass);
+        return model;
     }
 }

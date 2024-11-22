@@ -4,7 +4,6 @@ import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,9 +11,9 @@ import java.util.List;
  */
 @Slf4j
 public class ExtMessageConverter extends MessageConverter {
-	static List<String> formatters = new ArrayList<>();
-
 	public String convert(ILoggingEvent event) {
+		getContext();
+		List<String> formatters = (List<String>) getContext().getObject(FormatterModelHandler.FORMATTER_REGISTRY);
 		return event.getFormattedMessage() + "\n formatters: " + formatters;
 	}
 }
