@@ -22,3 +22,6 @@ https://stackoverflow.com/questions/20880783/how-to-get-liquibase-to-log-using-s
 https://docs.liquibase.com/parameters/home.html
 
 https://contribute.liquibase.com/code/architecture/
+
+https://docs.liquibase.com/commands/inspection/generate-changelog.html
+https://docs.liquibase.com/change-types/load-update-data.html
