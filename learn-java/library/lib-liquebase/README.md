@@ -26,3 +26,4 @@ https://contribute.liquibase.com/code/architecture/
 https://docs.liquibase.com/commands/inspection/generate-changelog.html
 https://docs.liquibase.com/change-types/load-update-data.html
 https://docs.liquibase.com/commands/inspection/snapshot.html
+https://docs.liquibase.com/commands/inspection/diff-changelog.html
