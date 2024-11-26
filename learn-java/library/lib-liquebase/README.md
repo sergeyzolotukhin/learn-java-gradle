@@ -28,3 +28,4 @@ https://docs.liquibase.com/change-types/load-update-data.html
 https://docs.liquibase.com/commands/inspection/snapshot.html
 https://docs.liquibase.com/commands/inspection/diff-changelog.html
 https://docs.liquibase.com/tools-integrations/maven/commands/home.html
+https://github.com/warumono-for-develop/spring-boot-jpa-relationships-tutorial/blob/master/src/main/java/com/warumono/DataLoader.java
