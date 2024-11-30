@@ -83,3 +83,7 @@ The full distribution will be created at `subprojects/distributions-full/build/d
 
 #### Gradle dependencies
 https://github.com/StubbornJava/StubbornJava/blob/master/build.gradle
+
+####
+
+https://docs.gradle.org/current/userguide/composite_builds.html
