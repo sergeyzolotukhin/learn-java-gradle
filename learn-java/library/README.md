@@ -58,3 +58,4 @@ https://www.baeldung.com/mybatis
 
 #### REST Assured
 https://github.com/rest-assured/rest-assured/wiki/usage
+https://testerslittlehelper.wordpress.com/2019/01/20/jsonpath-in-rest-assured/
