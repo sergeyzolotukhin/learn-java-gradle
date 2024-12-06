@@ -61,3 +61,5 @@ https://github.com/rest-assured/rest-assured/wiki/usage
 https://testerslittlehelper.wordpress.com/2019/01/20/jsonpath-in-rest-assured/
 
 https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html
+https://blog.frankel.ch/java-service-loader-vs-spring-factories/
+
