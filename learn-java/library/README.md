@@ -55,3 +55,6 @@ https://semaphoreci.com/community/tutorials/how-to-split-junit-tests-in-a-contin
 #### MyBatis
 
 https://www.baeldung.com/mybatis
+
+#### REST Assured
+https://github.com/rest-assured/rest-assured/wiki/usage
