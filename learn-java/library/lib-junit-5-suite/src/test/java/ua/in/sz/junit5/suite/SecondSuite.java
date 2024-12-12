@@ -8,12 +8,13 @@ import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 import ua.in.sz.junit5.tests.FirstTest;
 import ua.in.sz.junit5.tests.SecondTest;
+import ua.in.sz.junit5.tests.ThirdTest;
 
 @Slf4j
 @Suite
-@SuiteDisplayName("First Suite")
-@SelectClasses({FirstTest.class, SecondTest.class})
-public class FirstSuite {
+@SuiteDisplayName("Second Suite")
+@SelectClasses({ThirdTest.class})
+public class SecondSuite {
     @BeforeSuite
     static void beforeSuite() {
         log.info("Before Suite");
