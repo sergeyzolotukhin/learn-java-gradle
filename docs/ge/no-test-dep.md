@@ -9,3 +9,4 @@ https://dev.to/daniilroman/maven-plugin-to-check-dependencies-versions-318m
 
 https://maven.apache.org/surefire/maven-surefire-plugin/examples/fork-options-and-parallel-execution.html
 https://www.bairesdev.com/blog/java-unit-testing/
+https://junit.org/junit5/docs/snapshot/user-guide/#beforesuite-and-aftersuite
