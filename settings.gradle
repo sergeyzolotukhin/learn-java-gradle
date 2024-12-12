@@ -115,6 +115,7 @@ include 'learn-java:library:lib-junit-5-hamcrest'
 include 'learn-java:library:lib-junit-5-instancio'
 include 'learn-java:library:lib-junit-5-testcontainers'
 include 'learn-java:library:lib-junit-5-dbunit'
+include 'learn-java:library:lib-junit-5-suite'
 
 //include 'learn-java:library:lib-junit-4'
 
