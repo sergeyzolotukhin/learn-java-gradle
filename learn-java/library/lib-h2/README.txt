@@ -31,3 +31,4 @@ Page
 
 
 https://www.h2database.com/html/performance.html#fast_import
+https://www.baeldung.com/h2-embedded-db-data-storage
