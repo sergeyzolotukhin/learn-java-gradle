@@ -11,7 +11,7 @@ import ua.in.sz.junit5.tests.SecondTest;
 
 @Slf4j
 @Suite
-@SuiteDisplayName("First Suite")
+@SuiteDisplayName("All Suite")
 @SelectClasses({FirstSuite.class, SecondSuite.class})
 public class AllSuite {
     @BeforeSuite
