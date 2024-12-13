@@ -32,3 +32,25 @@ Page
 
 https://www.h2database.com/html/performance.html#fast_import
 https://www.baeldung.com/h2-embedded-db-data-storage
+https://h2database.com/javadoc/org/h2/tools/Restore.html
+
+#### How to restore state of H2 database in integration tests
+
+##### Use case: run single test on the local environment
+
+if (backup not exists) { 
+* create persistence H2 database (file)
+* init database (Liquebase)
+* Backup database to file (BACKUP -> zip)
+}
+
+if (database file is exists) {
+* remove exists file
+}
+
+* Restore database from file (Restore.class -> zip)
+* Execute test
+
+##### Use case: run several tests with database clean up for each tests
+
+?
