@@ -53,4 +53,6 @@ if (database file is exists) {
 
 ##### Use case: run several tests with database clean up for each tests
 
-?
+Fast Database Import
+If you have to import a lot of rows, use a PreparedStatement or use CSV import. 
+Please note that CREATE TABLE(...) ... AS SELECT ... is faster than CREATE TABLE(...); INSERT INTO ... SELECT ....
