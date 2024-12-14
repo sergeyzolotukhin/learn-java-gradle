@@ -13,3 +13,16 @@ java.lang.IllegalStateException
 	at org.h2.command.Command.executeUpdate(Command.java:252)
 	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:254)
 	at ua.in.sz.h2.Main.main(Main.java:59)
+
+
+java.lang.IllegalStateException
+	at org.h2.engine.Database.<init>(Database.java:221)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at org.h2.samples.HelloWorld.main(HelloWorld.java:32)
