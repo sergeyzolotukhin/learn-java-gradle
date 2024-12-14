@@ -56,6 +56,17 @@ if (database file is exists) {
 https://www.h2database.com/html/features.html#execute_sql_on_connection
 jdbc:h2:mem:test;INIT=runscript from '~/create.sql'\\;runscript from '~/init.sql'
 
+https://stackoverflow.com/questions/9601038/saving-in-memory-h2-database-to-disk
+https://h2database.com/html/commands.html#script
+SCRIPT TO 'fileName'
+
+Another option is to create another database, 
+link the tables with the in-memory database (using create linked table or the link_schema function), 
+and then use create table as select to persist the tables.
+https://h2database.com/html/functions.html#link_schema
+https://h2database.com/html/commands.html#create_linked_table
+SELECT * FROM LINK_SCHEMA('TEST2', '', 'jdbc:h2:./test2', 'sa', 'sa', 'PUBLIC');
+
 Fast Database Import
 If you have to import a lot of rows, use a PreparedStatement or use CSV import. 
 Please note that CREATE TABLE(...) ... AS SELECT ... is faster than CREATE TABLE(...); INSERT INTO ... SELECT ....
