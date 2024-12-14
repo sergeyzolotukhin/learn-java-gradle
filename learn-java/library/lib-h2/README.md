@@ -53,6 +53,9 @@ if (database file is exists) {
 
 ##### Use case: run several tests with database clean up for each tests
 
+https://www.h2database.com/html/features.html#execute_sql_on_connection
+jdbc:h2:mem:test;INIT=runscript from '~/create.sql'\\;runscript from '~/init.sql'
+
 Fast Database Import
 If you have to import a lot of rows, use a PreparedStatement or use CSV import. 
 Please note that CREATE TABLE(...) ... AS SELECT ... is faster than CREATE TABLE(...); INSERT INTO ... SELECT ....
