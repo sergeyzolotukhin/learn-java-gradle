@@ -70,3 +70,5 @@ SELECT * FROM LINK_SCHEMA('TEST2', '', 'jdbc:h2:./test2', 'sa', 'sa', 'PUBLIC');
 Fast Database Import
 If you have to import a lot of rows, use a PreparedStatement or use CSV import. 
 Please note that CREATE TABLE(...) ... AS SELECT ... is faster than CREATE TABLE(...); INSERT INTO ... SELECT ....
+
+https://h2database.com/html/mvstore.html
