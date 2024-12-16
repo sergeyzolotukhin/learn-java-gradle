@@ -39,3 +39,4 @@ Before even deciding on the caching layer, you need to ask yourself the followin
     ????
 
 https://www.ehcache.org/documentation/2.8/apis/write-through-caching.html
+https://medium.com/@lk.snatch/system-design-cache-with-java-impl-eba29b5739dc
