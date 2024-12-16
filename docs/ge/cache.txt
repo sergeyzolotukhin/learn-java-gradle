@@ -38,4 +38,4 @@ Before even deciding on the caching layer, you need to ask yourself the followin
 * If you use distributed cache, what about performance, reliability, scalability, and availability?
     ????
 
-
+https://www.ehcache.org/documentation/2.8/apis/write-through-caching.html
