@@ -7,3 +7,4 @@ https://database-rider.github.io/database-rider/1.5.2/documentation.html
 https://github.com/DarrMirr/dbchange
 
 https://anderssv.medium.com/junit-and-parameterresolver-caching-database-connections-in-your-tests-8066325a64b9
+https://github.com/bytefish/SpringBootMultiTenancy/tree/master
