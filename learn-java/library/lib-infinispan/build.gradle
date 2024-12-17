@@ -9,6 +9,21 @@ dependencies {
     implementation("org.infinispan:infinispan-core")
     implementation 'org.infinispan:infinispan-component-annotations:15.0.0.Final'
 
+// implementation 'org.infinispan:infinispan-cachestore-jdbc:15.0.0.Final'
+// implementation 'org.infinispan:infinispan-cachestore-jdbc-common:15.0.0.Final'
+
+// implementation 'org.infinispan:infinispan-hibernate-cache-v62:15.0.0.Final'
+// implementation 'org.infinispan:infinispan-hibernate-cache-commons:15.0.0.Final'
+// implementation 'org.infinispan:infinispan-hibernate-cache-spi:15.0.0.Final'
+
+// implementation 'org.infinispan:infinispan-cachestore-jpa:13.0.22.Final
+
+// implementation 'org.infinispan:infinispan-cachestore-sql:15.0.0.Final'
+
+// implementation 'org.infinispan:infinispan-spring5-embedded:14.0.33.Final'
+// implementation 'org.infinispan:infinispan-spring-boot-starter-remote:14.0.33.Final'
+
+
     // test
     implementation 'org.openjdk.jmh:jmh-core:1.35'
     implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.35'
