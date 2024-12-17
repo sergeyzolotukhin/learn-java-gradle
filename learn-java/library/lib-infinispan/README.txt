@@ -8,3 +8,5 @@ https://infinispan.org/docs/stable/titles/configuring/configuring.html#write-beh
 org.hibernate.action.internal.EntityUpdateAction
 
 https://github.com/SivaVr/ehcache-spring-hibernate-write-behind.git
+
+D:\projects-java\ehcache-spring-hibernate-write-behind
