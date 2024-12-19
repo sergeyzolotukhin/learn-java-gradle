@@ -62,10 +62,12 @@ public class Main {
                     }
                     log.info(new String(tmp, 0, i));
                 }
+
                 if (channel.isClosed()) {
                     log.info("exit-status: " + channel.getExitStatus());
                     break;
                 }
+
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (Exception ignore) {
