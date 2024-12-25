@@ -48,3 +48,5 @@ https://github.com/almondtools/testrecorder
 https://kotest.io/docs/extensions/extensions.html
 https://www.petrikainulainen.net/programming/testing/introduction-to-junit-5-extensions/
 https://github.com/jcustenborder/docker-compose-junit-extension
+https://github.com/hgschmie/pg-embedded
+
