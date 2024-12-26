@@ -12,7 +12,8 @@ import java.sql.SQLException;
 @Slf4j
 public class Main {
     public static void main(String[] args) {
-        var url = "jdbc:h2:mem:";
+//        var url = "jdbc:h2:mem:";
+        var url = "jdbc:h2:file:./learn-java/library/lib-h2/build/demodb";
 //        var url = "jdbc:h2:mem:;TRACE_LEVEL_FILE=4";
 
         try (var con = DriverManager.getConnection(url)) {
