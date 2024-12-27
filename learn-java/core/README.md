@@ -7,3 +7,4 @@ https://mincong.io/2020/05/30/exception-handling-in-completable-future/
 https://www.baeldung.com/guava-futures-listenablefuture
 https://guava.dev/releases/29.0-jre/api/docs/com/google/common/util/concurrent/package-summary.html
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/concurrent/package-summary.html
+https://www.baeldung.com/java-future-completablefuture-rxjavas-observable
