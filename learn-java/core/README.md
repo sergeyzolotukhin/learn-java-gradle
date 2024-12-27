@@ -1,3 +1,4 @@
 https://stackoverflow.com/questions/54131743/handle-duplicate-key-in-collectors-tomap-function
 
 https://medium.com/@AlexanderObregon/javas-completablefuture-allof-explained-0a032b657541
+https://salithachathuranga94.medium.com/completablefuture-in-java-97b0b392657
