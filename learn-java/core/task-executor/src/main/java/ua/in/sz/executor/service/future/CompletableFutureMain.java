@@ -3,6 +3,7 @@ package ua.in.sz.executor.service.future;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -11,7 +12,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Slf4j
 public class CompletableFutureMain {
@@ -19,14 +19,15 @@ public class CompletableFutureMain {
         log.info("Starting");
 
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
-            CompletableFuture<String> future1 = CompletableFuture.supplyAsync(new MySupplier("Task 1", 1), executor);
-            CompletableFuture<String> future2 = CompletableFuture.supplyAsync(new MySupplier("Task 2", 2), executor);
-            CompletableFuture<String> future3 = CompletableFuture.supplyAsync(new MySupplier("Task 3", 3), executor);
+            List<CompletableFuture<String>> futures = new ArrayList<>();
+            for (int i = 0; i < 3; i++) {
+                futures.add(CompletableFuture.supplyAsync(new MySupplier("Task " + i, i + 1), executor));
+            }
             log.info("Submitted");
 
-            CompletableFuture<List<String>> allResults = CompletableFuture.allOf(future1, future2, future3)
+            CompletableFuture<List<String>> allResults = CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new))
                     .thenApplyAsync(
-                            v -> Stream.of(future1, future2, future3)
+                            v -> futures.stream()
                                     .map(CompletableFuture::join)
                                     .peek(s -> log.info("task result: {}", s))
                                     .collect(Collectors.toList()),
