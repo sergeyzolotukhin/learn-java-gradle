@@ -3,12 +3,15 @@ package ua.in.sz.executor.service.future;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 public class CompletableFutureMain {
@@ -20,9 +23,16 @@ public class CompletableFutureMain {
             CompletableFuture<String> future2 = CompletableFuture.supplyAsync(new MySupplier("Task 2", 2), executor);
             CompletableFuture<String> future3 = CompletableFuture.supplyAsync(new MySupplier("Task 3", 3), executor);
             log.info("Submitted");
-            CompletableFuture<Void> allOf = CompletableFuture.allOf(future1, future2, future3);
 
-            log.info("Result: [{}]", allOf.get());
+            CompletableFuture<List<String>> allResults = CompletableFuture.allOf(future1, future2, future3)
+                    .thenApplyAsync(
+                            v -> Stream.of(future1, future2, future3)
+                                    .map(CompletableFuture::join)
+                                    .peek(s -> log.info("task result: {}", s))
+                                    .collect(Collectors.toList()),
+                            executor);
+
+            log.info("Result: [{}]", String.join(", ", allResults.get()));
         }
 
         log.info("Ended");
