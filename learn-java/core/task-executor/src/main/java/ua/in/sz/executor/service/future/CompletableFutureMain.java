@@ -23,7 +23,10 @@ public class CompletableFutureMain {
             for (int i = 0; i < 3; i++) {
                 futures.add(CompletableFuture.supplyAsync(new MySupplier("Task " + i, i + 1), executor));
             }
+
             log.info("Submitted");
+            TimeUnit.SECONDS.sleep(4);
+            log.info("Sleep");
 
             CompletableFuture<List<String>> allResults = CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new))
                     .thenApplyAsync(
