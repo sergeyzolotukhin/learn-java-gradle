@@ -10,6 +10,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * <a href="https://medium.com/@charleschang/java-executorservice-explained-9346b17ce8b4">Java ExecutorService explaine</a>
+ */
 @Slf4j
 public class ExecutorServiceTaskTimeoutMain {
     public static void main(String[] args) {
@@ -30,25 +33,24 @@ public class ExecutorServiceTaskTimeoutMain {
             }
 
             log.info("Done {}, Canceled {}, state {}",
-                    future.isDone(), future.isCancelled(), future.state());
+                    future.isDone(), future.isCancelled(), future.state(), future.exceptionNow());
         }
 
         log.info("Ended");
     }
 
     static class MyTask implements Callable<String> {
-        public String call() {
+        public String call() throws InterruptedException {
             for (int i = 0; i < 100000000; i++) {
                 log.trace("executing {}", i);
 
                 if (Thread.interrupted()) {
                     log.info("Task interrupted");
-                    return "Hello Interrupted";
+                    throw new InterruptedException();
                 }
             }
 
             log.info("Task executed");
-
             return "Task executed";
         }
     }
