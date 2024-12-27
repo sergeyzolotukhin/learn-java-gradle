@@ -1,4 +1,4 @@
-package ua.in.sz.executor.service;
+package ua.in.sz.executor.service.thread.pool;
 
 import lombok.extern.slf4j.Slf4j;
 

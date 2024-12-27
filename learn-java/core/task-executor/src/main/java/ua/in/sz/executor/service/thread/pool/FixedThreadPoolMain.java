@@ -1,4 +1,4 @@
-package ua.in.sz.executor.service;
+package ua.in.sz.executor.service.thread.pool;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.concurrent.*;
 
 @Slf4j
-public class CachedThreadPoolMain {
+public class FixedThreadPoolMain {
     public static void main(String[] args) {
         log.info("Start");
 
-        try (ExecutorService service = Executors.newCachedThreadPool()) {
+        try (ExecutorService service = Executors.newFixedThreadPool(2)) {
             List<Future<String>> list = new ArrayList<>();
 
             for (int i = 0; i < 4; i++) {
@@ -40,9 +40,9 @@ public class CachedThreadPoolMain {
 
             service.shutdown();
         } catch (ExecutionException e) {
-            log.info("Execution exception");
+            throw new RuntimeException(e);
         } catch (InterruptedException e) {
-            log.info("Interrupted exception");
+            throw new RuntimeException(e);
         }
 
         log.info("End");
