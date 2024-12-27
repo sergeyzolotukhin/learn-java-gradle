@@ -12,6 +12,9 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * <a href="https://medium.com/@charleschang/java-executorservice-explained-9346b17ce8b4">Java ExecutorService explaine</a>
+ * <p>
+ * this is a good pattern otherwise the interrupt bit is cleared by the catch
+ * <a href="https://stackoverflow.com/questions/12060279/is-it-possible-to-interrupt-a-specific-thread-of-an-executorservice">...</a>
  */
 @Slf4j
 public class ExecutorServiceTaskTimeoutMain {
