@@ -1,4 +1,4 @@
-package ua.in.sz.h2;
+package ua.in.sz.executor.service;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

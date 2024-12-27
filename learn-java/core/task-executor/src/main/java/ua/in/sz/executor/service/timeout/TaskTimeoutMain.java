@@ -1,4 +1,4 @@
-package ua.in.sz.h2.timeout;
+package ua.in.sz.executor.service.timeout;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeoutException;
  * <a href="https://stackoverflow.com/questions/12060279/is-it-possible-to-interrupt-a-specific-thread-of-an-executorservice">...</a>
  */
 @Slf4j
-public class ExecutorServiceTaskTimeoutMain {
+public class TaskTimeoutMain {
     public static void main(String[] args) {
         log.info("Starting");
 
@@ -36,7 +36,7 @@ public class ExecutorServiceTaskTimeoutMain {
             }
 
             log.info("Done {}, Canceled {}, state {}",
-                    future.isDone(), future.isCancelled(), future.state(), future.exceptionNow());
+                    future.isDone(), future.isCancelled(), future.state());
         }
 
         log.info("Ended");
