@@ -2,3 +2,4 @@ https://stackoverflow.com/questions/54131743/handle-duplicate-key-in-collectors-
 
 https://medium.com/@AlexanderObregon/javas-completablefuture-allof-explained-0a032b657541
 https://salithachathuranga94.medium.com/completablefuture-in-java-97b0b392657
+https://mincong.io/2020/05/30/exception-handling-in-completable-future/
