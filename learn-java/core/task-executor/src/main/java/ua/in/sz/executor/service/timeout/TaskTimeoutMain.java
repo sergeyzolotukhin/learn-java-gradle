@@ -18,18 +18,15 @@ import java.util.concurrent.TimeoutException;
  */
 @Slf4j
 public class TaskTimeoutMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         log.info("Starting");
 
         try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
-            Future<String> future = executor.submit(new MyTask());
+            Future<String> future = executor.submit(new InfiniteTask());
             log.info("Submitted");
-
 
             try {
                 future.get(1, TimeUnit.MICROSECONDS);
-            } catch (InterruptedException | ExecutionException e) {
-                log.error(e.getMessage());
             } catch (TimeoutException e) {
                 log.info("Canceling");
                 future.cancel(true);
@@ -42,19 +39,15 @@ public class TaskTimeoutMain {
         log.info("Ended");
     }
 
-    static class MyTask implements Callable<String> {
+    static class InfiniteTask implements Callable<String> {
         public String call() throws InterruptedException {
-            for (int i = 0; i < 100000000; i++) {
-                log.trace("executing {}", i);
-
+            //noinspection InfiniteLoopStatement
+            while (true) {
                 if (Thread.interrupted()) {
                     log.info("Task interrupted");
                     throw new InterruptedException();
                 }
             }
-
-            log.info("Task executed");
-            return "Task executed";
         }
     }
 }
