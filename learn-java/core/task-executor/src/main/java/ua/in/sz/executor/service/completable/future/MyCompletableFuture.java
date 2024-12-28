@@ -1,6 +1,8 @@
 package ua.in.sz.executor.service.completable.future;
 
-import ua.in.sz.executor.service.completable.future.impl.MyCompletion;
+import ua.in.sz.executor.service.completable.future.impl.AltResult;
+import ua.in.sz.executor.service.completable.future.impl.AsyncSupply;
+import ua.in.sz.executor.service.completable.future.impl.Completion;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
@@ -9,7 +11,6 @@ import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -19,29 +20,29 @@ import java.util.function.Supplier;
 // java.util.concurrent.FutureTask.cancel
 public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
-    volatile Object result;       // Either the result or boxed AltResult
-    volatile MyCompletion stack;    // Top of Treiber stack of dependent actions
+    public volatile Object result;       // Either the result or boxed AltResult
+    volatile Completion stack;    // Top of Treiber stack of dependent actions
 
 
-    final boolean completeValue(T t) {
+    public final boolean completeValue(T t) {
         return RESULT.compareAndSet(this, null, (t == null) ? NIL : t);
     }
 
-    final void postComplete() {
+    public final void postComplete() {
         /*
          * On each step, variable f holds current dependents to pop
          * and run.  It is extended along only one path at a time,
          * pushing others to avoid unbounded recursion.
          */
         MyCompletableFuture<?> f = this;
-        MyCompletion h;
+        Completion h;
 
         while (     (h = f.stack) != null
                 ||  (f != this && (h = (f = this).stack) != null)
         ) {
 
             MyCompletableFuture<?> d;
-            MyCompletion t;
+            Completion t;
             if (STACK.compareAndSet(f, h, t = h.next)) {
                 if (t != null) {
                     if (f != this) {
@@ -55,7 +56,7 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         }
     }
 
-    final boolean completeThrowable(Throwable x) {
+    public final boolean completeThrowable(Throwable x) {
         return RESULT.compareAndSet(this, null, encodeThrowable(x));
     }
 
@@ -63,13 +64,13 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         return new AltResult((x instanceof CompletionException) ? x : new CompletionException(x));
     }
 
-    final void pushStack(MyCompletion c) {
+    final void pushStack(Completion c) {
         do {
         } while (!tryPushStack(c));
     }
 
-    final boolean tryPushStack(MyCompletion c) {
-        MyCompletion h = stack;
+    final boolean tryPushStack(Completion c) {
+        Completion h = stack;
         NEXT.set(c, h);         // CAS piggyback
         return STACK.compareAndSet(this, h, c);
     }
@@ -118,62 +119,11 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         return d;
     }
 
-    public interface AsynchronousCompletionTask {
-    }
-
-    @SuppressWarnings("serial")
-    static final class AsyncSupply<T> extends ForkJoinTask<Void> implements Runnable, AsynchronousCompletionTask {
-        MyCompletableFuture<T> dep;
-        Supplier<? extends T> fn;
-
-        AsyncSupply(MyCompletableFuture<T> dep, Supplier<? extends T> fn) {
-            this.dep = dep;
-            this.fn = fn;
-        }
-
-        public Void getRawResult() {
-            return null;
-        }
-
-        public void setRawResult(Void v) {
-        }
-
-        public boolean exec() {
-            run();
-            return false;
-        }
-
-        public void run() {
-            MyCompletableFuture<T> d;
-            Supplier<? extends T> f;
-
-            if ((d = dep) != null && (f = fn) != null) {
-                dep = null;
-                fn = null;
-
-                if (d.result == null) {
-                    try {
-                        d.completeValue(f.get());
-                    } catch (Throwable ex) {
-                        d.completeThrowable(ex);
-                    }
-                }
-                d.postComplete();
-            }
-        }
-    }
-
     // Modes for Completion.tryFire. Signedness matters.
     public static final int SYNC   =  0;
     public static final int ASYNC  =  1;
     public static final int NESTED = -1;
 
-
-
-    static final class AltResult { // See above
-        final Throwable ex;        // null only for NIL
-        AltResult(Throwable x) { this.ex = x; }
-    }
 
     /** The encoding of the null value. */
     static final AltResult NIL = new AltResult(null);
@@ -186,8 +136,8 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         try {
             MethodHandles.Lookup l = MethodHandles.lookup();
             RESULT = l.findVarHandle(MyCompletableFuture.class, "result", Object.class);
-            STACK = l.findVarHandle(MyCompletableFuture.class, "stack", MyCompletion.class);
-            NEXT = l.findVarHandle(MyCompletion.class, "next", MyCompletion.class);
+            STACK = l.findVarHandle(MyCompletableFuture.class, "stack", Completion.class);
+            NEXT = l.findVarHandle(Completion.class, "next", Completion.class);
         } catch (ReflectiveOperationException e) {
             throw new ExceptionInInitializerError(e);
         }

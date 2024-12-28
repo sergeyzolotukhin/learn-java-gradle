@@ -4,8 +4,8 @@ import ua.in.sz.executor.service.completable.future.MyCompletableFuture;
 
 import java.util.concurrent.ForkJoinTask;
 
-public abstract class MyCompletion extends ForkJoinTask<Void> implements Runnable, MyCompletableFuture.AsynchronousCompletionTask {
-    public volatile MyCompletion next;      // Treiber stack link
+public abstract class Completion extends ForkJoinTask<Void> implements Runnable, AsynchronousCompletionTask {
+    public volatile Completion next;      // Treiber stack link
 
     /**
      * Performs completion action if triggered, returning a
