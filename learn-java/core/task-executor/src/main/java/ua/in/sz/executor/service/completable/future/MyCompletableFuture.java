@@ -1,5 +1,6 @@
 package ua.in.sz.executor.service.completable.future;
 
+import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.executor.service.completable.future.impl.AltResult;
 import ua.in.sz.executor.service.completable.future.impl.AsyncSupply;
 import ua.in.sz.executor.service.completable.future.impl.Completion;
@@ -23,6 +24,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 // java.util.concurrent.FutureTask.cancel
+@Slf4j
 public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
     public volatile Object result;      // Either the result or boxed AltResult
@@ -34,6 +36,10 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
     public final boolean completeValue(T t) {
         return RESULT.compareAndSet(this, null, (t == null) ? NIL : t);
+    }
+
+    public final boolean completeThrowable(Throwable x) {
+        return RESULT.compareAndSet(this, null, encodeThrowable(x));
     }
 
     public final void postComplete() {
@@ -109,10 +115,6 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
             else
                 q = p.next;
         }
-    }
-
-    public final boolean completeThrowable(Throwable x) {
-        return RESULT.compareAndSet(this, null, encodeThrowable(x));
     }
 
     static AltResult encodeThrowable(Throwable x) {
