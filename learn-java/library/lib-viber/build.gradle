@@ -19,7 +19,7 @@ dependencies {
     implementation 'com.viber:viber-bot:1.0.11'
 
     // common utils
-    implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'com.google.guava:guava:33.4.0-jre'
     implementation 'org.apache.commons:commons-text:1.7'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.apache.commons:commons-collections4:4.4'

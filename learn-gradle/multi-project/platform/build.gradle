@@ -9,6 +9,6 @@ dependencies {
             because 'We need to support the jave 20 or above'
         }
         api('ch.qos.logback:logback-classic:1.2.9')
-        api('com.google.guava:guava:25.0-jre')
+        api('com.google.guava:guava:33.4.0-jre')
     }
 }
