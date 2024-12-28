@@ -24,13 +24,7 @@ public class MyCompletableFutureMain {
 
             MyCompletableFuture<String> future1 = future.thenComposeAsync(
                     (Function<String, MyCompletableFuture<String>>) s -> MyCompletableFuture.supplyAsync(
-                            () -> {
-                                String result = "Food Served" + s;
-                                log.info("Starting: {}", result);
-                                sleep(3);
-                                log.info("Ended: {}", result);
-                                return result;
-                            },
+                            new SecondTask(s),
                             executor),
                     executor);
 
@@ -44,6 +38,18 @@ public class MyCompletableFutureMain {
         }
 
         log.info("Ended");
+    }
+
+    static record SecondTask(String s) implements Supplier<String> {
+        @Override
+        @SneakyThrows
+        public String get() {
+            String result = "Food Served" + s;
+            log.info("Starting: {}", result);
+            sleep(3);
+            log.info("Ended: {}", result);
+            return result;
+        }
     }
 
     static class InfiniteTask implements Supplier<String> {
