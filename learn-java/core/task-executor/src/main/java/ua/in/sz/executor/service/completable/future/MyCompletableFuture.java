@@ -1,9 +1,10 @@
 package ua.in.sz.executor.service.completable.future;
 
+import ua.in.sz.executor.service.completable.future.impl.MyCompletion;
+
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
@@ -13,14 +14,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.LockSupport;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 // java.util.concurrent.FutureTask.cancel
 public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
     volatile Object result;       // Either the result or boxed AltResult
-    volatile Completion stack;    // Top of Treiber stack of dependent actions
+    volatile MyCompletion stack;    // Top of Treiber stack of dependent actions
 
 
     final boolean completeValue(T t) {
@@ -34,14 +34,14 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
          * pushing others to avoid unbounded recursion.
          */
         MyCompletableFuture<?> f = this;
-        Completion h;
+        MyCompletion h;
 
         while (     (h = f.stack) != null
                 ||  (f != this && (h = (f = this).stack) != null)
         ) {
 
             MyCompletableFuture<?> d;
-            Completion t;
+            MyCompletion t;
             if (STACK.compareAndSet(f, h, t = h.next)) {
                 if (t != null) {
                     if (f != this) {
@@ -63,18 +63,16 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         return new AltResult((x instanceof CompletionException) ? x : new CompletionException(x));
     }
 
-    final void pushStack(Completion c) {
+    final void pushStack(MyCompletion c) {
         do {
         } while (!tryPushStack(c));
     }
 
-    final boolean tryPushStack(Completion c) {
-        Completion h = stack;
+    final boolean tryPushStack(MyCompletion c) {
+        MyCompletion h = stack;
         NEXT.set(c, h);         // CAS piggyback
         return STACK.compareAndSet(this, h, c);
     }
-
-    // ================================================================================================================
 
     // ================================================================================================================
     // interface Future
@@ -166,29 +164,11 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
     }
 
     // Modes for Completion.tryFire. Signedness matters.
-    static final int SYNC   =  0;
-    static final int ASYNC  =  1;
-    static final int NESTED = -1;
+    public static final int SYNC   =  0;
+    public static final int ASYNC  =  1;
+    public static final int NESTED = -1;
 
-    abstract static class Completion extends ForkJoinTask<Void> implements Runnable, AsynchronousCompletionTask {
-        volatile Completion next;      // Treiber stack link
 
-        /**
-         * Performs completion action if triggered, returning a
-         * dependent that may need propagation, if one exists.
-         *
-         * @param mode SYNC, ASYNC, or NESTED
-         */
-        abstract MyCompletableFuture<?> tryFire(int mode);
-
-        /** Returns true if possibly still triggerable. Used by cleanStack. */
-        abstract boolean isLive();
-
-        public final void run()                { tryFire(ASYNC); }
-        public final boolean exec()            { tryFire(ASYNC); return false; }
-        public final Void getRawResult()       { return null; }
-        public final void setRawResult(Void v) {}
-    }
 
     static final class AltResult { // See above
         final Throwable ex;        // null only for NIL
@@ -206,8 +186,8 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         try {
             MethodHandles.Lookup l = MethodHandles.lookup();
             RESULT = l.findVarHandle(MyCompletableFuture.class, "result", Object.class);
-            STACK = l.findVarHandle(MyCompletableFuture.class, "stack", Completion.class);
-            NEXT = l.findVarHandle(Completion.class, "next", Completion.class);
+            STACK = l.findVarHandle(MyCompletableFuture.class, "stack", MyCompletion.class);
+            NEXT = l.findVarHandle(MyCompletion.class, "next", MyCompletion.class);
         } catch (ReflectiveOperationException e) {
             throw new ExceptionInInitializerError(e);
         }
