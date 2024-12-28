@@ -18,7 +18,7 @@ public abstract class Completion extends ForkJoinTask<Void> implements Runnable,
     /**
      * Returns true if possibly still triggerable. Used by cleanStack.
      */
-    abstract boolean isLive();
+    public abstract boolean isLive();
 
     public final void run() {
         tryFire(MyCompletableFuture.ASYNC);

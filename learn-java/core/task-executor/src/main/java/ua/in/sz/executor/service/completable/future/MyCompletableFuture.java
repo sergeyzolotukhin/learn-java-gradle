@@ -3,11 +3,15 @@ package ua.in.sz.executor.service.completable.future;
 import ua.in.sz.executor.service.completable.future.impl.AltResult;
 import ua.in.sz.executor.service.completable.future.impl.AsyncSupply;
 import ua.in.sz.executor.service.completable.future.impl.Completion;
+import ua.in.sz.executor.service.completable.future.impl.UniCompose;
+import ua.in.sz.executor.service.completable.future.impl.UniRelay;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ForkJoinPool;
@@ -15,6 +19,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.LockSupport;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 // java.util.concurrent.FutureTask.cancel
@@ -75,6 +80,142 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         return STACK.compareAndSet(this, h, c);
     }
 
+    public final void unipush(Completion c) {
+        if (c != null) {
+            while (!tryPushStack(c)) {
+                if (result != null) {
+                    NEXT.set(c, null);
+                    break;
+                }
+            }
+            if (result != null)
+                c.tryFire(SYNC);
+        }
+    }
+
+    public final MyCompletableFuture<T> postFire(MyCompletableFuture<?> a, int mode) {
+        if (a != null && a.stack != null) {
+            Object r;
+            if ((r = a.result) == null)
+                a.cleanStack();
+            if (mode >= 0 && (r != null || a.result != null))
+                a.postComplete();
+        }
+        if (result != null && stack != null) {
+            if (mode < 0)
+                return this;
+            else
+                postComplete();
+        }
+        return null;
+    }
+
+    final void cleanStack() {
+        Completion p = stack;
+        // ensure head of stack live
+        for (boolean unlinked = false;;) {
+            if (p == null)
+                return;
+            else if (p.isLive()) {
+                if (unlinked)
+                    return;
+                else
+                    break;
+            }
+            else if (STACK.weakCompareAndSet(this, p, (p = p.next)))
+                unlinked = true;
+            else
+                p = stack;
+        }
+        // try to unlink first non-live
+        for (Completion q = p.next; q != null;) {
+            Completion s = q.next;
+            if (q.isLive()) {
+                p = q;
+                q = s;
+            } else if (NEXT.weakCompareAndSet(p, q, s))
+                break;
+            else
+                q = p.next;
+        }
+    }
+
+    public MyCompletableFuture<T> toCompletableFuture() {
+        return this;
+    }
+
+    // ================================================================================================================
+
+    public <U> MyCompletableFuture<U> thenComposeAsync(Function<? super T, ? extends MyCompletionStage<U>> fn, Executor executor) {
+        return uniComposeStage(screenExecutor(executor), fn);
+    }
+
+    private <V> MyCompletableFuture<V> uniComposeStage(Executor e, Function<? super T, ? extends MyCompletionStage<V>> f) {
+        if (f == null)
+            throw new NullPointerException();
+
+        MyCompletableFuture<V> d = newIncompleteFuture();
+        Object r, s;
+        Throwable x;
+
+        if ((r = result) == null) {
+            unipush(new UniCompose<T, V>(e, d, this, f));
+        } else {
+            if (r instanceof AltResult) {
+                if ((x = ((AltResult)r).ex) != null) {
+                    d.result = encodeThrowable(x, r);
+                    return d;
+                }
+                r = null;
+            }
+
+            try {
+                if (e != null) {
+                    e.execute(new UniCompose<T, V>(null, d, this, f));
+                } else {
+                    @SuppressWarnings("unchecked") T t = (T) r;
+                    MyCompletableFuture<V> g = f.apply(t).toCompletableFuture();
+                    if ((s = g.result) != null)
+                        d.result = encodeRelay(s);
+                    else
+                        g.unipush(new UniRelay<V,V>(d, g));
+                }
+            } catch (Throwable ex) {
+                d.result = encodeThrowable(ex);
+            }
+        }
+        return d;
+    }
+
+    public <U> MyCompletableFuture<U> newIncompleteFuture() {
+        return new MyCompletableFuture<U>();
+    }
+
+    static Object encodeThrowable(Throwable x, Object r) {
+        if (!(x instanceof CompletionException))
+            x = new CompletionException(x);
+        else if (r instanceof AltResult && x == ((AltResult)r).ex)
+            return r;
+        return new AltResult(x);
+    }
+
+    public final boolean completeThrowable(Throwable x, Object r) {
+        return RESULT.compareAndSet(this, null, encodeThrowable(x, r));
+    }
+
+    static Object encodeRelay(Object r) {
+        Throwable x;
+        if (r instanceof AltResult
+                && (x = ((AltResult)r).ex) != null
+                && !(x instanceof CompletionException))
+            r = new AltResult(new CompletionException(x));
+        return r;
+    }
+
+    public final boolean completeRelay(Object r) {
+        return RESULT.compareAndSet(this, null, encodeRelay(r));
+    }
+
     // ================================================================================================================
     // interface Future
     // ================================================================================================================
@@ -96,6 +237,7 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
     @Override
     public T get() throws InterruptedException, ExecutionException {
+        // TODO implement
         return null;
     }
 

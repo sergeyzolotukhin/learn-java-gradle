@@ -3,10 +3,12 @@ package ua.in.sz.executor.service.completable.future;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -18,17 +20,23 @@ public class MyCompletableFutureMain {
         log.info("Starting");
 
         try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
-            MyCompletableFuture<String> future = MyCompletableFuture.supplyAsync(new InfiniteTask(), executor)
-//                    .completeOnTimeout("timeout", 1, TimeUnit.SECONDS)
-//                    .orTimeout(1, TimeUnit.SECONDS)
-//                    .exceptionally(ex -> {
-//                        log.info("Timeout occurred: {}", ex.getMessage());
-//                        return "exceptionally";
-//                    })
-                    ;
+            MyCompletableFuture<String> future = MyCompletableFuture.supplyAsync(new InfiniteTask(), executor);
+
+            MyCompletableFuture<String> future1 = future.thenComposeAsync(
+                    (Function<String, MyCompletableFuture<String>>) s -> MyCompletableFuture.supplyAsync(
+                            () -> {
+                                String result = "Food Served" + s;
+                                log.info("Starting: {}", result);
+                                sleep(3);
+                                log.info("Ended: {}", result);
+                                return result;
+                            },
+                            executor),
+                    executor);
+
             log.info("Submitted");
 
-            String result = future.get();
+            String result = future1.get();
 
             log.info("Done {}, Canceled {}, state {}, result {}",
                     future.isDone(), future.isCancelled(), future.state(), result);
@@ -42,18 +50,13 @@ public class MyCompletableFutureMain {
         @Override
         @SneakyThrows
         public String get() {
-            for (int i = 0; i < 10; i++) {
-                TimeUnit.MILLISECONDS.sleep(500);
-                log.info("Waiting for {} seconds", 1);
-
-                if (Thread.interrupted()) {
-                    log.info("Task interrupted");
-//                    throw new InterruptedException();
-                    return null;
-                }
-            }
-
-            return null;
+            log.info("InfiniteTask");
+            return "InfiniteTask";
         }
+    }
+
+    @SneakyThrows
+    private static void sleep(long timeout) {
+        TimeUnit.SECONDS.sleep(timeout);
     }
 }
