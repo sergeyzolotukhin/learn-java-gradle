@@ -3,7 +3,6 @@ package ua.in.sz.executor.service.completable.future;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,12 +16,12 @@ import java.util.function.Supplier;
 @Slf4j
 public class MyCompletableFutureMain {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        log.info("Starting");
+        log.info("Starting app");
 
         try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
-            MyCompletableFuture<String> future = MyCompletableFuture.supplyAsync(new InfiniteTask(), executor);
+            MyCompletableFuture<String> future1 = MyCompletableFuture.supplyAsync(new FirstTask(), executor);
 
-            MyCompletableFuture<String> future1 = future.thenComposeAsync(
+            MyCompletableFuture<String> future2 = future1.thenComposeAsync(
                     (Function<String, MyCompletableFuture<String>>) s -> MyCompletableFuture.supplyAsync(
                             new SecondTask(s),
                             executor),
@@ -30,34 +29,36 @@ public class MyCompletableFutureMain {
 
             log.info("Submitted");
 
-            String result = future1.get();
+            String result = future2.get();
 
             log.info("Done {}, Canceled {}, state {}, result {}",
-                    future.isDone(), future.isCancelled(), future.state(), result);
+                    future1.isDone(), future1.isCancelled(), future1.state(), result);
 
         }
 
-        log.info("Ended");
+        log.info("Ended app");
+    }
+
+    static class FirstTask implements Supplier<String> {
+        @Override
+        @SneakyThrows
+        public String get() {
+            log.info("Starting FirstTask");
+//            sleep(2);
+            log.info("Ended FirstTask");
+            return "FirstTask";
+        }
     }
 
     static record SecondTask(String s) implements Supplier<String> {
         @Override
         @SneakyThrows
         public String get() {
-            String result = "Food Served" + s;
+            String result = "SecondTask " + s;
             log.info("Starting: {}", result);
-            sleep(3);
+            sleep(2);
             log.info("Ended: {}", result);
             return result;
-        }
-    }
-
-    static class InfiniteTask implements Supplier<String> {
-        @Override
-        @SneakyThrows
-        public String get() {
-            log.info("InfiniteTask");
-            return "InfiniteTask";
         }
     }
 

@@ -6,6 +6,7 @@ import ua.in.sz.executor.service.completable.future.MyCompletionStage;
 import java.util.concurrent.Executor;
 import java.util.function.Function;
 
+@SuppressWarnings("unchecked")
 public class UniCompose <T,V> extends UniCompletion<T,V> {
     Function<? super T, ? extends MyCompletionStage<V>> fn;
 
@@ -25,9 +26,13 @@ public class UniCompose <T,V> extends UniCompletion<T,V> {
         Object r;
         Throwable x;
 
-        if ((a = src) == null || (r = a.result) == null
-                || (d = dep) == null || (f = fn) == null)
+        if ((a = src) == null
+                || (r = a.result) == null
+                || (d = dep) == null
+                || (f = fn) == null
+        ) {
             return null;
+        }
 
         tryComplete:
         if (d.result == null) {
@@ -42,11 +47,12 @@ public class UniCompose <T,V> extends UniCompletion<T,V> {
             try {
                 if (mode <= 0 && !claim())
                     return null;
-                @SuppressWarnings("unchecked") T t = (T) r;
+
+                T t = (T) r;
                 MyCompletableFuture<V> g = f.apply(t).toCompletableFuture();
-                if ((r = g.result) != null)
+                if ((r = g.result) != null) {
                     d.completeRelay(r);
-                else {
+                } else {
                     g.unipush(new UniRelay<V,V>(d, g));
                     if (d.result == null)
                         return null;

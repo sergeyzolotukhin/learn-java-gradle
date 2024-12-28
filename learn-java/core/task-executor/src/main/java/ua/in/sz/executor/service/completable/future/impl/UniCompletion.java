@@ -5,9 +5,9 @@ import ua.in.sz.executor.service.completable.future.MyCompletableFuture;
 import java.util.concurrent.Executor;
 
 public abstract class UniCompletion<T,V> extends Completion {
-    Executor executor;                 // executor to use (null if none)
-    MyCompletableFuture<V> dep;          // the dependent to complete
-    MyCompletableFuture<T> src;          // source for action
+    Executor executor;                  // executor to use (null if none)
+    MyCompletableFuture<V> dep;         // the dependent to complete
+    MyCompletableFuture<T> src;         // source for action
 
     UniCompletion(Executor executor, MyCompletableFuture<V> dep, MyCompletableFuture<T> src) {
         this.executor = executor;
@@ -24,8 +24,10 @@ public abstract class UniCompletion<T,V> extends Completion {
     final boolean claim() {
         Executor e = executor;
         if (compareAndSetForkJoinTaskTag((short)0, (short)1)) {
-            if (e == null)
+            if (e == null) {
                 return true;
+            }
+
             executor = null; // disable
             e.execute(this);
         }

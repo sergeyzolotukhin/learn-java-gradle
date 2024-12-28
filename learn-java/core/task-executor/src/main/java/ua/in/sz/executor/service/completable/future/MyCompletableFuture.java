@@ -25,9 +25,12 @@ import java.util.function.Supplier;
 // java.util.concurrent.FutureTask.cancel
 public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
 
-    public volatile Object result;       // Either the result or boxed AltResult
-    volatile Completion stack;    // Top of Treiber stack of dependent actions
-
+    public volatile Object result;      // Either the result or boxed AltResult
+    /**
+     * This is reference to a head of a stack of a Completion
+     * Completion (next) -> Completion (next) -> .... -> Completion
+     */
+    volatile Completion stack;          // Top of Treiber stack of dependent actions
 
     public final boolean completeValue(T t) {
         return RESULT.compareAndSet(this, null, (t == null) ? NIL : t);
@@ -58,38 +61,6 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
                 }
                 f = (d = h.tryFire(NESTED)) == null ? this : d;
             }
-        }
-    }
-
-    public final boolean completeThrowable(Throwable x) {
-        return RESULT.compareAndSet(this, null, encodeThrowable(x));
-    }
-
-    static AltResult encodeThrowable(Throwable x) {
-        return new AltResult((x instanceof CompletionException) ? x : new CompletionException(x));
-    }
-
-    final void pushStack(Completion c) {
-        do {
-        } while (!tryPushStack(c));
-    }
-
-    final boolean tryPushStack(Completion c) {
-        Completion h = stack;
-        NEXT.set(c, h);         // CAS piggyback
-        return STACK.compareAndSet(this, h, c);
-    }
-
-    public final void unipush(Completion c) {
-        if (c != null) {
-            while (!tryPushStack(c)) {
-                if (result != null) {
-                    NEXT.set(c, null);
-                    break;
-                }
-            }
-            if (result != null)
-                c.tryFire(SYNC);
         }
     }
 
@@ -140,10 +111,47 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
         }
     }
 
+    public final boolean completeThrowable(Throwable x) {
+        return RESULT.compareAndSet(this, null, encodeThrowable(x));
+    }
+
+    static AltResult encodeThrowable(Throwable x) {
+        return new AltResult((x instanceof CompletionException) ? x : new CompletionException(x));
+    }
+
     public MyCompletableFuture<T> toCompletableFuture() {
         return this;
     }
 
+    // ================================================================================================================
+    // stack managments
+
+    final void pushStack(Completion c) {
+        do {
+        } while (!tryPushStack(c));
+    }
+
+    final boolean tryPushStack(Completion c) {
+        Completion h = stack;
+        NEXT.set(c, h);         // CAS piggyback
+        return STACK.compareAndSet(this, h, c);
+    }
+
+    public final void unipush(Completion c) {
+        if (c != null) {
+            while (!tryPushStack(c)) {
+                if (result != null) {
+                    NEXT.set(c, null);
+                    break;
+                }
+            }
+            if (result != null)
+                c.tryFire(SYNC);
+        }
+    }
+
+    // ================================================================================================================
+    // then compose
     // ================================================================================================================
 
     public <U> MyCompletableFuture<U> thenComposeAsync(Function<? super T, ? extends MyCompletionStage<U>> fn, Executor executor) {
@@ -151,8 +159,9 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
     }
 
     private <V> MyCompletableFuture<V> uniComposeStage(Executor e, Function<? super T, ? extends MyCompletionStage<V>> f) {
-        if (f == null)
+        if (f == null) {
             throw new NullPointerException();
+        }
 
         MyCompletableFuture<V> d = newIncompleteFuture();
         Object r, s;
@@ -184,6 +193,7 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
                 d.result = encodeThrowable(ex);
             }
         }
+
         return d;
     }
 
@@ -255,7 +265,10 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
     }
 
     static <U> MyCompletableFuture<U> asyncSupplyStage(Executor e, Supplier<U> f) {
-        if (f == null) throw new NullPointerException();
+        if (f == null) {
+            throw new NullPointerException();
+        }
+
         MyCompletableFuture<U> d = new MyCompletableFuture<U>();
         e.execute(new AsyncSupply<U>(d, f));
         return d;
