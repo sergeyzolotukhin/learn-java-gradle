@@ -3,6 +3,7 @@ package ua.in.sz.executor.service.completable.future;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,10 +30,11 @@ public class MyCompletableFutureMain {
 
             log.info("Submitted");
 
+//            sleep(6);
             String result = future2.get();
 
             log.info("Done {}, Canceled {}, state {}, result {}",
-                    future1.isDone(), future1.isCancelled(), future1.state(), result);
+                    future2.isDone(), future2.isCancelled(), future2.state(), result);
 
         }
 
