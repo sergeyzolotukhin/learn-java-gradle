@@ -17,7 +17,7 @@ import java.util.concurrent.TimeoutException;
  * <a href="https://stackoverflow.com/questions/12060279/is-it-possible-to-interrupt-a-specific-thread-of-an-executorservice">...</a>
  */
 @Slf4j
-public class TaskTimeoutMain {
+public class FutureTimeoutMain {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         log.info("Starting");
 
