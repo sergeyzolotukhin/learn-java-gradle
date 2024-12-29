@@ -73,17 +73,23 @@ public class MyCompletableFuture<T> implements Future<T>, MyCompletionStage<T> {
     public final MyCompletableFuture<T> postFire(MyCompletableFuture<?> a, int mode) {
         if (a != null && a.stack != null) {
             Object r;
-            if ((r = a.result) == null)
+            if ((r = a.result) == null) {
                 a.cleanStack();
-            if (mode >= 0 && (r != null || a.result != null))
+            }
+
+            if (mode >= 0 && (r != null || a.result != null)) {
                 a.postComplete();
+            }
         }
+
         if (result != null && stack != null) {
-            if (mode < 0)
+            if (mode < 0) {
                 return this;
-            else
+            } else {
                 postComplete();
+            }
         }
+
         return null;
     }
 

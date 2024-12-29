@@ -8,13 +8,24 @@ public class UniRelay<U, T extends U> extends UniCompletion<T,U> {
     }
 
     public final MyCompletableFuture<U> tryFire(int mode) {
-        MyCompletableFuture<U> d; MyCompletableFuture<T> a; Object r;
-        if ((a = src) == null || (r = a.result) == null
-                || (d = dep) == null)
+        MyCompletableFuture<U> d;
+        MyCompletableFuture<T> a;
+        Object r;
+
+        if ((a = src) == null
+                || (r = a.result) == null
+                || (d = dep) == null
+        ) {
             return null;
-        if (d.result == null)
+        }
+
+        if (d.result == null) {
             d.completeRelay(r);
-        src = null; dep = null;
+        }
+
+        src = null;
+        dep = null;
+
         return d.postFire(a, mode);
     }
 }
