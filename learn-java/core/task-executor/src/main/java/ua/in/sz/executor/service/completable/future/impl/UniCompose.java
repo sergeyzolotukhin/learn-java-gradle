@@ -45,8 +45,9 @@ public class UniCompose <T,V> extends UniCompletion<T,V> {
             }
 
             try {
-                if (mode <= 0 && !claim())
+                if (mode <= 0 && !claim()) {
                     return null;
+                }
 
                 T t = (T) r;
                 MyCompletableFuture<V> g = f.apply(t).toCompletableFuture();
@@ -54,8 +55,9 @@ public class UniCompose <T,V> extends UniCompletion<T,V> {
                     d.completeRelay(r);
                 } else {
                     g.unipush(new UniRelay<V,V>(d, g));
-                    if (d.result == null)
+                    if (d.result == null) {
                         return null;
+                    }
                 }
             } catch (Throwable ex) {
                 d.completeThrowable(ex);
