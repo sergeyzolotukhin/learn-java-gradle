@@ -46,7 +46,7 @@ public class MyCompletableFutureMain {
         @SneakyThrows
         public String get() {
             log.info("Starting FirstTask");
-//            sleep(2);
+            sleep(2);
             log.info("Ended FirstTask");
             return "FirstTask";
         }
