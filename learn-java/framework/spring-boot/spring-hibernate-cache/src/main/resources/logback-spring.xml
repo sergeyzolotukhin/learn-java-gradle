@@ -11,6 +11,8 @@
         </encoder>
     </appender>
 
+<!--    <logger name="ua.in.sz.hibernate.cache.impl.ScheduleServiceImpl" level="trace" />-->
+
     <!-- framework  -->
 
     <springProfile name="no-framework-log">

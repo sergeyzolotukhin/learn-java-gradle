@@ -2,12 +2,14 @@ package ua.in.sz.hibernate.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.ScheduleService;
 
 @Slf4j
 @Component
+@Order(0)
 public class InsertRunner implements CommandLineRunner {
 	private final ScheduleService scheduleService;
 
