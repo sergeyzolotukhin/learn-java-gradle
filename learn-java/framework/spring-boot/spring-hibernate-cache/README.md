@@ -71,3 +71,5 @@ Statistics[
 
 #### Query cache
 https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#caching-query-region
+https://www.baeldung.com/hibernate-second-level-cache
+https://infinispan.org/docs/stable/titles/hibernate/hibernate.html
