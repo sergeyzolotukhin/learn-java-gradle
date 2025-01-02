@@ -50,3 +50,21 @@ Statistics[
     query plan cache hits=0,
     query plan cache misses=0
 ]
+
+21:08:43.921 [main                ] INFO  | u.i.s.h.cache.JpaCacheApplication        - Starting JpaCacheApplication using Java 20 with PID 123464 (D:\projects-java\_learn-java-gradle\learn-java\framework\spring-boot\spring-hibernate-cache\build\classes\java\main started by szolotukhin in D:\projects-java\_learn-java-gradle)
+21:08:43.922 [main                ] INFO  | u.i.s.h.cache.JpaCacheApplication        - The following 2 profiles are active: "dev", "no-framework-log"
+21:08:45.293 [main                ] INFO  | u.i.s.h.cache.JpaCacheApplication        - Started JpaCacheApplication in 1.577 seconds (process running for 1.835)
+
+21:08:45.339 [main                ] INFO  | u.in.sz.hibernate.cache.QueryRunner      - QueryRunner first start
+21:08:45.565 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Schedule count: 90000, time 225.3 ms
+21:08:45.567 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache puts: 9
+21:08:45.567 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache hits: 89991
+21:08:45.567 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache misses: 9
+21:08:45.567 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Entities loaded: 9
+
+21:08:45.568 [main                ] INFO  | u.in.sz.hibernate.cache.QueryRunner      - QueryRunner second start
+21:08:45.754 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Schedule count: 90000, time 186.7 ms
+21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache puts: 9
+21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache hits: 179991
+21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache misses: 9
+21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Entities loaded: 9 
