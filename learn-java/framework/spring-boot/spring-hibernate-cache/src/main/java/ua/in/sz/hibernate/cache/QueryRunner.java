@@ -23,7 +23,7 @@ public class QueryRunner implements CommandLineRunner {
 	@SneakyThrows
 	public void run(String... args) {
 		log.info("QueryRunner first start");
-		scheduleService.query();
+		scheduleService.criteriaQuery();
 
 //		TimeUnit.SECONDS.sleep(0);
 

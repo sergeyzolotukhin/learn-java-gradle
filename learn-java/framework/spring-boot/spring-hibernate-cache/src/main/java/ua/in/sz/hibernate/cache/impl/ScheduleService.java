@@ -7,6 +7,8 @@ public interface ScheduleService {
 
 	void query();
 
+	void criteriaQuery();
+
 	void jpqlQuery();
 
 	void save(Schedule schedule);

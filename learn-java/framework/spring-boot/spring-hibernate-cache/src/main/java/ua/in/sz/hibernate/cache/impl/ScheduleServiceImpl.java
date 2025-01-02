@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -51,6 +52,37 @@ public class ScheduleServiceImpl implements ScheduleService {
 				names.add(StringUtils.trim(schedule.getName()));
 			}
 			entityManager.clear();
+		}
+
+		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
+
+		logStats();
+	}
+
+	@Override
+	public void criteriaQuery() {
+		Stopwatch stopwatch = Stopwatch.createStarted();
+
+		loadAll();
+
+		List<String> names = new ArrayList<>();
+		for (int j = 0; j < 10; j++) {
+			for (long id = 1; id < 10; id++) {
+
+				CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+
+				CriteriaQuery<Schedule> q = cb.createQuery(Schedule.class);
+				Root<Schedule> from = q.from(Schedule.class);
+				q.select(from);
+				Predicate equalId = cb.equal(from.get("id"), id);
+				q.where(equalId);
+
+				TypedQuery<Schedule> query = entityManager.createQuery(q);
+
+				Schedule schedule = entityManager.find(Schedule.class, id);
+				names.add(StringUtils.trim(schedule.getName()));
+			}
+//			entityManager.clear();
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
