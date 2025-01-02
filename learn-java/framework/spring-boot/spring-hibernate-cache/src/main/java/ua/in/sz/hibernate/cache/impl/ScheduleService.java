@@ -3,6 +3,8 @@ package ua.in.sz.hibernate.cache.impl;
 import java.util.List;
 
 public interface ScheduleService {
+	List<Schedule> loadAll();
+
 	void query();
 
 	void jpqlQuery();

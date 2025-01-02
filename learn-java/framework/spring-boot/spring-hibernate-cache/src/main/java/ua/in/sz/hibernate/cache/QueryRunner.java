@@ -25,9 +25,9 @@ public class QueryRunner implements CommandLineRunner {
 		log.info("QueryRunner first start");
 		scheduleService.query();
 
-		TimeUnit.SECONDS.sleep(0);
+//		TimeUnit.SECONDS.sleep(0);
 
-		log.info("QueryRunner second start");
-		scheduleService.query();
+//		log.info("QueryRunner second start");
+//		scheduleService.query();
 	}
 }
