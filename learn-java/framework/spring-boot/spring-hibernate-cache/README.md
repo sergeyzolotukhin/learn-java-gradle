@@ -73,3 +73,4 @@ Statistics[
 https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#caching-query-region
 https://www.baeldung.com/hibernate-second-level-cache
 https://infinispan.org/docs/stable/titles/hibernate/hibernate.html
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/persist/persistence-cache/persistence-cache.html#_controlling_whether_entities_may_be_cached
