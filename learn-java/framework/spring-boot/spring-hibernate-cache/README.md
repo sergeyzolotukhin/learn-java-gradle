@@ -67,4 +67,7 @@ Statistics[
 21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache puts: 9
 21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache hits: 179991
 21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Second level cache misses: 9
-21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Entities loaded: 9 
+21:08:45.755 [main                ] INFO  | u.i.s.h.c.impl.ScheduleServiceImpl       - Entities loaded: 9
+
+#### Query cache
+https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#caching-query-region
