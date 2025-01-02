@@ -28,15 +28,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 		Stopwatch stopwatch = Stopwatch.createStarted();
 
 		List<String> names = new ArrayList<>();
-		for (long i = 0; i < 10; i++) {
-			long id = i / 10_000L + 3L;
-
-			Schedule schedule = entityManager.find(Schedule.class, id);
-			names.add(StringUtils.trim(schedule.getName()));
-
-			if (i % 1000 == 0) {
-				entityManager.clear();
+		for (int j = 0; j < 10_000; j++) {
+			for (long id = 1; id < 10; id++) {
+				Schedule schedule = entityManager.find(Schedule.class, id);
+				names.add(StringUtils.trim(schedule.getName()));
 			}
+			entityManager.clear();
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
@@ -74,15 +71,20 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	private void logStats() {
-		if (log.isTraceEnabled()) {
-			Session session = (Session) entityManager.getDelegate();
-			log.trace("Session statistics: {}", session.getStatistics());
+		Session session = (Session) entityManager.getDelegate();
+		SessionFactory factory = session.getSessionFactory();
 
-			SessionFactory factory = session.getSessionFactory();
+		if (log.isTraceEnabled()) {
+			log.trace("Session statistics: {}", session.getStatistics());
 			log.trace("Session factory statistics: {}", factory.getStatistics());
 
 			log.trace("Session factory statistics:");
 			factory.getStatistics().logSummary();
 		}
+
+		log.info("Second level cache puts: {}", factory.getStatistics().getSecondLevelCachePutCount());
+		log.info("Second level cache hits: {}", factory.getStatistics().getSecondLevelCacheHitCount());
+		log.info("Second level cache misses: {}", factory.getStatistics().getSecondLevelCacheMissCount());
+		log.info("Entities loaded: {}", factory.getStatistics().getEntityLoadCount());
 	}
 }

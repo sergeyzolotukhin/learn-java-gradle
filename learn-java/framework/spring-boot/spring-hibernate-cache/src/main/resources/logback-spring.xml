@@ -12,6 +12,7 @@
     </appender>
 
 <!--    <logger name="ua.in.sz.hibernate.cache.impl.ScheduleServiceImpl" level="trace" />-->
+<!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="INFO" />-->
 
     <!-- framework  -->
 

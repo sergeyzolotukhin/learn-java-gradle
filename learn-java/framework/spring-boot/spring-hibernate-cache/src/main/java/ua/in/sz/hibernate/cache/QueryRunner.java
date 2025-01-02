@@ -22,10 +22,12 @@ public class QueryRunner implements CommandLineRunner {
 	@Override
 	@SneakyThrows
 	public void run(String... args) {
+		log.info("QueryRunner first start");
 		scheduleService.query();
 
 		TimeUnit.SECONDS.sleep(0);
 
+		log.info("QueryRunner second start");
 		scheduleService.query();
 	}
 }
