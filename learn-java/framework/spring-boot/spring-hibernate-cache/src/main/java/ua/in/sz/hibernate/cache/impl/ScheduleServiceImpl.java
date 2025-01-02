@@ -13,6 +13,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.jpa.QueryHints;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -78,11 +79,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 				q.where(equalId);
 
 				TypedQuery<Schedule> query = entityManager.createQuery(q);
+//				query.setHint(QueryHints.HINT_CACHEABLE, Boolean.FALSE);
+//				query.setHint(QueryHints.HINT_CACHE_MODE, "IGNORE");
 
 				Schedule schedule = entityManager.find(Schedule.class, id);
 				names.add(StringUtils.trim(schedule.getName()));
 			}
-//			entityManager.clear();
+			entityManager.clear();
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
