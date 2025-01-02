@@ -7,7 +7,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
 
     // caches
-//    implementation 'org.hibernate:hibernate-jcache'
     implementation 'org.ehcache:ehcache::jakarta'
     implementation 'org.hibernate.orm:hibernate-jcache'
 
