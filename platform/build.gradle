@@ -19,6 +19,15 @@ dependencies {
         api 'javax.annotation:javax.annotation-api:1.3.2'
         api 'jakarta.validation:jakarta.validation-api:3.0.2'
 
+        // cache
+        //        api 'org.ehcache:ehcache:3.8.1'
+        api 'org.ehcache:ehcache:3.10.8'
+
+        // orm
+//        api 'org.hibernate:hibernate-jcache:5.4.14.Final'
+        api 'org.hibernate.orm:hibernate-jcache:6.3.1.Final'
+
+
         // database
         api 'org.postgresql:postgresql:42.7.2'
         api 'org.liquibase:liquibase-core:4.25.0'
