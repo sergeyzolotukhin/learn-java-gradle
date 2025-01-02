@@ -50,7 +50,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 				Schedule schedule = entityManager.find(Schedule.class, id);
 				names.add(StringUtils.trim(schedule.getName()));
 			}
-//			entityManager.clear();
+			entityManager.clear();
 		}
 
 		log.info("Schedule count: {}, time {}", CollectionUtils.size(names), stopwatch);
