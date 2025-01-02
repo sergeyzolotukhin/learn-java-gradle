@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.ScheduleService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Component
 @Order(0)
@@ -19,8 +22,10 @@ public class InsertRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
+		List<Schedule> schedules = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
-			scheduleService.save(Schedule.builder().name(getClass().getCanonicalName() + " " + i).build());
+			schedules.add(Schedule.builder().name(getClass().getCanonicalName() + " " + i).build());
 		}
+		scheduleService.save(schedules);
 	}
 }

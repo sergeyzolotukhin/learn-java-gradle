@@ -66,6 +66,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 		logStats();
 	}
 
+	@Override
+	public void save(List<Schedule> schedules) {
+		schedules.forEach(this::save);
+
+		logStats();
+	}
+
 	public void save(Schedule schedule) {
 		entityManager.persist(schedule);
 	}
@@ -74,13 +81,17 @@ public class ScheduleServiceImpl implements ScheduleService {
 		Session session = (Session) entityManager.getDelegate();
 		SessionFactory factory = session.getSessionFactory();
 
+		log.info("Session statistics: {}", session.getStatistics());
 		if (log.isTraceEnabled()) {
-			log.trace("Session statistics: {}", session.getStatistics());
 			log.trace("Session factory statistics: {}", factory.getStatistics());
 
 			log.trace("Session factory statistics:");
-			factory.getStatistics().logSummary();
 		}
+
+		factory.getStatistics().logSummary();
+
+		log.info("Sessions opened: {}", factory.getStatistics().getSessionOpenCount());
+		log.info("Sessions closed: {}", factory.getStatistics().getSessionCloseCount());
 
 		log.info("Second level cache puts: {}", factory.getStatistics().getSecondLevelCachePutCount());
 		log.info("Second level cache hits: {}", factory.getStatistics().getSecondLevelCacheHitCount());
