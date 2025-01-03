@@ -20,7 +20,7 @@ dependencies {
 
     // caches
     implementation 'org.hibernate:hibernate-jcache:5.4.10.Final'
-    implementation 'org.ehcache:ehcache:3.8.1'
+    implementation 'org.ehcache:ehcache::jakarta'
 
 
     // data store

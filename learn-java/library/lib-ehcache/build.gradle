@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     // experimental
-    implementation 'org.ehcache:ehcache:3.8.1'
+    implementation 'org.ehcache:ehcache::jakarta'
 }
