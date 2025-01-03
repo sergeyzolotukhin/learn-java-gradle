@@ -279,3 +279,5 @@ https://github.com/jenkinsci/winrm-client-plugin
 #### Window Task Scheduler
 
 https://stackoverflow.com/questions/39745154/how-to-create-a-scheduler-task-in-window-task-scheduler-using-java
+
+https://plugins.jetbrains.com/plugin/8403-breakpoints-manager
