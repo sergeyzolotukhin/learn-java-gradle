@@ -12,12 +12,13 @@ import ua.in.sz.ehcache.loader.Loader;
 import ua.in.sz.ehcache.loader.impl.SlowLoader;
 
 import java.net.URL;
+import java.util.Objects;
 
 @Slf4j
-public class Application {
+public class EHCacheApplication {
 	@SneakyThrows
 	public static void main(String[] args) {
-		URL myUrl = Application.class.getResource("/ehcache.xml");
+		URL myUrl = Objects.requireNonNull(EHCacheApplication.class.getResource("/ehcache.xml"));
 		Configuration xmlConfig = new XmlConfiguration(myUrl);
 		CacheManager cacheManager = CacheManagerBuilder.newCacheManager(xmlConfig);
 		cacheManager.init();
@@ -36,7 +37,7 @@ public class Application {
 
 		sw.stop();
 
-		double average = sw.getTime() / 1000.0 / keys.length;
+		double average = sw.getDuration().toMillis() / 1000.0 / keys.length;
 		log.info("Execution time: {}, average: {} sec", sw, String.format("%.1f", average));
 
 		cacheManager.close();
