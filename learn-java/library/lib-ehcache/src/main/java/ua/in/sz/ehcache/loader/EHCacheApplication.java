@@ -13,6 +13,9 @@ import ua.in.sz.ehcache.loader.impl.SlowLoader;
 import java.net.URL;
 import java.util.Objects;
 
+/**
+ * https://www.ehcache.org/documentation/3.10/cache-event-listeners.html
+ */
 @Slf4j
 public class EHCacheApplication {
 	@SneakyThrows
