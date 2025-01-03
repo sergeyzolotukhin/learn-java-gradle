@@ -28,13 +28,17 @@ public class LogInsertIntegratorProvider implements IntegratorProvider {
 
     public static class LogInsertIntegrator implements Integrator {
         @Override
-        public void integrate(@UnknownKeyFor @NonNull @Initialized Metadata metadata, @UnknownKeyFor @NonNull @Initialized SessionFactoryImplementor sessionFactory, @UnknownKeyFor @NonNull @Initialized SessionFactoryServiceRegistry serviceRegistry) {
+        public void integrate(@UnknownKeyFor @NonNull @Initialized Metadata metadata,
+                              @UnknownKeyFor @NonNull @Initialized SessionFactoryImplementor sessionFactory,
+                              @UnknownKeyFor @NonNull @Initialized SessionFactoryServiceRegistry serviceRegistry
+        ) {
             EventListenerRegistry eventListenerRegistry = serviceRegistry.getService(EventListenerRegistry.class);
             eventListenerRegistry.appendListeners(EventType.POST_INSERT, LogInsertEventListener.INSTANCE);
         }
 
         @Override
-        public void disintegrate(@UnknownKeyFor @NonNull @Initialized SessionFactoryImplementor sessionFactory, @UnknownKeyFor @NonNull @Initialized SessionFactoryServiceRegistry serviceRegistry) {
+        public void disintegrate(@UnknownKeyFor @NonNull @Initialized SessionFactoryImplementor sessionFactory,
+                                 @UnknownKeyFor @NonNull @Initialized SessionFactoryServiceRegistry serviceRegistry) {
 
         }
     }
