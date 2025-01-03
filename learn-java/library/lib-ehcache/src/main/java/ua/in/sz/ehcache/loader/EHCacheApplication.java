@@ -1,4 +1,4 @@
-package ua.in.sz.ehcache;
+package ua.in.sz.ehcache.loader;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +8,6 @@ import org.ehcache.config.Configuration;
 import org.ehcache.config.builders.CacheManagerBuilder;
 import org.ehcache.xml.XmlConfiguration;
 import ua.in.sz.ehcache.loader.impl.CacheLoader;
-import ua.in.sz.ehcache.loader.Loader;
 import ua.in.sz.ehcache.loader.impl.SlowLoader;
 
 import java.net.URL;
