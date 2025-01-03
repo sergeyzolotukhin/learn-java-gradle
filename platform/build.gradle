@@ -9,8 +9,7 @@ javaPlatform {
 // https://github.com/gregwhitaker/gradle-platformbom-example
 // https://docs.gradle.org/current/userguide/java_platform_plugin.html#java_platform_plugin
 dependencies {
-    api platform('org.springframework.boot:spring-boot-dependencies:3.2.0')
-    // api platform('org.springframework.boot:spring-boot-dependencies:3.4.1')
+     api platform('org.springframework.boot:spring-boot-dependencies:3.4.1')
 
     constraints {
         api 'com.opencsv:opencsv:5.9'
@@ -22,10 +21,7 @@ dependencies {
 
         // cache
         api 'org.ehcache:ehcache:3.10.8:jakarta'
-
-        // orm
-        api 'org.hibernate.orm:hibernate-jcache:6.3.1.Final'
-
+        api 'org.hibernate:hibernate-jcache:6.6.1.Final'
 
         // database
         api 'org.postgresql:postgresql:42.7.2'
