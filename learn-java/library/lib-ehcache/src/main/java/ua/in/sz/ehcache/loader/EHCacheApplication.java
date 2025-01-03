@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Objects;
 
 /**
- * https://www.ehcache.org/documentation/3.10/cache-event-listeners.html
+ * <a href="https://www.ehcache.org/documentation/3.10/cache-event-listeners.html">...</a>
  */
 @Slf4j
 public class EHCacheApplication {
