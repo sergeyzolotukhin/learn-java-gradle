@@ -36,7 +36,7 @@ dependencies {
 
     // caches
     implementation 'org.hibernate:hibernate-jcache:5.4.14.Final'
-    implementation 'org.ehcache:ehcache:3.8.1'
+    implementation 'org.ehcache:ehcache::jakarta'
 
     // data store
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
