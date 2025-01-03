@@ -19,6 +19,8 @@ import java.util.Objects;
 
 /**
  * <a href="https://www.ehcache.org/documentation/3.10/cache-event-listeners.html">...</a>
+ * <p>
+ * <a href="https://howtodoinjava.com/spring-boot/spring-boot-ehcache-example/">...</a>
  */
 @Slf4j
 public class EHCacheListenerApplication {
