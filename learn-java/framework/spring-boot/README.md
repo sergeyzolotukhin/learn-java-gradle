@@ -20,3 +20,7 @@ https://www.baeldung.com/spring-componentscan-filter-type
 https://docs.spring.io/spring-framework/reference/testing/testcontext-framework/bootstrapping.html
 
 https://medium.com/@venkivenki4b6/spring-dynamically-register-beans-in-4-ways-at-run-time-c1dc45dcbeb9
+
+#### Spring Boot Maven Plugin Documentation
+
+https://docs.spring.io/spring-boot/docs/3.1.3/maven-plugin/reference/htmlsingle/#help
