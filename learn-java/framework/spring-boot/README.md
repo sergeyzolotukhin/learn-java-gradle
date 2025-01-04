@@ -26,3 +26,5 @@ https://medium.com/@venkivenki4b6/spring-dynamically-register-beans-in-4-ways-at
 https://docs.spring.io/spring-boot/docs/3.1.3/maven-plugin/reference/htmlsingle/#help
 https://stackoverflow.com/questions/23427745/how-to-put-a-directory-first-on-the-classpath-with-spring-boot
 https://docs.spring.io/spring-boot/specification/executable-jar/nested-jars.html
+
+https://github.com/springhow/spring-boot-war-example/tree/master
