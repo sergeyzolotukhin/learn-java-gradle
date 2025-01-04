@@ -70,5 +70,7 @@ https://gist.github.com/jaykhimani/b12243e94a883e9470d706edd90b26ac
 https://stackoverflow.com/questions/42766017/how-to-test-logging-in-junit5
 https://medium.com/nerd-for-tech/log4j2-and-junit-5-how-to-test-logs-with-junit-5-e5fa3eec82d2
 
+#### Intercepting and modifying logs in Logback
+https://www.sedooe.com/2017/04/intercepting-and-modifying-logs-in-logback/
 
 
