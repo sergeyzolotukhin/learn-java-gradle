@@ -281,3 +281,4 @@ https://github.com/jenkinsci/winrm-client-plugin
 https://stackoverflow.com/questions/39745154/how-to-create-a-scheduler-task-in-window-task-scheduler-using-java
 
 https://plugins.jetbrains.com/plugin/8403-breakpoints-manager
+https://github.com/marcin-bukowiecki/breakpoint-manager-plugin/tree/master
