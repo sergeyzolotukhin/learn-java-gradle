@@ -85,3 +85,5 @@ https://www.adeliosys.fr/articles/hibernate-monitoring/
 https://vladmihalcea.com/hibernate-statistics/
 
 hibernate.stats.factory = 
+
+https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/
