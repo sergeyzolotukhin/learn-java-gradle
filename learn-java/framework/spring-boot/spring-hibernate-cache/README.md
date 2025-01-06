@@ -84,9 +84,12 @@ https://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/ch20.html
 https://www.adeliosys.fr/articles/hibernate-monitoring/
 https://vladmihalcea.com/hibernate-statistics/
 
-hibernate.stats.factory = 
+hibernate.stats.factory =
+hibernate.session_factory.statement_inspector =
+https://vladmihalcea.com/hibernate-statementinspector/
 
 https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/
 
 https://mickaelb.com/post/assert-hibernate-sql-statements-count-in-tests/
 https://github.com/Lemick/hibernate-query-asserts/tree/main
+https://vladmihalcea.com/source-sql-query-hibernate/
