@@ -79,3 +79,4 @@ https://medium.com/@adikale123/listening-and-intercepting-events-hibernate-aaccd
 https://docs.jboss.org/hibernate/core/3.3/reference/en/html/events.html
 
 https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/performance.html
+https://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/ch20.html
