@@ -89,3 +89,4 @@ hibernate.stats.factory =
 https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/
 
 https://mickaelb.com/post/assert-hibernate-sql-statements-count-in-tests/
+https://github.com/Lemick/hibernate-query-asserts/tree/main
