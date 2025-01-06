@@ -76,3 +76,4 @@ https://infinispan.org/docs/stable/titles/hibernate/hibernate.html
 https://jakarta.ee/learn/docs/jakartaee-tutorial/current/persist/persistence-cache/persistence-cache.html#_controlling_whether_entities_may_be_cached
 
 https://medium.com/@adikale123/listening-and-intercepting-events-hibernate-aaccd04ab451
+https://docs.jboss.org/hibernate/core/3.3/reference/en/html/events.html
