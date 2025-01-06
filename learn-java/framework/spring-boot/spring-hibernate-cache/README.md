@@ -77,3 +77,5 @@ https://jakarta.ee/learn/docs/jakartaee-tutorial/current/persist/persistence-cac
 
 https://medium.com/@adikale123/listening-and-intercepting-events-hibernate-aaccd04ab451
 https://docs.jboss.org/hibernate/core/3.3/reference/en/html/events.html
+
+https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/performance.html
