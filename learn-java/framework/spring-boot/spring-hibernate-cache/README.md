@@ -82,3 +82,5 @@ https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/performance.html
 https://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/ch20.html
 
 https://www.adeliosys.fr/articles/hibernate-monitoring/
+https://vladmihalcea.com/hibernate-statistics/
+
