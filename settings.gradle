@@ -176,6 +176,7 @@ include 'learn-java:framework:spring-boot:spring-web-xml'
 // Hibernate
 // ====================================================================================================================
 include 'learn-java:library:lib-hibernate'
+include 'learn-java:library:lib-hibernate-5.4'
 //include 'hibernate:hibernate-xml-mapping'
 
 
