@@ -93,3 +93,10 @@ https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/
 https://mickaelb.com/post/assert-hibernate-sql-statements-count-in-tests/
 https://github.com/Lemick/hibernate-query-asserts/tree/main
 https://vladmihalcea.com/source-sql-query-hibernate/
+
+#### EntityGraph
+https://thorben-janssen.com/hibernate-performance-tuning/
+
+#### join fetch
+https://stackoverflow.com/questions/76393881/fetch-a-collection-in-criteria-api-multiselect
+https://www.initgrep.com/posts/java/jpa/select-values-in-criteria-queries
