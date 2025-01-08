@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cache;
+package ua.in.sz.hibernate.cache.runner;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -6,8 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import ua.in.sz.hibernate.cache.impl.ScheduleService;
-
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component

@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cache;
+package ua.in.sz.hibernate.cache.runner;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
