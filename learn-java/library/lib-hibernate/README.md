@@ -117,3 +117,5 @@ https://dev.to/rubyshiv/java-instrumentation-a-simple-working-example-in-java-4a
 
 
 ClassFileTransformer
+
+https://www.baeldung.com/jpa-entity-graph
