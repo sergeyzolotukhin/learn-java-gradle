@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.identifiers.generated.entities;
+package ua.in.sz.hibernate.identifiers.optimizer.pooled.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

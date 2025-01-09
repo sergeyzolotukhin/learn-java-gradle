@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.identifiers.generated;
+package ua.in.sz.hibernate.identifiers.optimizer.pooled;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -6,8 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ua.in.sz.hibernate.identifiers.generated.entities.CompositeDerivation;
-import ua.in.sz.hibernate.identifiers.generated.entities.PooledDerivation;
+import ua.in.sz.hibernate.identifiers.optimizer.pooled.entities.PooledDerivation;
 
 @Slf4j
 public class PooledGeneratedMain {
