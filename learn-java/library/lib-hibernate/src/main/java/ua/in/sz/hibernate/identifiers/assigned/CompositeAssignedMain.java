@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.identifiers.generated;
+package ua.in.sz.hibernate.identifiers.assigned;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ua.in.sz.hibernate.identifiers.generated.entities.CompositeAssignedDerivation;
+import ua.in.sz.hibernate.identifiers.assigned.entities.CompositeAssignedDerivation;
 
 @Slf4j
 public class CompositeAssignedMain {
