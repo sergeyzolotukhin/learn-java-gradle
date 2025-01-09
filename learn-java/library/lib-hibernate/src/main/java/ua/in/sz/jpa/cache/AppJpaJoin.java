@@ -16,29 +16,29 @@ import java.util.List;
 @Slf4j
 public class AppJpaJoin {
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE-CACHE");
-		EntityManager em = emf.createEntityManager();
+        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE-CACHE")) {
+			EntityManager em = emf.createEntityManager();
 
-		// model
-		Workspace workspace = Workspace.builder().name("Workspace 1").build();
-		workspace.add(Schedule.builder().name("Schedule 1").build());
-		workspace.add(Schedule.builder().name("Schedule 2").build());
+			// model
+			Workspace workspace = Workspace.builder().name("Workspace 1").build();
+			workspace.add(Schedule.builder().name("Schedule 1").build());
+			workspace.add(Schedule.builder().name("Schedule 2").build());
 
-		log.info("persist");
-		em.getTransaction().begin();
-		em.persist(workspace);
-		em.getTransaction().commit();
-		em.clear();
+			log.info("persist");
+			em.getTransaction().begin();
+			em.persist(workspace);
+			em.getTransaction().commit();
+			em.clear();
 
-		// JPA2 Meta model & criteria API
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
-		Root<Workspace> from = cq.from(Workspace.class);
-		from.join("schedules", JoinType.LEFT);
-		CriteriaQuery<Schedule> select = cq.select(from.get("schedules"));
-		List<Schedule> schedules = em.createQuery(select).getResultList();
+			// JPA2 Meta model & criteria API
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
+			Root<Workspace> from = cq.from(Workspace.class);
+			from.join("schedules", JoinType.LEFT);
+			CriteriaQuery<Schedule> select = cq.select(from.get("schedules"));
+			List<Schedule> schedules = em.createQuery(select).getResultList();
 
-		log.info("{}", schedules);
-
+			log.info("{}", schedules);
+		}
 	}
 }
