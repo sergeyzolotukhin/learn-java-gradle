@@ -5,8 +5,8 @@
              version="2.1">
     <persistence-unit name="PERSISTENCE">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ua.in.sz.hibernate.cache.impl.Schedule</class>
-        <class>ua.in.sz.hibernate.cache.impl.Workspace</class>
+        <class>ua.in.sz.hibernate.persistence.unit.entities.PersistenceUnitSchedule</class>
+        <class>ua.in.sz.hibernate.persistence.unit.entities.PersistenceUnitWorkspace</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
