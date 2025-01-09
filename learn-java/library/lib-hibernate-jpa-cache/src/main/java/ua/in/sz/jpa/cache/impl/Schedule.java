@@ -1,5 +1,7 @@
 package ua.in.sz.jpa.cache.impl;
 
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -27,25 +29,26 @@ import jakarta.persistence.Table;
 @Table(name = "SCHEDULE")
 @Synchronize("f")
 public class Schedule {
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
-	private Long id;
-	@Column(name = "NAME")
-	@EqualsAndHashCode.Include
-	private String name;
-	@ManyToOne
-	private Workspace workspace;
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
+    private Long id;
+    @Column(name = "NAME")
+    @EqualsAndHashCode.Include
+    private String name;
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "MY_FANCY_FK_NAME"))
+    private Workspace workspace;
 
-	public void setWorkspace(Workspace workspace) {
-		if (this.workspace != null) {
-			this.workspace.schedules.remove(this);
-		}
+    public void setWorkspace(Workspace workspace) {
+        if (this.workspace != null) {
+            this.workspace.schedules.remove(this);
+        }
 
-		this.workspace = workspace;
+        this.workspace = workspace;
 
-		if (this.workspace != null) {
-			this.workspace.schedules.add(this);
-		}
-	}
+        if (this.workspace != null) {
+            this.workspace.schedules.add(this);
+        }
+    }
 }
