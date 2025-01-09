@@ -10,6 +10,7 @@ import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.jpa.cache.impl.Schedule;
 import ua.in.sz.jpa.cache.impl.Workspace;
+import ua.in.sz.jpa.cache.impl.Workspace_;
 
 import java.util.List;
 
@@ -31,10 +32,11 @@ public class AppJpaJoin {
 			em.clear();
 
 			// JPA2 Meta model & criteria API
+			log.info("query");
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<Schedule> cq = cb.createQuery(Schedule.class);
 			Root<Workspace> from = cq.from(Workspace.class);
-			from.join("schedules", JoinType.LEFT);
+			from.join(Workspace_.SCHEDULES, JoinType.LEFT);
 			CriteriaQuery<Schedule> select = cq.select(from.get("schedules"));
 			List<Schedule> schedules = em.createQuery(select).getResultList();
 
