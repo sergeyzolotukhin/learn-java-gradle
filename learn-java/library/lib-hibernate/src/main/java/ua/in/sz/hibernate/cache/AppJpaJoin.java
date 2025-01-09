@@ -8,15 +8,20 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.cache.impl.Schedule;
 import ua.in.sz.hibernate.cache.impl.Workspace;
+import ua.in.sz.hibernate.dirty.check.model.DirtyParameter;
 
 import java.util.List;
 
 @Slf4j
 public class AppJpaJoin {
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE-CACHE");
 		EntityManager em = emf.createEntityManager();
 
 		// model

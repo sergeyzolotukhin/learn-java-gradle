@@ -17,4 +17,19 @@
             <property name="hibernate.show_sql" value="true" />
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="PERSISTENCE-CACHE">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ua.in.sz.hibernate.cache.impl.Schedule</class>
+        <class>ua.in.sz.hibernate.cache.impl.Workspace</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
 </persistence>
