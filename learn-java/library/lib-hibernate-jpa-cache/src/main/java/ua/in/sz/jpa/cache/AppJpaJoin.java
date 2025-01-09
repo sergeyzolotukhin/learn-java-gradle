@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 public class AppJpaJoin {
 	public static void main(String[] args) {
-        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE-CACHE")) {
+        try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE")) {
 			EntityManager em = emf.createEntityManager();
 
 			// model
