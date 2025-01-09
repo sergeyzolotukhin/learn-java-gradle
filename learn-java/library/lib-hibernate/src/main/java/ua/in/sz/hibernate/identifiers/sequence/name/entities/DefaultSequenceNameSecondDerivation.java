@@ -1,11 +1,9 @@
-package ua.in.sz.hibernate.identifiers.generated.entities;
+package ua.in.sz.hibernate.identifiers.sequence.name.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,11 +21,12 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "DERIVATION")
-public class DefaultSequenceNameDerivation {
+@Table(name = "SECOND_DERIVATION")
+public class DefaultSequenceNameSecondDerivation {
 	@Id
+//	@GeneratedValue(generator = "DefaultGenerator")
 	@GeneratedValue
-//	@SequenceGenerator(allocationSize = 25)
+//	@SequenceGenerator(allocationSize = 10)
 	@Column(name = "ID")
 	private Long id;
 

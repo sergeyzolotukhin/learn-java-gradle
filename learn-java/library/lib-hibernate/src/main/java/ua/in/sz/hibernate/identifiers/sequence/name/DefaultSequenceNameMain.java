@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.identifiers.generated;
+package ua.in.sz.hibernate.identifiers.sequence.name;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -6,8 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ua.in.sz.hibernate.identifiers.generated.entities.DefaultSequenceNameDerivation;
-import ua.in.sz.hibernate.identifiers.generated.entities.DefaultSequenceNameSecondDerivation;
+import ua.in.sz.hibernate.identifiers.sequence.name.entities.DefaultSequenceNameDerivation;
+import ua.in.sz.hibernate.identifiers.sequence.name.entities.DefaultSequenceNameSecondDerivation;
 
 @Slf4j
 public class DefaultSequenceNameMain {
@@ -17,7 +17,7 @@ public class DefaultSequenceNameMain {
                 SessionFactory sessionFactory = new MetadataSources(registry)
                         .addAnnotatedClass(DefaultSequenceNameDerivation.class)
                         .addAnnotatedClass(DefaultSequenceNameSecondDerivation.class)
-                        .addPackage("ua.in.sz.hibernate.identifiers.generated.entities")
+                        .addPackage("ua.in.sz.hibernate.identifiers.sequence.name")
                         .buildMetadata()
                         .buildSessionFactory()
         ) {

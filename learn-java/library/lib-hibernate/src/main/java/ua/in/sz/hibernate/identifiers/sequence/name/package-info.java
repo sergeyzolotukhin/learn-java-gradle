@@ -6,8 +6,5 @@
 //                @Parameter(name = "increment_size", value = "1000")
 //        }
 //)
-package ua.in.sz.hibernate.identifiers.generated.entities;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
+package ua.in.sz.hibernate.identifiers.sequence.name;
 
