@@ -1,11 +1,14 @@
 package ua.in.sz.jpa.persistence.unit.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -13,7 +16,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
-import org.hibernate.annotations.Synchronize;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,9 +29,8 @@ import org.hibernate.annotations.Synchronize;
 @FieldNameConstants
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "SCHEDULE")
-@Synchronize("f")
-public class PersistenceUnitSchedule {
+@Table(name = "WORKSPACE")
+public class Workspace {
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")
@@ -33,18 +38,21 @@ public class PersistenceUnitSchedule {
 	@Column(name = "NAME")
 	@EqualsAndHashCode.Include
 	private String name;
-	@ManyToOne
-	private PersistenceUnitWorkspace workspace;
 
-	public void setWorkspace(PersistenceUnitWorkspace workspace) {
-		if (this.workspace != null) {
-			this.workspace.schedules.remove(this);
-		}
+	@OneToMany(mappedBy = "workspace", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Builder.Default
+	@Setter(AccessLevel.NONE)
+	protected Set<Schedule> schedules = new HashSet<>();
 
-		this.workspace = workspace;
+	public void add(Schedule schedule) {
+		schedule.setWorkspace(this);
+	}
 
-		if (this.workspace != null) {
-			this.workspace.schedules.add(this);
-		}
+	public void remove(Schedule schedule) {
+		schedule.setWorkspace(null);
+	}
+
+	public Set<Schedule> getSchedules() {
+		return Collections.unmodifiableSet(schedules);
 	}
 }
