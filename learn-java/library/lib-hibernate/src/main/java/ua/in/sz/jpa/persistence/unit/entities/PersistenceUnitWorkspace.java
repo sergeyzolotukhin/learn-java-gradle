@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.persistence.unit.entities;
+package ua.in.sz.jpa.persistence.unit.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

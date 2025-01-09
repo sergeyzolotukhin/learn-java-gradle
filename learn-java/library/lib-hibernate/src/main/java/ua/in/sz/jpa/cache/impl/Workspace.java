@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cache.impl;
+package ua.in.sz.jpa.cache.impl;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

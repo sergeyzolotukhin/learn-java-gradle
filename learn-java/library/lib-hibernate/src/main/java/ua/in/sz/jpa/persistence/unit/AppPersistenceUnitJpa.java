@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.persistence.unit;
+package ua.in.sz.jpa.persistence.unit;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import ua.in.sz.hibernate.persistence.unit.entities.PersistenceUnitSchedule;
-import ua.in.sz.hibernate.persistence.unit.entities.PersistenceUnitWorkspace;
+import ua.in.sz.jpa.persistence.unit.entities.PersistenceUnitSchedule;
+import ua.in.sz.jpa.persistence.unit.entities.PersistenceUnitWorkspace;
 
 import java.util.List;
 import java.util.stream.Collectors;

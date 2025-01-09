@@ -1,5 +1,11 @@
-package ua.in.sz.hibernate.cache.impl;
+package ua.in.sz.jpa.persistence.unit.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -8,13 +14,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.Synchronize;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Getter
 @Setter
@@ -26,7 +25,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "SCHEDULE")
 @Synchronize("f")
-public class Schedule {
+public class PersistenceUnitSchedule {
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")
@@ -35,9 +34,9 @@ public class Schedule {
 	@EqualsAndHashCode.Include
 	private String name;
 	@ManyToOne
-	private Workspace workspace;
+	private PersistenceUnitWorkspace workspace;
 
-	public void setWorkspace(Workspace workspace) {
+	public void setWorkspace(PersistenceUnitWorkspace workspace) {
 		if (this.workspace != null) {
 			this.workspace.schedules.remove(this);
 		}

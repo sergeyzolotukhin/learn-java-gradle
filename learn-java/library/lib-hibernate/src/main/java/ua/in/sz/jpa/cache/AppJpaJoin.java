@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cache;
+package ua.in.sz.jpa.cache;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -8,13 +8,8 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ua.in.sz.hibernate.cache.impl.Schedule;
-import ua.in.sz.hibernate.cache.impl.Workspace;
-import ua.in.sz.hibernate.dirty.check.model.DirtyParameter;
+import ua.in.sz.jpa.cache.impl.Schedule;
+import ua.in.sz.jpa.cache.impl.Workspace;
 
 import java.util.List;
 
