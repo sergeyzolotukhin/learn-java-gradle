@@ -59,12 +59,8 @@ public class AppHibernate {
                 log.info("Attributes: {}", attribute);
             }
 
-            sessionFactory.getStatistics().logSummary();
-
             session.close();
             log.info("Session closed");
-
-
         } catch (Exception e) {
             log.error("Error: ", e);
             // The registry would be destroyed by the SessionFactory, but we

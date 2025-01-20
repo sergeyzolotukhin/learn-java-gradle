@@ -20,6 +20,7 @@
 
     <!-- Framework -->
     <logger name="org.hibernate" level="warn" />
+    <logger name="org.ehcache" level="warn" />
     <logger name="org.hibernate.orm.connections.pooling" level="ERROR" />
 
     <root level="INFO">
