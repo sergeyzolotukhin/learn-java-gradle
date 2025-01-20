@@ -7,6 +7,9 @@
 
     <!--    -->
     <logger name="org.hibernate.id.enhanced.SequenceStyleGenerator" level="debug" />
+<!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />-->
+    <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="info"/>
+
     <!--    <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />-->
     <!--    <logger name="org.hibernate.id.enhanced.PooledOptimizer" level="trace" />-->
 

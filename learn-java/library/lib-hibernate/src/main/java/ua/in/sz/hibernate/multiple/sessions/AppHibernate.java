@@ -59,6 +59,8 @@ public class AppHibernate {
                 log.info("Attributes: {}", attribute);
             }
 
+            sessionFactory.getStatistics().logSummary();
+
             session.close();
             log.info("Session closed");
 

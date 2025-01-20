@@ -9,8 +9,10 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.7.4'
     implementation 'com.h2database:h2'
 
-    // development
-//    runtimeOnly project(":proof-of-concept:idea-debug-support")
+    // caches
+    implementation 'org.ehcache:ehcache::jakarta'
+    implementation 'org.hibernate.orm:hibernate-jcache'
+//    implementation 'org.hibernate.orm:hibernate-ehcache:6.0.0.Alpha7'
 
     compileOnly 'org.projectlombok:lombok:1.18.34'
     compileOnly 'org.hibernate.orm:hibernate-jpamodelgen:6.6.1.Final'

@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 @Getter
@@ -24,6 +26,7 @@ import lombok.experimental.FieldNameConstants;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ATTRIBUTE")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Attribute {
 	@Id
 	@GeneratedValue
