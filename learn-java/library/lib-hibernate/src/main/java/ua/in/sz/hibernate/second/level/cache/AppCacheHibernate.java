@@ -62,30 +62,32 @@ public class AppCacheHibernate {
         try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "select")) {
 //            dump(sessionFactory.getCache());
 
-            Session session;
-            Derivation derivation;
-            Set<Attribute> attributes;
+            {
+                log.info("start session 1");
+                Session session = sessionFactory.openSession();
+                Derivation derivation = session.get(Derivation.class, derivationId);
+                Set<Attribute> attributes = derivation.getAttributes();
+                log.info("Attributes: {}", attributes.stream().count());
+                session.close();
+            }
 
-            log.info("start session 1");
-            session = sessionFactory.openSession();
-            derivation = session.get(Derivation.class, derivationId);
-            attributes = derivation.getAttributes();
-            log.info("Attributes: {}", attributes.stream().count());
-            session.close();
+            {
+                log.info("start session 2");
+                Session session = sessionFactory.openSession();
+                Derivation derivation = session.get(Derivation.class, derivationId);
+                Set<Attribute> attributes = derivation.getAttributes();
+                log.info("Attributes: {}", attributes.stream().count());
+                session.close();
+            }
 
-            log.info("start session 2");
-            session = sessionFactory.openSession();
-            derivation = session.get(Derivation.class, derivationId);
-            attributes = derivation.getAttributes();
-            log.info("Attributes: {}", attributes.stream().count());
-            session.close();
-
-            log.info("start session 3");
-            session = sessionFactory.openSession();
-            derivation = session.get(Derivation.class, derivationId);
-            attributes = derivation.getAttributes();
-            log.info("Attributes: {}", attributes.stream().count());
-            session.close();
+            {
+                log.info("start session 3");
+                Session session = sessionFactory.openSession();
+                Derivation derivation = session.get(Derivation.class, derivationId);
+                Set<Attribute> attributes = derivation.getAttributes();
+                log.info("Attributes: {}", attributes.stream().count());
+                session.close();
+            }
 
 //            dump(sessionFactory.getCache());
         }
