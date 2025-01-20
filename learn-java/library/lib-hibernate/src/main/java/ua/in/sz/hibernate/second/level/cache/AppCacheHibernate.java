@@ -6,8 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ua.in.sz.hibernate.multiple.sessions.entities.Attribute;
-import ua.in.sz.hibernate.multiple.sessions.entities.Derivation;
+import ua.in.sz.hibernate.second.level.cache.entities.Attribute;
+import ua.in.sz.hibernate.second.level.cache.entities.Derivation;
 
 import java.util.Set;
 
@@ -30,12 +30,14 @@ public class AppCacheHibernate {
             Derivation derivation;
             Set<Attribute> attributes;
 
+            log.info("start session 1");
             session = sessionFactory.openSession();
             derivation = session.get(Derivation.class, derivationId);
             attributes = derivation.getAttributes();
             log.info("Attributes: {}", attributes);
             session.close();
 
+            log.info("start session 2");
             session = sessionFactory.openSession();
             derivation = session.get(Derivation.class, derivationId);
             for (Attribute attribute : derivation.getAttributes()) {
@@ -43,6 +45,9 @@ public class AppCacheHibernate {
             }
 
             session.close();
+
+            log.info("Second level cache hits: {}" , sessionFactory.getStatistics().getSecondLevelCacheHitCount());
+            log.info("Second level cache misses: {}" , sessionFactory.getStatistics().getSecondLevelCacheMissCount());
 
 //            sessionFactory.getStatistics().logSummary();
         } catch (Exception e) {

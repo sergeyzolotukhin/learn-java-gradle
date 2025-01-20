@@ -7,14 +7,14 @@
 
     <!--    -->
     <logger name="org.hibernate.id.enhanced.SequenceStyleGenerator" level="debug" />
-<!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />-->
-    <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="info"/>
+    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />
+<!--    <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="info"/>-->
 
     <!--    <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />-->
     <!--    <logger name="org.hibernate.id.enhanced.PooledOptimizer" level="trace" />-->
 
     <!-- Trace SQL -->
-<!--    <logger name="org.hibernate.SQL" level="debug" />-->
+    <logger name="org.hibernate.SQL" level="debug" />
     <!-- Trace SQL binding parameters -->
 <!--    <logger name="org.hibernate.orm.jdbc.bind" level="trace" />-->
 
