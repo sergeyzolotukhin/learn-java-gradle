@@ -30,8 +30,8 @@ public class AppCacheHibernate {
 
             selectDerivation(sessionFactory, derivationId);
 
-            log.warn("Second level cache hits: {}" , sessionFactory.getStatistics().getSecondLevelCacheHitCount());
-            log.error("Second level cache misses: {}" , sessionFactory.getStatistics().getSecondLevelCacheMissCount());
+            log.info("Second level cache hits: {}" , sessionFactory.getStatistics().getSecondLevelCacheHitCount());
+            log.info("Second level cache misses: {}" , sessionFactory.getStatistics().getSecondLevelCacheMissCount());
 
 //            sessionFactory.getStatistics().logSummary();
         } catch (Exception e) {
