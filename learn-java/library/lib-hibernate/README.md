@@ -119,3 +119,15 @@ https://dev.to/rubyshiv/java-instrumentation-a-simple-working-example-in-java-4a
 ClassFileTransformer
 
 https://www.baeldung.com/jpa-entity-graph
+
+#### Logback
+
+${CONSOLE_LOG_PATTERN:
+-
+%clr(%d{${LOG_DATEFORMAT_PATTERN:-dd-MM-yy HH:mm:ss.SSS}}){faint} 
+%clr(${LOG_LEVEL_PATTERN:-%5p}) 
+%clr([%15.15t]){faint} 
+%clr(%-40.40logger{39}){cyan} 
+%clr(:){faint} 
+%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+}

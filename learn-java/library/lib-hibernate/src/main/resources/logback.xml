@@ -1,7 +1,20 @@
 <configuration>
+
+    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+        <MDCKey>step</MDCKey>
+        <Value>build</Value>
+        <OnMatch>DENY</OnMatch>
+    </turboFilter>
+
+    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+        <MDCKey>step</MDCKey>
+        <Value>insert</Value>
+        <OnMatch>DENY</OnMatch>
+    </turboFilter>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %highlight(%-5level) | %-9.9X{step} | %cyan(%-40.40logger{36}) - %msg %n</pattern>
         </encoder>
     </appender>
 
