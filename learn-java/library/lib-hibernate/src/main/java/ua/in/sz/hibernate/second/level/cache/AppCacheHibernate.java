@@ -6,11 +6,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cache.jcache.internal.JCacheRegionFactory;
+import org.hibernate.cache.spi.CacheImplementor;
 import org.hibernate.service.ServiceRegistry;
 import org.slf4j.MDC;
 import ua.in.sz.hibernate.second.level.cache.entities.Attribute;
 import ua.in.sz.hibernate.second.level.cache.entities.Derivation;
 
+import javax.cache.Cache;
+import javax.cache.CacheManager;
 import java.util.Set;
 
 @Slf4j
@@ -27,6 +31,7 @@ public class AppCacheHibernate {
                 SessionFactory sessionFactory = buildSessionFactory(registry);
         ) {
             Long derivationId = insertDerivation(sessionFactory);
+            sessionFactory.getCache().evictAllRegions();
 
             selectDerivation(sessionFactory, derivationId);
 
@@ -55,6 +60,8 @@ public class AppCacheHibernate {
 
     private static void selectDerivation(SessionFactory sessionFactory, Long derivationId) {
         try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "select")) {
+//            dump(sessionFactory.getCache());
+
             Session session;
             Derivation derivation;
             Set<Attribute> attributes;
@@ -63,16 +70,39 @@ public class AppCacheHibernate {
             session = sessionFactory.openSession();
             derivation = session.get(Derivation.class, derivationId);
             attributes = derivation.getAttributes();
-            log.info("Attributes: {}", attributes);
+            log.info("Attributes: {}", attributes.stream().count());
             session.close();
 
             log.info("start session 2");
             session = sessionFactory.openSession();
             derivation = session.get(Derivation.class, derivationId);
-            for (Attribute attribute : derivation.getAttributes()) {
-                log.info("Attributes: {}", attribute);
-            }
+            attributes = derivation.getAttributes();
+            log.info("Attributes: {}", attributes.stream().count());
             session.close();
+
+            log.info("start session 3");
+            session = sessionFactory.openSession();
+            derivation = session.get(Derivation.class, derivationId);
+            attributes = derivation.getAttributes();
+            log.info("Attributes: {}", attributes.stream().count());
+            session.close();
+
+//            dump(sessionFactory.getCache());
+        }
+    }
+
+    private static void dump(org.hibernate.Cache cache1) {
+        CacheImplementor cacheImplementor = cache1.unwrap(CacheImplementor.class);
+        JCacheRegionFactory regionFactory = (JCacheRegionFactory)cacheImplementor.getRegionFactory();
+        CacheManager cacheManager = regionFactory.getCacheManager();
+
+        for (String regionName : cacheImplementor.getCacheRegionNames()) {
+            log.info("Cache region: {}", regionName);
+
+            Cache<Object, Object> c = cacheManager.getCache(regionName);
+            for (Cache.Entry<Object, Object> e : c) {
+                log.info("{}: {}", e.getKey(), e.getValue());
+            }
         }
     }
 

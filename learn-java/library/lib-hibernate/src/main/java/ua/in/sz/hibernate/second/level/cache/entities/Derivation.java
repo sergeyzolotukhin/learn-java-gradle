@@ -44,6 +44,7 @@ public class Derivation {
 	@OneToMany(mappedBy = "derivation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Builder.Default
 	@Setter(AccessLevel.NONE)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	protected Set<Attribute> attributes = new HashSet<>();
 
 	public void add(Attribute attribute) {
