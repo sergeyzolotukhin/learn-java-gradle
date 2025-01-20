@@ -16,6 +16,11 @@
             <property name="jakarta.persistence.jdbc.password" value="" />
             <property name="hibernate.hbm2ddl.auto" value="create-drop" />
             <property name="hibernate.show_sql" value="true" />
+
+            <!-- https://stackoverflow.com/questions/76312361/hibernate-6-1-x-spring-boot-avoid-global-temporary-table-creation -->
+            <property name="hibernate.query.mutation_strategy" value="org.hibernate.query.sqm.mutation.internal.inline.InlineMutationStrategy" />
+            <property name="hibernate.query.mutation_strategy.global_temporary.create_tables" value="false" />
+            <property name="hibernate.query.mutation_strategy.global_temporary.drop_tables" value="false" />
         </properties>
     </persistence-unit>
 </persistence>
