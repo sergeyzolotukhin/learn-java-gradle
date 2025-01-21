@@ -1,5 +1,11 @@
 package ua.in.sz.hibernate.second.level.cache;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,7 +39,9 @@ public class AppCacheHibernate {
             Long derivationId = insertDerivation(sessionFactory);
             sessionFactory.getCache().evictAllRegions();
 
-            selectDerivation(sessionFactory, derivationId);
+//            selectDerivation(sessionFactory, derivationId);
+//            selectAttribute(sessionFactory, derivationId);
+            selectDerivationAttribute(sessionFactory, derivationId);
 
             log.info("Second level cache hits: {}" , sessionFactory.getStatistics().getSecondLevelCacheHitCount());
             log.info("Second level cache misses: {}" , sessionFactory.getStatistics().getSecondLevelCacheMissCount());
@@ -48,13 +56,32 @@ public class AppCacheHibernate {
         }
     }
 
-    private static SessionFactory buildSessionFactory(ServiceRegistry registry) {
-        try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "build")) {
-            return new MetadataSources(registry)
-                    .addAnnotatedClass(Derivation.class)
-                    .addAnnotatedClass(Attribute.class)
-                    .buildMetadata()
-                    .buildSessionFactory();
+    private static void selectAttribute(SessionFactory sessionFactory, Long derivationId) {
+        try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "select")) {
+            EntityManager em = sessionFactory.createEntityManager();
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Attribute> cq = cb.createQuery(Attribute.class);
+            Root<Attribute> pet = cq.from(Attribute.class);
+            cq.select(pet);
+            TypedQuery<Attribute> q = em.createQuery(cq);
+            q.getResultList();
+
+            dump(sessionFactory.getCache());
+        }
+    }
+
+    private static void selectDerivationAttribute(SessionFactory sessionFactory, Long derivationId) {
+        try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "select")) {
+            EntityManager em = sessionFactory.createEntityManager();
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Derivation> cq = cb.createQuery(Derivation.class);
+            Root<Derivation> pet = cq.from(Derivation.class);
+            cq.select(pet);
+            pet.fetch("attributes", JoinType.LEFT);
+            TypedQuery<Derivation> q = em.createQuery(cq);
+            q.getResultList();
+
+            dump(sessionFactory.getCache());
         }
     }
 
@@ -124,6 +151,16 @@ public class AppCacheHibernate {
             em.close();
 
             return derivation.getId();
+        }
+    }
+
+    private static SessionFactory buildSessionFactory(ServiceRegistry registry) {
+        try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "build")) {
+            return new MetadataSources(registry)
+                    .addAnnotatedClass(Derivation.class)
+                    .addAnnotatedClass(Attribute.class)
+                    .buildMetadata()
+                    .buildSessionFactory();
         }
     }
 }
