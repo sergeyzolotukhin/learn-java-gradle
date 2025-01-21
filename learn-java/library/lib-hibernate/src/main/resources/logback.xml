@@ -1,16 +1,16 @@
 <configuration>
 
-    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+<!--    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
         <MDCKey>step</MDCKey>
         <Value>build</Value>
         <OnMatch>DENY</OnMatch>
-    </turboFilter>
+    </turboFilter>-->
 
-    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+<!--    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
         <MDCKey>step</MDCKey>
         <Value>insert</Value>
         <OnMatch>DENY</OnMatch>
-    </turboFilter>
+    </turboFilter>-->
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -18,16 +18,16 @@
         </encoder>
     </appender>
 
-    <!--    -->
-    <logger name="org.hibernate.id.enhanced.SequenceStyleGenerator" level="debug" />
-    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />
+    <!-- Current task -->
+    <logger name="org.hibernate.event.internal.DefaultLoadEventListener" level="trace" />
+    <logger name="org.hibernate.event.internal.DefaultInitializeCollectionEventListener" level="trace" />
+
+    <!-- Hibernate statistic -->
+<!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />-->
 <!--    <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="info"/>-->
 
-    <!--    <logger name="org.hibernate.id.enhanced.SequenceStructure" level="debug" />-->
-    <!--    <logger name="org.hibernate.id.enhanced.PooledOptimizer" level="trace" />-->
-
     <!-- Trace SQL -->
-    <logger name="org.hibernate.SQL" level="debug" />
+<!--    <logger name="org.hibernate.SQL" level="debug" />-->
     <!-- Trace SQL binding parameters -->
 <!--    <logger name="org.hibernate.orm.jdbc.bind" level="trace" />-->
 
