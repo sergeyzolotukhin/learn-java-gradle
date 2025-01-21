@@ -60,7 +60,6 @@ public class AppCacheHibernate {
 
     private static void selectDerivation(SessionFactory sessionFactory, Long derivationId) {
         try (MDC.MDCCloseable ignored = MDC.putCloseable(MDC_STEP, "select")) {
-//            dump(sessionFactory.getCache());
 
             {
                 log.info("start session 1");
@@ -89,7 +88,7 @@ public class AppCacheHibernate {
                 session.close();
             }
 
-//            dump(sessionFactory.getCache());
+            dump(sessionFactory.getCache());
         }
     }
 
