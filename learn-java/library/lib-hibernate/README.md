@@ -131,3 +131,12 @@ ${CONSOLE_LOG_PATTERN:
 %clr(:){faint} 
 %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
 }
+
+#### Prevent spontaneous cache creation
+hibernate.javax.cache.missing_cache_strategy 
+create
+
+https://www.ehcache.org/blog/2017/03/15/spontaneous-cache-creation.html
+https://thorben-janssen.com/hibernate-ehcache/
+
+https://docs.jboss.org/hibernate/orm/6.5/userguide/html_single/Hibernate_User_Guide.html#caching-provider-jcache-missing-cache-strategy
