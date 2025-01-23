@@ -140,3 +140,7 @@ https://www.ehcache.org/blog/2017/03/15/spontaneous-cache-creation.html
 https://thorben-janssen.com/hibernate-ehcache/
 
 https://docs.jboss.org/hibernate/orm/6.5/userguide/html_single/Hibernate_User_Guide.html#caching-provider-jcache-missing-cache-strategy
+
+CacheManagerEventListener
+@CacheConfig
+https://www.baeldung.com/spring-cache-tutorial#5-cacheconfig
