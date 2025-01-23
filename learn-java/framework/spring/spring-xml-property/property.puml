@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class PropertySource
+abstract class EnumerablePropertySource
+class MapPropertySource
+class PropertiesPropertySource
+class ResourcePropertySource
+
+interface PropertySources
+class MutablePropertySources
+
+interface PropertyResolver
+interface Environment
+interface ConfigurableEnvironment
+abstract class AbstractEnvironment
+class StandardEnvironment
+class ApplicationEnvironment
+
+interface ConfigurablePropertyResolver
+abstract class AbstractPropertyResolver
+class PropertySourcesPropertyResolver
+
+PropertySource <|-- EnumerablePropertySource
+EnumerablePropertySource <|-- MapPropertySource
+MapPropertySource <|-- PropertiesPropertySource
+PropertiesPropertySource <|-- ResourcePropertySource
+
+PropertySources <|.. MutablePropertySources
+
+PropertyResolver <|.. Environment
+Environment <|.. ConfigurableEnvironment
+ConfigurableEnvironment <|.. AbstractEnvironment
+AbstractEnvironment <|-- StandardEnvironment
+StandardEnvironment <|-- ApplicationEnvironment
+
+PropertyResolver <|-- ConfigurablePropertyResolver
+ConfigurablePropertyResolver <|.. AbstractPropertyResolver
+AbstractPropertyResolver <|-- PropertySourcesPropertyResolver
+
+@enduml
