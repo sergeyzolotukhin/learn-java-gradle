@@ -6,6 +6,10 @@ abstract class EnumerablePropertySource
 class MapPropertySource
 class PropertiesPropertySource
 class ResourcePropertySource
+class CompositePropertySource
+abstract class CommandLinePropertySource
+class SimpleCommandLinePropertySource
+class SystemEnvironmentPropertySource
 
 interface PropertySources
 class MutablePropertySources
@@ -24,7 +28,11 @@ class PropertySourcesPropertyResolver
 PropertySource <|-- EnumerablePropertySource
 EnumerablePropertySource <|-- MapPropertySource
 MapPropertySource <|-- PropertiesPropertySource
+MapPropertySource <|-- SystemEnvironmentPropertySource
 PropertiesPropertySource <|-- ResourcePropertySource
+EnumerablePropertySource <|-- CompositePropertySource
+EnumerablePropertySource <|-- CommandLinePropertySource
+CommandLinePropertySource <|-- SimpleCommandLinePropertySource
 
 PropertySources <|.. MutablePropertySources
 
