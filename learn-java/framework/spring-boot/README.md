@@ -39,3 +39,5 @@ https://docs.oracle.com/javase/9/tools/java.htm#JSWOR-GUID-4856361B-8BFD-4964-AE
 
 #### 9.2. Maven Properties
 https://books.sonatype.com/mvnref-book/reference/resource-filtering-sect-properties.html
+https://github.com/pascalgn/properties-maven-extension
+
