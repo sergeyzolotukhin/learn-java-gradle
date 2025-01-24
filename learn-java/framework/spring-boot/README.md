@@ -32,3 +32,7 @@ https://github.com/springhow/spring-boot-war-example/tree/master
 #### Spring JUnit Test Example
 https://examples.javacodegeeks.com/spring-junit-test-example/
 https://docs.spring.io/spring-framework/reference/testing.html
+
+#### java Command-Line Argument Files
+https://medium.com/nipafx-news/java-argument-files-affiliations-and-lego-f5348e361f30
+https://docs.oracle.com/javase/9/tools/java.htm#JSWOR-GUID-4856361B-8BFD-4964-AE84-121F5F6CF111
