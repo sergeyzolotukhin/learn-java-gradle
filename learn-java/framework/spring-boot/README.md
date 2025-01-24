@@ -28,3 +28,7 @@ https://stackoverflow.com/questions/23427745/how-to-put-a-directory-first-on-the
 https://docs.spring.io/spring-boot/specification/executable-jar/nested-jars.html
 
 https://github.com/springhow/spring-boot-war-example/tree/master
+
+#### Spring JUnit Test Example
+https://examples.javacodegeeks.com/spring-junit-test-example/
+https://docs.spring.io/spring-framework/reference/testing.html
