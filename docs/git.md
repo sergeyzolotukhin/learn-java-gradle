@@ -22,3 +22,7 @@ git cat-file -p 973d4ae9450015c8bdbb8a59cd5d75480a44df7c
 git cat-file -p 96b04d2a60577f0c97ef30da471ae13cf62dd0ce
 
 git show-index < pack-b69b02f1911736ccd859e367b17a699019864c82.idx
+
+#### Improve your CI-CD-Workflow with Git-Notes
+https://medium.com/digitalfrontiers/git-your-stuff-together-storing-test-reports-along-your-sources-with-git-notes-f5c8068dc981
+https://dev.to/leehambley/effortlessly-maintain-a-high-quality-change-log-with-git-notes-4bm5
