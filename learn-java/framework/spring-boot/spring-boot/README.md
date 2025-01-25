@@ -19,3 +19,6 @@ https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsing
 https://stackoverflow.com/questions/28374000/spring-programmatically-generate-a-set-of-beans
 https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/custom-autowire-configurer.html
 https://blog.monosoul.dev/2020/09/21/how-to-customize-dependency-injection-in-spring-part-1/
+
+#### Spring Externalized Configuration
+https://docs.spring.io/spring-boot/reference/features/external-config.html
