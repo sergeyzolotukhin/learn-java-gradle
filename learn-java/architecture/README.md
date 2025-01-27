@@ -24,3 +24,4 @@ https://www.jetbrains.com/help/idea/spring-support.html
 #### ???
 
 https://www.baeldung.com/structurizr
+https://www.jhipster.tech/jdl/intro/
