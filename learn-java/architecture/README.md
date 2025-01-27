@@ -15,6 +15,7 @@ https://cylab.be/blog/117/automatic-uml-diagram-generation-for-maven-projects
 #### Spring to UML
 
 https://docs.spring.io/spring-modulith/reference/documentation.html
+https://docs.spring.io/spring-modulith/docs/current-SNAPSHOT/reference/html/
 
 #### Idea Spring support
 
