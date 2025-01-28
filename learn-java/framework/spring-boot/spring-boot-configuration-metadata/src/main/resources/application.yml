@@ -1,6 +1,6 @@
 acme:
   enabled: true
   security:
-    username: admin-name
-    password: admin-password
-    roles: [ USER-1, USER-2, ADMIN ]
+    password: password
+    username: superuser
+    roles: ['sdfs', 'sdfsdf']
