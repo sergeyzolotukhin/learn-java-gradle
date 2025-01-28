@@ -12,6 +12,9 @@ import java.util.List;
 @ToString
 @ConfigurationProperties("acme")
 public class AcmeProperties {
+    /**
+     * It is enabled something
+     */
     private boolean enabled;
     private Security security;
 
@@ -19,7 +22,7 @@ public class AcmeProperties {
     @Setter
     @ToString
     public static class Security {
-        private String username;
+        private String username = "superuser";
         private String password;
         private List<String> roles;
     }
