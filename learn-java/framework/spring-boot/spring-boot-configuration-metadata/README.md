@@ -12,3 +12,4 @@ https://github.com/1tontech/intellij-spring-assistant/tree/master
 https://plugins.jetbrains.com/plugin/21530-wl-spring-assistant
 
 https://github.com/jansorg/intellij-code-completion/tree/master
+https://www.plugin-dev.com/intellij/custom-language/code-completion/
