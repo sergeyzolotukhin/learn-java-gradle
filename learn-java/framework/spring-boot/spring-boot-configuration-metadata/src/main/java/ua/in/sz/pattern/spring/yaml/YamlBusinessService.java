@@ -11,7 +11,11 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class YamlBusinessService {
+
+    @Autowired
+    private AcmeProperties acmeProperties;
+
     void print() {
-        log.info("Hello");
+        log.info("Hello : {}", acmeProperties.getSecurity().getRoles());
     }
 }
