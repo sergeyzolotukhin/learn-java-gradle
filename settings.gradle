@@ -143,6 +143,7 @@ include 'learn-java:framework:spring:spring-xml-security'
 // spring boot
 // ====================================================================================================================
 include 'learn-java:framework:spring-boot:spring-boot'
+include 'learn-java:framework:spring-boot:spring-boot-configuration-metadata'
 include 'learn-java:framework:spring-boot:spring-dev-tools'
 include 'learn-java:framework:spring-boot:spring-dev-tools-lib'
 include 'learn-java:framework:spring-boot:spring-hibernate-cache'
