@@ -6,6 +6,7 @@ META-INF/spring-configuration-metadata.json
 https://docs.spring.io/spring-boot/specification/configuration-metadata/annotation-processor.html
 https://www.baeldung.com/configuration-properties-in-spring-boot
 https://www.geeksforgeeks.org/spring-boot-configurationproperties/
+https://100bitdarsh.medium.com/configurationproperties-a-powerful-tool-for-spring-boot-configuration-545adc3729d8
 
 #### IDEA
 https://plugins.jetbrains.com/plugin/17747-spring-boot-assistant
