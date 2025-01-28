@@ -8,3 +8,4 @@ https://docs.spring.io/spring-boot/specification/configuration-metadata/annotati
 #### IDEA
 https://plugins.jetbrains.com/plugin/17747-spring-boot-assistant
 https://github.com/flikas/idea-spring-boot-assistant/#readme
+https://github.com/1tontech/intellij-spring-assistant/tree/master
