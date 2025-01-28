@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Getter
 @Setter
-//@Component
+@Component
 public class BusinessService {
     void print() {
         log.info("Hello");

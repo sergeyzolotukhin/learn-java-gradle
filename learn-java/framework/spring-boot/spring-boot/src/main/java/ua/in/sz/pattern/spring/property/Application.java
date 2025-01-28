@@ -13,7 +13,7 @@ import org.springframework.core.env.Environment;
 
 @Slf4j
 //@Configuration
-//@SpringBootApplication
+@SpringBootApplication
 public class Application implements CommandLineRunner {
     private final Environment env;
 
