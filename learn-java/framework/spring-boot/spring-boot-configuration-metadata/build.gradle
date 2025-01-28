@@ -11,9 +11,10 @@ dependencies {
     // spring
     implementation 'org.springframework.boot:spring-boot-starter'
 //    implementation 'org.springframework.boot:spring-boot-loader:3.4.0'
+//    implementation "org.springframework.boot:spring-boot-configuration-processor"
 
     // runtime
-    runtimeOnly files('config')
+//    runtimeOnly files('config')
 
     // development
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"

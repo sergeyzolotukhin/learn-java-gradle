@@ -1,5 +1,5 @@
 acme:
-  enable: true
+  enabled: true
   security:
     username: admin-name
     password: admin-password
