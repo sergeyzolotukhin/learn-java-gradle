@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -16,6 +18,9 @@ public class AcmeProperties {
      * It is enabled something
      */
     private boolean enabled;
+    /**
+     * It is about security
+     */
     private Security security;
 
     @Getter
@@ -23,7 +28,10 @@ public class AcmeProperties {
     @ToString
     public static class Security {
         private String username = "superuser";
-        private String password;
-        private List<String> roles;
+        private String password = "password";
+        /**
+         * This is a list of role names
+         */
+        private List<String> roles = Arrays.asList("user", "admin");
     }
 }

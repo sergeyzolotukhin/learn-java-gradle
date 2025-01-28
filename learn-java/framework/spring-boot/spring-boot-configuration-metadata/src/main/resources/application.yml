@@ -3,7 +3,4 @@ acme:
   security:
     username: admin-name
     password: admin-password
-    roles:
-      - USER-1
-      - USER-2
-      - ADMIN
+    roles: [ USER-1, USER-2, ADMIN ]
