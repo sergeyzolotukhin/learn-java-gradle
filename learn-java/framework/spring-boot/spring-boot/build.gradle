@@ -3,6 +3,10 @@ plugins {
     id 'org.springframework.boot'
 }
 
+springBoot {
+    mainClass = 'ua.in.sz.pattern.spring.yaml.YamlApplication'
+}
+
 dependencies {
     // spring
     implementation 'org.springframework.boot:spring-boot-starter'
@@ -10,4 +14,7 @@ dependencies {
 
     // runtime
     runtimeOnly files('config')
+
+    // development
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
