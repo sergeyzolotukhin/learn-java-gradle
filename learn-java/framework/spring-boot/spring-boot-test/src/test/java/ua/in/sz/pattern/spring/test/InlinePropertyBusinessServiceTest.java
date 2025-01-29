@@ -19,10 +19,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(
-//        properties = { "business.service.name= Name From test" }
-//        properties = {
-//                "business.service.name = Name From test",
-//        },
         properties = """
             business.service.name = Name From test
         """
