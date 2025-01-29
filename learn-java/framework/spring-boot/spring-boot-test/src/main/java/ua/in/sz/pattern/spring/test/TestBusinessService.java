@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestBusinessService {
 
-    void print() {
-        log.info("Hello");
+    String hello() {
+        return "Hello world!";
     }
 }

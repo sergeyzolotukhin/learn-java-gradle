@@ -14,6 +14,6 @@ public class TestApplication {
         ConfigurableApplicationContext context = SpringApplication.run(TestApplication.class, args);
 
         TestBusinessService bean = context.getBean(TestBusinessService.class);
-        bean.print();
+        log.info("{}", bean.hello());
     }
 }
