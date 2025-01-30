@@ -24,3 +24,9 @@ https://stackoverflow.com/questions/11415711/programmatic-access-to-properties-c
 https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html
 
 AnnotationConfigApplicationContext
+
+#### What is PropertyPlaceholderConfigurer ?
+<context:property-placeholder/>
+PropertyPlaceholderAutoConfiguration
+org.springframework.context.config.PropertyPlaceholderBeanDefinitionParser
+https://dzone.com/articles/properties-spring
