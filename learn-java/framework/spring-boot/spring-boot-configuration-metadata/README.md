@@ -8,6 +8,9 @@ https://www.baeldung.com/configuration-properties-in-spring-boot
 https://www.geeksforgeeks.org/spring-boot-configurationproperties/
 https://100bitdarsh.medium.com/configurationproperties-a-powerful-tool-for-spring-boot-configuration-545adc3729d8
 
+#### Override
+https://github.com/spring-projects/spring-boot/issues/21626
+
 #### IDEA
 https://plugins.jetbrains.com/plugin/17747-spring-boot-assistant
 https://github.com/flikas/idea-spring-boot-assistant/#readme
