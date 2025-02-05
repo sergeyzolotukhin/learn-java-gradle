@@ -126,6 +126,7 @@ include 'learn-java:library:lib-junit-5:lib-junit-5-suite'
 // spring
 // ====================================================================================================================
 include 'learn-java:framework:spring:spring-annotation'
+include 'learn-java:framework:spring:spring-conversion-service'
 include 'learn-java:framework:spring:spring-annotation-message-source'
 include 'learn-java:framework:spring:spring-annotation-scope'
 include 'learn-java:framework:spring:spring-annotation-test'
