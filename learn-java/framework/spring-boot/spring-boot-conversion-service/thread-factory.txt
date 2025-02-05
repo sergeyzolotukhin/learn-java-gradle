@@ -36,4 +36,7 @@ ConverterFactory (org.springframework.core.convert.converter)
 
 org.springframework.core.convert.converter.Converter
 org.springframework.core.convert.converter.ConverterFactory
+org.springframework.core.convert.converter.GenericConverter
+org.springframework.core.convert.converter.ConditionalConverter
 org.springframework.core.convert.ConversionService
+org.springframework.context.support.ConversionServiceFactoryBean
