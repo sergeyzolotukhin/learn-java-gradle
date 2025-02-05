@@ -1,0 +1,39 @@
+ConverterRegistry (org.springframework.core.convert.converter)                                  -> spring-core-6.2.1.jar
+    ConfigurableConversionService (org.springframework.core.convert.support)                    -> spring-core-6.2.1.jar
+        GenericConversionService (org.springframework.core.convert.support)                     -> spring-core-6.2.1.jar
+            DefaultConversionService (org.springframework.core.convert.support)                 -> spring-core-6.2.1.jar
+            FormattingConversionService (org.springframework.format.support)                    -> spring-context-6.2.1.jar
+                ApplicationConversionService (org.springframework.boot.convert)                 -> spring-boot-3.4.1.jar
+                DefaultFormattingConversionService (org.springframework.format.support)         -> spring-context-6.2.1.jar
+                    WebConversionService (org.springframework.boot.autoconfigure.web.format)    -> spring-boot-autoconfigure-3.4.1.jar
+            TypeConverterConversionService in BindConverter (org.springframework.boot.context.properties.bind)  -> spring-boot-3.4.1.jar
+    FormatterRegistry (org.springframework.format)                                              -> spring-context-6.2.1.jar
+        FormattingConversionService (org.springframework.format.support)                        -> spring-context-6.2.1.jar
+            ApplicationConversionService (org.springframework.boot.convert)                     -> spring-boot-3.4.1.jar
+            DefaultFormattingConversionService (org.springframework.format.support)             -> spring-context-6.2.1.jar
+                WebConversionService (org.springframework.boot.autoconfigure.web.format)        -> spring-boot-autoconfigure-3.4.1.jar
+
+ConversionService (org.springframework.core.convert)
+    ConfigurableConversionService (org.springframework.core.convert.support)
+        GenericConversionService (org.springframework.core.convert.support)
+            DefaultConversionService (org.springframework.core.convert.support)
+            FormattingConversionService (org.springframework.format.support)
+                ApplicationConversionService (org.springframework.boot.convert)
+                DefaultFormattingConversionService (org.springframework.format.support)
+                    WebConversionService (org.springframework.boot.autoconfigure.web.format)
+            TypeConverterConversionService in BindConverter (org.springframework.boot.context.properties.bind)
+
+ConverterFactory (org.springframework.core.convert.converter)
+    CharacterToNumberFactory (org.springframework.core.convert.support)
+    IntegerToEnumConverterFactory (org.springframework.core.convert.support)
+    LenientObjectToEnumConverterFactory (org.springframework.boot.convert)
+        LenientBooleanToEnumConverterFactory (org.springframework.boot.convert)
+        LenientStringToEnumConverterFactory (org.springframework.boot.convert)
+    NumberToNumberConverterFactory (org.springframework.core.convert.support)
+    ReactiveAdapterConverterFactory in ReactiveWrapperConverters (org.springframework.data.repository.util)
+    StringToEnumConverterFactory (org.springframework.core.convert.support)
+    StringToNumberConverterFactory (org.springframework.core.convert.support)
+
+org.springframework.core.convert.converter.Converter
+org.springframework.core.convert.converter.ConverterFactory
+org.springframework.core.convert.ConversionService
