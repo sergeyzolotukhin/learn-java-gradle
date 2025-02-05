@@ -1,0 +1,1 @@
+https://dzone.com/articles/registering-spring-converters-via-interface
