@@ -6,6 +6,9 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 
 //    implementation 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+//    https://mapstruct.org/documentation/spring-extensions/reference/html/
+//    implementation 'org.mapstruct.extensions.spring:mapstruct-spring-extensions:1.1.2'
+
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
     // runtime
