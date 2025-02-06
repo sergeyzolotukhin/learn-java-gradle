@@ -30,6 +30,10 @@ public class JdbcBatchApplication {
 			connection.close();
 
 			connection = connectionToDatabase();
+			updateEmployerName(connection);
+			connection.close();
+
+			connection = connectionToDatabase();
 			queryEmployerName(connection);
 			connection.close();
 
@@ -67,6 +71,36 @@ public class JdbcBatchApplication {
 		long a = System.currentTimeMillis();
 
 		log.info("Inserted employer. Elapsed time: {} ms", a - b);
+	}
+
+	@SneakyThrows
+	private static void updateEmployerName(Connection connection) {
+//		log.info("Updating employer");
+
+		connection.setAutoCommit(false);
+
+		long b = System.currentTimeMillis();
+		PreparedStatement statement = connection.prepareStatement(
+				"update EMPLOYEE set EMPLOYEE_NAME = ? where EMPLOYEE_ID = ?");
+
+		for (int i = 0; i < 200_000; i++) {
+			statement.setString(1, String.format("Serhij Zolotukhin %d (Updated)", i));
+			statement.setString(2, String.format("id_%d", i));
+			statement.addBatch();
+
+			if (i % 1000 == 0) {
+				statement.executeBatch();
+			}
+		}
+
+		statement.executeBatch();
+
+		statement.close();
+		connection.commit();
+
+		long a = System.currentTimeMillis();
+
+		log.info("Updated employer. Elapsed time: {} ms", a - b);
 	}
 
 	@SneakyThrows
