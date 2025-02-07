@@ -21,3 +21,6 @@ https://stackoverflow.com/questions/6834677/jackson-mapper-post-construct/683483
 https://www.baeldung.com/java-json-schema-create-automatically
 
 https://stackoverflow.com/questions/66483578/spring-jackson-deserialize-object-with-reference-to-existing-object-by-id
+
+https://www.baeldung.com/jackson-advanced-annotations
+https://www.tutorialspoint.com/jackson_annotations/jackson_annotations_jsonidentityinfo.htm
