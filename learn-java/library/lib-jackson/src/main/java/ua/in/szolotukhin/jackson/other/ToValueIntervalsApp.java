@@ -1,10 +1,10 @@
-package ua.in.szolotukhin.jackson;
+package ua.in.szolotukhin.jackson.other;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.szolotukhin.jackson.json.MapperFactory;
-import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
-import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
+import ua.in.szolotukhin.jackson.other.json.MapperFactory;
+import ua.in.szolotukhin.jackson.other.model.AbstractRowDataProvider;
+import ua.in.szolotukhin.jackson.other.model.SchedulesRowDataProvider;
 
 import java.io.IOException;
 import java.nio.file.Files;

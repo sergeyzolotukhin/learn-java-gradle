@@ -1,4 +1,4 @@
-package ua.in.szolotukhin.jackson;
+package ua.in.szolotukhin.jackson.other;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.BeanDescription;

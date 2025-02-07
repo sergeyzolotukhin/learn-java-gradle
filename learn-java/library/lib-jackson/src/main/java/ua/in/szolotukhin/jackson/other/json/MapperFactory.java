@@ -1,12 +1,12 @@
-package ua.in.szolotukhin.jackson.json;
+package ua.in.szolotukhin.jackson.other.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import ua.in.szolotukhin.jackson.model.NoopRowDataProvider;
-import ua.in.szolotukhin.jackson.model.SchedulesFilter;
-import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
+import ua.in.szolotukhin.jackson.other.model.NoopRowDataProvider;
+import ua.in.szolotukhin.jackson.other.model.SchedulesFilter;
+import ua.in.szolotukhin.jackson.other.model.SchedulesRowDataProvider;
 
 // https://stackoverflow.com/questions/21384820/is-there-a-jackson-datatype-module-for-jdk8-java-time
 public final class MapperFactory {

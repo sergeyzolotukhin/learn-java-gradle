@@ -1,4 +1,4 @@
-package ua.in.szolotukhin.jackson.model;
+package ua.in.szolotukhin.jackson.other.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

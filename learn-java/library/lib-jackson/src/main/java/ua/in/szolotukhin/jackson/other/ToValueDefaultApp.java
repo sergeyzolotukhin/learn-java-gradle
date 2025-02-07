@@ -1,18 +1,17 @@
-package ua.in.szolotukhin.jackson;
+package ua.in.szolotukhin.jackson.other;
 
 import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.BeanDeserializerModifier;
 import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import lombok.extern.slf4j.Slf4j;
-import ua.in.szolotukhin.jackson.json.MapperFactory;
-import ua.in.szolotukhin.jackson.model.AbstractRowDataProvider;
-import ua.in.szolotukhin.jackson.model.SchedulesRowDataProvider;
+import ua.in.szolotukhin.jackson.other.json.MapperFactory;
+import ua.in.szolotukhin.jackson.other.model.AbstractRowDataProvider;
+import ua.in.szolotukhin.jackson.other.model.SchedulesRowDataProvider;
 
 import java.io.IOException;
 import java.nio.file.Files;

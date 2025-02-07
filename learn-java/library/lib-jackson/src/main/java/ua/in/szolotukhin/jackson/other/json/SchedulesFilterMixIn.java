@@ -1,4 +1,4 @@
-package ua.in.szolotukhin.jackson.json;
+package ua.in.szolotukhin.jackson.other.json;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
