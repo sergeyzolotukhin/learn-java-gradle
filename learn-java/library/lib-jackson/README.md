@@ -40,3 +40,10 @@ spring-boot-3.4.1.jar
 
 #### Jackson Mixin
 https://medium.com/@shankar.ganesh.1234/jackson-mixin-a-simple-guide-to-a-powerful-feature-d984341dc9e2
+
+#### Merging Two JSON Documents Using Jackson
+https://stackoverflow.com/questions/9895041/merging-two-json-documents-using-jackson
+
+MyBean defaults = objectMapper.readValue(defaultJson, MyBean.class);
+ObjectReader updater = objectMapper.readerForUpdating(defaults);
+MyBean merged = updater.readValue(overridesJson);
