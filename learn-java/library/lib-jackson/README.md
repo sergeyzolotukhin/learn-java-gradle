@@ -33,3 +33,7 @@ https://github.com/ralscha/attic/blob/master/jacksonhibernate/src/main/java/ch/r
 #### JacksonInject
 https://www.concretepage.com/jackson-api/jackson-jacksoninject-example
 org.springframework.http.converter.json.SpringHandlerInstantiator.resolverIdGeneratorInstance
+
+#### jackson with spring bean
+https://www.baeldung.com/spring-boot-jsoncomponent
+spring-boot-3.4.1.jar
