@@ -17,3 +17,7 @@ https://docs.spring.io/spring-framework/reference/core/validation/convert.html#c
 
 https://mapstruct.org/documentation/spring-extensions/reference/html/
 https://github.com/mapstruct/mapstruct-spring-extensions/tree/main
+
+#### Question:
+How to call one mapper from another ?
+How to customize mapping for field ? 
