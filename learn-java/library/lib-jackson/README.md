@@ -19,3 +19,5 @@ lib-junit-5-hamcrest
 
 https://stackoverflow.com/questions/6834677/jackson-mapper-post-construct/6834831#6834831
 https://www.baeldung.com/java-json-schema-create-automatically
+
+https://stackoverflow.com/questions/66483578/spring-jackson-deserialize-object-with-reference-to-existing-object-by-id
