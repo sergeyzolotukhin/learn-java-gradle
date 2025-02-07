@@ -37,3 +37,6 @@ org.springframework.http.converter.json.SpringHandlerInstantiator.resolverIdGene
 #### jackson with spring bean
 https://www.baeldung.com/spring-boot-jsoncomponent
 spring-boot-3.4.1.jar
+
+#### Jackson Mixin
+https://medium.com/@shankar.ganesh.1234/jackson-mixin-a-simple-guide-to-a-powerful-feature-d984341dc9e2
