@@ -20,7 +20,8 @@ https://github.com/mapstruct/mapstruct-spring-extensions/tree/main
 
 #### Question:
 How to call one mapper from another ?
-How to customize mapping for field ? 
+How to customize mapping for field ?
+https://www.baeldung.com/mapstruct-custom-mapper
 
 #### merge
 https://www.baeldung.com/mapstruct-multiple-source-objects
