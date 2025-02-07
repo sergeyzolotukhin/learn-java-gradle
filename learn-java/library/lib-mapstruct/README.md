@@ -20,9 +20,11 @@ https://github.com/mapstruct/mapstruct-spring-extensions/tree/main
 
 #### Question:
 How to call one mapper from another ?
-https://mapstruct.org/documentation/stable/reference/html/#setup
+https://www.baeldung.com/java-mapstruct-nested-mapping
 How to customize mapping for field ?
 https://www.baeldung.com/mapstruct-custom-mapper
+
+https://mapstruct.org/documentation/stable/reference/html/#setup
 
 #### merge
 https://www.baeldung.com/mapstruct-multiple-source-objects
