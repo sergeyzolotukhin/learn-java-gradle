@@ -22,5 +22,14 @@ https://www.baeldung.com/java-json-schema-create-automatically
 
 https://stackoverflow.com/questions/66483578/spring-jackson-deserialize-object-with-reference-to-existing-object-by-id
 
+#### @JsonIdentityInfo
 https://www.baeldung.com/jackson-advanced-annotations
 https://www.tutorialspoint.com/jackson_annotations/jackson_annotations_jsonidentityinfo.htm
+
+#### ObjectIdResolver
+https://stackoverflow.com/questions/41989906/jackson-referencing-an-object-as-a-property
+https://github.com/ralscha/attic/blob/master/jacksonhibernate/src/main/java/ch/rasc/jacksonhibernate/Start.java
+
+#### JacksonInject
+https://www.concretepage.com/jackson-api/jackson-jacksoninject-example
+org.springframework.http.converter.json.SpringHandlerInstantiator.resolverIdGeneratorInstance
