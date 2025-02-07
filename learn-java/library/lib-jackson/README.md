@@ -50,3 +50,16 @@ MyBean merged = updater.readValue(overridesJson);
 
 #### @JsonMerge
 https://www.baeldung.com/java-jsonmerge-annotation-jackson
+
+#### Mergeable spring
+
+#### merge pojo
+https://github.com/amareensaleh/merge-pojos/tree/master
+https://medium.com/@joantolos/merging-two-objects-in-java-5bc43cd8ab74
+
+org.apache.commons.beanutils.BeanUtils.copyProperties
+
+#### merge with mapstruct
+https://www.youtube.com/watch?v=wBb7GcwYBnM&list=WL&index=1&ab_channel=GiuseppeScaramuzzino
+mapstruct processor ???
+@MappingTarget
