@@ -47,3 +47,6 @@ https://stackoverflow.com/questions/9895041/merging-two-json-documents-using-jac
 MyBean defaults = objectMapper.readValue(defaultJson, MyBean.class);
 ObjectReader updater = objectMapper.readerForUpdating(defaults);
 MyBean merged = updater.readValue(overridesJson);
+
+#### @JsonMerge
+https://www.baeldung.com/java-jsonmerge-annotation-jackson
