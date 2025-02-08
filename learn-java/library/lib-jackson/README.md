@@ -66,3 +66,6 @@ mapstruct processor ???
 
 #### yaml
 https://www.baeldung.com/java-snake-yaml 
+
+#### JsonPath
+https://github.com/json-path/JsonPath
