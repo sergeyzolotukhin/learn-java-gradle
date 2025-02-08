@@ -41,6 +41,9 @@ spring-boot-3.4.1.jar
 #### Jackson Mixin
 https://medium.com/@shankar.ganesh.1234/jackson-mixin-a-simple-guide-to-a-powerful-feature-d984341dc9e2
 
+#### Jackson Streaming API
+https://www.baeldung.com/jackson-streaming-api
+
 #### Merging Two JSON Documents Using Jackson
 https://stackoverflow.com/questions/9895041/merging-two-json-documents-using-jackson
 
