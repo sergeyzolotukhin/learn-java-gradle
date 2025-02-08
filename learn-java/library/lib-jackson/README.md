@@ -63,3 +63,6 @@ org.apache.commons.beanutils.BeanUtils.copyProperties
 https://www.youtube.com/watch?v=wBb7GcwYBnM&list=WL&index=1&ab_channel=GiuseppeScaramuzzino
 mapstruct processor ???
 @MappingTarget
+
+#### yaml
+https://www.baeldung.com/java-snake-yaml 
