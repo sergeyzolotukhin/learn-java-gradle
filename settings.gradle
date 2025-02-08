@@ -54,6 +54,7 @@ include 'learn-java:library:lib-guava-cache'
 include 'learn-java:library:lib-ehcache'
 include 'learn-java:library:lib-ehcache-2.6'
 include 'learn-java:library:lib-freemarker'
+include 'learn-java:library:lib-velocity'
 
 include 'learn-java:library:lib-logback:lib-logback-sandbox'
 include 'learn-java:library:lib-logback:lib-logback-additivity'
