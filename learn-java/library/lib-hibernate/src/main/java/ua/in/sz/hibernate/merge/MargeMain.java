@@ -8,8 +8,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.merge.entities.Group;
 
-import java.util.List;
-
 @Slf4j
 public class MargeMain {
     public static void main(String[] args) {
@@ -21,6 +19,7 @@ public class MargeMain {
                         .buildSessionFactory()
         ) {
             insertGroups(sessionFactory);
+            mergeGroups(sessionFactory);
             queryGroup(sessionFactory);
         } catch (Exception e) {
             log.error("Error: ", e);
@@ -34,20 +33,50 @@ public class MargeMain {
         Group group = s.byNaturalId(Group.class)
                 .using(Group.Fields.name, "GR_D")
                 .load();
-        log.info("Dep Step 3: {}", group);
+        log.info("Dep Step 3: {} children {}", group, group.getChildren());
         s.getTransaction().commit();
         s.close();
+    }
+
+    private static void mergeGroups(SessionFactory sessionFactory) {
+        Session em = sessionFactory.openSession();
+
+        // model
+        Group e = Group.builder().name("GR_E").build();
+
+        Group t = em.byNaturalId(Group.class)
+                .using(Group.Fields.name, "GR_D")
+                .load();
+
+        Group d = Group.builder()
+                .id(t.getId())
+                .name(t.getName())
+                .withChild(e)
+                .build();
+
+        em.getTransaction().begin();
+
+        em.persist(e);
+        em.merge(d);
+
+        log.info("merged");
+        em.getTransaction().commit();
+        em.clear();
+
+        em.close();
+
+        log.info("commited");
     }
 
     private static void insertGroups(SessionFactory sessionFactory) {
         Session em = sessionFactory.openSession();
 
         // model
-        Group a = Group.builder().name("GR_A").build();
-        Group b = Group.builder().name("GR_B").build();
-        Group c = Group.builder().name("GR_C").build();
+        Group a = Group.builder().name("GR_A").description("inserted").build();
+        Group b = Group.builder().name("GR_B").description("inserted").build();
+        Group c = Group.builder().name("GR_C").description("inserted").build();
 
-        Group d = Group.builder().name("GR_D")
+        Group d = Group.builder().name("GR_D").description("inserted")
                 .withChild(a)
                 .withChild(b)
                 .withParent(c)

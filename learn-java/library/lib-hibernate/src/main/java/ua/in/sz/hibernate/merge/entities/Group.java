@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SuppressWarnings("JpaDataSourceORMInspection")
+@EqualsAndHashCode
 @FieldNameConstants
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 @NoArgsConstructor
@@ -35,10 +37,14 @@ public class Group {
     @GeneratedValue
     @Column(name = "ID")
     private Long id;
-    @ToString.Include
     @NaturalId
     @Column(name = "NAME")
+    @ToString.Include
+    @EqualsAndHashCode.Include
     private String name;
+    @Column(name = "DESCRIPTION")
+    @ToString.Include
+    private String description;
 
     @OneToMany
 
