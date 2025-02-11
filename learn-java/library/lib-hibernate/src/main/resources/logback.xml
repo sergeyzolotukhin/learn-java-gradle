@@ -19,8 +19,8 @@
     </appender>
 
     <!-- Current task -->
-    <logger name="org.hibernate.event.internal.DefaultLoadEventListener" level="trace" />
-    <logger name="org.hibernate.event.internal.DefaultInitializeCollectionEventListener" level="trace" />
+<!--    <logger name="org.hibernate.event.internal.DefaultLoadEventListener" level="trace" />-->
+<!--    <logger name="org.hibernate.event.internal.DefaultInitializeCollectionEventListener" level="trace" />-->
 
     <!-- Hibernate statistic -->
 <!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />-->

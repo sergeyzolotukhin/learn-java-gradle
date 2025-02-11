@@ -47,7 +47,6 @@ public class Group {
     private String description;
 
     @OneToMany
-
     @JoinTable(name = "DEP_GROUP_TO_PARENT",
             foreignKey = @ForeignKey(name = "FK_PARENT_GR_01"),
             inverseForeignKey = @ForeignKey(name = "FK_PARENT_GR_2")
