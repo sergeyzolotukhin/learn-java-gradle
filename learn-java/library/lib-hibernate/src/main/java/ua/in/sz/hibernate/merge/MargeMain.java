@@ -84,8 +84,6 @@ public class MargeMain {
     private static void insertGroups(SessionFactory sessionFactory) {
         Session em = sessionFactory.openSession();
 
-        Determinant w = Determinant.builder().name("DET_W").build();
-
         Group a = Group.builder().name("GR_A").description("inserted").build();
         Group b = Group.builder().name("GR_B").description("inserted").build();
         Group c = Group.builder().name("GR_C").description("inserted").build();
@@ -94,7 +92,12 @@ public class MargeMain {
                 .withChild(a)
                 .withChild(b)
                 .withParent(c)
-                .withDeterminant(w)
+//                .withDeterminant(w)
+                .build();
+
+        Determinant w = Determinant.builder()
+                .name("DET_W")
+                .withGroup(d)
                 .build();
 
         em.getTransaction().begin();
