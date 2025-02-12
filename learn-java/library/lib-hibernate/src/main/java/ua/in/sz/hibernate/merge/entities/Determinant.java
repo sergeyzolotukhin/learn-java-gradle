@@ -61,6 +61,14 @@ public class Determinant {
         this.parentGroups.forEach(g -> g.getDeterminants().add(this));
     }
 
+    public boolean addParentGroup(Group group) {
+        boolean added = this.parentGroups.add(group);
+        if (added) {
+            group.addDeterminant(this);
+        }
+        return added;
+    }
+
     @SuppressWarnings("unused")
     public static class DeterminantBuilder {
         public DeterminantBuilder withGroup(Group parent) {

@@ -97,8 +97,11 @@ public class MargeMain {
 
         Determinant w = Determinant.builder()
                 .name("DET_W")
-                .withGroup(d)
+//                .withGroup(d)
                 .build();
+
+//        d.addDeterminant(w);
+        w.addParentGroup(d);
 
         em.getTransaction().begin();
 

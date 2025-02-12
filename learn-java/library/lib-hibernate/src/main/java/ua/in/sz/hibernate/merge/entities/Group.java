@@ -67,6 +67,14 @@ public class Group {
     @Builder.Default
     private Set<Determinant> determinants = new HashSet<>();
 
+    public boolean addDeterminant(Determinant determinant) {
+        boolean added = this.determinants.add(determinant);
+        if (added) {
+            determinant.addParentGroup(this);
+        }
+        return added;
+    }
+
     public Group(Long id, String name, String description, Set<Group> parents, Set<Group> children, Set<Determinant> determinants) {
         this.id = id;
         this.name = name;
