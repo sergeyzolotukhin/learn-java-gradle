@@ -65,6 +65,9 @@ public class MargeMain {
                 .using(Group.Fields.name, "GR_D")
                 .load();
 
+        boolean contains = em.contains(r);
+        boolean contains1 = em.contains(d);
+
         log.info("merged {} -> {}", Objects.toIdentityString(d), Objects.toIdentityString(r));
         em.getTransaction().commit();
         em.clear();
