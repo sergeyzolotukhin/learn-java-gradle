@@ -147,3 +147,5 @@ https://www.baeldung.com/spring-cache-tutorial#5-cacheconfig
 
 #### JPA and Hibernate Cascade Types
 https://vladmihalcea.com/a-beginners-guide-to-jpa-and-hibernate-cascade-types/
+
+https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate
