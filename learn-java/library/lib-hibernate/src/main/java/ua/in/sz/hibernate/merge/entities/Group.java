@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,7 +25,6 @@ import java.util.Set;
 @FieldNameConstants
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Getter
 @Setter
@@ -69,6 +67,16 @@ public class Group {
     @Builder.Default
     private Set<Determinant> determinants = new HashSet<>();
 
+    public Group(Long id, String name, String description, Set<Group> parents, Set<Group> children, Set<Determinant> determinants) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.parents = parents;
+        this.children = children;
+        this.determinants = determinants;
+
+        this.determinants.forEach(d -> d.getParentGroups().add(this));
+    }
 
     @SuppressWarnings("unused")
     public static class GroupBuilder {

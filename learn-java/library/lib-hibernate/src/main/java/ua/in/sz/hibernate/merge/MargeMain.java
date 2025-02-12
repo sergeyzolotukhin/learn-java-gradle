@@ -97,8 +97,6 @@ public class MargeMain {
                 .withDeterminant(w)
                 .build();
 
-        w.getParentGroups().add(d);
-
         em.getTransaction().begin();
 
         em.persist(w);
