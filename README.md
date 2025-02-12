@@ -9,6 +9,8 @@ I am using the Gradle build tool here.
 
 ### Gradle
 
+https://gradlex.org/build-parameters/
+
 #### learn-gradle - The learn-gradle directory contains everything which relates to the Gradle build tool
 
 #### How to make a gradle silent
