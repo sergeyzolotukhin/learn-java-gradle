@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SuppressWarnings("JpaDataSourceORMInspection")
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @FieldNameConstants
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 @NoArgsConstructor
@@ -61,6 +61,15 @@ public class Group {
     @Builder.Default
     private Set<Group> children = new HashSet<>();
 
+    @OneToMany
+    @JoinTable(name = "DEP_GROUP_TO_DETERMINANT",
+            foreignKey = @ForeignKey(name = "FK_GROUP_TO_DETERMINANT_1"),
+            inverseForeignKey = @ForeignKey(name = "FK_GROUP_TO_DETERMINANT_2")
+    )
+    @Builder.Default
+    private Set<Determinant> determinants = new HashSet<>();
+
+
     @SuppressWarnings("unused")
     public static class GroupBuilder {
         public GroupBuilder withParent(Group parent) {
@@ -78,6 +87,15 @@ public class Group {
             }
             this.children$value.add(child);
             this.children$set = true;
+            return this;
+        }
+
+        public GroupBuilder withDeterminant(Determinant determinant) {
+            if (this.determinants$value == null) {
+                this.determinants$value = new HashSet<>();
+            }
+            this.determinants$value.add(determinant);
+            this.determinants$set = true;
             return this;
         }
     }

@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ua.in.sz.hibernate.merge.entities.Determinant;
 import ua.in.sz.hibernate.merge.entities.Group;
 
 import java.util.Objects;
@@ -17,11 +18,12 @@ public class MargeMain {
         try (
                 SessionFactory sessionFactory = new MetadataSources(registry)
                         .addAnnotatedClass(Group.class)
+                        .addAnnotatedClass(Determinant.class)
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
             insertGroups(sessionFactory);
-            mergeGroups(sessionFactory);
+//            mergeGroups(sessionFactory);
             queryGroup(sessionFactory);
         } catch (Exception e) {
             log.error("Error: ", e);
@@ -32,10 +34,19 @@ public class MargeMain {
     private static void queryGroup(SessionFactory sessionFactory) {
         Session s = sessionFactory.openSession();
         s.getTransaction().begin();
+
         Group group = s.byNaturalId(Group.class)
                 .using(Group.Fields.name, "GR_D")
                 .load();
-        log.info("Dep Step 3: {} children {}", group, group.getChildren());
+        log.info("\nGroup: {} \n\tchildren: {}\n\tdeterminants: {}",
+                group, group.getChildren(), group.getDeterminants());
+
+        Determinant determinant = s.byNaturalId(Determinant.class)
+                .using(Determinant.Fields.name, "DET_W")
+                .load();
+        log.info("\nDeterminant: {} \n\tgroups: {}",
+                determinant, determinant.getParentGroups().stream().map(Group::getName).toList());
+
         s.getTransaction().commit();
         s.close();
     }
@@ -61,14 +72,7 @@ public class MargeMain {
         em.persist(e);
         em.merge(d);
 
-        Group r = em.byNaturalId(Group.class)
-                .using(Group.Fields.name, "GR_D")
-                .load();
-
-        boolean contains = em.contains(r);
-        boolean contains1 = em.contains(d);
-
-        log.info("merged {} -> {}", Objects.toIdentityString(d), Objects.toIdentityString(r));
+        log.info("merged");
         em.getTransaction().commit();
         em.clear();
 
@@ -80,7 +84,8 @@ public class MargeMain {
     private static void insertGroups(SessionFactory sessionFactory) {
         Session em = sessionFactory.openSession();
 
-        // model
+        Determinant w = Determinant.builder().name("DET_W").build();
+
         Group a = Group.builder().name("GR_A").description("inserted").build();
         Group b = Group.builder().name("GR_B").description("inserted").build();
         Group c = Group.builder().name("GR_C").description("inserted").build();
@@ -89,9 +94,14 @@ public class MargeMain {
                 .withChild(a)
                 .withChild(b)
                 .withParent(c)
+                .withDeterminant(w)
                 .build();
 
+        w.getParentGroups().add(d);
+
         em.getTransaction().begin();
+
+        em.persist(w);
 
         em.persist(a);
         em.persist(b);
