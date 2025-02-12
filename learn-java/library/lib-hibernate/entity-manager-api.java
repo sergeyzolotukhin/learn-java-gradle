@@ -121,17 +121,8 @@ public interface EntityManager extends AutoCloseable {
     public void persist(Object entity);
     public <T> T merge(T entity);
     public void remove(Object entity);
-
-    public void clear();
     public void detach(Object entity);
-    public void flush();
-    public void setFlushMode(FlushModeType flushMode);
-    public FlushModeType getFlushMode();
-    public void lock(Object entity, LockModeType lockMode);
-    public void lock(Object entity, LockModeType lockMode, Map<String, Object> properties);
-    public LockModeType getLockMode(Object entity);
-    public void setProperty(String propertyName, Object value);
-    public Map<String, Object> getProperties();
+
     public Query createQuery(String qlString);
     public <T> TypedQuery<T> createQuery(CriteriaQuery<T> criteriaQuery);
     public Query createQuery(CriteriaUpdate updateQuery);
@@ -142,19 +133,30 @@ public interface EntityManager extends AutoCloseable {
     public Query createNativeQuery(String sqlString);
     public Query createNativeQuery(String sqlString, Class resultClass);
     public Query createNativeQuery(String sqlString, String resultSetMapping);
+    public CriteriaBuilder getCriteriaBuilder();
+
+    public void flush();
+    public void clear();
+
+    public void setFlushMode(FlushModeType flushMode);
+    public FlushModeType getFlushMode();
+    public void lock(Object entity, LockModeType lockMode);
+    public void lock(Object entity, LockModeType lockMode, Map<String, Object> properties);
+    public LockModeType getLockMode(Object entity);
+    public void setProperty(String propertyName, Object value);
+    public Map<String, Object> getProperties();
     public StoredProcedureQuery createNamedStoredProcedureQuery(String name);
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName);
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName, Class... resultClasses);
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName, String... resultSetMappings);
     public void joinTransaction();
     public boolean isJoinedToTransaction();
+    public EntityTransaction getTransaction();
     public <T> T unwrap(Class<T> cls);
     public Object getDelegate();
     public void close();
     public boolean isOpen();
-    public EntityTransaction getTransaction();
     public EntityManagerFactory getEntityManagerFactory();
-    public CriteriaBuilder getCriteriaBuilder();
     public Metamodel getMetamodel();
     public <T> EntityGraph<T> createEntityGraph(Class<T> rootType);
     public EntityGraph<?> createEntityGraph(String graphName);
