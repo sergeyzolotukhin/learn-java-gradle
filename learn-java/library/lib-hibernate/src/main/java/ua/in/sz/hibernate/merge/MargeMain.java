@@ -8,6 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.merge.entities.Group;
 
+import java.util.Objects;
+
 @Slf4j
 public class MargeMain {
     public static void main(String[] args) {
@@ -59,7 +61,11 @@ public class MargeMain {
         em.persist(e);
         em.merge(d);
 
-        log.info("merged");
+        Group r = em.byNaturalId(Group.class)
+                .using(Group.Fields.name, "GR_D")
+                .load();
+
+        log.info("merged {} -> {}", Objects.toIdentityString(d), Objects.toIdentityString(r));
         em.getTransaction().commit();
         em.clear();
 
