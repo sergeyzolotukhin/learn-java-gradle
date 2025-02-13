@@ -1,1 +1,3 @@
 https://www.baeldung.com/jackson-yaml
+
+SimpleObjectIdResolver
