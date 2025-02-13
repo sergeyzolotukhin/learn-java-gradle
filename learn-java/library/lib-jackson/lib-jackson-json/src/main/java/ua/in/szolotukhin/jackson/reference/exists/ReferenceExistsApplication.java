@@ -18,21 +18,23 @@ public class ReferenceExistsApplication {
         Student[] students = createModel();
 
         String serialized = mapper.writeValueAsString(students);
-        log.info("Serialized: {}", serialized);
+        log.info("Serialized: \n{}", serialized);
 
         String input = """
-[ {
-  "id" : 1,
-  "name" : "Mary",
-  "school" : {
-    "id" : 1,
-    "name" : "St Magdalene's"
-  }
-}, {
-  "id" : 2,
-  "name" : "Bob",
-  "school" : 1
-} ]
+[
+    {
+      "name" : "Mary",
+      "id" : 1,
+      "school" : {
+        "name" : "St Magdalene's",
+        "id" : 1
+      }
+    }, {
+      "name" : "Bob",
+      "id" : 2,
+      "school" : "St Magdalene's"
+    }
+]
                 """;
 
         List<Student> ourStudents = Arrays.asList(mapper.readValue(input, Student[].class));

@@ -21,7 +21,7 @@ import ua.in.szolotukhin.jackson.reference.exists.CustomSimpleObjectIdResolver;
         scope = School.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         resolver = CustomSimpleObjectIdResolver.class,
-        property = "id"
+        property = "name"
 )
 public class School {
     private Integer id;
