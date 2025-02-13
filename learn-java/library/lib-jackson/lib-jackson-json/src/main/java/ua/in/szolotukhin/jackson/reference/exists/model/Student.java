@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import ua.in.szolotukhin.jackson.reference.exists.CustomSimpleObjectIdResolver;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,6 +17,7 @@ import lombok.ToString;
 @JsonIdentityInfo(
         scope = Student.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
+        resolver = CustomSimpleObjectIdResolver.class,
         property = "id")
 public class Student {
     private Integer id;
