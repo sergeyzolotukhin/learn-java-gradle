@@ -17,8 +17,6 @@ import java.util.List;
 @Setter
 @ToString
 public class Model {
-//    @Builder.Default
     private List<School> schools = new ArrayList<>();
     private List<Student> students = new ArrayList<>();
-
 }
