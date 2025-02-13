@@ -63,7 +63,7 @@ public class ReferenceExistsApplication {
         Student bob = new Student(2, "Bob", school);
         Student[] students = {mary, bob};
 
-        return new Model(Arrays.asList(school), Arrays.asList(students));
+        return new Model(List.of(school), Arrays.asList(students));
     }
 
     public static ObjectMapper createMapper() {
