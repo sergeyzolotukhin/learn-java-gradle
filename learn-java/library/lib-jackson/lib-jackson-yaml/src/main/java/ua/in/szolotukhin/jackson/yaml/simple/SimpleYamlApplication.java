@@ -21,8 +21,8 @@ public class SimpleYamlApplication {
         ObjectMapper mapper = createMapper();
 
         List<OrderLine> lines = new ArrayList<>();
-        lines.add(new OrderLine("Copper Wire (200ft)", 1, new BigDecimal(50.67).setScale(2, RoundingMode.HALF_UP)));
-        lines.add(new OrderLine("Washers (1/4\")", 24, new BigDecimal(.15).setScale(2, RoundingMode.HALF_UP)));
+        lines.add(new OrderLine("Copper Wire (200ft)", 1, new BigDecimal("50.67")));
+        lines.add(new OrderLine("Washers (1/4)", 24, new BigDecimal(".15")));
         Order order = new Order(
                 "B-9910",
                 LocalDate.parse("2019-04-18", DateTimeFormatter.ISO_DATE),
