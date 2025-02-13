@@ -13,7 +13,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@JsonIdentityInfo(scope = School.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+// @JsonIdentityInfo is used when objects have parent child relationship.
+// @JsonIdentityInfo is used to indicate
+// that object identity will be used during serialization/de-serialization.
+@JsonIdentityInfo(
+        scope = School.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class School {
     private Integer id;
     private String name;

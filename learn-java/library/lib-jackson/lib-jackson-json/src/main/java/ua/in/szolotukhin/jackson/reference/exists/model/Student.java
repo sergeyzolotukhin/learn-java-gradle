@@ -13,7 +13,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@JsonIdentityInfo(scope = Student.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(
+        scope = Student.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Student {
     private Integer id;
     private String name;
