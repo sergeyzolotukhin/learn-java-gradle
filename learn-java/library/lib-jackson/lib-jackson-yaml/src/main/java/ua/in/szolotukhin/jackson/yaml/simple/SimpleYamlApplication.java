@@ -21,6 +21,24 @@ public class SimpleYamlApplication {
         ObjectMapper mapper = createMapper();
 
         writeYaml(mapper);
+        readYaml(mapper);
+    }
+
+    private static void readYaml(ObjectMapper mapper) throws IOException {
+        Order order = mapper.readValue("""
+                orderNo: "B-9910"
+                date: "2019-04-18"
+                customerName: "Customer, Jane"
+                orderLines:
+                - item: "Copper Wire (200ft)"
+                  quantity: 1
+                  unitPrice: 50.67
+                - item: "Washers (1/4)"
+                  quantity: 24
+                  unitPrice: 0.15
+                """, Order.class);
+
+        log.info(order.toString());
     }
 
     private static void writeYaml(ObjectMapper mapper) throws IOException {
@@ -32,7 +50,8 @@ public class SimpleYamlApplication {
                 LocalDate.parse("2019-04-18", DateTimeFormatter.ISO_DATE),
                 "Customer, Jane",
                 lines);
-        mapper.writeValue(System.out, order);
+        String s = mapper.writeValueAsString(order);
+        log.info("\n{}", s);
     }
 
     public static ObjectMapper createMapper() {
