@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
+import ua.in.szolotukhin.jackson.reference.exists.container.Model;
 import ua.in.szolotukhin.jackson.reference.exists.model.School;
 import ua.in.szolotukhin.jackson.reference.exists.model.Student;
 
@@ -15,37 +16,47 @@ public class ReferenceExistsApplication {
     public static void main(String[] args) throws Exception {
         ObjectMapper mapper = createMapper();
 
-        Student[] students = createModel();
+        Model model = createModel();
 
-        String serialized = mapper.writeValueAsString(students);
+        String serialized = mapper.writeValueAsString(model);
         log.info("Serialized: \n{}", serialized);
 
         String input = """
-[
-    {
-      "name" : "Mary",
-      "id" : 1,
-      "school" : {
+{
+  "schools" :
+  [
+      {
         "name" : "St Magdalene's",
         "id" : 1
       }
-    }, {
-      "name" : "Bob",
-      "id" : 2,
-      "school" : "St Magdalene's"
-    }
-]
+  ],
+  "students" :
+  [
+      {
+        "name" : "Mary",
+        "id" : 1,
+        "school" : "St Magdalene's"
+      },
+      {
+        "name" : "Bob",
+        "id" : 2,
+        "school" : "St Magdalene's"
+      }
+  ]
+}
                 """;
 
-        List<Student> ourStudents = Arrays.asList(mapper.readValue(input, Student[].class));
-        log.info("Our students: {}", ourStudents);
+        Model out = mapper.readValue(input, Model.class);
+        log.info("Our students: {}", out.getStudents());
     }
 
-    private static Student[] createModel() {
+    private static Model createModel() {
         School school = new School(1, "St Magdalene's");
         Student mary = new Student(1, "Mary", school);
         Student bob = new Student(2, "Bob", school);
-        return new Student[]{mary, bob};
+        Student[] students = {mary, bob};
+
+        return new Model(Arrays.asList(school), Arrays.asList(students));
     }
 
     public static ObjectMapper createMapper() {
