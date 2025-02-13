@@ -1,5 +1,6 @@
 package ua.in.szolotukhin.jackson.reference.exists;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -16,11 +17,11 @@ public class ReferenceExistsApplication {
     public static void main(String[] args) throws Exception {
         ObjectMapper mapper = createMapper();
 
-        Model model = createModel();
+        writeModel(mapper);
+        readModel(mapper);
+    }
 
-        String serialized = mapper.writeValueAsString(model);
-        log.info("Serialized: \n{}", serialized);
-
+    private static void readModel(ObjectMapper mapper) throws JsonProcessingException {
         String input = """
 {
   "schools" :
@@ -48,6 +49,12 @@ public class ReferenceExistsApplication {
 
         Model out = mapper.readValue(input, Model.class);
         log.info("Our students: {}", out.getStudents());
+    }
+
+    private static void writeModel(ObjectMapper mapper) throws JsonProcessingException {
+        Model model = createModel();
+        String serialized = mapper.writeValueAsString(model);
+        log.info("Serialized: \n{}", serialized);
     }
 
     private static Model createModel() {
