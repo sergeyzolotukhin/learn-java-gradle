@@ -77,3 +77,7 @@ https://github.com/openzipkin/brave
 https://www.baeldung.com/java-brave
 https://docs.spring.io/spring-boot/reference/actuator/loggers.html
 
+#### Observability : Logs vs Traces vs Metrics!
+https://microsoft.github.io/code-with-engineering-playbook/observability/log-vs-metric-vs-trace/
+https://edgedelta.com/company/blog/three-pillars-of-observability
+https://medium.com/@surfd1001/things-to-know-about-observability-mechanisms-a52876e421c7
