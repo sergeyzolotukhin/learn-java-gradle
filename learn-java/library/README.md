@@ -64,3 +64,6 @@ https://docs.spring.io/spring-boot/docs/2.7.x/reference/html/executable-jar.html
 https://blog.frankel.ch/java-service-loader-vs-spring-factories/
 
 https://www.baeldung.com/lombok-custom-annotation
+
+#### Audit4j
+https://audit4j.org/documentation/
