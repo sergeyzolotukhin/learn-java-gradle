@@ -68,3 +68,4 @@ https://www.baeldung.com/lombok-custom-annotation
 #### Audit4j
 https://audit4j.org/documentation/
 https://medium.com/@mpofusindie/using-audit4j-in-a-springboot-web-application-7625025267a8
+https://devapo.io/blog/technology/javers-automating-data-auditing/
