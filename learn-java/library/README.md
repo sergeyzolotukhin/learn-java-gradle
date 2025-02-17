@@ -75,3 +75,5 @@ https://www.baeldung.com/spring-boot-opentelemetry-setup
 https://docs.spring.io/spring-cloud-sleuth/docs/3.0.0-M3/reference/html/
 https://github.com/openzipkin/brave
 https://www.baeldung.com/java-brave
+https://docs.spring.io/spring-boot/reference/actuator/loggers.html
+
