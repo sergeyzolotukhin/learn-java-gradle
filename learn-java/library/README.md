@@ -83,3 +83,4 @@ https://edgedelta.com/company/blog/three-pillars-of-observability
 https://medium.com/@surfd1001/things-to-know-about-observability-mechanisms-a52876e421c7
 https://habr.com/ru/companies/ru_mts/articles/537892/
 
+https://opentelemetry.io/docs/languages/java/api/
