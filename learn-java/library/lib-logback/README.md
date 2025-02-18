@@ -35,3 +35,9 @@ https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html
 
 #### Logstash
 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html
+
+#### kubernetes - Logging Architecture
+https://kubernetes.io/docs/concepts/cluster-administration/logging/
+
+#### Docker Logging
+https://sematext.com/guides/docker-logs/
