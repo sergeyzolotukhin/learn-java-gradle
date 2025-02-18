@@ -90,8 +90,9 @@ https://dzone.com/articles/logging-to-aws-cloudwatch-logs
 https://kishida58.medium.com/java-standalone-app-for-sending-logs-to-amazon-cloudwatch-logs-with-slf4j-logback-2543e35ce19a
 https://mahfuzcse12.medium.com/sending-spring-boot-application-logs-to-aws-cloudwatch-49f5a018b983
 https://dev.to/crawlingcrusader/anatomy-of-cloudwatch-logs-26lg
+https://github.com/cloudnineapps/AWSCloudWatchLogsSampleClient/blob/master/src/main/java/com/cloudnineapps/samples/aws/AWSCloudWatchLogsSampleClient.java
 
-SLF4J -> Logback -> CloudWatchAppender
+App -> SLF4J -> Logback -> CloudWatchAppender
 
 #### CloudWatch Agent
 https://www.iodigital.com/en/history/isaac/logging-from-java-applications-in-aws-using-cloudwatch
