@@ -84,7 +84,14 @@ https://medium.com/@surfd1001/things-to-know-about-observability-mechanisms-a528
 https://habr.com/ru/companies/ru_mts/articles/537892/
 
 https://opentelemetry.io/docs/languages/java/api/
+
+#### CloudWatch Logs
 https://dzone.com/articles/logging-to-aws-cloudwatch-logs
 https://kishida58.medium.com/java-standalone-app-for-sending-logs-to-amazon-cloudwatch-logs-with-slf4j-logback-2543e35ce19a
+https://mahfuzcse12.medium.com/sending-spring-boot-application-logs-to-aws-cloudwatch-49f5a018b983
+https://dev.to/crawlingcrusader/anatomy-of-cloudwatch-logs-26lg
 
 SLF4J -> Logback -> CloudWatchAppender
+
+#### CloudWatch Agent
+https://www.iodigital.com/en/history/isaac/logging-from-java-applications-in-aws-using-cloudwatch
