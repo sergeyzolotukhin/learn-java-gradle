@@ -84,3 +84,7 @@ https://medium.com/@surfd1001/things-to-know-about-observability-mechanisms-a528
 https://habr.com/ru/companies/ru_mts/articles/537892/
 
 https://opentelemetry.io/docs/languages/java/api/
+https://dzone.com/articles/logging-to-aws-cloudwatch-logs
+https://kishida58.medium.com/java-standalone-app-for-sending-logs-to-amazon-cloudwatch-logs-with-slf4j-logback-2543e35ce19a
+
+SLF4J -> Logback -> CloudWatchAppender
