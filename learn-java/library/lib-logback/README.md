@@ -29,3 +29,6 @@ App -> SLF4J -> Logback -> CloudWatchAppender
 
 #### CloudWatch Agent
 https://www.iodigital.com/en/history/isaac/logging-from-java-applications-in-aws-using-cloudwatch
+
+#### Filebeat overview
+https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html
