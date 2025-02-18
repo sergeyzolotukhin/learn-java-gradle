@@ -41,3 +41,6 @@ https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
 #### Docker Logging
 https://sematext.com/guides/docker-logs/
+https://docs.docker.com/engine/logging/configure/
+https://last9.io/blog/docker-logs/
+https://semaphoreci.com/blog/docker-logging-best-practices
