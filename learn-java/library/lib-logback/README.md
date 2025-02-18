@@ -32,3 +32,6 @@ https://www.iodigital.com/en/history/isaac/logging-from-java-applications-in-aws
 
 #### Filebeat overview
 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html
+
+#### Logstash
+https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html
