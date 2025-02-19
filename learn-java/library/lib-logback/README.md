@@ -49,4 +49,6 @@ https://roshancloudarchitect.me/understanding-sidecar-containers-and-their-role-
 https://uptrace.dev/tools/log-analysis-tools
 https://middleware.io/blog/log-aggregation/
 https://betterstack.com/community/comparisons/log-management-and-aggregation-tools/
+https://medium.com/@facuramallo8/logging-aggregation-system-d94f60f92dd0
+
 
