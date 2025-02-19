@@ -44,6 +44,7 @@ https://sematext.com/guides/docker-logs/
 https://docs.docker.com/engine/logging/configure/
 https://last9.io/blog/docker-logs/
 https://semaphoreci.com/blog/docker-logging-best-practices
+https://roshancloudarchitect.me/understanding-sidecar-containers-and-their-role-in-log-aggregation-8882bf34c749
 
 https://uptrace.dev/tools/log-analysis-tools
 https://middleware.io/blog/log-aggregation/
