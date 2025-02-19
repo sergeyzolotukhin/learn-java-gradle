@@ -44,3 +44,8 @@ https://sematext.com/guides/docker-logs/
 https://docs.docker.com/engine/logging/configure/
 https://last9.io/blog/docker-logs/
 https://semaphoreci.com/blog/docker-logging-best-practices
+
+https://uptrace.dev/tools/log-analysis-tools
+https://middleware.io/blog/log-aggregation/
+https://betterstack.com/community/comparisons/log-management-and-aggregation-tools/
+
