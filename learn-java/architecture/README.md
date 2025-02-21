@@ -30,3 +30,4 @@ https://www.jhipster.tech/jdl/intro/
 https://medium.com/design-microservices-architecture-with-patterns/microservices-communications-f319f8d76b71
 https://www.geeksforgeeks.org/inter-service-communication-in-microservices/
 https://www.opslevel.com/resources/choosing-the-best-communication-type-for-your-microservices
+https://medium.com/@premchandu.in/rest-api-performance-metrics-d727e6e09252
