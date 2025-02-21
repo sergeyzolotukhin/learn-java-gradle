@@ -25,3 +25,8 @@ https://www.jetbrains.com/help/idea/spring-support.html
 
 https://www.baeldung.com/structurizr
 https://www.jhipster.tech/jdl/intro/
+
+#### Choosing the Best Communication Type for Your Microservices
+https://medium.com/design-microservices-architecture-with-patterns/microservices-communications-f319f8d76b71
+https://www.geeksforgeeks.org/inter-service-communication-in-microservices/
+https://www.opslevel.com/resources/choosing-the-best-communication-type-for-your-microservices
