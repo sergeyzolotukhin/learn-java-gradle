@@ -31,3 +31,4 @@ https://medium.com/design-microservices-architecture-with-patterns/microservices
 https://www.geeksforgeeks.org/inter-service-communication-in-microservices/
 https://www.opslevel.com/resources/choosing-the-best-communication-type-for-your-microservices
 https://medium.com/@premchandu.in/rest-api-performance-metrics-d727e6e09252
+https://medium.com/@vikalprusia/kafka-vs-http-757c6d49e23
