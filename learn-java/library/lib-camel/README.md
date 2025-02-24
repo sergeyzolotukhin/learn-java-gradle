@@ -12,3 +12,4 @@ https://www.tutorialspoint.com/apache_camel/apache_camel_quick_guide.htm
 
 #### Apache Kafka and Camel
 https://dzone.com/articles/data-stream-using-apache-kafka-and-camel-applicati
+https://www.javacodegeeks.com/2023/05/apache-kafka-and-camel-application-in-data-stream.html
