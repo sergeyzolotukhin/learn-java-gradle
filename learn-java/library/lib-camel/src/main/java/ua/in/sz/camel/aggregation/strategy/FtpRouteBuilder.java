@@ -1,4 +1,4 @@
-package ua.in.sz.camel;
+package ua.in.sz.camel.aggregation.strategy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;

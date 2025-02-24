@@ -1,4 +1,4 @@
-package ua.in.sz.camel.enpoints;
+package ua.in.sz.camel.aggregation.strategy.enpoints;
 
 import lombok.extern.slf4j.Slf4j;
 
