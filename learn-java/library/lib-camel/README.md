@@ -7,3 +7,4 @@ https://medium.com/@kiarash.shamaii/implementing-seda-pattern-in-order-processin
 
 #### JMS Messages from Camel
 https://www.masterspringboot.com/camel/routing-camel-messages-to-artemis-embedded-in-wildfly/
+https://www.tutorialspoint.com/apache_camel/apache_camel_quick_guide.htm
