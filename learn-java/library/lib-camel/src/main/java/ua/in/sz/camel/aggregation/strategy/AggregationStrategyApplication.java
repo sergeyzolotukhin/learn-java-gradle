@@ -9,7 +9,7 @@ import ua.in.sz.camel.aggregation.strategy.enpoints.IllegalStateExceptionFtpEndp
 import ua.in.sz.camel.aggregation.strategy.enpoints.RuntimeExceptionFtpEndpointImpl;
 
 @Slf4j
-public class Application {
+public class AggregationStrategyApplication {
 	public static void main(String[] args) throws Exception {
 		CamelContext camelContext = new DefaultCamelContext();
 
