@@ -18,7 +18,7 @@ public class Application {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
         MessageChannel inputChannel = context.getBean("fileChannel", MessageChannel.class);
-        inputChannel.send(new GenericMessage<String>("World"));
+        inputChannel.send(new GenericMessage<>("World"));
 
         TimeUnit.SECONDS.sleep(2);
     }
