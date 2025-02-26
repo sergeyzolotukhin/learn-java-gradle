@@ -7,7 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.support.GenericMessage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,8 +16,8 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
-        MessageChannel inputChannel = context.getBean("fileChannel", MessageChannel.class);
-        inputChannel.send(new GenericMessage<>("World"));
+        ReturningGateway gateway = context.getBean("myGateway", ReturningGateway.class);
+        gateway.placeOrder("Hello World");
 
         TimeUnit.SECONDS.sleep(2);
     }
