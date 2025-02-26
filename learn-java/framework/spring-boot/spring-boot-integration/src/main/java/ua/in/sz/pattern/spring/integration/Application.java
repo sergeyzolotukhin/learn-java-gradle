@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.integration.channel.DirectChannel;
+import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.messaging.MessageChannel;
 
 import java.util.concurrent.TimeUnit;
@@ -24,6 +24,6 @@ public class Application {
 
     @Bean
     public MessageChannel fileChannel() {
-        return new DirectChannel();
+        return new PublishSubscribeChannel();
     }
 }

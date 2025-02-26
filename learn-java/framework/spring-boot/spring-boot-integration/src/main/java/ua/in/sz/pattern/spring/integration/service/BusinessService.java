@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.spring.integration;
+package ua.in.sz.pattern.spring.integration.service;
 
 import lombok.Getter;
 import lombok.Setter;
