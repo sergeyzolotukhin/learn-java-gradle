@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.messaging.MessageChannel;
+import ua.in.sz.pattern.spring.integration.enterprise.integration.patterns.ReturningGateway;
 
 import java.util.concurrent.TimeUnit;
 

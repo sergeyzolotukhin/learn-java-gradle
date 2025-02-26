@@ -1,4 +1,4 @@
-package ua.in.sz.pattern.spring.integration;
+package ua.in.sz.pattern.spring.integration.enterprise.integration.patterns;
 
 import org.springframework.integration.annotation.MessagingGateway;
 
