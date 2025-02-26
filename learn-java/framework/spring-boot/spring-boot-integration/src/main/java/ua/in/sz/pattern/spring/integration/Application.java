@@ -16,7 +16,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
-        ReturningGateway gateway = context.getBean("myGateway", ReturningGateway.class);
+        ReturningGateway gateway = context.getBean(ReturningGateway.class);
         gateway.placeOrder("Hello World");
 
         TimeUnit.SECONDS.sleep(2);
