@@ -12,3 +12,5 @@ https://www.baeldung.com/java-future-completablefuture-rxjavas-observable
 https://www.w3spot.com/2022/05/how-to-create-a-single-thread-executorservice-in-java-for-mockito-test.html
 https://medium.com/@guptaji6489/design-a-in-memory-key-value-store-03950160aa01
 
+https://jankotek.gitbooks.io/mapdb/content/
+https://www.ehcache.org/documentation/2.8/apis/transactions.html
