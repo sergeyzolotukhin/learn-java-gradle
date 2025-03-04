@@ -8,3 +8,5 @@ https://www.baeldung.com/guava-futures-listenablefuture
 https://guava.dev/releases/29.0-jre/api/docs/com/google/common/util/concurrent/package-summary.html
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/concurrent/package-summary.html
 https://www.baeldung.com/java-future-completablefuture-rxjavas-observable
+
+https://www.w3spot.com/2022/05/how-to-create-a-single-thread-executorservice-in-java-for-mockito-test.html
