@@ -149,3 +149,6 @@ https://www.baeldung.com/spring-cache-tutorial#5-cacheconfig
 https://vladmihalcea.com/a-beginners-guide-to-jpa-and-hibernate-cascade-types/
 
 https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate
+
+#### HibernateException: Illegal attempt to associate a collection with two open sessions
+https://access.redhat.com/solutions/1354713
