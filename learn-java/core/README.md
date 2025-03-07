@@ -21,3 +21,4 @@ https://jenkov.com/tutorials/java-util-concurrent/java-fork-and-join-forkjoinpoo
 
 
 java.util.concurrent.SubmissionPublisher
+https://medium.com/nuances-of-programming/java-%D0%B4%D0%BB%D1%8F-%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D1%87%D0%B0%D1%81%D1%82%D1%8C-4-%D0%B8%D0%B7-4-97601b0c3488
