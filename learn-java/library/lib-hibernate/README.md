@@ -152,3 +152,9 @@ https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate
 
 #### HibernateException: Illegal attempt to associate a collection with two open sessions
 https://access.redhat.com/solutions/1354713
+#### Java Multithreading with Hibernate Session and Spring
+https://medium.com/@orberkov/java-multithreading-with-hibernate-session-and-spring-fb1b38872e0c
+https://xebia.com/blog/hibernate-and-multi-threading/
+
+#### Spring Transaction Management Over Multiple Threads
+https://dzone.com/articles/spring-transaction-management-over-multiple-thread-1
