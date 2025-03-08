@@ -37,6 +37,7 @@ https://medium.com/@felvid/scheduledexecutorservice-guide-80475c4bebca
 https://stackoverflow.com/questions/57661787/state-machine-approach-for-simple-state-transitions
 https://www.baeldung.com/java-enum-simple-state-machine
 https://sourcemaking.com/design_patterns/state/java/5
+https://www.mirkosertic.de/blog/2013/04/implementing-state-machines-with-java-enums/
 
 #### Spring Statemachine
 https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html
