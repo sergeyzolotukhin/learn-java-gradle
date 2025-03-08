@@ -32,3 +32,10 @@ https://www.tutorialspoint.com/how-to-schedule-tasks-in-java-to-run-for-repeated
 https://medium.com/@felvid/scheduledexecutorservice-guide-80475c4bebca
 
 #### spring - TaskScheduler
+
+#### State Machine
+https://stackoverflow.com/questions/57661787/state-machine-approach-for-simple-state-transitions
+https://www.baeldung.com/java-enum-simple-state-machine
+
+#### Spring Statemachine
+https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html
