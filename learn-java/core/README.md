@@ -22,3 +22,10 @@ https://jenkov.com/tutorials/java-util-concurrent/java-fork-and-join-forkjoinpoo
 
 java.util.concurrent.SubmissionPublisher
 https://medium.com/nuances-of-programming/java-%D0%B4%D0%BB%D1%8F-%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D1%87%D0%B0%D1%81%D1%82%D1%8C-4-%D0%B8%D0%B7-4-97601b0c3488
+
+#### java core Timer, DelayQueue, ScheduledExecutorService
+https://silhding.github.io/2021/03/13/How-to-design-a-delayed-scheduler-in-Java/
+https://www.tutorialspoint.com/how-to-schedule-tasks-in-java-to-run-for-repeated-fixed-delay-execution-beginning-after-the-specified-delay
+https://medium.com/@felvid/scheduledexecutorservice-guide-80475c4bebca
+
+#### spring - TaskScheduler
