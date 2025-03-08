@@ -25,6 +25,7 @@ https://medium.com/nuances-of-programming/java-%D0%B4%D0%BB%D1%8F-%D0%BD%D0%B0%D
 
 #### java core Timer, DelayQueue, ScheduledExecutorService
 https://silhding.github.io/2021/03/13/How-to-design-a-delayed-scheduler-in-Java/
+https://kurular4.medium.com/java-delay-queue-e566a1ea0330
 https://www.tutorialspoint.com/how-to-schedule-tasks-in-java-to-run-for-repeated-fixed-delay-execution-beginning-after-the-specified-delay
 https://medium.com/@felvid/scheduledexecutorservice-guide-80475c4bebca
 
