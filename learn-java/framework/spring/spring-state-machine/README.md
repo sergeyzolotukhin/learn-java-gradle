@@ -15,6 +15,7 @@ https://www.statefulj.io/
 https://www.restack.io/p/state-machines-best-answer-cat-ai
 https://github.com/pnavais/state-machine
 https://github.com/j-easy/easy-states
+https://dev.to/bertilmuth/kissing-the-state-machine-goodbye-34n9
 
 #### Plan Java
 https://www.restack.io/p/state-machines-answer-java-example-cat-ai
