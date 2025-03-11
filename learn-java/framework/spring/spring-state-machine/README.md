@@ -8,3 +8,9 @@ https://github.com/eugenp/tutorials/tree/master/spring-state-machine
 
 https://github.com/awaitility/awaitility
 https://www.baeldung.com/awaitility-testing
+
+#### Third party
+https://github.com/stateless4j/stateless4j
+https://www.statefulj.io/
+https://www.restack.io/p/state-machines-best-answer-cat-ai
+https://github.com/pnavais/state-machine
