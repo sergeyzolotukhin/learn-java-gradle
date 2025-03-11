@@ -18,3 +18,4 @@ https://github.com/j-easy/easy-states
 
 #### Plan Java
 https://www.restack.io/p/state-machines-answer-java-example-cat-ai
+https://www.baeldung.com/java-enum-simple-state-machine
