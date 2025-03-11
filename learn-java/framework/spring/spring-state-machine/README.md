@@ -14,3 +14,4 @@ https://github.com/stateless4j/stateless4j
 https://www.statefulj.io/
 https://www.restack.io/p/state-machines-best-answer-cat-ai
 https://github.com/pnavais/state-machine
+https://github.com/j-easy/easy-states
