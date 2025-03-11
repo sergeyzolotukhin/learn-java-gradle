@@ -10,12 +10,12 @@ public class StateMachineMain {
         StateMachine machine = StateMachine.of();
         log.info("State machine {}", machine);
 
-        machine.send(StateMachine.Event.UP);
+        machine.send(StateMachine.Events.UP);
         log.info("State machine {}", machine);
-        machine.send(StateMachine.Event.UP);
+        machine.send(StateMachine.Events.UP);
         log.info("State machine {}", machine);
 
-        machine.send(StateMachine.Event.DO);
+        machine.send(StateMachine.Events.DO);
         log.info("State machine {}", machine);
     }
 }

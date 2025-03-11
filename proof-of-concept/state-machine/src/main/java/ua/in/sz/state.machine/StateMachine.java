@@ -17,19 +17,27 @@ public class StateMachine {
         return state.getClass().getSimpleName();
     }
 
-    public enum Event {
-        UP,
-        DO,
-        DOWN
+    public interface Event {
+
     }
 
     interface State {
         State handle(Event event);
     }
 
+    // ================================================================================================================
+    // implementation
+    // ================================================================================================================
+
+    public enum Events implements Event {
+        UP,
+        DO,
+        DOWN
+    }
+
     static class InitState implements State {
         public State handle(Event event) {
-            if (Event.UP.equals(event)) {
+            if (Events.UP.equals(event)) {
                 return new DoState();
             }
             return this;
@@ -38,7 +46,7 @@ public class StateMachine {
 
     static class DoState implements State {
         public State handle(Event event) {
-            if (Event.DO.equals(event)) {
+            if (Events.DO.equals(event)) {
                 return new EndState();
             }
             return this;
@@ -47,7 +55,7 @@ public class StateMachine {
 
     static class EndState implements State {
         public State handle(Event event) {
-            if (event == Event.DOWN) {
+            if (Events.DOWN.equals(event)) {
                 return new InitState();
             }
             return this;
