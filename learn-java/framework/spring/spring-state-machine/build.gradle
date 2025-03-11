@@ -1,0 +1,10 @@
+plugins {
+    id 'ua.in.sz.java-spring-library'
+}
+
+group = 'ua.in.sz.h2'
+version = 'unspecified'
+
+dependencies {
+    implementation 'org.springframework.statemachine:spring-statemachine-core:4.0.0'
+}
