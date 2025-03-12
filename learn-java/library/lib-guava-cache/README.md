@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/20753614/using-guavas-eventbus-possible-to-run-subscriber-code-on-thread-that-created-t
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Executor.html?is-external=true
