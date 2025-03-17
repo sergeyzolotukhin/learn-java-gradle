@@ -5,15 +5,15 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
 
-    <bean id="firstService" class="ua.in.sz.circular.dependency.service.FirstService"/>
+    <bean id="firstService" class="ua.in.sz.circular.dependency.lookup.service.FirstService"/>
 
-    <bean id="secondService" class="ua.in.sz.circular.dependency.service.SecondService">
+    <bean id="secondService" class="ua.in.sz.circular.dependency.lookup.service.SecondService">
         <constructor-arg ref="firstService"/>
 
         <lookup-method name="thirdService" bean="thirdService"/>
     </bean>
 
-    <bean id="thirdService" class="ua.in.sz.circular.dependency.service.ThirdService">
+    <bean id="thirdService" class="ua.in.sz.circular.dependency.lookup.service.ThirdService">
         <constructor-arg ref="secondService"/>
     </bean>
 

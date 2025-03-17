@@ -1,4 +1,4 @@
-package ua.in.sz.circular.dependency.service;
+package ua.in.sz.circular.dependency.lookup.service;
 
 import lombok.Getter;
 import lombok.Setter;
