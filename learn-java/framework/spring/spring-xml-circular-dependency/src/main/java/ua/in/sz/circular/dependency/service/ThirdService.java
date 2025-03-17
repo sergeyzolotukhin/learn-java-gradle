@@ -15,5 +15,6 @@ public class ThirdService implements PrintService {
     @Override
     public void print() {
         log.info("Hello: {}", printService.toString());
+        printService.print();
     }
 }
