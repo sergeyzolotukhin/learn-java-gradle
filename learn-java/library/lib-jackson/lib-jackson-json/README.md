@@ -72,3 +72,5 @@ https://www.baeldung.com/java-snake-yaml
 
 #### JsonPath
 https://github.com/json-path/JsonPath
+
+https://medium.com/@davenkin_93074/jacksons-default-serialization-deserialization-behavior-ed3d6dcf239b
