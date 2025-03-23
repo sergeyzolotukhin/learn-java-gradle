@@ -13,3 +13,5 @@ https://www.postgresql.org/docs/current/continuous-archiving.html
 two bytes for each group of four decimal digits
 ceil(digits / 4.0) * 2
 https://stackoverflow.com/questions/78562614/byte-size-of-numericprecision-scale-in-postgres
+
+https://github.com/JetBrains/intellij-community/tree/master/plugins/tasks
