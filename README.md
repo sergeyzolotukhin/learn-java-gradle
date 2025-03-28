@@ -72,3 +72,9 @@ https://github.com/nicoulaj/vagrant-maven-plugin/tree/master
 
 #### Remote development overview 
 https://www.jetbrains.com/help/idea/remote-development-overview.html#workflow
+
+Starting from versions 2018.3 and 2019.1, IntelliJ now supports macros in Run configurations. 
+You can use $Prompt$ anywhere in the VM Options, 
+Program arguments, etc. fields, and it will behave just like ${string_prompt} in Eclipse -- 
+it will prompt you for parameters when the configuration is run.
+https://stackoverflow.com/questions/20689273/how-to-make-intellij-prompt-me-for-command-line-arguments
