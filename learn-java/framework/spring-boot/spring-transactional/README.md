@@ -5,3 +5,6 @@
     
 #### TransactionAspectSupport
 
+https://dev.to/arashariani/handling-asynchronous-execution-with-transactions-in-spring-a-common-pitfall-and-how-to-solve-it-5ah4
+
+
