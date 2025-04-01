@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 @SpringBootApplication
-public class Application {
+public class AspectApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(AspectApplication.class, args);
     }
 }
