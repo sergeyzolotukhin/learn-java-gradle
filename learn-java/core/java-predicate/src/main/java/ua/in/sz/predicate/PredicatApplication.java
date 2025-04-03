@@ -13,7 +13,7 @@ import static ua.in.sz.predicate.log.TracedPredicate.traced;
 
 
 @Slf4j
-public class Application {
+public class PredicatApplication {
 	public static void main(String[] args) {
 		List<Rect> rects = List.of(
 				Rect.builder().width(1).height(1).build(),
