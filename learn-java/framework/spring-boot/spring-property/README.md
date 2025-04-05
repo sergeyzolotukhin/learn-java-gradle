@@ -18,23 +18,21 @@ https://www.baeldung.com/spring-boot-environmentpostprocessor
 https://docs.spring.io/spring-boot/reference/features/external-config.html
 https://master-spring-ter.medium.com/mastering-spring-boot-profiles-a-guide-to-environment-specific-configurations-646e7535db03
 
-spring properties:
+##### spring properties:
 
 spring.config.name =
 spring.config.location =
 spring.config.additional-location =
 spring.config.import = 
 
-prefixes:
+##### prefixes:
 
 optional:
 configtree:
 file:
 classpath:
 
-#### Spring Cloud Configuration
-
-https://www.baeldung.com/spring-cloud-configuration
+##### Default list of property sources
 
 Property sources: ConfigurationPropertySourcesPropertySource {name='configurationProperties'}
 Property sources: PropertiesPropertySource {name='systemProperties'}
@@ -45,3 +43,9 @@ Property sources: OriginTrackedMapPropertySource {name='Config resource 'class p
 Property sources: InstalationKitPropertySource {name='installation-kit-property-source'}
 Property sources: ApplicationInfoPropertySource {name='applicationInfo'}
 Property sources: LocalInstalationKitPropertySource {name='local-installation-kit-property-source'}
+
+#### Spring Cloud Configuration
+
+https://www.baeldung.com/spring-cloud-configuration
+https://medium.com/@AlexanderObregon/a-beginners-guide-to-centralized-configuration-with-spring-cloud-config-6dfb6c70b5ad
+
