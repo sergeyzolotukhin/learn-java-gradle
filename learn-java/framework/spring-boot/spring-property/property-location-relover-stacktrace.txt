@@ -30,6 +30,7 @@ java.lang.IllegalStateException
 	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
 	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
 	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+
 	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
 	at ua.in.sz.pattern.spring.property.PropertyApplication.main(PropertyApplication.java:32)
