@@ -14,6 +14,9 @@ StandardConfigDataLocationResolver -|> ConfigDataLocationResolver
 #### EnvironmentPostProcessor in Spring Boot
 https://www.baeldung.com/spring-boot-environmentpostprocessor
 
+#### Externalized Configuration
+https://docs.spring.io/spring-boot/reference/features/external-config.html
+
 #### Spring Cloud Configuration
 
 https://www.baeldung.com/spring-cloud-configuration
