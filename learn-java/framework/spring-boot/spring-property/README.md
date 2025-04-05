@@ -35,3 +35,13 @@ classpath:
 #### Spring Cloud Configuration
 
 https://www.baeldung.com/spring-cloud-configuration
+
+Property sources: ConfigurationPropertySourcesPropertySource {name='configurationProperties'}
+Property sources: PropertiesPropertySource {name='systemProperties'}
+Property sources: OriginAwareSystemEnvironmentPropertySource {name='systemEnvironment'}
+Property sources: RandomValuePropertySource {name='random'}
+Property sources: OriginTrackedMapPropertySource {name='Config resource 'class path resource [application-dev.properties]' via location 'optional:classpath:/''}
+Property sources: OriginTrackedMapPropertySource {name='Config resource 'class path resource [application.properties]' via location 'optional:classpath:/''}
+Property sources: InstalationKitPropertySource {name='installation-kit-property-source'}
+Property sources: ApplicationInfoPropertySource {name='applicationInfo'}
+Property sources: LocalInstalationKitPropertySource {name='local-installation-kit-property-source'}
