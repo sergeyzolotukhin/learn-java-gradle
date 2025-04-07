@@ -11,3 +11,5 @@ https://www.appsdeveloperblog.com/the-first-principle-in-unit-testing/
 https://www.baeldung.com/integration-testing-in-spring
 
 https://stackoverflow.com/questions/17836041/spring-aop-how-to-make-aspects-defined-in-a-parent-context-work-in-child-conte
+
+https://medium.com/@AlexanderObregon/how-spring-boot-manages-context-hierarchies-c0fb496680b2
