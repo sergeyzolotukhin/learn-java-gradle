@@ -44,3 +44,9 @@ https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html
 
 #### Third party library 
 https://github.com/pnavais/state-machine
+
+#### Sharing Memory Between JVMs
+https://www.baeldung.com/java-sharing-memory-between-jvms
+https://stackoverflow.com/questions/25396664/shared-memory-between-two-jvms
+
+https://www.digitalocean.com/community/tutorials/understanding-sockets#what-is-a-unix-domain-socket
