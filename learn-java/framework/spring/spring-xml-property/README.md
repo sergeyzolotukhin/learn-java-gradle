@@ -30,3 +30,17 @@ AnnotationConfigApplicationContext
 PropertyPlaceholderAutoConfiguration
 org.springframework.context.config.PropertyPlaceholderBeanDefinitionParser
 https://dzone.com/articles/properties-spring
+
+####
+PropertySourcesPlaceholderConfigurer
+PlaceholderConfigurerSupport
+PropertyResourceConfigurer
+PropertiesLoaderSupport
+
+PropertySourcesPropertyResolver
+AbstractPropertyResolver
+
+PropertyPlaceholderHelper
+PlaceholderParser
+
+BeanDefinitionVisitor
