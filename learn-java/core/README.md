@@ -33,6 +33,9 @@ https://medium.com/@felvid/scheduledexecutorservice-guide-80475c4bebca
 
 #### spring - TaskScheduler
 
+PausableThreadPoolExecutor
+java.util.concurrent.ThreadPoolExecutor
+
 #### State Machine
 https://stackoverflow.com/questions/57661787/state-machine-approach-for-simple-state-transitions
 https://www.baeldung.com/java-enum-simple-state-machine
