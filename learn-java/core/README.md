@@ -53,3 +53,7 @@ https://www.baeldung.com/java-sharing-memory-between-jvms
 https://stackoverflow.com/questions/25396664/shared-memory-between-two-jvms
 
 https://www.digitalocean.com/community/tutorials/understanding-sockets#what-is-a-unix-domain-socket
+
+#### Enable and Disable Endpoints at Runtime With Spring Boot
+https://www.baeldung.com/spring-boot-enable-disable-endpoints-at-runtime
+
