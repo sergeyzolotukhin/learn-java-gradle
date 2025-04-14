@@ -54,6 +54,7 @@ https://medium.com/@facuramallo8/logging-aggregation-system-d94f60f92dd0
 
 #### Distributed Tracing System - 
 https://github.com/jaegertracing/jaeger
+https://betterstack.com/community/guides/observability/jaeger-guide/
 https://betterstack.com/community/guides/logging/vector-explained/
 
 #### Zipkin
