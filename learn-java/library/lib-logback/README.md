@@ -56,6 +56,7 @@ https://medium.com/@facuramallo8/logging-aggregation-system-d94f60f92dd0
 https://github.com/jaegertracing/jaeger
 https://betterstack.com/community/guides/observability/jaeger-guide/
 https://betterstack.com/community/guides/logging/vector-explained/
+https://www.jaegertracing.io/docs/next-release-v2/architecture/
 
 #### Zipkin
 https://github.com/openzipkin/zipkin#quick-start
