@@ -7,3 +7,6 @@ https://recoverit.wondershare.com/computer-tips/qnap-rsync.html
 
 #### Qsync
 https://www.qnap.com/en/utilities/essentials
+
+#### NetBak PC Agent
+https://www.qnap.com/en/software/netbak-pc-agent
