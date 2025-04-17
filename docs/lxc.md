@@ -11,3 +11,4 @@ https://linuxcontainers.org/lxc/introduction/
 
 https://cloudinit.readthedocs.io/en/latest/explanation/configuration.html
 https://www.hashicorp.com/en/resources/cloudinit-the-good-parts
+https://leftasexercise.com/2020/04/12/understanding-cloud-init/
