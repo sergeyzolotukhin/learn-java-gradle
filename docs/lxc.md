@@ -6,3 +6,7 @@ https://wiki.chucknemeth.com/proxmox/lxc/lxc-template
 #### LXC
 
 https://linuxcontainers.org/lxc/introduction/
+
+#### cloud-init
+
+https://cloudinit.readthedocs.io/en/latest/explanation/configuration.html
