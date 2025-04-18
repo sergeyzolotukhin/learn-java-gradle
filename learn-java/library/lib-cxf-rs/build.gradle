@@ -13,6 +13,7 @@ dependencies {
     implementation 'org.apache.cxf:cxf-rt-transports-http-jetty'
     // Remove at JAVA 11
     implementation 'jakarta.ws.rs:jakarta.ws.rs-api'
+    implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
     // common utils
     implementation 'com.google.guava:guava'
