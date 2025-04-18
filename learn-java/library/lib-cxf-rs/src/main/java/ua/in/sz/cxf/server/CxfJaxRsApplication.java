@@ -15,8 +15,8 @@ public class CxfJaxRsApplication {
 		JAXRSServerFactoryBean factoryBean = new JAXRSServerFactoryBean();
 //		factoryBean.setResourceClasses(SimpleRepository.class);
 		factoryBean.setResourceProvider(new SingletonResourceProvider(new SimpleRepository()));
-		factoryBean.setProvider(new SimpleExceptionMapper());
-//		factoryBean.setProviders(Arrays.asList(new SimpleExceptionMapper(), new SimpleContainerRequestFilter()));
+//		factoryBean.setProvider(new SimpleExceptionMapper());
+		factoryBean.setProviders(Arrays.asList(new SimpleExceptionMapper(), new SimpleContainerRequestFilter()));
 //		factoryBean.setInInterceptors(new SimpleContainerRequestFilter());
 
 		factoryBean.setAddress("http://localhost:8080/");
