@@ -38,4 +38,6 @@ https://github.com/junit-team/junit5/blob/r5.10.2/junit-jupiter-engine/src/main/
   * WS client without spring + custom auth 
   * WS client with spring + custom auth
 
-####
+#### Using JAX-RS With Spring Boot Instead of MVC
+
+https://dzone.com/articles/using-jax-rs-with-spring-boot-instead-of-mvc
