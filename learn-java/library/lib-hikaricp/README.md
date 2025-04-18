@@ -30,3 +30,8 @@ that allow for a deeper understanding of what operations are causing delays.
 By examining the wait events during query execution, one can pinpoint where the query is spending most of its time.
 
 https://stackoverflow.com/questions/26489244/how-to-detect-query-which-holds-the-lock-in-postgres
+
+#### datasource-proxy
+https://dev.to/jhatcher9999/a-tale-of-two-connection-pools-bld
+https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/#about
+
