@@ -41,3 +41,8 @@ https://github.com/junit-team/junit5/blob/r5.10.2/junit-jupiter-engine/src/main/
 #### Using JAX-RS With Spring Boot Instead of MVC
 
 https://dzone.com/articles/using-jax-rs-with-spring-boot-instead-of-mvc
+
+#### RESTEasy JAX-RS (JBoss) 
+https://docs.jboss.org/resteasy/docs/3.14.0.Final/userguide/html_single/
+https://docs.jboss.org/author/display/WFLY8/Java%20API%20for%20RESTful%20Web%20Services%20(JAX-RS).html
+https://rieckpil.de/howto-resteasy-wildfly-jax-rs-2-1-file-up-and-downloading/
