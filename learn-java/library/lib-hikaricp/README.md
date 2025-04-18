@@ -35,4 +35,5 @@ https://stackoverflow.com/questions/26489244/how-to-detect-query-which-holds-the
 https://dev.to/jhatcher9999/a-tale-of-two-connection-pools-bld
 https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/#about
 https://github.com/ttddyy/datasource-proxy-examples
+https://github.com/jdbc-observations/datasource-proxy
 
