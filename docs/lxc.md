@@ -18,5 +18,8 @@ https://leftasexercise.com/2020/04/12/understanding-cloud-init/
 https://linuxcontainers.org/incus/docs/main/
 
 
-LXDWare LXD Dashboard
+#### LXDWare LXD Dashboard
 https://medium.com/geekculture/linux-containers-lxc-lxd-container-management-from-webui-5cf7c7625a08
+
+#### Other
+https://medium.com/@cristi.posoiu/learn-and-use-lxd-system-containers-especially-for-development-and-testing-f340af676ba6
