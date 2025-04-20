@@ -26,3 +26,4 @@ https://blog.scottlowe.org/2015/05/06/quick-intro-lxd/
 
 #### Other
 https://medium.com/@cristi.posoiu/learn-and-use-lxd-system-containers-especially-for-development-and-testing-f340af676ba6
+https://github.com/OSSHelp/lxhelper/tree/master
