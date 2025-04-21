@@ -3,3 +3,5 @@ https://master-spring-ter.medium.com/project-crac-revolutionizing-java-applicati
 
 Traditional startup:    5–15 seconds
 CRaC restore:           0.1–0.5 seconds
+
+https://bell-sw.com/blog/how-to-use-crac-with-java-applications/
