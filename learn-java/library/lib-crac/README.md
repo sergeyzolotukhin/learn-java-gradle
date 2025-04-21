@@ -5,3 +5,4 @@ Traditional startup:    5–15 seconds
 CRaC restore:           0.1–0.5 seconds
 
 https://bell-sw.com/blog/how-to-use-crac-with-java-applications/
+https://callistaenterprise.se/blogg/teknik/2024/07/01/SpringBoot-with-CRaC-part1-automatic-checkpoint/
