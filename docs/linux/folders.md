@@ -4,3 +4,6 @@
     /mnt is a standard subdirectory of the root directory on Linux and other Unix-like operating systems, along with directories
 
 =======================================================================================================================
+
+#### Linux Home Directory Encryption
+https://medium.com/bobble-engineering/linux-home-directory-encryption-c0cdc81c3e3c
