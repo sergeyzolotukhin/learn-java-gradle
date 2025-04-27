@@ -8,4 +8,5 @@ https://promincproductions.com/blog/qnap-container-station-api-with-postman/
 https://www.qnap.com/es-es/how-to/tutorial/article/windows-server-configuring-iscsi-lun-with-qnap-qes
 https://scarygliders.net/2011/11/04/virtualbox-and-iscsi-nas-how-to-linux-windows/
 
+https://www.qnap.com/en-us/how-to/faq/article/how-to-enable-and-setup-host-access-for-nfs-connection
 
