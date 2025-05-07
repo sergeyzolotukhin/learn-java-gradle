@@ -13,3 +13,4 @@ RunConfigurationBase
 
 #### IntelliJ IDEA AI Code Completion Plugin
 https://github.com/DmitryNekrasov/ai-code-completion-idea-plugin
+https://www.plugin-dev.com/intellij/custom-language/code-completion/
