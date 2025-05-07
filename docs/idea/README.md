@@ -10,3 +10,6 @@ https://github.com/krasa/MavenHelper
 RunConfigurationBase
 
 "D:\projects-java\_idea_plugin\maven-plugin-decompile\org\jetbrains\idea\maven\execution\MavenRunner.class"
+
+#### IntelliJ IDEA AI Code Completion Plugin
+https://github.com/DmitryNekrasov/ai-code-completion-idea-plugin
