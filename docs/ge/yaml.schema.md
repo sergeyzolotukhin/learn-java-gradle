@@ -8,3 +8,4 @@ https://code.visualstudio.com/docs/editing/userdefinedsnippets#_snippet-syntax
 #### Populate Dynamic Values for Json Schema
 https://stackoverflow.com/questions/25859687/populate-dynamic-values-for-json-schema
 https://apisyouwonthate.com/blog/getting-started-with-json-hyper-schema/
+https://apisyouwonthate.com/blog/getting-started-with-json-hyper-schema-part-2/
