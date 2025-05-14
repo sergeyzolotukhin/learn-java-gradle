@@ -19,3 +19,4 @@ https://medium.com/@AlexanderObregon/the-mechanics-behind-spring-boots-context-r
 https://www.baeldung.com/java-restart-spring-boot-app
 
 org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent
+org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration
