@@ -17,3 +17,5 @@ https://medium.com/@AlexanderObregon/how-spring-boot-manages-context-hierarchies
 https://medium.com/@AlexanderObregon/how-spring-boot-reloads-configuration-without-restart-4d9dc9e8b926
 https://medium.com/@AlexanderObregon/the-mechanics-behind-spring-boots-context-refresh-41276d38eb3e
 https://www.baeldung.com/java-restart-spring-boot-app
+
+org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent
