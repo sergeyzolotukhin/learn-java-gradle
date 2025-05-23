@@ -16,3 +16,5 @@ org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.getCandid
 org.springframework.boot.context.annotation.ImportCandidates.load
 org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration
+
+https://grails.github.io/grails-spring-security-ui/4.0.x/index.html
