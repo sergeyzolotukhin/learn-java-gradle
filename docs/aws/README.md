@@ -52,3 +52,4 @@ https://aws.amazon.com/ru/blogs/aws/simplify-how-you-manage-authorization-in-you
 
 #### Amazon Cognito
 https://howtodoinjava.com/spring-security/spring-boot-role-based-authentication-with-aws-cognito/
+https://medium.com/@abhishekranjandev/integrating-amazon-cognito-for-authentication-and-authorization-in-a-spring-boot-application-fe5fe7d78db
