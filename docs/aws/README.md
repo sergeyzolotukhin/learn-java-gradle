@@ -49,6 +49,7 @@ https://blog.jetbrains.com/idea/2022/02/aws-in-intellij-idea/
 
 #### Amazon Verified Permissions
 https://aws.amazon.com/ru/blogs/aws/simplify-how-you-manage-authorization-in-your-applications-with-amazon-verified-permissions-now-generally-available/
+https://aws.amazon.com/ru/blogs/security/simplify-fine-grained-authorization-with-amazon-verified-permissions-and-amazon-cognito/
 
 #### Amazon Cognito
 https://howtodoinjava.com/spring-security/spring-boot-role-based-authentication-with-aws-cognito/
