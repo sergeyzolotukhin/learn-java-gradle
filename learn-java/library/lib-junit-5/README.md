@@ -6,4 +6,4 @@ https://medium.com/@emilholmegaard/test-strategies-as-an-important-documentation
 #### How to read a text-file resource into Java unit test?
 https://medium.com/@alexei.klenin/how-to-read-a-text-file-resource-into-java-unit-test-junit-5-cheat-sheet-df3e94f8e5c
 https://hosuaby.github.io/inject-resources/0.3.2/asciidoc/#_resource_content_injection
-
+https://medium.com/@alexei.klenin/convenient-way-to-read-a-file-resource-into-java-unit-test-aa306e4f7385
