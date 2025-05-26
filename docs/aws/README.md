@@ -54,3 +54,9 @@ https://aws.amazon.com/ru/blogs/security/simplify-fine-grained-authorization-wit
 #### Amazon Cognito
 https://howtodoinjava.com/spring-security/spring-boot-role-based-authentication-with-aws-cognito/
 https://medium.com/@abhishekranjandev/integrating-amazon-cognito-for-authentication-and-authorization-in-a-spring-boot-application-fe5fe7d78db
+
+#### AWS Parameter Store
+https://dzone.com/articles/get-an-in-depth-look-at-the-best-ways-to-store-app
+
+#### AWS AppConfig
+https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html
