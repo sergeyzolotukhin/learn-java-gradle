@@ -57,6 +57,10 @@ https://medium.com/@abhishekranjandev/integrating-amazon-cognito-for-authenticat
 
 #### AWS Parameter Store
 https://dzone.com/articles/get-an-in-depth-look-at-the-best-ways-to-store-app
+Provides secure, hierarchical storage for configuration data and secrets management.
 
 #### AWS AppConfig
 https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html
+
+#### Amazon EC2 Simple Systems Manager (SSM)
+https://nupmanyu.medium.com/aws-ssm-service-system-manager-483f3ccbb9e
