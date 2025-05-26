@@ -49,3 +49,5 @@ Property sources: LocalInstalationKitPropertySource {name='local-installation-ki
 https://www.baeldung.com/spring-cloud-configuration
 https://medium.com/@AlexanderObregon/a-beginners-guide-to-centralized-configuration-with-spring-cloud-config-6dfb6c70b5ad
 
+#### HikariCP restart with Spring Cloud Config
+https://stackoverflow.com/questions/54223822/hikaricp-restart-with-spring-cloud-config
