@@ -87,3 +87,4 @@ use a json schema validation
 https://medium.com/@mohommad.belal/json-schema-validator-using-java-springboot-667ed42480d5
 https://www.baeldung.com/introduction-to-json-schema-in-java
 https://www.mscharhag.com/spring/json-schema-validation-handlermethodargumentresolver
+https://medium.com/@bytewise010/json-schema-validation-in-spring-boot-c5ed0b48f011
