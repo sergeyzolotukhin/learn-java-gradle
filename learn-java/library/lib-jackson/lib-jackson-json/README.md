@@ -78,3 +78,5 @@ https://medium.com/@davenkin_93074/jacksons-default-serialization-deserializatio
 ####
 
 com.fasterxml.jackson.databind.ObjectMapper.createDeserializationContext
+
+com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer._fromString
