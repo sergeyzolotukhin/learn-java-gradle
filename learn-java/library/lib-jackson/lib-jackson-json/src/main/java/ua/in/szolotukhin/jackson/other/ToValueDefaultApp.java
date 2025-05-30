@@ -21,7 +21,7 @@ import java.util.Objects;
 @Slf4j
 public class ToValueDefaultApp {
 
-	public static final String BASE_PATH = "learn-java/library/lib-jackson/src/main/resources";
+	public static final String BASE_PATH = "learn-java/library/lib-jackson/lib-jackson-json/src/main/resources";
 	public static final String DEFAULT = "provider-default-version.json";
 
 	public static void main(String[] args) throws IOException {
