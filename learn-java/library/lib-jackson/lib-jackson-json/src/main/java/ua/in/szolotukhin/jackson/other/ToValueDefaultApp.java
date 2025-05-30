@@ -27,8 +27,7 @@ public class ToValueDefaultApp {
 	public static void main(String[] args) throws IOException {
 		log.info("Working directory: {}", System.getProperty("user.dir"));
 		ObjectMapper mapper = MapperFactory.createMapper()
-				.addHandler(new ProblemHandler())
-				;
+				.addHandler(new ProblemHandler());
 
 		SimpleModule module = new SimpleModule();
 		module.setDeserializerModifier(new BeanDeserializerModifier() {
