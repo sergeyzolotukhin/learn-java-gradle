@@ -110,3 +110,4 @@ https://www.mscharhag.com/spring/json-schema-validation-handlermethodargumentres
 
 ##### Validations in Spring Boot
 https://medium.com/@himani.prasad016/validations-in-spring-boot-e9948aa6286b
+https://stackoverflow.com/questions/9080904/jackson-deserialization-error-handling
