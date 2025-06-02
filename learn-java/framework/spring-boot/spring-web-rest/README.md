@@ -111,6 +111,7 @@ https://www.mscharhag.com/spring/json-schema-validation-handlermethodargumentres
 ##### Validations in Spring Boot
 https://medium.com/@himani.prasad016/validations-in-spring-boot-e9948aa6286b
 https://stackoverflow.com/questions/9080904/jackson-deserialization-error-handling
+https://medium.com/@akademixs247/efficient-data-binding-with-jackson-objectmapper-in-spring-boot-2aa532c2adc1
 
 HttpMessageNotReadableException
 AbstractJackson2HttpMessageConverter
