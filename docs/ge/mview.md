@@ -52,6 +52,11 @@ and should match the partitioning of the largest or most frequently updated deta
 When using the ON STATEMENT or ON COMMIT method, the time to complete a DML or commit may be slightly longer than usual
 Therefore, these methods may not be suitable if many users are concurrently changing the tables upon which the materialized view is based.
 
+[5.3.7.4 General Restrictions on Fast Refresh]
+
+[5.3.7.5 Restrictions on Fast Refresh on Materialized Views with Joins Only]
+
+
 #### Questions
 Can we use TUNE_MVIEW package for generate mat. view for a query?
 Do we need to compress this table ? 
@@ -71,5 +76,7 @@ https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-mate
 5.3.3 About Storage And Table Compression for Materialized Views    [skipped]
 5.3.6 About Query Rewrite Restrictions    [skipped]
 5.3.7.3 About Using Trusted Constraints and Materialized View Refresh   [skipped]
+5.3.7.6 Restrictions on Fast Refresh on Materialized Views with Aggregates   [skipped]
+5.3.7.7 Restrictions on Fast Refresh on Materialized Views with UNION ALL   [skipped]
 
--> 5.3.7.4 General Restrictions on Fast Refresh
+-> 5.3.7.8 About Achieving Refresh Goals
