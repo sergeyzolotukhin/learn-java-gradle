@@ -5,3 +5,6 @@
 
 https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-51B55F3F-6ABC-4304-9573-BAB08E1E67FF
 5.1.5 Components of Summary Management
+
+#### Questions
+Can we use TUNE_MVIEW package for generate mat. view for a query?
