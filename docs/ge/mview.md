@@ -3,9 +3,36 @@
 * I want to make this table partitioned be time.
 * I want to have indexes for a materialized view.
 
+# build method
+BUILD IMMEDIATE
+DEFERRED
+
+# refresh method
+FAST
+
+fast refresh -  An operation that applies only the data changes to a materialized view, 
+                thus eliminating the need to rebuild the materialized view from scratch.
+
+# when refresh
+ON COMMIT
+ON DEMAND
+
+#### Limitation
+[5.2 Types of Materialized Views]
+You cannot, however, define a materialized view with a subquery in the SELECT list of the defining query.
+
+[5.2.1 About Materialized Views with Aggregates]
+Also, materialized view logs must be present on all tables referenced in the query that defines the materialized view.
+REFRESH ON COMMIT - The time taken to complete the commit may be slightly longer than usual when this method is chosen.
+You can achieve better fast refresh performance for local materialized views if you use a materialized view log that contains a WITH COMMIT SCN clause.
+
 #### Questions
 Can we use TUNE_MVIEW package for generate mat. view for a query?
+Do we need to compress this table ? 
 
 #### Progress
 https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-materialized-views.html#GUID-51B55F3F-6ABC-4304-9573-BAB08E1E67FF
-5.1.7 About Materialized View Schema Design
+5.1.7 About Materialized View Schema Design     [skipped]
+5.1.8 About Loading Data into Data Warehouses   [skipped]
+
+-> 5.2.2 About Materialized Views Containing Only Joins
