@@ -50,4 +50,4 @@ https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dwhsg/basic-mate
 5.1.7 About Materialized View Schema Design     [skipped]
 5.1.8 About Loading Data into Data Warehouses   [skipped]
 
--> 5.2.2 About Materialized Views Containing Only Joins
+-> 5.2.2.1 Materialized Join Views FROM Clause Considerations
