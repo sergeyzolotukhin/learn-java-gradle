@@ -16,3 +16,9 @@ https://bmuschko.com/blog/dockerized-spring-boot-app/
 ### How to run the Vagrant form the Gradle 
 
 https://github.com/bmuschko/gradle-vagrant-plugin
+
+#### Buildpack with Spring Boot
+
+https://bell-sw.com/blog/how-to-use-buildpacks-to-build-java-containers/
+https://bell-sw.com/blog/how-to-use-buildpacks-with-spring-boot/
+https://sabzblog.medium.com/buildpack-with-spring-boot-4876b97b61c4
