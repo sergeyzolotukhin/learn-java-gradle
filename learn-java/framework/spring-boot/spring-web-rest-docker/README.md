@@ -22,3 +22,5 @@ https://github.com/bmuschko/gradle-vagrant-plugin
 https://bell-sw.com/blog/how-to-use-buildpacks-to-build-java-containers/
 https://bell-sw.com/blog/how-to-use-buildpacks-with-spring-boot/
 https://sabzblog.medium.com/buildpack-with-spring-boot-4876b97b61c4
+
+https://buildpacks.io/docs/for-app-developers/concepts/buildpack/
