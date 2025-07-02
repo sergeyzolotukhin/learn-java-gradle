@@ -51,3 +51,6 @@ https://medium.com/@AlexanderObregon/a-beginners-guide-to-centralized-configurat
 
 #### HikariCP restart with Spring Cloud Config
 https://stackoverflow.com/questions/54223822/hikaricp-restart-with-spring-cloud-config
+
+#### Configuring Java applications at runtime with Spring Profiles
+https://blog.scottlogic.com/2020/07/10/Spring-Profiles.html
