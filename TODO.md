@@ -1,3 +1,6 @@
+#### Type-safe Configuration Properties
+https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties
+
 #### Tasks
 
 * create remote gradle cache
