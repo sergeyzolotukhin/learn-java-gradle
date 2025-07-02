@@ -44,6 +44,9 @@ Property sources: InstalationKitPropertySource {name='installation-kit-property-
 Property sources: ApplicationInfoPropertySource {name='applicationInfo'}
 Property sources: LocalInstalationKitPropertySource {name='local-installation-kit-property-source'}
 
+#### Type-safe Configuration Properties
+https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties
+
 #### Spring Cloud Configuration
 
 https://www.baeldung.com/spring-cloud-configuration
