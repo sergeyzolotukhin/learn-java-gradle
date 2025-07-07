@@ -7,3 +7,4 @@ https://docs.oracle.com/cd/B28359_01/server.111/b28310/scheduse008.htm#ADMIN1002
 https://docs.oracle.com/cd/E18283_01/server.112/e17120/scheduse005.htm#CHDHJEFI
 
 https://renenyffenegger.ch/notes/development/databases/Oracle/adminstration/scheduler/event/queue/index
+https://www.fatihacar.com/blog/what-is-lightweight-job-in-oracle/
