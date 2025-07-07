@@ -10,3 +10,6 @@ https://renenyffenegger.ch/notes/development/databases/Oracle/adminstration/sche
 https://www.fatihacar.com/blog/what-is-lightweight-job-in-oracle/
 
 https://dba.stackexchange.com/questions/42119/passing-parameters-to-a-procedure-executed-by-dbms-scheduler
+
+#### PL/SQL
+https://stackoverflow.com/questions/8348013/can-a-table-variable-be-used-in-a-select-statement-where-clause
