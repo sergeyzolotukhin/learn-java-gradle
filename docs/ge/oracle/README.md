@@ -8,3 +8,5 @@ https://docs.oracle.com/cd/E18283_01/server.112/e17120/scheduse005.htm#CHDHJEFI
 
 https://renenyffenegger.ch/notes/development/databases/Oracle/adminstration/scheduler/event/queue/index
 https://www.fatihacar.com/blog/what-is-lightweight-job-in-oracle/
+
+https://dba.stackexchange.com/questions/42119/passing-parameters-to-a-procedure-executed-by-dbms-scheduler
