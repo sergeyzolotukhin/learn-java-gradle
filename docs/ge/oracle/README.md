@@ -1,5 +1,6 @@
 #### Advanced Queuing (AQ)
 https://www.oracle-developer.net/display.php?id=319
+https://docs.oracle.com/database/121/ADQUE/aq_intro.htm#ADQUE0100
 
 #### Using Events to Start Jobs
 https://oracle-base.com/articles/10g/scheduler-enhancements-10gr2
