@@ -37,3 +37,7 @@ You can try Maven Liquibase Plugin to automate it.
 
 https://runebook.dev/en/articles/spring_boot/application-properties/application-properties.data-migration.spring.liquibase.rollback-file
 https://reflectoring.io/database-migration-spring-boot-liquibase/
+
+#### Roll Back the Database or Fix Forward? | Liquibase
+https://forum.liquibase.org/t/how-to-rollback-in-liquibase-when-using-docker-for-deployment/3673/3
+https://medium.com/@fathyelshemy8/how-to-build-pipeline-to-rollback-liquibase-df9370bbd2dd
