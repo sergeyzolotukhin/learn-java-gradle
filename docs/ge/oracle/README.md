@@ -22,3 +22,4 @@ https://thorben-janssen.com/automatic-database-updates-integrating-liquibase/
 
 #### 3 Ways to Run Liquibase
 https://www.liquibase.com/blog/3-ways-to-run-liquibase
+https://madukajayawardana.medium.com/liquibase-tutorial-managing-database-schema-changes-db8ae0046259
