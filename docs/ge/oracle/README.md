@@ -36,3 +36,4 @@ You'd have to run this SQL by hand when you are rolling back the schema.
 You can try Maven Liquibase Plugin to automate it.
 
 https://runebook.dev/en/articles/spring_boot/application-properties/application-properties.data-migration.spring.liquibase.rollback-file
+https://reflectoring.io/database-migration-spring-boot-liquibase/
