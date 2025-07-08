@@ -17,3 +17,5 @@ https://stackoverflow.com/questions/8348013/can-a-table-variable-be-used-in-a-se
 
 #### Control liquibase migration scripts on different environments.
 https://medium.com/@knoldus/control-liquibase-migration-scripts-on-different-environments-e1f3d9080ca3
+
+https://thorben-janssen.com/automatic-database-updates-integrating-liquibase/
