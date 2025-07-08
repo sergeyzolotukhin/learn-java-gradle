@@ -44,3 +44,5 @@ https://medium.com/@fathyelshemy8/how-to-build-pipeline-to-rollback-liquibase-df
 https://forum.liquibase.org/t/5-ways-to-fix-a-bad-database-change-in-liquibase/6081
 
 #### Spring Boot Actuator
+Actuator creates one more Embedded Tomcat(servlet container) instance in this case
+https://stackoverflow.com/questions/27575595/spring-boot-with-endpoints-creates-two-tomcat-containers
