@@ -34,3 +34,5 @@ There is a liquibase.rollback-file property in Spring Boot
 which can be used to write a rollback SQL script. 
 You'd have to run this SQL by hand when you are rolling back the schema. 
 You can try Maven Liquibase Plugin to automate it.
+
+https://runebook.dev/en/articles/spring_boot/application-properties/application-properties.data-migration.spring.liquibase.rollback-file
