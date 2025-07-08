@@ -24,3 +24,13 @@ https://thorben-janssen.com/automatic-database-updates-integrating-liquibase/
 https://www.liquibase.com/blog/3-ways-to-run-liquibase
 https://madukajayawardana.medium.com/liquibase-tutorial-managing-database-schema-changes-db8ae0046259
 https://www.baeldung.com/liquibase-refactor-schema-of-java-app
+
+#### How to fire liquibase rollback script from spring application
+To roll back changes in Liquibase within a Spring Boot application, 
+you typically use the Liquibase CLI or Maven/Gradle plugins, 
+as Spring Boot itself doesn't offer direct, built-in rollback functionality for Liquibase.
+
+There is a liquibase.rollback-file property in Spring Boot 
+which can be used to write a rollback SQL script. 
+You'd have to run this SQL by hand when you are rolling back the schema. 
+You can try Maven Liquibase Plugin to automate it.
