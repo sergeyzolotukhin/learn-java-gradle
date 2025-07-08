@@ -41,3 +41,5 @@ https://reflectoring.io/database-migration-spring-boot-liquibase/
 #### Roll Back the Database or Fix Forward? | Liquibase
 https://forum.liquibase.org/t/how-to-rollback-in-liquibase-when-using-docker-for-deployment/3673/3
 https://medium.com/@fathyelshemy8/how-to-build-pipeline-to-rollback-liquibase-df9370bbd2dd
+https://forum.liquibase.org/t/5-ways-to-fix-a-bad-database-change-in-liquibase/6081
+
