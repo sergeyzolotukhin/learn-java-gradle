@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Configuration
 @SpringBootApplication
-public class Application {
+public class JdbcApplication {
     private static final String JDBC_URL = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
     private static final String USER = "sa";
     private static final String PASSWORD = "";
