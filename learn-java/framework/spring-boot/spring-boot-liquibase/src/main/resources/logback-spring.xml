@@ -5,8 +5,8 @@
         </encoder>
     </appender>
 
-    <logger name="liquibase" level="warn" />
-    <logger name="liquibase.util" level="info" />
+<!--    <logger name="liquibase" level="warn" />-->
+<!--    <logger name="liquibase.util" level="info" />-->
 
     <logger name="org.hibernate" level="warn" />
     <logger name="com.zaxxer.hikari" level="warn" />
