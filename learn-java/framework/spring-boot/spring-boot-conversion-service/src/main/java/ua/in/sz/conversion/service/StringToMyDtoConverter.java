@@ -6,10 +6,10 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StringToMyDtoConverter implements Converter<String, Application.MyDto> {
+public class StringToMyDtoConverter implements Converter<String, BootConversionServiceApplication.MyDto> {
     @Override
-    public Application.MyDto convert(String source) {
-        return Application.MyDto.builder()
+    public BootConversionServiceApplication.MyDto convert(String source) {
+        return BootConversionServiceApplication.MyDto.builder()
                 .value(Integer.parseInt(source.split(":")[0]))
                 .precision(Integer.parseInt(source.split(":")[1]))
                 .origen(source).build();

@@ -15,13 +15,13 @@ import org.springframework.core.env.ConfigurableEnvironment;
 @Slf4j
 @Configuration
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class BootConversionServiceApplication implements CommandLineRunner {
 
     @Autowired
     private ConfigurableEnvironment environment;
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(BootConversionServiceApplication.class, args);
 
         context.close();
     }
