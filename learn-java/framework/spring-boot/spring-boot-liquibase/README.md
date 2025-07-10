@@ -1,0 +1,1 @@
+https://contribute.liquibase.com/extensions-integrations/directory/integration-docs/springboot/
