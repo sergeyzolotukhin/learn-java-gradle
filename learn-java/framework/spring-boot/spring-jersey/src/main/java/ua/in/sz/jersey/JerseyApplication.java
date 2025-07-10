@@ -5,8 +5,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class JerseyApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        new Application().configure(new SpringApplicationBuilder(Application.class)).run(args);
+        new JerseyApplication().configure(new SpringApplicationBuilder(JerseyApplication.class)).run(args);
     }
 }
