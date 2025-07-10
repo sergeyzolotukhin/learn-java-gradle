@@ -13,10 +13,10 @@ import jakarta.xml.ws.Endpoint;
 
 @Slf4j
 @SpringBootApplication
-public class Application  {
+public class CxfWsApplication {
 	private final Bus bus;
 
-	public Application(Bus bus) {
+	public CxfWsApplication(Bus bus) {
 		this.bus = bus;
 	}
 
@@ -43,6 +43,6 @@ public class Application  {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CxfWsApplication.class, args);
 	}
 }
