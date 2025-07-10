@@ -17,10 +17,10 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 @Configuration
 @EnableScheduling
 @EnableAutoConfiguration
-public class Application {
+public class QuartzApplication {
 	public static void main(String[] args) {
 		log.info("Start");
-		SpringApplication.run(Application.class);
+		SpringApplication.run(QuartzApplication.class);
 		log.info("End");
 	}
 
