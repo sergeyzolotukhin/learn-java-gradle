@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @SpringBootApplication
-public class Application {
+public class BootIntegrationApplication {
     public static void main(String[] args) throws InterruptedException {
-        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(BootIntegrationApplication.class, args);
 
         ReturningGateway gateway = context.getBean(ReturningGateway.class);
         gateway.placeOrder("Hello World");
