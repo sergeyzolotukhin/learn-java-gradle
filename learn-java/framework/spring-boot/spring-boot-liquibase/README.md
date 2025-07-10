@@ -7,6 +7,7 @@ liquibase.Liquibase
 * Add @DependsOn
 org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer.DependsOnDatabaseInitializationPostProcessor
 https://zetcode.com/spring/beanfactorypostprocessor/
+https://www.netjstech.com/2018/03/beanfactorypostprocessor-in-spring.html
 org.springframework.beans.factory.config.BeanFactoryPostProcessor
 
 * Get a bean based on dependencies
