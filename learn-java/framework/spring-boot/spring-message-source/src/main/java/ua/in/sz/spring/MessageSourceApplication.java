@@ -14,9 +14,9 @@ import java.util.Locale;
 @Slf4j
 @SpringBootApplication
 @ImportResource("classpath:app-config.xml")
-public class Application {
+public class MessageSourceApplication {
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(Application.class, args);
+		ApplicationContext ctx = SpringApplication.run(MessageSourceApplication.class, args);
 		MessageSource messageSource = ctx.getBean("messageSource", MessageSource.class);
 		Object[] arguments = new Object[]{BigDecimal.valueOf(1.2224), LocalDate.now()};
 		String message = messageSource.getMessage("message.1", arguments, Locale.getDefault());
