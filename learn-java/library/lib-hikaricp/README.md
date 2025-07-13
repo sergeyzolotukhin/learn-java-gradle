@@ -37,3 +37,6 @@ https://jdbc-observations.github.io/datasource-proxy/docs/snapshot/user-guide/#a
 https://github.com/ttddyy/datasource-proxy-examples
 https://github.com/jdbc-observations/datasource-proxy
 
+#### allowPoolSuspension
+https://github.com/brettwooldridge/HikariCP
+
