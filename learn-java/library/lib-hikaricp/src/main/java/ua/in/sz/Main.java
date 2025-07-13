@@ -1,6 +1,7 @@
 package ua.in.sz;
 
 import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariConfigMXBean;
 import com.zaxxer.hikari.HikariDataSource;
 import com.zaxxer.hikari.HikariPoolMXBean;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +40,7 @@ public class Main {
             if (i == 10) {
                 callables.add(() -> {
 
+                    HikariConfigMXBean hikariConfigMXBean = dateSource.getHikariConfigMXBean();
                     HikariPoolMXBean hikariPoolMXBean = dateSource.getHikariPoolMXBean();
                     hikariPoolMXBean.suspendPool();
 //                    hikariPoolMXBean.softEvictConnections();
