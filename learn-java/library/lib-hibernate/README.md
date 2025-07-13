@@ -164,4 +164,5 @@ https://www.baeldung.com/hibernate-6-multitenancy
 https://spring.io/blog/2022/07/31/how-to-integrate-hibernates-multitenant-feature-with-spring-data-jpa-in-a-spring-boot-application
 https://docs.jboss.org/hibernate/orm/4.2/devguide/en-US/html/ch16.html
 https://medium.com/swlh/multi-tenancy-implementation-using-spring-boot-hibernate-6a8e3ecb251a
+https://www.baeldung.com/multitenancy-with-spring-data-jpa
 
