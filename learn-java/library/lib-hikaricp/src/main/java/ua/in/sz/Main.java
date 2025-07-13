@@ -41,6 +41,7 @@ public class Main {
 
                     HikariPoolMXBean hikariPoolMXBean = dateSource.getHikariPoolMXBean();
                     hikariPoolMXBean.suspendPool();
+//                    hikariPoolMXBean.softEvictConnections();
                     log.info("suspendPool");
                     TimeUnit.SECONDS.sleep(10);
                     log.info("resumePool");
