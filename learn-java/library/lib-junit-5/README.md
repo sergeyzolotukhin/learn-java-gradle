@@ -14,3 +14,6 @@ org.junit.jupiter.api.parallel.Isolated
 https://engineering.getmidas.com/parallel-test-execution-with-junit-5-07aa3de5117f
 https://medium.com/@suman.maity112/reduce-build-time-by-running-tests-in-parallel-ec0d26f068a6
 https://www.baeldung.com/maven-junit-parallel-tests
+
+#### The Order of Tests in JUnit
+https://www.baeldung.com/junit-5-test-order#5-set-default-order
