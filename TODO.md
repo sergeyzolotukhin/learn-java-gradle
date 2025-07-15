@@ -296,6 +296,7 @@ https://solidsoft.wordpress.com/2014/11/13/gradle-tricks-display-dependencies-fo
 
 https://discuss.gradle.org/t/custom-task-to-execute-all-unit-tests-in-all-subprojects-aka-modules/47604
 https://discuss.gradle.org/t/executing-tasks-by-name-on-multi-project/46046
+https://stackoverflow.com/questions/26509427/execute-gradle-task-on-sub-projects
 
 ##### not working 
 gradlew.bat  dependencyInsight --configuration testRuntimeClasspath --dependency junit-platform-commons
