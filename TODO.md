@@ -285,3 +285,12 @@ https://stackoverflow.com/questions/39745154/how-to-create-a-scheduler-task-in-w
 
 https://plugins.jetbrains.com/plugin/8403-breakpoints-manager
 https://github.com/marcin-bukowiecki/breakpoint-manager-plugin/tree/master
+
+#### Debugging dependencies in Gradle. How to use dependencyInsight ?
+
+set JAVA_HOME=C:\soft\java-20
+gradlew.bat  :learn-java:library:lib-activemq-artemis:dependencyInsight --configuration testRuntimeClasspath --dependency junit-platform-commons
+
+##### not working 
+gradlew.bat  dependencyInsight --configuration testRuntimeClasspath --dependency junit-platform-commons
+
