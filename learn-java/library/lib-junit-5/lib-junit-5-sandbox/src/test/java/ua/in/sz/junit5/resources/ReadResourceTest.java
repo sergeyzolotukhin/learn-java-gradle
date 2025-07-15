@@ -1,4 +1,4 @@
-package ua.in.sz.junit5;
+package ua.in.sz.junit5.resources;
 
 import com.adelean.inject.resources.junit.jupiter.GivenTextResource;
 import com.adelean.inject.resources.junit.jupiter.TestWithResources;
@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import com.google.common.io.Resources;
 import org.junit.jupiter.api.extension.ExtendWith;
+import ua.in.sz.junit5.resources.extension.ResourceFile;
+import ua.in.sz.junit5.resources.extension.ResourceParameterResolver;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;

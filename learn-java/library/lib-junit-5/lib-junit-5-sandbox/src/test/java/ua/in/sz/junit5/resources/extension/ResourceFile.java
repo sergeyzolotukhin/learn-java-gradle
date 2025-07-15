@@ -1,4 +1,4 @@
-package ua.in.sz.junit5;
+package ua.in.sz.junit5.resources.extension;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@interface ResourceFile {
+public @interface ResourceFile {
     String value();
 }
