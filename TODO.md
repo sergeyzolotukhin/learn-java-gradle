@@ -292,6 +292,7 @@ set JAVA_HOME=C:\soft\java-20
 gradlew.bat  :learn-java:library:lib-activemq-artemis:dependencyInsight --configuration testRuntimeClasspath --dependency junit-platform-commons
 
 https://proandroiddev.com/debugging-dependencies-in-gradle-54c8be444849
+https://solidsoft.wordpress.com/2014/11/13/gradle-tricks-display-dependencies-for-all-subprojects-in-multi-project-build/
 
 ##### not working 
 gradlew.bat  dependencyInsight --configuration testRuntimeClasspath --dependency junit-platform-commons
