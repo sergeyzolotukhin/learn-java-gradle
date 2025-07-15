@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
-class MainTest {
+class SandboxTest {
 
-    public MainTest() {
+    public SandboxTest() {
 //        log.info("MainTest");
     }
 
