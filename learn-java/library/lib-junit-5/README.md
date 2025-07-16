@@ -17,3 +17,6 @@ https://www.baeldung.com/maven-junit-parallel-tests
 
 #### The Order of Tests in JUnit
 https://www.baeldung.com/junit-5-test-order#5-set-default-order
+
+#### How to Split JUnit Tests in a Continuous Integration Environment
+https://semaphore.io/community/tutorials/how-to-split-junit-tests-in-a-continuous-integration-environment
