@@ -29,3 +29,6 @@ Use case: I will use it for developing
 Use case:
 
 * run e2e tests
+
+##### Keep the Build Fast
+https://martinfowler.com/articles/continuousIntegration.html
