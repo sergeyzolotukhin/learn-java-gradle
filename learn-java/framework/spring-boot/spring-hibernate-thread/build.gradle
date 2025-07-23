@@ -11,6 +11,9 @@ dependencies {
     implementation 'org.postgresql:postgresql'
     implementation 'com.h2database:h2'
 
+    // runtime
+    runtimeOnly files('config')
+
     // row level security
 
     // https://dzone.com/articles/row-level-security-in-hibernate-using-filter
