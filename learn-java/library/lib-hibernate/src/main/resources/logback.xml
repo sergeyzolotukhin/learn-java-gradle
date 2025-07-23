@@ -19,8 +19,14 @@
     </appender>
 
     <!-- Current task -->
-<!--    <logger name="org.hibernate.event.internal.DefaultLoadEventListener" level="trace" />-->
-<!--    <logger name="org.hibernate.event.internal.DefaultInitializeCollectionEventListener" level="trace" />-->
+
+    <!-- Hibernate session -->
+    <logger name="org.hibernate.internal.SessionImpl" level="trace" />
+    <!--    <logger name="org.hibernate.internal.SessionFactoryImpl$SessionBuilderImpl" level="trace" />-->
+
+    <!-- Hibernate transaction -->
+    <logger name="org.hibernate.engine.transaction.internal.TransactionImpl" level="trace" />
+    <logger name="org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor" level="trace" />
 
     <!-- Hibernate statistic -->
 <!--    <logger name="org.hibernate.stat.internal.StatisticsImpl" level="info" />-->
