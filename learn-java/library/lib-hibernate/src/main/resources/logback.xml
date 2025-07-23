@@ -20,11 +20,15 @@
 
     <!-- Current task -->
 
+    <!-- Transaction Interceptor -->
+    <logger name="ua.in.sz.hibernate.interceptor.interceptor.TransactionInterceptor" level="trace" />
+
     <!-- Hibernate session -->
-    <logger name="org.hibernate.internal.SessionImpl" level="trace" />
+<!--    <logger name="org.hibernate.internal.SessionImpl" level="trace" />-->
 
     <!-- Hibernate transaction -->
-    <logger name="org.hibernate.engine.transaction" level="trace" />
+<!--    <logger name="org.hibernate.engine.transaction" level="trace" />-->
+
 <!--    <logger name="org.hibernate.resource.jdbc" level="trace" />-->
 <!--    <logger name="org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor" level="trace" />-->
 
