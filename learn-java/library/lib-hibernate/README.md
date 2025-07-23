@@ -170,4 +170,8 @@ https://www.baeldung.com/multitenancy-with-spring-data-jpa
 https://www.baeldung.com/hibernate-logging-levels
 https://www.adeliosys.fr/articles/hibernate-monitoring/
 
+#### Hibernate Read Only Entity
+https://www.concretepage.com/hibernate/hibernate-make-entity-read-only-example-with-session-setdefaultreadonly-session-setreadonly-query-setreadonly-criteria-setreadonly-and-immutable-entity
+https://docs.jboss.org/hibernate/orm/3.5/reference/en/html/readonly.html
+
 
