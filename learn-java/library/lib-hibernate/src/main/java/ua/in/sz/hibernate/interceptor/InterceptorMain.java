@@ -12,6 +12,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ua.in.sz.hibernate.interceptor.entities.Determinant;
 import ua.in.sz.hibernate.interceptor.interceptor.TransactionInterceptor;
 
+/**
+ * <a href="https://www.baeldung.com/hibernate-interceptor">Hibernate Interceptors</a>
+ */
 @Slf4j
 public class InterceptorMain {
     public static void main(String[] args) {
