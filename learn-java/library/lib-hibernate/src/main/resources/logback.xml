@@ -22,7 +22,6 @@
 
     <!-- Hibernate session -->
     <logger name="org.hibernate.internal.SessionImpl" level="trace" />
-    <!--    <logger name="org.hibernate.internal.SessionFactoryImpl$SessionBuilderImpl" level="trace" />-->
 
     <!-- Hibernate transaction -->
     <logger name="org.hibernate.engine.transaction.internal.TransactionImpl" level="trace" />
