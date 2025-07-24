@@ -21,3 +21,5 @@ https://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-
 
 https://medium.com/@alxkm/effective-use-of-threadlocal-in-java-applications-f4eb6a648d4a
 https://www.alibabacloud.com/blog/java-development-practices-using-thread-pools-and-thread-variables-properly_600180
+
+https://prystash.blogspot.com/2014/08/spring-aop-excluding-methods-in.html
