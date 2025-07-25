@@ -2,9 +2,12 @@ package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @Slf4j
+@Configuration
 public class Main {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
@@ -17,6 +20,9 @@ public class Main {
 
         PrintService businessService = context.getBean(PrintService.class);
         businessService.print();
+
+        SecondBusinessService secondBusinessService = context.getBean(SecondBusinessService.class);
+        secondBusinessService.print();
 
         context.close();
     }
@@ -33,5 +39,10 @@ public class Main {
         for (String beanDefinitionName : context.getBeanFactory().getBeanDefinitionNames()) {
             log.info("beanDefinitionName={}", beanDefinitionName);
         }
+    }
+
+    @Bean
+    public SecondBusinessService secondBusinessService() {
+        return new SecondBusinessService();
     }
 }

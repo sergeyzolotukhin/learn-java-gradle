@@ -2,6 +2,7 @@ package ua.in.sz.h2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -25,6 +26,14 @@ public class Main {
         BusinessService businessService = context.getBean(BusinessService.class);
         businessService.print();
 
+        SecondBusinessService secondBusinessService = context.getBean(SecondBusinessService.class);
+        secondBusinessService.print();
+
         context.close();
+    }
+
+    @Bean
+    public SecondBusinessService secondBusinessService() {
+        return new SecondBusinessService();
     }
 }
