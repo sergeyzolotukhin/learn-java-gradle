@@ -9,3 +9,4 @@ https://docs.spring.io/spring-boot/docs/2.0.0.M4/reference/html/boot-features-de
 
 https://ferstl.github.io/depgraph-maven-plugin/plugin-info.html
 https://github.com/ferstl/depgraph-maven-plugin
+https://github.com/ferstl/depgraph-maven-plugin/wiki/Filtering
