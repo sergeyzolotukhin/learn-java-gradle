@@ -60,3 +60,5 @@ https://blog.scottlogic.com/2020/07/10/Spring-Profiles.html
 
 ####  Dynamic Property
 https://docs.spring.io/spring-framework/reference/testing/testcontext-framework/ctx-management/dynamic-property-sources.html
+
+https://medium.com/@anders.swanson.93/dynamically-load-spring-properties-from-external-locations-3ef644b42035
