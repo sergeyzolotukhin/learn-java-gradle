@@ -3,11 +3,20 @@ package ua.in.sz.spring.transaction.readonly;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @Slf4j
 @SpringBootApplication
 public class TxReadOnlyApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(TxReadOnlyApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(TxReadOnlyApplication.class, args);
+
+		log.info("\n\n");
+		for (String beanDefinitionName : context.getBeanDefinitionNames()) {
+			log.info("\t{}", beanDefinitionName);
+		}
+		log.info("\n\n");
+
+		context.close();
 	}
 }

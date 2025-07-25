@@ -14,7 +14,6 @@ import ua.in.sz.spring.transaction.readonly.service.TxReadOnlyService;
 @RequiredArgsConstructor
 public class TxReadOnlyApplicationCommandLineRunner implements CommandLineRunner {
 
-	public static final String MDC_FEATURE = "feature";
 	private final TxReadOnlyService txReadOnlyService;
 
 	@Override
