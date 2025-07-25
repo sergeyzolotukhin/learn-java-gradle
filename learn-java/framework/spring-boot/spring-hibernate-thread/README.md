@@ -8,3 +8,5 @@ https://medium.com/@vinayuniyal2014/deploying-spring-boot-bank-app-using-jenkins
 
 #### Hikari -> dataSource
 org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.Hikari.dataSource
+
+https://vladmihalcea.com/lazyconnectiondatasourceproxy-spring-data-jpa/
