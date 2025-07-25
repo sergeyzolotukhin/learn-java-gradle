@@ -27,6 +27,8 @@ https://prystash.blogspot.com/2014/08/spring-aop-excluding-methods-in.html
 #### import annotation based spring project in xml based project
 
 https://www.concretepage.com/spring/spring-component-scan-include-and-exclude-filter-example
+https://reflectoring.io/spring-component-scanning/
+https://java-ru-blog.blogspot.com/2020/07/spring-ioc-container-classpath-filters.html
 
 https://stackoverflow.com/questions/70190879/import-annotation-based-spring-project-in-xml-based-project
 https://www.baeldung.com/spring-contextannotation-contextcomponentscan
