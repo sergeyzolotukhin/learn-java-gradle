@@ -13,7 +13,7 @@ public class TxReadOnlyApplication {
 
 		log.info("\n\n");
 		for (String beanDefinitionName : context.getBeanDefinitionNames()) {
-			log.info("\t{}", beanDefinitionName);
+			log.info("\t{} -> {}", beanDefinitionName , context.getBean(beanDefinitionName).getClass().getName());
 		}
 		log.info("\n\n");
 
