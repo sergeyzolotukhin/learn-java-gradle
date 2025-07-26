@@ -5,6 +5,8 @@ https://bhardwajprashant.medium.com/demystifying-spring-boot-magic-starters-auto
 
 https://docs.spring.io/spring-boot/docs/2.0.0.M4/reference/html/boot-features-developing-auto-configuration.html#boot-features-custom-starter
 
+https://codefarm0.medium.com/hands-on-building-a-custom-spring-boot-starter-with-gradle-6e10c26780ab
+
 #### A Maven plugin that generates dependency graphs in various formats
 
 https://ferstl.github.io/depgraph-maven-plugin/plugin-info.html
