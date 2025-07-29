@@ -23,6 +23,7 @@ https://semaphore.io/community/tutorials/how-to-split-junit-tests-in-a-continuou
 
 #### JUnit 5 Extension
 https://github.com/kafkaliu/junit-vagrant
+https://github.com/neykov/vagrant-java-bindings/tree/master
 https://github.com/gofabian/junit-fixture-extension
 https://github.com/isen-ng/junit5-dbsetup-annotations
 
@@ -30,3 +31,5 @@ https://github.com/drop-project-edu/junit-extension-run-if
 https://github.com/fridujo/classpath-junit-extension
 https://github.com/innoq/junit5-logging-extension
 https://github.com/sleberknight/sparkjava-testing/tree/master
+
+https://pypi.org/project/python-vagrant/
