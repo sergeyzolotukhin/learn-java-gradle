@@ -33,3 +33,6 @@ https://github.com/innoq/junit5-logging-extension
 https://github.com/sleberknight/sparkjava-testing/tree/master
 
 https://pypi.org/project/python-vagrant/
+
+#### MockServer
+https://www.mock-server.com/#what-is-mockserver
