@@ -10,6 +10,6 @@ import ua.in.sz.jaxb.model.Page;
 @Getter
 @Setter
 @XmlType
-public class NamedPage extends Page {
+public class FirstPage extends Page {
     private String name;
 }

@@ -4,7 +4,7 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.jaxb.model.Book;
-import ua.in.sz.jaxb.model.page.NamedPage;
+import ua.in.sz.jaxb.model.page.FirstPage;
 import ua.in.sz.jaxb.model.Page;
 import ua.in.sz.jaxb.model.page.SecondPage;
 
@@ -31,7 +31,7 @@ public class JaxbMain {
         Page pageB = new Page();
         pageB.setNo(2L);
 
-        NamedPage pageC = new NamedPage();
+        FirstPage pageC = new FirstPage();
         pageC.setNo(3L);
         pageC.setName("page 3");
 

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ua.in.sz.jaxb.model.page.NamedPage;
+import ua.in.sz.jaxb.model.page.FirstPage;
 import ua.in.sz.jaxb.model.page.SecondPage;
 
 import java.util.Date;
@@ -30,7 +30,7 @@ public class Book {
 
     @XmlElements({
             @XmlElement(name="page", type=Page.class),
-            @XmlElement(name="namedPage", type= NamedPage.class),
+            @XmlElement(name="firstPage", type= FirstPage.class),
             @XmlElement(name="secondPage", type= SecondPage.class)
     })
     public List<Page> getPages() {
