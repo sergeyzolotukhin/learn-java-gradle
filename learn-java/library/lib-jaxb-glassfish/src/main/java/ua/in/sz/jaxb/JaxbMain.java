@@ -7,6 +7,7 @@ import ua.in.sz.jaxb.model.Book;
 import ua.in.sz.jaxb.model.page.FirstPage;
 import ua.in.sz.jaxb.model.Page;
 import ua.in.sz.jaxb.model.page.SecondPage;
+import ua.in.sz.jaxb.model.page.ThirdPage;
 
 import java.io.StringWriter;
 import java.util.Arrays;
@@ -39,7 +40,11 @@ public class JaxbMain {
         pageD.setNo(4L);
         pageD.setDescription("page 3 description");
 
-        book.setPages(Arrays.asList(pageA, pageB, pageC, pageD));
+        ThirdPage pageE = new ThirdPage();
+        pageE.setNo(4L);
+        pageE.setComment("page 3 comment");
+
+        book.setPages(Arrays.asList(pageA, pageB, pageC, pageD, pageE));
 
         StringWriter sw = new StringWriter();
         marshaller.marshal(book, sw);
