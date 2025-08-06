@@ -1,5 +1,6 @@
 package ua.in.sz.jaxb.model;
 
+import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -28,11 +29,12 @@ public class Book {
 
     private List<Page> pages;
 
-    @XmlElements({
+/*    @XmlElements({
             @XmlElement(name="page", type=Page.class),
             @XmlElement(name="firstPage", type= FirstPage.class),
             @XmlElement(name="secondPage", type= SecondPage.class)
-    })
+    })*/
+    @XmlAnyElement(lax = true)
     public List<Page> getPages() {
         return pages;
     }
