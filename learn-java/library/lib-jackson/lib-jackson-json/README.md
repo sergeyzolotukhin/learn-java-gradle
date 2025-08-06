@@ -93,3 +93,4 @@ https://medium.com/@bytewise010/json-schema-validation-in-spring-boot-c5ed0b48f0
 
 https://www.baeldung.com/jackson-streaming-api
 https://medium.com/@akademixs247/jackson-objectmapper-tips-and-tricks-optimizing-performance-in-java-applications-09d5acffeb3d
+https://github.com/fabienrenaud/java-json-benchmark?tab=readme-ov-file#users-model
