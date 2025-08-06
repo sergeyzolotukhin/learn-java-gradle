@@ -1,11 +1,15 @@
 package ua.in.sz.jaxb.model;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ua.in.sz.jaxb.model.page.NamedPage;
+import ua.in.sz.jaxb.model.page.SecondPage;
 
 import java.util.Date;
 import java.util.List;
@@ -17,12 +21,19 @@ import java.util.List;
 @XmlType
 @XmlRootElement
 public class Book {
-//    @XmlAttribute
     private Long id;
-//    @XmlElement
     private String name;
-//    @XmlTransient
     private String author;
     private Date date;
+
     private List<Page> pages;
+
+    @XmlElements({
+            @XmlElement(name="page", type=Page.class),
+            @XmlElement(name="namedPage", type= NamedPage.class),
+            @XmlElement(name="secondPage", type= SecondPage.class)
+    })
+    public List<Page> getPages() {
+        return pages;
+    }
 }

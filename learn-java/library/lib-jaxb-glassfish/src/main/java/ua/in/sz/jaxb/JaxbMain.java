@@ -4,7 +4,9 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.jaxb.model.Book;
+import ua.in.sz.jaxb.model.page.NamedPage;
 import ua.in.sz.jaxb.model.Page;
+import ua.in.sz.jaxb.model.page.SecondPage;
 
 import java.io.StringWriter;
 import java.util.Arrays;
@@ -29,7 +31,15 @@ public class JaxbMain {
         Page pageB = new Page();
         pageB.setNo(2L);
 
-        book.setPages(Arrays.asList(pageA, pageB));
+        NamedPage pageC = new NamedPage();
+        pageC.setNo(3L);
+        pageC.setName("page 3");
+
+        SecondPage pageD = new SecondPage();
+        pageD.setNo(4L);
+        pageD.setDescription("page 3 description");
+
+        book.setPages(Arrays.asList(pageA, pageB, pageC, pageD));
 
         StringWriter sw = new StringWriter();
         marshaller.marshal(book, sw);
