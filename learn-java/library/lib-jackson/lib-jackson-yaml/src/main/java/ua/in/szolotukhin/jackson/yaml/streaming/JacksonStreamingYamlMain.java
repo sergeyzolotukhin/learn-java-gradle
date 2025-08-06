@@ -1,4 +1,4 @@
-package ua.in.szolotukhin.jackson.yaml.simple;
+package ua.in.szolotukhin.jackson.yaml.streaming;
 
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
