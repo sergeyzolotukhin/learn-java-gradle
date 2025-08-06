@@ -64,7 +64,6 @@ public class JacksonStreamingJsonMain {
         JsonFactory factory = new JsonFactory();
         JsonGenerator generator = factory.createGenerator(stream, JsonEncoding.UTF8);
 
-        // when
         generator.writeStartObject();
         generator.writeStringField("name", "Tom");
         generator.writeNumberField("age", 25);
@@ -76,7 +75,6 @@ public class JacksonStreamingJsonMain {
         generator.writeEndObject();
         generator.close();
 
-        // then
         String json = stream.toString(StandardCharsets.UTF_8);
         log.info("json: {}", json);
     }
