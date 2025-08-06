@@ -88,3 +88,7 @@ https://medium.com/@mohommad.belal/json-schema-validator-using-java-springboot-6
 https://www.baeldung.com/introduction-to-json-schema-in-java
 https://www.mscharhag.com/spring/json-schema-validation-handlermethodargumentresolver
 https://medium.com/@bytewise010/json-schema-validation-in-spring-boot-c5ed0b48f011
+
+####
+
+https://www.baeldung.com/jackson-streaming-api
