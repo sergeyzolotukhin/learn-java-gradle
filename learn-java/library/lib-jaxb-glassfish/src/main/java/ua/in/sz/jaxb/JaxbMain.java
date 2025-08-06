@@ -4,8 +4,10 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import lombok.extern.slf4j.Slf4j;
 import ua.in.sz.jaxb.model.Book;
+import ua.in.sz.jaxb.model.Page;
 
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.Date;
 
 @Slf4j
@@ -20,6 +22,14 @@ public class JaxbMain {
         book.setName("book 1");
         book.setAuthor("author 1");
         book.setDate(new Date());
+
+        Page pageA = new Page();
+        pageA.setNo(2L);
+
+        Page pageB = new Page();
+        pageB.setNo(2L);
+
+        book.setPages(Arrays.asList(pageA, pageB));
 
         StringWriter sw = new StringWriter();
         marshaller.marshal(book, sw);
