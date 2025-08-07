@@ -19,7 +19,7 @@ public class Application {
 						new ShapeAdapter(new ThirdCircleShape()),
 						new CommonShapeAdapter(new ThirdCircleShape())))
 				.build();
-        log.info("drawing: {}", ownDrawing);
+        log.info("drawing  fsdfsf: {}", ownDrawing);
 		ownDrawing.render();
 
 		DrawingShape thirdDrawing = DrawingShape.builder()
