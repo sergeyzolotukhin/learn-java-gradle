@@ -227,7 +227,7 @@ include 'learn-java:pattern-gof:pattern-gof-adapter'
 //include 'learn-gradle:multi-project:api'
 //include 'learn-gradle:multi-project:impl'
 
-includeBuild 'learn-gradle'
+//includeBuild 'learn-gradle'
 
 //include 'learn-groovy'
 // ====================================================================================================================
