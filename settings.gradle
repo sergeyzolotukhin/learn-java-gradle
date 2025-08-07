@@ -144,6 +144,7 @@ include 'learn-java:framework:spring:spring-xml-plugable'
 include 'learn-java:framework:spring:spring-xml-factory-bean'
 include 'learn-java:framework:spring:spring-xml-data-binding'
 include 'learn-java:framework:spring:spring-xml-circular-dependency'
+include 'learn-java:framework:spring:spring-xml-oxm'
 
 //include 'learn-java:framework:spring:spring-xml-with-spring-plugin'
 include 'learn-java:framework:spring:spring-xml-security'
