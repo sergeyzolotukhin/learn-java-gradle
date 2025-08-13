@@ -19,3 +19,5 @@ https://plugins.jetbrains.com/plugin/21530-wl-spring-assistant
 
 https://github.com/jansorg/intellij-code-completion/tree/master
 https://www.plugin-dev.com/intellij/custom-language/code-completion/
+
+https://www.baeldung.com/configuration-properties-in-spring-boot#3-custom-converter
