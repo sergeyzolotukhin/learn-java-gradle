@@ -12,3 +12,6 @@ https://codefarm0.medium.com/hands-on-building-a-custom-spring-boot-starter-with
 https://ferstl.github.io/depgraph-maven-plugin/plugin-info.html
 https://github.com/ferstl/depgraph-maven-plugin
 https://github.com/ferstl/depgraph-maven-plugin/wiki/Filtering
+
+
+D:\projects-java\tutorials-baeldung\spring-boot-custom-starter
