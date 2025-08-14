@@ -1,0 +1,21 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+//    id 'org.springframework.boot'
+}
+
+//springBoot {
+//    mainClass = 'ua.in.sz.pattern.spring.yaml.YamlApplication'
+//}
+
+dependencies {
+    // spring
+//    implementation 'org.springframework.boot:spring-boot-starter'
+//    implementation 'org.springframework.boot:spring-boot-loader:3.4.0'
+//    implementation "org.springframework.boot:spring-boot-configuration-processor"
+
+    // runtime
+//    runtimeOnly files('config')
+
+    // development
+//    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+}
