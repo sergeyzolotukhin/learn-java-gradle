@@ -41,7 +41,7 @@ public class WebSocketEndpoint {
     }
 
     @OnClose
-    public void onClose(final Session session) {
+    public void onClose(Session session) {
         log.info("Disconnected");
         timer.cancel();
     }
