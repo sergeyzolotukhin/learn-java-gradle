@@ -162,6 +162,10 @@
         console.log(event.data);
     };
 
+    socket.onclose = function (event) {
+        console.log("Closed");
+    };
+
     function sentMessage() {
         socket.send("Hello Serhij");
     }
