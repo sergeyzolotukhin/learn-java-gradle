@@ -3,6 +3,7 @@ https://devcenter.heroku.com/articles/create-a-java-web-application-using-embedd
 https://github.com/julianjupiter/java-web-app-with-embedded-tomcat.git
 https://julianjupiter.com/blog/java-web-application-with-embedded-tomcat/
 https://medium.com/@sasi.bhumaraju/httpservlet-with-embedded-tomcat-server-in-java-8e8df7aee0b4
+https://zetcode.com/web/embeddedtomcat/
 
 ### How to open
 
