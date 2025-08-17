@@ -1,6 +1,8 @@
 ### Create a Java Web Application Using Embedded Tomcat
 https://devcenter.heroku.com/articles/create-a-java-web-application-using-embedded-tomcat
 https://github.com/julianjupiter/java-web-app-with-embedded-tomcat.git
+https://julianjupiter.com/blog/java-web-application-with-embedded-tomcat/
+https://medium.com/@sasi.bhumaraju/httpservlet-with-embedded-tomcat-server-in-java-8e8df7aee0b4
 
 ### How to open
 
