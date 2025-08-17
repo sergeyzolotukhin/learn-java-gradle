@@ -16,3 +16,4 @@ http://localhost:8081
 https://stackoverflow.com/questions/66109748/javax-servlet-http-httpservlet-was-not-found-on-the-java-build-path
 https://we-plus.be/sending-stomp-messages-over-a-websocket-in-spring-boot-2/
 https://jmesnil.net/stomp-websocket/doc/
+https://docs.spring.io/spring-framework/reference/web/websocket/stomp.html
