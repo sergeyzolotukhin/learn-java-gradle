@@ -11,4 +11,7 @@ https://dev.to/vonagedev/creating-a-websocket-server-with-the-java-api-for-webso
 
 http://localhost:8081
 
+#### Other
+
 https://stackoverflow.com/questions/66109748/javax-servlet-http-httpservlet-was-not-found-on-the-java-build-path
+https://we-plus.be/sending-stomp-messages-over-a-websocket-in-spring-boot-2/
