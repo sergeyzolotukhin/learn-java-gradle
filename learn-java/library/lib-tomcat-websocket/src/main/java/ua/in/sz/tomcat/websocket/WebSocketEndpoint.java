@@ -1,6 +1,6 @@
 package ua.in.sz.tomcat.websocket;
 
-import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +18,9 @@ public class WebSocketEndpoint {
             "withdraw your consent at any time by visiting the Opt-Out."
             ;
 
-    @OnMessage
-    public void handleTextMessage(String message, final Session session) {
-        log.info("Received message: {}", message);
+    @OnOpen
+    public void handleTextMessage(final Session session) {
+        log.info("Connected");
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -35,6 +35,6 @@ public class WebSocketEndpoint {
         };
 
         Timer timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 0, 3 * 1000);
+        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
     }
 }

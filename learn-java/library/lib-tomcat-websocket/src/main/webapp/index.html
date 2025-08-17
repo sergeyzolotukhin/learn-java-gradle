@@ -12,52 +12,24 @@
     <div class="background">
         <div class="dialog">
             <div class="border-wrapper">
-                <h2 class="title">Cookie Settings</h2>
+                <h2 class="title">Installation Kit</h2>
                 <div id="content" class="content">
-                    <p class="text">Our website uses some cookies and records your IP address for the purposes of
-                        accessibility, security, and managing your access to the telecommunication network. You can
-                        disable
-                        data collection and cookies by changing your browser settings, but it may affect how this
-                        website
-                        functions. Learn more</p>
 
-                </div>
-                <div class="controls">
-                    <button onclick="sentMessage()" class="button active">Accept All</button>
-                    <button class="button">Manage Settings</button>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
 
 <script>
-
     const content = document.getElementById("content");
-
     const socket = new WebSocket("ws://localhost:8081/socket");
-    socket.binaryType = "arraybuffer";
-
-    socket.onopen = function (event) {
-        console.log("Connected");
-    };
 
     socket.onmessage = function (event) {
         const p = document.createElement("p");
         p.className = "text";
         p.innerText = event.data;
         content.insertBefore(p, content.firstChild);
-
-        console.log(event.data);
     };
-
-    socket.onclose = function (event) {
-        console.log("Closed");
-    };
-
-    function sentMessage() {
-        socket.send("Hello Serhij");
-    }
 </script>
 </html>
