@@ -1,8 +1,0 @@
-:root {
-    --marquee-gap: 96px;
-    --marquee-duration: 40s
-}
-
-body {
-    background-color: var(--site-header-bg, var(--rs-color-black))
-}
