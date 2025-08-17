@@ -41,7 +41,7 @@ h2 {
 .content {
     display: flex;
     flex-direction: column-reverse;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .content::-webkit-scrollbar {
