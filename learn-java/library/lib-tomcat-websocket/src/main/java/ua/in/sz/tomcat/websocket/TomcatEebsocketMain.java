@@ -15,7 +15,7 @@ public class TomcatEebsocketMain {
 
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir(".tomcat");
-        tomcat.setPort(8080);
+        tomcat.setPort(8081);
         tomcat.getConnector();
         String contextPath = "./learn-java/library/lib-tomcat-websocket/src/main/webapp/";
         String docBase = new File(contextPath).getAbsolutePath();

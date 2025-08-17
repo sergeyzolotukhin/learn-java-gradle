@@ -141,7 +141,7 @@
                         withdraw your consent at any time by visiting the Opt-Out.</p>
                 </div>
                 <div class="controls">
-                    <button class="button active">Accept All</button>
+                    <button onclick="sentMessage()" class="button active">Accept All</button>
                     <button class="button">Manage Settings</button>
                 </div>
             </div>
@@ -150,4 +150,20 @@
     </div>
 </body>
 
+<script>
+    const socket = new WebSocket("ws://localhost:8081/socket");
+    socket.binaryType = "arraybuffer";
+
+    socket.onopen = function (event) {
+        console.log("Connected");
+    };
+
+    socket.onmessage = function (event) {
+        console.log(event.data);
+    };
+
+    function sentMessage() {
+        socket.send("Hello Serhij");
+    }
+</script>
 </html>
