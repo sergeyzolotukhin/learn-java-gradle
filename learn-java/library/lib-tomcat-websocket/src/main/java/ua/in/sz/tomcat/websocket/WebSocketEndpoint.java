@@ -1,5 +1,6 @@
 package ua.in.sz.tomcat.websocket;
 
+import jakarta.websocket.OnClose;
 import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
@@ -15,14 +16,15 @@ public class WebSocketEndpoint {
     private static final String TEXT = "With your consent, JetBrains may also use cookies and your IP address to collect " +
             "individual statistics and provide you with personalized offers and ads subject to the Privacy " +
             "Notice and the Terms of Use. JetBrains may use third-party services for this purpose. You can adjust or " +
-            "withdraw your consent at any time by visiting the Opt-Out."
-            ;
+            "withdraw your consent at any time by visiting the Opt-Out.";
+
+    private Timer timer;
 
     @OnOpen
-    public void handleTextMessage(final Session session) {
+    public void onOpen(Session session) {
         log.info("Connected");
 
-        TimerTask timerTask = new TimerTask() {
+        TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 try {
@@ -34,7 +36,13 @@ public class WebSocketEndpoint {
             }
         };
 
-        Timer timer = new Timer(true);
-        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+        timer = new Timer(true);
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+
+    @OnClose
+    public void onClose(final Session session) {
+        log.info("Disconnected");
+        timer.cancel();
     }
 }
