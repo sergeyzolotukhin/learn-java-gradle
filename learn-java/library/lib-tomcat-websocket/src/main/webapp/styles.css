@@ -1,0 +1,85 @@
+html,
+body,
+h2 {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.background {
+  background-color: #0c0c0e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.dialog {
+  position: relative;
+  background-color: #01a7a8;
+  width: 80%;
+  height: 80%;
+  padding: 6px 4px;
+  box-shadow: 24px 24px #040404;
+}
+.border-wrapper {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  padding: 24px;
+  border-style: double;
+  border-width: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar {
+  background-image: url("./track-piece.png");
+}
+.content::-webkit-scrollbar-thumb {
+  background-image: url("./thumb.png");
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  padding: 0 4px;
+  font-size: 16px;
+  top: -12px;
+  color: #fff;
+  background-color: #000021;
+}
+
+.text {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  padding-block: 16px 0;
+}
+
+.button {
+  box-shadow: 6px 6px #040404;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: none;
+  padding: 4px 16px;
+}
+
+.button.active {
+  background-color: #14386c;
+}
