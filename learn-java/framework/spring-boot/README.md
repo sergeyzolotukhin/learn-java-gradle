@@ -41,3 +41,6 @@ https://docs.oracle.com/javase/9/tools/java.htm#JSWOR-GUID-4856361B-8BFD-4964-AE
 https://books.sonatype.com/mvnref-book/reference/resource-filtering-sect-properties.html
 https://github.com/pascalgn/properties-maven-extension
 
+#### Difference between ‘mvn package’ and ‘spring-boot:repackage’
+https://medium.com/@sunilpatrocse/difference-between-mvn-package-and-spring-boot-repackage-dc81c2c66cd1
+
