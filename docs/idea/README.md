@@ -19,3 +19,4 @@ https://github.com/fioan89/sourcesync/tree/master
 
 #### Remote Sync Plugin SSH
 https://github.com/Ozsfag/remote-sync-plugin/tree/main
+https://github.com/elpassion/mainframer-intellij-plugin
