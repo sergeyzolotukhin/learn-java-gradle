@@ -16,3 +16,6 @@ https://github.com/DmitryNekrasov/ai-code-completion-idea-plugin
 https://www.plugin-dev.com/intellij/custom-language/code-completion/
 
 https://github.com/fioan89/sourcesync/tree/master
+
+#### Remote Sync Plugin SSH
+https://github.com/Ozsfag/remote-sync-plugin/tree/main
