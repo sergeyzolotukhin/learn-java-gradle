@@ -20,3 +20,15 @@ https://github.com/fioan89/sourcesync/tree/master
 #### Remote Sync Plugin SSH
 https://github.com/Ozsfag/remote-sync-plugin/tree/main
 https://github.com/elpassion/mainframer-intellij-plugin
+https://github.com/Ozsfag/remote-sync-plugin/tree/main
+
+File | Settings | Tools | SSH Configurations
+
+https://plugins.jetbrains.com/plugin/14337-command-line-launcher/versions/stable
+https://github.com/nvdweem/intellij-sqlserver-backup-restore/tree/master
+https://github.com/ikorennoy/sftp-for-idea-plugin/tree/master
+https://plugins.jetbrains.com/plugin/1203-ssh
+
+#### 
+com.intellij.execution.RunOnTargetComboBox
+TargetEnvironmentsManager.getInstance(myProject).getDefaultTarget()
