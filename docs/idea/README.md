@@ -29,6 +29,12 @@ https://github.com/nvdweem/intellij-sqlserver-backup-restore/tree/master
 https://github.com/ikorennoy/sftp-for-idea-plugin/tree/master
 https://plugins.jetbrains.com/plugin/1203-ssh
 
+https://github.com/anoop-qasolve/azure-tools-for-java/tree/2ffc21aa91aa18ba83aa5ec0fd697c7258d4307f/PluginsAndFeatures/azure-toolkit-for-intellij/azure-intellij-plugin-vm
+https://github.com/GoNZooo/odin-intellij/blob/master/modules/debugger/src/main/java/com/lasagnerd/odin/debugger/runConfiguration/OdinRemoteDebugRunConfigurationSettingsEditor.java
+https://github.com/fffguo/qianmi-idea-plugin/blob/main/src/main/kotlin/com/github/qianmi/action/shell/ftp/FtpSelectedAction.kt
+https://github.com/xmake-io/xmake-idea/blob/master/src/main/kotlin/io/xmake/utils/extension/SshToolkitHostExtensionImpl.kt
+
 #### 
 com.intellij.execution.RunOnTargetComboBox
 TargetEnvironmentsManager.getInstance(myProject).getDefaultTarget()
+SshConfigManager instance = SshConfigManager.getInstance(SshConfigProjectLevelSetupForm.this.myProject);
