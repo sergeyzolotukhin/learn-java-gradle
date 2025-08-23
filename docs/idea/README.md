@@ -38,3 +38,5 @@ https://github.com/xmake-io/xmake-idea/blob/master/src/main/kotlin/io/xmake/util
 com.intellij.execution.RunOnTargetComboBox
 TargetEnvironmentsManager.getInstance(myProject).getDefaultTarget()
 SshConfigManager instance = SshConfigManager.getInstance(SshConfigProjectLevelSetupForm.this.myProject);
+
+e:\chrome\app-client-jar 
