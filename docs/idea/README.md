@@ -40,3 +40,5 @@ TargetEnvironmentsManager.getInstance(myProject).getDefaultTarget()
 SshConfigManager instance = SshConfigManager.getInstance(SshConfigProjectLevelSetupForm.this.myProject);
 
 e:\chrome\app-client-jar 
+
+https://stackoverflow.com/questions/62128025/how-to-add-custom-action-to-intellij-idea
