@@ -180,6 +180,7 @@ include 'learn-java:framework:spring-boot:spring-boot-integration'
 include 'learn-java:framework:spring-boot:spring-boot-liquibase'
 include 'learn-java:framework:spring-boot:spring-boot-actuator'
 include 'learn-java:framework:spring-boot:spring-boot-autoconfigure:greeter-spring-boot-autoconfigure'
+include 'learn-java:framework:spring-boot:spring-boot-batch'
 
 include 'learn-java:framework:spring-boot:spring-shell'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'
