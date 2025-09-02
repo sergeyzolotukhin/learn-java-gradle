@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,8 +21,14 @@ public class BatchApplication {
 
         log.info("Starting the batch job");
         try {
-            final JobExecution execution = jobLauncher.run(job, new JobParameters());
-            log.info("Job Status : {}", execution.getStatus());
+            for (long i = 0; i < 3; i++) {
+                JobParameters params = new JobParametersBuilder()
+                        .addLong("id", i)
+                        .toJobParameters();
+
+                final JobExecution execution = jobLauncher.run(job, params);
+                log.info("Job Status : {}", execution.getStatus());
+            }
         } catch (final Exception e) {
             log.error("Job failed", e);
         }
