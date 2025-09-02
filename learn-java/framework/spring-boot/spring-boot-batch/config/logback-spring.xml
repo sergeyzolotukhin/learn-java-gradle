@@ -5,7 +5,10 @@
         </encoder>
     </appender>
 
-<!--    <logger name="org.quartz" level="warn" />-->
+    <!-- framework -->
+    <logger name="org.springframework.boot.autoconfigure.batch" level="warn" />
+    <logger name="org.springframework.batch" level="warn" />
+    <logger name="com.zaxxer.hikari" level="warn" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
