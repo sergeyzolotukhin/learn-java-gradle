@@ -54,3 +54,5 @@ AutoConfigurationPackages
 
 ConfigurationClassPostProcessor --> BeanDefinitionRegistryPostProcessor
 ConfigurationClassParser
+
+https://www.devskillbuilder.com/spring-boot-auto-configuration-a-deep-dive-ab886e84fb74
