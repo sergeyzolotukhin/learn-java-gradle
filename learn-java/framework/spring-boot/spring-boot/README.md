@@ -74,7 +74,8 @@ ConfigurationClassPostProcessor
     -> ConfigurationClassBeanDefinitionReader
 ```
 
-
+DatabaseInitializationDependencyConfigurer
+DependsOnDatabaseInitializationDetector
 
 =======================================================================================================================
 
