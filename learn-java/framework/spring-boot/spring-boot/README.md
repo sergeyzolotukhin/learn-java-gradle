@@ -61,8 +61,8 @@ AnnotationConfigApplicationContext
             AutowiredAnnotationBeanPostProcessor    - autowire handling
             CommonAnnotationBeanPostProcessor       - init / destroy method handling
             
-            EventListenerMethodProcessor
-            DefaultEventListenerFactory
+            EventListenerMethodProcessor            - @EventListener handling
+            DefaultEventListenerFactory             - @EventListener handling
 ```
 
 ```
