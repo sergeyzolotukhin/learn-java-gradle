@@ -58,7 +58,7 @@ AnnotationConfigApplicationContext
     AnnotatedBeanDefinitionReader
         AnnotationConfigUtils  ->  registerAnnotationConfigProcessors
             ConfigurationClassPostProcessor         - @Configuration handling
-            AutowiredAnnotationBeanPostProcessor    - autowire handling
+            AutowiredAnnotationBeanPostProcessor    - @Autowired / @Value handling
             CommonAnnotationBeanPostProcessor       - init / destroy method handling
             
             EventListenerMethodProcessor            - @EventListener handling
