@@ -51,6 +51,18 @@ AutoConfigurationImportSelector
 AutoConfigurationPackages
 
 =======================================================================================================================
+spring-context.jar
+
+```
+ConfigurationClassPostProcessor
+    -> ConfigurationClassParser
+        -> ComponentScanAnnotationParser
+            -> ClassPathBeanDefinitionScanner
+                -> DefaultListableBeanFactory -> registerBeanDefinition
+    -> ConfigurationClassBeanDefinitionReader
+```
+
+=======================================================================================================================
 
 ConfigurationClassPostProcessor --> BeanDefinitionRegistryPostProcessor
 ConfigurationClassParser
