@@ -54,6 +54,18 @@ AutoConfigurationPackages
 spring-context.jar
 
 ```
+AnnotationConfigApplicationContext
+    AnnotatedBeanDefinitionReader
+        AnnotationConfigUtils  ->  registerAnnotationConfigProcessors
+            ConfigurationClassPostProcessor
+            AutowiredAnnotationBeanPostProcessor    - autowire handling
+            CommonAnnotationBeanPostProcessor       - init / destroy method handling
+            
+            EventListenerMethodProcessor
+            DefaultEventListenerFactory
+```
+
+```
 ConfigurationClassPostProcessor
     -> ConfigurationClassParser
         -> ComponentScanAnnotationParser
@@ -61,6 +73,8 @@ ConfigurationClassPostProcessor
                 -> DefaultListableBeanFactory -> registerBeanDefinition
     -> ConfigurationClassBeanDefinitionReader
 ```
+
+
 
 =======================================================================================================================
 
