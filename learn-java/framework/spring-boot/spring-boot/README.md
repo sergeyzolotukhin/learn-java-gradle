@@ -57,7 +57,7 @@ spring-context.jar
 AnnotationConfigApplicationContext
     AnnotatedBeanDefinitionReader
         AnnotationConfigUtils  ->  registerAnnotationConfigProcessors
-            ConfigurationClassPostProcessor
+            ConfigurationClassPostProcessor         - @Configuration handling
             AutowiredAnnotationBeanPostProcessor    - autowire handling
             CommonAnnotationBeanPostProcessor       - init / destroy method handling
             
