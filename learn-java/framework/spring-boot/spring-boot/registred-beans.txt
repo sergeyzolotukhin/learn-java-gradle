@@ -1,3 +1,9 @@
+Registrate: org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+Registrate: org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+Registrate: org.springframework.context.annotation.internalCommonAnnotationProcessor
+Registrate: org.springframework.context.event.internalEventListenerProcessor
+Registrate: org.springframework.context.event.internalEventListenerFactory
+
 Registrate: application
 Registrate: org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
 Registrate: businessService
@@ -15,9 +21,6 @@ Registrate: org.springframework.boot.context.properties.EnableConfigurationPrope
 Registrate: spring.jmx-org.springframework.boot.autoconfigure.jmx.JmxProperties
 Registrate: org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration
 Registrate: springApplicationAdminRegistrar
-Registrate: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration
-Registrate: forceAutoProxyCreatorToUseClassProxying
-Registrate: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
 Registrate: org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
 Registrate: applicationAvailability
 Registrate: org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
@@ -52,4 +55,3 @@ Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurat
 Registrate: simpleAsyncTaskSchedulerBuilder
 Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
 Registrate: spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
-Registrate: org.springframework.aop.config.internalAutoProxyCreator

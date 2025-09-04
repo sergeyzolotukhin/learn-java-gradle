@@ -25,19 +25,19 @@ public class Application implements CommandLineRunner {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
-        log.info("\n");
+        log.trace("\n");
 
         ConfigurableListableBeanFactory factory = context.getBeanFactory();
         for (String beanDefinitionName : factory.getBeanDefinitionNames()) {
-            log.info("beanDefinitionName={}", beanDefinitionName);
+            log.trace("beanDefinitionName={}", beanDefinitionName);
 
             BeanDefinition beanDefinition = factory.getBeanDefinition(beanDefinitionName);
             for (String attributeName : beanDefinition.attributeNames()) {
-                log.info("\t\t{}={}", attributeName, beanDefinition.getAttribute(attributeName));
+                log.trace("\t\t{}={}", attributeName, beanDefinition.getAttribute(attributeName));
             }
         }
 
-        log.info("\n");
+        log.trace("\n");
 
         BusinessService bean = context.getBean(BusinessService.class);
         bean.print();
