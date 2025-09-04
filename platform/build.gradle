@@ -9,7 +9,7 @@ javaPlatform {
 // https://github.com/gregwhitaker/gradle-platformbom-example
 // https://docs.gradle.org/current/userguide/java_platform_plugin.html#java_platform_plugin
 dependencies {
-     api platform('org.springframework.boot:spring-boot-dependencies:3.4.1')
+     api platform('org.springframework.boot:spring-boot-dependencies:3.5.5')
 
     constraints {
         api 'com.opencsv:opencsv:5.9'
@@ -31,7 +31,7 @@ dependencies {
         api 'org.yaml:snakeyaml:2.2'
 
         // spring
-        api 'org.springframework:spring-context:6.1.0'
+        api 'org.springframework:spring-context:6.2.10'
         api 'org.springframework.plugin:spring-plugin-core:3.0.0'
         api 'org.springframework.plugin:spring-plugin-metadata:3.0.0'
 
