@@ -26,3 +26,31 @@ https://docs.spring.io/spring-boot/reference/features/external-config.html
 #### Configuration Metadata
 META-INF/spring-configuration-metadata.json
 https://docs.spring.io/spring-boot/specification/configuration-metadata/annotation-processor.html
+
+#### Auto Configure annotation
+@SpringBootApplication
+@EnableAutoConfiguration 
+
+@SpringBootConfiguration
+@AutoConfiguration
+@AutoConfigurationPackage
+@Configuration
+
+---
+AutoConfigureBefore
+AutoConfigureAfter
+
+Conditional
+ConditionalOnClass
+ConditionalOnMissingBean
+
+---
+AutoConfigurationImportSelector 
+    -> EnableAutoConfiguration
+
+AutoConfigurationPackages
+
+=======================================================================================================================
+
+ConfigurationClassPostProcessor --> BeanDefinitionRegistryPostProcessor
+ConfigurationClassParser
