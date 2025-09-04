@@ -12,3 +12,7 @@ org.springframework.beans.factory.config.BeanFactoryPostProcessor
 
 * Get a bean based on dependencies
 org.springframework.beans.factory.support.AbstractBeanDefinition.getDependsOn
+
+* init database
+LiquibaseAutoConfiguration
+SqlInitializationAutoConfiguration
