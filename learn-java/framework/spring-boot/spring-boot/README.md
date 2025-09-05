@@ -54,8 +54,8 @@ AutoConfigurationPackages
 spring-context.jar
 
 ```
-AnnotationConfigApplicationContext
-    AnnotatedBeanDefinitionReader
+AnnotationConfigApplicationContext -> <init>
+    AnnotatedBeanDefinitionReader -> <init>
         AnnotationConfigUtils  ->  registerAnnotationConfigProcessors
             ConfigurationClassPostProcessor         - @Configuration handling
             AutowiredAnnotationBeanPostProcessor    - @Autowired / @Value handling
@@ -72,6 +72,33 @@ ConfigurationClassPostProcessor
             -> ClassPathBeanDefinitionScanner
                 -> DefaultListableBeanFactory -> registerBeanDefinition
     -> ConfigurationClassBeanDefinitionReader
+```
+
+```
+SpringApplication.run   
+    -> DefaultBootstrapContext bootstrapContext = createBootstrapContext();
+    -> ConfigurableEnvironment environment = SpringApplication.prepareEnvironment( ... )
+    -> ConfigurableApplicationContext context = SpringApplication.createApplicationContext( ... )
+    -> SpringApplication.prepareContext( ... )
+        -> ApplicationContextInitializer.initialize( ... )          - interface
+        -> SpringApplicationRunListener.contextPrepared ( ... )     - interface
+        -> bootstrapContext.close(context) 
+        -> beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
+        -> context.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());
+        -> context.addBeanFactoryPostProcessor(new PropertySourceOrderingBeanFactoryPostProcessor(context));
+        -> SpringApplication.load
+            -> BeanDefinitionLoader loader = createBeanDefinitionLoader( ... )
+            -> BeanDefinitionLoader.load( java.lang.Class<?> )
+                -> AnnotatedBeanDefinitionReader.doRegisterBean( ... )
+                    -> AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(beanClass);
+                    -> BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);
+                    -> GenericApplicationContext.registerBeanDefinition( ... )
+                        -> DefaultListableBeanFactory.registerBeanDefinition ( ... ) 
+                            -> this.beanDefinitionMap.put(beanName, beanDefinition);
+				            -> this.beanDefinitionNames.add(beanName);
+        -> SpringApplicationRunListener.contextLoaded( ... )
+    -> SpringApplication.refreshContext( ... )
+        -> ??
 ```
 
 DatabaseInitializationDependencyConfigurer
