@@ -5,53 +5,61 @@ Registrate: org.springframework.context.event.internalEventListenerProcessor
 Registrate: org.springframework.context.event.internalEventListenerFactory
 
 Registrate: application
-Registrate: org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
 Registrate: businessService
+
+Registrate: org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
 Registrate: org.springframework.boot.autoconfigure.AutoConfigurationPackages
-Registrate: org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration
-Registrate: propertySourcesPlaceholderConfigurer
-Registrate: org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration
 Registrate: mbeanExporter
-Registrate: objectNamingStrategy
 Registrate: mbeanServer
-Registrate: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+Registrate: objectNamingStrategy
 Registrate: org.springframework.boot.context.internalConfigurationPropertiesBinder
-Registrate: org.springframework.boot.context.properties.BoundConfigurationProperties
 Registrate: org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter
-Registrate: spring.jmx-org.springframework.boot.autoconfigure.jmx.JmxProperties
-Registrate: org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration
 Registrate: springApplicationAdminRegistrar
-Registrate: org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
 Registrate: applicationAvailability
-Registrate: org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
-Registrate: org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
 Registrate: lifecycleProcessor
-Registrate: spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
-Registrate: org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
-Registrate: spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties
-Registrate: org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
-Registrate: spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
-Registrate: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
-Registrate: org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration
 Registrate: fileWatcher
 Registrate: sslPropertiesSslBundleRegistrar
 Registrate: sslBundleRegistry
-Registrate: spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$ThreadPoolTaskExecutorBuilderConfiguration
-Registrate: threadPoolTaskExecutorBuilder
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$SimpleAsyncTaskExecutorBuilderConfiguration
-Registrate: simpleAsyncTaskExecutorBuilder
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$AsyncConfigurerConfiguration
-Registrate: applicationTaskExecutorAsyncConfigurer
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$TaskExecutorConfiguration
 Registrate: applicationTaskExecutor
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$BootstrapExecutorConfiguration
-Registrate: bootstrapExecutorAliasPostProcessor
-Registrate: org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
-Registrate: spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
-Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$ThreadPoolTaskSchedulerBuilderConfiguration
+
+Registrate: propertySourcesPlaceholderConfigurer
+Registrate: applicationTaskExecutorAsyncConfigurer
+
+Registrate: threadPoolTaskExecutorBuilder
+Registrate: simpleAsyncTaskExecutorBuilder
 Registrate: threadPoolTaskSchedulerBuilder
-Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$SimpleAsyncTaskSchedulerBuilderConfiguration
 Registrate: simpleAsyncTaskSchedulerBuilder
-Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
+
+
+Registrate: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+Registrate: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+Registrate: bootstrapExecutorAliasPostProcessor
+
+Registrate: org.springframework.boot.context.properties.BoundConfigurationProperties
+Registrate: spring.jmx-org.springframework.boot.autoconfigure.jmx.JmxProperties
+Registrate: spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
+Registrate: spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties
+Registrate: spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
+Registrate: spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties
+Registrate: spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
 Registrate: spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
+
+
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$ThreadPoolTaskExecutorBuilderConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$SimpleAsyncTaskExecutorBuilderConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$AsyncConfigurerConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$ThreadPoolTaskSchedulerBuilderConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$SimpleAsyncTaskSchedulerBuilderConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$TaskExecutorConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$BootstrapExecutorConfiguration
+
+Registrate: org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
+Registrate: org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
