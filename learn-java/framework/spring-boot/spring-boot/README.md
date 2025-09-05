@@ -98,7 +98,18 @@ SpringApplication.run
 				            -> this.beanDefinitionNames.add(beanName);
         -> SpringApplicationRunListener.contextLoaded( ... )
     -> SpringApplication.refreshContext( ... )
-        -> ??
+        -> AbstractApplicationContext.refresh ( ... )
+            -> AbstractApplicationContext.prepareBeanFactory
+                -> beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+                -> beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+                -> beanFactory.registerSingleton(ENVIRONMENT_BEAN_NAME, getEnvironment());
+            -> postProcessBeanFactory(beanFactory);
+            -> invokeBeanFactoryPostProcessors(beanFactory);
+                -> BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry
+                    -> ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry
+                -> BeanDefinitionRegistryPostProcessor.postProcessBeanFactory
+                -> BeanFactoryPostProcessor.postProcessBeanFactory
+            -> registerBeanPostProcessors(beanFactory);
 ```
 
 DatabaseInitializationDependencyConfigurer
