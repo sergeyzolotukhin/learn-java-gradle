@@ -1,40 +1,52 @@
+[bean definition reading]
 Registrate: org.springframework.context.annotation.internalConfigurationAnnotationProcessor
 Registrate: org.springframework.context.annotation.internalAutowiredAnnotationProcessor
 Registrate: org.springframework.context.annotation.internalCommonAnnotationProcessor
-Registrate: org.springframework.context.event.internalEventListenerProcessor
-Registrate: org.springframework.context.event.internalEventListenerFactory
 
+[properties]
+Registrate: propertySourcesPlaceholderConfigurer
+Registrate: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+Registrate: org.springframework.boot.context.internalConfigurationPropertiesBinder
+Registrate: org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter
+
+[our beans]
 Registrate: application
 Registrate: businessService
 
+[spring events]
+Registrate: org.springframework.context.event.internalEventListenerProcessor
+Registrate: org.springframework.context.event.internalEventListenerFactory
+
+[spring internal]
 Registrate: org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
 Registrate: org.springframework.boot.autoconfigure.AutoConfigurationPackages
-Registrate: mbeanExporter
-Registrate: mbeanServer
-Registrate: objectNamingStrategy
-Registrate: org.springframework.boot.context.internalConfigurationPropertiesBinder
-Registrate: org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter
-Registrate: springApplicationAdminRegistrar
-Registrate: applicationAvailability
 Registrate: lifecycleProcessor
+
+[database]
+Registrate: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+
+[monitoring]
+Registrate: applicationAvailability
+Registrate: springApplicationAdminRegistrar
+Registrate: mbeanExporter
+Registrate: objectNamingStrategy
+Registrate: mbeanServer
+
+[ssl]
 Registrate: fileWatcher
 Registrate: sslPropertiesSslBundleRegistrar
 Registrate: sslBundleRegistry
+
+[async]
 Registrate: applicationTaskExecutor
-
-Registrate: propertySourcesPlaceholderConfigurer
-Registrate: applicationTaskExecutorAsyncConfigurer
-
 Registrate: threadPoolTaskExecutorBuilder
 Registrate: simpleAsyncTaskExecutorBuilder
-Registrate: threadPoolTaskSchedulerBuilder
-Registrate: simpleAsyncTaskSchedulerBuilder
-
-
-Registrate: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
-Registrate: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+Registrate: applicationTaskExecutorAsyncConfigurer
 Registrate: bootstrapExecutorAliasPostProcessor
+Registrate: simpleAsyncTaskSchedulerBuilder
+Registrate: threadPoolTaskSchedulerBuilder
 
+[properties]
 Registrate: org.springframework.boot.context.properties.BoundConfigurationProperties
 Registrate: spring.jmx-org.springframework.boot.autoconfigure.jmx.JmxProperties
 Registrate: spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
@@ -44,6 +56,7 @@ Registrate: spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties
 Registrate: spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
 Registrate: spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
 
+[auto configuration]
 Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$ThreadPoolTaskExecutorBuilderConfiguration
 Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$SimpleAsyncTaskExecutorBuilderConfiguration
 Registrate: org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$AsyncConfigurerConfiguration
