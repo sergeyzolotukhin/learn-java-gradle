@@ -71,3 +71,19 @@ ConfigTreePropertySource
 
 #### Spring Cloud Config Server utilizes a Git 
 https://docs.spring.io/spring-cloud-config/reference/server/environment-repository/git-backend.html
+
+#### 
+ConfigurableEnvironment environment = event.getEnvironment();
+Binder.get(environment)
+    .bind("spring.output.ansi.enabled", AnsiOutput.Enabled.class)
+    .ifBound(AnsiOutput::setEnabled);
+
+Binder.get(environment)
+    .bind("logging.structured.ecs", ElasticCommonSchemaProperties.class)
+    .orElse(NONE)
+    .withDefaults(environment)
+
+BindResult<Pool> pool = Binder.get(context.getEnvironment())
+    .bind("spring.r2dbc.pool", Bindable.of(Pool.class));
+
+Binder.get(environment).bind("spring.main", Bindable.ofInstance(this.properties));
