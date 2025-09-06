@@ -70,3 +70,4 @@ https://medium.com/@anders.swanson.93/dynamically-load-spring-properties-from-ex
 ConfigTreePropertySource
 
 #### Spring Cloud Config Server utilizes a Git 
+https://docs.spring.io/spring-cloud-config/reference/server/environment-repository/git-backend.html
