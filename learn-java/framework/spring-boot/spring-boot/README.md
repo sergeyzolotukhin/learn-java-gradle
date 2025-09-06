@@ -66,11 +66,22 @@ AnnotationConfigApplicationContext -> <init>
 ```
 
 ```
-ConfigurationClassPostProcessor
-    -> ConfigurationClassParser
-        -> ComponentScanAnnotationParser
-            -> ClassPathBeanDefinitionScanner
+ConfigurationClassPostProcessor -> postProcessBeanDefinitionRegistry
+    -> String[] candidateNames = registry.getBeanDefinitionNames();
+    -> ConfigurationClassUtils.checkConfigurationClassCandidate( ... )
+    -> Sort by previously determined @Order value, if applicable
+    -> ConfigurationClassParser parser = new ConfigurationClassParser( .. )
+    -> ConfigurationClassParser -> parse( ... )  - recursive
+        -> processConfigurationClass( .. )
+            -> doProcessConfigurationClass ( .. )
+                -> propertySourceRegistry.processPropertySource(propertySource)
+                
+        -> ComponentScanAnnotationParser -> parse
+            -> ClassPathBeanDefinitionScanner - doScan ( .. )
                 -> DefaultListableBeanFactory -> registerBeanDefinition
+            -> processImports -> Process any @Import annotations
+            -> Process any @ImportResource annotations
+    -> reader = new ConfigurationClassBeanDefinitionReader( .. ) 
     -> ConfigurationClassBeanDefinitionReader
 ```
 

@@ -5,7 +5,11 @@
         </encoder>
     </appender>
 
-<!--    <logger name="org.quartz" level="warn" />-->
+    <!-- A bean definition scanner that detects bean candidates on the classpath.   -->
+<!--    <logger name="org.springframework.context.annotation.ClassPathBeanDefinitionScanner" level="trace" />-->
+
+    <!-- Reads a given fully-populated set of ConfigurationClass instances, registering bean definitions  -->
+    <logger name="org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader" level="trace" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
