@@ -62,3 +62,9 @@ https://blog.scottlogic.com/2020/07/10/Spring-Profiles.html
 https://docs.spring.io/spring-framework/reference/testing/testcontext-framework/ctx-management/dynamic-property-sources.html
 
 https://medium.com/@anders.swanson.93/dynamically-load-spring-properties-from-external-locations-3ef644b42035
+
+* The {@link PropertySource} will recursively scan a given source directory and expose a
+* property for each file found. The property name will be the filename, and the property
+* value will be the contents of the file
+
+ConfigTreePropertySource
