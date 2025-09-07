@@ -18,6 +18,14 @@ https://www.baeldung.com/spring-boot-environmentpostprocessor
 https://docs.spring.io/spring-boot/reference/features/external-config.html
 https://master-spring-ter.medium.com/mastering-spring-boot-profiles-a-guide-to-environment-specific-configurations-646e7535db03
 
+##### Spring Profiles
+
+spring.profiles.active
+spring.profiles.include[0]
+spring.profiles.group.<name>[0]
+
+SpringApplication.setAdditionalProfiles( ... )
+
 ##### spring properties:
 
 spring.config.name =
