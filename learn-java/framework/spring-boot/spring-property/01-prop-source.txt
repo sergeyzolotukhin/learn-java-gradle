@@ -1,0 +1,30 @@
+SpringApplication.prepareEnvironment
+    -> EnvironmentPostProcessorApplicationListener.onApplicationEvent
+        -> EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent
+            -> ConfigDataEnvironmentPostProcessor.postProcessEnvironment( ... )
+                -> ConfigDataEnvironmentPostProcessor.getConfigDataEnvironment
+                    -> ConfigDataEnvironment.ConfigDataEnvironment
+                        -> ConfigDataEnvironment.createContributors( ... )
+                            -> ConfigDataEnvironment.getInitialImportContributors
+                                -> ConfigDataEnvironment.addInitialImportContributors
+                                    -> ConfigDataEnvironment.createInitialImportContributor
+                                        -> ConfigDataEnvironmentContributor.ofInitialImport
+                                            -> ConfigDataProperties properties = new ConfigDataProperties(imports, null);
+                                            -> new ConfigDataEnvironmentContributor( ... )
+                -> ConfigDataEnvironment.processAndApply
+                    -> ConfigDataEnvironment.processInitial
+                        -> ConfigDataEnvironmentContributors.withProcessedImports       --- file:./;optional:file:./config/;optional:file:./config/*/
+                            -> ConfigDataImporter.resolveAndLoad
+                                -> ConfigDataImporter.resolve( ... )
+                                    -> ConfigDataLocationResolvers.resolve( ... )
+                                        -> StandardConfigDataLocationResolver.resolve( ..)
+                                            -> StandardConfigDataLocationResolver.getReferences( ... )
+                                                -> StandardConfigDataLocationResolver.getReferencesForDirectory  --- String[] configNames = [ "application" ]
+                                -> ConfigDataImporter.load
+                                    -> ConfigDataLoaders.load
+                                        -> StandardConfigDataLoader.load
+                                            -> PropertiesPropertySourceLoader.load
+                                                -> OriginTrackedMapPropertySource.OriginTrackedMapPropertySource
+                                => ConfigDataEnvironment.applyToEnvironment
+                                    -> ConfigDataEnvironment.applyContributor
+                                        -> MutablePropertySources.addLast
