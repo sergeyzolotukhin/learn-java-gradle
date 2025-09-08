@@ -174,4 +174,6 @@ https://www.adeliosys.fr/articles/hibernate-monitoring/
 https://www.concretepage.com/hibernate/hibernate-make-entity-read-only-example-with-session-setdefaultreadonly-session-setreadonly-query-setreadonly-criteria-setreadonly-and-immutable-entity
 https://docs.jboss.org/hibernate/orm/3.5/reference/en/html/readonly.html
 
+#### Understanding Owning Side and Inverse Side in JPA
+https://medium.com/@devrashid/demystifying-jpa-many-to-many-relationships-focus-on-owning-and-inverse-sides-54ba0a21af0b
 
