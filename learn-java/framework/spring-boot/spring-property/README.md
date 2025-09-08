@@ -79,6 +79,7 @@ ConfigTreePropertySource
 
 #### Spring Cloud Config Server utilizes a Git 
 https://docs.spring.io/spring-cloud-config/reference/server/environment-repository/git-backend.html
+https://medium.com/@toimrank/spring-cloud-config-server-89eebf3a48f2
 
 #### Externalized Configuration
 https://docs.spring.io/spring-boot/reference/features/external-config.html
