@@ -179,4 +179,6 @@ https://medium.com/@devrashid/demystifying-jpa-many-to-many-relationships-focus-
 https://stackoverflow.com/questions/8931342/what-does-relationship-owner-means-in-bidirectional-relationship/8932018
 https://docs.jboss.org/hibernate/orm/7.1/userguide/html_single/Hibernate_User_Guide.html#associations-one-to-many-bidirectional
 https://thorben-janssen.com/hibernate-tips-unidirectional-one-to-many-association-without-junction-table/
+https://medium.com/@aravindcsebe/understanding-onetomany-unidirectional-mapping-with-joincolumn-in-jpa-hibernate-cce107f68794
+https://ducmanhphan.github.io/2020-05-07-understanding-about-one-to-many-relationship-with-jpa/
 
