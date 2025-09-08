@@ -176,4 +176,6 @@ https://docs.jboss.org/hibernate/orm/3.5/reference/en/html/readonly.html
 
 #### Understanding Owning Side and Inverse Side in JPA
 https://medium.com/@devrashid/demystifying-jpa-many-to-many-relationships-focus-on-owning-and-inverse-sides-54ba0a21af0b
+https://stackoverflow.com/questions/8931342/what-does-relationship-owner-means-in-bidirectional-relationship/8932018
+https://docs.jboss.org/hibernate/orm/7.1/userguide/html_single/Hibernate_User_Guide.html#associations-one-to-many-bidirectional
 
