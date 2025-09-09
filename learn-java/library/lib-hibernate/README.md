@@ -182,3 +182,8 @@ https://thorben-janssen.com/hibernate-tips-unidirectional-one-to-many-associatio
 https://medium.com/@aravindcsebe/understanding-onetomany-unidirectional-mapping-with-joincolumn-in-jpa-hibernate-cce107f68794
 https://ducmanhphan.github.io/2020-05-07-understanding-about-one-to-many-relationship-with-jpa/
 
+#### JPA
+https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
+
+#### JPA implementation patterns: Saving (detached) entities
+https://xebia.com/blog/jpa-implementation-patterns-saving-detached-entities/
