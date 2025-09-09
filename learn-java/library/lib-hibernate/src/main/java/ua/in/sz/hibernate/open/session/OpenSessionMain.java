@@ -36,13 +36,23 @@ public class OpenSessionMain {
                     .load();
             log.info("queries\nDeterminant: {}", determinant);
 
-            Determinant w = Determinant.builder()
-               //     .id(61L)
-                    .id(determinant.getId())
-                    .name("DET_W")
-                    .build();
+            // Merge a new entity
+            // Exception: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect)
+//            Determinant d1 = Determinant.builder()
+//                    .id(61L)
+//                    .name("DET_W1")
+//                    .build();
+//            s.merge(d1);
+
+            // Persist detached an exists entity
+            // Exception: detached entity passed to persist
+//            Determinant d2 = Determinant.builder()
+//                    .id(determinant.getId())
+//                    .name("DET_W")
+//                    .build();
+//            s.persist(d2);
+
 //            s.saveOrUpdate(w);
-//            s.merge(w);
 
             s.getTransaction().commit();
         } catch (RollbackException e) {
