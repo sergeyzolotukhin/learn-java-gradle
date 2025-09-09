@@ -42,7 +42,7 @@ public class OpenSessionMain {
 //                    .id(61L)
 //                    .name("DET_W1")
 //                    .build();
-//            s.merge(d1);
+//            Object m1 = s.merge(d1);
 
             // Persist detached an exists entity
             // Exception: detached entity passed to persist
