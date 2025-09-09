@@ -36,6 +36,14 @@ public class OpenSessionMain {
                     .load();
             log.info("queries\nDeterminant: {}", determinant);
 
+            Determinant w = Determinant.builder()
+               //     .id(61L)
+                    .id(determinant.getId())
+                    .name("DET_W")
+                    .build();
+//            s.saveOrUpdate(w);
+//            s.merge(w);
+
             s.getTransaction().commit();
         } catch (RollbackException e) {
             log.error("Error: ", e);
