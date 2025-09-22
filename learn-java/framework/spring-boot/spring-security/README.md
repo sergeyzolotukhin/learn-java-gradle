@@ -22,3 +22,8 @@ https://www.keycloak.org/
 
 #### Order
 org.springframework.security.config.annotation.web.configurers.WebAuthnConfigurer.configure
+
+org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration.httpSecurity
+org.springframework.security.config.annotation.web.builders.HttpSecurity
+org.springframework.security.config.annotation.web.configurers.AnonymousConfigurer.configure
+org.springframework.security.web.authentication.AnonymousAuthenticationFilter
