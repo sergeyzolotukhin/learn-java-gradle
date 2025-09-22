@@ -19,3 +19,6 @@ org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityCon
 
 https://grails.github.io/grails-spring-security-ui/4.0.x/index.html
 https://www.keycloak.org/
+
+#### Order
+org.springframework.security.config.annotation.web.configurers.WebAuthnConfigurer.configure
