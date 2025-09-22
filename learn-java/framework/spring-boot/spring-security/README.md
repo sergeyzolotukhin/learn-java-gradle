@@ -23,7 +23,17 @@ https://www.keycloak.org/
 #### Order
 org.springframework.security.config.annotation.web.configurers.WebAuthnConfigurer.configure
 
+org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration.httpSecurity
 org.springframework.security.config.annotation.web.builders.HttpSecurity
 org.springframework.security.config.annotation.web.configurers.AnonymousConfigurer.configure
 org.springframework.security.web.authentication.AnonymousAuthenticationFilter
+
+org.springframework.boot.autoconfigure.AutoConfiguration.imports
+org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+-> we pass a HttpSecurity as a parameter 
+org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration
+org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration.defaultSecurityFilterChain
+
+org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer
+org.springframework.security.web.authentication.www.BasicAuthenticationFilter
