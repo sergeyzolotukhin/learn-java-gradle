@@ -9,7 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -22,6 +24,8 @@ public class Customer {
     @Getter
     private Long id;
 
+    @Getter
+    @Setter
     @OneToMany //(mappedBy = "customer")
     private List<Order> orders;
 }

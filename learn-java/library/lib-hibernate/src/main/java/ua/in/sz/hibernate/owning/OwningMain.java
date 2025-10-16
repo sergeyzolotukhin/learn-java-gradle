@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 import ua.in.sz.hibernate.owning.entities.Customer;
 import ua.in.sz.hibernate.owning.entities.Order;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -39,6 +40,7 @@ public class OwningMain {
                 return o.getId();
             });
 
+            /*
             log.info("link order to consumer");
             runInSession(sessionFactory, (s) -> {
                 Order o = s.get(Order.class, oId1);
@@ -47,6 +49,21 @@ public class OwningMain {
                 o.setCustomer(c);
 
                 s.persist(o);
+                return o.getId();
+            });
+             */
+
+            log.info("link consumer to order");
+            runInSession(sessionFactory, (s) -> {
+                Customer c = s.get(Customer.class, cId1);
+
+                Order o = s.get(Order.class, oId1);
+
+                List<Order> orders = new ArrayList<>();
+                orders.add(o);
+                c.setOrders(orders);
+
+                s.persist(c);
                 return o.getId();
             });
 
