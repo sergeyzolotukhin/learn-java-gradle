@@ -22,3 +22,5 @@ The inverse side does not manage the foreign key directly.
 https://stackoverflow.com/questions/2749689/what-is-the-owning-side-in-an-orm-mapping
 https://medium.com/@hk09/spring-boot-one-to-many-relationship-e617183b7861
 https://www.canosielabs.com/blog/jpa-with-hibernate-relationship-mapping-using-annotations/
+
+https://docs.hibernate.org/orm/7.1/userguide/html_single/#associations-one-to-many-bidirectional
