@@ -32,6 +32,6 @@ public class Order {
 
     // 2. bi-directional - inverse side
     @ManyToOne
-    @JoinColumn(name="customer_id")
+//    @JoinColumn(name="customer_id")
     private Customer customer;
 }
