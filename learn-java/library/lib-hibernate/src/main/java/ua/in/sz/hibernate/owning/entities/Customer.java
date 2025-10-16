@@ -36,7 +36,7 @@ public class Customer {
     // The attribute mappedBy indicates that the entity in this side is the inverse of the relationship
 //    @OneToMany(mappedBy = "customer")
 
-    // 2. bi-directional - owner side
+    // 2. bi-directional - owner side - ????
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "customer_id")
     private List<Order> orders;

@@ -24,3 +24,6 @@ https://medium.com/@hk09/spring-boot-one-to-many-relationship-e617183b7861
 https://www.canosielabs.com/blog/jpa-with-hibernate-relationship-mapping-using-annotations/
 
 https://docs.hibernate.org/orm/7.1/userguide/html_single/#associations-one-to-many-bidirectional
+
+#### Unidirectional @OneToMany
+https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
