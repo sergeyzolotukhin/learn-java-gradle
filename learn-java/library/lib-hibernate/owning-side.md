@@ -20,3 +20,4 @@ that the relationship is managed by the "many" side.
 The inverse side does not manage the foreign key directly.
 
 https://stackoverflow.com/questions/2749689/what-is-the-owning-side-in-an-orm-mapping
+https://medium.com/@hk09/spring-boot-one-to-many-relationship-e617183b7861

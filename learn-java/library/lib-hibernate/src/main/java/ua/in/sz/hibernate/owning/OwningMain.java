@@ -53,7 +53,7 @@ public class OwningMain {
             });
              */
 
-            log.info("link consumer to order");
+            log.info("link consumer to order (bi-directional)");
             runInSession(sessionFactory, (s) -> {
                 Customer c = s.get(Customer.class, cId1);
 
@@ -62,6 +62,7 @@ public class OwningMain {
                 List<Order> orders = new ArrayList<>();
                 orders.add(o);
                 c.setOrders(orders);
+                o.setCustomer(c);
 
                 s.persist(c);
                 return o.getId();
@@ -69,9 +70,11 @@ public class OwningMain {
 
             log.info("read order");
             runInSession(sessionFactory, (s) -> {
-                Query<Order> q = s.createQuery("FROM Order", Order.class);
-                List<Order> r = q.list();
+                Query<Customer> q = s.createQuery("FROM Customer", Customer.class);
+                List<Customer> r = q.list();
+
                 log.info("Dep Step 3: {}", r);
+
             });
 
             log.info("Session factory closed");

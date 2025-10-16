@@ -10,10 +10,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -26,6 +28,8 @@ public class Customer {
 
     @Getter
     @Setter
-    @OneToMany //(mappedBy = "customer")
+//    @OneToMany
+    // bi-directional
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 }
