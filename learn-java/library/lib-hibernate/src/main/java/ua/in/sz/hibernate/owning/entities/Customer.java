@@ -29,7 +29,7 @@ public class Customer {
     @Getter
     @Setter
 //    @OneToMany
-    // bi-directional
+    // bi-directional - inverse side
     // The attribute mappedBy indicates that the entity in this side is the inverse of the relationship
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
