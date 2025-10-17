@@ -23,7 +23,7 @@ public class MargeMain {
                         .buildSessionFactory()
         ) {
             insertGroups(sessionFactory);
-//            mergeGroups(sessionFactory);
+            mergeGroups(sessionFactory);
             queryGroup(sessionFactory);
         } catch (Exception e) {
             log.error("Error: ", e);
