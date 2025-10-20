@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @AllArgsConstructor
 @Getter
-public class Application {
+public class StructuredApplication {
 	private String title;
 	private String description;
 
@@ -17,9 +17,9 @@ public class Application {
 				.setMessage("Error processing given user {} {} {}")
 				.addArgument(1)
 				.addArgument(2)
-				.addArgument(new Application("My Name 1", "My Description 1"))
+				.addArgument(new StructuredApplication("My Name 1", "My Description 1"))
 				.addKeyValue("key", "key_1")
-				.addKeyValue("exception_class", Application.class.getSimpleName())
+				.addKeyValue("exception_class", StructuredApplication.class.getSimpleName())
 				.addKeyValue("error_message", "ex.getMessage()")
 				.log();
 
@@ -27,9 +27,9 @@ public class Application {
 				.setMessage("Error processing given user {} {} {}")
 				.addArgument(3)
 				.addArgument(4)
-				.addArgument(new Application("My Name 2", "My Description 2"))
+				.addArgument(new StructuredApplication("My Name 2", "My Description 2"))
 				.addKeyValue("key", "key_2")
-				.addKeyValue("exception_class", Application.class.getSimpleName())
+				.addKeyValue("exception_class", StructuredApplication.class.getSimpleName())
 				.addKeyValue("error_message", "ex.getMessage()")
 				.log();
 
@@ -37,9 +37,9 @@ public class Application {
 				.setMessage("Error processing given user {} {} {}")
 				.addArgument(3)
 				.addArgument(4)
-				.addArgument(new Application("My Name 2", "My Description 2"))
+				.addArgument(new StructuredApplication("My Name 2", "My Description 2"))
 				.addKeyValue("key", "key_2")
-				.addKeyValue("exception_class", Application.class.getSimpleName())
+				.addKeyValue("exception_class", StructuredApplication.class.getSimpleName())
 				.addKeyValue("error_message", "ex.getMessage()")
 				.log();
 	}

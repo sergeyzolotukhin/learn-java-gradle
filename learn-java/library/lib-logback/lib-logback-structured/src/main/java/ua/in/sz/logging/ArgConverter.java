@@ -33,14 +33,14 @@ public class ArgConverter extends ClassicConverter {
     }
 
     private String format(Object object) {
-        if (object instanceof Application app) {
+        if (object instanceof StructuredApplication app) {
             return format(app);
         } else {
             return Objects.toString(object);
         }
     }
 
-    private String format(Application app) {
+    private String format(StructuredApplication app) {
         return Optional.ofNullable(app)
                 .map(a -> "[" + a.getTitle() + " / " + a.getDescription() + "]")
                 .orElse("<null>");
