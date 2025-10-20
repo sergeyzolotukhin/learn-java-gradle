@@ -1,11 +1,13 @@
 package ua.in.sz.logging;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 // https://logback.qos.ch/manual/onJoran.html
 @Slf4j
 @AllArgsConstructor
+@Getter
 public class Application {
 	private String title;
 	private String description;
@@ -44,9 +46,6 @@ public class Application {
 
 	@Override
 	public String toString() {
-		return "Application{" +
-				"title='" + title + '\'' +
-				", description='" + description + '\'' +
-				'}';
+		return "App [" + title + ']';
 	}
 }

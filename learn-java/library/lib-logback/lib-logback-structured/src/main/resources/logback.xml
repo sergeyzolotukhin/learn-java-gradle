@@ -1,6 +1,7 @@
 <configuration scan="true" scanPeriod="30 seconds">
 
     <conversionRule conversionWord="kv" class="ua.in.sz.logging.KVPConverter"/>
+    <conversionRule conversionWord="arg" class="ua.in.sz.logging.ArgConverter"/>
     <conversionRule conversionWord="mymsg" class="ua.in.sz.logging.MyMessageConverter"/>
     <conversionRule conversionWord="title" class="ua.in.sz.logging.MyCompositeConverter"/>
 
@@ -15,7 +16,8 @@
         <encoder>
 <!--            <pattern>%d{HH:mm:ss.SSS} [%-10.10thread] %highlight(%-5level) | %-20.20logger{36} - %title(%mymsg{'arg 1', 'arg 2'}) %n</pattern>-->
 <!--            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-10.10kv{key} | %-40.40logger{36} - %mymsg %kvp %n</pattern>-->
-            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-10.10kv{key} | %-40.40logger{36} - %msg %n</pattern>
+<!--            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-10.10kv{key} | %-40.40logger{36} - %msg %n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} [%-20.20thread] %-5level | %-9.9X{feature} | %-40.40logger{36} - %msg - %arg{2} %n</pattern>
         </encoder>
     </appender>
 
