@@ -1,0 +1,29 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Parameter {
+   id:  Long
+   name:  String
+}
+
+class Configuration {
+   id:  Long 
+   name:  String 
+}
+class Dependency {
+   id:  Long 
+   name:  String 
+}
+class Definition {
+   id:  Long
+   name:  String
+}
+
+
+Dependency                          "0..1" -[#595959,plain]-> "0..*" Configuration
+Dependency                          "0..*" <-[#595959,plain]-> "0..1" Definition                          
+Parameter                           "0..*" <-[#595959,plain]-> "0..1" Configuration
+@enduml
