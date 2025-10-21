@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,13 +34,17 @@ public class Definition {
     private Long id;
     @Column(name = "NAME")
     private String name;
+    @NotNull
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     @OneToMany(mappedBy = "definition", orphanRemoval = true, cascade = {CascadeType.ALL})
     private Set<Dependency> dependencies;
 
-    public Definition(Long id, String name, Set<Dependency> dependencies) {
+    public Definition(Long id, String name, @NotNull String description, Set<Dependency> dependencies) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.dependencies = dependencies;
 
         emptyIfNull(this.dependencies).forEach(d -> d.setDefinition(this));

@@ -9,6 +9,11 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.7.4'
     implementation 'com.h2database:h2'
 
+    // bean validation
+    implementation 'jakarta.validation:jakarta.validation-api:3.1.0'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+    implementation 'org.glassfish.expressly:expressly:5.0.0'
+
     // caches
     implementation 'org.ehcache:ehcache::jakarta'
     implementation 'org.hibernate.orm:hibernate-jcache'

@@ -1,12 +1,18 @@
 package ua.in.sz.hibernate.cascade;
 
+import jakarta.validation.Validation;
+import jakarta.validation.ValidatorFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.beanvalidation.BeanValidationEventListener;
+import org.hibernate.boot.beanvalidation.DuplicationStrategyImpl;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.boot.registry.classloading.spi.ClassLoaderService;
+import org.hibernate.engine.config.spi.ConfigurationService;
 import org.hibernate.engine.spi.PersistenceContext;
 import org.hibernate.event.service.spi.EventListenerRegistry;
 import org.hibernate.event.spi.EventSource;
@@ -15,6 +21,7 @@ import org.hibernate.event.spi.FlushEvent;
 import org.hibernate.event.spi.FlushEventListener;
 import org.hibernate.internal.SessionFactoryImpl;
 import org.hibernate.query.Query;
+import org.hibernate.service.spi.ServiceRegistryImplementor;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
 import ua.in.sz.hibernate.cascade.entities.Definition;
@@ -35,7 +42,8 @@ public class CascadeMain {
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
-            eventListener((SessionFactoryImpl) sessionFactory);
+//            eventListener((SessionFactoryImpl) sessionFactory);
+//            beanValidationEventListener((SessionFactoryImpl) sessionFactory);
 
             Long derivationId = insertDerivation(sessionFactory);
 
@@ -100,12 +108,31 @@ public class CascadeMain {
                 });
     }
 
+    private static void beanValidationEventListener(SessionFactoryImpl sessionFactory) {
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+
+        // org.hibernate.boot.beanvalidation.TypeSafeActivator.applyCallbackListeners
+        ServiceRegistryImplementor serviceRegistry = sessionFactory.getServiceRegistry();
+        EventListenerRegistry listenerRegistry = serviceRegistry.requireService( EventListenerRegistry.class );
+        ConfigurationService cfgService = serviceRegistry.requireService( ConfigurationService.class );
+        ClassLoaderService classLoaderService = serviceRegistry.requireService( ClassLoaderService.class );
+
+        BeanValidationEventListener listener =
+                new BeanValidationEventListener( validatorFactory, cfgService.getSettings(), classLoaderService );
+
+        listenerRegistry.addDuplicationStrategy( DuplicationStrategyImpl.INSTANCE );
+
+        listenerRegistry.appendListeners( EventType.PRE_INSERT, listener);
+
+        listener.initialize( cfgService.getSettings(), classLoaderService );
+    }
+
     private static Long insertDerivation(SessionFactory sessionFactory) {
         log.info("insert");
         Session em = sessionFactory.openSession();
 
         // model
-        Definition definition = Definition.builder().name("definition 1")
+        Definition definition = Definition.builder().name("definition 1").description("Desc A")
                 .dependency(Dependency.builder().name("Dependency A")
                         .configuration(Configuration.builder().name("Configuration A")
                                 .parameter(Parameter.builder().name("Parameter A").build())

@@ -190,3 +190,4 @@ https://xebia.com/blog/jpa-implementation-patterns-saving-detached-entities/
 
 #### Java Bean Validation
 https://www.baeldung.com/java-validation
+https://thorben-janssen.com/automatically-validate-entities-with-hibernate-validator/
