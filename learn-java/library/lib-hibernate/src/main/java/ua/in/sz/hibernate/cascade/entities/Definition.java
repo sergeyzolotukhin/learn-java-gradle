@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -14,12 +15,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 
+@Slf4j
 @ToString
 @NoArgsConstructor
 @Builder
@@ -40,6 +43,11 @@ public class Definition {
 
     @OneToMany(mappedBy = "definition", orphanRemoval = true, cascade = {CascadeType.ALL})
     private Set<Dependency> dependencies;
+
+    @PrePersist
+    public void onPrePersist() {
+        log.info("onPrePersist !!!");
+    }
 
     public Definition(Long id, String name, @NotNull String description, Set<Dependency> dependencies) {
         this.id = id;
