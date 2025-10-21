@@ -187,3 +187,6 @@ https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
 
 #### JPA implementation patterns: Saving (detached) entities
 https://xebia.com/blog/jpa-implementation-patterns-saving-detached-entities/
+
+#### Java Bean Validation
+https://www.baeldung.com/java-validation
