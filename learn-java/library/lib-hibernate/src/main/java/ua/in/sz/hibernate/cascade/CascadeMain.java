@@ -113,13 +113,18 @@ public class CascadeMain {
         Configuration confB = Configuration.builder().name("Configuration B")
                 .build();
 
-        Dependency depA = Dependency.builder().name("Dependency A").build();
-        depA.setConfigurations(List.of(confA, confB));
+        Dependency depA = Dependency.builder().name("Dependency A")
+                .configuration(confA)
+                .configuration(confB)
+                .build();
+
         Dependency depB = Dependency.builder().name("Dependency A").build();
-        Definition definition = Definition.builder().name("definition 1").build();
+        Definition definition = Definition.builder().name("definition 1")
+                .dependency(depA)
+                .dependency(depB)
+                .build();
         depA.setDefinition(definition);
         depB.setDefinition(definition);
-        definition.setDependencies(Set.of(depA, depB));
 
         em.getTransaction().begin();
         em.persist(definition);

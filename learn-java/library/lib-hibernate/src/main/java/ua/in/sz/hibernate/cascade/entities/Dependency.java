@@ -17,6 +17,7 @@ import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ToString
@@ -40,7 +41,16 @@ public class Dependency {
 
     @OneToMany
     @Cascade({CascadeType.ALL})
-    @JoinTable(name="DEP_CONFIG")
+    @JoinTable(name = "DEP_CONFIG")
     private List<Configuration> configurations;
 
+    public static class DependencyBuilder {
+        public DependencyBuilder configuration(Configuration configuration) {
+            if (this.configurations == null) {
+                this.configurations = new ArrayList<>();
+            }
+            this.configurations.add(configuration);
+            return this;
+        }
+    }
 }

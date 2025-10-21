@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @ToString
@@ -34,4 +35,14 @@ public class Definition {
 
     @OneToMany(mappedBy = "definition", orphanRemoval = true, cascade = {CascadeType.ALL})
     private Set<Dependency> dependencies;
+
+    public static class DefinitionBuilder {
+        public DefinitionBuilder dependency(Dependency dependency) {
+            if (this.dependencies == null) {
+                this.dependencies = new HashSet<>();
+            }
+            this.dependencies.add(dependency);
+            return this;
+        }
+    }
 }
