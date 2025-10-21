@@ -19,9 +19,10 @@
     </appender>
 
     <!-- Current task -->
+    <logger name="ua.in.sz.hibernate.cascade.CascadeMain" level="trace" />
 
     <!-- Transaction Interceptor -->
-    <logger name="ua.in.sz.hibernate.interceptor.interceptor.TransactionInterceptor" level="trace" />
+<!--    <logger name="ua.in.sz.hibernate.interceptor.interceptor.TransactionInterceptor" level="trace" />-->
 
     <!-- Hibernate session -->
 <!--    <logger name="org.hibernate.internal.SessionImpl" level="trace" />-->

@@ -21,7 +21,6 @@ import ua.in.sz.hibernate.cascade.entities.Definition;
 import ua.in.sz.hibernate.cascade.entities.Parameter;
 
 import java.util.List;
-import java.util.Set;
 
 @Slf4j
 public class CascadeMain {
@@ -93,10 +92,10 @@ public class CascadeMain {
 
                         persistenceContext.forEachCollectionEntry(
                                 (persistentCollection, collectionEntry) -> {
-                                    log.info("{} -> {}", persistentCollection, collectionEntry);
-                                }, true );
+                                    log.trace("{} -> {}", persistentCollection, collectionEntry);
+                                }, true);
 
-                        log.info("Flush event: {}", event);
+                        log.trace("Flush event: {}", event);
                     }
                 });
     }
@@ -106,25 +105,16 @@ public class CascadeMain {
         Session em = sessionFactory.openSession();
 
         // model
-        Configuration confA = Configuration.builder().name("Configuration A")
-                .parameter(Parameter.builder().name("Parameter A").build())
-                .parameter(Parameter.builder().name("Parameter B").build())
-                .build();
-        Configuration confB = Configuration.builder().name("Configuration B")
-                .build();
-
-        Dependency depA = Dependency.builder().name("Dependency A")
-                .configuration(confA)
-                .configuration(confB)
-                .build();
-
-        Dependency depB = Dependency.builder().name("Dependency A").build();
         Definition definition = Definition.builder().name("definition 1")
-                .dependency(depA)
-                .dependency(depB)
+                .dependency(Dependency.builder().name("Dependency A")
+                        .configuration(Configuration.builder().name("Configuration A")
+                                .parameter(Parameter.builder().name("Parameter A").build())
+                                .parameter(Parameter.builder().name("Parameter B").build())
+                                .build())
+                        .configuration(Configuration.builder().name("Configuration B").build())
+                        .build())
+                .dependency(Dependency.builder().name("Dependency A").build())
                 .build();
-        depA.setDefinition(definition);
-        depB.setDefinition(definition);
 
         em.getTransaction().begin();
         em.persist(definition);

@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,9 +16,10 @@ import lombok.ToString;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
+
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Setter
 @Getter
@@ -35,6 +35,14 @@ public class Definition {
 
     @OneToMany(mappedBy = "definition", orphanRemoval = true, cascade = {CascadeType.ALL})
     private Set<Dependency> dependencies;
+
+    public Definition(Long id, String name, Set<Dependency> dependencies) {
+        this.id = id;
+        this.name = name;
+        this.dependencies = dependencies;
+
+        emptyIfNull(this.dependencies).forEach(d -> d.setDefinition(this));
+    }
 
     public static class DefinitionBuilder {
         public DefinitionBuilder dependency(Dependency dependency) {
