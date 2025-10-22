@@ -7,8 +7,11 @@ https://docs.gradle.org/current/userguide/custom_plugins.html
 https://docs.gradle.org/current/userguide/implementing_gradle_plugins.html
 https://stefma.medium.com/streamline-your-development-process-with-a-convenient-gradle-plugin-a3419868ddd4
 
+#### Composite Builds
+
 https://github.com/gradle-samples/Composite-Builds-Hierarchical-Multirepo-Sample-Kotlin/tree/maikn
 https://docs.gradle.org/current/userguide/java_platform_plugin.html#sec:java_platform_publishing
+https://docs.gradle.org/current/samples/sample_publishing_convention_plugins.html
 
 #### plugin composition
 
