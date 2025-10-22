@@ -9,11 +9,19 @@
   PC - 180 Wt - 150 Wt
 * кондиционер
 
- 320
+ 320 - 280 from grid = 40 watts by Victron
 -180
  -60
  -20
-= 60 - 90 ?
+ -40
+ -10
+ -10
+= 0 - 30 ?
+
+* network
+ Cisco RV220W - 12 watts
+ TP-Link ER605 V2 - 10 watts
+ Victron - 40 watts
 
 спальня
 * свет спальня 
