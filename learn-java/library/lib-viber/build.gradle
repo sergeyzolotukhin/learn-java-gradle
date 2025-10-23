@@ -35,5 +35,5 @@ dependencies {
     // testing
     testCompileOnly 'org.projectlombok:lombok:1.18.8'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.0'
 }

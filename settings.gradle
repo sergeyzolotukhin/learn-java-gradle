@@ -267,7 +267,7 @@ include 'proof-of-concept:state-machine'
 //        libs {
 //            library('guava', 'com.google.guava:guava:33.4.0-jre!!')
 //            library('lombok', 'org.projectlombok:lombok:1.18.24')
-//            library('junit', 'org.junit.jupiter:junit-jupiter:5.13.3')
+//            library('junit', 'org.junit.jupiter:junit-jupiter:5.14.0')
 //            library('logback', 'ch.qos.logback:logback-classic:1.2.9')
 //        }
 //    }

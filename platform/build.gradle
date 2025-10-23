@@ -60,9 +60,9 @@ dependencies {
         api 'org.slf4j:slf4j-api:2.0.16'
 
         // testing
-        api 'org.junit.jupiter:junit-jupiter:5.13.3'
-        api 'org.junit.jupiter:junit-jupiter-api:5.13.3'
-        api 'org.junit.jupiter:junit-jupiter-engine:5.13.3'
+        api 'org.junit.jupiter:junit-jupiter:5.14.0'
+        api 'org.junit.jupiter:junit-jupiter-api:5.14.0'
+        api 'org.junit.jupiter:junit-jupiter-engine:5.14.0'
 
         api 'org.junit.platform:junit-platform-suite:1.13.3'
         api 'org.junit.platform:junit-platform-launcher:1.13.3'

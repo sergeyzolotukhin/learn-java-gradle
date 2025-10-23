@@ -13,5 +13,5 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
 
     // testing
-//    testImplementation(platform('org.junit:junit-bom:5.13.3'))
+//    testImplementation(platform('org.junit:junit-bom:5.14.0'))
 }
