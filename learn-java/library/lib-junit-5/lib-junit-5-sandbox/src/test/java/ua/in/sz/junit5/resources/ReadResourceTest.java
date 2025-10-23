@@ -50,6 +50,6 @@ class ReadResourceTest {
 
     @SneakyThrows
     public static String asString(String resource) {
-        return Resources.toString(Resources.getResource(resource), Charsets.UTF_8);
+        return Resources.toString(Resources.getResource(resource), StandardCharsets.UTF_8);
     }
 }

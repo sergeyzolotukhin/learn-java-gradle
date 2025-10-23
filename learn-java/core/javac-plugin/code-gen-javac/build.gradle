@@ -11,8 +11,8 @@ repositories {
 dependencies {
     implementation files("${System.getProperty('java.home')}/../lib/tools.jar")
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.14.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.14.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.0'
 }
 
 test {
