@@ -88,61 +88,57 @@ public class CascadeMain {
     }
 
     private static void eventPostUpdateEventListener(SessionFactoryImpl sessionFactory) {
-        sessionFactory.getServiceRegistry()
-                .getService(EventListenerRegistry.class)
+        sessionFactory.getEventEngine()
+                .getListenerRegistry()
                 .getEventListenerGroup(EventType.POST_UPDATE)
                 .appendListener(new OnChangeDerivationStatusPostUpdateEventListener());
     }
 
     private static class OnChangeDerivationStatusPostUpdateEventListener extends AbstractOnChangePropertyValuePostUpdateEventListener {
         @Override
-        protected boolean supportEntity(Object entity) {
+        protected boolean isSupportEntity(Object entity) {
             return entity.getClass().equals(Definition.class);
         }
 
         @Override
-        protected boolean supportProperty(String propertyName) {
+        protected boolean isSupportProperty(String propertyName) {
             return "name".equals(propertyName);
         }
     }
 
     private abstract static class AbstractOnChangePropertyValuePostUpdateEventListener implements PostUpdateEventListener {
 
-        protected abstract boolean supportEntity(Object entity);
-        protected abstract boolean supportProperty(String propertyName);
+        protected abstract boolean isSupportEntity(Object entity);
+        protected abstract boolean isSupportProperty(String propertyName);
 
         @Override
         public void onPostUpdate(PostUpdateEvent event) {
             Object entity = event.getEntity();
-            if (!supportEntity(entity)) {
+            if (!isSupportEntity(entity)) {
                 return;
             }
 
             Object[] oldState = event.getOldState();
             Object[] newState = event.getState();
-            String[] propertyNames = propertyNames(event);
+            String[] propertyNames = event.getPersister().getPropertyNames();
 
             for (int i = 0; i < propertyNames.length; i++) {
                 String propertyName = propertyNames[i];
                 Object oldValue = oldState[i];
                 Object newValue = newState[i];
 
-                if (!supportProperty(propertyName)) {
+                if (!isSupportProperty(propertyName)) {
                     continue;
                 }
 
-                if (isChanged(oldValue, newValue)) {
+                if (isChangedPropertyValue(oldValue, newValue)) {
                     log.info("Property: [{}]: {} -> {}", propertyNames[i], oldValue, newValue);
                 }
             }
         }
 
-        private boolean isChanged(Object oldValue, Object newValue) {
+        private boolean isChangedPropertyValue(Object oldValue, Object newValue) {
             return !Objects.equals(oldValue, newValue);
-        }
-
-        private String[] propertyNames(PostUpdateEvent event) {
-            return event.getPersister().getEntityMetamodel().getPropertyNames();
         }
 
         @Override
