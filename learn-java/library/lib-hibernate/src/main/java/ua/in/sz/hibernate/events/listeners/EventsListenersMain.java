@@ -1,31 +1,18 @@
 package ua.in.sz.hibernate.events.listeners;
 
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.engine.spi.PersistenceContext;
-import org.hibernate.event.service.spi.EventListenerRegistry;
-import org.hibernate.event.spi.EventSource;
 import org.hibernate.event.spi.EventType;
-import org.hibernate.event.spi.FlushEvent;
-import org.hibernate.event.spi.FlushEventListener;
-import org.hibernate.event.spi.PostUpdateEvent;
-import org.hibernate.event.spi.PostUpdateEventListener;
 import org.hibernate.internal.SessionFactoryImpl;
-import org.hibernate.persister.entity.EntityPersister;
-import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
 import ua.in.sz.hibernate.cascade.entities.Definition;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Parameter;
 import ua.in.sz.hibernate.events.listeners.listeners.OnChangeDerivationStatusPostUpdateEventListener;
-
-import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 public class EventsListenersMain {
