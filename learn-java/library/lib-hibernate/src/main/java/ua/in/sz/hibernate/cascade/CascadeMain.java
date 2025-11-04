@@ -97,7 +97,7 @@ public class CascadeMain {
     private static class OnChangeDerivationStatusPostUpdateEventListener extends AbstractOnChangePropertyValuePostUpdateEventListener {
         @Override
         protected boolean supportEntity(Object entity) {
-            return entity.getClass().isAssignableFrom(Definition.class);
+            return entity.getClass().equals(Definition.class);
         }
 
         @Override
@@ -142,8 +142,7 @@ public class CascadeMain {
         }
 
         private String[] propertyNames(PostUpdateEvent event) {
-            return event.getPersister().getEntityMetamodel()
-                    .getPropertyNames();
+            return event.getPersister().getEntityMetamodel().getPropertyNames();
         }
 
         @Override
