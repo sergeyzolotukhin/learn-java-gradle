@@ -1,4 +1,4 @@
-package ua.in.sz.hibernate.cascade;
+package ua.in.sz.hibernate.events.listeners;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.HibernateException;
@@ -13,19 +13,25 @@ import org.hibernate.event.spi.EventSource;
 import org.hibernate.event.spi.EventType;
 import org.hibernate.event.spi.FlushEvent;
 import org.hibernate.event.spi.FlushEventListener;
+import org.hibernate.event.spi.PostUpdateEvent;
+import org.hibernate.event.spi.PostUpdateEventListener;
 import org.hibernate.internal.SessionFactoryImpl;
+import org.hibernate.persister.entity.EntityPersister;
 import org.hibernate.query.Query;
-import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
 import ua.in.sz.hibernate.cascade.entities.Definition;
+import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Parameter;
+import ua.in.sz.hibernate.events.listeners.listeners.OnChangeDerivationStatusPostUpdateEventListener;
 
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
-public class CascadeMain {
+public class EventsListenersMain {
     public static void main(String[] args) {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .build();
         try (
                 SessionFactory sessionFactory = new MetadataSources(registry)
                         .addAnnotatedClass(Parameter.class)
@@ -35,7 +41,7 @@ public class CascadeMain {
                         .buildMetadata()
                         .buildSessionFactory()
         ) {
-//            eventListener((SessionFactoryImpl) sessionFactory);
+            eventPostUpdateEventListener((SessionFactoryImpl) sessionFactory);
 
             Long derivationId = insertDerivation(sessionFactory);
 
@@ -50,31 +56,6 @@ public class CascadeMain {
             s1.clear();
             s1.close();
 
-            Session s2 = sessionFactory.openSession();
-            s2.getTransaction().begin();
-            Definition dep2 = s2.get(Definition.class, derivationId);
-            log.info("Dep Step 2: {}", dep2);
-            s2.getTransaction().commit();
-            s2.clear();
-            s2.close();
-
-            Session s3 = sessionFactory.openSession();
-            s3.getTransaction().begin();
-            Query<Dependency> query1 = s3.createQuery("FROM Dependency", Dependency.class);
-            List<Dependency> result1 = query1.list();
-            log.info("Dep Step 3: {}", result1);
-
-            Query<Configuration> query = s3.createQuery("FROM Configuration", Configuration.class);
-            List<Configuration> result = query.list();
-            log.info("Dep Step 3: {}", result);
-
-            Query<Parameter> query2 = s3.createQuery("FROM Parameter", Parameter.class);
-            List<Parameter> result2 = query2.list();
-            log.info("Dep Step 3: {}", result2);
-            s3.getTransaction().commit();
-            s3.clear();
-            s3.close();
-
             log.info("Session closed");
         } catch (Exception e) {
             log.error("Error: ", e);
@@ -82,24 +63,11 @@ public class CascadeMain {
         }
     }
 
-    private static void eventListener(SessionFactoryImpl sessionFactory) {
-        EventListenerRegistry eventListenerRegistry = sessionFactory
-                .getServiceRegistry().getService(EventListenerRegistry.class);
-        eventListenerRegistry.getEventListenerGroup(EventType.FLUSH)
-                .appendListener(new FlushEventListener() {
-                    @Override
-                    public void onFlush(FlushEvent event) throws HibernateException {
-                        final EventSource session = event.getSession();
-                        final PersistenceContext persistenceContext = session.getPersistenceContextInternal();
-
-                        persistenceContext.forEachCollectionEntry(
-                                (persistentCollection, collectionEntry) -> {
-                                    log.trace("{} -> {}", persistentCollection, collectionEntry);
-                                }, true);
-
-                        log.trace("Flush event: {}", event);
-                    }
-                });
+    private static void eventPostUpdateEventListener(SessionFactoryImpl sessionFactory) {
+        sessionFactory.getEventEngine()
+                .getListenerRegistry()
+                .getEventListenerGroup(EventType.POST_UPDATE)
+                .appendListener(new OnChangeDerivationStatusPostUpdateEventListener());
     }
 
     private static Long insertDerivation(SessionFactory sessionFactory) {
