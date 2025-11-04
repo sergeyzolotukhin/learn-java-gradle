@@ -13,7 +13,10 @@ import org.hibernate.event.spi.EventSource;
 import org.hibernate.event.spi.EventType;
 import org.hibernate.event.spi.FlushEvent;
 import org.hibernate.event.spi.FlushEventListener;
+import org.hibernate.event.spi.PostUpdateEvent;
+import org.hibernate.event.spi.PostUpdateEventListener;
 import org.hibernate.internal.SessionFactoryImpl;
+import org.hibernate.persister.entity.EntityPersister;
 import org.hibernate.query.Query;
 import ua.in.sz.hibernate.cascade.entities.Dependency;
 import ua.in.sz.hibernate.cascade.entities.Configuration;
@@ -21,6 +24,7 @@ import ua.in.sz.hibernate.cascade.entities.Definition;
 import ua.in.sz.hibernate.cascade.entities.Parameter;
 
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 public class CascadeMain {
@@ -36,6 +40,7 @@ public class CascadeMain {
                         .buildSessionFactory()
         ) {
 //            eventListener((SessionFactoryImpl) sessionFactory);
+            eventPostUpdateEventListener((SessionFactoryImpl) sessionFactory);
 
             Long derivationId = insertDerivation(sessionFactory);
 
@@ -43,6 +48,8 @@ public class CascadeMain {
             s1.getTransaction().begin();
             Definition dep = s1.get(Definition.class, derivationId);
             log.info("Dep Step 1: {}", dep);
+            dep.setName("Other name 1");
+//            dep.setDescription("Other name 1");
             dep.getDependencies().clear();
             s1.getTransaction().commit();
             s1.clear();
@@ -77,6 +84,71 @@ public class CascadeMain {
         } catch (Exception e) {
             log.error("Error: ", e);
             StandardServiceRegistryBuilder.destroy(registry);
+        }
+    }
+
+    private static void eventPostUpdateEventListener(SessionFactoryImpl sessionFactory) {
+        sessionFactory.getServiceRegistry()
+                .getService(EventListenerRegistry.class)
+                .getEventListenerGroup(EventType.POST_UPDATE)
+                .appendListener(new OnChangeDerivationStatusPostUpdateEventListener());
+    }
+
+    private static class OnChangeDerivationStatusPostUpdateEventListener extends AbstractOnChangePropertyValuePostUpdateEventListener {
+        @Override
+        protected boolean supportEntity(Object entity) {
+            return entity.getClass().isAssignableFrom(Definition.class);
+        }
+
+        @Override
+        protected boolean supportProperty(String propertyName) {
+            return "name".equals(propertyName);
+        }
+    }
+
+    private abstract static class AbstractOnChangePropertyValuePostUpdateEventListener implements PostUpdateEventListener {
+
+        protected abstract boolean supportEntity(Object entity);
+        protected abstract boolean supportProperty(String propertyName);
+
+        @Override
+        public void onPostUpdate(PostUpdateEvent event) {
+            Object entity = event.getEntity();
+            if (!supportEntity(entity)) {
+                return;
+            }
+
+            Object[] oldState = event.getOldState();
+            Object[] newState = event.getState();
+            String[] propertyNames = propertyNames(event);
+
+            for (int i = 0; i < propertyNames.length; i++) {
+                String propertyName = propertyNames[i];
+                Object oldValue = oldState[i];
+                Object newValue = newState[i];
+
+                if (!supportProperty(propertyName)) {
+                    continue;
+                }
+
+                if (isChanged(oldValue, newValue)) {
+                    log.info("Property: [{}]: {} -> {}", propertyNames[i], oldValue, newValue);
+                }
+            }
+        }
+
+        private boolean isChanged(Object oldValue, Object newValue) {
+            return !Objects.equals(oldValue, newValue);
+        }
+
+        private String[] propertyNames(PostUpdateEvent event) {
+            return event.getPersister().getEntityMetamodel()
+                    .getPropertyNames();
+        }
+
+        @Override
+        public boolean requiresPostCommitHandling(EntityPersister persister) {
+            return false;
         }
     }
 
