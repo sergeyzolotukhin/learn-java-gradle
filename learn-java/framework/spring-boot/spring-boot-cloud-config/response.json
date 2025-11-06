@@ -1,0 +1,25 @@
+{
+  "name": "your-application-name",
+  "profiles": [
+    "default"
+  ],
+  "label": "master",
+  "version": "git-commit-hash",
+  "state": null,
+  "propertySources": [
+    {
+      "name": "file:///path/to/your/config/repo/your-application-name-default.yml",
+      "source": {
+        "some.property.key": "some-value",
+        "another.property": "another-value",
+        "nested.property.key": "nested-value"
+      }
+    },
+    {
+      "name": "file:///path/to/your/config/repo/application.yml",
+      "source": {
+        "global.property": "global-value"
+      }
+    }
+  ]
+}
