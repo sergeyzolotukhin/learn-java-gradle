@@ -18,11 +18,7 @@
 <!--    <logger name="org.springframework.boot.context.config.ConfigDataEnvironment" level="TRACE"/>-->
 
 
-    <logger name="org.springframework.boot.context.config.ConfigDataEnvironment" level="TRACE"/>
-    <logger name="org.springframework.boot.context.config.ConfigDataEnvironmentContributors" level="TRACE"/>
-
-<!--    <logger name="org.springframework.boot.context.config.ConfigDataImporter" level="TRACE"/>-->
-    <logger name="org.springframework.boot.context.config.StandardConfigDataLocationResolver" level="TRACE"/>
+<!--    <include resource="environment-property-trace.xml"/>-->
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
