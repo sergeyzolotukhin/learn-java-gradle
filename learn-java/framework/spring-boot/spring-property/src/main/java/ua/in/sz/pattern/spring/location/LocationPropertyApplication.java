@@ -18,7 +18,8 @@ public class LocationPropertyApplication {
         application.setDefaultProperties(Map.of("spring.config.name", "application,default" ));
         ConfigurableApplicationContext context = application.run(args);
 
-//        context.getEnvironment().getProperty("");
+        String value = context.getEnvironment().getProperty("default-local");
+        log.info("Value: {}", value);
 
         for (PropertySource<?> propertySource : context.getEnvironment().getPropertySources()) {
             String name = propertySource.getName();

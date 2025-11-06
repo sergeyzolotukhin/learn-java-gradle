@@ -1,1 +1,5 @@
 #org.springframework.boot.SpringApplicationRunListener=ua.in.sz.pattern.spring.property.AppListener
+
+# Environment Post Processors
+org.springframework.boot.env.EnvironmentPostProcessor=\
+ua.in.sz.pattern.spring.location.MyConfigDataEnvironmentPostProcessor
