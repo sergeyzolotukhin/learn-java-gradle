@@ -1,0 +1,46 @@
+spring.config.name
+- If you don’t like application.properties as the configuration file name
+you can switch to another by specifying a spring.config.name environment property.
+
+spring.config.import
+spring.config.additional-location
+- The Spring Boot property spring.config.additional-location is used to specify one or more locations
+where Spring Boot should search for configuration files, such as application.properties or application.yml,
+in addition to the default locations.
+
+spring.config.location
+- Once spring.config.name is set externally,
+Spring Boot will then look for files with that base name (e.g., myconfig.properties, myconfig.yml)
+in its default search locations, or in locations specified by spring.config.location.
+
+optional:classpath:/;
+optional:classpath:/config/
+
+optional:file:./;
+optional:file:./config/;
+optional:file:./config/*/
+
+https://docs.spring.io/spring-boot/docs/1.0.1.RELEASE/reference/html/boot-features-external-config.html
+
+=======================================================================================================================
+ConfigDataEnvironment.processAndApply
+    -> applyToEnvironment(contributors, ... );
+
+    ConfigDataEnvironment.applyToEnvironment
+        -> MutablePropertySources propertySources = this.environment.getPropertySources();
+
+        ConfigDataEnvironment.applyContributor
+            -> PropertySource<?> propertySource = contributor.getPropertySource();
+            -> if (BOUND_IMPORT) {
+                -> propertySources.addLast(propertySource);
+            -> }
+=======================================================================================================================
+
+=======================================================================================================================
+0 = {RandomValuePropertySourceEnvironmentPostProcessor@3057}
+1 = {SystemEnvironmentPropertySourceEnvironmentPostProcessor@3058}
+2 = {CloudFoundryVcapEnvironmentPostProcessor@3059}
+3 = {SpringApplicationJsonEnvironmentPostProcessor@3060}
+4 = {ConfigDataEnvironmentPostProcessor@2930}  <-
+5 = {IntegrationPropertiesEnvironmentPostProcessor@3061}
+6 = {ReactorEnvironmentPostProcessor@3062}

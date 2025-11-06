@@ -9,13 +9,20 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.DefaultResolver" level="TRACE"/>
-    <logger name="org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver" level="TRACE"/>
-    <logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="TRACE"/>
+<!--    <logger name="org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.DefaultResolver" level="TRACE"/>-->
+<!--    <logger name="org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver" level="TRACE"/>-->
+<!--    <logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="TRACE"/>-->
 
-    <logger name="org.springframework.boot.context.config.ConfigDataImporter" level="TRACE"/>
-    <logger name="org.springframework.boot.context.config.ConfigDataLoaders" level="TRACE"/>
+<!--    <logger name="org.springframework.boot.context.config.ConfigDataImporter" level="TRACE"/>-->
+<!--    <logger name="org.springframework.boot.context.config.ConfigDataLoaders" level="TRACE"/>-->
+<!--    <logger name="org.springframework.boot.context.config.ConfigDataEnvironment" level="TRACE"/>-->
+
+
     <logger name="org.springframework.boot.context.config.ConfigDataEnvironment" level="TRACE"/>
+    <logger name="org.springframework.boot.context.config.ConfigDataEnvironmentContributors" level="TRACE"/>
+
+<!--    <logger name="org.springframework.boot.context.config.ConfigDataImporter" level="TRACE"/>-->
+    <logger name="org.springframework.boot.context.config.StandardConfigDataLocationResolver" level="TRACE"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
