@@ -15,7 +15,7 @@ import java.util.Map;
 public class LocationPropertyApplication {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(LocationPropertyApplication.class);
-        application.setDefaultProperties(Map.of("spring.config.name", "application,default" ));
+        application.setDefaultProperties(Map.of("spring.config.name", "application,default"));
         ConfigurableApplicationContext context = application.run(args);
 
         String value = context.getEnvironment().getProperty("default-local");
@@ -27,5 +27,10 @@ public class LocationPropertyApplication {
 
             log.info("Name: {}, source: {}", name, source.getClass().getSimpleName());
         }
+    }
+
+    public static boolean runningFromIntelliJ() {
+        String classPath = System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
     }
 }
