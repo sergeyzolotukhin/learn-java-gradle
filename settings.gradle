@@ -181,6 +181,7 @@ include 'learn-java:framework:spring-boot:spring-boot-liquibase'
 include 'learn-java:framework:spring-boot:spring-boot-actuator'
 include 'learn-java:framework:spring-boot:spring-boot-autoconfigure:greeter-spring-boot-autoconfigure'
 include 'learn-java:framework:spring-boot:spring-boot-batch'
+include 'learn-java:framework:spring-boot:spring-boot-cloud-config'
 
 include 'learn-java:framework:spring-boot:spring-shell'
 //include 'learn-java:framework:spring-boot:spring-hibernate-search'

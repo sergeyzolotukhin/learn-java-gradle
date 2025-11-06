@@ -1,0 +1,15 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%white(%d{HH:mm:ss.SSS}) [%blue(%-20.20thread)] %highlight(%-5level) | %yellow(%-40.40logger{36}) - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.cloud" level="warn" />
+
+    <logger name="org.springframework.cloud.config.client" level="error" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
