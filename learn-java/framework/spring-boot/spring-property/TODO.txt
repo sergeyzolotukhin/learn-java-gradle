@@ -44,3 +44,11 @@ ConfigDataEnvironment.processAndApply
 4 = {ConfigDataEnvironmentPostProcessor@2930}  <-
 5 = {IntegrationPropertiesEnvironmentPostProcessor@3061}
 6 = {ReactorEnvironmentPostProcessor@3062}
+
+RandomValuePropertySourceEnvironmentPostProcessor -> EnvironmentPostProcessor
+SystemEnvironmentPropertySourceEnvironmentPostProcessor -> EnvironmentPostProcessor
+SpringApplicationJsonEnvironmentPostProcessor
+CloudFoundryVcapEnvironmentPostProcessor
+ConfigDataEnvironmentPostProcessor   <---
+DebugAgentEnvironmentPostProcessor
+IntegrationPropertiesEnvironmentPostProcessor
