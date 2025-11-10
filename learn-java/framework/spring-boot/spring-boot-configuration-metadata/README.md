@@ -25,3 +25,5 @@ https://www.baeldung.com/configuration-properties-in-spring-boot#3-custom-conver
 https://medium.com/@AlexanderObregon/effective-property-management-in-spring-with-propertysource-29e6e4cc41c6
 https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/yaml-vs-properties-yml-application-spring-boot-configuration-difference-compare-value-map-list
 https://reflectoring.io/validate-spring-boot-configuration-parameters-at-startup/
+
+ConfigurationPropertiesScanRegistrar
