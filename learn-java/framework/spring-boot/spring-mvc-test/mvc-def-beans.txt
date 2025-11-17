@@ -1,0 +1,10 @@
+Bean name: dispatcherServletPath
+Bean name: mockMvc
+Bean name: mockMvcBuilder
+Bean name: mockMvcTester
+Bean name: org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration
+Bean name: org.springframework.boot.test.autoconfigure.web.servlet.MockMvcConfiguration
+Bean name: org.springframework.boot.test.autoconfigure.web.servlet.MockMvcTesterConfiguration
+Bean name: org.springframework.boot.test.context.ImportsContextCustomizer$ImportsCleanupPostProcessor
+Bean name: springBootMockMvcBuilderCustomizer
+Bean name: ua.in.sz.spring.mvc.test.BusinessService#0
