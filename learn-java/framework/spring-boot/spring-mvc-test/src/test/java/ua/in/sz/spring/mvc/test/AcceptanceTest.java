@@ -19,7 +19,7 @@ public class AcceptanceTest {
 
     @Test
     void greetingShouldReturnDefaultMessage() {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
-                String.class)).isEqualTo("Hello, ua.in.sz.spring.mvc.test.BusinessService");
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/", String.class))
+                .isEqualTo("Hello, ua.in.sz.spring.mvc.test.BusinessService");
     }
 }
