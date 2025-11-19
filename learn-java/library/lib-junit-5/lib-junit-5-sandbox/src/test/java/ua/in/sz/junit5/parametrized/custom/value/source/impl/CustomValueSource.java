@@ -1,4 +1,4 @@
-package ua.in.sz.junit5.parametrized.custom.value.source;
+package ua.in.sz.junit5.parametrized.custom.value.source.impl;
 
 import org.apiguardian.api.API;
 import org.junit.jupiter.params.provider.ArgumentsSource;
