@@ -1,0 +1,20 @@
+P1
+    A   B   C   D
+P2
+    A   B   E
+P3
+    A   F
+P4
+    A   G
+
+D1      A   B   -   C   D   E
+    P1
+    P2
+
+D2      A   -   F   G
+    P3
+    P4
+
+D3      A   -   B   C   D   E   F   G
+    D1
+    D2
