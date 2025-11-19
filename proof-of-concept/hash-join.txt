@@ -1,20 +1,20 @@
 P1
-    A   B   C   D
+    A   B   C   D       V1
 P2
-    A   B   E
+    A   B   E           V2
 P3
-    A   F
+    A   F       V3
 P4
-    A   G
+    A   G       V4
 
-D1      A   B   -   C   D   E
+D1      A   B   -   C   D   E   -   V1 + V2 = S1
     P1
     P2
 
-D2      A   -   F   G
+D2      A   -   F   G   -   V3 + V4 = S2
     P3
     P4
 
-D3      A   -   B   C   D   E   F   G
+D3      A   -   B   C   D   E   F   G   -   S1 + S2 = S3
     D1
     D2
