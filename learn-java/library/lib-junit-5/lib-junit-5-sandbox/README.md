@@ -36,6 +36,8 @@ https://junit.org/junit5/docs/5.7.0-M1/user-guide/index.html#running-tests-conso
 #### Templates for Test
 https://www.baeldung.com/junit5-test-templates
 
+https://www.baeldung.com/junit5-dynamic-tests
+
 #### Test resources
 
 https://github.com/hosuaby/inject-resources
