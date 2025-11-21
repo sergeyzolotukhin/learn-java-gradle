@@ -16,7 +16,7 @@ plugins {
 
 dependencies {
     testImplementation 'org.junit.platform:junit-platform-launcher'
-    testImplementation 'org.junit.platform:junit-platform-console-standalone'
+//    testImplementation 'org.junit.platform:junit-platform-console-standalone'
     testImplementation 'io.hosuaby:inject-resources-junit-jupiter:0.3.4'
     testImplementation 'com.google.guava:guava:33.4.0-jre'
 
