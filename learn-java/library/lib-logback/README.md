@@ -69,3 +69,4 @@ https://linuxiac.com/how-to-setup-and-manage-remote-virtualbox-headless-server/
 
 #### Monitor a Spring Boot App Using Prometheus
 https://www.baeldung.com/spring-boot-prometheus
+https://medium.com/simform-engineering/revolutionize-monitoring-empowering-spring-boot-applications-with-prometheus-and-grafana-e99c5c7248cf
