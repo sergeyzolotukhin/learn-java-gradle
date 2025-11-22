@@ -66,3 +66,6 @@ https://medium.com/@AlexanderObregon/handling-distributed-tracing-with-spring-cl
 
 #### How to Setup and Manage VMs on a Headless VirtualBox Server
 https://linuxiac.com/how-to-setup-and-manage-remote-virtualbox-headless-server/
+
+#### Monitor a Spring Boot App Using Prometheus
+https://www.baeldung.com/spring-boot-prometheus
