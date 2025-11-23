@@ -45,3 +45,4 @@ https://stackoverflow.com/questions/62128025/how-to-add-custom-action-to-intelli
 
 #### PostgreSQL Debugger
 https://github.com/ng-galien/idea-plpgdebugger/tree/main
+https://plugins.jetbrains.com/plugin/28918-snapshotdb
