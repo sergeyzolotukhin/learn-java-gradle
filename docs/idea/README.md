@@ -42,3 +42,6 @@ SshConfigManager instance = SshConfigManager.getInstance(SshConfigProjectLevelSe
 e:\chrome\app-client-jar 
 
 https://stackoverflow.com/questions/62128025/how-to-add-custom-action-to-intellij-idea
+
+#### PostgreSQL Debugger
+https://github.com/ng-galien/idea-plpgdebugger/tree/main
