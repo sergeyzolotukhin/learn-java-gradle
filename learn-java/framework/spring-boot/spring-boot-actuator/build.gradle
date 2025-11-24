@@ -11,6 +11,9 @@ dependencies {
     // spring
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // monitoring
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.16.0'
 
     // runtime
     runtimeOnly files('config')
