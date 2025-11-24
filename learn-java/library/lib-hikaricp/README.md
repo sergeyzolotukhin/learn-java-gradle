@@ -43,4 +43,9 @@ https://github.com/brettwooldridge/HikariCP/issues/1060#issuecomment-356301840
 
 https://www.baeldung.com/java-p6spy-intercept-sql-logging
 
+####
+https://medium.com/@AlexanderObregon/how-spring-boot-optimizes-database-connections-through-hikaricp-f19be1a246d7
+https://javadevjournal.com/spring-boot/spring-boot-hikari/
+https://springframework.guru/hikari-configuration-for-mysql-in-spring-boot-2/
+
 

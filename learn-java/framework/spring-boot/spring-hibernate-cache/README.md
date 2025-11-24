@@ -104,3 +104,4 @@ https://www.initgrep.com/posts/java/jpa/select-values-in-criteria-queries
 #### autocommit
 https://tech.asimio.net/resources/code-snippets/spring-data-jpa-resource-local-hibernate-hikari-turn-off-autocommit/
 https://medium.com/@elmansouri.houssam/connections-and-transactions-on-spring-framework-05c71e05eaa6
+DataSourceTransactionManager
