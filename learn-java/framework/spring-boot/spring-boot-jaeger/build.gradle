@@ -1,0 +1,29 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
+}
+
+springBoot {
+    mainClass = 'ua.in.sz.pattern.spring.yaml.YamlApplication'
+}
+
+dependencies {
+    // spring
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // monitoring
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+//    implementation 'io.micrometer:micrometer-registry-prometheus:1.16.0'
+
+//    implementation "io.micrometer:micrometer-tracing-bridge-otel"
+//    implementation "io.opentelemetry:opentelemetry-exporter-otlp"
+
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel:1.6.0'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp:1.56.0'
+
+    // runtime
+    runtimeOnly files('config')
+
+    // development
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+}
