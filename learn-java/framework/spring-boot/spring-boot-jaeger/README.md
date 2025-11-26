@@ -5,6 +5,8 @@ http://192.168.56.2:16686/search
 https://medium.com/cloud-native-daily/how-to-send-traces-from-spring-boot-to-jaeger-229c19f544db
 https://github.com/mlkmhd/spring-boot-3-opentelemtry-jaeger/tree/main
 
+https://docs.spring.io/spring-boot/reference/actuator/tracing.html
+
 #### OpenTelemetry
 https://opentelemetry.io/docs/collector/architecture/
 
