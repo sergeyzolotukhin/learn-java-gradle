@@ -6,5 +6,7 @@ https://medium.com/cloud-native-daily/how-to-send-traces-from-spring-boot-to-jae
 https://github.com/mlkmhd/spring-boot-3-opentelemtry-jaeger/tree/main
 
 #### OpenTelemetry
+https://opentelemetry.io/docs/collector/architecture/
+
 https://opentelemetry.io/docs/languages/java/intro/
 https://github.com/open-telemetry/opentelemetry-java-examples#java-opentelemetry-examples
