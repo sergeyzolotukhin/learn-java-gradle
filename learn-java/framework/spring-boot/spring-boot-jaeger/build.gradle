@@ -13,11 +13,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // monitoring
     implementation 'org.springframework.boot:spring-boot-starter-aop'
-//    implementation 'io.micrometer:micrometer-registry-prometheus:1.16.0'
-
-//    implementation "io.micrometer:micrometer-tracing-bridge-otel"
-//    implementation "io.opentelemetry:opentelemetry-exporter-otlp"
-
     implementation 'io.micrometer:micrometer-tracing-bridge-otel:1.6.0'
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp:1.56.0'
 
