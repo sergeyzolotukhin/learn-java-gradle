@@ -1,0 +1,25 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <variable resource="log_variables.properties"/>
+
+    <!--    https://logback.qos.ch/manual/layouts.html#ex    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%green(%d{HH:mm:ss.SSS}) [%-20.20thread] %highlight(%-5level) | %-40.40logger{36} - %msg%n%ex{full}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>http://192.168.56.2:3100/loki/api/v1/push</url>
+        </http>
+        <batch>
+            <internalQueuesCheckTimeoutMs>1</internalQueuesCheckTimeoutMs>
+        </batch>
+    </appender>
+
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOKI" />
+    </root>
+</configuration>

@@ -66,6 +66,7 @@ include 'learn-java:library:lib-logback:lib-logback-configurator'
 include 'learn-java:library:lib-logback:lib-logback-exceptions-evaluator'
 include 'learn-java:library:lib-logback:lib-logback-converter'
 include 'learn-java:library:lib-logback:lib-logback-turbofilter'
+include 'learn-java:library:lib-loki-logback-appender'
 
 include 'learn-java:library:lib-drool'
 include 'learn-java:library:lib-opencsv'
