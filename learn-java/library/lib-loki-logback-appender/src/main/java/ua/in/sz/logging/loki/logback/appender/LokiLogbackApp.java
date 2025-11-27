@@ -11,9 +11,11 @@ public class LokiLogbackApp {
 
     @SneakyThrows
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            log.info("Hello World! {}", UUID.randomUUID());
+        while (true) {
+            for (int i = 0; i < 10; i++) {
+                log.info("Hello World! {}", UUID.randomUUID());
+            }
+            TimeUnit.SECONDS.sleep(15);
         }
-        TimeUnit.SECONDS.sleep(60);
     }
 }
