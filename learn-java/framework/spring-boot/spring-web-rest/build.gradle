@@ -9,6 +9,7 @@ bootJar {
 
 // https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/#remote_api_plugin
 bootBuildImage {
+    imageName = 'web-rest:latest'
     docker {
         host = 'http://192.168.56.2:2375'
     }
