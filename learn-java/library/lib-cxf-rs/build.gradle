@@ -2,9 +2,10 @@ plugins {
     id 'ua.in.sz.java-library'
 }
 
-sourceCompatibility = JavaVersion.VERSION_20
-targetCompatibility = JavaVersion.VERSION_20
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
+}
 
 dependencies {
     // SOAP

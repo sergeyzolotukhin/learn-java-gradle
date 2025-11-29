@@ -6,7 +6,9 @@ plugins {
 group 'ua.in.szolotukhin'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+java {
+    sourceCompatibility = 1.8
+}
 
 repositories {
     flatDir {

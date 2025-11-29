@@ -5,7 +5,9 @@ plugins {
 
 version 'unspecified'
 
-sourceCompatibility = JavaVersion.VERSION_20
+java {
+    sourceCompatibility = JavaVersion.VERSION_20
+}
 
 
 generateGrammarSource {

@@ -1,6 +1,6 @@
 plugins {
     id 'ua.in.sz.java-common-library'
-    id 'me.champeau.jmh' version '0.7.2'
+    id 'me.champeau.jmh' version '0.7.3'
 }
 
 dependencies {
