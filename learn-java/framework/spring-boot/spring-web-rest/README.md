@@ -128,3 +128,5 @@ https://medium.com/greypbikes/running-spring-boot-app-in-docker-using-intellij-i
 https://www.baeldung.com/docker-compose-support-spring-boot
 https://spring.io/blog/2023/06/21/docker-compose-support-in-spring-boot-3-1
 https://docs.spring.io/spring-boot/reference/features/dev-services.html
+https://medium.com/code-and-coffee/under-pressure-spring-boot-and-docker-compose-6573295b9e3a
+
