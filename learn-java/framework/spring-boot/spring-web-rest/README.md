@@ -123,3 +123,6 @@ AbstractJackson2HttpMessageConverter
 
 #### Running Spring Boot App in Docker Using IntelliJ IDEA
 https://medium.com/greypbikes/running-spring-boot-app-in-docker-using-intellij-idea-db09980f803f
+
+#### Docker Compose Support in Spring Boot
+https://www.baeldung.com/docker-compose-support-spring-boot
