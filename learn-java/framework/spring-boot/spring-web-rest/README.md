@@ -1,5 +1,9 @@
 ###
 
+http://192.168.56.2:8080
+
+ssh root@192.168.56.2
+
 ### Urls:
 
 https://medium.com/@saswatraj/under-the-hood-of-http-clients-32a68279c5dd
