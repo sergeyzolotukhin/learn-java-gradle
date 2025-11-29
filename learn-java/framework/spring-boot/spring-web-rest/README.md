@@ -120,3 +120,6 @@ https://www.baeldung.com/spring-boot-customize-jackson-objectmapper
 
 HttpMessageNotReadableException
 AbstractJackson2HttpMessageConverter
+
+#### Running Spring Boot App in Docker Using IntelliJ IDEA
+https://medium.com/greypbikes/running-spring-boot-app-in-docker-using-intellij-idea-db09980f803f
