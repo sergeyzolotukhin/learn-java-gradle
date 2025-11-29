@@ -1,0 +1,77 @@
+plugins {
+    id 'ua.in.sz.java-common-library'
+    id 'org.springframework.boot'
+    id("com.google.cloud.tools.jib") version "3.4.1"
+    id "ua.in.sz.plugin.greeting"
+    id 'com.bmuschko.docker-remote-api' version '9.4.0'
+}
+
+bootJar {
+    archiveFileName = 'application.jar'
+}
+
+import com.bmuschko.gradle.docker.tasks.container.*
+
+jib {
+    from {
+        image = "azul/zulu-openjdk:20-jre"
+    }
+    to {
+        image = "szolotukhin/spring-web-rest:${version}"
+        auth {
+//          ~/.gradle/gradle.properties
+            username = "$dockerHubUsername"
+            password = "$dockerHubPassword"
+        }
+    }
+    container {
+        jvmFlags = ['-Xms512m', '-Xdebug']
+        mainClass = 'ua.in.sz.spring.Application'
+        args = []
+        ports = ['8080/tcp']
+    }
+    dockerClient {
+//      ~/.gradle/gradle.properties
+//      executable = 'c:\\soft\\docker-cli\\docker.exe'
+        executable = "$dockerCliExecutable"
+        environment = [ DOCKER_HOST: '192.168.56.2:2375',
+                        DOCKER_INSECURE_REGISTRIES: "192.168.56.2:5000"]
+    }
+}
+
+// https://bmuschko.github.io/gradle-docker-plugin/current/user-guide/#remote_api_plugin
+docker {
+    url = 'tcp://192.168.56.2:2375'
+}
+
+tasks.register('createAppContainer', DockerCreateContainer) {
+    group = "docker"
+    imageId="szolotukhin/spring-web-rest:${version}"
+//    containerName='app-container'
+}
+
+tasks.register('startAppContainer', DockerStartContainer) {
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
+}
+
+tasks.register('stopAppContainer', DockerStopContainer) {
+    group = "docker"
+    containerId=tasks.startAppContainer.containerId
+}
+
+tasks.register('removeAppContainer', DockerRemoveContainer) {
+    group = "docker"
+    containerId=tasks.createAppContainer.containerId
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.slf4j:jcl-over-slf4j:2.0.12'
+
+    // tests
+    testImplementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
+    // runtime
+    runtimeOnly files('config')
+}
