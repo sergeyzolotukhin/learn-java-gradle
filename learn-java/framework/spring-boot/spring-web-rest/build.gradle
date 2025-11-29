@@ -6,6 +6,10 @@ plugins {
     id 'com.bmuschko.docker-remote-api' version '9.4.0'
 }
 
+bootJar {
+    archiveFileName = 'application.jar'
+}
+
 import com.bmuschko.gradle.docker.tasks.container.*
 
 jib {
