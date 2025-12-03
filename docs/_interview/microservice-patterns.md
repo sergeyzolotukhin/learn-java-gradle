@@ -57,3 +57,9 @@ resilience4J
 
 Event Sourcing Pattern stores all changes to application state as a sequence of events 
 rather than only saving the current state. 
+
+####  consumer-driven contract (CDC)
+
+A consumer-driven contract (CDC) in microservices is a testing method 
+where consumers define the expectations they have of a service provider's API, 
+and providers use these consumer expectations to verify that they won't break compatibility.
