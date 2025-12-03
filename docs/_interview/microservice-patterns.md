@@ -27,6 +27,7 @@ https://microservices.io/patterns/
 https://dzone.com/articles/design-patterns-for-microservices
 https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns
 https://medium.com/@alxkm/microservices-architecture-patterns-exploring-the-essential-27318b72c88f
+https://test.tplus.market/blog/17
 
 #### software resiliency patterns
 
