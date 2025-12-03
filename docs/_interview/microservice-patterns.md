@@ -63,3 +63,11 @@ rather than only saving the current state.
 A consumer-driven contract (CDC) in microservices is a testing method 
 where consumers define the expectations they have of a service provider's API, 
 and providers use these consumer expectations to verify that they won't break compatibility.
+
+#### Polyglot persistence
+
+Polyglot persistence in microservices is the practice of using different data storage technologies 
+for different services to match specific needs, 
+such as relational databases for transactional data, 
+key-value stores for caching, 
+and document databases for flexible data structures. 
