@@ -1,8 +1,0 @@
-172.17.0.1
-
-C:\java\IDEA-2018.3.5\bin\idea64.exe --line 10 k:/projects/patterns/other/src/main/java/ua/in/sz/code/gen/main/Main.java
-
-idea:k:/projects/patterns/other/src/main/java/ua/in/sz/code/gen/main/Main.java
-
-https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)?redirectedfrom=MSDN
-https://stackoverflow.com/questions/389204/how-do-i-create-my-own-url-protocol-e-g-so/389223#389223

@@ -1,8 +1,0 @@
-The easiest is to put your large test resources in a separate module which is built once and then imported as a dependency using the test scope.
-
-https://stackoverflow.com/questions/3526682/is-there-a-way-to-run-tests-with-maven-without-copying-all-my-test-resources-to
-
-JUnit Testrunner With A Custom Classloader
-https://medium.com/@davehagler/junit-testrunner-with-a-custom-classloader-337d447dba4f
-https://junit.org/junit5/docs/5.11.0/api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherInterceptor.html
-https://junit.org/junit5/doURLClassLoadercs/snapshot/user-guide/#launcher-api-launcher-interceptors-custom
