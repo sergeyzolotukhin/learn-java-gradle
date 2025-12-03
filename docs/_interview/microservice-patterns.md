@@ -1,7 +1,31 @@
 #### microservice architecture patterns
 
+- API Gateway Pattern
+- Backends for Frontends (BFF) Pattern
+- Service Discovery (Service Registry)
+- Circuit Breaker Pattern
+- Bulkhead Pattern
+- Retry Pattern
+- Saga Pattern (Distributed Transactions)
+- Event Sourcing Pattern
+- CQRS (Command Query Responsibility Segregation)
+- Database per Service
+- Data Sharding
+- Polyglot Persistence
+- Sidecar Pattern
+- Smart Endpoints, Dumb Pipes
+- Asynchronous Messaging (Event-Driven Architecture)
+- Consumer-Driven Contracts (CDC)
+- Strangler Fig Pattern
+- Shadow Deployment
+- Stateless Services
+
 https://www.geeksforgeeks.org/system-design/microservices-design-patterns/
 https://microservices.io/patterns/microservices.html
+https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews?gad_source=1&gad_campaignid=23168317168&gbraid=0AAAAADME9yolt79iRgnTod4pHbGHx-Twp&gclid=CjwKCAiA3L_JBhAlEiwAlcWO57c4P2KlTCdYE4sTqw_vw3QO8d4ii0lsvDLsZjVT54QiYKZbDjjQWhoCpygQAvD_BwE
+https://microservices.io/patterns/
+https://dzone.com/articles/design-patterns-for-microservices
+https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns
 
 #### software resiliency patterns
 

@@ -58,3 +58,4 @@ target/
 .tomcat
 
 *.pdf
+/docs/_interview/*.jpg
