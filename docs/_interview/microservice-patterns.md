@@ -17,7 +17,7 @@
 - Asynchronous Messaging (Event-Driven Architecture)
 - Consumer-Driven Contracts (CDC)
 - Strangler Fig Pattern
-- Shadow Deployment
+- [Shadow Deployment](./deployment/shadow-deployment.md)
 - Stateless Services
 
 https://www.geeksforgeeks.org/system-design/microservices-design-patterns/
