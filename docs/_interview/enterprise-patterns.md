@@ -1,4 +1,4 @@
-#### enterprise application architecture patterns
+#### enterprise application patterns
 
 https://martinfowler.com/eaaCatalog/
 https://www.sencha.com/blog/top-architecture-pattern-used-in-modern-enterprise-software-development/
