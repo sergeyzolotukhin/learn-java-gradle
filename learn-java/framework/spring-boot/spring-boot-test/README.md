@@ -6,3 +6,4 @@ https://filip-prochazka.com/blog/mockbean-is-an-anti-pattern
 
 https://stackoverflow.com/questions/21083170/how-to-configure-port-for-a-spring-boot-application
 
+https://github.com/seregamorph/spring-test-smart-context
