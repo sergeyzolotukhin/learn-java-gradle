@@ -39,3 +39,7 @@ https://www.mock-server.com/#what-is-mockserver
 https://www.baeldung.com/introduction-to-wiremock
 
 #### jSpecify 
+
+#### Gradle tests
+https://docs.gradle.org/current/userguide/java_testing.html
+https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests
