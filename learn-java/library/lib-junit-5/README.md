@@ -39,6 +39,7 @@ https://www.mock-server.com/#what-is-mockserver
 https://www.baeldung.com/introduction-to-wiremock
 
 #### jSpecify 
+https://medium.com/@vinodjagwani/understanding-jspecify-the-future-of-null-safety-in-java-and-spring-applications-f1e9ec2f5074
 
 #### Gradle tests
 https://docs.gradle.org/current/userguide/java_testing.html
