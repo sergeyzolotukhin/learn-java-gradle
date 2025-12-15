@@ -36,3 +36,7 @@ https://medium.com/@vikalprusia/kafka-vs-http-757c6d49e23
 https://github.com/ByteByteGoHq/system-design-101
 https://github.com/donnemartin/system-design-primer#how-to-approach-a-system-design-interview-question
 
+#### Modular Monolith
+https://binaryigor.com/modular-monolith-and-microservices-modularity-is-what-truly-matters.html
+https://github.com/BinaryIgor/code-examples/tree/master/modular-monolith-with-independent-deployments
+
