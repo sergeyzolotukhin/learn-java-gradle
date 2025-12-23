@@ -193,7 +193,7 @@ public class ErgoUndertowServletWebServerFactory extends AbstractServletWebServe
      * @param customizers the customizers to set
      */
     public void setDeploymentInfoCustomizers(Collection<? extends UndertowDeploymentInfoCustomizer> customizers) {
-        Assert.notNull(customizers, "'customizers' must not be null");
+        Assert.notNull(customizers, "Customizers must not be null");
         this.deploymentInfoCustomizers = new LinkedHashSet<>(customizers);
     }
 
@@ -203,7 +203,7 @@ public class ErgoUndertowServletWebServerFactory extends AbstractServletWebServe
      * @param customizers the customizers to add
      */
     public void addDeploymentInfoCustomizers(UndertowDeploymentInfoCustomizer... customizers) {
-        Assert.notNull(customizers, "'customizers' must not be null");
+        Assert.notNull(customizers, "UndertowDeploymentInfoCustomizers must not be null");
         this.deploymentInfoCustomizers.addAll(Arrays.asList(customizers));
     }
 
@@ -601,10 +601,7 @@ public class ErgoUndertowServletWebServerFactory extends AbstractServletWebServe
         private void beforeCommit(HttpServerExchange exchange) {
             for (io.undertow.server.handlers.Cookie cookie : exchange.responseCookies()) {
                 Cookie.SameSite sameSite = getSameSite(asServletCookie(cookie));
-                if (sameSite == Cookie.SameSite.OMITTED) {
-                    cookie.setSameSite(false);
-                }
-                else if (sameSite != null) {
+                if (sameSite != null) {
                     cookie.setSameSiteMode(sameSite.attributeValue());
                 }
             }

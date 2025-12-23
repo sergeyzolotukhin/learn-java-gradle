@@ -8,10 +8,10 @@ group = 'ua.in.sz.undertow'
 version = 'unspecified'
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web') {
+    implementation('org.springframework.boot:spring-boot-starter-web:3.4.12') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    implementation('org.springframework.boot:spring-boot-starter-undertow') {
+    implementation('org.springframework.boot:spring-boot-starter-undertow:3.4.12') {
         // we do not need websockets
         exclude group: 'io.undertow', module: 'undertow-websockets-jsr'
     }
