@@ -11,3 +11,23 @@ https://www.jetbrains.com/help/idea/2024.3/run-targets.html?reference.run.target
 org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.doClose
 org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose
 org.springframework.boot.web.embedded.undertow.DeploymentManagerHttpHandlerFactory.DeploymentManagerHandler
+
+=======================================================================================================================
+
+[spring boot]
+UndertowServletWebServerFactory
+ServletWebServerApplicationContext
+ErgoDeploymentManagerHttpHandlerFactory
+WebServerStartStopLifecycle
+WebServerGracefulShutdownLifecycle
+UndertowServletWebServer
+UndertowWebServer
+
+[spring]
+AbstractApplicationContext
+DefaultLifecycleProcessor
+
+[undertow]
+ServletContainerImpl
+Undertow
+DeploymentManagerImpl
