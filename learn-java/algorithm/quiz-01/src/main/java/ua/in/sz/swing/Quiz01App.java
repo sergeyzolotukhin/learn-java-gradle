@@ -21,9 +21,11 @@ public class Quiz01App {
 
         int result = smallestPositiveInteger(numbers);
 
-        Arrays.sort(numbers);
+        int[] ordered = Arrays.copyOf(numbers, numbers.length);
+        Arrays.sort(ordered);
 
-        log.info("values: {}", numbers);
+        log.info("numbers: {}", numbers);
+        log.info("ordered: {}", ordered);
         log.info("result: {}", result);
     }
 
