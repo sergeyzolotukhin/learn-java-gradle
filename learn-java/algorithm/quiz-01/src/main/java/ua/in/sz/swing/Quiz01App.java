@@ -1,21 +1,15 @@
 package ua.in.sz.swing;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
 
 @Slf4j
 public class Quiz01App {
-    private static final int MAX_LENGTH = 100;
+    private static final int MAX_LENGTH = 1000;
 
     private static final int MIN = 0;
-    private static final int MAX = 100;
+    private static final int MAX = 1000;
 
     private static final int numbers[] = new int[MAX_LENGTH];
 
@@ -25,8 +19,32 @@ public class Quiz01App {
             numbers[i] = val;
         }
 
+        int result = smallestPositiveInteger(numbers);
+
         Arrays.sort(numbers);
 
         log.info("values: {}", numbers);
+        log.info("result: {}", result);
+    }
+
+    private static int smallestPositiveInteger(int numbers[]) {
+        for (int expected = 1; expected <= numbers.length; expected++) {
+
+            boolean exist = false;
+            for (int i = 0; i < numbers.length; i++) {
+                if (expected == numbers[i]) {
+                    exist = true;
+                    break;
+                }
+            }
+
+            if (exist) {
+                continue;
+            }
+
+            return expected;
+        }
+
+        return 1;
     }
 }
