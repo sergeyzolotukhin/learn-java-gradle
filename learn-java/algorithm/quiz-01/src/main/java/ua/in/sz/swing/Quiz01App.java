@@ -13,6 +13,8 @@ public class Quiz01App {
 
     private static final int numbers[] = new int[MAX_LENGTH];
 
+//    private static int complexity;
+
     public static void main(String[] args) {
         for (int i = 0; i < MAX_LENGTH; i++) {
             int val = MIN + (int) (Math.random() * (MAX - MIN + 1));
@@ -27,6 +29,7 @@ public class Quiz01App {
         log.info("numbers: {}", numbers);
         log.info("ordered: {}", ordered);
         log.info("result: {}", result);
+//        log.info("complexity: {}", complexity);
     }
 
     // Complexity - Average-Case Time - ?
@@ -43,6 +46,7 @@ public class Quiz01App {
     // Complexity - Average-Case Time - O(n)
     private static boolean linearSearch(int[] numbers, int expected) {
         for (int i = 0; i < numbers.length; i++) {
+//            complexity++;
             if (expected == numbers[i]) {
                 return true;
             }
