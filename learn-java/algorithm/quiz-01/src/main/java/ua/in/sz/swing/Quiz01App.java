@@ -15,7 +15,7 @@ public class Quiz01App {
 
     public static void main(String[] args) {
         for (int i = 0; i < MAX_LENGTH; i++) {
-            int val = MIN + (int)(Math.random() * (MAX - MIN + 1));
+            int val = MIN + (int) (Math.random() * (MAX - MIN + 1));
             numbers[i] = val;
         }
 
@@ -29,24 +29,25 @@ public class Quiz01App {
         log.info("result: {}", result);
     }
 
+    // Complexity - Average-Case Time - ?
     private static int smallestPositiveInteger(int numbers[]) {
         for (int expected = 1; expected <= numbers.length; expected++) {
-
-            boolean exist = false;
-            for (int i = 0; i < numbers.length; i++) {
-                if (expected == numbers[i]) {
-                    exist = true;
-                    break;
-                }
+            if (!linearSearch(numbers, expected)) {
+                return expected;
             }
-
-            if (exist) {
-                continue;
-            }
-
-            return expected;
         }
 
         return 1;
+    }
+
+    // Complexity - Average-Case Time - O(n)
+    private static boolean linearSearch(int[] numbers, int expected) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (expected == numbers[i]) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
